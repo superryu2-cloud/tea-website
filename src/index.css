@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-stone-900 antialiased;
+    background-color: #fbf7ef;
+    background-image:
+      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px),
+      radial-gradient(rgba(120, 113, 108, 0.06) 0.6px, transparent 0.6px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.80), rgba(251, 247, 239, 0.95));
+    background-size: 18px 18px, 24px 24px, auto;
+    background-position: 0 0, 9px 9px, 0 0;
+  }
+}
+
+@layer components {
+  .museum-page {
+    @apply py-12 font-serif;
+    animation: museum-fade-in 220ms ease-out both;
+  }
+
+  .museum-stage {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .museum-panel {
+    @apply rounded-3xl border border-stone-300 shadow-sm;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)),
+      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px);
+    background-size: auto, 18px 18px;
+    background-position: 0 0, 0 0;
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.06),
+      0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  }
+
+  .museum-paper {
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)),
+      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px);
+    background-size: auto, 18px 18px;
+    background-position: 0 0, 0 0;
+  }
+
+  .museum-frame {
+    @apply rounded-3xl border border-stone-300 shadow-sm;
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.06),
+      0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  }
+
+  .museum-card {
+    @apply rounded-2xl border border-stone-200 bg-white;
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.06),
+      0 1px 0 rgba(255, 255, 255, 0.65) inset;
+  }
+
+  .museum-label {
+    @apply inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-3 py-1 text-xs font-extrabold tracking-widest text-stone-800;
+  }
+
+  .museum-plaque {
+    @apply rounded-2xl border border-stone-300 bg-stone-900 text-stone-100;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .museum-footer {
+    background-color: #0b0b0c;
+    background-image:
+      radial-gradient(rgba(245, 158, 11, 0.12) 0.6px, transparent 0.6px),
+      radial-gradient(rgba(255, 255, 255, 0.08) 0.6px, transparent 0.6px),
+      linear-gradient(180deg, rgba(15, 15, 18, 0.92), rgba(0, 0, 0, 1));
+    background-size: 22px 22px, 30px 30px, auto;
+    background-position: 0 0, 11px 11px, 0 0;
+  }
+
+  .museum-footer-card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur;
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.22),
+      0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+
+  .museum-tab {
+    @apply inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-3 text-sm font-extrabold text-stone-800 shadow-sm transition-colors;
+    background-color: rgba(255, 255, 255, 0.75);
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+  }
+
+  .museum-tab:hover {
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+
+  .museum-tab-active {
+    border-color: #0b0b0c;
+    background-color: #0b0b0c;
+    color: #fafaf9;
+    box-shadow:
+      0 16px 36px rgba(0, 0, 0, 0.16),
+      0 1px 0 rgba(255, 255, 255, 0.10) inset;
+  }
+
+  .museum-tab:active {
+    transform: translateY(1px);
+  }
+
+  .museum-tab:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(245, 158, 11, 0.25),
+      0 10px 28px rgba(0, 0, 0, 0.06),
+      0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  }
+
+  .museum-tab-active:hover {
+    background-color: #111113;
+  }
+
+  .museum-tab-active:active {
+    background-color: #0b0b0c;
+  }
+}
+
+@layer utilities {
+  @keyframes museum-fade-in {
+    0% { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadeIn {
+    animation: museum-fade-in 220ms ease-out both;
+  }
+
+  @keyframes ppo-leak-1 {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(20px, -30px) scale(1); opacity: 1; }
+    100% { transform: translate(40px, -60px) scale(0); opacity: 0; }
+  }
+  .animate-ppo-leak-1 { animation: ppo-leak-1 4s infinite ease-in-out; }
+
+  @keyframes ppo-leak-2 {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-30px, 20px) scale(1); opacity: 1; }
+    100% { transform: translate(-60px, 40px) scale(0); opacity: 0; }
+  }
+  .animate-ppo-leak-2 { animation: ppo-leak-2 4s infinite ease-in-out 1s; }
+
+  @keyframes pod-flash {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  .animate-pod-flash { animation: pod-flash 1.5s infinite; }
+}

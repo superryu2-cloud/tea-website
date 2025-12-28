@@ -1,0 +1,33 @@
+[
+  {
+    "id": "tieguanyin",
+    "label": "木柵鐵觀音",
+    "subtitle": "重焙火・官韻",
+    "activeClass": "bg-amber-900 text-white shadow-md"
+  },
+  {
+    "id": "dongding",
+    "label": "凍頂烏龍",
+    "subtitle": "中發酵・焙火韻",
+    "activeClass": "bg-amber-800 text-white shadow-md"
+  },
+  {
+    "id": "redoolong",
+    "label": "台東紅烏龍",
+    "subtitle": "重發酵・琥珀湯色",
+    "activeClass": "bg-orange-700 text-white shadow-md"
+  },
+  {
+    "id": "orientalbeauty",
+    "label": "東方美人",
+    "subtitle": "蜜香・小綠葉蟬",
+    "activeClass": "bg-rose-500 text-white shadow-md"
+  },
+  {
+    "id": "wenshan",
+    "label": "文山包種",
+    "subtitle": "輕發酵・清香幽雅",
+    "activeClass": "bg-emerald-700 text-white shadow-md"
+  }
+]
+
