@@ -3,22 +3,56 @@ import { ScrollText } from 'lucide-react';
 import { Callout, DataTable, Section } from './ui';
 
 export default function OolongProcessOverviewNotes() {
+  const steps = [
+    '茶園管理',
+    '採摘',
+    '日光萎凋',
+    '室內萎凋',
+    '浪菁',
+    '殺青',
+    '揉捻',
+    '團揉',
+    '乾燥',
+    '精製',
+  ];
+
   return (
     <Section id="ref-9" title="9. 台灣青茶（烏龍茶）製程總覽與對照" icon={ScrollText}>
-      <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-        <div className="font-bold text-stone-900">台灣青茶製程總覽</div>
-        <ol className="mt-3 space-y-1 text-sm text-stone-700 list-decimal pl-5">
-          <li>茶園管理</li>
-          <li>採摘</li>
-          <li>日光萎凋（室外萎凋）</li>
-          <li>室內萎凋</li>
-          <li>浪菁</li>
-          <li>殺青</li>
-          <li>揉捻</li>
-          <li>團揉</li>
-          <li>乾燥</li>
-          <li>精製</li>
-        </ol>
+      <div className="rounded-2xl border border-stone-200 bg-gradient-to-br from-white via-stone-50 to-white p-4 md:p-5">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="font-extrabold text-stone-900">台灣青茶製程總覽</div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-extrabold text-sky-900">
+              走水
+            </span>
+            <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-900">
+              做青
+            </span>
+            <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-extrabold text-amber-900">
+              殺青定調
+            </span>
+            <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-extrabold text-violet-900">
+              整形乾燥
+            </span>
+            <span className="inline-flex items-center rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-extrabold text-rose-900">
+              精製
+            </span>
+          </div>
+        </div>
+
+        <div className="subnav-scroll mt-3 flex flex-nowrap items-center gap-2 overflow-x-auto pb-2">
+          {steps.map((label, index) => (
+            <div
+              key={label}
+              className="shrink-0 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/80 px-3 py-2 text-sm font-bold text-stone-800"
+            >
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg border border-stone-200 bg-stone-50 text-[11px] font-extrabold text-stone-700">
+                {index + 1}
+              </span>
+              <span className="whitespace-nowrap">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <DataTable title="製程步驟對照（目的 × 參數/判斷）">

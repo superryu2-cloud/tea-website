@@ -1,50 +1,192 @@
-import React, { useState, useEffect } from 'react';
-import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
+import React, { useMemo, useState, useEffect } from 'react';
+import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
 import teaData from './data/teaData';
 import cultivars from './data/cultivars';
 import solarTerms from './data/solarTerms';
 import timelineData from './data/timelineData';
 import featuredTeaMenu from './data/featuredTeaMenu';
+import sensoryQuestionBank from './data/sensoryQuestionBank.js';
 import scienceChapters from './content/scienceChapters';
 import createHistoryData from './content/historyData';
 import TieGuanyinContent from './content/featured/tieguanyin';
 import DongDingContent from './content/featured/dongding';
 import RedOolongContent from './content/featured/redoolong';
 import OrientalBeautyContent from './content/featured/orientalbeauty';
+import HoneyAromaBlackTeaContent from './content/featured/honeyblack';
 import WenshanPouchongContent from './content/featured/wenshan';
+import BiluochunGreenTeaContent from './content/featured/biluochun';
+import GaoshanOolongContent from './content/featured/gaoshanoolong';
+import SmallLeafBlackTeaContent from './content/featured/black_smallleaf';
+import LargeLeafBlackTeaContent from './content/featured/black_largeleaf';
 import ChenChuanTeaClassification from './content/varieties/ChenChuanTeaClassification';
 import PuerhEncyclopedia from './content/varieties/PuerhEncyclopedia';
+import RedTeaGlobalStory from './content/varieties/RedTeaGlobalStory';
+import SixTeaTypesNotes from './content/varieties/SixTeaTypesNotes';
+import OolongRegions from './content/varieties/OolongRegions';
 import TaiwanCultivarDiversity from './content/cultivars/TaiwanCultivarDiversity';
 import TeaReferenceNotes from './content/references/TeaReferenceNotes';
+import SensoryQuestionBank from './content/sensory/SensoryQuestionBank';
+import SolarTermsPrimer from './content/seasons/SolarTermsPrimer';
+import ZishaExhibit from './content/zisha/ZishaExhibit';
+import { UI_FLAGS } from './config/uiFlags';
+import { CHEN_CHUAN_TOC, CULTIVARS_TOC, NAV_ITEMS, OOLONG_TOC, PUERH_TOC, SCIENCE_TOC, TEA_REFERENCE_TOC, VARIETIES_KINDS } from './config/navigation';
 import useI18n from './i18n/useI18n';
+import SectionCard from './components/SectionCard';
+import SiteNavigation from './components/SiteNavigation';
+import ChapterSidebar from './components/ChapterSidebar';
+import PinnedChapterSidebar from './components/PinnedChapterSidebar';
+import AtlasDockLayout from './components/AtlasDockLayout';
+import useAnchoredSubnav from './hooks/useAnchoredSubnav';
 
-const NAV_ITEMS = ['home', 'varieties', 'cultivars', 'science', 'brewing', 'featured', 'seasons', 'ceremony', 'regions', 'history'];
+const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
 
 const TeaWebsite = () => {
   const i18n = useI18n();
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('journey');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [atlasNavOpen, setAtlasNavOpen] = useState(true);
   const [selectedTeaForBrewing, setSelectedTeaForBrewing] = useState(0);
   const [historyTab, setHistoryTab] = useState('taiwanEvents');
   const [scienceRoom, setScienceRoom] = useState('constituents');
-  const [varietiesSubpage, setVarietiesSubpage] = useState(null);
+  const [varietiesKind, setVarietiesKind] = useState('ref_chenchuan');
+  const [chenChuanChapterHref, setChenChuanChapterHref] = useState('#cc-all');
+  const [teachingChapterHref, setTeachingChapterHref] = useState('#ref-all');
+  const [puerhChapterHref, setPuerhChapterHref] = useState('#puerh-1');
+  const [oolongRegionHref, setOolongRegionHref] = useState('#oolong-minbei');
+  const [sensoryTopic, setSensoryTopic] = useState(null);
+  const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
+  const [pendingOffsetScrollTarget, setPendingOffsetScrollTarget] = useState(null);
+  const [siteNavHeightPx, setSiteNavHeightPx] = useState(88);
+  const chenChuanScrollOffsetPx = siteNavHeightPx + 20;
+
+  const cultivarsSubnav = useAnchoredSubnav({
+    enabled: activeTab === 'cultivars',
+    items: CULTIVARS_TOC,
+    fallbackNavHeightPx: siteNavHeightPx,
+  });
+
+  const selectChenChuanChapter = (href) => {
+    const normalized = String(href ?? '');
+    if (normalized !== '#cc-all' && !normalized.startsWith('#cc-')) return;
+    setChenChuanChapterHref(normalized);
+
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    const nextHash = normalized === '#cc-all' ? '' : normalized;
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${nextHash}`);
+
+    window.requestAnimationFrame(() => {
+      const contextBar = document.getElementById('varieties-context-bar');
+      const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
+      const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+      const targetId = normalized === '#cc-all' ? 'varieties-kind-header' : normalized.slice(1);
+      const el = document.getElementById(targetId) ?? document.getElementById('varieties-kind-header');
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  };
+
+  const selectPuerhChapter = (href) => {
+    const normalized = String(href ?? '');
+    if (!normalized.startsWith('#puerh-')) return;
+    setPuerhChapterHref(normalized);
+    if (typeof window !== 'undefined') {
+      const nextUrl = `${window.location.pathname}${window.location.search}${normalized}`;
+      window.history.replaceState(null, '', nextUrl);
+      setPendingOffsetScrollTarget(normalized.slice(1));
+    }
+  };
+
+  const selectOolongRegion = (href) => {
+    const normalized = String(href ?? '');
+    if (!normalized.startsWith('#oolong-')) return;
+    setOolongRegionHref(normalized);
+    if (typeof window !== 'undefined') {
+      const nextUrl = `${window.location.pathname}${window.location.search}${normalized}`;
+      window.history.replaceState(null, '', nextUrl);
+    }
+  };
+
+  const selectScienceTeachingChapter = (href) => {
+    const normalized = String(href ?? '');
+    if (normalized !== '#ref-all' && !normalized.startsWith('#ref-')) return;
+    setTeachingChapterHref(normalized);
+
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    const nextHash = normalized === '#ref-all' ? '' : normalized;
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${nextHash}`);
+    setPendingOffsetScrollTarget(normalized === '#ref-all' ? 'science-teaching' : normalized.slice(1));
+  };
+
+  const goToVarietiesKind = (kindKey) => {
+    setActiveTab('varieties');
+    setAtlasNavOpen(true);
+    setMobileMenuOpen(false);
+    setVarietiesKind(kindKey);
+    if (kindKey === 'ref_chenchuan') setChenChuanChapterHref('#cc-all');
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const goToTeaExhibit = (tea) => {
+    if (!tea || typeof tea !== 'object') return;
+    if (tea.id === 6) {
+      goToTab('puerh');
+      return;
+    }
+
+    const kindByTeaId = {
+      0: 'green',
+      1: 'white',
+      2: 'yellow',
+      3: 'oolong',
+      4: 'red',
+      5: 'black',
+    };
+
+    const kindKey = kindByTeaId[tea.id];
+    if (!kindKey) return;
+    goToVarietiesKind(kindKey);
+  };
 
   const goToTab = (tab) => {
     setActiveTab(tab);
     setMobileMenuOpen(false);
-    setVarietiesSubpage(null);
+    if (tab === 'sensory') setAtlasNavOpen(false);
+    else if (tab !== 'journey') setAtlasNavOpen(true);
+    if (tab === 'varieties') {
+      setVarietiesKind('ref_chenchuan');
+      setChenChuanChapterHref('#cc-all');
+    }
+    if (tab === 'puerh') {
+      setPuerhChapterHref('#puerh-1');
+      if (typeof window !== 'undefined') {
+        const nextUrl = `${window.location.pathname}${window.location.search}#puerh-1`;
+        window.history.replaceState(null, '', nextUrl);
+        setPendingOffsetScrollTarget('puerh-1');
+      }
+    }
+    if (tab === 'science') {
+      setTeachingChapterHref('#ref-all');
+    }
     if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
     const allowed = new Set(NAV_ITEMS);
-    const allowedRooms = new Set(['constituents', 'oxidation', 'roasting']);
+    const allowedRooms = new Set(SCIENCE_TOC.map((item) => item.key).filter(Boolean));
+    const allowedVarietiesKinds = new Set(VARIETIES_KINDS.map((k) => k.key));
+    const allowedChenChuanHrefs = new Set(CHEN_CHUAN_TOC.map((item) => item.href));
+    const allowedTeachingHrefs = new Set(TEA_REFERENCE_TOC.map((item) => item.href));
+    const allowedPuerhHrefs = new Set(PUERH_TOC.map((item) => item.href));
+    const allowedOolongHrefs = new Set(OOLONG_TOC.map((item) => item.href));
 
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
       const nextTab = params.get('tab');
       const nextRoom = params.get('room');
-      const nextSub = params.get('sub');
+      const nextKind = params.get('kind');
 
       if (nextTab === 'chemistry_deep_dive') {
         setActiveTab('science');
@@ -54,13 +196,51 @@ const TeaWebsite = () => {
 
       if (nextTab === 'oolong_detail') {
         setActiveTab('varieties');
-        setVarietiesSubpage('qing_lineage');
+        setVarietiesKind('oolong');
+        setOolongRegionHref('#oolong-minbei');
+        return;
+      }
+
+      if (nextTab === 'puerh') {
+        setActiveTab('puerh');
+        const hash = window.location.hash;
+        if (allowedPuerhHrefs.has(hash)) setPuerhChapterHref(hash);
         return;
       }
 
       if (nextTab && allowed.has(nextTab)) setActiveTab(nextTab);
-      if (nextTab === 'science' && nextRoom && allowedRooms.has(nextRoom)) setScienceRoom(nextRoom);
-      if (nextTab === 'varieties') setVarietiesSubpage(nextSub === 'qing_lineage' ? 'qing_lineage' : null);
+      if (nextTab === 'science' && nextRoom && allowedRooms.has(nextRoom)) {
+        setScienceRoom(nextRoom);
+        if (nextRoom === 'teaching') {
+          const hash = window.location.hash;
+          if (allowedTeachingHrefs.has(hash)) setTeachingChapterHref(hash);
+          else setTeachingChapterHref('#ref-all');
+        }
+        if (nextRoom.startsWith('teaching-')) {
+          const nextHref = `#ref-${nextRoom.replace('teaching-', '')}`;
+          if (allowedTeachingHrefs.has(nextHref)) setTeachingChapterHref(nextHref);
+        }
+      }
+      if (nextTab === 'varieties') {
+        if (nextKind === 'puerh') {
+          setActiveTab('puerh');
+          const hash = window.location.hash;
+          if (allowedPuerhHrefs.has(hash)) setPuerhChapterHref(hash);
+          return;
+        }
+        if (nextKind && allowedVarietiesKinds.has(nextKind)) setVarietiesKind(nextKind);
+        const nextSub = params.get('sub');
+        if (nextSub === 'qing_lineage') setOolongRegionHref('#oolong-minbei');
+        if (nextKind === 'ref_chenchuan') {
+          const hash = window.location.hash;
+          if (allowedChenChuanHrefs.has(hash)) setChenChuanChapterHref(hash);
+          else setChenChuanChapterHref('#cc-all');
+        }
+        if (nextKind === 'oolong') {
+          const hash = window.location.hash;
+          if (allowedOolongHrefs.has(hash)) setOolongRegionHref(hash);
+        }
+      }
     };
 
     syncFromUrl();
@@ -89,16 +269,16 @@ const TeaWebsite = () => {
     }
 
     if (activeTab === 'varieties') {
-      if (varietiesSubpage) {
-        if (params.get('sub') !== varietiesSubpage) {
-          params.set('sub', varietiesSubpage);
-          dirty = true;
-        }
-      } else if (params.has('sub')) {
-        params.delete('sub');
+      if (params.get('kind') !== varietiesKind) {
+        params.set('kind', varietiesKind);
         dirty = true;
       }
-    } else if (params.has('sub')) {
+    } else if (params.has('kind')) {
+      params.delete('kind');
+      dirty = true;
+    }
+
+    if (params.has('sub')) {
       params.delete('sub');
       dirty = true;
     }
@@ -107,390 +287,409 @@ const TeaWebsite = () => {
       const nextUrl = `${url.pathname}?${params.toString()}${url.hash}`;
       window.history.replaceState(null, '', nextUrl);
     }
-  }, [activeTab, scienceRoom, varietiesSubpage]);
+  }, [activeTab, scienceRoom, varietiesKind]);
+
+  useEffect(() => {
+    if (!pendingScrollTarget) return;
+
+    let attempts = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(pendingScrollTarget);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setPendingScrollTarget(null);
+        return;
+      }
+
+      attempts += 1;
+      if (attempts > 30) {
+        setPendingScrollTarget(null);
+        return;
+      }
+      window.setTimeout(tryScroll, 50);
+    };
+
+    tryScroll();
+  }, [pendingScrollTarget, activeTab, varietiesKind]);
+
+  useEffect(() => {
+    if (!pendingOffsetScrollTarget) return;
+
+    let attempts = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(pendingOffsetScrollTarget);
+      if (el) {
+        const contextBar = document.getElementById('varieties-context-bar');
+        const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        setPendingOffsetScrollTarget(null);
+        return;
+      }
+
+      attempts += 1;
+      if (attempts > 30) {
+        setPendingOffsetScrollTarget(null);
+        return;
+      }
+      window.setTimeout(tryScroll, 50);
+    };
+
+    tryScroll();
+  }, [pendingOffsetScrollTarget, siteNavHeightPx]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const siteNav = document.getElementById('site-nav');
+    if (!siteNav) return;
+
+    const measure = () => setSiteNavHeightPx(Math.max(0, Math.round(siteNav.getBoundingClientRect().height)));
+    measure();
+
+    const ro = window.ResizeObserver ? new ResizeObserver(measure) : null;
+    ro?.observe(siteNav);
+    window.addEventListener('resize', measure);
+
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
 
   useEffect(() => {
     document.title = `${i18n.t('site.title')} · ${i18n.t(`nav.${activeTab}`)}`;
   }, [activeTab, i18n]);
 
-  const Navigation = () => (
-    <nav className="sticky top-0 z-50 museum-paper backdrop-blur-md border-b border-stone-300/70 shadow-sm font-serif">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center cursor-pointer" onClick={() => goToTab('home')}>
-            <div className="mr-3 inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-white/80 border border-stone-300 shadow-sm">
-              <Leaf className="h-6 w-6 text-emerald-800" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-2xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
-              <div className="text-[11px] font-bold tracking-widest text-stone-500">{i18n.t('site.tagline')}</div>
-            </div>
-          </div>
-          
-          <div className="hidden xl:flex items-center gap-6">
-            <div className="flex space-x-6">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item}
-                onClick={() => goToTab(item)}
-                className={`text-sm font-extrabold px-3 py-2 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${
-                  activeTab === item
-                    ? 'bg-stone-900 text-stone-50 shadow-sm'
-                    : 'text-stone-800 hover:text-stone-900 hover:bg-white/70'
-                }`}
-              >
-                {i18n.t(`nav.${item}`)}
-              </button>
-            ))}
-            </div>
-            <button
-              type="button"
-              onClick={i18n.toggleLang}
-              className="museum-label"
-              aria-label={i18n.t('ui.language')}
-              title={i18n.t('ui.language')}
-            >
-              {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
-            </button>
-          </div>
-
-          <div className="xl:hidden flex items-center">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-stone-600"
-              aria-label={mobileMenuOpen ? i18n.t('ui.menuClose') : i18n.t('ui.menuOpen')}
-            >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {mobileMenuOpen && (
-        <div className="xl:hidden bg-stone-100 border-b border-stone-200">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <div className="flex items-center justify-between px-3 py-2">
-              <div className="text-xs font-bold text-stone-500">{i18n.t('ui.language')}</div>
-              <button
-                type="button"
-                onClick={i18n.toggleLang}
-                className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white px-3 py-1.5 text-xs font-bold text-stone-700 hover:bg-stone-50"
-              >
-                {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
-              </button>
-            </div>
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item}
-                onClick={() => goToTab(item)}
-                className={`block px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors ${
-                  activeTab === item ? 'bg-green-100 text-green-900' : 'text-stone-700 hover:text-green-800 hover:bg-stone-200'
-                }`}
-              >
-                {i18n.t(`nav.${item}`)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-
   const HeroSection = () => {
-    const [dailyTea, setDailyTea] = useState(() => teaData[Math.floor(Math.random() * teaData.length)]);
+    const getTodayKey = () => {
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    };
+
+    const getDefaultDailyTeaIndex = (todayKey) => {
+      const seed = [...String(todayKey)].reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+      const len = teaData.length || 1;
+      return ((seed * 9301 + 49297) % 233280) % len;
+    };
+
+    const todayKey = getTodayKey();
+    const defaultDailyTeaIndex = getDefaultDailyTeaIndex(todayKey);
+    const [dailyTeaIndex, setDailyTeaIndex] = useState(() => {
+      if (typeof window === 'undefined') return defaultDailyTeaIndex;
+      const raw = window.localStorage?.getItem('tea.dailyTeaOverride');
+      if (!raw) return defaultDailyTeaIndex;
+      const [storedDate, storedIndex] = raw.split(':');
+      if (storedDate !== todayKey) return defaultDailyTeaIndex;
+      const parsed = Number(storedIndex);
+      if (!Number.isFinite(parsed)) return defaultDailyTeaIndex;
+      const len = teaData.length || 1;
+      const normalized = Math.max(0, Math.min(len - 1, Math.round(parsed)));
+      return normalized;
+    });
+
+    const dailyTea = teaData[dailyTeaIndex] ?? teaData[defaultDailyTeaIndex] ?? teaData[0];
+    const isDailyTeaOverride = dailyTeaIndex !== defaultDailyTeaIndex;
 
     const refreshDailyTea = () => {
-        let newIndex;
-        do {
-            newIndex = Math.floor(Math.random() * teaData.length);
-        } while (newIndex === dailyTea.id && teaData.length > 1);
-        setDailyTea(teaData[newIndex]);
+        if (teaData.length <= 1) return;
+        const nextIndex = (dailyTeaIndex + 1 + Math.floor(Math.random() * (teaData.length - 1))) % teaData.length;
+        setDailyTeaIndex(nextIndex);
+        if (typeof window !== 'undefined') {
+          try {
+            window.localStorage?.setItem('tea.dailyTeaOverride', `${todayKey}:${nextIndex}`);
+          } catch {
+            // ignore
+          }
+        }
     };
 
     return (
-    <div className="relative bg-stone-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-stone-100 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 min-h-[600px] flex flex-col justify-center">
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-stone-900 sm:text-5xl md:text-6xl font-serif">
-                <span className="block xl:inline">一期一會</span>{' '}
-                <span className="block text-green-700 xl:inline">品味茶道之美</span>
-              </h1>
-              <p className="mt-3 text-base text-stone-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 font-light leading-relaxed">
-                茶，不僅是一種飲品，更是一種生活態度。從茶葉的採摘到沖泡的瞬間，每一個步驟都蘊含著自然的智慧與人文的溫度。讓我們一起探索這片樹葉的東方傳奇。
-              </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-3 flex-wrap">
-                <div className="rounded-md shadow">
-                  <button onClick={() => goToTab('varieties')} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-800 md:py-4 md:text-lg transition-all">
-                    探索六大茶類
-                  </button>
-                </div>
-                <div className="mt-3 sm:mt-0">
-                  <button onClick={() => goToTab('featured')} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 md:py-4 md:text-lg transition-all">
-                    台灣特色茶
-                  </button>
+    <div className="relative overflow-hidden py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="museum-frame museum-paper relative overflow-hidden rounded-[40px] border border-stone-200/70 shadow-sm">
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>
+          <div className="absolute -bottom-28 -left-28 w-[520px] h-[520px] rounded-full bg-amber-200/25 blur-3xl"></div>
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/50 via-transparent to-white/30"></div>
+
+          <div className="relative p-8 sm:p-10 md:p-12 lg:p-14">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+              <div className="lg:col-span-7">
+                <div className="sm:text-center lg:text-left">
+                  <h1 className="text-4xl tracking-tight font-extrabold text-stone-900 sm:text-5xl md:text-6xl font-serif">
+                    <span className="block xl:inline">一期一會</span>{' '}
+                    <span className="block text-green-700 xl:inline">品味茶道之美</span>
+                  </h1>
+                  <p className="mt-4 text-base sm:text-lg md:text-xl text-stone-700 font-semibold leading-relaxed max-w-2xl sm:mx-auto lg:mx-0">
+                    茶不只是飲品，更是一種生活節奏。從採摘到沖泡，每一步都連著自然與人文的溫度；用一杯茶，把知識變成可感受的風味。
+                  </p>
+                  <div className="mt-6 sm:flex sm:justify-center lg:justify-start gap-3 flex-wrap">
+                    <button
+                      type="button"
+                      onClick={() => goToTab('varieties')}
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 md:py-4 text-base md:text-lg font-extrabold rounded-xl text-white bg-emerald-700 hover:bg-emerald-800 transition-colors shadow-sm"
+                    >
+                      探索六大茶類
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => goToTab('featured')}
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 md:py-4 text-base md:text-lg font-extrabold rounded-xl border border-emerald-200 bg-white/70 text-emerald-800 hover:bg-white transition-colors shadow-sm"
+                    >
+                      台灣特色茶
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* Daily Tea Recommendation */}
-              <div className="mt-10 pt-8 border-t border-stone-200 max-w-lg sm:mx-auto lg:mx-0 animate-fadeIn">
-                  <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-bold text-stone-800 flex items-center">
-                          <Sparkles className="text-amber-500 mr-2" size={20}/> 每日一茶推薦
-                      </h3>
-                      <button 
-                        onClick={refreshDailyTea} 
-                        className="text-sm text-green-700 hover:text-green-800 flex items-center transition-colors px-3 py-1 rounded-full hover:bg-green-50"
+              <aside className="lg:col-span-5">
+                <div className="museum-card p-6 md:p-7 bg-white/80">
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-extrabold text-stone-900 flex items-center">
+                      <Sparkles className="text-amber-500 mr-2" size={20} /> 每日一茶推薦
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      {isDailyTeaOverride ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setDailyTeaIndex(defaultDailyTeaIndex);
+                            if (typeof window !== 'undefined') {
+                              try {
+                                window.localStorage?.removeItem('tea.dailyTeaOverride');
+                              } catch {
+                                // ignore
+                              }
+                            }
+                          }}
+                          className="text-sm font-extrabold text-stone-700 hover:text-stone-900 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-stone-200 bg-white/70 hover:bg-white transition-colors"
+                        >
+                          <RotateCcw size={16} /> 回到今日
+                        </button>
+                      ) : null}
+                      <button
+                        type="button"
+                        onClick={refreshDailyTea}
+                        className="text-sm font-extrabold text-emerald-800 hover:text-emerald-900 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-200 bg-white/70 hover:bg-white transition-colors"
                       >
-                          <RefreshCw size={16} className="mr-1"/> 換一換
+                        <RefreshCw size={16} /> 換一換
                       </button>
+                    </div>
                   </div>
-                  
-                  <div className={`bg-white p-5 rounded-xl shadow-sm border-l-4 ${dailyTea.accentColor} hover:shadow-md transition-all duration-300 group`}>
-                      <div className="flex items-start justify-between">
-                          <div>
-                              <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">{dailyTea.engName}</span>
-                              <h4 className="text-xl font-bold text-stone-800 mt-1 group-hover:text-green-700 transition-colors">{dailyTea.name}</h4>
-                          </div>
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-sm" style={{background: dailyTea.image}}>
-                              <Leaf size={20} />
-                          </div>
+
+                  <div className={`bg-white p-5 rounded-2xl shadow-sm border-l-4 ${dailyTea.accentColor} hover:shadow-md transition-all duration-300 group`}>
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0">
+                        <span className="text-xs font-extrabold text-stone-500 uppercase tracking-wider">{dailyTea.engName}</span>
+                        <h4 className="text-xl font-extrabold text-stone-900 mt-1 group-hover:text-emerald-800 transition-colors truncate">
+                          {dailyTea.name}
+                        </h4>
                       </div>
-                      <p className="text-sm text-stone-600 mt-3 line-clamp-2 leading-relaxed">
-                          {dailyTea.desc}
-                      </p>
-                      <div className="mt-4 flex items-center gap-4 text-xs text-stone-500">
-                          <span className="flex items-center"><Flame size={14} className="mr-1 text-red-400"/> {dailyTea.temp}</span>
-                          <span className="flex items-center"><Clock size={14} className="mr-1 text-blue-400"/> {dailyTea.time}</span>
+                      <div
+                        className="w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-sm ring-1 ring-black/5 shrink-0"
+                        style={{ background: dailyTea.image }}
+                      >
+                        <Leaf size={20} />
                       </div>
+                    </div>
+                    <p className="text-sm text-stone-700 mt-3 line-clamp-3 leading-relaxed font-semibold">{dailyTea.desc}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => goToTeaExhibit(dailyTea)}
+                        className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-900 hover:bg-emerald-100 transition-colors"
+                      >
+                        前往 {dailyTea.name}
+                      </button>
+                      {dailyTea.taste?.slice(0, 4).map((tag) => (
+                        <button
+                          key={tag}
+                          type="button"
+                          onClick={() => goToTeaExhibit(dailyTea)}
+                          className="inline-flex items-center rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="mt-4 flex items-center gap-4 text-xs text-stone-600 font-bold">
+                      <span className="flex items-center">
+                        <Flame size={14} className="mr-1 text-red-400" /> {dailyTea.temp}
+                      </span>
+                      <span className="flex items-center">
+                        <Clock size={14} className="mr-1 text-blue-400" /> {dailyTea.time}
+                      </span>
+                    </div>
                   </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-stone-200 flex items-center justify-center overflow-hidden">
-         <div className="relative w-full h-full bg-stone-200">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-800 rounded-full opacity-10 mix-blend-multiply filter blur-3xl animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-amber-600 rounded-full opacity-10 mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-stone-600 rounded-full opacity-10 mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                    <Leaf size={120} strokeWidth={0.5} className="text-green-800 opacity-20 mx-auto" />
-                    <span className="text-9xl font-serif text-stone-800 opacity-10 writing-vertical-rl select-none">茶</span>
                 </div>
+              </aside>
             </div>
-         </div>
+          </div>
+        </div>
       </div>
     </div>
     );
   };
 
-  const OolongDeepDiveSection = ({ onBack }) => {
+  const JourneySection = () => {
+    const steps = [
+      {
+        id: 'six',
+        title: '六大茶類',
+        subtitle: '先建立分類與風味直覺',
+        action: () => goToTab('varieties'),
+      },
+      {
+        id: 'cultivars',
+        title: '品種',
+        subtitle: '葉型、加工適性與台灣栽培品種',
+        action: () => goToTab('cultivars'),
+      },
+      {
+        id: 'science',
+        title: '茶葉科學',
+        subtitle: '氧化／烘焙／內含物：用科學讀懂風味',
+        action: () => {
+          setScienceRoom('oxidation');
+          goToTab('science');
+        },
+      },
+      {
+        id: 'process',
+        title: '製程',
+        subtitle: '從採摘到成茶：把工序連成一條線',
+        action: () => goToTab('brewing'),
+      },
+      {
+        id: 'tw',
+        title: '台灣特色茶',
+        subtitle: '把知識套回到具體茶品與產區',
+        action: () => goToTab('featured'),
+      },
+      {
+        id: 'brew',
+        title: '沖泡',
+        subtitle: '用正確手法釋放茶的層次',
+        action: () => goToTab('brewing'),
+      },
+      {
+        id: 'aesthetics',
+        title: '茶藝（茶道）',
+        subtitle: '茶席美學、節奏與儀式感',
+        action: () => goToTab('ceremony'),
+      },
+    ];
+
     return (
-        <div className="museum-page">
-            <div className="museum-stage">
-                {typeof onBack === 'function' && (
-                  <div className="mb-6">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onBack();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      className="museum-tab"
-                    >
-                      ← 返回六大茶類（青茶）
-                    </button>
+      <div className="museum-page">
+        <div className="museum-stage">
+          <div className="mb-10 text-center">
+            <div className="museum-label mx-auto">TEA HOUSE · JOURNEY</div>
+            <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight font-serif">
+              茶館筆記 · 學習旅程
+            </h2>
+            <p className="mt-4 text-stone-600 max-w-3xl mx-auto leading-relaxed text-lg">
+              這是一段循序漸進的茶學路線：先建立分類與直覺，再走進科學與製程，最後回到茶席上的沖泡與美學。
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
+            <div className="museum-panel p-6 md:p-8">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <div className="min-w-0">
+                  <div className="text-sm font-extrabold text-emerald-800 tracking-wide">建議路線</div>
+                  <div className="mt-2 text-stone-600 leading-relaxed">
+                    依照順序學習最省力；若要備課，也可直接跳到任一站。
                   </div>
-                )}
-                <div className="mb-12 museum-panel p-8 md:p-12 text-center">
-                    <div className="museum-label mx-auto">EXHIBIT · OOLONG</div>
-                    <h2 className="mt-5 text-3xl md:text-4xl font-extrabold text-stone-900">青茶類再區分：兩岸烏龍對話</h2>
-                    <p className="mt-4 text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">
-                        青茶（烏龍茶）工藝最為複雜，且因產地不同而發展出截然不同的風貌。此處解析大陸青茶（閩北、閩南、廣東）與台灣青茶的系譜區別。
-                    </p>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => goToTab('home')}
+                  className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50"
+                >
+                  <Layout size={18} className="text-emerald-700" />
+                  百科總覽
+                </button>
+              </div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                    {/* Mainland Oolong */}
-                    <div className="space-y-8">
-                        <div className="flex items-center border-b-2 border-stone-800 pb-2 mb-6">
-                            <Map className="mr-3 text-stone-800" size={28}/>
-                            <h3 className="text-2xl font-bold text-stone-800">大陸青茶類</h3>
+              <div className="space-y-4">
+                {steps.map((s, idx) => (
+                  <div key={s.id} className="museum-card px-5 py-4">
+                    <div className="flex items-start gap-4">
+                      <div className="shrink-0">
+                        <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center font-extrabold text-emerald-900">
+                          {idx + 1}
                         </div>
-
-                        {/* Minbei */}
-                        <div className="bg-stone-50 rounded-xl p-6 border-l-4 border-amber-800 shadow-sm">
-                            <h4 className="text-xl font-bold text-amber-900 mb-3 flex items-center">
-                                <Mountain className="mr-2" size={20}/> #閩北烏龍
-                            </h4>
-                            <p className="text-stone-700 leading-relaxed mb-4 text-sm">
-                                <strong>核心產區：</strong>武夷山、建甌、建陽、水吉。<br/>
-                                <strong>工藝特徵：</strong>做青發酵程度較重，揉捻時<strong>無包揉工序</strong>（條索壯結彎曲）。<br/>
-                                <strong>品質特徵：</strong>乾茶烏潤，香氣為熟香型，湯色橙黃明亮。葉底呈「三紅七綠」，紅鑲邊明顯。
-                            </p>
-                            
-                            <div className="bg-white p-4 rounded-lg border border-stone-200 text-sm space-y-3">
-                                <h5 className="font-bold text-amber-800 border-b border-amber-100 pb-1">武夷岩茶 (Wuyi Rock Tea)</h5>
-                                <p className="text-stone-600">
-                                    武夷岩茶為閩北烏龍之首。根據產地環境分為：
-                                </p>
-                                <ul className="list-disc list-inside text-stone-600 pl-2">
-                                    <li><strong>正岩茶：</strong>武夷岩中心地區，品質最優，岩韻明顯。</li>
-                                    <li><strong>半岩茶：</strong>武夷岩邊緣，岩韻稍顯。</li>
-                                    <li><strong>洲茶：</strong>溪邊兩岸所產，品質次之。</li>
-                                </ul>
-                                <p className="text-stone-600 mt-2">
-                                    <strong>外形：</strong>肥壯勻整，色澤青褐油潤呈「寶光」，葉面有蛙皮狀白點，俗稱<span className="bg-amber-100 px-1 rounded text-amber-800 font-bold">「蛤蟆背」</span>。
-                                    <br/>
-                                    <strong>岩韻：</strong>滋味濃醇鮮活回甘，不苦澀，有「石骨花香」之譽。
-                                </p>
-                            </div>
-                            
-                            <div className="mt-4 grid grid-cols-2 gap-3">
-                                <div className="bg-amber-100/50 p-3 rounded border border-amber-200">
-                                    <span className="block text-xs font-bold text-amber-800 mb-1">四大名欉 (巖茶之王)</span>
-                                    <ul className="text-xs text-stone-700 list-disc list-inside">
-                                        <li>大紅袍 (茶王之王)</li>
-                                        <li>鐵羅漢</li>
-                                        <li>白雞冠</li>
-                                        <li>水金龜</li>
-                                    </ul>
-                                </div>
-                                <div className="bg-stone-200/50 p-3 rounded border border-stone-300">
-                                    <span className="block text-xs font-bold text-stone-800 mb-1">其他品種</span>
-                                    <p className="text-xs text-stone-600 leading-snug">
-                                        武夷水仙、武夷肉桂、矮腳烏龍、黃旦、奇蘭、毛蟹、梅占等。
-                                    </p>
-                                </div>
-                            </div>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="min-w-0">
+                            <div className="text-lg font-extrabold text-stone-900">{s.title}</div>
+                            <div className="mt-1 text-stone-600 leading-relaxed">{s.subtitle}</div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={s.action}
+                            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-emerald-700 text-white px-4 py-2 text-sm font-extrabold hover:bg-emerald-800"
+                          >
+                            前往
+                            <ChevronRight size={16} />
+                          </button>
                         </div>
-
-                        {/* Minnan & Guangdong */}
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-stone-50 rounded-xl p-5 border-l-4 border-green-700 shadow-sm">
-                                <h4 className="text-lg font-bold text-green-900 mb-2">#閩南烏龍</h4>
-                                <p className="text-sm text-stone-600">
-                                    鐵觀音、奇蘭、水仙、黃金桂...等。
-                                </p>
-                            </div>
-                            <div className="bg-stone-50 rounded-xl p-5 border-l-4 border-orange-700 shadow-sm">
-                                <h4 className="text-lg font-bold text-orange-900 mb-2">#廣東烏龍</h4>
-                                <p className="text-sm text-stone-600">
-                                    鳳凰單欉、水仙、嶺頭單欉、汕頭單欉...等。
-                                </p>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-
-                    {/* Taiwan Oolong */}
-                    <div className="space-y-8">
-                        <div className="flex items-center border-b-2 border-stone-800 pb-2 mb-6">
-                            <Map className="mr-3 text-stone-800" size={28}/>
-                            <h3 className="text-2xl font-bold text-stone-800">台灣青茶類</h3>
-                        </div>
-
-                        <div className="bg-green-50 rounded-xl p-8 border border-green-100 shadow-sm">
-                            <h4 className="text-xl font-bold text-green-900 mb-6 flex items-center">
-                                <Leaf className="mr-2" size={20}/> 台灣特色烏龍
-                            </h4>
-                            <ul className="space-y-4">
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">文山包種茶</span>
-                                        <span className="text-xs text-stone-500">條索狀，清香幽雅。</span>
-                                    </div>
-                                </li>
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">半球(球)型烏龍茶</span>
-                                        <span className="text-xs text-stone-500">含烏龍、金萱、翠玉、四季春等品種。</span>
-                                    </div>
-                                </li>
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">台灣高山茶</span>
-                                        <span className="text-xs text-stone-500">海拔1000公尺以上，冷冽甘甜。</span>
-                                    </div>
-                                </li>
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">凍頂烏龍茶</span>
-                                        <span className="text-xs text-stone-500">傳統發酵充足，焙火韻味。</span>
-                                    </div>
-                                </li>
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">東方美人茶</span>
-                                        <span className="text-xs text-stone-500">重發酵，蜜香熟果味。</span>
-                                    </div>
-                                </li>
-                                <li className="flex items-start bg-white p-3 rounded-lg shadow-sm">
-                                    <ChevronRight className="mr-2 text-green-600 flex-shrink-0 mt-1" size={16}/>
-                                    <div>
-                                        <span className="font-bold text-stone-800 block">鐵觀音茶</span>
-                                        <span className="text-xs text-stone-500">重焙火，觀音韻。</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Link to Featured Teas */}
-                        <div className="bg-white p-6 rounded-xl border-l-4 border-green-600 shadow-sm mt-6">
-                            <h4 className="font-bold text-stone-800 mb-2">想深入了解台灣特色茶？</h4>
-                            <p className="text-sm text-stone-600 mb-4">文山包種、東方美人、紅烏龍、鐵觀音...</p>
-                            <button 
-                                onClick={() => { setActiveTab('featured'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                                className="flex items-center text-green-700 font-bold hover:text-green-800 transition-colors"
-                            >
-                                前往台灣特色茶專區 <ArrowRight size={16} className="ml-2"/>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/*
-                <div className="mt-12 bg-stone-800 text-stone-300 p-6 rounded-xl border-l-8 border-yellow-500">
-                    <h4 className="text-lg font-bold text-white mb-2 flex items-center">
-                        <Info size={20} className="mr-2 text-yellow-500"/> 茶學小筆記
-                    </h4>
-                    <p className="text-sm leading-relaxed mb-4">
-                        久久要PO一次，讓更多網友知道。
-                    </p>
-                    <div className="bg-stone-700/50 p-4 rounded text-sm italic">
-                        <p className="mb-2">
-                            「武夷山素有『奇秀甲於東南』之譽，不僅風光秀麗，還盛產『武夷巖茶』。巖茶之鄉，奇種、單種、名欉各具特色，名樅是巖茶之王。」
-                        </p>
-                        <p>
-                            遊客在武夷山遊覽，啜飲名叢極品，正如范仲淹詩云：<br/>
-                            <span className="text-yellow-200">「不如仙山一啜好，冷然使欲乘風飛」</span>之意境。
-                        </p>
-                    </div>
-                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-stone-400">
-                         <div>
-                             <strong className="text-stone-300">#武夷水仙：</strong>屬半喬木型，葉片比普通小葉種大1倍以上，品質差異甚大，以武夷水仙品質最佳。
-                         </div>
-                         <div>
-                             <strong className="text-stone-300">#武夷奇種：</strong>指以單欉冠名以外的茶品種所製成的烏龍茶。
-                         </div>
-                         <div>
-                             <strong className="text-stone-300">#武夷肉桂：</strong>是近幾年新開發的巖茶名欉。
-                         </div>
-                    </div>
-                </div>
-                */}
-
+                  </div>
+                ))}
+              </div>
             </div>
+
+            <div className="lg:sticky lg:top-24 space-y-6">
+              <div className="museum-panel p-6 md:p-8">
+                <div className="flex items-center gap-3">
+                  <Map className="text-emerald-700" />
+                  <div className="text-lg font-extrabold text-stone-900">學習地圖</div>
+                </div>
+                <p className="mt-3 text-stone-600 leading-relaxed">
+                  你可以把每一站當成茶席上的一張筆記：先抓住核心，再用需要時才查的「百科卡片」補齊細節。
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {[
+                    { label: '六大茶類', icon: Layers },
+                    { label: '茶樹品種', icon: Leaf },
+                    { label: '氧化/烘焙', icon: FlaskConical },
+                    { label: '製程/工藝', icon: PenTool },
+                    { label: '特色茶', icon: Mountain },
+                    { label: '沖泡/茶席', icon: Coffee },
+                  ].map((it) => (
+                    <div key={it.label} className="rounded-2xl border border-stone-200 bg-white/70 px-4 py-3">
+                      <div className="flex items-center gap-2 text-stone-800 font-extrabold">
+                        <it.icon size={16} className="text-emerald-700" />
+                        <span className="text-sm">{it.label}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="museum-panel p-6 md:p-8">
+                <div className="flex items-center gap-3">
+                  <Search className="text-emerald-700" />
+                  <div className="text-lg font-extrabold text-stone-900">百科入口</div>
+                </div>
+                <p className="mt-3 text-stone-600 leading-relaxed">
+                  想直接查資料：請到上方功能列切換到對應主題（六大茶類／品種／科學／特色茶…）。
+                </p>
+              </div>
+            </div>
+            </div>
+          </div>
         </div>
     );
   };
+
 
   const ScienceSectionLegacy = () => {
     return (
@@ -532,10 +731,10 @@ const TeaWebsite = () => {
 
            {/* Link to Deep Dive */}
              <div className="mb-16">
-              <div className="museum-plaque p-8 md:p-10">
+               <div className="museum-plaque science-whitepaper-hero p-8 md:p-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   <div className="md:w-2/3">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-100 text-xs font-extrabold tracking-widest">
+                    <div className="science-whitepaper-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-200 text-amber-900 text-sm font-extrabold tracking-widest">
                       <FlaskConical size={14} className="opacity-90" />
                       CATALOG · WHITEPAPER
                     </div>
@@ -547,7 +746,7 @@ const TeaWebsite = () => {
                   <div className="md:w-1/3 md:flex md:justify-end">
                     <button 
                       onClick={() => { setActiveTab('science'); setScienceRoom('oxidation'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                      className="w-full md:w-auto bg-amber-300 text-stone-900 font-extrabold px-8 py-3 rounded-full shadow-md hover:bg-amber-200 transition-colors"
+                      className="w-full md:w-auto bg-amber-300 text-stone-900 font-extrabold px-8 py-3 rounded-full hover:bg-amber-200 transition-colors"
                     >
                       閱讀白皮書
                     </button>
@@ -557,7 +756,7 @@ const TeaWebsite = () => {
             </div>
 
            {/* Concept Diagram */}
-           <div className="museum-frame museum-paper rounded-2xl p-8 mb-16">
+            <div className="museum-frame museum-paper science-chemistry-diagram rounded-2xl p-8 mb-16">
                <h3 className="text-2xl font-bold text-stone-800 mb-8 text-center flex items-center justify-center">
                    <Microscope className="mr-3 text-green-700"/> 三者關係圖解：包含與演變
                </h3>
@@ -699,105 +898,113 @@ const TeaWebsite = () => {
   };
 
   const ScienceSection = () => {
-    const rooms = [
-      {
-        key: 'oxidation',
-        icon: RefreshCw,
-        zh: { title: '氧化', desc: '從做青到後發酵：反應路徑與風味生成' },
-        en: { title: 'Oxidation', desc: 'From oolong crafting to aging: pathways & flavor formation' },
-      },
-      {
-        key: 'roasting',
-        icon: Flame,
-        zh: { title: '烘焙', desc: '熱驅動的香氣重排：火功、熟香與口感' },
-        en: { title: 'Roasting', desc: 'Heat-driven aroma remodeling: roast levels & texture' },
-      },
-      {
-        key: 'constituents',
-        icon: Scale,
-        zh: { title: '內含物', desc: '茶多酚、胺基酸、咖啡因等關鍵成分' },
-        en: { title: 'Compounds', desc: 'Polyphenols, amino acids, caffeine, and key constituents' },
-      },
-    ];
-
-    const roomCopy = (room) => (i18n.lang === 'en' ? room.en : room.zh);
-
+    const notesMode = UI_FLAGS.notesMode;
+    const [showScienceAtlas, setShowScienceAtlas] = useState(!notesMode);
+    const scienceSidebarItems = SCIENCE_TOC.map((item) => ({ key: item.key, label: item.label }));
+    const scienceSubItemsByKey = useMemo(
+      () => ({
+        teaching: [{ href: '#ref-all', label: '全部章節' }, ...TEA_REFERENCE_TOC.filter((item) => item.href === '#ref-1')],
+      }),
+      [],
+    );
+    const isScienceTeachingRoom = scienceRoom === 'teaching' || scienceRoom.startsWith('teaching-');
+    const scienceTeachingActiveHref = scienceRoom.startsWith('teaching-')
+      ? `#ref-${scienceRoom.replace('teaching-', '')}`
+      : teachingChapterHref;
     return (
-      <div className="py-12 font-serif animate-fadeIn">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <div className="museum-frame museum-paper relative overflow-hidden">
-              <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-sky-200/30 blur-3xl"></div>
-              <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-emerald-200/25 blur-3xl"></div>
-              <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
+      <div className="museum-page font-serif">
+        <div className="w-full">
+          {notesMode && (
+          <div className="mb-10 museum-panel p-7 md:p-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div className="min-w-0">
                 <div className="museum-label">
                   <Microscope size={14} className="opacity-80" />
-                  EXHIBIT · TEA SCIENCE
+                  TEA HOUSE · NOTES
                 </div>
-                <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">
-                  {i18n.lang === 'en' ? 'Tea Science: Museum Guide' : '茶葉科學：展場導覽'}
-                </h2>
-                <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 mx-auto leading-relaxed">
-                  {i18n.lang === 'en'
-                    ? 'A museum-style guide to tea science: oxidation, roasting, and key compounds—designed for teaching and reference.'
-                    : '以「博物館展場導覽」方式整理茶葉科學：氧化、烘焙、內含物，方便教學與查閱。'}
+                <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">茶葉科學｜筆記卡</h2>
+                <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
+                  科學不是背名詞，而是把「製程控制」連回「杯中風味」。先用筆記卡建立三大核心：氧化／烘焙／內含物；需要完整細節時再展開百科。
                 </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                <button
+                  type="button"
+                  onClick={() => setShowScienceAtlas(true)}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
+                >
+                  展開百科
+                  <ChevronRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowScienceAtlas(true);
+                    setScienceRoom('oxidation');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
+                >
+                  直接看氧化
+                  <ChevronRight size={16} className="text-emerald-700" />
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-6 grid md:grid-cols-3 gap-4">
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 1</div>
+                <div className="mt-1 font-bold text-stone-900">氧化（發酵）</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">決定茶湯色澤、花果蜜香與回甘走向。</div>
+              </div>
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 2</div>
+                <div className="mt-1 font-bold text-stone-900">烘焙（火功）</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">以熱重排香氣與口感：熟香、厚度、耐泡與耐放。</div>
+              </div>
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 3</div>
+                <div className="mt-1 font-bold text-stone-900">內含物</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">茶多酚、胺基酸、咖啡因是「反應原料」，也就是風味底盤。</div>
               </div>
             </div>
           </div>
+          )}
 
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            <aside className="lg:col-span-4">
-              <div className="lg:sticky lg:top-24 museum-frame museum-paper p-4">
-                <div className="museum-label">
-                  <Compass size={14} className="opacity-80" />
-                  GALLERY MAP
+          {!notesMode || showScienceAtlas ? (
+            <>
+          <AtlasDockLayout
+            topOffsetPx={siteNavHeightPx + 16}
+            sidebar={
+              <ChapterSidebar
+                title="章節"
+                items={scienceSidebarItems}
+                activeKey={scienceRoom}
+                onSelectKey={(key) => {
+                  setScienceRoom(key);
+                  if (key === 'teaching') return selectScienceTeachingChapter('#ref-all');
+                  if (key.startsWith('teaching-')) return selectScienceTeachingChapter(`#ref-${key.replace('teaching-', '')}`);
+                  if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                subItemsByKey={scienceSubItemsByKey}
+                activeSubHref={scienceRoom === 'teaching' ? teachingChapterHref : null}
+                onSelectSubHref={(href) => {
+                  if (scienceRoom !== 'teaching') return;
+                  selectScienceTeachingChapter(href);
+                }}
+                topOffsetPx={siteNavHeightPx + 16}
+                pinMode="static"
+              />
+            }
+          >
+            <div className="space-y-8 min-w-0">
+            <main className="space-y-8">
+              {isScienceTeachingRoom && (
+                <div id="science-teaching" className="scroll-mt-28">
+                  <TeaReferenceNotes activeHref={scienceTeachingActiveHref === '#ref-all' ? null : scienceTeachingActiveHref} />
                 </div>
-                <h3 className="mt-3 text-xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Rooms' : '展廳導覽'}</h3>
-                <p className="mt-2 text-sm text-stone-600 leading-relaxed">
-                  {i18n.lang === 'en'
-                    ? 'Choose a room. Each panel is designed like an exhibit label: concise, scannable, and teachable.'
-                    : '請選擇一個展廳。每個區塊以「展品說明牌」方式呈現：易掃讀、可引用、方便教學。'}
-                </p>
-
-                <div className="mt-5 space-y-2">
-                  {rooms.map((room) => {
-                    const Icon = room.icon;
-                    const copy = roomCopy(room);
-                    const active = scienceRoom === room.key;
-                    return (
-                      <button
-                        key={room.key}
-                        type="button"
-                        onClick={() => {
-                          setScienceRoom(room.key);
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className={`w-full text-left museum-card px-4 py-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${
-                          active ? 'bg-stone-900 text-stone-50 border-stone-900' : 'bg-white/80'
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={`mt-0.5 inline-flex items-center justify-center w-9 h-9 rounded-xl border shadow-sm ${
-                              active ? 'bg-white/10 border-white/20' : 'bg-white border-stone-200'
-                            }`}
-                          >
-                            <Icon size={18} className={active ? 'text-amber-200' : 'text-stone-700'} />
-                          </div>
-                          <div className="min-w-0">
-                            <div className={`font-extrabold tracking-wide ${active ? 'text-stone-50' : 'text-stone-900'}`}>{copy.title}</div>
-                            <div className={`mt-1 text-sm leading-relaxed ${active ? 'text-stone-200/90' : 'text-stone-600'}`}>{copy.desc}</div>
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </aside>
-
-            <main className="lg:col-span-8 space-y-8">
+              )}
               {scienceRoom === 'oxidation' && (
                 <div className="museum-frame museum-paper overflow-hidden">
                   <div className="px-6 py-6 md:px-8 md:py-7 border-b border-stone-200/70">
@@ -1020,7 +1227,40 @@ const TeaWebsite = () => {
                 </div>
               )}
             </main>
-          </div>
+            </div>
+          </AtlasDockLayout>
+            </>
+          ) : notesMode ? (
+            <div className="museum-panel p-7 md:p-10 text-center">
+              <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
+              <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開完整科學百科</div>
+              <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
+                百科包含：氧化/烘焙/內含物三大展廳、圖解與白皮書內容，適合教學引用與快速查閱。
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowScienceAtlas(true)}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+                >
+                  展開百科內容
+                  <ChevronRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowScienceAtlas(true);
+                    setScienceRoom('roasting');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
+                >
+                  直接看烘焙
+                  <ChevronRight size={16} className="text-emerald-700" />
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     );
@@ -1143,9 +1383,34 @@ const TeaWebsite = () => {
   };
 
   const CultivarSection = () => {
+    const notesMode = UI_FLAGS.notesMode;
     const [searchTerm, setSearchTerm] = useState("");
+    const [showCultivarsAtlas, setShowCultivarsAtlas] = useState(!notesMode);
     const [showCultivarDiversity, setShowCultivarDiversity] = useState(false);
+    const cultivarsSidebarItems = CULTIVARS_TOC.map((item) => ({ key: item.href, label: item.label }));
     const { largeLeafCultivars, majorCultivars, otherSmallLeaf } = cultivars;
+
+    const scrollToCultivarSection = (href) => {
+      if (typeof window === 'undefined') return;
+      if (!href) return;
+      setShowCultivarsAtlas(true);
+      setShowCultivarDiversity(true);
+
+      let attempts = 0;
+      const tryScroll = () => {
+        const id = String(href).startsWith('#') ? String(href).slice(1) : String(href);
+        const el = document.getElementById(id);
+        if (el) {
+          cultivarsSubnav?.scrollToHref(href);
+          return;
+        }
+        attempts += 1;
+        if (attempts > 30) return;
+        window.setTimeout(tryScroll, 50);
+      };
+
+      tryScroll();
+    };
 
     const filterCultivars = (list) => {
         if (!searchTerm) return list;
@@ -1163,13 +1428,105 @@ const TeaWebsite = () => {
     const filteredOtherSmallLeaf = filterCultivars(otherSmallLeaf);
 
     return (
-    <div className="py-12 font-serif animate-fadeIn">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <div className="museum-frame museum-paper relative overflow-hidden">
-            <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-emerald-200/30 blur-3xl"></div>
-            <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-amber-200/25 blur-3xl"></div>
-            <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
+    <div className="museum-page font-serif">
+      <div className="w-full">
+        {notesMode && (
+        <div className="mb-10 museum-panel p-7 md:p-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="min-w-0">
+              <div className="museum-label">
+                <Sprout size={14} className="opacity-80" />
+                TEA HOUSE · NOTES
+              </div>
+              <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">茶樹品種｜筆記卡</h2>
+              <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
+                品種像是茶的「底盤」：決定內含物質組合與香氣走向。先看筆記卡建立框架，需要時再展開百科（含表格、品種卡、長文整理與搜尋）。
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+              <button
+                type="button"
+                onClick={() => setShowCultivarsAtlas(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
+              >
+                展開百科
+                <ChevronRight size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCultivarsAtlas(true);
+                  setShowCultivarDiversity(true);
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
+              >
+                讀台灣品種整理
+                <ChevronRight size={16} className="text-emerald-700" />
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-4">
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">KEY IDEA</div>
+              <div className="mt-1 font-bold text-stone-900">同工藝，換品種就換風味</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                同樣做成烏龍或紅茶，不同品種的多元酚、胺基酸、咖啡鹼比例差異，會讓香氣、回甘、厚度完全不同。
+              </div>
+            </div>
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">FAST CHECK</div>
+              <div className="mt-1 font-bold text-stone-900">先記住「大葉／小葉」</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                大葉種（多酚高）偏向紅茶；小葉種（風味更細緻）常見於綠茶與烏龍。先用這張地圖定位，再看細節。
+              </div>
+            </div>
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">TEACHING</div>
+              <div className="mt-1 font-bold text-stone-900">教學用：三步帶學生</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                先認品種名 → 連結適製茶類 → 回到杯中描述香氣與口感，讓「品種」不只是編號，而是可感受的差異。
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {[
+              { label: '大葉種（紅茶常見）', cls: 'bg-rose-50 border-rose-200 text-rose-900' },
+              { label: '小葉種（綠茶／烏龍常見）', cls: 'bg-emerald-50 border-emerald-200 text-emerald-900' },
+              { label: '台茶編號', cls: 'bg-stone-50 border-stone-200 text-stone-800' },
+              { label: '地方品種', cls: 'bg-amber-50 border-amber-200 text-amber-900' },
+              { label: '雜交／選拔', cls: 'bg-teal-50 border-teal-200 text-teal-900' },
+            ].map((it) => (
+              <span key={it.label} className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-extrabold ${it.cls}`}>
+                {it.label}
+              </span>
+            ))}
+          </div>
+        </div>
+        )}
+
+        {!notesMode || showCultivarsAtlas ? (
+          <AtlasDockLayout
+            topOffsetPx={siteNavHeightPx + 16}
+            sidebar={
+              <ChapterSidebar
+                title="章節"
+                items={cultivarsSidebarItems}
+                activeKey={cultivarsSubnav?.activeHref ?? CULTIVARS_TOC[0]?.href}
+                onSelectKey={(href) => scrollToCultivarSection(href)}
+                topOffsetPx={siteNavHeightPx + 16}
+                pinMode="static"
+              />
+            }
+          >
+            <div className="min-w-0">
+            <div className="mb-12">
+            <div className="museum-frame museum-paper relative overflow-hidden">
+              <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-emerald-200/30 blur-3xl"></div>
+              <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-amber-200/25 blur-3xl"></div>
+             <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
               <div className="museum-label">
                 <Sprout size={14} className="opacity-80" />
                 EXHIBIT · CULTIVARS
@@ -1409,27 +1766,55 @@ const TeaWebsite = () => {
                       至於後來新品種取名的問題，就都由<strong>投票</strong>來產生。
                   </p>
               </div>
+           </div>
+
           </div>
 
-        </div>
+            </div>
+          </AtlasDockLayout>
+        ) : notesMode ? (
+          <div className="museum-panel p-7 md:p-10 text-center">
+            <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
+            <div className="mt-4 text-lg font-extrabold text-stone-900">需要查品種時再展開百科</div>
+            <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
+              百科包含：台灣品種整理長文、大葉/小葉對照表、四大品種與其他品種卡片、關鍵字搜尋。
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+              <button
+                type="button"
+                onClick={() => setShowCultivarsAtlas(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+              >
+                展開百科內容
+                <ChevronRight size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCultivarsAtlas(true);
+                  setShowCultivarDiversity(true);
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
+              >
+                直接看台灣品種整理
+                <ChevronRight size={16} className="text-emerald-700" />
+              </button>
+            </div>
+          </div>
+        ) : null}
+
       </div>
     </div>
     );
   };
 
   const VarietiesSection = () => {
+    const notesMode = UI_FLAGS.notesMode;
     const [expandedCardId, setExpandedCardId] = useState(null);
     const [filterFermentation, setFilterFermentation] = useState('all');
     const [searchKeyword, setSearchKeyword] = useState('');
+    const [showVarietiesAtlas, setShowVarietiesAtlas] = useState(!notesMode);
     const [showChenChuanEssay, setShowChenChuanEssay] = useState(false);
-    const [showPuerhEncyclopedia, setShowPuerhEncyclopedia] = useState(false);
-    const [showTeaReferenceNotes, setShowTeaReferenceNotes] = useState(false);
-
-    const puerhTea = teaData.find(tea => tea.name === '普洱茶');
-
-    if (varietiesSubpage === 'qing_lineage') {
-      return <OolongDeepDiveSection onBack={() => setVarietiesSubpage(null)} />;
-    }
 
     const handleCardClick = (id) => {
         setExpandedCardId(prevId => (prevId === id ? null : id));
@@ -1447,9 +1832,90 @@ const TeaWebsite = () => {
         return matchesFermentation && matchesKeyword;
     });
 
-    return (
+    if (UI_FLAGS.legacyVarieties) {
+      return (
     <div className="py-12 font-serif animate-fadeIn">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {notesMode && (
+        <div className="mb-10 museum-panel p-7 md:p-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="min-w-0">
+              <div className="museum-label">
+                <BookOpen size={14} className="opacity-80" />
+                TEA HOUSE · NOTES
+              </div>
+              <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">六大茶類｜筆記卡</h2>
+              <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
+                先用一張筆記卡建立分類直覺；需要查細節時，再展開完整百科（含長文、參考資料、篩選查詢）。
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+              <button
+                type="button"
+                onClick={() => setShowVarietiesAtlas(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
+              >
+                展開百科
+                <ChevronRight size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowVarietiesAtlas(true);
+                  setShowChenChuanEssay(true);
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
+              >
+                讀陳椽長文
+                <ChevronRight size={16} className="text-emerald-700" />
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-4">
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">KEY IDEA</div>
+              <div className="mt-1 font-bold text-stone-900">分類以「工藝」為主</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                同一片鮮葉，因殺青、萎凋、氧化（發酵）、悶黃、堆積（後發酵）與乾燥方式不同，走出六條風味之路。
+              </div>
+            </div>
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">HOW TO LEARN</div>
+              <div className="mt-1 font-bold text-stone-900">先「六大茶類」再進科學</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                先抓住六大分類與代表茶，再用「氧化／烘焙／內含物」把風味講清楚，最後回到製程與沖泡。
+              </div>
+            </div>
+            <div className="museum-card px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">TEACHING</div>
+              <div className="mt-1 font-bold text-stone-900">教學用：先問三題</div>
+              <div className="mt-2 text-sm text-stone-600 leading-relaxed">
+                這款茶是「哪一類」？關鍵工序是什麼？最典型的香氣/口感是什麼？用這三題建立學生的分類直覺。
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {[
+              { label: '綠茶', cls: 'bg-emerald-50 border-emerald-200 text-emerald-900' },
+              { label: '白茶', cls: 'bg-stone-50 border-stone-200 text-stone-800' },
+              { label: '黃茶', cls: 'bg-amber-50 border-amber-200 text-amber-900' },
+              { label: '青茶（烏龍）', cls: 'bg-teal-50 border-teal-200 text-teal-900' },
+              { label: '紅茶', cls: 'bg-rose-50 border-rose-200 text-rose-900' },
+              { label: '黑茶', cls: 'bg-slate-50 border-slate-200 text-slate-900' },
+            ].map((it) => (
+              <span key={it.label} className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-extrabold ${it.cls}`}>
+                {it.label}
+              </span>
+            ))}
+          </div>
+        </div>
+        )}
+
+        {!notesMode || showVarietiesAtlas ? (
+          <>
         {/* 國際標準六大茶類區塊 */}
         <div className="mb-16">
           <div className="museum-frame museum-paper relative overflow-hidden">
@@ -1487,7 +1953,7 @@ const TeaWebsite = () => {
 
         {/* Reference Essay (Chen Chuan) */}
         <div className="mb-12">
-          <div className="bg-stone-50 rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+          <div className="bg-stone-50 rounded-2xl border border-stone-200 shadow-sm">
             <div className="px-6 py-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-start gap-3">
                 <div className="bg-white border border-stone-200 rounded-xl p-3 text-green-800">
@@ -1510,39 +1976,10 @@ const TeaWebsite = () => {
 
             {showChenChuanEssay && (
               <div className="px-6 pb-6 md:px-8 md:pb-8">
-                <ChenChuanTeaClassification />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Reference Notes (cleaned + formatted) */}
-        <div className="mb-12">
-          <div className="bg-stone-50 rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
-            <div className="px-6 py-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex items-start gap-3">
-                <div className="bg-white border border-stone-200 rounded-xl p-3 text-green-800">
-                  <BookOpen size={22} />
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-stone-900">參考資料：六大茶類分類與台灣青茶製程整理</h3>
-                  <p className="text-sm text-stone-600 mt-1">內容已清除原站名字眼，並重新排版成站內可讀格式（內容盡量不刪減）。</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowTeaReferenceNotes((v) => !v)}
-                aria-expanded={showTeaReferenceNotes}
-                className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold border transition-colors self-start md:self-auto w-full md:w-auto
-                  border-green-700 text-green-900 bg-green-100 hover:bg-green-200"
-              >
-                {showTeaReferenceNotes ? '收合內容' : '展開內容'}
-              </button>
-            </div>
-
-            {showTeaReferenceNotes && (
-              <div className="px-6 pb-6 md:px-8 md:pb-8">
-                <TeaReferenceNotes />
+                <ChenChuanTeaClassification
+                  topOffsetPx={chenChuanScrollOffsetPx}
+                  activeHref={chenChuanChapterHref === '#cc-all' ? null : chenChuanChapterHref}
+                />
               </div>
             )}
           </div>
@@ -1652,14 +2089,15 @@ const TeaWebsite = () => {
                       {tea.id === 4 && (
                           <button
                               onClick={() => {
-                                  setActiveTab('history');
-                                  setHistoryTab('blackTeaStory');
+                                  setActiveTab('varieties');
+                                  setVarietiesKind('red');
+                                  setPendingScrollTarget('red-tea-global-story');
                                   window.scrollTo({ top: 0, behavior: 'smooth' });
                               }}
-                              className="mt-4 w-full flex items-center justify-center px-4 py-2 border border-red-200 rounded-md shadow-sm text-sm font-medium text-red-700 bg-red-50 hover:bg-red-100 transition-colors"
+                              className="mt-4 w-full flex items-center justify-center px-4 py-2 border border-red-200 rounded-md text-sm font-medium text-red-700 bg-red-50 hover:bg-red-100 transition-colors"
                           >
                               <BookOpen className="mr-2 h-4 w-4" />
-                              閱讀紅茶全球史
+                              查看紅茶全球史
                           </button>
                       )}
                   </div>
@@ -1679,13 +2117,14 @@ const TeaWebsite = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        setVarietiesSubpage('qing_lineage');
+                        setVarietiesKind('oolong');
+                        setPendingScrollTarget('oolong-minbei');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-amber-200 bg-amber-50 text-amber-900 font-extrabold text-sm hover:bg-amber-100 transition-colors"
                     >
                       <Map className="h-4 w-4" />
-                      進入青茶系譜（兩岸烏龍對話）
+                      查看青茶系譜（兩岸工藝對話）
                     </button>
                   </div>
                 )}
@@ -1700,85 +2139,427 @@ const TeaWebsite = () => {
             </div>
         )}
 
-        {/* 普洱茶特別專區 */}
-        {puerhTea && (
         <div className="mt-10">
-          <div className="relative rounded-2xl overflow-hidden bg-stone-800 text-stone-200 shadow-xl border border-stone-700">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-stone-700 rounded-bl-full opacity-20 -mr-16 -mt-16"></div>
-              <div className="relative p-8 md:p-12 md:flex md:items-center md:gap-12">
-                  <div className="md:w-1/3 text-center md:text-left mb-8 md:mb-0">
-                      <div className="inline-flex items-center justify-center p-4 bg-orange-900/50 rounded-full mb-6 border border-orange-800">
-                           <Star size={48} className="text-orange-400"/>
-                      </div>
-                      <h3 className="text-3xl font-bold text-white mb-2">特別收錄：雲南普洱</h3>
-                      <p className="text-stone-400 text-lg">Pu-erh Tea</p>
-                      <div className="mt-6 inline-block bg-stone-700/50 px-4 py-2 rounded-lg border border-stone-600">
-                          <span className="text-orange-300 font-bold">獨特工藝</span>
-                          <span className="mx-2 text-stone-500">|</span>
-                          <span className="text-stone-300">後發酵 / 渥堆 / 陳化</span>
-                      </div>
-                  </div>
-
-                  <div className="md:w-2/3">
-                      <p className="text-xl text-stone-100 font-bold mb-4 leading-relaxed">
-                          雖然廣義上屬於黑茶，但普洱茶因其獨特的地理環境與複雜的後發酵工藝，常被獨立探討。
-                      </p>
-                      <p className="text-stone-400 leading-relaxed mb-6">
-                          {puerhTea.desc}
-                      </p>
-                      
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                           <div className="bg-stone-700/50 p-3 rounded-lg border border-stone-600">
-                              <span className="block text-xs text-stone-400 uppercase">湯色</span>
-                              <span className="font-bold text-orange-200">{puerhTea.liquorColor}</span>
-                           </div>
-                           <div className="bg-stone-700/50 p-3 rounded-lg border border-stone-600">
-                              <span className="block text-xs text-stone-400 uppercase">水溫</span>
-                              <span className="font-bold text-orange-200">{puerhTea.temp}</span>
-                           </div>
-                           <div className="bg-stone-700/50 p-3 rounded-lg border border-stone-600">
-                              <span className="block text-xs text-stone-400 uppercase">滋味</span>
-                              <span className="font-bold text-orange-200">{puerhTea.taste[0]}</span>
-                           </div>
-                           <div className="bg-stone-700/50 p-3 rounded-lg border border-stone-600">
-                              <span className="block text-xs text-stone-400 uppercase">代表</span>
-                              <span className="font-bold text-orange-200">雲南大葉種</span>
-                           </div>
-                      </div>
-
-                      <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                        <button
-                          type="button"
-                          onClick={() => setShowPuerhEncyclopedia((v) => !v)}
-                          aria-expanded={showPuerhEncyclopedia}
-                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold border transition-colors
-                            border-orange-400/60 text-orange-100 bg-orange-900/30 hover:bg-orange-900/45"
-                        >
-                          <BookOpen size={18} className="opacity-90" />
-                          {showPuerhEncyclopedia ? '收合普洱茶百科' : '展開普洱茶百科（全文）'}
-                        </button>
-                        <div className="text-xs text-stone-400 self-center">
-                          內容已完整導入並重新排版，適合在站內閱讀查找。
-                        </div>
-                      </div>
-                  </div>
+          <div className="museum-frame museum-paper overflow-hidden">
+            <div className="px-6 py-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-white border border-stone-200 rounded-xl p-3 text-amber-700">
+                  <Star size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-xl font-bold text-stone-900">普洱茶（獨立專區）</h3>
+                  <p className="text-sm text-stone-600 mt-1">普洱茶已移出六大茶類，改為獨立功能區。</p>
+                </div>
               </div>
-          </div>
-
-          {showPuerhEncyclopedia && (
-            <div className="mt-6">
-              <PuerhEncyclopedia />
+              <button
+                type="button"
+                onClick={() => goToTab('puerh')}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-extrabold border transition-colors self-start md:self-auto w-full md:w-auto
+                  border-amber-300 text-amber-900 bg-amber-50 hover:bg-amber-100"
+              >
+                前往普洱茶
+                <ChevronRight size={16} className="text-amber-700" />
+              </button>
             </div>
-          )}
+          </div>
         </div>
-        )}
+
+          </>
+        ) : notesMode ? (
+          <div className="museum-panel p-7 md:p-10 text-center">
+            <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
+            <div className="mt-4 text-lg font-extrabold text-stone-900">需要查資料時再展開百科</div>
+            <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
+              百科包含：六大茶類總覽、陳椽長文、篩選與關鍵字搜尋、普洱茶百科全文。
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+              <button
+                type="button"
+                onClick={() => setShowVarietiesAtlas(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+              >
+                展開百科內容
+                <ChevronRight size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveTab('science');
+                  setAtlasNavOpen(true);
+                  setScienceRoom('teaching');
+                  selectScienceTeachingChapter('#ref-all');
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
+              >
+                直接看教學引用整理
+                <ChevronRight size={16} className="text-emerald-700" />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  goToTab('puerh');
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
+              >
+                直接看普洱茶
+                <ChevronRight size={16} className="text-emerald-700" />
+              </button>
+            </div>
+          </div>
+        ) : null}
 
       </div>
     </div>
   );
+    }
+
+    const kindMeta = VARIETIES_KINDS.find((k) => k.key === varietiesKind) ?? VARIETIES_KINDS[0];
+    const kindTea = kindMeta.type === 'tea' ? teaData.find((tea) => tea.id === kindMeta.teaId) : null;
+    const showSixTeaNotes = ['white', 'yellow', 'green', 'oolong', 'red', 'black'].includes(varietiesKind);
+    const varietiesSidebarItems = VARIETIES_KINDS.map((kind) => ({ key: kind.key, label: kind.label }));
+    const varietiesSubItemsByKey = {
+      ref_chenchuan: [{ href: '#cc-all', label: '全部章節' }, ...CHEN_CHUAN_TOC],
+      oolong: OOLONG_TOC,
+    };
+
+    const varietiesActiveSubHref =
+      varietiesKind === 'ref_chenchuan'
+        ? chenChuanChapterHref
+        : varietiesKind === 'oolong'
+          ? oolongRegionHref
+          : null;
+
+    const onSelectVarietiesSubHref = (href) => {
+      if (!href) return;
+      if (varietiesKind === 'ref_chenchuan') selectChenChuanChapter(href);
+      if (varietiesKind === 'oolong') selectOolongRegion(href);
+    };
+
+    const FactsGrid = ({ tea }) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <div className="text-xs font-extrabold tracking-widest text-stone-500">FERMENTATION</div>
+          <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.fermentation}</div>
+          <div className="mt-2 text-sm text-stone-600">茶湯：{tea.liquorColor}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <div className="text-xs font-extrabold tracking-widest text-stone-500">REPRESENTATIVE</div>
+          <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.representative}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <div className="text-xs font-extrabold tracking-widest text-stone-500">PROCESS</div>
+          <div className="mt-2 text-sm text-stone-700">{tea.process}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <div className="text-xs font-extrabold tracking-widest text-stone-500">BREWING</div>
+          <div className="mt-2 text-sm text-stone-700">
+            水溫：<span className="font-bold">{tea.temp}</span>／出湯：<span className="font-bold">{tea.time}</span>
+          </div>
+        </div>
+      </div>
+    );
+
+    if (activeTab === 'home') {
+      const homeTeaKinds = VARIETIES_KINDS.filter((kind) => kind.type === 'tea');
+      return (
+        <section className="museum-page">
+          <div className="museum-stage">
+            <div className="mb-12 museum-frame museum-paper relative overflow-hidden">
+              <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>
+              <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-amber-200/25 blur-3xl"></div>
+              <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
+                <div className="museum-label mx-auto">
+                  <Leaf size={14} className="opacity-80" />
+                  EXHIBIT · SIX TEA TYPES
+                </div>
+                <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">六大茶類</h2>
+                <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 mx-auto leading-relaxed">
+                  以「工藝」與「發酵程度」作為主軸，將茶葉分為綠、白、黃、青、紅、黑六大類；從這裡開始，就能快速定位風味與學習路線。
+                </p>
+
+                <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">HOW TO USE</div>
+                    <div className="mt-1 font-bold text-stone-900">用篩選快速定位茶類</div>
+                    <div className="mt-1 text-sm text-stone-600">先看發酵程度，再看工藝差異。</div>
+                  </div>
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">SEARCH</div>
+                    <div className="mt-1 font-bold text-stone-900">用關鍵字查代表茶品</div>
+                    <div className="mt-1 text-sm text-stone-600">適合課堂提問與對照。</div>
+                  </div>
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">READ</div>
+                    <div className="mt-1 font-bold text-stone-900">展開詳情作為參考</div>
+                    <div className="mt-1 text-sm text-stone-600">先理解，再進入展廳章節。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+              {homeTeaKinds.map((kind) => {
+                const tea = teaData.find((t) => t.id === kind.teaId);
+                if (!tea) return null;
+                const expanded = expandedCardId === tea.id;
+
+                return (
+                  <div key={kind.key} className="pt-6">
+                    <div
+                      className={`group flow-root museum-card px-6 pb-8 border-t-4 ${tea.accentColor} hover:-translate-y-0.5 transition-all duration-300`}
+                    >
+                      <div className="-mt-6">
+                        <div>
+                          <span
+                            className="inline-flex items-center justify-center p-3 shadow-lg rounded-2xl text-white ring-1 ring-black/5"
+                            style={{ background: tea.image }}
+                          >
+                            <Leaf className="h-6 w-6 text-white" aria-hidden="true" />
+                          </span>
+                        </div>
+
+                        <h3 className="mt-8 text-xl font-extrabold text-stone-900 tracking-tight">{tea.name}</h3>
+                        <p className="text-sm text-stone-400 mb-2">{tea.engName}</p>
+
+                        <span className="inline-flex items-center gap-2 bg-stone-100 text-stone-700 text-xs px-2.5 py-1 rounded-full mb-3 border border-stone-200">
+                          <span className={`w-2 h-2 rounded-full ${tea.accentColor}`}></span>
+                          {tea.fermentation}
+                        </span>
+
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {(tea.taste ?? []).slice(0, 6).map((t) => (
+                            <span
+                              key={t}
+                              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-800 border border-stone-200"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="text-sm text-stone-700 leading-relaxed">
+                          <span className="font-semibold text-stone-600">代表：</span>
+                          {tea.representative}
+                        </div>
+                        <p className="mt-3 text-sm text-stone-600 leading-relaxed">{tea.desc}</p>
+
+                        <div className="mt-5 space-y-2">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActiveTab('varieties');
+                              setAtlasNavOpen(true);
+                              setMobileMenuOpen(false);
+                              setVarietiesKind(kind.key);
+                              setPendingScrollTarget('varieties-kind-header');
+                            }}
+                            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-900 font-extrabold text-sm hover:bg-emerald-100 transition-colors"
+                          >
+                            進入茶學百科
+                            <ChevronRight size={16} className="text-emerald-700" />
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setExpandedCardId((prev) => (prev === tea.id ? null : tea.id))}
+                            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-stone-200 bg-white/70 text-stone-800 font-extrabold text-sm hover:bg-white transition-colors"
+                          >
+                            {expanded ? '收起詳情' : '展開詳情'}
+                            <ChevronDown size={16} className={expanded ? 'rotate-180' : ''} />
+                          </button>
+                        </div>
+
+                        {expanded ? (
+                          <div className="mt-4 rounded-2xl border border-stone-200 bg-white/70 p-4">
+                            <div className="text-xs font-extrabold tracking-widest text-stone-500">產地與歷史</div>
+                            <p className="mt-2 text-sm text-stone-700 leading-relaxed">{tea.details}</p>
+                            <div className="mt-4 flex items-center justify-between text-xs text-stone-600 font-bold">
+                              <span className="flex items-center">
+                                <Flame size={14} className="mr-1 text-red-400" /> {tea.temp}
+                              </span>
+                              <span className="flex items-center">
+                                <Clock size={14} className="mr-1 text-blue-400" /> {tea.time}
+                              </span>
+                            </div>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    return (
+      <div className="museum-page">
+        <div className="w-full">
+          <AtlasDockLayout
+            topOffsetPx={siteNavHeightPx + 16}
+            sidebar={
+              <ChapterSidebar
+                title="章節"
+                items={varietiesSidebarItems}
+                activeKey={varietiesKind}
+                onSelectKey={(key) => {
+                  setVarietiesKind(key);
+                  if (key === 'ref_chenchuan') setChenChuanChapterHref('#cc-all');
+                  if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                subItemsByKey={varietiesSubItemsByKey}
+                activeSubHref={varietiesSubItemsByKey[varietiesKind]?.length ? varietiesActiveSubHref : null}
+                onSelectSubHref={varietiesSubItemsByKey[varietiesKind]?.length ? onSelectVarietiesSubHref : null}
+                topOffsetPx={siteNavHeightPx + 16}
+                pinMode="static"
+              />
+            }
+          >
+            <div className="space-y-6 min-w-0">
+            <div
+              id="varieties-context-bar"
+              className="sticky z-40"
+              style={{ top: `${Math.max(0, siteNavHeightPx + 16)}px` }}
+            >
+              <div className="rounded-2xl backdrop-blur-md shadow-sm px-4 py-3 tool-surface tool-surface--strong">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0 inline-flex items-center gap-2 text-sm font-extrabold text-stone-900">
+                    <span className="shrink-0 text-stone-500">六大茶類</span>
+                    <span className="shrink-0 text-stone-300">／</span>
+                    <span className="min-w-0 truncate">{kindTea?.name ?? kindMeta.label}</span>
+                    {kindTea?.engName ? (
+                      <span className="min-w-0 truncate text-stone-600 font-bold">{kindTea.engName}</span>
+                    ) : null}
+                  </div>
+
+                  {kindMeta.type === 'tea' && kindTea ? (
+                    <div className="shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectedTeaForBrewing(kindTea.id);
+                          goToTab('brewing');
+                        }}
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-4 py-2 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+                      >
+                        <Droplets size={16} className="opacity-90" />
+                        前往沖泡建議
+                      </button>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+
+            <div id="varieties-kind-header" className="h-0" aria-hidden="true" />
+
+            {kindMeta.key === 'ref_chenchuan' ? (
+              <ChenChuanTeaClassification
+                topOffsetPx={chenChuanScrollOffsetPx}
+                activeHref={chenChuanChapterHref === '#cc-all' ? null : chenChuanChapterHref}
+              />
+            ) : null}
+
+            {kindMeta.type === 'tea' ? (
+              <>
+                {kindTea ? (
+                  <>
+                    <SectionCard title="概覽" icon={BookOpen}>
+                      <p className="text-lg text-stone-800 leading-relaxed">{kindTea.desc}</p>
+                      {kindTea.taste?.length ? (
+                        <div className="flex flex-wrap gap-2">
+                          {kindTea.taste.map((t) => (
+                            <span
+                              key={t}
+                              className="inline-flex items-center rounded-full border border-stone-200 bg-white px-3 py-1 text-sm font-bold text-stone-700"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </SectionCard>
+
+                    <SectionCard title="關鍵資訊" icon={Info}>
+                      <FactsGrid tea={kindTea} />
+                    </SectionCard>
+
+                    <SectionCard title="背景與發展" icon={History}>
+                      <p className="text-stone-700 leading-relaxed whitespace-pre-line">{kindTea.details}</p>
+                    </SectionCard>
+
+                    {showSixTeaNotes ? (
+                      <SectionCard title="茶類筆記（定義／製作）" icon={Scroll}>
+                        <SixTeaTypesNotes kind={varietiesKind} />
+                      </SectionCard>
+                    ) : null}
+
+                    <SectionCard title="沖泡要點" icon={Droplets}>
+                      <p className="text-stone-700 leading-relaxed">{kindTea.brewingTips}</p>
+                    </SectionCard>
+
+                    {varietiesKind === 'oolong' ? (
+                      <OolongRegions topOffsetPx={chenChuanScrollOffsetPx} activeHref={oolongRegionHref} />
+                    ) : null}
+
+                    {varietiesKind === 'red' ? (
+                      <SectionCard title="紅茶全球史" icon={Globe}>
+                        <div id="red-tea-global-story" className="scroll-mt-28">
+                          <RedTeaGlobalStory />
+                        </div>
+                      </SectionCard>
+                    ) : null}
+                  </>
+                ) : (
+                  <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 text-stone-700">
+                    找不到對應茶類資料，請重新選擇上方子分類。
+                  </div>
+                )}
+              </>
+            ) : null}
+            </div>
+          </AtlasDockLayout>
+        </div>
+      </div>
+    );
+  };
+
+  const PuerhSection = () => {
+    const puerhSidebarItems = [{ key: 'puerh', label: '普洱茶' }];
+    const puerhSubItemsByKey = { puerh: PUERH_TOC };
+
+    return (
+      <div className="museum-page font-serif">
+        <div className="w-full">
+          <AtlasDockLayout
+            topOffsetPx={siteNavHeightPx + 16}
+            sidebar={
+              <ChapterSidebar
+                title="章節"
+                items={puerhSidebarItems}
+                activeKey="puerh"
+                onSelectKey={() => {}}
+                subItemsByKey={puerhSubItemsByKey}
+                activeSubHref={puerhChapterHref}
+                onSelectSubHref={(href) => selectPuerhChapter(href)}
+                topOffsetPx={siteNavHeightPx + 16}
+                pinMode="static"
+              />
+            }
+          >
+            <div className="min-w-0">
+              <PuerhEncyclopedia topOffsetPx={siteNavHeightPx + 20} activeHref={puerhChapterHref} />
+            </div>
+          </AtlasDockLayout>
+        </div>
+      </div>
+    );
   };
 
   const SeasonsSection = () => {
+    const [showSolarTermsPrimer, setShowSolarTermsPrimer] = useState(false);
     return (
         <div className="museum-page">
             <div className="museum-stage">
@@ -1880,6 +2661,26 @@ const TeaWebsite = () => {
                     </div>
                 </div>
 
+                {/* Dong Pian Special */}
+                <div className="bg-stone-800 rounded-xl p-8 text-stone-200 relative overflow-hidden mb-16">
+                    <div className="absolute right-0 top-0 w-64 h-64 bg-sky-900/30 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <div className="relative z-10 md:flex items-center gap-8">
+                        <div className="md:w-1/3 mb-6 md:mb-0 text-center md:text-right border-r border-stone-600 pr-8">
+                            <h3 className="text-3xl font-bold text-sky-200 mb-2">冬片仔</h3>
+                            <p className="text-stone-400 text-sm">Dong Pian</p>
+                            <span className="inline-block mt-4 px-3 py-1 bg-sky-900/50 text-sky-300 text-xs rounded border border-sky-700">可遇不可求</span>
+                        </div>
+                        <div className="md:w-2/3">
+                            <p className="text-lg leading-relaxed mb-4">
+                                冬茶採收後，茶葉通常進入休眠。但若遇暖冬，茶樹誤以為春天來了而萌發新芽，這時採收的茶稱為「冬片」。
+                            </p>
+                            <p className="text-stone-400 text-sm">
+                                生長緩慢，數量稀少，價格相對較高。主要產於中低海拔茶園，滋味清揚甘甜，不輸冬茶！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 {/* 24 Solar Terms Table */}
                 <div className="mb-16">
                     <div className="text-center mb-8">
@@ -1887,6 +2688,30 @@ const TeaWebsite = () => {
                             <Calendar className="mr-2 text-stone-600"/> 二十四節氣與茶事
                         </h3>
                         <p className="text-stone-600 mt-2">古人的智慧，農曆節氣指導著茶農的採摘節奏。</p>
+                    </div>
+                    <div className="mb-10 museum-panel p-6 md:p-8">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div className="min-w-0">
+                          <div className="text-sm font-extrabold text-stone-700 tracking-wide">展場導覽（完整科普）</div>
+                          <div className="mt-2 text-stone-600 leading-relaxed">
+                            若你想更系統地理解「二十四節氣」：由來與原理、4 種節氣類型、四季一覽表，以及「節／中氣」與農曆的對照關係，可在此展開閱讀。
+                          </div>
+                        </div>
+                        <div className="shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => setShowSolarTermsPrimer((v) => !v)}
+                            className="inline-flex items-center justify-center rounded-full bg-amber-300 text-stone-900 font-extrabold px-6 py-3 shadow-sm border border-amber-200 hover:bg-amber-200 transition-colors"
+                          >
+                            {showSolarTermsPrimer ? '收合完整導覽' : '展開完整導覽'}
+                          </button>
+                        </div>
+                      </div>
+                      {showSolarTermsPrimer ? (
+                        <div className="mt-8">
+                          <SolarTermsPrimer />
+                        </div>
+                      ) : null}
                     </div>
                     <div className="overflow-x-auto bg-white rounded-xl shadow-sm border border-stone-200">
                         <table className="min-w-full divide-y divide-stone-200">
@@ -1909,35 +2734,30 @@ const TeaWebsite = () => {
                         </table>
                     </div>
                 </div>
-
-                {/* Dong Pian Special */}
-                <div className="bg-stone-800 rounded-xl p-8 text-stone-200 relative overflow-hidden">
-                    <div className="absolute right-0 top-0 w-64 h-64 bg-sky-900/30 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                    <div className="relative z-10 md:flex items-center gap-8">
-                        <div className="md:w-1/3 mb-6 md:mb-0 text-center md:text-right border-r border-stone-600 pr-8">
-                            <h3 className="text-3xl font-bold text-sky-200 mb-2">冬片仔</h3>
-                            <p className="text-stone-400 text-sm">Dong Pian</p>
-                            <span className="inline-block mt-4 px-3 py-1 bg-sky-900/50 text-sky-300 text-xs rounded border border-sky-700">可遇不可求</span>
-                        </div>
-                        <div className="md:w-2/3">
-                            <p className="text-lg leading-relaxed mb-4">
-                                冬茶採收後，茶葉通常進入休眠。但若遇暖冬，茶樹誤以為春天來了而萌發新芽，這時採收的茶稱為「冬片」。
-                            </p>
-                            <p className="text-stone-400 text-sm">
-                                生長緩慢，數量稀少，價格相對較高。主要產於中低海拔茶園，滋味清揚甘甜，不輸冬茶！
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
   };
 
   const FeaturedTeaSection = () => {
-    const [selectedFeatured, setSelectedFeatured] = useState('tieguanyin');
+    const notesMode = UI_FLAGS.notesMode;
+    const [selectedFeatured, setSelectedFeatured] = useState(() => featuredTeaMenu?.[0]?.id ?? 'tieguanyin');
+    const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
     const featuredTopRef = React.useRef(null);
     const featuredDidMountRef = React.useRef(false);
+
+    const getReadableTextClass = (hexColor) => {
+      if (typeof hexColor !== 'string' || !hexColor.startsWith('#')) return 'text-white';
+      const hex = hexColor.replace('#', '').trim();
+      const normalized = hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex;
+      if (normalized.length !== 6) return 'text-white';
+      const r = parseInt(normalized.slice(0, 2), 16);
+      const g = parseInt(normalized.slice(2, 4), 16);
+      const b = parseInt(normalized.slice(4, 6), 16);
+      if (![r, g, b].every((n) => Number.isFinite(n))) return 'text-white';
+      const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+      return luminance > 0.72 ? 'text-[color:rgba(15,23,42,0.95)]' : 'text-white';
+    };
 
     useEffect(() => {
       const applyFromUrl = () => {
@@ -1972,47 +2792,166 @@ const TeaWebsite = () => {
     return (
         <div className="museum-page min-h-screen">
             <div className="museum-stage">
+                {notesMode && (
+                <div className="mb-10 museum-panel p-7 md:p-10">
+                  <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                    <div className="min-w-0">
+                      <div className="museum-label">
+                        <Leaf size={14} className="opacity-80" />
+                        TEA HOUSE · NOTES
+                      </div>
+                      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">台灣特色茶｜筆記卡</h2>
+                      <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
+                        先用筆記卡建立台灣特色茶的「風味與代表性」直覺；需要查細節時再展開百科（每一款茶都有完整內容與章節）。
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                      <button
+                        type="button"
+                        onClick={() => setShowFeaturedAtlas(true)}
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
+                      >
+                        展開百科
+                        <ChevronRight size={16} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowFeaturedAtlas(true);
+                          setSelectedFeatured('tieguanyin');
+                          featuredTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
+                      >
+                        直接看鐵觀音
+                        <ChevronRight size={16} className="text-emerald-700" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid md:grid-cols-3 gap-4">
+                    <div className="museum-card px-5 py-4">
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">FOCUS</div>
+                      <div className="mt-1 font-bold text-stone-900">代表性風味</div>
+                      <div className="mt-2 text-sm text-stone-600 leading-relaxed">每款茶用一句話抓住「香氣／口感／茶性」。</div>
+                    </div>
+                    <div className="museum-card px-5 py-4">
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">TEACHING</div>
+                      <div className="mt-1 font-bold text-stone-900">適合教學引用</div>
+                      <div className="mt-2 text-sm text-stone-600 leading-relaxed">章節化內容方便老師挑選段落做講義。</div>
+                    </div>
+                    <div className="museum-card px-5 py-4">
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">FLOW</div>
+                      <div className="mt-1 font-bold text-stone-900">回到沖泡</div>
+                      <div className="mt-2 text-sm text-stone-600 leading-relaxed">特色茶最後都回到「怎麼泡更好喝」。</div>
+                    </div>
+                  </div>
+                </div>
+                )}
+
+                {!notesMode || showFeaturedAtlas ? (
                 <div className="flex flex-col md:flex-row md:items-start gap-8">
                     {/* Sidebar Navigation for Featured Teas */}
-                     <div className="md:w-1/4 mb-8 md:mb-0 md:sticky md:top-24 self-start">
-                        <div className="rounded-2xl bg-white/80 backdrop-blur border border-stone-200 shadow-sm p-4">
-                          <h3 className="text-lg font-extrabold text-stone-900 mb-4 px-2 border-l-4 border-amber-600">台灣特色茶</h3>
-                         <div className="space-y-2">
-                             {featuredTeaMenu.map((item) => (
-                               <button
-                                 key={item.id}
-                                 onClick={() => setSelectedFeatured(item.id)}
-                                 className={`group w-full text-left px-4 py-3 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${
-                                   selectedFeatured === item.id
-                                     ? `${item.activeClass} border-white/10 ring-1 ring-black/10`
-                                     : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50 hover:shadow-md'
-                                 }`}
-                               >
-                                 <span className="font-bold">{item.label}</span>
-                                 <span className="block text-xs opacity-80 mt-1">{item.subtitle}</span>
-                               </button>
-                             ))}
-                         </div>
-                       </div>
-                     </div>
+                  <PinnedChapterSidebar
+                    topOffsetPx={siteNavHeightPx + 16}
+                    pinFrom="md"
+                    wrapperClassName="w-full md:w-[260px] mb-8 md:mb-0 self-start"
+                  >
+                    <div className="rounded-2xl backdrop-blur shadow-sm p-3 tool-surface tool-surface--strong">
+                      <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
+                        台灣特色茶
+                      </h3>
+                      <div className="space-y-2">
+                        {featuredTeaMenu.map((item) => {
+                          const isActive = selectedFeatured === item.id;
+                          const activeTextClass = getReadableTextClass(item.swatch);
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => setSelectedFeatured(item.id)}
+                              className={`group w-full text-left px-3 py-2 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${
+                                isActive
+                                  ? `${activeTextClass} border-stone-200 ring-1 ring-black/10`
+                                  : 'tool-item tool-item--panel'
+                              }`}
+                              style={
+                                isActive
+                                  ? {
+                                      backgroundColor: item.swatch,
+                                      backgroundImage:
+                                        'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))',
+                                    }
+                                  : undefined
+                              }
+                            >
+                              <div className="flex items-start gap-2">
+                                <span
+                                  className="mt-1 inline-block w-3 h-3 rounded-sm border border-stone-200 bg-white/60"
+                                  style={{ backgroundColor: item.swatch }}
+                                  aria-hidden="true"
+                                />
+                                <div className="min-w-0">
+                                  <span className="block font-extrabold text-[16px] leading-snug truncate">
+                                    {item.label}
+                                  </span>
+                                  <span
+                                    className={`block text-xs mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
+                                  >
+                                    {item.subtitle}
+                                  </span>
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </PinnedChapterSidebar>
   
                      {/* Content Area */}
-                     <div className="md:w-3/4">
+                     <div className="flex-1 min-w-0">
                          <div ref={featuredTopRef} className="scroll-mt-28" />
+                         {selectedFeatured === 'biluochun' && <BiluochunGreenTeaContent />}
                          {selectedFeatured === 'tieguanyin' && <TieGuanyinContent />}
                          {selectedFeatured === 'dongding' && <DongDingContent />}
+                         {selectedFeatured === 'gaoshanoolong' && <GaoshanOolongContent />}
                          {selectedFeatured === 'redoolong' && <RedOolongContent />}
+                         {selectedFeatured === 'honeyblack' && <HoneyAromaBlackTeaContent />}
                          {selectedFeatured === 'orientalbeauty' && <OrientalBeautyContent />}
                          {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
+                         {selectedFeatured === 'black_smallleaf' && <SmallLeafBlackTeaContent />}
+                         {selectedFeatured === 'black_largeleaf' && <LargeLeafBlackTeaContent />}
                     </div>
                 </div>
+                ) : notesMode ? (
+                  <div className="museum-panel p-7 md:p-10 text-center">
+                    <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
+                    <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開台灣特色茶百科</div>
+                    <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
+                      百科包含：碧螺春綠茶、文山包種茶、高山烏龍茶、凍頂烏龍茶、鐵觀音茶、東方美人茶、紅烏龍茶、蜜香紅茶、小葉種紅茶、大葉種紅茶。
+                    </p>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+                      <button
+                        type="button"
+                        onClick={() => setShowFeaturedAtlas(true)}
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+                      >
+                        展開百科內容
+                        <ChevronRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
             </div>
         </div>
     );
   };
 
   const BrewingGuide = () => {
+    const notesMode = UI_FLAGS.notesMode;
     const activeTea = teaData[selectedTeaForBrewing];
+    const [showBrewingAtlas, setShowBrewingAtlas] = useState(!notesMode);
 
     const TeaTimer = ({ defaultSeconds }) => {
         const [timeLeft, setTimeLeft] = useState(defaultSeconds);
@@ -2070,6 +3009,62 @@ const TeaWebsite = () => {
     return (
       <div className="museum-page">
         <div className="museum-stage">
+          {notesMode && (
+          <div className="mb-10 museum-panel p-7 md:p-10">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div className="min-w-0">
+                <div className="museum-label mx-auto lg:mx-0">TEA HOUSE · NOTES</div>
+                <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">製程與沖泡｜筆記卡</h2>
+                <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
+                  先用一張筆記卡把「工藝 → 茶性 → 沖泡」串成一條線；需要詳細步驟、表格與選茶沖泡時，再展開完整百科。
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                <button
+                  type="button"
+                  onClick={() => setShowBrewingAtlas(true)}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
+                >
+                  展開百科
+                  <ChevronRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowBrewingAtlas(true);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
+                >
+                  直接開始沖泡
+                  <ChevronRight size={16} className="text-emerald-700" />
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-6 grid md:grid-cols-3 gap-4">
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 1</div>
+                <div className="mt-1 font-bold text-stone-900">看懂製程</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">萎凋、做青、殺青、揉捻、乾燥與焙火，決定茶性與香氣。</div>
+              </div>
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 2</div>
+                <div className="mt-1 font-bold text-stone-900">選對水與器</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">水溫、溶氧、礦物質與器具保溫性，會放大或掩蓋風味。</div>
+              </div>
+              <div className="museum-card px-5 py-4">
+                <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 3</div>
+                <div className="mt-1 font-bold text-stone-900">時間與出湯</div>
+                <div className="mt-2 text-sm text-stone-600 leading-relaxed">投茶量與出湯節奏是「把茶泡好」的最後一哩路。</div>
+              </div>
+            </div>
+          </div>
+          )}
+
+          {!notesMode || showBrewingAtlas ? (
+            <>
           <div className="mb-12 museum-panel p-8 md:p-12 text-center">
             <div className="museum-label mx-auto">EXHIBIT · BREWING</div>
             <h2 className="mt-5 text-3xl md:text-4xl font-extrabold text-stone-900">工藝與沖泡指南</h2>
@@ -2177,6 +3172,26 @@ const TeaWebsite = () => {
                 </div>
             </div>
           </div>
+            </>
+          ) : notesMode ? (
+            <div className="museum-panel p-7 md:p-10 text-center">
+              <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
+              <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開完整製程與沖泡百科</div>
+              <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
+                百科包含：製茶工藝導讀、水質科學解析、選茶沖泡建議與計時器。
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowBrewingAtlas(true)}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
+                >
+                  展開百科內容
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     );
@@ -2758,8 +3773,8 @@ const TeaWebsite = () => {
     };
 
     return (
-    <footer className="museum-footer text-stone-200 font-serif">
-      <div className="max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
+    <footer className="museum-footer text-stone-900 font-serif">
+      <div className="museum-footer__inner max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-5">
             <div className="museum-footer-card p-6">
@@ -2768,28 +3783,29 @@ const TeaWebsite = () => {
                   <Leaf className="h-6 w-6 text-amber-300" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-400">MUSEUM GUIDE</div>
-                  <div className="mt-1 text-2xl font-extrabold tracking-widest text-white">{i18n.t('site.title')}</div>
-                  <div className="mt-1 text-[11px] font-bold tracking-widest text-stone-400">{i18n.t('site.tagline')}</div>
+                  <div className="text-xs font-extrabold tracking-widest text-stone-600">MUSEUM GUIDE</div>
+                  <div className="mt-1 text-2xl font-extrabold tracking-widest text-stone-900">{i18n.t('site.title')}</div>
+                  <div className="mt-1 text-xs font-bold tracking-widest text-stone-600">{i18n.t('site.tagline')}</div>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-stone-300 leading-relaxed">{i18n.t('footer.aboutText')}</p>
+              <p className="mt-4 text-sm text-stone-700 leading-relaxed">{i18n.t('footer.aboutText')}</p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs">
-                <span className="museum-label border-white/15 bg-white/5 text-stone-200">For Teaching</span>
-                <span className="museum-label border-white/15 bg-white/5 text-stone-200">For Research</span>
-                <span className="museum-label border-white/15 bg-white/5 text-stone-200">For Students</span>
+                <span className="museum-label">For Teaching</span>
+                <span className="museum-label">For Research</span>
+                <span className="museum-label">For Students</span>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-4">
             <div className="museum-footer-card p-6">
-              <div className="text-xs font-extrabold tracking-widest text-stone-400 mb-4">{i18n.t('footer.quickLinks')}</div>
+              <div className="text-xs font-extrabold tracking-widest text-stone-600 mb-4">{i18n.t('footer.quickLinks')}</div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 {[
                   ['varieties', i18n.t('nav.varieties')],
                   ['cultivars', i18n.t('nav.cultivars')],
                   ['science', i18n.t('nav.science')],
+                  ['zisha', i18n.t('nav.zisha')],
                   ['regions', i18n.t('nav.regions')],
                   ['history', i18n.t('nav.history')],
                 ].map(([tab, label]) => (
@@ -2797,7 +3813,7 @@ const TeaWebsite = () => {
                     key={tab}
                     type="button"
                     onClick={() => goToTab(tab)}
-                    className="text-left px-3 py-2 rounded-xl border border-white/10 bg-white/0 hover:bg-white/5 transition-colors text-stone-200"
+                    className="text-left px-3 py-2 rounded-xl border border-stone-200/80 bg-white/80 hover:bg-white transition-colors text-stone-800"
                   >
                     {label}
                   </button>
@@ -2808,24 +3824,24 @@ const TeaWebsite = () => {
 
           <div className="lg:col-span-3">
             <div className="museum-footer-card p-6">
-              <div className="text-xs font-extrabold tracking-widest text-stone-400 mb-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-600 mb-4">
                 {i18n.lang === 'en' ? 'VISITOR INFO' : '參觀資訊'}
               </div>
-              <ul className="space-y-3 text-sm text-stone-300 leading-relaxed">
+              <ul className="space-y-3 text-sm text-stone-700 leading-relaxed">
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-300"></span>
+                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-400"></span>
                   {i18n.lang === 'en'
                     ? 'Shareable links: use ?tab=... to open a section directly.'
                     : '可分享連結：使用 ?tab=... 可直接打開指定展區。'}
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-300"></span>
+                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-400"></span>
                   {i18n.lang === 'en'
                     ? 'Language toggle is available in the top navigation.'
                     : '右上角可切換語言（中文/EN）。'}
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-300"></span>
+                  <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-400"></span>
                   {i18n.lang === 'en'
                     ? 'Tables are horizontally scrollable on mobile.'
                     : '手機觀看表格可左右滑動。'}
@@ -2835,7 +3851,7 @@ const TeaWebsite = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-8 text-center text-xs text-stone-500">
+        <div className="mt-10 border-t border-stone-200/70 pt-8 text-center text-xs text-stone-600">
           &copy; 2023 {i18n.t('footer.copyright')}. All rights reserved. {i18n.t('footer.designedFor')}
         </div>
       </div>
@@ -2843,7 +3859,7 @@ const TeaWebsite = () => {
       {showScrollTop && (
         <button 
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-amber-300 text-stone-900 p-3 rounded-full shadow-lg hover:bg-amber-200 transition-all z-50 animate-fadeIn border border-amber-200"
+            className="fixed bottom-8 right-8 bg-amber-300 text-stone-900 p-3 rounded-full hover:bg-amber-200 transition-all z-50 animate-fadeIn border border-amber-200"
             aria-label={i18n.t('ui.backToTop')}
         >
             <ArrowUp size={24} />
@@ -2855,11 +3871,37 @@ const TeaWebsite = () => {
 
   return (
     <div className="min-h-screen text-stone-900">
-      <Navigation />
+        <SiteNavigation
+          i18n={i18n}
+          activeTab={activeTab}
+          varietiesKind={varietiesKind}
+          atlasNavOpen={atlasNavOpen}
+          mobileMenuOpen={mobileMenuOpen}
+          goToTab={goToTab}
+          setAtlasNavOpen={setAtlasNavOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          setVarietiesKind={setVarietiesKind}
+        />
       
       <main>
+        {activeTab === 'journey' && <JourneySection />}
         {activeTab === 'home' && <HeroSection />}
-        {activeTab === 'home' && <VarietiesSection />} 
+        {activeTab === 'home' && <VarietiesSection />}
+
+        {activeTab === 'puerh' && <PuerhSection />}
+
+        {activeTab === 'sensory' && (
+          <div className="museum-page font-serif">
+            <div className="museum-stage">
+              <SensoryQuestionBank
+                questions={sensoryQuestionBank}
+                activeTopic={sensoryTopic}
+                onSelectTopic={setSensoryTopic}
+                topOffsetPx={siteNavHeightPx + 12}
+              />
+            </div>
+          </div>
+        )}
 
         {activeTab === 'cultivars' && <CultivarSection />}
         
@@ -2869,6 +3911,8 @@ const TeaWebsite = () => {
 
         {activeTab === 'seasons' && <SeasonsSection />} 
         
+        {activeTab === 'zisha' && <ZishaExhibit />} 
+
         {activeTab === 'science' && <ScienceSection />}
 
         {activeTab === 'brewing' && <BrewingGuide selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}

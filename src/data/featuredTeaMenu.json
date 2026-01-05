@@ -1,33 +1,72 @@
 [
   {
-    "id": "tieguanyin",
-    "label": "木柵鐵觀音",
-    "subtitle": "重焙火・官韻",
-    "activeClass": "bg-amber-900 text-white shadow-md"
-  },
-  {
-    "id": "dongding",
-    "label": "凍頂烏龍",
-    "subtitle": "中發酵・焙火韻",
-    "activeClass": "bg-amber-800 text-white shadow-md"
-  },
-  {
-    "id": "redoolong",
-    "label": "台東紅烏龍",
-    "subtitle": "重發酵・琥珀湯色",
-    "activeClass": "bg-orange-700 text-white shadow-md"
-  },
-  {
-    "id": "orientalbeauty",
-    "label": "東方美人",
-    "subtitle": "蜜香・小綠葉蟬",
-    "activeClass": "bg-rose-500 text-white shadow-md"
+    "id": "biluochun",
+    "label": "碧螺春綠茶",
+    "subtitle": "不發酵｜清鮮花果香",
+    "swatch": "#d9f99d",
+    "activeClass": "bg-emerald-700 text-white"
   },
   {
     "id": "wenshan",
-    "label": "文山包種",
-    "subtitle": "輕發酵・清香幽雅",
-    "activeClass": "bg-emerald-700 text-white shadow-md"
+    "label": "文山包種茶",
+    "subtitle": "輕發酵｜清香幽雅",
+    "swatch": "#ecfccb",
+    "activeClass": "bg-teal-600 text-white"
+  },
+  {
+    "id": "gaoshanoolong",
+    "label": "高山烏龍茶",
+    "subtitle": "輕發酵｜高海拔清甜",
+    "swatch": "#fef3c7",
+    "activeClass": "bg-sky-600 text-white"
+  },
+  {
+    "id": "dongding",
+    "label": "凍頂烏龍茶",
+    "subtitle": "中發酵｜焙火韻",
+    "swatch": "#fde68a",
+    "activeClass": "bg-amber-800 text-white"
+  },
+  {
+    "id": "tieguanyin",
+    "label": "鐵觀音茶",
+    "subtitle": "重焙火｜官韻",
+    "swatch": "#fcd34d",
+    "activeClass": "bg-amber-900 text-white"
+  },
+  {
+    "id": "orientalbeauty",
+    "label": "東方美人茶",
+    "subtitle": "重發酵｜蜜香與熟果",
+    "swatch": "#fb923c",
+    "activeClass": "bg-rose-500 text-white"
+  },
+  {
+    "id": "redoolong",
+    "label": "紅烏龍茶",
+    "subtitle": "重發酵｜琥珀湯色",
+    "swatch": "#f97316",
+    "activeClass": "bg-orange-700 text-white"
+  },
+  {
+    "id": "honeyblack",
+    "label": "蜜香紅茶",
+    "subtitle": "著涎轉香｜舞鶴台地",
+    "swatch": "#f59e0b",
+    "activeClass": "bg-amber-700 text-white"
+  },
+  {
+    "id": "black_smallleaf",
+    "label": "小葉種紅茶",
+    "subtitle": "全發酵｜細緻花香",
+    "swatch": "#dc2626",
+    "activeClass": "bg-red-600 text-white"
+  },
+  {
+    "id": "black_largeleaf",
+    "label": "大葉種紅茶",
+    "subtitle": "全發酵｜濃厚飽滿",
+    "swatch": "#7f1d1d",
+    "activeClass": "bg-red-800 text-white"
   }
 ]
-

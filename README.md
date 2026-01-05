@@ -23,3 +23,7 @@
 - 檢查：`npm run lint`
 - 打包：`npm run build`
 - 預覽：`npm run preview`
+
+## 一鍵上傳（更新 Cloudflare Pages）
+
+- 執行 `upload_to_github.bat`（會自動 `git add/commit/pull --rebase/push`）

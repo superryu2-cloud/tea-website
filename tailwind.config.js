@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
+
 export default {
   content: [
     "./index.html",
@@ -6,7 +8,12 @@ export default {
     "./src/**/*.json",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        serif: ['"LXGW WenKai TC"', ...defaultTheme.fontFamily.serif],
+        sans: ['"LXGW WenKai TC"', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 }

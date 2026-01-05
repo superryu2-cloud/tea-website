@@ -3,25 +3,90 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Body: clean, highly readable UI sans stack */
+    --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans',
+      'PingFang TC', 'PingFang SC', 'Hiragino Sans', 'Microsoft JhengHei', 'Microsoft YaHei', Arial,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+
+    /* Headings: keep consistent (sans) for cleaner UI look. */
+    --font-display: var(--font-body);
+    --macaron-ink: #1f2937;
+    --macaron-ink-soft: #475569;
+    --macaron-paper: rgba(255, 255, 255, 0.88);
+    --macaron-paper-strong: rgba(255, 255, 255, 0.95);
+    --macaron-border: rgba(148, 163, 184, 0.55);
+
+    --macaron-mint: #7bdcb5;
+    --macaron-mint-soft: rgba(123, 220, 181, 0.18);
+    --macaron-peach: #ffb3c7;
+    --macaron-peach-soft: rgba(255, 179, 199, 0.16);
+    --macaron-sky: #9ad0ff;
+    --macaron-sky-soft: rgba(154, 208, 255, 0.16);
+    --macaron-lavender: #c9b6ff;
+    --macaron-lavender-soft: rgba(201, 182, 255, 0.16);
+
+    /* Nav/Tools theme tokens (default = current paper/light look) */
+    --tool-bg: rgba(255, 255, 255, 0.92);
+    --tool-bg-strong: rgba(255, 255, 255, 0.96);
+    --tool-border: rgba(148, 163, 184, 0.45);
+    --tool-text: rgba(15, 23, 42, 0.95);
+    --tool-muted: rgba(71, 85, 105, 0.92);
+    --tool-hover-bg: rgba(15, 23, 42, 0.04);
+    --tool-active-bg: rgba(16, 185, 129, 0.16);
+    --tool-active-border: rgba(16, 185, 129, 0.34);
+
+  }
+
+  :root[data-nav-theme='slate'] {
+    --tool-bg: rgba(15, 23, 42, 0.82);
+    --tool-bg-strong: rgba(15, 23, 42, 0.92);
+    --tool-border: rgba(148, 163, 184, 0.22);
+    --tool-text: rgba(248, 250, 252, 0.95);
+    --tool-muted: rgba(203, 213, 225, 0.88);
+    --tool-hover-bg: rgba(255, 255, 255, 0.06);
+    --tool-active-bg: rgba(16, 185, 129, 0.18);
+    --tool-active-border: rgba(16, 185, 129, 0.35);
+  }
+
+  :root[data-nav-theme='graphite'] {
+    --tool-bg: rgba(17, 24, 39, 0.84);
+    --tool-bg-strong: rgba(17, 24, 39, 0.94);
+    --tool-border: rgba(120, 113, 108, 0.26);
+    --tool-text: rgba(255, 255, 255, 0.94);
+    --tool-muted: rgba(214, 211, 209, 0.85);
+    --tool-hover-bg: rgba(255, 255, 255, 0.05);
+    --tool-active-bg: rgba(16, 185, 129, 0.16);
+    --tool-active-border: rgba(16, 185, 129, 0.32);
+  }
+
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply text-stone-900 antialiased;
-    background-color: #fbf7ef;
+    font-family: var(--font-body);
+    background-color: #f3f2ee;
     background-image:
-      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px),
-      radial-gradient(rgba(120, 113, 108, 0.06) 0.6px, transparent 0.6px),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.80), rgba(251, 247, 239, 0.95));
-    background-size: 18px 18px, 24px 24px, auto;
-    background-position: 0 0, 9px 9px, 0 0;
+      linear-gradient(to right, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
+      linear-gradient(to right, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(250, 248, 243, 0.98), rgba(243, 242, 238, 1));
+    background-size: 48px 48px, 48px 48px, 12px 12px, 12px 12px, auto;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+
+  .font-serif {
+    font-family: var(--font-body) !important;
   }
 }
 
 @layer components {
   .museum-page {
-    @apply py-12 font-serif;
-    animation: museum-fade-in 220ms ease-out both;
+    @apply py-12;
+    animation: museum-fade-in-page 220ms ease-out both;
+    color: rgba(17, 24, 39, 0.98);
   }
 
   .museum-stage {
@@ -29,85 +94,654 @@
   }
 
   .museum-panel {
-    @apply rounded-3xl border border-stone-300 shadow-sm;
-    background-color: rgba(255, 255, 255, 0.7);
+    @apply rounded-[28px] border border-stone-200/80;
+    background-color: rgba(255, 255, 255, 0.94);
     background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)),
-      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px);
-    background-size: auto, 18px 18px;
+      linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9)),
+      radial-gradient(rgba(120, 113, 108, 0.045) 0.6px, transparent 0.6px);
+    background-size: auto, 24px 24px;
     background-position: 0 0, 0 0;
-    box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.06),
-      0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   }
 
   .museum-paper {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--macaron-paper);
     background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55)),
-      radial-gradient(rgba(120, 113, 108, 0.10) 0.6px, transparent 0.6px);
-    background-size: auto, 18px 18px;
+      linear-gradient(180deg, var(--macaron-paper-strong), rgba(255, 255, 255, 0.74)),
+      radial-gradient(rgba(120, 113, 108, 0.06) 0.6px, transparent 0.6px),
+      linear-gradient(90deg, rgba(123, 220, 181, 0.07), rgba(154, 208, 255, 0.06), rgba(255, 179, 199, 0.06));
+    background-size: auto, 24px 24px;
     background-position: 0 0, 0 0;
   }
 
-  .museum-frame {
-    @apply rounded-3xl border border-stone-300 shadow-sm;
+  .cement-paper {
+    background-color: rgba(243, 244, 246, 0.92);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(243, 244, 246, 0.92)),
+      radial-gradient(rgba(15, 23, 42, 0.05) 0.7px, transparent 0.7px),
+      radial-gradient(rgba(15, 23, 42, 0.035) 0.6px, transparent 0.6px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0.00));
+    background-size: auto, 28px 28px, 42px 42px, auto;
+    background-position: 0 0, 0 0, 10px 14px, 0 0;
+  }
+
+  .cement-strip {
+    background-color: rgba(243, 244, 246, 0.86);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(243, 244, 246, 0.86)),
+      radial-gradient(rgba(15, 23, 42, 0.045) 0.7px, transparent 0.7px),
+      radial-gradient(rgba(15, 23, 42, 0.028) 0.6px, transparent 0.6px);
+    background-size: auto, 30px 30px, 44px 44px;
+    background-position: 0 0, 0 0, 12px 18px;
+  }
+
+  /* Atlas: docked (left) sidebar + full-width content (desktop) */
+  .atlas-dock {
+    width: 100%;
+  }
+
+  .atlas-dock__sidebar {
+    display: none;
+  }
+
+  .atlas-dock__content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (min-width: 1280px) {
+    .atlas-dock__sidebar {
+      display: block;
+      position: fixed;
+      top: var(--atlas-top, 96px);
+      left: max(
+        16px,
+        calc(
+          (100vw - (var(--atlas-content-max, 72rem) + var(--atlas-sidebar-width, 288px) + 72px)) / 2 + 24px
+        )
+      );
+      width: var(--atlas-sidebar-width, 288px);
+      height: calc(100vh - var(--atlas-top, 96px));
+      z-index: 25;
+      border-right: 1px solid var(--tool-border);
+      background: var(--tool-bg-strong);
+      padding: 12px 12px 12px 16px;
+      contain: layout paint;
+      will-change: transform;
+      transform: translateZ(0);
+      overflow: hidden;
+    }
+
+    .atlas-dock__content {
+      max-width: calc(var(--atlas-content-max, 72rem) + var(--atlas-sidebar-width, 288px) + 72px);
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px 0 calc(var(--atlas-sidebar-width, 288px) + 48px);
+    }
+
+    .atlas-dock__resizer {
+      position: absolute;
+      top: 0;
+      right: -6px;
+      width: 12px;
+      height: 100%;
+      cursor: col-resize;
+    }
+
+    .atlas-dock__resizer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5px;
+      width: 1px;
+      height: 100%;
+      background: var(--tool-border);
+      opacity: 0.75;
+      transition: opacity 120ms ease-out;
+    }
+
+    .atlas-dock__resizer:hover::after {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root[data-atlas-dock='1'] .museum-footer__inner {
+      max-width: calc(var(--atlas-dock-content-max, 72rem) + var(--atlas-dock-sidebar-width, 288px) + 72px);
+      padding-left: calc(var(--atlas-dock-sidebar-width, 288px) + 48px);
+      padding-right: 24px;
+    }
+  }
+
+  /* Nav (top) theme */
+  :root[data-nav-theme='slate'] #site-nav,
+  :root[data-nav-theme='graphite'] #site-nav {
+    background-image: none !important;
+    background-color: var(--tool-bg-strong) !important;
+    border-bottom: 1px solid var(--tool-border);
+    color: var(--tool-text);
+  }
+
+  :root[data-nav-theme='slate'] #atlas-secondary-nav,
+  :root[data-nav-theme='graphite'] #atlas-secondary-nav {
+    background-image: none !important;
+    background-color: var(--tool-bg) !important;
+    border-bottom: 1px solid var(--tool-border);
+  }
+
+  /* Keep the two top bars visually "fixed" (reduce scroll repaint/jitter). */
+  #site-nav,
+  #atlas-secondary-nav {
+    contain: layout paint;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  :root[data-nav-theme='slate'] #site-nav {
+    --macaron-ink: rgba(248, 250, 252, 0.92);
+    --nav-hover-ink: rgba(255, 255, 255, 0.92);
+    --nav-active-ink: rgba(255, 255, 255, 0.98);
+    --nav-underline: rgba(16, 185, 129, 0.72);
+  }
+
+  :root[data-nav-theme='graphite'] #site-nav {
+    --macaron-ink: rgba(255, 255, 255, 0.92);
+    --nav-hover-ink: rgba(255, 255, 255, 0.92);
+    --nav-active-ink: rgba(255, 255, 255, 0.98);
+    --nav-underline: rgba(16, 185, 129, 0.68);
+  }
+
+  /* Tool surfaces (sidebars, progress widgets, context bars) */
+  .tool-surface {
+    background-color: var(--tool-bg);
+    border: 1px solid var(--tool-border);
+    color: var(--tool-text);
+  }
+
+  :root[data-nav-theme='slate'] .tool-surface,
+  :root[data-nav-theme='graphite'] .tool-surface {
+    background-image: none !important;
+  }
+
+  .tool-surface :where(.text-stone-950, .text-stone-900, .text-stone-800, .text-stone-700) {
+    color: var(--tool-text) !important;
+  }
+
+  .tool-surface :where(.text-stone-600, .text-stone-500, .text-stone-400) {
+    color: var(--tool-muted) !important;
+  }
+
+  :root[data-nav-theme='slate'] #site-nav :where(.text-stone-950, .text-stone-900, .text-stone-800, .text-stone-700),
+  :root[data-nav-theme='graphite'] #site-nav :where(.text-stone-950, .text-stone-900, .text-stone-800, .text-stone-700) {
+    color: var(--tool-text) !important;
+  }
+
+  :root[data-nav-theme='slate'] #site-nav :where(.text-stone-600, .text-stone-500, .text-stone-400),
+  :root[data-nav-theme='graphite'] #site-nav :where(.text-stone-600, .text-stone-500, .text-stone-400) {
+    color: var(--tool-muted) !important;
+  }
+
+  :root[data-nav-theme='slate'] #site-nav .museum-label,
+  :root[data-nav-theme='graphite'] #site-nav .museum-label {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: var(--tool-border);
+    color: var(--tool-text);
+  }
+
+  .tool-surface--strong {
+    background-color: var(--tool-bg-strong);
+  }
+
+  .tool-muted {
+    color: var(--tool-muted);
+  }
+
+  .tool-item {
+    background-color: transparent;
+    border: 1px solid var(--tool-border);
+    color: var(--tool-text);
+  }
+
+  .tool-item--panel {
+    background-color: rgba(255, 255, 255, 0.76);
+  }
+
+  :root[data-nav-theme='slate'] .tool-item--panel,
+  :root[data-nav-theme='graphite'] .tool-item--panel {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .tool-item:hover {
+    background-color: var(--tool-hover-bg);
+  }
+
+  .tool-item--active {
+    background-color: var(--tool-active-bg);
+    border-color: var(--tool-active-border);
+  }
+
+  .tool-subitem--active {
+    background-color: rgba(245, 158, 11, 0.16);
+  }
+
+  :root[data-nav-theme='slate'] .tool-subitem--active,
+  :root[data-nav-theme='graphite'] .tool-subitem--active {
+    background-color: rgba(245, 158, 11, 0.14);
+    color: var(--tool-text);
+  }
+
+  .glass-panel {
+    background-color: rgba(15, 23, 42, 0.9);
+    background-image:
+      radial-gradient(1200px 500px at 20% 0%, rgba(59, 130, 246, 0.18), transparent 55%),
+      radial-gradient(900px 420px at 100% 30%, rgba(16, 185, 129, 0.12), transparent 55%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(148, 163, 184, 0.18);
     box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.06),
-      0 1px 0 rgba(255, 255, 255, 0.6) inset;
+      0 18px 50px rgba(15, 23, 42, 0.28),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset;
+    color: rgba(248, 250, 252, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .glass-panel__kicker {
+    color: rgba(226, 232, 240, 0.85);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .museum-frame {
+    @apply rounded-[28px] border border-stone-200/80;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
   }
 
   .museum-card {
-    @apply rounded-2xl border border-stone-200 bg-white;
-    box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.06),
-      0 1px 0 rgba(255, 255, 255, 0.65) inset;
+    @apply rounded-2xl border border-stone-200/70 bg-white;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75) inset;
+  }
+
+  .museum-panel .text-xs,
+  .museum-card .text-xs,
+  .museum-page .text-xs {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .museum-panel .text-sm,
+  .museum-card .text-sm,
+  .museum-page .text-sm {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+
+  .museum-page .text-xl {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+
+  .museum-page h5 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+  }
+
+  .museum-page h1,
+  .museum-page h2,
+  .museum-page h3,
+  .museum-page h4,
+  .museum-page h5 {
+    font-weight: 800 !important;
+  }
+
+  /* Article-style headings: keep clean UI type, add subtle accent instead of changing font. */
+  .museum-page :where(h1, h2, h3, h4, h5) {
+    letter-spacing: -0.01em;
+  }
+
+  .museum-page :where(h3) {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 10px;
+    text-decoration-color: rgba(239, 68, 68, 0.4);
+  }
+
+  /* Readability: force higher contrast for “muted” utility colors in content. */
+  .museum-page .text-stone-500 {
+    color: rgba(51, 65, 85, 0.96) !important;
+  }
+
+  .museum-page .text-stone-600,
+  .museum-page .text-slate-600 {
+    color: rgba(30, 41, 59, 0.98) !important;
+  }
+
+  .museum-page .text-stone-700,
+  .museum-page .text-slate-700 {
+    color: rgba(17, 24, 39, 0.98) !important;
+  }
+
+  .museum-page .text-stone-800,
+  .museum-page .text-slate-800 {
+    color: rgba(17, 24, 39, 0.98) !important;
+  }
+
+  /* Typography: notebook-like, high readability defaults for content. */
+  .museum-page :where(p, li) {
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 500;
+    color: inherit;
+  }
+
+  .museum-page :where(strong) {
+    font-weight: 700;
+  }
+
+  .museum-page :where(ul, ol) {
+    padding-left: 1.25rem;
+  }
+
+  .museum-page :where(li) {
+    margin-top: 0.25rem;
   }
 
   .museum-label {
-    @apply inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/80 px-3 py-1 text-xs font-extrabold tracking-widest text-stone-800;
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs md:text-sm font-extrabold;
+    color: #0f3d2e;
+    border-color: rgba(123, 220, 181, 0.55);
+    background-color: rgba(123, 220, 181, 0.18);
   }
 
   .museum-plaque {
-    @apply rounded-2xl border border-stone-300 bg-stone-900 text-stone-100;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    @apply rounded-2xl border border-emerald-200 bg-emerald-50 text-stone-900;
+    box-shadow: none;
   }
 
   .museum-footer {
-    background-color: #0b0b0c;
+    background-color: rgba(255, 255, 255, 0.7);
     background-image:
-      radial-gradient(rgba(245, 158, 11, 0.12) 0.6px, transparent 0.6px),
-      radial-gradient(rgba(255, 255, 255, 0.08) 0.6px, transparent 0.6px),
-      linear-gradient(180deg, rgba(15, 15, 18, 0.92), rgba(0, 0, 0, 1));
-    background-size: 22px 22px, 30px 30px, auto;
-    background-position: 0 0, 11px 11px, 0 0;
+      radial-gradient(rgba(120, 113, 108, 0.08) 0.6px, transparent 0.6px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(251, 250, 246, 1));
+    background-size: 26px 26px, auto;
+    background-position: 0 0, 0 0;
   }
 
   .museum-footer-card {
-    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur;
-    box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.22),
-      0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    @apply rounded-2xl border border-stone-200/70 bg-white/70 backdrop-blur;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75) inset;
+  }
+
+  .science-whitepaper-hero h3 {
+    font-size: clamp(24px, 2.2vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: rgba(15, 23, 42, 0.95);
+  }
+
+  .science-whitepaper-hero p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(51, 65, 85, 0.92) !important;
+  }
+
+  .science-whitepaper-badge {
+    background-color: rgba(254, 243, 199, 0.9) !important;
+    border-color: rgba(252, 211, 77, 0.55) !important;
+    color: rgba(120, 53, 15, 0.95) !important;
+  }
+
+  .science-chemistry-diagram .opacity-80 {
+    opacity: 1 !important;
+  }
+
+  .science-chemistry-diagram .text-stone-400 {
+    color: rgba(71, 85, 105, 0.9) !important;
+  }
+
+  .science-chemistry-diagram .bg-stone-100.text-stone-500 {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(226, 232, 240, 0.95) !important;
+    color: rgba(51, 65, 85, 0.92) !important;
+    font-weight: 600 !important;
+  }
+
+  .science-chemistry-diagram .text-xs {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .science-chemistry-diagram .text-sm {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+
+  .science-chemistry-diagram .text-xl {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+
+  .science-chemistry-diagram h5 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
   }
 
   .museum-tab {
-    @apply inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-3 text-sm font-extrabold text-stone-800 shadow-sm transition-colors;
-    background-color: rgba(255, 255, 255, 0.75);
+    @apply inline-flex items-center gap-2 rounded-full border border-stone-200/80 px-6 py-3 text-sm font-extrabold text-stone-800 transition-colors;
+    background-color: rgba(255, 255, 255, 0.82);
     -webkit-tap-highlight-color: transparent;
     appearance: none;
   }
 
   .museum-tab:hover {
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.96);
   }
 
   .museum-tab-active {
-    border-color: #0b0b0c;
-    background-color: #0b0b0c;
-    color: #fafaf9;
-    box-shadow:
-      0 16px 36px rgba(0, 0, 0, 0.16),
-      0 1px 0 rgba(255, 255, 255, 0.10) inset;
+    border-color: rgba(123, 220, 181, 0.7);
+    background-color: rgba(123, 220, 181, 0.18);
+    color: #0f3d2e;
+    box-shadow: none;
+  }
+
+  .nav-pill {
+    @apply inline-flex items-center whitespace-nowrap font-semibold px-2 py-2 transition-colors duration-200 shrink-0;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--macaron-ink);
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .nav-pill--tier1 {
+    font-size: 16px;
+    line-height: 1.2;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: 800;
+  }
+
+  .nav-pill--tier2 {
+    font-size: 16px;
+    line-height: 1.2;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+  }
+
+  .nav-pill--tier3 {
+    font-size: 16px;
+    line-height: 1.2;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .nav-pill--tier1 { font-size: 16px; }
+    .nav-pill--tier2 { font-size: 16px; }
+    .nav-pill--tier3 { font-size: 16px; }
+  }
+
+  .nav-pill:hover {
+    color: var(--nav-hover-ink, rgba(15, 23, 42, 0.92));
+  }
+
+  .nav-pill--active {
+    color: var(--nav-active-ink, rgba(15, 23, 42, 1));
+    box-shadow: none;
+  }
+
+  .nav-pill__label {
+    @apply relative inline-block;
+    padding-bottom: 0;
+  }
+
+  .nav-pill__label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 2em;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--nav-underline, rgba(16, 185, 129, 0.55));
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .nav-pill:hover .nav-pill__label::after {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+
+  .nav-pill--active .nav-pill__label::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Label flip (text) — iWare-like */
+  .nav-pill__label--flip {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1.2em;
+    line-height: 1.2;
+  }
+
+  .nav-pill__label-inner {
+    display: block;
+    transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    will-change: transform;
+  }
+
+  .nav-pill__label-front,
+  .nav-pill__label-back {
+    display: block;
+  }
+
+  .nav-pill__label-back {
+    color: var(--nav-hover-ink, rgba(6, 95, 70, 0.98));
+  }
+
+  .nav-pill:hover .nav-pill__label--flip .nav-pill__label-inner,
+  .nav-pill:focus-visible .nav-pill__label--flip .nav-pill__label-inner {
+    transform: translateY(-1.2em);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-pill__label-inner,
+    .nav-pill__label::after {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+
+
+  .subnav-pill {
+    @apply whitespace-nowrap font-medium px-2 py-2 transition-colors duration-200 shrink-0;
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--macaron-ink);
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .subnav-pill--tier2 {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .subnav-pill { font-size: 15px; }
+    .subnav-pill--tier2 { font-size: 16px; }
+  }
+
+  .subnav-pill:hover {
+    color: var(--nav-hover-ink, rgba(15, 23, 42, 0.92));
+  }
+
+  .subnav-pill--active {
+    color: var(--nav-active-ink, rgba(15, 23, 42, 1));
+    box-shadow: none;
+  }
+
+  .subnav-pill__label {
+    @apply relative inline-block;
+    padding-bottom: 7px;
+  }
+
+  .subnav-pill__label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 2em;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--nav-underline, rgba(167, 139, 250, 0.65));
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .subnav-pill:hover .subnav-pill__label::after {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+
+  .subnav-pill--active .subnav-pill__label::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .subnav-scroll::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .subnav-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.12);
+    border-radius: 999px;
+  }
+
+  .subnav-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(154, 208, 255, 0.7), rgba(201, 182, 255, 0.7), rgba(255, 179, 199, 0.65));
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .notebook-paper {
+    background-color: rgba(255, 253, 244, 0.86);
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(120, 113, 108, 0.00) 0px,
+        rgba(120, 113, 108, 0.00) 26px,
+        rgba(120, 113, 108, 0.065) 26px,
+        rgba(120, 113, 108, 0.065) 27px
+      ),
+      radial-gradient(rgba(120, 113, 108, 0.06) 0.7px, transparent 0.7px);
+    background-size: auto, auto;
+    background-position: 0 0, 0 0;
   }
 
   .museum-tab:active {
@@ -123,15 +757,20 @@
   }
 
   .museum-tab-active:hover {
-    background-color: #111113;
+    background-color: rgba(16, 185, 129, 0.16);
   }
 
   .museum-tab-active:active {
-    background-color: #0b0b0c;
+    background-color: rgba(16, 185, 129, 0.20);
   }
 }
 
 @layer utilities {
+  @keyframes museum-fade-in-page {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
   @keyframes museum-fade-in {
     0% { opacity: 0; transform: translateY(6px); }
     100% { opacity: 1; transform: translateY(0); }
