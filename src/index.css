@@ -5,11 +5,14 @@
 @layer base {
   :root {
     /* Body: clean, highly readable UI sans stack */
-    --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans',
-      'PingFang TC', 'PingFang SC', 'Hiragino Sans', 'Microsoft JhengHei', 'Microsoft YaHei', Arial,
+    --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans TC', 'Noto Sans',
+      'Microsoft JhengHei', 'Microsoft YaHei', 'PingFang TC', 'PingFang SC', 'Hiragino Sans', Arial,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
 
     /* Headings: keep consistent (sans) for cleaner UI look. */
+    /* Prefer Windows Ming/Song style first for a classic "明體" look. */
+    --font-serif: ui-serif, 'Noto Serif TC', 'Source Han Serif TC', 'Songti TC', 'PMingLiU', 'MingLiU', serif;
+    /* Default headings: use sans for stronger weights/clarity. */
     --font-display: var(--font-body);
     --macaron-ink: #1f2937;
     --macaron-ink-soft: #475569;
@@ -25,6 +28,12 @@
     --macaron-sky-soft: rgba(154, 208, 255, 0.16);
     --macaron-lavender: #c9b6ff;
     --macaron-lavender-soft: rgba(201, 182, 255, 0.16);
+    --macaron-lemon: #ffd86b;
+    --macaron-lemon-soft: rgba(255, 216, 107, 0.14);
+    --macaron-coral: #ff8fb1;
+    --macaron-coral-soft: rgba(255, 143, 177, 0.13);
+    --macaron-teal: #4dd6c3;
+    --macaron-teal-soft: rgba(77, 214, 195, 0.12);
 
     /* Nav/Tools theme tokens (default = current paper/light look) */
     --tool-bg: rgba(255, 255, 255, 0.92);
@@ -60,6 +69,20 @@
     --tool-active-border: rgba(16, 185, 129, 0.32);
   }
 
+  :root[data-nav-theme='lp'] {
+    --tool-bg: rgba(255, 255, 255, 0.92);
+    --tool-bg-strong: rgba(255, 255, 255, 0.97);
+    --tool-border: rgba(148, 163, 184, 0.36);
+    --tool-text: rgba(15, 23, 42, 0.95);
+    --tool-muted: rgba(71, 85, 105, 0.92);
+    --tool-hover-bg: rgba(2, 132, 199, 0.05);
+    --tool-active-bg: rgba(2, 132, 199, 0.14);
+    --tool-active-border: rgba(2, 132, 199, 0.34);
+
+    --macaron-paper: rgba(255, 255, 255, 0.92);
+    --macaron-paper-strong: rgba(255, 255, 255, 0.98);
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -68,17 +91,34 @@
     font-family: var(--font-body);
     background-color: #f3f2ee;
     background-image:
+      radial-gradient(980px 520px at 14% -12%, var(--macaron-mint-soft), transparent 62%),
+      radial-gradient(980px 520px at 88% -14%, var(--macaron-sky-soft), transparent 60%),
+      radial-gradient(980px 560px at 12% 112%, var(--macaron-peach-soft), transparent 64%),
       linear-gradient(to right, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
       linear-gradient(to right, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
       linear-gradient(180deg, rgba(250, 248, 243, 0.98), rgba(243, 242, 238, 1));
-    background-size: 48px 48px, 48px 48px, 12px 12px, 12px 12px, auto;
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    background-size: auto, auto, auto, 48px 48px, 48px 48px, 12px 12px, 12px 12px, auto;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+
+  :root[data-nav-theme='lp'] body {
+    background-color: #eef3f8;
+    background-image:
+      radial-gradient(1200px 620px at 80% -10%, rgba(147, 197, 253, 0.28), transparent 60%),
+      radial-gradient(980px 560px at 10% -12%, rgba(45, 212, 191, 0.18), transparent 58%),
+      radial-gradient(980px 560px at 10% 112%, rgba(251, 191, 36, 0.10), transparent 62%),
+      radial-gradient(980px 560px at 92% 112%, rgba(167, 139, 250, 0.14), transparent 62%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.0), rgba(226, 232, 240, 0.65)),
+      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: auto, auto, auto, auto, auto, 56px 56px, 56px 56px;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
   }
 
   .font-serif {
-    font-family: var(--font-body) !important;
+    font-family: var(--font-serif) !important;
   }
 }
 
@@ -98,10 +138,25 @@
     background-color: rgba(255, 255, 255, 0.94);
     background-image:
       linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9)),
+      radial-gradient(1200px 520px at 10% -25%, rgba(123, 220, 181, 0.10), transparent 60%),
+      radial-gradient(1200px 520px at 92% -25%, rgba(154, 208, 255, 0.09), transparent 60%),
       radial-gradient(rgba(120, 113, 108, 0.045) 0.6px, transparent 0.6px);
-    background-size: auto, 24px 24px;
-    background-position: 0 0, 0 0;
+    background-size: auto, auto, auto, auto, 24px 24px;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  }
+
+  :root[data-nav-theme='lp'] .museum-panel {
+    border-color: rgba(148, 163, 184, 0.34);
+    background-color: rgba(255, 255, 255, 0.92);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.90)),
+      radial-gradient(rgba(2, 132, 199, 0.06) 0.7px, transparent 0.7px);
+    background-size: auto, 30px 30px;
+    background-position: 0 0, 0 0;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.8) inset,
+      0 10px 36px rgba(15, 23, 42, 0.08);
   }
 
   .museum-paper {
@@ -109,9 +164,27 @@
     background-image:
       linear-gradient(180deg, var(--macaron-paper-strong), rgba(255, 255, 255, 0.74)),
       radial-gradient(rgba(120, 113, 108, 0.06) 0.6px, transparent 0.6px),
-      linear-gradient(90deg, rgba(123, 220, 181, 0.07), rgba(154, 208, 255, 0.06), rgba(255, 179, 199, 0.06));
+      linear-gradient(
+        90deg,
+        rgba(123, 220, 181, 0.08),
+        rgba(154, 208, 255, 0.07),
+        rgba(255, 179, 199, 0.06)
+      );
     background-size: auto, 24px 24px;
     background-position: 0 0, 0 0;
+  }
+
+  :root[data-nav-theme='lp'] .museum-paper {
+    border-color: rgba(148, 163, 184, 0.32);
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.86)),
+      radial-gradient(rgba(2, 132, 199, 0.06) 0.7px, transparent 0.7px),
+      linear-gradient(90deg, rgba(2, 132, 199, 0.06), rgba(45, 212, 191, 0.06), rgba(251, 191, 36, 0.04));
+    background-size: auto, 30px 30px, auto;
+    background-position: 0 0, 0 0, 0 0;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.82) inset,
+      0 12px 40px rgba(15, 23, 42, 0.10);
   }
 
   .cement-paper {
@@ -157,14 +230,14 @@
       left: max(
         16px,
         calc(
-          (100vw - (var(--atlas-content-max, 72rem) + var(--atlas-sidebar-width, 288px) + 72px)) / 2 + 24px
+          (100vw - var(--atlas-content-max, 80rem)) / 2 + 24px
         )
       );
       width: var(--atlas-sidebar-width, 288px);
       height: calc(100vh - var(--atlas-top, 96px));
       z-index: 25;
-      border-right: 1px solid var(--tool-border);
-      background: var(--tool-bg-strong);
+      border-right: 0;
+      background: transparent;
       padding: 12px 12px 12px 16px;
       contain: layout paint;
       will-change: transform;
@@ -173,7 +246,7 @@
     }
 
     .atlas-dock__content {
-      max-width: calc(var(--atlas-content-max, 72rem) + var(--atlas-sidebar-width, 288px) + 72px);
+      max-width: var(--atlas-content-max, 80rem);
       margin-left: auto;
       margin-right: auto;
       padding: 0 24px 0 calc(var(--atlas-sidebar-width, 288px) + 48px);
@@ -207,7 +280,7 @@
 
   @media (min-width: 1280px) {
     :root[data-atlas-dock='1'] .museum-footer__inner {
-      max-width: calc(var(--atlas-dock-content-max, 72rem) + var(--atlas-dock-sidebar-width, 288px) + 72px);
+      max-width: var(--atlas-dock-content-max, 80rem);
       padding-left: calc(var(--atlas-dock-sidebar-width, 288px) + 48px);
       padding-right: 24px;
     }
@@ -654,6 +727,48 @@
       transition: none !important;
       transform: none !important;
       opacity: 1 !important;
+    }
+  }
+
+  /* Chapter sidebar: label flip (match top nav feel) */
+  .chapter-label--flip {
+    --chapter-flip-line: 1.2em;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: var(--chapter-flip-line);
+    line-height: 1.2;
+    min-width: 0;
+  }
+
+  .chapter-label-inner {
+    display: block;
+    transform: translate3d(0, 0, 0);
+    transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    will-change: transform;
+  }
+
+  .chapter-label-front,
+  .chapter-label-back {
+    display: block;
+  }
+
+  .chapter-label-back {
+    color: rgba(16, 185, 129, 0.95);
+    margin-top: -1px;
+  }
+
+  .chapter-nav-item:hover .chapter-label--flip .chapter-label-inner,
+  .chapter-nav-item:focus-visible .chapter-label--flip .chapter-label-inner,
+  .chapter-subitem:hover .chapter-label--flip .chapter-label-inner,
+  .chapter-subitem:focus-visible .chapter-label--flip .chapter-label-inner {
+    transform: translate3d(0, calc(-1 * var(--chapter-flip-line)), 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chapter-label-inner {
+      transition: none !important;
+      transform: none !important;
     }
   }
 

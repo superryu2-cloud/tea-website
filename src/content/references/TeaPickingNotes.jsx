@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { DataTable, Section } from './ui';
+import TeaPickingExpertReport from './TeaPickingExpertReport';
 
 export default function TeaPickingNotes() {
   return (
@@ -71,6 +72,27 @@ export default function TeaPickingNotes() {
           <li>神人級採茶工一天約可賺 8000 元台幣，一般速度約 2500 元。</li>
         </ul>
       </div>
+      <details className="group bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+        <summary className="list-none cursor-pointer select-none px-5 py-4 md:px-7 md:py-5 flex items-center justify-between gap-4 bg-gradient-to-r from-sky-50 via-white to-emerald-50">
+          <div className="min-w-0">
+            <div className="text-xs font-extrabold tracking-widest text-stone-500">EXPERT REPORT</div>
+            <div className="mt-2 text-lg md:text-xl font-extrabold text-stone-900">一心二葉知多少：茶葉栽培、採摘與風味解析</div>
+            <div className="mt-1 text-sm text-stone-600">茶業改良場前場長 陳國任博士</div>
+          </div>
+          <span className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white border border-stone-200 text-stone-700 transition-transform duration-300 group-open:rotate-180">
+            <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5" aria-hidden="true">
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </span>
+        </summary>
+        <div className="px-5 py-5 md:px-7 md:py-6">
+          <TeaPickingExpertReport />
+        </div>
+      </details>
     </Section>
   );
 }

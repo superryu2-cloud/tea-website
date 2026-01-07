@@ -17,6 +17,7 @@ export const translations = {
       seasons: '季節採收',
       science: '製程/化學',
       sensory: '品評考題',
+      tea_talk: '茶言觀色',
       chemistry_deep_dive: '風味化學',
       brewing: '沖泡/工藝',
       ceremony: '茶席美學',
@@ -28,14 +29,14 @@ export const translations = {
       menuOpen: '開啟選單',
       menuClose: '關閉選單',
       language: '語言',
-      newsletterTitle: '訂閱電子報',
-      emailPlaceholder: '您的 Email',
+      newsletterTitle: '訂閱更新',
+      emailPlaceholder: '輸入 Email',
       subscribe: '訂閱',
       backToTop: '回到頂部',
     },
     footer: {
       aboutTitle: '茶韻百科',
-      aboutText: '以教學與研究為導向整理茶知識，內容持續更新，歡迎作為課堂與自學參考。',
+      aboutText: '以教學與研究為導向整理茶學百科，內容持續更新，歡迎作為課堂與自學參考。',
       quickLinks: '快速連結',
       copyright: '茶韻百科',
       designedFor: 'Designed for Tea Lovers.',
@@ -57,6 +58,7 @@ export const translations = {
       seasons: 'Seasonality',
       science: 'Tea Science',
       sensory: 'Sensory Quiz',
+      tea_talk: 'Tea Palette',
       chemistry_deep_dive: 'Flavor Chemistry',
       brewing: 'Brewing/Craft',
       ceremony: 'Tea Aesthetics',
@@ -85,7 +87,10 @@ export const translations = {
 
 export function t(lang, keyPath) {
   const langPack = translations[lang] ?? translations['zh-Hant'];
-  const value = keyPath.split('.').reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : undefined), langPack);
+  const value = keyPath
+    .split('.')
+    .reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : undefined), langPack);
   if (value !== undefined) return value;
   return keyPath;
 }
+

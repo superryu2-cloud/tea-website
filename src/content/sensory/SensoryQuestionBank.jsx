@@ -540,7 +540,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       </aside>
 
       <main className="min-w-0">
-        <div className="w-full max-w-4xl space-y-4">
+        <div className="w-full space-y-4">
           {showIntro ? (
             <div className="museum-frame museum-paper p-8 md:p-10">
               <div className="text-xs font-extrabold tracking-widest text-stone-500">PRACTICE · QUIZ BANK</div>

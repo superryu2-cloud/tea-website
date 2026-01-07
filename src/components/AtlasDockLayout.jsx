@@ -4,7 +4,7 @@ const STORAGE_KEY = 'tea.atlasSidebarWidth';
 const DEFAULT_WIDTH_PX = 288;
 const MIN_WIDTH_PX = 240;
 const MAX_WIDTH_PX = 360;
-const DEFAULT_CONTENT_MAX = '72rem';
+const DEFAULT_CONTENT_MAX = '80rem';
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 

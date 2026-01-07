@@ -5,6 +5,7 @@ export const ATLAS_ITEMS = [
   'cultivars',
   'science',
   'sensory',
+  'tea_talk',
   'brewing',
   'featured',
   'seasons',

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS } from '../config/navigation';
+import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
 const VARIETIES_SUBITEMS_BY_KEY = {
@@ -12,20 +12,38 @@ const VARIETIES_SUBITEMS_BY_KEY = {
 const NAV_THEME_STORAGE_KEY = 'tea.navTheme';
 const NAV_THEMES = [
   { key: 'default', label: '預設（紙感）' },
+  { key: 'lp', label: '淺藍（LP）' },
   { key: 'slate', label: '深藍灰（玻璃）' },
   { key: 'graphite', label: '石墨黑（玻璃）' },
+];
+
+const ACADEMY_STRUCTURE = [
+  {
+    key: 'xueya',
+    label: '學雅',
+    count: 12,
+    prefix: '/academy/xueya/',
+  },
+  {
+    key: 'zhiya',
+    label: '質雅',
+    count: 16,
+    prefix: '/academy/zhiya/',
+  },
 ];
 
 export default function SiteNavigation({
   i18n,
   activeTab,
   varietiesKind,
+  scienceRoom,
   atlasNavOpen,
   mobileMenuOpen,
   goToTab,
   setAtlasNavOpen,
   setMobileMenuOpen,
   setVarietiesKind,
+  setScienceRoom,
 }) {
   const journeyLabel = splitNavLabel(String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, ''));
   const atlasLabel = splitNavLabel(String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, ''));
@@ -35,6 +53,9 @@ export default function SiteNavigation({
     const stored = window.localStorage?.getItem(NAV_THEME_STORAGE_KEY);
     return NAV_THEMES.some((t) => t.key === stored) ? stored : 'default';
   });
+
+  const [academyNavOpen, setAcademyNavOpen] = useState(false);
+  const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -93,7 +114,7 @@ export default function SiteNavigation({
   };
 
   return (
-    <nav id="site-nav" className="sticky top-0 z-50 cement-paper backdrop-blur-md font-serif">
+    <nav id="site-nav" className="sticky top-0 z-50 cement-paper backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[68px]">
           <div className="flex items-center cursor-pointer" onClick={() => goToTab('journey')}>
@@ -111,7 +132,10 @@ export default function SiteNavigation({
             <div className="flex items-center gap-3">
               <button
                 type="button"
-                onClick={() => goToTab('journey')}
+                onClick={() => {
+                  goToTab('journey');
+                  setAcademyNavOpen(false);
+                }}
                 className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'journey' ? 'nav-pill--active' : ''}`}
               >
                 {journeyLabel.prefix ? <span className="nav-pill__prefix">{journeyLabel.prefix}</span> : null}
@@ -129,7 +153,8 @@ export default function SiteNavigation({
               <button
                 type="button"
                 onClick={() => {
-                  const isAtlasContext = activeTab !== 'journey' && activeTab !== 'sensory';
+                  setAcademyNavOpen(false);
+                  const isAtlasContext = activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk';
                   if (!isAtlasContext) {
                     goToTab('home');
                     setAtlasNavOpen(true);
@@ -137,9 +162,9 @@ export default function SiteNavigation({
                   }
                   setAtlasNavOpen((v) => !v);
                 }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab !== 'journey' && activeTab !== 'sensory' ? 'nav-pill--active' : ''}`}
-                aria-expanded={activeTab !== 'journey' && activeTab !== 'sensory' ? atlasNavOpen : undefined}
-                aria-controls={activeTab !== 'journey' && activeTab !== 'sensory' ? 'atlas-secondary-nav' : undefined}
+                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'nav-pill--active' : ''}`}
+                aria-expanded={activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? atlasNavOpen : undefined}
+                aria-controls={activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'atlas-secondary-nav' : undefined}
               >
                 <span className="inline-flex items-center gap-2">
                   <span className="inline-flex items-center">
@@ -157,13 +182,63 @@ export default function SiteNavigation({
                   </span>
                   <ChevronDown
                     size={16}
-                    className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${activeTab !== 'journey' && activeTab !== 'sensory' && atlasNavOpen ? 'rotate-180' : ''}`}
+                    className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' && atlasNavOpen ? 'rotate-180' : ''}`}
                   />
                 </span>
               </button>
               <button
                 type="button"
-                onClick={() => goToTab('sensory')}
+                onClick={() => {
+                  goToTab('tea_talk');
+                  setAcademyNavOpen(false);
+                }}
+                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'tea_talk' ? 'nav-pill--active' : ''}`}
+              >
+                <span className="nav-pill__label">
+                  <span className="nav-pill__label--flip">
+                    <span className="nav-pill__label-inner">
+                      <span className="nav-pill__label-front">{String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}</span>
+                      <span className="nav-pill__label-back" aria-hidden="true">
+                        {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </button>
+
+              {/* Academy (大觀書院) */}
+              <button
+                type="button"
+                onClick={() => {
+                  setAcademyNavOpen((v) => !v);
+                  if (!academyNavOpen) setAtlasNavOpen(false);
+                }}
+                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
+                aria-expanded={academyNavOpen}
+              >
+                <span className="inline-flex items-center gap-2">
+                  <span className="nav-pill__label">
+                    <span className="nav-pill__label--flip">
+                      <span className="nav-pill__label-inner">
+                        <span className="nav-pill__label-front">大觀書院</span>
+                        <span className="nav-pill__label-back" aria-hidden="true">
+                          大觀書院
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <ChevronDown
+                    size={16}
+                    className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
+                  />
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  goToTab('sensory');
+                  setAcademyNavOpen(false);
+                }}
                 className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'sensory' ? 'nav-pill--active' : ''}`}
               >
                 <span className="nav-pill__label">
@@ -220,7 +295,7 @@ export default function SiteNavigation({
       </div>
 
       {/* Tier 2 (Desktop): Atlas sections */}
-      {activeTab !== 'journey' && activeTab !== 'sensory' ? (
+      {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
         <AccordionPanel open={atlasNavOpen} className="hidden xl:grid">
           <div
             id="atlas-secondary-nav"
@@ -233,7 +308,7 @@ export default function SiteNavigation({
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
               <div className="flex flex-wrap items-center justify-center gap-2.5">
-                {ATLAS_ITEMS.filter((item) => item !== 'sensory').map((item) => (
+                {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => (
                   <button
                     key={item}
                     onClick={() => goToTab(item)}
@@ -267,6 +342,53 @@ export default function SiteNavigation({
           </div>
         </AccordionPanel>
       ) : null}
+
+      {/* Tier 2 (Desktop): Academy Dropdown */}
+      <AccordionPanel open={academyNavOpen} className="hidden xl:grid">
+        <div
+          className="cement-strip backdrop-blur-md"
+          style={{
+            '--nav-underline': 'rgba(16, 185, 129, 0.55)',
+            '--nav-hover-ink': 'rgba(6, 95, 70, 0.95)',
+            '--nav-active-ink': 'rgba(6, 95, 70, 1)',
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="grid grid-cols-2 gap-12">
+              {ACADEMY_STRUCTURE.map((cat) => (
+                <div key={cat.key}>
+                  <div className="text-sm font-extrabold text-stone-500 mb-3 px-2 border-l-4 border-stone-300">
+                    {cat.label}
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {Array.from({ length: cat.count }).map((_, idx) => {
+                      const num = String(idx + 1).padStart(2, '0');
+                      return (
+                        <a
+                          key={idx}
+                          href={`${cat.prefix}${num}`}
+                          className="nav-pill nav-pill--tier2 justify-center rounded-lg border border-stone-200/50 bg-white/60 hover:bg-white text-sm font-medium text-stone-700 hover:text-stone-900 transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (cat.key === 'zhiya' && parseInt(num, 10) === 10) {
+                              goToTab('academy_zhiya_10');
+                            } else {
+                              goToTab('academy_coming_soon');
+                            }
+                            setAcademyNavOpen(false);
+                          }}
+                        >
+                          第 {num} 章
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </AccordionPanel>
 
       {/* Tier 3/4 navigation is rendered as a left sidebar inside each exhibit page. */}
 
@@ -313,17 +435,102 @@ export default function SiteNavigation({
               </button>
               <button
                 type="button"
-                onClick={() => goToTab(activeTab === 'journey' || activeTab === 'sensory' ? 'home' : activeTab)}
+                onClick={() => goToTab(activeTab === 'journey' || activeTab === 'sensory' || activeTab === 'tea_talk' ? 'home' : activeTab)}
                 className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
-                  activeTab !== 'journey' ? 'tool-item--active' : ''
+                  activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'tool-item--active' : ''
                 }`}
               >
                 {String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, '')}
               </button>
             </div>
 
+            <div className="mt-2 grid grid-cols-2 gap-2 px-2">
+              <button
+                type="button"
+                onClick={() => goToTab('tea_talk')}
+                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
+                  activeTab === 'tea_talk' ? 'tool-item--active' : ''
+                }`}
+              >
+                {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
+              </button>
+              <button
+                type="button"
+                onClick={() => goToTab('sensory')}
+                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
+                  activeTab === 'sensory' ? 'tool-item--active' : ''
+                }`}
+              >
+                {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
+              </button>
+            </div>
+
+            {/* Academy (Mobile) */}
+            <div className="mt-2 px-2">
+              <button
+                type="button"
+                onClick={() => setAcademyNavOpen((v) => !v)}
+                className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                aria-expanded={academyNavOpen}
+              >
+                <span>大觀書院</span>
+                <ChevronRight
+                  size={16}
+                  className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
+                />
+              </button>
+
+              <AccordionPanel open={academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
+                <div className="space-y-2 pl-2 border-l border-stone-200">
+                  {ACADEMY_STRUCTURE.map((cat) => {
+                    const isOpen = academyMobileSubOpen[cat.key];
+                    return (
+                      <div key={cat.key}>
+                        <button
+                          type="button"
+                          onClick={() => setAcademyMobileSubOpen((prev) => ({ ...prev, [cat.key]: !prev[cat.key] }))}
+                          className="w-full inline-flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors"
+                        >
+                          <span>{cat.label}</span>
+                          <ChevronRight
+                            size={14}
+                            className={`text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+                          />
+                        </button>
+                        <AccordionPanel open={isOpen}>
+                          <div className="grid grid-cols-3 gap-2 p-2">
+                            {Array.from({ length: cat.count }).map((_, idx) => {
+                              const num = String(idx + 1).padStart(2, '0');
+                              return (
+                                <a
+                                  key={idx}
+                                  href={`${cat.prefix}${num}`}
+                                  className="text-center rounded-md border border-stone-100 bg-white py-2 text-xs font-medium text-stone-600 shadow-sm"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    if (cat.key === 'zhiya' && parseInt(num, 10) === 10) {
+                                      goToTab('academy_zhiya_10');
+                                    } else {
+                                      goToTab('academy_coming_soon');
+                                    }
+                                    setMobileMenuOpen(false);
+                                  }}
+                                >
+                                  第{num}章
+                                </a>
+                              );
+                            })}
+                          </div>
+                        </AccordionPanel>
+                      </div>
+                    );
+                  })}
+                </div>
+              </AccordionPanel>
+            </div>
+
             {/* Tier 2 */}
-            {activeTab !== 'journey' && activeTab !== 'sensory' ? (
+            {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
               <div className="mt-2 px-2">
                 <button
                   type="button"
@@ -405,6 +612,73 @@ export default function SiteNavigation({
                     </div>
                   </div>
                 ) : null}
+              </div>
+            ) : null}
+
+            {/* Tier 3: Science */}
+            {activeTab === 'science' ? (
+              <div className="mt-2 px-2">
+                <div className="text-xs font-bold text-stone-500 px-1 py-2">科學章節</div>
+                <div className="grid grid-cols-2 gap-2">
+                  {SCIENCE_TOC.map((item) => (
+                    <button
+                      key={item.key}
+                      type="button"
+                      onClick={() => {
+                        setScienceRoom(item.key);
+                        setMobileMenuOpen(false);
+                        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${
+                        scienceRoom === item.key ? 'tool-item--active' : ''
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+                {scienceRoom === 'teaching' && (
+                  <div className="mt-3">
+                    <div className="text-xs font-bold text-stone-500 px-1 py-2">教學引用</div>
+                    <div className="space-y-1">
+                      {TEA_REFERENCE_TOC.map((item) => (
+                        <button
+                          key={item.href}
+                          type="button"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            scrollToHrefWithOffset(item.href, { dispatchPopstate: true });
+                          }}
+                          className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : null}
+
+            {/* Tier 3: Cultivars */}
+            {activeTab === 'cultivars' ? (
+              <div className="mt-2 px-2">
+                <div className="text-xs font-bold text-stone-500 px-1 py-2">品種章節</div>
+                <div className="space-y-1">
+                  {CULTIVARS_TOC.map((item) => (
+                    <button
+                      key={item.href}
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        scrollToHrefWithOffset(item.href);
+                      }}
+                      className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             ) : null}
           </div>

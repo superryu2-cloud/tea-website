@@ -66,10 +66,15 @@ export default function ChapterSidebar({
                     onSelectKey(item.key);
                     setActiveCollapse({ key: item.key, collapsed: false });
                   }}
-                  className={`w-full text-left rounded-xl px-3 py-2 transition-colors tool-item ${isActive ? 'tool-item--active' : ''}`}
+                  className={`w-full text-left rounded-xl px-3 py-2 transition-colors tool-item chapter-nav-item ${isActive ? 'tool-item--active' : ''}`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">
-                    <span className="min-w-0 truncate font-semibold">{item.label}</span>
+                    <span className="min-w-0 font-semibold chapter-label--flip">
+                      <span className="chapter-label-inner">
+                        <span className="chapter-label-front truncate">{item.label}</span>
+                        <span className="chapter-label-back truncate">{item.label}</span>
+                      </span>
+                    </span>
                     {hasSub ? (
                       <ChevronDown
                         size={16}
@@ -105,11 +110,16 @@ export default function ChapterSidebar({
                                 }, 0);
                               });
                             }}
-                            className={`w-full text-left rounded-lg px-3 py-2 transition-colors ${
+                            className={`w-full text-left rounded-lg px-3 py-2 transition-colors chapter-subitem ${
                               subActive ? 'tool-subitem--active font-semibold' : 'hover:bg-[var(--tool-hover-bg)]'
                             }`}
                           >
-                            <span className="block truncate">{sub.label}</span>
+                            <span className="block chapter-label--flip">
+                              <span className="chapter-label-inner">
+                                <span className="chapter-label-front truncate">{sub.label}</span>
+                                <span className="chapter-label-back truncate">{sub.label}</span>
+                              </span>
+                            </span>
                           </button>
                         );
                       })}

@@ -10,8 +10,23 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"LXGW WenKai TC"', ...defaultTheme.fontFamily.serif],
-        sans: ['"LXGW WenKai TC"', ...defaultTheme.fontFamily.sans],
+        serif: [
+          '"Noto Serif TC"',
+          '"Source Han Serif TC"',
+          '"Songti TC"',
+          '"PMingLiU"',
+          '"MingLiU"',
+          ...defaultTheme.fontFamily.serif,
+        ],
+        sans: [
+          '"Noto Sans TC"',
+          '"PingFang TC"',
+          '"PingFang SC"',
+          '"Hiragino Sans"',
+          '"Microsoft JhengHei"',
+          '"Microsoft YaHei"',
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
     },
   },
