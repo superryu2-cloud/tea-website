@@ -3,12 +3,12 @@ import React, { useRef } from 'react';
 function Section({ id, title, children }) {
   return (
     <section id={id} className="scroll-mt-28">
-      <div className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
-        <div className="px-5 py-4 md:px-7 md:py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white">
-          <h3 className="text-lg md:text-xl font-extrabold text-stone-900">{title}</h3>
+      <div className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+        <div className="px-5 py-4 md:px-7 md:py-5 border-b border-stone-200 bg-gradient-to-r from-emerald-50 via-white to-amber-50">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-stone-900">{title}</h3>
         </div>
         <div className="px-5 py-5 md:px-7 md:py-6">
-          <div className="space-y-4 text-stone-700 leading-relaxed">{children}</div>
+          <div className="space-y-6 text-stone-700 text-base leading-relaxed">{children}</div>
         </div>
       </div>
     </section>
@@ -25,14 +25,14 @@ function Placeholder({ children }) {
 }
 
 function Subheading({ children }) {
-  return <h4 className="text-base md:text-lg font-extrabold text-stone-900">{children}</h4>;
+  return <h4 className="text-xl md:text-2xl font-extrabold text-stone-900">{children}</h4>;
 }
 
 function Callout({ title, children }) {
   return (
-    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-      <div className="text-xs font-extrabold tracking-widest text-amber-900/70">{title}</div>
-      <div className="mt-2 text-sm text-stone-700 leading-relaxed">{children}</div>
+    <div className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-sm hover:shadow-md transition-all duration-300">
+      <div className="text-sm font-extrabold tracking-widest text-amber-900/70">{title}</div>
+      <div className="mt-3 text-base text-stone-700 leading-relaxed">{children}</div>
     </div>
   );
 }
@@ -48,10 +48,10 @@ const CHAPTERS = {
           真正的普洱茶，具備「越陳越香、越放越值錢」的核心價值。那麼，究竟什麼樣的茶才能被稱為真正的普洱茶，並擁有如此獨特的轉化魅力呢？
         </p>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4 shadow-sm hover:shadow-md transition-shadow duration-300">
           <Subheading>普洱茶的形態多樣性</Subheading>
           <p>市面上的普洱茶形態各異，常見的主要有以下幾種：</p>
-          <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700">
+          <ul className="list-disc pl-5 space-y-2 text-base text-stone-700">
             <li>筒裝：將七片餅茶用竹筍殼包裝在一起，便於運輸與長期儲存。</li>
             <li>357克大餅：這是市面上最經典、最常見的規格，也被稱為「七子餅」。</li>
             <li>茶磚：將茶葉壓製成長方形或正方形的磚狀，形態規整。</li>
@@ -59,7 +59,7 @@ const CHAPTERS = {
             <li>茶頭：熟茶在渥堆發酵過程中，因果膠質豐富而自然結成塊狀的茶，滋味醇厚耐泡。</li>
             <li>龍珠：為方便沖泡而生，將茶葉手工揉製成一粒一泡的球形，近年來十分流行。</li>
           </ul>
-          <p className="text-sm text-stone-700 leading-relaxed">
+          <p className="text-base text-stone-700 leading-relaxed">
             儘管外形千變萬化，但它們的本質是相同的——其原料都是來自於一種被稱為「曬青毛茶」的散茶。
           </p>
         </div>

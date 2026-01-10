@@ -80,7 +80,7 @@ export default function RedOolongContent() {
             <Leaf size={16} className="opacity-90" />
             台灣特色茶 · 紅烏龍
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-serif text-stone-900 leading-tight">
+          <h2 className="mt-5 text-3xl md:text-5xl font-semibold font-sans text-stone-900 leading-tight">
             絕境中誕生的奇蹟：深入解析台灣特色茶「紅烏龍」
           </h2>
 
@@ -170,24 +170,21 @@ export default function RedOolongContent() {
                       key={crisis.key}
                       type="button"
                       onClick={() => setActiveCrisisKey(crisis.key)}
-                      className={`group relative w-full overflow-hidden rounded-2xl border px-4 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${
-                        isActive
+                      className={`group relative w-full overflow-hidden rounded-2xl border px-4 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
                           ? 'border-amber-300 bg-amber-50/70 text-stone-900'
                           : 'border-stone-200 bg-white/60 text-stone-800 hover:border-amber-200 hover:bg-amber-50/40'
-                      }`}
+                        }`}
                       aria-pressed={isActive}
                       title="點選切換"
                     >
                       <span
-                        className={`absolute left-0 top-0 h-full w-1 ${
-                          isActive ? 'bg-amber-400' : 'bg-transparent group-hover:bg-amber-200'
-                        }`}
+                        className={`absolute left-0 top-0 h-full w-1 ${isActive ? 'bg-amber-400' : 'bg-transparent group-hover:bg-amber-200'
+                          }`}
                       />
                       <div className="flex items-start gap-3">
                         <span
-                          className={`inline-flex items-center justify-center h-9 w-9 rounded-full text-white shrink-0 font-extrabold ${
-                            isActive ? 'bg-amber-600' : 'bg-stone-900/85 group-hover:bg-amber-600'
-                          }`}
+                          className={`inline-flex items-center justify-center h-9 w-9 rounded-full text-white shrink-0 font-extrabold ${isActive ? 'bg-amber-600' : 'bg-stone-900/85 group-hover:bg-amber-600'
+                            }`}
                         >
                           {crisis.number}
                         </span>
@@ -197,9 +194,8 @@ export default function RedOolongContent() {
                         </div>
                         <ChevronRight
                           size={18}
-                          className={`ml-auto mt-1 shrink-0 transition-opacity ${
-                            isActive ? 'text-amber-700 opacity-100' : 'text-stone-400 opacity-60 group-hover:opacity-100'
-                          }`}
+                          className={`ml-auto mt-1 shrink-0 transition-opacity ${isActive ? 'text-amber-700 opacity-100' : 'text-stone-400 opacity-60 group-hover:opacity-100'
+                            }`}
                         />
                       </div>
                     </button>

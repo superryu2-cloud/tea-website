@@ -1,5 +1,12 @@
 [
   {
+    "id": "overview",
+    "label": "總覽",
+    "subtitle": "茶名組合表",
+    "activeClass": "bg-gradient-to-br from-green-600 to-amber-600",
+    "swatch": "#10b981"
+  },
+  {
     "id": "biluochun",
     "label": "碧螺春綠茶",
     "subtitle": "不發酵｜清鮮花果香",

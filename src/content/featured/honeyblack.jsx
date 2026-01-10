@@ -38,7 +38,7 @@ export default function HoneyAromaBlackTeaContent() {
             <Leaf size={16} className="opacity-90" />
             蜜香紅茶
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-extrabold font-serif text-stone-900 leading-tight">
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-sans text-stone-900 leading-tight">
             從蟲害危機到世界金牌的傳奇旅程
           </h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">

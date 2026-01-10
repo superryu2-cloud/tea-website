@@ -11,7 +11,7 @@ export default function LargeLeafBlackTeaContent() {
             <Coffee size={16} className="opacity-90" />
             全發酵｜紅茶
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-extrabold font-serif text-stone-900 leading-tight">大葉種紅茶</h2>
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-sans text-stone-900 leading-tight">大葉種紅茶</h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">
             以滋味厚實、茶湯飽滿見長；常用於呈現更濃的甜潤與更長的尾韻，適合作為小葉種的對照。
           </p>

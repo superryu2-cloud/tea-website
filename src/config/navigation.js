@@ -18,6 +18,7 @@ export const ATLAS_ITEMS = [
 export const NAV_ITEMS = ['journey', ...ATLAS_ITEMS];
 
 export const VARIETIES_KINDS = [
+  { key: 'overview', label: '總覽', type: 'overview' },
   { key: 'ref_chenchuan', label: '分類理論（陳椽教授）', type: 'ref' },
   { key: 'green', label: '綠茶', teaId: 0, type: 'tea' },
   { key: 'yellow', label: '黃茶', teaId: 2, type: 'tea' },
@@ -81,18 +82,13 @@ export const SCIENCE_TOC = [
   { href: '#science-oxidation', key: 'oxidation', label: '氧化' },
   { href: '#science-roasting', key: 'roasting', label: '烘焙' },
   { href: '#science-constituents', key: 'constituents', label: '內含物' },
-  { href: '#science-teaching', key: 'teaching', label: '教學引用整理' },
-  { href: '#ref-2', key: 'teaching-2', label: '2. 採摘：方式與品質' },
-  { href: '#ref-3', key: 'teaching-3', label: '3. 萎凋：走水／消水' },
-  { href: '#ref-4', key: 'teaching-4', label: '4. 浪菁：動刀與堆發酵' },
-  { href: '#ref-5', key: 'teaching-5', label: '5. 殺青與揉捻（初乾）' },
-  { href: '#ref-6', key: 'teaching-6', label: '6. 團揉整形與最終乾燥' },
-  { href: '#ref-7', key: 'teaching-7', label: '7. 精製：回潤回火與包裝' },
-  { href: '#ref-8', key: 'teaching-8', label: '8. 茶園管理：土壤與施肥' },
-  { href: '#ref-9', key: 'teaching-9', label: '9. 台灣青茶製程總覽' },
+  { href: '#science-aroma', key: 'aroma', label: '香氣' },
+  { href: '#science-teaching', key: 'teaching', label: '台灣青茶製程整理' },
 ];
 
 export const FEATURED_TOC = [
+  { href: '#featured-overview', label: '總覽' },
+  { href: '#featured-longjing', label: '西湖龍井茶（範例）' },
   { href: '#featured-biluochun', label: '碧螺春綠茶' },
   { href: '#featured-wenshan', label: '文山包種茶' },
   { href: '#featured-gaoshanoolong', label: '高山烏龍茶' },
@@ -103,4 +99,10 @@ export const FEATURED_TOC = [
   { href: '#featured-honeyblack', label: '蜜香紅茶' },
   { href: '#featured-black_smallleaf', label: '小葉種紅茶' },
   { href: '#featured-black_largeleaf', label: '大葉種紅茶' },
+];
+
+export const HISTORY_SECTIONS = [
+  { key: 'chineseTeaHistory', label: '中華茶史', icon: 'BookOpen' },
+  { key: 'taiwanTeaIndustry', label: '臺灣茶業發展史', icon: 'TrendingUp' },
+  { key: 'taiwanEvents', label: '臺灣茶事年表', icon: 'Globe' },
 ];

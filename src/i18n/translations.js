@@ -15,7 +15,7 @@ export const translations = {
       puerh: '普洱茶',
       featured: '台灣特色茶',
       seasons: '季節採收',
-      science: '製程/化學',
+      science: '化學/製程',
       sensory: '品評考題',
       tea_talk: '茶言觀色',
       chemistry_deep_dive: '風味化學',

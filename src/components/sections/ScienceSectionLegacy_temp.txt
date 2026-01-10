@@ -1,0 +1,205 @@
+﻿  const ScienceSectionLegacy = () => {
+    return (
+      <div className="py-12 animate-fadeIn">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <div className="museum-frame museum-paper relative overflow-hidden">
+              <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-sky-200/30 blur-3xl"></div>
+              <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-emerald-200/25 blur-3xl"></div>
+              <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
+                <div className="museum-label">
+                  <Microscope size={14} className="opacity-80" />
+                  EXHIBIT 繚 TEA SCIENCE
+                </div>
+                <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">?嗉??飛嚗◢?喟?蝘?</h2>
+                <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 mx-auto leading-relaxed">
+                  ???????喋???擐除嚗??芾?葉敺株???摮貊鞈芥?蝘飛閫漲???憭????嗥???桀祐??????                </p>
+                <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">DIAGRAM</div>
+                    <div className="mt-1 font-bold text-stone-900">璁艙?圾</div>
+                    <div className="mt-1 text-sm text-stone-600">閬死??閫????靽?/div>
+                  </div>
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">TERMS</div>
+                    <div className="mt-1 font-bold text-stone-900">??撠</div>
+                    <div className="mt-1 text-sm text-stone-600">?迂?隞??隤???/div>
+                  </div>
+                  <div className="museum-card px-5 py-4 text-left">
+                    <div className="text-xs font-extrabold tracking-widest text-stone-500">WHITEPAPER</div>
+                    <div className="mt-1 font-bold text-stone-900">?銵?格</div>
+                    <div className="mt-1 text-sm text-stone-600">蝡??楛?仿霈</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Link to Deep Dive */}
+          <div className="mb-16">
+            <div className="museum-plaque science-whitepaper-hero p-8 md:p-10">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="md:w-2/3">
+                  <div className="science-whitepaper-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-200 text-amber-900 text-sm font-extrabold tracking-widest">
+                    <FlaskConical size={14} className="opacity-90" />
+                    CATALOG 繚 WHITEPAPER
+                  </div>
+                  <h3 className="mt-4 text-2xl md:text-3xl font-extrabold">瘛勗嚗◢?喳?摮貊?格</h3>
+                  <p className="mt-3 text-stone-200/90 leading-relaxed">
+                    敺飢???潮??砍??伐??圈靽????嚗??蝡???銵?格嚗??摮豢?敶梁??玨????                  </p>
+                </div>
+                <div className="md:w-1/3 md:flex md:justify-end">
+                  <button
+                    onClick={() => { setActiveTab('science'); setScienceRoom('oxidation'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="w-full md:w-auto bg-amber-300 text-stone-900 font-extrabold px-8 py-3 rounded-full hover:bg-amber-200 transition-colors"
+                  >
+                    ?梯??賜??                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Concept Diagram */}
+          <div className="museum-frame museum-paper science-chemistry-diagram rounded-2xl p-8 mb-16">
+            <h3 className="text-2xl font-bold text-stone-800 mb-8 text-center flex items-center justify-center">
+              <Microscope className="mr-3 text-green-700" /> 銝?靽?閫?????霈?            </h3>
+
+            <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+              {/* Tea Polyphenols */}
+              <div className="flex-1 bg-green-100/50 rounded-xl p-6 border-2 border-green-200 relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  蝮賡???                </div>
+                <h4 className="text-xl font-bold text-green-900 mb-3 text-center">?嗅??? (Tea Polyphenols)</h4>
+                <p className="text-stone-700 mb-4 text-sm leading-relaxed">
+                  ?嗉?銝剜?銝餉????賣扳???撅祆璊憭?嚗?撥?飢???                </p>
+                <div className="bg-white rounded-lg p-4 border border-green-100 h-48">
+                  <p className="text-xs text-stone-500 mb-2 text-center">?隞乩???嚗?/p>
+                  {/* Catechins nested */}
+                  <div className="bg-emerald-100 rounded-lg p-3 border border-emerald-300 mb-2">
+                    <h5 className="font-bold text-emerald-800 text-center mb-1">?蝝? (Catechins)</h5>
+                    <p className="text-xs text-emerald-700 text-center">雿憭? 70% 隞乩?<br />(EGCG, EC, ...)</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <span className="bg-stone-100 text-stone-500 text-xs py-1 rounded">暺憿?/span>
+                    <span className="bg-stone-100 text-stone-500 text-xs py-1 rounded">?梢?蝝?/span>
+                    <span className="bg-stone-100 text-stone-500 text-xs py-1 rounded">?</span>
+                    <span className="bg-stone-100 text-stone-500 text-xs py-1 rounded">?嗡?</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Arrow for equality/context */}
+              <div className="hidden md:flex flex-col justify-center items-center text-stone-400">
+                <span className="text-sm writing-vertical-lr mb-2">?曆誨蝘飛蝔勗</span>
+                <ArrowRight size={32} />
+                <span className="text-sm writing-vertical-lr mt-2">?拇??迂</span>
+              </div>
+
+              {/* Tea Tannin */}
+              <div className="flex-1 bg-amber-50 rounded-xl p-6 border-2 border-amber-200 relative opacity-80">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-amber-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  甇瑕?迂
+                </div>
+                <h4 className="text-xl font-bold text-amber-900 mb-3 text-center">?嗅撖?(Tea Tannin)</h4>
+                <p className="text-stone-700 mb-4 text-sm leading-relaxed">
+                  ?拇?蝘飛???瑯??喋鞈芰?瘜迂?祕??摰蒂?銝?抵釭嚗?嗉?銝剜??停?胯憭??毽?嚗蜓閬?蝝???                </p>
+                <div className="bg-white/50 rounded-lg p-4 border border-amber-100 flex items-center justify-center h-48">
+                  <p className="text-stone-500 text-sm text-center italic">
+                    "?桀祐"銝閰憭?潸????拙極??br /><br />
+                    ?函隞?摮貊?蝛嗡葉嚗歇?撓鋡急蝎曄Ⅱ??br />
+                    <span className="font-bold text-green-700">?憭???/span>??span className="font-bold text-emerald-700">???嗥???/span><br />
+                    ?誨??                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Theanine Section */}
+          <div className="bg-white rounded-2xl p-8 md:p-12 mb-16 border-t-8 border-teal-500 shadow-lg">
+            <div className="flex items-center mb-8">
+              <div className="bg-teal-100 p-3 rounded-full mr-4">
+                <Sparkles className="text-teal-600" size={32} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-stone-900">?嗉??(L-Theanine)嚗悅?質??暸???皞?/h3>
+                <p className="text-stone-500">?嗆僖銝剔?寧??悅?喋??祐????蝘?</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="font-bold text-xl text-stone-800">隞暻潭?嗉?賂?</h4>
+                <p className="text-stone-600 leading-relaxed">
+                  ?嗉?豢?嗆邦?寞???蝔格虜?Ｚ?粹嚗??嗉?銋暸???-2%??銝??航皝舫悅?賜????喉??交?銝剔???喋?Umami嚗?銝餉?鞎Ｙ???湔銝蝔桀予?嗥??衣?蝬?撘???                </p>
+                <div className="bg-stone-50 p-4 rounded-lg border border-stone-200">
+                  <strong className="text-teal-800 block mb-2">銝餉???嚗?/strong>
+                  <ul className="list-disc list-inside text-sm text-stone-700 space-y-1">
+                    <li>???嗆僖?悅?賬????喋?/li>
+                    <li>靽脣之?阡???帢 瘜ｇ?雿蹂犖?暸??像??靽?皜???/li>
+                    <li>蝺抵圾??葆靘??漲?箸???/li>
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-teal-50/50 p-6 rounded-xl flex flex-col items-center justify-center text-center border border-teal-100">
+                <Wind size={48} className="text-teal-500 mb-4" />
+                <h4 className="font-bold text-lg text-teal-900 mb-2">帢 瘜ｇ?撖折???瘜?/h4>
+                <p className="text-sm text-teal-800 leading-relaxed">
+                  ?嗉?貉蝛輸?銵?血????箸?憭扯?Ｙ??游???帢 ?行郭?車?行郭???桅?蟡???喋????隡潘??質?鈭箸??唳擛????????????炬?∴????撠釣?停?舐隞暻澆??嗉??蟡???????見?行??                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-600 hover:-translate-y-1 transition-transform">
+              <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-green-700">
+                <FlaskConical />
+              </div>
+              <h4 className="text-xl font-bold text-stone-800 mb-2">?嗅???</h4>
+              <p className="text-sm text-stone-500 mb-4 font-mono">Tea Polyphenols</p>
+              <ul className="space-y-2 text-stone-600 text-sm">
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-green-500" /> ?嗉?銝剜?銝餉????賣扳???/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-green-500" /> ?瑟?撘瑕之??瘞批??賢???/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-green-500" /> ??????銵????/li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 hover:-translate-y-1 transition-transform">
+              <div className="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-emerald-700">
+                <Leaf />
+              </div>
+              <h4 className="text-xl font-bold text-stone-800 mb-2">?蝝?</h4>
+              <p className="text-sm text-stone-500 mb-4 font-mono">Catechins</p>
+              <ul className="space-y-2 text-stone-600 text-sm">
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-emerald-500" /> ?嗅???銝餃?頠?雿?0%隞乩?嚗?/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-emerald-500" /> <strong>EGCG</strong> ?舀?撘瑟???鞊???蝔柴?/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-emerald-500" /> 皞嗆?望偌嚗蝬?瞉?喋?銝餉?靘???/li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-amber-500 hover:-translate-y-1 transition-transform">
+              <div className="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-amber-700">
+                <History />
+              </div>
+              <h4 className="text-xl font-bold text-stone-800 mb-2">?嗅撖?/h4>
+              <p className="text-sm text-stone-500 mb-4 font-mono">Tea Tannin</p>
+              <ul className="space-y-2 text-stone-600 text-sm">
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-amber-500" /> ?拇?撠??喟鞈芥?蝯梁迂??/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-amber-500" /> 銝阡??桐??飛?抵釭??/li>
+                <li className="flex items-start"><ChevronRight size={14} className="mt-1 mr-1 text-amber-500" /> ?曆誨蝘飛頛?雿輻嚗?閬?嗅????迂??/li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const ScienceSection = () => {
+    const notesMode = UI_FLAGS.notesMode;
+    const [showScienceAtlas, setShowScienceAtlas] = useState(!notesMode);
+    const scienceSidebarItems = SCIENCE_TOC.map((item) => ({ key: item.key, label: item.label }));
+    const scienceSubItemsByKey = useMemo(
+      () => ({
+        teaching: [{ href: '#ref-all', label: '?券蝡?' }, ...TEA_REFERENCE_TOC.filter((item) => item.href === '#ref-1')],
+      }),
+      [],

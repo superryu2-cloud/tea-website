@@ -59,7 +59,7 @@ export default function OrientalBeautyContent() {
             <Leaf size={16} className="opacity-90" />
             台灣特色茶 · 東方美人
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-serif text-stone-900 leading-tight">東方美人</h2>
+          <h2 className="mt-5 text-3xl md:text-5xl font-semibold font-sans text-stone-900 leading-tight">東方美人</h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">
             茶中香檳，白毫烏龍中的極品。白、黃、青、紅、褐五色相間，宛若鮮花，獨具天然蜜味與熟果香氣。
           </p>

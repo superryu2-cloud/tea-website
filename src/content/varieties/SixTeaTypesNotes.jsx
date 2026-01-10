@@ -1,4 +1,6 @@
 import React from 'react';
+import OolongTeaVerticalTimeline from '../../components/sections/OolongTeaVerticalTimeline';
+import RedTeaVerticalTimeline from '../../components/sections/RedTeaTreeTimeline';
 
 function ProcessLine({ children }) {
   return (
@@ -763,14 +765,8 @@ export default function SixTeaTypesNotes({ kind }) {
   if (kind === 'red') {
     return (
       <div className="space-y-6">
-        <div className="rounded-3xl border border-rose-100 bg-gradient-to-br from-rose-50 via-white to-amber-50 px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-rose-700/70">BLACK TEA</div>
-          <div className="mt-2 text-xl font-extrabold text-stone-900">紅茶的世界史：從武夷山到全球餐桌的演變之旅</div>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            當代談到紅茶，人們往往先想到阿薩姆、錫蘭、伯爵茶或英式下午茶等國際印象；然而，這個看似典型的英國文化符號，
-            根源卻來自中國福建山區的一次意外發現。紅茶在明末於福建崇安（今武夷山一帶）誕生，並在數百年間影響了全球貿易、政治與生活方式。
-          </p>
-        </div>
+        {/* Timeline Section */}
+        <RedTeaVerticalTimeline />
 
         <div className="grid gap-3 lg:grid-cols-3">
           <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
@@ -1165,14 +1161,8 @@ export default function SixTeaTypesNotes({ kind }) {
   if (kind === 'oolong') {
     return (
       <div className="space-y-6">
-        <div className="rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 via-white to-teal-50 px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-cyan-700/70">OOLONG TEA</div>
-          <div className="mt-2 text-xl font-extrabold text-stone-900">青茶：一部從偶然誕生到風靡全球的半發酵茶演進史</div>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            青茶又稱部分發酵茶，是介於綠茶（趨近 0%）與紅茶（接近 100%）之間的一片廣闊光譜。
-            發酵程度可橫跨約 8%–75%，讓製茶師擁有極大的創作空間：低發酵茶湯偏青黃、風味清新；高發酵則更偏紅、口感更醇厚。
-          </p>
-        </div>
+        {/* Timeline Section */}
+        <OolongTeaVerticalTimeline />
 
         <div className="grid gap-3 lg:grid-cols-3">
           <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">

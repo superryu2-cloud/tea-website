@@ -11,7 +11,7 @@ export default function BiluochunGreenTeaContent() {
             <Leaf size={16} className="opacity-90" />
             不發酵｜綠茶
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-extrabold font-serif text-stone-900 leading-tight">碧螺春綠茶</h2>
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-sans text-stone-900 leading-tight">碧螺春綠茶</h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">
             以清鮮花果香與細緻甘甜著稱的綠茶風格；可作為「不發酵」風味輪廓的代表對照。
           </p>

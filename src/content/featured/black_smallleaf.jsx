@@ -11,7 +11,7 @@ export default function SmallLeafBlackTeaContent() {
             <Coffee size={16} className="opacity-90" />
             全發酵｜紅茶
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-extrabold font-serif text-stone-900 leading-tight">小葉種紅茶</h2>
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-sans text-stone-900 leading-tight">小葉種紅茶</h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">
             以細緻香氣、口感較為俐落為典型印象；可作為與大葉種紅茶對照的參考頁。
           </p>

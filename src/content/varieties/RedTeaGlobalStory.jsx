@@ -1,8 +1,12 @@
 import { AlertTriangle, Coffee, Globe, Mountain } from 'lucide-react';
+import RedTeaTreeTimeline from '../../components/sections/RedTeaTreeTimeline';
 
 export default function RedTeaGlobalStory() {
   return (
     <div className="space-y-12 animate-fadeIn text-stone-800">
+      {/* Tree Timeline Section */}
+      <RedTeaTreeTimeline />
+
       <div className="bg-red-50 p-8 rounded-xl border border-red-100">
         <h3 className="text-3xl font-bold text-red-900 mb-6">牆內開花牆外香：紅茶的身世之謎</h3>
         <p className="text-lg leading-relaxed mb-4">

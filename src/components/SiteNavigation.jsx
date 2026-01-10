@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC } from '../config/navigation';
+import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
 const VARIETIES_SUBITEMS_BY_KEY = {
@@ -21,13 +21,43 @@ const ACADEMY_STRUCTURE = [
   {
     key: 'xueya',
     label: '學雅',
-    count: 12,
+    chapters: [
+      { id: '01', title: '' },
+      { id: '02', title: '' },
+      { id: '03', title: '儀軌教學 / 茶荷置茶法' },
+      { id: '04', title: '高山烏龍' },
+      { id: '05', title: '凍頂烏龍茶深度解析' },
+      { id: '06', title: '鐵觀音' },
+      { id: '07', title: '蓋杯 / 紅烏龍' },
+      { id: '08', title: '茶則置茶 / 坪林包種茶' },
+      { id: '09', title: '東方美人' },
+      { id: '10', title: '做紅茶' },
+      { id: '11', title: '梨山小葉紅 / 大葉紅玉紅茶' },
+      { id: '12', title: '學雅茶湯會' },
+    ],
     prefix: '/academy/xueya/',
   },
   {
     key: 'zhiya',
     label: '質雅',
-    count: 16,
+    chapters: [
+      { id: '01', title: '紅烏龍 / 懸空置茶法' },
+      { id: '02', title: '品味討論 清香形' },
+      { id: '03', title: '品味討論 焙香形' },
+      { id: '04', title: '品味討論 濃香形' },
+      { id: '05', title: '茶席設計與雙杯品鑑' },
+      { id: '06', title: '茶席設計美學：佈局/用色/意境' },
+      { id: '07', title: '茶席/器物之選/色彩密碼' },
+      { id: '08', title: '茶會觀摩學習 / 大桶茶泡法' },
+      { id: '09', title: '茶道進階與西湖龍井品鑑' },
+      { id: '10', title: '茶碗以匙分茶 / 碧螺春 / 武夷岩茶' },
+      { id: '11', title: '普洱茶' },
+      { id: '12', title: '武夷岩茶沖泡' },
+      { id: '13', title: '白茶沖泡' },
+      { id: '14', title: '紅茶' },
+      { id: '15', title: '茶會的舉辦與練習' },
+      { id: '16', title: '茶會的舉辦：清香渡荷來' },
+    ],
     prefix: '/academy/zhiya/',
   },
 ];
@@ -44,6 +74,8 @@ export default function SiteNavigation({
   setMobileMenuOpen,
   setVarietiesKind,
   setScienceRoom,
+  museumUnlocked,
+  onUnlockRequest,
 }) {
   const journeyLabel = splitNavLabel(String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, ''));
   const atlasLabel = splitNavLabel(String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, ''));
@@ -56,6 +88,29 @@ export default function SiteNavigation({
 
   const [academyNavOpen, setAcademyNavOpen] = useState(false);
   const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
+
+
+  // Secret Trigger Logic
+  const [secretClickCount, setSecretClickCount] = useState(0);
+  const handleSecretClick = () => {
+    if (museumUnlocked) return;
+    setSecretClickCount((prev) => {
+      const next = prev + 1;
+      if (next >= 5) {
+        onUnlockRequest?.();
+        return 0;
+      }
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    let timer;
+    if (secretClickCount > 0) {
+      timer = setTimeout(() => setSecretClickCount(0), 1000); // 1秒內沒續點就歸零
+    }
+    return () => clearTimeout(timer);
+  }, [secretClickCount]);
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -113,6 +168,14 @@ export default function SiteNavigation({
     tryScroll();
   };
 
+  const isAcademyImplemented = (catKey, num) => {
+    const implemented = {
+      zhiya: ['02', '03', '04', '05', '06', '07', '09', '10'],
+      xueya: ['03', '05', '06', '07', '08', '11']
+    };
+    return implemented[catKey]?.includes(num);
+  };
+
   return (
     <nav id="site-nav" className="sticky top-0 z-50 cement-paper backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,7 +186,15 @@ export default function SiteNavigation({
             </div>
             <div className="leading-tight">
               <div className="text-2xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
-              <div className="text-xs font-bold tracking-widest text-stone-600">{i18n.t('site.tagline')}</div>
+              <div
+                className="text-xs font-extrabold tracking-widest text-stone-600 select-none"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSecretClick();
+                }}
+              >
+                {i18n.t('site.tagline')}
+              </div>
             </div>
           </div>
 
@@ -206,33 +277,35 @@ export default function SiteNavigation({
                 </span>
               </button>
 
-              {/* Academy (大觀書院) */}
-              <button
-                type="button"
-                onClick={() => {
-                  setAcademyNavOpen((v) => !v);
-                  if (!academyNavOpen) setAtlasNavOpen(false);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
-                aria-expanded={academyNavOpen}
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span className="nav-pill__label">
-                    <span className="nav-pill__label--flip">
-                      <span className="nav-pill__label-inner">
-                        <span className="nav-pill__label-front">大觀書院</span>
-                        <span className="nav-pill__label-back" aria-hidden="true">
-                          大觀書院
+              {/* Academy (大觀書院) - Controlled by Secret Lock */}
+              {museumUnlocked && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAcademyNavOpen((v) => !v);
+                    if (!academyNavOpen) setAtlasNavOpen(false);
+                  }}
+                  className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
+                  aria-expanded={academyNavOpen}
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <span className="nav-pill__label">
+                      <span className="nav-pill__label--flip">
+                        <span className="nav-pill__label-inner">
+                          <span className="nav-pill__label-front">大觀書院</span>
+                          <span className="nav-pill__label-back" aria-hidden="true">
+                            大觀書院
+                          </span>
                         </span>
                       </span>
                     </span>
+                    <ChevronDown
+                      size={16}
+                      className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
+                    />
                   </span>
-                  <ChevronDown
-                    size={16}
-                    className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
-                  />
-                </span>
-              </button>
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => {
@@ -296,52 +369,65 @@ export default function SiteNavigation({
 
       {/* Tier 2 (Desktop): Atlas sections */}
       {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
-        <AccordionPanel open={atlasNavOpen} className="hidden xl:grid">
-          <div
-            id="atlas-secondary-nav"
-            className="cement-strip backdrop-blur-md"
-            style={{
-              '--nav-underline': 'rgba(16, 185, 129, 0.55)',
-              '--nav-hover-ink': 'rgba(6, 95, 70, 0.95)',
-              '--nav-active-ink': 'rgba(6, 95, 70, 1)',
-            }}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
-              <div className="flex flex-wrap items-center justify-center gap-2.5">
-                {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => goToTab(item)}
-                    className={`nav-pill nav-pill--tier2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      {(() => {
-                        const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
-                        return (
-                          <span className="inline-flex items-center">
-                            {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
-                            <span className="nav-pill__label">
-                              <span className="nav-pill__label--flip">
-                                <span className="nav-pill__label-inner">
-                                  <span className="nav-pill__label-front">{label.rest}</span>
-                                  <span className="nav-pill__label-back" aria-hidden="true">
-                                    {label.rest}
+        <div className="hidden xl:block relative z-40">
+          <AccordionPanel open={atlasNavOpen} className="grid">
+            <div
+              id="atlas-secondary-nav"
+              className="cement-strip backdrop-blur-md"
+              style={{
+                '--nav-underline': 'rgba(16, 185, 129, 0.55)',
+                '--nav-hover-ink': 'rgba(6, 95, 70, 0.95)',
+                '--nav-active-ink': 'rgba(6, 95, 70, 1)',
+              }}
+            >
+              <div className="max-w-full mx-auto px-2 sm:px-4">
+                <div className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto no-scrollbar mask-linear-fade">
+                  {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => {
+                        goToTab(item);
+                      }}
+                      className={`nav-pill nav-pill--tier2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
+                    >
+                      <span className="inline-flex items-center gap-2">
+                        {(() => {
+                          const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
+                          return (
+                            <span className="inline-flex items-center">
+                              {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
+                              <span className="nav-pill__label">
+                                <span className="nav-pill__label--flip">
+                                  <span className="nav-pill__label-inner">
+                                    <span className="nav-pill__label-front">{label.rest}</span>
+                                    <span className="nav-pill__label-back" aria-hidden="true">
+                                      {label.rest}
+                                    </span>
                                   </span>
                                 </span>
                               </span>
                             </span>
-                          </span>
-                        );
-                      })()}
-                      {item === 'varieties' || item === 'cultivars' || item === 'science' ? <ChevronDown size={16} className="opacity-70" /> : null}
-                    </span>
-                  </button>
-                ))}
+                          );
+                        })()}
+                        {item === 'varieties' || item === 'cultivars' || item === 'science' ? (
+                          <ChevronDown
+                            size={16}
+                            className="opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+                          />
+                        ) : null}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </AccordionPanel>
+          </AccordionPanel>
+        </div>
       ) : null}
+
+
+
+
 
       {/* Tier 2 (Desktop): Academy Dropdown */}
       <AccordionPanel open={academyNavOpen} className="hidden xl:grid">
@@ -354,31 +440,54 @@ export default function SiteNavigation({
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="grid grid-cols-2 gap-12">
+            <div className="flex flex-col gap-10">
               {ACADEMY_STRUCTURE.map((cat) => (
                 <div key={cat.key}>
-                  <div className="text-sm font-extrabold text-stone-500 mb-3 px-2 border-l-4 border-stone-300">
+                  <div className="text-lg font-bold text-stone-500 mb-3 px-2 border-l-4 border-stone-300">
                     {cat.label}
                   </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {Array.from({ length: cat.count }).map((_, idx) => {
-                      const num = String(idx + 1).padStart(2, '0');
+                  <div className="grid grid-cols-4 gap-3">
+                    {cat.chapters.map((chapter) => {
+                      const num = chapter.id;
+                      const active = isAcademyImplemented(cat.key, num);
                       return (
                         <a
-                          key={idx}
+                          key={num}
                           href={`${cat.prefix}${num}`}
-                          className="nav-pill nav-pill--tier2 justify-center rounded-lg border border-stone-200/50 bg-white/60 hover:bg-white text-sm font-medium text-stone-700 hover:text-stone-900 transition-colors"
+                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-4 py-3 text-sm font-base transition-colors ${active
+                            ? 'bg-amber-50 text-amber-900 hover:bg-amber-100 shadow-sm'
+                            : 'bg-white/60 hover:bg-white text-stone-700 hover:text-stone-900'
+                            }`}
                           onClick={(e) => {
                             e.preventDefault();
-                            if (cat.key === 'zhiya' && parseInt(num, 10) === 10) {
-                              goToTab('academy_zhiya_10');
+                            if (cat.key === 'zhiya') {
+                              if (parseInt(num, 10) === 10) goToTab('academy_zhiya_10');
+                              else if (parseInt(num, 10) === 2) goToTab('academy_zhiya_02');
+                              else if (parseInt(num, 10) === 3) goToTab('academy_zhiya_03');
+                              else if (parseInt(num, 10) === 4) goToTab('academy_zhiya_04');
+                              else if (parseInt(num, 10) === 5) goToTab('academy_zhiya_05');
+                              else if (parseInt(num, 10) === 6) goToTab('academy_zhiya_06');
+                              else if (parseInt(num, 10) === 7) goToTab('academy_zhiya_07');
+                              else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
+                              else goToTab('academy_coming_soon');
+                            } else if (cat.key === 'xueya') {
+                              if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                              else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
+                              else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
+                              else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
+                              else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
+                              else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
+                              else goToTab('academy_coming_soon');
                             } else {
                               goToTab('academy_coming_soon');
                             }
                             setAcademyNavOpen(false);
                           }}
                         >
-                          第 {num} 章
+                          <div className="w-full text-left flex items-baseline gap-3">
+                            <span className="font-semibold text-[16px] block shrink-0">第{num}堂</span>
+                            {chapter.title && <span className="block text-[14px] font-normal opacity-75 truncate">{chapter.title}</span>}
+                          </div>
                         </a>
                       );
                     })}
@@ -392,298 +501,340 @@ export default function SiteNavigation({
 
       {/* Tier 3/4 navigation is rendered as a left sidebar inside each exhibit page. */}
 
-      {mobileMenuOpen && (
-        <div className="xl:hidden tool-surface tool-surface--strong">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <div className="flex items-center justify-between px-3 py-2">
-              <div className="text-xs font-bold text-stone-500">{i18n.t('ui.language')}</div>
-              <button
-                type="button"
-                onClick={i18n.toggleLang}
-                className="inline-flex items-center justify-center rounded-full px-3 py-1.5 text-xs font-bold tool-item hover:bg-transparent"
-              >
-                {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
-              </button>
-            </div>
-
-            <div className="flex items-center justify-between px-3 py-2">
-              <div className="text-xs font-bold text-stone-500">配色</div>
-              <select
-                value={navTheme}
-                onChange={(e) => setNavTheme(e.target.value)}
-                className="rounded-full px-3 py-1.5 text-xs font-extrabold tool-item"
-                aria-label="導覽配色"
-              >
-                {NAV_THEMES.map((theme) => (
-                  <option key={theme.key} value={theme.key}>
-                    {theme.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Tier 1 */}
-            <div className="grid grid-cols-2 gap-2 px-2">
-              <button
-                type="button"
-                onClick={() => goToTab('journey')}
-                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
-                  activeTab === 'journey' ? 'tool-item--active' : ''
-                }`}
-              >
-                {String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, '')}
-              </button>
-              <button
-                type="button"
-                onClick={() => goToTab(activeTab === 'journey' || activeTab === 'sensory' || activeTab === 'tea_talk' ? 'home' : activeTab)}
-                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
-                  activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'tool-item--active' : ''
-                }`}
-              >
-                {String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, '')}
-              </button>
-            </div>
-
-            <div className="mt-2 grid grid-cols-2 gap-2 px-2">
-              <button
-                type="button"
-                onClick={() => goToTab('tea_talk')}
-                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
-                  activeTab === 'tea_talk' ? 'tool-item--active' : ''
-                }`}
-              >
-                {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
-              </button>
-              <button
-                type="button"
-                onClick={() => goToTab('sensory')}
-                className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${
-                  activeTab === 'sensory' ? 'tool-item--active' : ''
-                }`}
-              >
-                {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
-              </button>
-            </div>
-
-            {/* Academy (Mobile) */}
-            <div className="mt-2 px-2">
-              <button
-                type="button"
-                onClick={() => setAcademyNavOpen((v) => !v)}
-                className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                aria-expanded={academyNavOpen}
-              >
-                <span>大觀書院</span>
-                <ChevronRight
-                  size={16}
-                  className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
-                />
-              </button>
-
-              <AccordionPanel open={academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
-                <div className="space-y-2 pl-2 border-l border-stone-200">
-                  {ACADEMY_STRUCTURE.map((cat) => {
-                    const isOpen = academyMobileSubOpen[cat.key];
-                    return (
-                      <div key={cat.key}>
-                        <button
-                          type="button"
-                          onClick={() => setAcademyMobileSubOpen((prev) => ({ ...prev, [cat.key]: !prev[cat.key] }))}
-                          className="w-full inline-flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors"
-                        >
-                          <span>{cat.label}</span>
-                          <ChevronRight
-                            size={14}
-                            className={`text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
-                          />
-                        </button>
-                        <AccordionPanel open={isOpen}>
-                          <div className="grid grid-cols-3 gap-2 p-2">
-                            {Array.from({ length: cat.count }).map((_, idx) => {
-                              const num = String(idx + 1).padStart(2, '0');
-                              return (
-                                <a
-                                  key={idx}
-                                  href={`${cat.prefix}${num}`}
-                                  className="text-center rounded-md border border-stone-100 bg-white py-2 text-xs font-medium text-stone-600 shadow-sm"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    if (cat.key === 'zhiya' && parseInt(num, 10) === 10) {
-                                      goToTab('academy_zhiya_10');
-                                    } else {
-                                      goToTab('academy_coming_soon');
-                                    }
-                                    setMobileMenuOpen(false);
-                                  }}
-                                >
-                                  第{num}章
-                                </a>
-                              );
-                            })}
-                          </div>
-                        </AccordionPanel>
-                      </div>
-                    );
-                  })}
-                </div>
-              </AccordionPanel>
-            </div>
-
-            {/* Tier 2 */}
-            {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
-              <div className="mt-2 px-2">
+      {
+        mobileMenuOpen && (
+          <div className="xl:hidden tool-surface tool-surface--strong">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div className="flex items-center justify-between px-3 py-2">
+                <div className="text-xs font-bold text-stone-500">{i18n.t('ui.language')}</div>
                 <button
                   type="button"
-                  onClick={() => setAtlasNavOpen((v) => !v)}
-                  className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                  aria-expanded={atlasNavOpen}
+                  onClick={i18n.toggleLang}
+                  className="inline-flex items-center justify-center rounded-full px-3 py-1.5 text-xs font-bold tool-item hover:bg-transparent"
                 >
-                  <span>百科分類</span>
-                  <ChevronRight
-                    size={16}
-                    className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${atlasNavOpen ? 'rotate-90' : '-rotate-90'}`}
-                  />
+                  {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
                 </button>
+              </div>
 
-                <AccordionPanel open={atlasNavOpen} className="mt-2" disablePointerEventsWhenClosed>
+              <div className="flex items-center justify-between px-3 py-2">
+                <div className="text-xs font-bold text-stone-500">配色</div>
+                <select
+                  value={navTheme}
+                  onChange={(e) => setNavTheme(e.target.value)}
+                  className="rounded-full px-3 py-1.5 text-xs font-extrabold tool-item"
+                  aria-label="導覽配色"
+                >
+                  {NAV_THEMES.map((theme) => (
+                    <option key={theme.key} value={theme.key}>
+                      {theme.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Tier 1 */}
+              <div className="grid grid-cols-2 gap-2 px-2">
+                <button
+                  type="button"
+                  onClick={() => goToTab('journey')}
+                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'journey' ? 'tool-item--active' : ''
+                    }`}
+                >
+                  {String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, '')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToTab(activeTab === 'journey' || activeTab === 'sensory' || activeTab === 'tea_talk' ? 'home' : activeTab)}
+                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'tool-item--active' : ''
+                    }`}
+                >
+                  {String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, '')}
+                </button>
+              </div>
+
+              <div className="mt-2 grid grid-cols-2 gap-2 px-2">
+                <button
+                  type="button"
+                  onClick={() => goToTab('tea_talk')}
+                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'tea_talk' ? 'tool-item--active' : ''
+                    }`}
+                >
+                  {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToTab('sensory')}
+                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'sensory' ? 'tool-item--active' : ''
+                    }`}
+                >
+                  {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
+                </button>
+              </div>
+
+              {/* Academy (Mobile) */}
+              {museumUnlocked && (
+                <div className="mt-2 px-2">
+                  <button
+                    type="button"
+                    onClick={() => setAcademyNavOpen((v) => !v)}
+                    className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                    aria-expanded={academyNavOpen}
+                  >
+                    <span>大觀書院</span>
+                    <ChevronRight
+                      size={16}
+                      className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
+                    />
+                  </button>
+
+                  <AccordionPanel open={academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
+                    <div className="space-y-2 pl-2 border-l border-stone-200">
+                      {ACADEMY_STRUCTURE.map((cat) => {
+                        const isOpen = academyMobileSubOpen[cat.key];
+                        return (
+                          <div key={cat.key}>
+                            <button
+                              type="button"
+                              onClick={() => setAcademyMobileSubOpen((prev) => ({ ...prev, [cat.key]: !prev[cat.key] }))}
+                              className="w-full inline-flex items-center justify-between rounded-lg px-3 py-2 text-lg font-bold text-stone-700 hover:bg-stone-50 transition-colors"
+                            >
+                              <span>{cat.label}</span>
+                              <ChevronRight
+                                size={14}
+                                className={`text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+                              />
+                            </button>
+                            <AccordionPanel open={isOpen}>
+                              <div className="grid grid-cols-2 gap-2 p-2">
+                                {cat.chapters.map((chapter) => {
+                                  const num = chapter.id;
+                                  const active = isAcademyImplemented(cat.key, num);
+                                  return (
+                                    <a
+                                      key={num}
+                                      href={`${cat.prefix}${num}`}
+                                      className={`text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
+                                        ? 'bg-amber-50 text-amber-800 shadow-sm'
+                                        : 'bg-white text-stone-600 shadow-sm'
+                                        }`}
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        if (cat.key === 'zhiya') {
+                                          if (parseInt(num, 10) === 10) goToTab('academy_zhiya_10');
+                                          else if (parseInt(num, 10) === 2) goToTab('academy_zhiya_02');
+                                          else if (parseInt(num, 10) === 3) goToTab('academy_zhiya_03');
+                                          else if (parseInt(num, 10) === 4) goToTab('academy_zhiya_04');
+                                          else if (parseInt(num, 10) === 5) goToTab('academy_zhiya_05');
+                                          else if (parseInt(num, 10) === 6) goToTab('academy_zhiya_06');
+                                          else if (parseInt(num, 10) === 7) goToTab('academy_zhiya_07');
+                                          else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
+                                          else goToTab('academy_coming_soon');
+                                        } else if (cat.key === 'xueya') {
+                                          if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                                          else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
+                                          else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
+                                          else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
+                                          else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
+                                          else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
+                                          else if (parseInt(num, 10) === 9) goToTab('academy_xueya_09');
+                                          else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
+                                          else goToTab('academy_coming_soon');
+                                        } else {
+                                          goToTab('academy_coming_soon');
+                                        }
+                                        setMobileMenuOpen(false);
+                                      }}
+                                    >
+                                      <div className="font-bold text-lg">第{num}堂</div>
+                                      {chapter.title && <div className="truncate opacity-75 mt-0.5 text-sm">{chapter.title}</div>}
+                                    </a>
+                                  );
+                                })}
+                              </div>
+                            </AccordionPanel>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </AccordionPanel>
+                </div>
+              )}
+
+              {/* Tier 2 */}
+              {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
+                <div className="mt-2 px-2">
+                  <button
+                    type="button"
+                    onClick={() => setAtlasNavOpen((v) => !v)}
+                    className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                    aria-expanded={atlasNavOpen}
+                  >
+                    <span>百科分類</span>
+                    <ChevronRight
+                      size={16}
+                      className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${atlasNavOpen ? 'rotate-90' : '-rotate-90'}`}
+                    />
+                  </button>
+
+                  <AccordionPanel open={atlasNavOpen} className="mt-2" disablePointerEventsWhenClosed>
+                    <div className="grid grid-cols-2 gap-2">
+                      {ATLAS_ITEMS.map((item) => (
+                        <button
+                          key={item}
+                          onClick={() => goToTab(item)}
+                          className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${activeTab === item ? 'tool-item--active' : ''
+                            }`}
+                        >
+                          {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
+                        </button>
+                      ))}
+                    </div>
+                  </AccordionPanel>
+                </div>
+              ) : null}
+
+              {/* Tier 3 */}
+              {activeTab === 'varieties' ? (
+                <div className="mt-2 px-2">
+                  <div className="text-xs font-bold text-stone-500 px-1 py-2">六大茶類</div>
                   <div className="grid grid-cols-2 gap-2">
-                    {ATLAS_ITEMS.map((item) => (
+                    {VARIETIES_KINDS.map((kind) => (
                       <button
-                        key={item}
-                        onClick={() => goToTab(item)}
-                        className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${
-                          activeTab === item ? 'tool-item--active' : ''
-                        }`}
+                        key={kind.key}
+                        type="button"
+                        onClick={() => {
+                          setVarietiesKind(kind.key);
+                          setMobileMenuOpen(false);
+                          if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${varietiesKind === kind.key ? 'tool-item--active' : ''
+                          }`}
                       >
-                        {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
+                        {kind.label}
                       </button>
                     ))}
                   </div>
-                </AccordionPanel>
-              </div>
-            ) : null}
 
-            {/* Tier 3 */}
-            {activeTab === 'varieties' ? (
-              <div className="mt-2 px-2">
-                <div className="text-xs font-bold text-stone-500 px-1 py-2">六大茶類</div>
-                <div className="grid grid-cols-2 gap-2">
-                  {VARIETIES_KINDS.map((kind) => (
-                    <button
-                      key={kind.key}
-                      type="button"
-                      onClick={() => {
-                        setVarietiesKind(kind.key);
-                        setMobileMenuOpen(false);
-                        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${
-                        varietiesKind === kind.key ? 'tool-item--active' : ''
-                      }`}
-                    >
-                      {kind.label}
-                    </button>
-                  ))}
-                </div>
-
-                {VARIETIES_SUBITEMS_BY_KEY[varietiesKind]?.length ? (
-                  <div className="mt-3">
-                    <div className="text-xs font-bold text-stone-500 px-1 py-2">子章節</div>
-                    <div className="space-y-1">
-                      {VARIETIES_SUBITEMS_BY_KEY[varietiesKind].map((item) => (
-                        <button
-                          key={item.href}
-                          type="button"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            if (typeof window === 'undefined') return;
-                            const shouldDispatchPopstate = varietiesKind === 'oolong';
-                            window.requestAnimationFrame(() => {
+                  {VARIETIES_SUBITEMS_BY_KEY[varietiesKind]?.length ? (
+                    <div className="mt-3">
+                      <div className="text-xs font-bold text-stone-500 px-1 py-2">子章節</div>
+                      <div className="space-y-1">
+                        {VARIETIES_SUBITEMS_BY_KEY[varietiesKind].map((item) => (
+                          <button
+                            key={item.href}
+                            type="button"
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              if (typeof window === 'undefined') return;
+                              const shouldDispatchPopstate = varietiesKind === 'oolong';
                               window.requestAnimationFrame(() => {
-                                scrollToHrefWithOffset(item.href, { dispatchPopstate: shouldDispatchPopstate });
+                                window.requestAnimationFrame(() => {
+                                  scrollToHrefWithOffset(item.href, { dispatchPopstate: shouldDispatchPopstate });
+                                });
                               });
-                            });
-                          }}
-                          className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                        >
-                          {item.label}
-                        </button>
-                      ))}
+                            }}
+                            className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
-
-            {/* Tier 3: Science */}
-            {activeTab === 'science' ? (
-              <div className="mt-2 px-2">
-                <div className="text-xs font-bold text-stone-500 px-1 py-2">科學章節</div>
-                <div className="grid grid-cols-2 gap-2">
-                  {SCIENCE_TOC.map((item) => (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() => {
-                        setScienceRoom(item.key);
-                        setMobileMenuOpen(false);
-                        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${
-                        scienceRoom === item.key ? 'tool-item--active' : ''
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
+                  ) : null}
                 </div>
-                {scienceRoom === 'teaching' && (
-                  <div className="mt-3">
-                    <div className="text-xs font-bold text-stone-500 px-1 py-2">教學引用</div>
-                    <div className="space-y-1">
-                      {TEA_REFERENCE_TOC.map((item) => (
-                        <button
-                          key={item.href}
-                          type="button"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            scrollToHrefWithOffset(item.href, { dispatchPopstate: true });
-                          }}
-                          className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                        >
-                          {item.label}
-                        </button>
-                      ))}
+              ) : null}
+
+              {/* Tier 3: Science */}
+              {activeTab === 'science' ? (
+                <div className="mt-2 px-2">
+                  <div className="text-xs font-bold text-stone-500 px-1 py-2">科學章節</div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {SCIENCE_TOC.map((item) => (
+                      <button
+                        key={item.key}
+                        type="button"
+                        onClick={() => {
+                          setScienceRoom(item.key);
+                          setMobileMenuOpen(false);
+                          if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${scienceRoom === item.key ? 'tool-item--active' : ''
+                          }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                  {scienceRoom === 'teaching' && (
+                    <div className="mt-3">
+                      <div className="text-xs font-bold text-stone-500 px-1 py-2">教學引用</div>
+                      <div className="space-y-1">
+                        {TEA_REFERENCE_TOC.map((item) => (
+                          <button
+                            key={item.href}
+                            type="button"
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              scrollToHrefWithOffset(item.href, { dispatchPopstate: true });
+                            }}
+                            className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ) : null}
-
-            {/* Tier 3: Cultivars */}
-            {activeTab === 'cultivars' ? (
-              <div className="mt-2 px-2">
-                <div className="text-xs font-bold text-stone-500 px-1 py-2">品種章節</div>
-                <div className="space-y-1">
-                  {CULTIVARS_TOC.map((item) => (
-                    <button
-                      key={item.href}
-                      type="button"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        scrollToHrefWithOffset(item.href);
-                      }}
-                      className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                    >
-                      {item.label}
-                    </button>
-                  ))}
+                  )}
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+
+              {/* Tier 3: Puerh */}
+              {activeTab === 'puerh' ? (
+                <div className="mt-2 px-2">
+                  <div className="text-xs font-bold text-stone-500 px-1 py-2">普洱茶百科</div>
+                  <div className="space-y-1">
+                    {PUERH_TOC.map((item) => (
+                      <button
+                        key={item.href}
+                        type="button"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          scrollToHrefWithOffset(item.href);
+                        }}
+                        className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {/* Tier 3: Cultivars */}
+              {activeTab === 'cultivars' ? (
+                <div className="mt-2 px-2">
+                  <div className="text-xs font-bold text-stone-500 px-1 py-2">品種章節</div>
+                  <div className="space-y-1">
+                    {CULTIVARS_TOC.map((item) => (
+                      <button
+                        key={item.href}
+                        type="button"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          scrollToHrefWithOffset(item.href);
+                        }}
+                        className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )
+      }
+    </nav >
   );
 }

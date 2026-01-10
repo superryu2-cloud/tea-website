@@ -11,7 +11,7 @@ export default function GaoshanOolongContent() {
             <Mountain size={16} className="opacity-90" />
             輕發酵｜青茶
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-extrabold font-serif text-stone-900 leading-tight">高山烏龍茶</h2>
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold font-sans text-stone-900 leading-tight">高山烏龍茶</h2>
           <p className="mt-5 text-lg md:text-xl text-stone-700 leading-relaxed">
             以高海拔條件帶來的清甜、細緻與耐泡感著稱；在清香型球形烏龍中最具代表性。
           </p>

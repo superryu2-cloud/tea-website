@@ -103,25 +103,23 @@ const MenuButton = ({ toneKey, isActive, label, count, hint, onClick, right, com
     <button
       type="button"
       onClick={onClick}
-      className={`group relative w-full text-left overflow-hidden rounded-2xl border transition will-change-transform ${
-        isActive
-          ? `${activeBorder} ${activeBg} ${activeText} shadow-sm`
-          : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white hover:shadow-sm'
-      }`}
+      className={`group relative w-full text-left overflow-hidden rounded-2xl border transition will-change-transform ${isActive
+        ? `${activeBorder} ${activeBg} ${activeText} shadow-sm`
+        : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white hover:shadow-sm'
+        }`}
     >
       <span className={`absolute left-0 top-0 h-full w-1.5 ${tone.accent} ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-90'}`} />
-      <div className={`flex items-center justify-between gap-3 ${compact ? 'px-4 py-2' : 'px-4 py-3'}`}>
+      <div className={`flex items-center justify-between gap-3 ${compact ? 'px-4 py-1.5' : 'px-4 py-2.5'}`}>
         <span
-          className={`inline-flex items-center justify-center rounded-2xl shadow-sm ring-1 ring-black/5 ${tone.iconBg} ${tone.iconText} ${
-            compact ? 'h-9 w-9' : 'h-10 w-10'
-          }`}
+          className={`inline-flex items-center justify-center rounded-2xl shadow-sm ring-1 ring-black/5 ${tone.iconBg} ${tone.iconText} ${compact ? 'h-9 w-9' : 'h-10 w-10'
+            }`}
         >
           <Icon size={18} />
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-3">
-            <div className={`min-w-0 text-sm font-extrabold leading-snug ${compact ? 'truncate' : ''}`}>{label}</div>
-            {count != null ? <div className="shrink-0 text-sm font-extrabold opacity-70">({count})</div> : null}
+            <div className={`min-w-0 text-base font-semibold leading-tight ${compact ? 'truncate' : ''}`}>{label}</div>
+            {count != null ? <div className="shrink-0 text-sm font-semibold opacity-70">({count})</div> : null}
           </div>
           {!compact && hint ? <div className="mt-0.5 text-xs font-semibold text-stone-500">{hint}</div> : null}
         </div>
@@ -141,16 +139,15 @@ const TopicButton = ({ toneKey, isActive, label, count, onClick }) => {
       type="button"
       onClick={onClick}
       title={label}
-      className={`group relative w-full text-left overflow-hidden rounded-xl border transition-colors ${
-        isActive
-          ? `${activeBorder} ${activeBg} ${activeText}`
-          : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white'
-      }`}
+      className={`group relative w-full text-left overflow-hidden rounded-xl border transition-colors ${isActive
+        ? `${activeBorder} ${activeBg} ${activeText}`
+        : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white'
+        }`}
     >
       <span className={`absolute left-0 top-0 h-full w-1 ${tone.accent} opacity-70 group-hover:opacity-90`} />
-      <div className="flex items-center justify-between gap-3 px-4 py-2">
-        <span className="min-w-0 flex-1 truncate whitespace-nowrap text-sm font-extrabold">{label}</span>
-        <span className="shrink-0 text-sm font-extrabold opacity-70">({count})</span>
+      <div className="flex items-center justify-between gap-3 px-4 py-1.5">
+        <span className="min-w-0 flex-1 truncate whitespace-nowrap text-base font-semibold leading-tight">{label}</span>
+        <span className="shrink-0 text-sm font-semibold opacity-70">({count})</span>
       </div>
     </button>
   );
@@ -386,13 +383,11 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const sidebarTopPx = resolvedTopOffsetPx + 12;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-6 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] gap-6 items-start">
       <aside className="lg:sticky" style={{ '--sidebar-top': `${sidebarTopPx}px`, top: `var(--sidebar-top)` }}>
         <div className="space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto">
-            <div className="museum-frame museum-paper overflow-hidden">
-              <div className="px-6 py-6 md:px-8 md:py-7 border-b border-stone-200/70">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-stone-900">品評考題（題庫）</h2>
-              </div>
+          <div className="museum-frame museum-paper overflow-hidden">
+
 
             <div className="px-6 py-5 md:px-8 flex flex-col gap-3">
               <div className="min-w-0">
@@ -409,7 +404,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                       if (introMode && next.trim().length > 0) setIntroMode(false);
                     }}
                     placeholder="搜尋題目關鍵字（題幹/選項）..."
-                    className="w-full rounded-xl border border-stone-200 bg-white/80 pl-10 pr-4 py-2.5 text-sm font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-600/25"
+                    className="w-full rounded-xl border border-stone-200 bg-white/80 pl-10 pr-4 py-2.5 text-base font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-600/25"
                   />
                 </div>
               </div>
@@ -417,11 +412,10 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
               <button
                 type="button"
                 onClick={() => setRevealAnswers((prev) => !prev)}
-                className={`inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-extrabold transition-colors ${
-                  revealAnswers
-                    ? 'border-sky-200 bg-sky-50 text-sky-950 hover:bg-sky-100/60'
-                    : 'border-stone-200 bg-white/80 text-stone-800 hover:bg-white'
-                }`}
+                className={`inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-base font-extrabold transition-colors ${revealAnswers
+                  ? 'border-sky-200 bg-sky-50 text-sky-950 hover:bg-sky-100/60'
+                  : 'border-stone-200 bg-white/80 text-stone-800 hover:bg-white'
+                  }`}
               >
                 {revealAnswers ? <EyeOff size={16} className="text-sky-600" /> : <Eye size={16} className="text-stone-500" />}
                 {revealAnswers ? '關閉答案' : '顯示答案'}
@@ -430,7 +424,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
               <button
                 type="button"
                 onClick={() => setAnswersById({})}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white/80 px-4 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white/80 px-4 py-2.5 text-base font-extrabold text-stone-800 hover:bg-white transition-colors"
               >
                 <RotateCcw size={16} className="text-stone-500" />
                 清除作答紀錄
@@ -439,7 +433,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
           </div>
 
           <div className="museum-frame museum-paper p-5 md:p-6">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">題庫（可收合）</div>
+            <div className="text-sm font-semibold tracking-widest text-stone-500">題庫（可收合）</div>
             <div className="mt-3 space-y-2">
               <MenuButton
                 toneKey="all"
@@ -567,72 +561,70 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
 
           {!showIntro
             ? filteredQuestions.map((q, index) => {
-            const answered = answersById[q.id];
-            const hasAnswerKey = q.answerIndex != null;
-            const correctIndex = hasAnswerKey ? q.answerIndex : null;
-            const answeredIndex = Number.isInteger(answered) ? answered : null;
-            const isCorrect = hasAnswerKey && answeredIndex != null ? answeredIndex === correctIndex : null;
-            const shouldRevealAnswer = Boolean(revealAnswers && hasAnswerKey);
+              const answered = answersById[q.id];
+              const hasAnswerKey = q.answerIndex != null;
+              const correctIndex = hasAnswerKey ? q.answerIndex : null;
+              const answeredIndex = Number.isInteger(answered) ? answered : null;
+              const isCorrect = hasAnswerKey && answeredIndex != null ? answeredIndex === correctIndex : null;
+              const shouldRevealAnswer = Boolean(revealAnswers && hasAnswerKey);
 
-            return (
-              <div key={q.id} className="museum-frame museum-paper p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <div className="text-xs font-extrabold tracking-widest text-stone-500">{q.topicLabel}</div>
-                    <div className="mt-2 text-lg md:text-xl font-extrabold text-stone-900 leading-snug">
-                      {index + 1}. {q.stem}
+              return (
+                <div key={q.id} className="museum-frame museum-paper p-6 md:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">{q.topicLabel}</div>
+                      <div className="mt-2 text-lg md:text-xl font-extrabold text-stone-900 leading-snug">
+                        {index + 1}. {q.stem}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-4 pl-8 space-y-3">
-                  <QuestionImage question={q} />
+                  <div className="mt-4 pl-8 space-y-3">
+                    <QuestionImage question={q} />
 
-                  <div className="grid gap-1.5 grid-cols-1">
-                    {q.choices.map((choice, choiceIndex) => {
-                      const isSelected = answered === choiceIndex;
-                      const isCorrectChoice = hasAnswerKey && choiceIndex === correctIndex;
-                      const showFeedback = hasAnswerKey && answeredIndex != null;
-                      const isWrongSelected = showFeedback && isSelected && !isCorrectChoice;
-                      const showCorrectMarker = (showFeedback || shouldRevealAnswer) && isCorrectChoice;
+                    <div className="grid gap-1 grid-cols-1">
+                      {q.choices.map((choice, choiceIndex) => {
+                        const isSelected = answered === choiceIndex;
+                        const isCorrectChoice = hasAnswerKey && choiceIndex === correctIndex;
+                        const showFeedback = hasAnswerKey && answeredIndex != null;
+                        const isWrongSelected = showFeedback && isSelected && !isCorrectChoice;
+                        const showCorrectMarker = (showFeedback || shouldRevealAnswer) && isCorrectChoice;
 
-                      return (
-                        <button
-                          key={`${q.id}-${choiceIndex}`}
-                          type="button"
-                          onClick={() => setAnswersById((prev) => ({ ...prev, [q.id]: choiceIndex }))}
-                          className={`text-left rounded-xl border px-4 py-2 transition-colors ${
-                            (showFeedback || shouldRevealAnswer) && isCorrectChoice
+                        return (
+                          <button
+                            key={`${q.id}-${choiceIndex}`}
+                            type="button"
+                            onClick={() => setAnswersById((prev) => ({ ...prev, [q.id]: choiceIndex }))}
+                            className={`text-left rounded-xl border px-4 py-1.5 transition-colors ${(showFeedback || shouldRevealAnswer) && isCorrectChoice
                               ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
                               : isWrongSelected
                                 ? 'border-rose-300 bg-rose-50 text-rose-950'
                                 : isSelected && !shouldRevealAnswer
                                   ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
                                   : 'border-stone-200 bg-white/80 hover:bg-white text-stone-900'
-                          }`}
-                        >
-                          <span className="inline-flex items-start gap-3">
-                            <span
-                              className={`mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-extrabold transition-opacity ${
-                                showCorrectMarker ? 'opacity-100' : 'opacity-0'
                               }`}
-                              aria-hidden={!showCorrectMarker}
-                            >
-                              O
+                          >
+                            <span className="inline-flex items-center gap-3">
+                              <span
+                                className={`inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-extrabold transition-opacity ${showCorrectMarker ? 'opacity-100' : 'opacity-0'
+                                  }`}
+                                aria-hidden={!showCorrectMarker}
+                              >
+                                O
+                              </span>
+                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-stone-200 bg-white text-sm font-extrabold text-stone-700">
+                                {choiceIndex + 1}
+                              </span>
+                              <span className="text-base font-semibold leading-snug">{choice}</span>
                             </span>
-                            <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full border border-stone-200 bg-white text-sm font-extrabold text-stone-700">
-                              {choiceIndex + 1}
-                            </span>
-                            <span className="text-sm md:text-base font-semibold leading-relaxed">{choice}</span>
-                          </span>
-                        </button>
-                      );
-                    })}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
             : null}
 
           {!showIntro && filteredQuestions.length === 0 ? (

@@ -36,7 +36,7 @@ export default function ChapterSidebar({
     <aside className={asideClassName} style={asideStyle}>
       <div
         ref={scrollContainerRef}
-        className="museum-panel p-4 overflow-y-auto tool-surface"
+        className="museum-panel px-4 py-4 pr-2 overflow-y-auto tool-surface"
         style={{ maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 24px)`, overflowAnchor: 'none' }}
       >
         <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted">{title}</div>
@@ -66,7 +66,7 @@ export default function ChapterSidebar({
                     onSelectKey(item.key);
                     setActiveCollapse({ key: item.key, collapsed: false });
                   }}
-                  className={`w-full text-left rounded-xl px-3 py-2 transition-colors tool-item chapter-nav-item ${isActive ? 'tool-item--active' : ''}`}
+                  className={`w-full text-left rounded-xl px-3 py-2.5 transition-colors tool-item chapter-nav-item text-base font-semibold ${isActive ? 'tool-item--active' : ''}`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">
                     <span className="min-w-0 font-semibold chapter-label--flip">
@@ -110,9 +110,8 @@ export default function ChapterSidebar({
                                 }, 0);
                               });
                             }}
-                            className={`w-full text-left rounded-lg px-3 py-2 transition-colors chapter-subitem ${
-                              subActive ? 'tool-subitem--active font-semibold' : 'hover:bg-[var(--tool-hover-bg)]'
-                            }`}
+                            className={`w-full text-left rounded-lg px-3 py-2.5 transition-colors chapter-subitem text-base font-semibold ${subActive ? 'tool-subitem--active' : 'hover:bg-[var(--tool-hover-bg)]'
+                              }`}
                           >
                             <span className="block chapter-label--flip">
                               <span className="chapter-label-inner">
