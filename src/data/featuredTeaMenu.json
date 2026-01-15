@@ -3,8 +3,8 @@
     "id": "overview",
     "label": "總覽",
     "subtitle": "茶名組合表",
-    "activeClass": "bg-gradient-to-br from-green-600 to-amber-600",
-    "swatch": "#10b981"
+    "activeClass": "bg-gradient-to-br from-[#D7F0FA] to-[#BDE6F5]",
+    "swatch": "#D7F0FA"
   },
   {
     "id": "biluochun",
@@ -59,7 +59,7 @@
     "id": "honeyblack",
     "label": "蜜香紅茶",
     "subtitle": "著涎轉香｜舞鶴台地",
-    "swatch": "#f59e0b",
+    "swatch": "#D7F0FA",
     "activeClass": "bg-amber-700 text-white"
   },
   {

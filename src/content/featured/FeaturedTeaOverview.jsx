@@ -101,7 +101,7 @@ const FeaturedTeaOverview = () => {
     return (
         <div className="space-y-16 pb-16">
             {/* Section 1: 茶名組合表 */}
-            <section className="museum-panel p-8 md:p-12">
+            <section className="museum-panel px-8 pt-8 pb-8 md:px-12 md:pt-12 md:pb-12">
                 <div className="text-center mb-12">
                     <div className="museum-label mx-auto mb-4">TEA NAME BUILDER</div>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900 mb-3">臺灣茶名稱組合表</h2>
@@ -126,8 +126,8 @@ const FeaturedTeaOverview = () => {
                                     key={item.key}
                                     onClick={() => setSelectedFlavor(item)}
                                     className={`w-full px-4 py-3 rounded-lg border-2 font-bold transition-all ${selectedFlavor?.key === item.key
-                                            ? `${item.color} ring-2 ring-stone-400`
-                                            : `${item.color} opacity-70`
+                                        ? `${item.color} ring-2 ring-stone-400`
+                                        : `${item.color} opacity-70`
                                         }`}
                                 >
                                     <div>{item.label}</div>
@@ -152,8 +152,8 @@ const FeaturedTeaOverview = () => {
                                     key={item.key}
                                     onClick={() => setSelectedOrigin(item)}
                                     className={`px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all ${selectedOrigin?.key === item.key
-                                            ? 'bg-amber-600 text-white border-amber-700 ring-2 ring-amber-400'
-                                            : 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200'
+                                        ? 'bg-amber-600 text-white border-amber-700 ring-2 ring-amber-400'
+                                        : 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200'
                                         }`}
                                 >
                                     {item.label}
@@ -177,8 +177,8 @@ const FeaturedTeaOverview = () => {
                                     key={item.key}
                                     onClick={() => setSelectedCultivar(item)}
                                     className={`w-full px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all ${selectedCultivar?.key === item.key
-                                            ? 'bg-amber-700 text-white border-amber-800 ring-2 ring-amber-500'
-                                            : 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
+                                        ? 'bg-amber-700 text-white border-amber-800 ring-2 ring-amber-500'
+                                        : 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
                                         }`}
                                 >
                                     {item.label}
@@ -202,8 +202,8 @@ const FeaturedTeaOverview = () => {
                                     key={item.key}
                                     onClick={() => setSelectedMethod(item)}
                                     className={`w-full px-4 py-3 rounded-lg border-2 font-bold transition-all ${selectedMethod?.key === item.key
-                                            ? `${item.color} ring-2 ring-stone-400 border-stone-600`
-                                            : `${item.color} opacity-70`
+                                        ? `${item.color} ring-2 ring-stone-400 border-stone-600`
+                                        : `${item.color} opacity-70`
                                         }`}
                                 >
                                     <div className="text-2xl mb-1">{item.icon}</div>

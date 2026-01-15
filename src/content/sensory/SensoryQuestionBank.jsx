@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   BookOpen,
   ChevronDown,
@@ -215,10 +215,29 @@ const QuestionImage = ({ question }) => {
 
 export default function SensoryQuestionBank({ questions, activeTopic, onSelectTopic, topOffsetPx = 0 }) {
   const [introMode, setIntroMode] = useState(true);
+  const [practiceMode, setPracticeMode] = useState('list');
   const [query, setQuery] = useState('');
   const [activeBank, setActiveBank] = useState(null);
   const [expandedBankKeys, setExpandedBankKeys] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(activeTopic ?? null);
+  const [cardIndex, setCardIndex] = useState(0);
+  const [cardFlipped, setCardFlipped] = useState(false);
+  const [cardSeed, setCardSeed] = useState(0);
+  const [quickSeed, setQuickSeed] = useState(0);
+  const [quickAnswerIndex, setQuickAnswerIndex] = useState(null);
+  const [quickReveal, setQuickReveal] = useState(false);
+  const [quickSoundOn, setQuickSoundOn] = useState(true);
+  const [challengeOn, setChallengeOn] = useState(false);
+  const [challengeSize, setChallengeSize] = useState(10);
+  const [challengeTime, setChallengeTime] = useState(15);
+  const [challengeIndex, setChallengeIndex] = useState(0);
+  const [challengeScore, setChallengeScore] = useState(0);
+  const [challengeTimeLeft, setChallengeTimeLeft] = useState(15);
+  const [challengeTotalSeconds, setChallengeTotalSeconds] = useState(0);
+  const [challengeFinished, setChallengeFinished] = useState(false);
+  const [challengeSelected, setChallengeSelected] = useState(null);
+  const flipAudioRef = useRef(null);
+  const sidebarScrollRef = useRef(null);
   const [revealAnswers, setRevealAnswers] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.localStorage?.getItem(REVEAL_KEY) === '1';
@@ -379,13 +398,158 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     });
   }, [questionsInBank, selectedTopic, normalizedQuery]);
 
+  const quickQuestion = useMemo(() => {
+    if (!filteredQuestions.length) return null;
+    const poolSize = filteredQuestions.length;
+    const seed = Math.abs(quickSeed) + 1;
+    const index = (seed * 9301 + 49297) % 233280;
+    return filteredQuestions[index % poolSize];
+  }, [filteredQuestions, quickSeed]);
+
+  const quickQuestionId = quickQuestion?.id ?? null;
+  useEffect(() => {
+    setQuickAnswerIndex(null);
+    setQuickReveal(false);
+  }, [quickQuestionId]);
+
+  const shuffleCards = (list) => {
+    const next = [...list];
+    for (let i = next.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [next[i], next[j]] = [next[j], next[i]];
+    }
+    return next;
+  };
+
+  const cardQuestions = useMemo(() => {
+    if (practiceMode !== 'cards') return [];
+    if (!filteredQuestions.length) return [];
+    return shuffleCards(filteredQuestions);
+  }, [filteredQuestions, practiceMode, cardSeed]);
+
+  useEffect(() => {
+    if (practiceMode !== 'cards') return;
+    setCardIndex(0);
+    setCardFlipped(false);
+  }, [practiceMode, selectedTopic, activeBank, normalizedQuery, cardSeed]);
+
+  useEffect(() => {
+    if (!challengeOn) return;
+    setChallengeIndex(0);
+    setChallengeScore(0);
+    setChallengeFinished(false);
+    setChallengeSelected(null);
+    setChallengeTimeLeft(challengeTime);
+    setChallengeTotalSeconds(0);
+  }, [challengeOn, selectedTopic, activeBank, normalizedQuery, challengeTime]);
+
+  useEffect(() => {
+    if (practiceMode !== 'cards') return;
+    if (cardIndex >= cardQuestions.length) {
+      setCardIndex(0);
+    }
+  }, [cardIndex, cardQuestions.length, practiceMode]);
+
+  const challengeQuestions = useMemo(() => {
+    if (!challengeOn) return [];
+    if (!filteredQuestions.length) return [];
+    return filteredQuestions.slice(0, Math.min(challengeSize, filteredQuestions.length));
+  }, [challengeOn, filteredQuestions, challengeSize]);
+
+  const activeChallengeQuestion = challengeQuestions[challengeIndex] ?? null;
+  const activeChallengeAnswerIndex = Number.isInteger(activeChallengeQuestion?.answerIndex)
+    ? activeChallengeQuestion.answerIndex
+    : null;
+
+  useEffect(() => {
+    if (!challengeOn) return;
+    if (challengeFinished) return;
+    if (!activeChallengeQuestion) return;
+    setChallengeTimeLeft(challengeTime);
+    setChallengeSelected(null);
+  }, [challengeOn, challengeIndex, challengeFinished, activeChallengeQuestion, challengeTime]);
+
+  useEffect(() => {
+    if (!challengeOn) return undefined;
+    if (challengeFinished) return undefined;
+    if (!activeChallengeQuestion) return undefined;
+    let ticking = true;
+    const timer = setInterval(() => {
+      if (!ticking) return;
+      setChallengeTimeLeft((prev) => {
+        if (prev <= 1) return 0;
+        return prev - 1;
+      });
+      setChallengeTotalSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => {
+      ticking = false;
+      clearInterval(timer);
+    };
+  }, [challengeOn, challengeFinished, activeChallengeQuestion]);
+
+  useEffect(() => {
+    if (!challengeOn) return;
+    if (challengeFinished) return;
+    if (!activeChallengeQuestion) return;
+    if (challengeTimeLeft > 0) return;
+    const nextIndex = challengeIndex + 1;
+    if (nextIndex >= challengeQuestions.length) {
+      setChallengeFinished(true);
+      return;
+    }
+    setChallengeIndex(nextIndex);
+  }, [challengeTimeLeft, challengeOn, challengeFinished, activeChallengeQuestion, challengeIndex, challengeQuestions.length]);
+
   const resolvedTopOffsetPx = Number.isFinite(topOffsetPx) ? Math.max(0, Math.round(topOffsetPx)) : 0;
   const sidebarTopPx = resolvedTopOffsetPx + 12;
+
+  const playFlipSound = () => {
+    if (!quickSoundOn) return;
+    if (typeof window === 'undefined') return;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    try {
+      if (!flipAudioRef.current) {
+        flipAudioRef.current = new AudioContext();
+      }
+      const ctx = flipAudioRef.current;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(420, ctx.currentTime);
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.08);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.09);
+    } catch {
+      // ignore audio failures
+    }
+  };
+
+  const preserveSidebarScroll = (action) => {
+    const container = sidebarScrollRef.current;
+    const top = container ? container.scrollTop : 0;
+    action();
+    if (!container) return;
+    requestAnimationFrame(() => {
+      container.scrollTop = top;
+    });
+    setTimeout(() => {
+      container.scrollTop = top;
+    }, 360);
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] gap-6 items-start">
       <aside className="lg:sticky" style={{ '--sidebar-top': `${sidebarTopPx}px`, top: `var(--sidebar-top)` }}>
-        <div className="space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto">
+        <div
+          ref={sidebarScrollRef}
+          className="space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto"
+          style={{ overflowAnchor: 'none' }}
+        >
           <div className="museum-frame museum-paper overflow-hidden">
 
 
@@ -441,14 +605,16 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                 label="說明"
                 count={null}
                 compact
-                onClick={() => {
-                  setIntroMode(true);
-                  setQuery('');
-                  setActiveBank(null);
-                  setSelectedTopic(null);
-                  setExpandedBankKeys([]);
-                  onSelectTopic?.(null);
-                }}
+                onClick={() =>
+                  preserveSidebarScroll(() => {
+                    setIntroMode(true);
+                    setQuery('');
+                    setActiveBank(null);
+                    setSelectedTopic(null);
+                    setExpandedBankKeys([]);
+                    onSelectTopic?.(null);
+                  })
+                }
               />
 
               {bankTree.map((node) => {
@@ -471,14 +637,18 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                           className={`transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
                         />
                       }
-                      onClick={() => {
-                        setIntroMode(false);
-                        setActiveBank(stateKey === 'all' ? null : stateKey);
-                        setQuery('');
-                        onSelectTopic?.(null);
-                        setSelectedTopic(null);
-                        setExpandedBankKeys((prev) => (prev.includes(stateKey) ? prev.filter((k) => k !== stateKey) : [...prev, stateKey]));
-                      }}
+                      onClick={() =>
+                        preserveSidebarScroll(() => {
+                          setIntroMode(false);
+                          setActiveBank(stateKey === 'all' ? null : stateKey);
+                          setQuery('');
+                          onSelectTopic?.(null);
+                          setSelectedTopic(null);
+                          setExpandedBankKeys((prev) =>
+                            prev.includes(stateKey) ? prev.filter((k) => k !== stateKey) : [...prev, stateKey],
+                          );
+                        })
+                      }
                     />
 
                     <AccordionPanel open={isExpanded}>
@@ -488,15 +658,17 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                           isActive={!selectedTopic && nodeSelected}
                           label="全部題目"
                           count={node.count}
-                          onClick={() => {
-                            setIntroMode(false);
-                            const nextBankKey = stateKey === 'all' ? null : stateKey;
-                            setActiveBank(nextBankKey);
-                            if (nextBankKey) ensureExpanded(nextBankKey);
-                            setQuery('');
-                            setSelectedTopic(null);
-                            onSelectTopic?.(null);
-                          }}
+                          onClick={() =>
+                            preserveSidebarScroll(() => {
+                              setIntroMode(false);
+                              const nextBankKey = stateKey === 'all' ? null : stateKey;
+                              setActiveBank(nextBankKey);
+                              if (nextBankKey) ensureExpanded(nextBankKey);
+                              setQuery('');
+                              setSelectedTopic(null);
+                              onSelectTopic?.(null);
+                            })
+                          }
                         />
 
                         {node.topics.length > 0 ? (
@@ -504,18 +676,20 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                             <TopicButton
                               key={t.topic}
                               toneKey={stateKey === 'all' ? t.bankKey ?? 'all' : nodeToneKey}
-                              isActive={selectedTopic === t.topic && (stateKey !== 'all' || !activeBank)}
+                              isActive={selectedTopic === t.topic && (stateKey !== 'all' || !activeBank || activeBank === t.bankKey)}
                               label={t.label}
                               count={t.count}
-                              onClick={() => {
-                                setIntroMode(false);
-                                const nextBankKey = stateKey === 'all' ? (t.bankKey ?? null) : stateKey;
-                                setActiveBank(nextBankKey);
-                                if (nextBankKey) ensureExpanded(nextBankKey);
-                                setQuery('');
-                                setSelectedTopic(t.topic);
-                                onSelectTopic?.(t.topic);
-                              }}
+                              onClick={() =>
+                                preserveSidebarScroll(() => {
+                                  setIntroMode(false);
+                                  const nextBankKey = stateKey === 'all' ? null : stateKey;
+                                  setActiveBank(nextBankKey);
+                                  if (nextBankKey) ensureExpanded(nextBankKey);
+                                  setQuery('');
+                                  setSelectedTopic(t.topic);
+                                  onSelectTopic?.(t.topic);
+                                })
+                              }
                             />
                           ))
                         ) : (
@@ -535,7 +709,450 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
 
       <main className="min-w-0">
         <div className="w-full space-y-4">
-          {showIntro ? (
+          {quickQuestion ? (
+            (() => {
+              const hasQuickAnswer = Number.isInteger(quickQuestion.answerIndex);
+              const quickCorrectIndex = hasQuickAnswer ? quickQuestion.answerIndex : null;
+              const quickSelected = Number.isInteger(quickAnswerIndex) ? quickAnswerIndex : null;
+              const quickIsCorrect = hasQuickAnswer && quickSelected != null && quickSelected === quickCorrectIndex;
+              const showQuickResult = quickSelected != null || quickReveal;
+              const shouldFlip = quickReveal;
+              const quickMinHeight = 320;
+
+              return (
+                <div className="museum-frame museum-paper p-6 md:p-7">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">QUICK QUIZ</div>
+                      <div className="mt-2 text-lg font-extrabold text-stone-900">快問快答</div>
+                      <div className="mt-1 text-sm font-semibold text-stone-600">選一個答案，看看直覺。</div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuickSeed((prev) => prev + 1);
+                          setQuickAnswerIndex(null);
+                          setQuickReveal(false);
+                        }}
+                        className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                      >
+                        換一題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setQuickSoundOn((prev) => !prev)}
+                        className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${quickSoundOn
+                          ? 'border-amber-200 bg-amber-50 text-amber-900'
+                          : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                          }`}
+                      >
+                        翻卡音效：{quickSoundOn ? '開' : '關'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuickReveal((prev) => !prev);
+                          playFlipSound();
+                        }}
+                        className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${quickReveal
+                          ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                          : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                          }`}
+                      >
+                        {quickReveal ? '回到題目' : '翻卡看答案'}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setChallengeOn((prev) => !prev);
+                          setCardFlipped(false);
+                        }}
+                        className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${challengeOn
+                          ? 'border-amber-300 bg-amber-50 text-amber-950'
+                          : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                          }`}
+                      >
+                        計時挑戰
+                      </button>
+                    </div>
+
+
+                    {challengeOn ? (
+                      <div className="mt-5 rounded-3xl border border-amber-200 bg-amber-50/60 p-5 md:p-6">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <div>
+                            <div className="text-xs font-extrabold tracking-widest text-amber-700">TIME ATTACK</div>
+                            <div className="mt-1 text-lg font-extrabold text-amber-950">限時挑戰</div>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setChallengeOn(false);
+                                setChallengeFinished(false);
+                              }}
+                              className="rounded-full border border-amber-200 bg-white px-4 py-2 text-sm font-bold text-amber-900 hover:bg-amber-50"
+                            >
+                              離開挑戰
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setChallengeOn(true);
+                                setChallengeIndex(0);
+                                setChallengeScore(0);
+                                setChallengeFinished(false);
+                              }}
+                              className="rounded-full border border-amber-300 bg-amber-100 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-200"
+                            >
+                              重新開始
+                            </button>
+                          </div>
+                        </div>
+
+                        {challengeQuestions.length === 0 ? (
+                          <div className="mt-4 rounded-2xl border border-amber-200 bg-white/80 p-4 text-sm font-semibold text-stone-600">
+                            目前沒有可用題目，請先在左側選擇題庫。
+                          </div>
+                        ) : challengeFinished ? (
+                          <div className="mt-4 rounded-2xl border border-amber-200 bg-white/80 p-4">
+                            <div className="text-sm font-semibold text-amber-700">完成！</div>
+                            <div className="mt-2 text-lg font-extrabold text-amber-950">
+                              正確 {challengeScore} / {challengeQuestions.length}
+                            </div>
+                            <div className="mt-1 text-sm font-semibold text-stone-600">
+                              平均作答 {challengeQuestions.length
+                                ? Math.round(challengeTotalSeconds / challengeQuestions.length)
+                                : 0}
+                              秒
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="mt-4 space-y-4">
+                            <div className="flex items-center justify-between text-sm font-semibold text-amber-900">
+                              <span>
+                                {challengeIndex + 1} / {challengeQuestions.length}
+                              </span>
+                              <span>剩餘 {challengeTimeLeft}s</span>
+                            </div>
+                            <div className="h-2 rounded-full bg-amber-100 overflow-hidden">
+                              <div
+                                className="h-full bg-amber-400 transition-all"
+                                style={{
+                                  width: `${(challengeTimeLeft / challengeTime) * 100}%`,
+                                }}
+                              />
+                            </div>
+                            {activeChallengeQuestion ? (
+                              <>
+                                <div className="text-base font-semibold text-stone-900 leading-relaxed">
+                                  {activeChallengeQuestion.stem}
+                                </div>
+                                <div className="grid gap-2 md:grid-cols-2">
+                                  {activeChallengeQuestion.choices.map((choice, idx) => {
+                                    const isSelected = challengeSelected === idx;
+                                    const isCorrect = activeChallengeAnswerIndex === idx;
+                                    const showAnswer = challengeSelected != null;
+                                    return (
+                                      <button
+                                        key={`${activeChallengeQuestion.id}-challenge-${idx}`}
+                                        type="button"
+                                        onClick={() => {
+                                          if (challengeFinished) return;
+                                          if (challengeSelected != null) return;
+                                          setChallengeSelected(idx);
+                                          if (activeChallengeAnswerIndex != null && idx === activeChallengeAnswerIndex) {
+                                            setChallengeScore((prev) => prev + 1);
+                                          }
+                                          setTimeout(() => {
+                                            const nextIndex = challengeIndex + 1;
+                                            if (nextIndex >= challengeQuestions.length) {
+                                              setChallengeFinished(true);
+                                              return;
+                                            }
+                                            setChallengeIndex(nextIndex);
+                                          }, 500);
+                                        }}
+                                        className={`rounded-xl border px-4 py-2 text-sm font-semibold text-left transition-colors ${showAnswer && isCorrect
+                                          ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                                          : showAnswer && isSelected
+                                            ? 'border-rose-300 bg-rose-50 text-rose-950'
+                                            : isSelected
+                                              ? 'border-amber-300 bg-amber-50 text-amber-950'
+                                              : 'border-amber-200 bg-white text-stone-700 hover:bg-amber-50'
+                                          }`}
+                                      >
+                                        {idx + 1}. {choice}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </>
+                            ) : null}
+                          </div>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <div className="mt-4" style={{ perspective: '1200px' }}>
+                    <div
+                      className="relative transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+                      style={{
+                        minHeight: `${quickMinHeight}px`,
+                        transformStyle: 'preserve-3d',
+                        transform: shouldFlip ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                      }}
+                    >
+                      <div
+                        className="absolute inset-0 rounded-[28px] border border-stone-200 bg-gradient-to-br from-white via-white to-amber-50/60 p-5 md:p-6 shadow-[0_28px_70px_-32px_rgba(15,23,42,0.45)] overflow-hidden"
+                        style={{ backfaceVisibility: 'hidden' }}
+                      >
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 opacity-30"
+                          style={{
+                            backgroundImage:
+                              'repeating-linear-gradient(45deg, rgba(15,23,42,0.04) 0px, rgba(15,23,42,0.04) 1px, transparent 1px, transparent 6px), repeating-linear-gradient(-45deg, rgba(15,23,42,0.03) 0px, rgba(15,23,42,0.03) 1px, transparent 1px, transparent 7px)',
+                          }}
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 opacity-40"
+                          style={{
+                            backgroundImage:
+                              'radial-gradient(circle at 20% 20%, rgba(15,23,42,0.04), transparent 45%), radial-gradient(circle at 80% 30%, rgba(15,23,42,0.03), transparent 50%)',
+                          }}
+                        />
+                        <div className="absolute -top-3 left-6 h-6 w-24 rounded-full bg-amber-100/80 shadow-sm border border-amber-200/70" />
+                        <div className="absolute -right-3 top-8 h-10 w-10 rotate-6 rounded-2xl bg-emerald-100/70 border border-emerald-200/70" />
+                        <div className="absolute right-4 top-4 text-[11px] font-extrabold tracking-widest text-stone-400">Q-CARD</div>
+                        <div className="text-base font-semibold text-stone-900 leading-relaxed">
+                          {quickQuestion.stem}
+                        </div>
+
+                        <div className="mt-4 grid gap-2 md:grid-cols-2">
+                          {quickQuestion.choices.map((choice, idx) => {
+                            const isSelected = quickSelected === idx;
+                            return (
+                              <button
+                                key={`${quickQuestion.id}-quick-${idx}`}
+                                type="button"
+                                onClick={() => setQuickAnswerIndex(idx)}
+                                className={`rounded-xl border px-4 py-2 text-sm font-semibold text-left transition-colors ${isSelected
+                                  ? 'border-emerald-200 bg-emerald-50/60 text-emerald-950'
+                                  : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                                  }`}
+                              >
+                                {idx + 1}. {choice}
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        <div className="mt-3 text-sm font-semibold text-stone-600">
+                          {quickSelected != null ? '已選擇，翻卡看答案。' : '選一個答案開始。'}
+                        </div>
+                      </div>
+
+                      <div
+                        className="absolute inset-0 rounded-[28px] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-sky-50/70 p-5 md:p-6 shadow-[0_28px_70px_-32px_rgba(15,23,42,0.45)] overflow-hidden"
+                        style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                      >
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 opacity-30"
+                          style={{
+                            backgroundImage:
+                              'repeating-linear-gradient(45deg, rgba(15,23,42,0.035) 0px, rgba(15,23,42,0.035) 1px, transparent 1px, transparent 6px), repeating-linear-gradient(-45deg, rgba(15,23,42,0.03) 0px, rgba(15,23,42,0.03) 1px, transparent 1px, transparent 7px)',
+                          }}
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 opacity-40"
+                          style={{
+                            backgroundImage:
+                              'radial-gradient(circle at 25% 20%, rgba(15,23,42,0.04), transparent 45%), radial-gradient(circle at 75% 30%, rgba(15,23,42,0.03), transparent 50%)',
+                          }}
+                        />
+                        <div className="absolute -top-3 right-6 h-6 w-24 rounded-full bg-sky-100/70 shadow-sm border border-sky-200/70" />
+                        <div className="absolute -left-3 top-10 h-10 w-10 -rotate-6 rounded-2xl bg-rose-100/70 border border-rose-200/70" />
+                        <div className="absolute right-4 top-4 text-[11px] font-extrabold tracking-widest text-emerald-400">A-CARD</div>
+                        <div className="text-sm font-semibold text-emerald-700">答案卡</div>
+                        {hasQuickAnswer ? (
+                          <div className="mt-2 text-lg font-extrabold text-emerald-950">
+                            {quickCorrectIndex + 1}. {quickQuestion.choices[quickCorrectIndex]}
+                          </div>
+                        ) : (
+                          <div className="mt-2 text-lg font-extrabold text-stone-700">尚未設定答案</div>
+                        )}
+                        <div className="mt-3 text-sm font-semibold text-stone-700">
+                          {showQuickResult
+                            ? quickIsCorrect
+                              ? '答對了！'
+                              : '再試一次，或換一題。'
+                            : '翻回題目再選一次。'}
+                        </div>
+                        {quickSelected != null ? (
+                          <div className="mt-3 text-sm font-semibold text-stone-600">
+                            你的選擇：{quickSelected + 1}. {quickQuestion.choices[quickSelected]}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()
+          ) : null}
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setPracticeMode('list')}
+              className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${practiceMode === 'list'
+                ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                }`}
+            >
+              題庫練習
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setPracticeMode('cards');
+                setIntroMode(false);
+                setCardSeed((prev) => prev + 1);
+              }}
+              className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${practiceMode === 'cards'
+                ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                }`}
+            >
+              答題卡片
+            </button>
+          </div>
+
+          {practiceMode === 'cards' ? (
+            showIntro ? (
+              <div className="museum-panel p-8 text-center text-stone-600">
+                請先從左側選擇題庫與章節，開始卡片練習。
+              </div>
+            ) : cardQuestions.length > 0 ? (
+              (() => {
+                const current = cardQuestions[cardIndex];
+                const hasAnswer = current && Number.isInteger(current.answerIndex);
+                const answerLabel = hasAnswer ? current.choices[current.answerIndex] : null;
+                return (
+                  <div className="museum-frame museum-paper p-8 md:p-10 space-y-6">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="text-xs font-extrabold tracking-widest text-stone-500">
+                        {current.topicLabel}
+                      </div>
+                      <div className="text-sm font-semibold text-stone-500">
+                        {cardIndex + 1} / {cardQuestions.length}
+                      </div>
+                    </div>
+
+                    <div className="rounded-3xl border border-stone-200 bg-white/70 p-6 md:p-8 shadow-sm">
+                      {!cardFlipped ? (
+                        <div className="space-y-3">
+                          <div className="text-sm font-semibold text-stone-500">題目</div>
+                          <div className="text-lg md:text-xl font-extrabold text-stone-900 leading-snug">
+                            {current.stem}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="text-sm font-semibold text-stone-500">答案</div>
+                          {hasAnswer ? (
+                            <div className="text-lg font-extrabold text-emerald-900">
+                              {current.answerIndex + 1}. {answerLabel}
+                            </div>
+                          ) : (
+                            <div className="text-lg font-extrabold text-stone-700">尚未提供答案</div>
+                          )}
+                          <div className="grid gap-2 md:grid-cols-2">
+                            {current.choices.map((choice, idx) => {
+                              const isAnswer = hasAnswer && idx === current.answerIndex;
+                              return (
+                                <div
+                                  key={`${current.id}-${idx}`}
+                                  className={`rounded-xl border px-4 py-2 text-sm font-semibold ${isAnswer
+                                    ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                                    : 'border-stone-200 bg-white text-stone-700'
+                                    }`}
+                                >
+                                  {idx + 1}. {choice}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setCardFlipped((prev) => !prev)}
+                        className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                      >
+                        {cardFlipped ? '回到題目' : '翻面看答案'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCardIndex((prev) => (prev - 1 + cardQuestions.length) % cardQuestions.length);
+                          setCardFlipped(false);
+                        }}
+                        className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                      >
+                        上一題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCardIndex((prev) => (prev + 1) % cardQuestions.length);
+                          setCardFlipped(false);
+                        }}
+                        className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                      >
+                        下一題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (!cardQuestions.length) return;
+                          const next = Math.floor(Math.random() * cardQuestions.length);
+                          setCardIndex(next);
+                          setCardFlipped(false);
+                        }}
+                        className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-900 hover:bg-emerald-100"
+                      >
+                        隨機抽題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCardSeed((prev) => prev + 1)}
+                        className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                      >
+                        重新洗牌
+                      </button>
+                    </div>
+                  </div>
+                );
+              })()
+            ) : (
+              <div className="museum-panel p-8 text-center text-stone-600">
+                找不到符合條件的題目，請調整篩選條件。
+              </div>
+            )
+          ) : null}
+
+          {practiceMode === 'list' && showIntro ? (
             <div className="museum-frame museum-paper p-8 md:p-10">
               <div className="text-xs font-extrabold tracking-widest text-stone-500">PRACTICE · QUIZ BANK</div>
               <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-stone-900">品評考題（題庫）</h2>
@@ -559,7 +1176,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
             </div>
           ) : null}
 
-          {!showIntro
+          {practiceMode === 'list' && !showIntro
             ? filteredQuestions.map((q, index) => {
               const answered = answersById[q.id];
               const hasAnswerKey = q.answerIndex != null;
@@ -627,7 +1244,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
             })
             : null}
 
-          {!showIntro && filteredQuestions.length === 0 ? (
+          {practiceMode === 'list' && !showIntro && filteredQuestions.length === 0 ? (
             <div className="museum-panel p-8 text-center text-stone-600">找不到符合條件的題目，請調整關鍵字或篩選。</div>
           ) : null}
         </div>

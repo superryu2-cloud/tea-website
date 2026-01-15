@@ -83,11 +83,6 @@ export default function PasswordModal({ isOpen, onClose, onSuccess }) {
             </button>
           </div>
         </form>
-
-        {/* 提示 */}
-        <p className="mt-4 text-xs text-center text-stone-500">
-          提示：密碼為兩個中文字
-        </p>
       </div>
 
       <style jsx>{`

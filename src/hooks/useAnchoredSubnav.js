@@ -19,6 +19,7 @@ export default function useAnchoredSubnav({
   fallbackNavHeightPx = 0,
   extraOffsetPx = 20,
   extraOffsetElementIds = [],
+  enableScrollSpy = true,
 }) {
   const normalizedItems = useMemo(
     () =>
@@ -104,7 +105,7 @@ export default function useAnchoredSubnav({
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (!enabled) return;
+    if (!enabled || !enableScrollSpy) return;
     if (!normalizedItems.length) return;
 
     let rafId = 0;
@@ -152,7 +153,7 @@ export default function useAnchoredSubnav({
       window.removeEventListener('resize', onScroll);
       if (rafId) window.cancelAnimationFrame(rafId);
     };
-  }, [enabled, getOffsetPx, normalizedItems]);
+  }, [enabled, enableScrollSpy, getOffsetPx, normalizedItems]);
 
   return { activeHref, scrollToHref, offsetPx: getOffsetPx() };
 }

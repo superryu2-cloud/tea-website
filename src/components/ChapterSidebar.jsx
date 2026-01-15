@@ -36,8 +36,12 @@ export default function ChapterSidebar({
     <aside className={asideClassName} style={asideStyle}>
       <div
         ref={scrollContainerRef}
-        className="museum-panel px-4 py-4 pr-2 overflow-y-auto tool-surface"
-        style={{ maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 24px)`, overflowAnchor: 'none' }}
+        className="museum-panel px-4 pt-4 pb-10 pr-2 overflow-y-auto tool-surface"
+        style={{
+          maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 12px)`,
+          overflowAnchor: 'none',
+          scrollPaddingBottom: '40px',
+        }}
       >
         <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted">{title}</div>
         <div className="space-y-1">
@@ -56,6 +60,7 @@ export default function ChapterSidebar({
                     if (!onSelectKey) return;
 
                     if (isActive && hasSub) {
+                      onSelectKey(item.key);
                       setActiveCollapse((prev) => {
                         const currentCollapsed = prev.key === item.key ? prev.collapsed : false;
                         return { key: item.key, collapsed: !currentCollapsed };

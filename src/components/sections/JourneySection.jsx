@@ -58,7 +58,7 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
     ];
 
     return (
-        <div className="museum-page">
+        <div className="museum-page !pt-6 md:!pt-8">
             <div className="museum-stage">
                 <div className="mb-10 text-center">
                     <div className="museum-label mx-auto">TEA HOUSE · JOURNEY</div>

@@ -82,11 +82,11 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
             content: (
                 <div className="space-y-12 animate-fadeIn text-stone-800">
                     {/* Introduction */}
-                    <div className="bg-gradient-to-br from-green-50 to-amber-50 p-8 rounded-xl border border-green-200">
+                    <div className="bg-gradient-to-br from-sky-50 to-amber-50 p-8 rounded-xl border border-sky-200">
                         <h3 className="text-3xl font-bold text-stone-900 mb-6">臺灣茶業：從三寶之一到文化象徵</h3>
                         <div className="prose prose-stone max-w-none">
                             <p className="text-lg leading-relaxed mb-4">
-                                臺灣由於氣候溫暖、潮濕且雨量均勻，故自古即產有茶樹。早期臺灣主要輸出品以<strong>茶葉、樟腦、蔗糖</strong>為大宗，當時稱為<strong className="text-green-800">臺灣三寶</strong>，更是風光一時。
+                                臺灣由於氣候溫暖、潮濕且雨量均勻，故自古即產有茶樹。早期臺灣主要輸出品以<strong>茶葉、樟腦、蔗糖</strong>為大宗，當時稱為<strong className="text-sky-800">臺灣三寶</strong>，更是風光一時。
                             </p>
                             <p className="text-stone-700 leading-relaxed">
                                 茶葉牽動了民間產業的發展，也影響了臺灣文化百年來的演變過程。從清朝的烏龍茶引入，到日治時期的現代化改革，再到戰後的外銷黃金時代，臺灣茶業的發展史，就是一部臺灣近代經濟與文化的縮影。
@@ -95,20 +95,20 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                     </div>
 
                     {/* Qing Dynasty Period */}
-                    <div className="bg-white p-8 rounded-xl shadow-sm border-l-4 border-green-600">
-                        <h3 className="text-2xl font-bold text-green-900 mb-8 flex items-center">
+                    <div className="bg-white p-8 rounded-xl shadow-sm border-l-4 border-sky-600">
+                        <h3 className="text-2xl font-bold text-sky-900 mb-8 flex items-center">
                             <Leaf className="mr-3" size={28} /> 清朝時期：烏龍茶的引入與外銷年代
                         </h3>
 
                         {/* 嘉慶年間 */}
                         <div className="mb-10">
                             <h4 className="text-xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">嘉慶年間：烏龍茶來到臺灣</h4>
-                            <div className="bg-green-50 p-6 rounded-lg space-y-4">
+                            <div className="bg-sky-50 p-6 rounded-lg space-y-4">
                                 <p className="text-stone-700 leading-relaxed">
                                     烏龍茶是臺灣最早製造的茶葉，遠在<strong>嘉慶年間</strong>即隨福建移民移植到臺灣來。植茶為種籽播種，是當時茶葉栽培方式，也是最早播種方式。當時移民帶一批福建武夷種的烏龍茶來臺灣種植，植於臺灣北部地方坡地開始了茶苗種植。
                                 </p>
-                                <div className="bg-white p-5 rounded-lg border-l-4 border-green-600">
-                                    <h5 className="font-bold text-green-800 mb-2 flex items-center">
+                                <div className="bg-white p-5 rounded-lg border-l-4 border-sky-600">
+                                    <h5 className="font-bold text-sky-800 mb-2 flex items-center">
                                         <Book className="mr-2" size={18} /> 臺灣通史記載
                                     </h5>
                                     <p className="text-sm text-stone-600 leading-relaxed italic">
@@ -126,16 +126,16 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             <h4 className="text-xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">1858-1865：外銷年代的開啟</h4>
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="bg-stone-50 p-6 rounded-lg">
-                                    <div className="text-sm font-bold text-green-700 mb-2">1858年（清咸豐8年）</div>
+                                    <div className="text-sm font-bold text-sky-700 mb-2">1858年（清咸豐8年）</div>
                                     <p className="text-stone-700 text-sm leading-relaxed mb-3">
                                         英法聯軍攻擊中國，迫令締結<strong>天津條約</strong>，規定臺灣府（今台南市）為國際通商口岸。香港英商<strong>怡和洋行</strong>（Jardine.Matheson & co）曾派人到臺灣來收購烏龍茶的粗製品，開始了臺灣茶葉外銷年代。
                                     </p>
                                     <p className="text-stone-700 text-sm leading-relaxed">
                                         隔年，增闢<strong>淡水港</strong>為國際通商口岸，臺灣茶葉運往福州從事加工精製，再包裝運銷外國更為方便，從此臺灣茶葉運往福州加工的數量逐年增加。
                                     </p>
-                                    <div className="mt-4 bg-green-100 p-3 rounded text-center">
-                                        <div className="text-2xl font-bold text-green-800">82,022</div>
-                                        <div className="text-xs text-green-700">公斤茶葉輸出紀錄（淡水海關）</div>
+                                    <div className="mt-4 bg-sky-100 p-3 rounded text-center">
+                                        <div className="text-2xl font-bold text-sky-800">82,022</div>
+                                        <div className="text-xs text-sky-700">公斤茶葉輸出紀錄（淡水海關）</div>
                                     </div>
                                 </div>
 
@@ -166,8 +166,8 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         從此臺灣茶業有了<strong>兩極化發展</strong>：一種以傳統武夷茶方式製造烏龍素茶為主，一種以傳統烏龍素茶再加工薰花為臺灣包花茶為主。雖然臺灣茶業經歷第一次危機，但也同時開始了多元化年代。
                                     </p>
                                 </div>
-                                <div className="bg-green-100 p-4 rounded-lg">
-                                    <div className="text-sm font-bold text-green-800 mb-2">1874年（清光緒元年）</div>
+                                <div className="bg-sky-100 p-4 rounded-lg">
+                                    <div className="text-sm font-bold text-sky-800 mb-2">1874年（清光緒元年）</div>
                                     <p className="text-stone-700 text-sm leading-relaxed">
                                         臺灣最早製造包花茶的廠家成立，仿照福州薰花法製造花茶。臺灣茶用<strong>黃枝花</strong>為花料薰茶，所得成績頗佳，售價日漸提高，薰花方法亦由秘而不宣進而漸漸公開。於是臺北茶商群起仿效，香氣特強的<strong>茉莉花種</strong>由福建引來臺灣，栽培於臺北近郊新莊、海山、淡水一帶。
                                     </p>
@@ -177,7 +177,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                     </div>
 
                     {/* 1885: Taiwan Province Establishment */}
-                    <div className="bg-gradient-to-r from-amber-50 to-green-50 p-8 rounded-xl border-l-4 border-amber-600">
+                    <div className="bg-gradient-to-r from-amber-50 to-sky-50 p-8 rounded-xl border-l-4 border-amber-600">
                         <h3 className="text-2xl font-bold text-amber-900 mb-8 flex items-center">
                             <Star className="mr-3" size={28} /> 1885年：臺灣建省與製茶革新
                         </h3>
@@ -209,13 +209,13 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             </div>
 
                             {/* 王水錦 */}
-                            <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500">
+                            <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-sky-500">
                                 <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                                        <User className="text-green-700" size={32} />
+                                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center">
+                                        <User className="text-sky-700" size={32} />
                                     </div>
                                     <div className="flex-1">
-                                        <h4 className="text-xl font-bold text-green-900 mb-2">王水錦：文山式製造法改良人</h4>
+                                        <h4 className="text-xl font-bold text-sky-900 mb-2">王水錦：文山式製造法改良人</h4>
                                         <div className="space-y-3 text-stone-700 text-sm leading-relaxed">
                                             <p>
                                                 同年王水錦茶農也以傳統武夷茶製法加以改良製造種籽茶，並對外公佈，也是新的茶葉製造方法，其特色<strong>水紅、甘而熟香</strong>。
@@ -279,16 +279,16 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         日本政府為改進臺灣茶業，選擇<strong>南港大坑栳橑</strong>為『包種茶產製研究中心』，並邀請魏氏擔任教師負責台茶改進工作，教導茶農學習南港包種茶製造方法，由總督府經費補助，巡迴臺灣各地茶區以南港包種茶製造技術為基礎，進行臺灣茶葉改良及技術統一的工作，大陸傳統的製茶方式就此結束，臺灣茶葉進入全面性的改革工作。<strong className="text-red-800">『南港式製造法』成為今天臺灣茶農製茶技術的『母法』</strong>。
                                     </p>
                                 </div>
-                                <div className="bg-green-100 p-5 rounded-lg">
-                                    <div className="text-sm font-bold text-green-800 mb-3">1918年：四大優良品種選定</div>
+                                <div className="bg-sky-100 p-5 rounded-lg">
+                                    <div className="text-sm font-bold text-sky-800 mb-3">1918年：四大優良品種選定</div>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                         {['青心烏龍', '大葉烏龍', '青心大冇', '硬枝紅心'].map((variety, idx) => (
                                             <div key={idx} className="bg-white p-3 rounded text-center">
-                                                <div className="text-sm font-bold text-green-800">{variety}</div>
+                                                <div className="text-sm font-bold text-sky-800">{variety}</div>
                                             </div>
                                         ))}
                                     </div>
-                                    <p className="text-xs text-green-700 mt-3">平鎮試驗所完成調查，選定四大優良品種，並大量推廣。</p>
+                                    <p className="text-xs text-sky-700 mt-3">平鎮試驗所完成調查，選定四大優良品種，並大量推廣。</p>
                                 </div>
                             </div>
                         </div>
@@ -321,10 +321,10 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         當時日本在台最高督府，為救濟茶農及提高茶葉品質，<strong>收購烏龍茶並統一燒毀</strong>。農政單位為加強茶農管理提高茶葉品質，在生產地區強制成立<strong>茶業改善團</strong>，以南港包種茶製造技術基礎，加強改善茶樹品種、茶園管理及製茶技術改進工作。
                                     </p>
                                 </div>
-                                <div className="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-                                    <h5 className="font-bold text-green-800 mb-2">包種茶的崛起</h5>
+                                <div className="bg-sky-50 p-5 rounded-lg border-l-4 border-sky-500">
+                                    <h5 className="font-bold text-sky-800 mb-2">包種茶的崛起</h5>
                                     <p className="text-stone-700 text-sm leading-relaxed">
-                                        受競爭激烈，造成臺灣烏龍茶銷路一蹶不振，然而<strong>南港的包種茶卻不受打擊</strong>，茶農因此開始傾向學習南港包種茶的製造，南港包種茶之名開始受各界肯定，<strong className="text-green-800">風光歲月達20年之久</strong>。
+                                        受競爭激烈，造成臺灣烏龍茶銷路一蹶不振，然而<strong>南港的包種茶卻不受打擊</strong>，茶農因此開始傾向學習南港包種茶的製造，南港包種茶之名開始受各界肯定，<strong className="text-sky-800">風光歲月達20年之久</strong>。
                                     </p>
                                     <p className="text-stone-700 text-sm leading-relaxed mt-3">
                                         根據當時民俗調查，南港包種茶更受日本官方重視，為改進臺北州農會、新竹州農會、豐原、南投等農會，更委託魏靜時教導包種茶製造方法，<strong>每年春秋二次開辦講習</strong>，將其技術心得傳授給茶農，茶葉如烏龍茶、鐵觀音也因而改變，與傳統大陸製造方式不同。
@@ -381,14 +381,14 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                         {/* Green Tea Era */}
                         <div className="mb-10">
                             <h4 className="text-xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">綠茶外銷：黃金時代的開啟</h4>
-                            <div className="bg-green-50 p-6 rounded-lg space-y-4">
-                                <div className="bg-white p-5 rounded-lg border-l-4 border-green-500">
-                                    <h5 className="font-bold text-green-800 mb-2">美商協和洋行的發現</h5>
+                            <div className="bg-sky-50 p-6 rounded-lg space-y-4">
+                                <div className="bg-white p-5 rounded-lg border-l-4 border-sky-500">
+                                    <h5 className="font-bold text-sky-800 mb-2">美商協和洋行的發現</h5>
                                     <p className="text-stone-700 text-sm leading-relaxed mb-3">
                                         <strong>美商協和洋行</strong>（Hellyer & co）到臺灣來設立分行，發現臺灣如果照中國大陸製做綠茶的方法來製造綠茶和精製出口，必定有很大的成就，於是請上海派綠茶專家來臺灣試製。
                                     </p>
                                     <p className="text-stone-700 text-sm leading-relaxed">
-                                        綠茶、在新竹縣的<strong>新埔、竹東、關西、楊梅，湖口</strong>等地，設定了<strong>十二個製茶廠</strong>，獲得很順利的成果。臺灣輸出一百一十九萬多公斤綠茶到北非洲，從此臺灣綠茶與北非洲綠茶結合了二十餘年，<strong className="text-green-800">開創了臺灣綠茶的黃金時代</strong>。
+                                        綠茶、在新竹縣的<strong>新埔、竹東、關西、楊梅，湖口</strong>等地，設定了<strong>十二個製茶廠</strong>，獲得很順利的成果。臺灣輸出一百一十九萬多公斤綠茶到北非洲，從此臺灣綠茶與北非洲綠茶結合了二十餘年，<strong className="text-sky-800">開創了臺灣綠茶的黃金時代</strong>。
                                     </p>
                                 </div>
                                 <div className="bg-blue-100 p-5 rounded-lg text-center">
@@ -456,19 +456,19 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                         {/* 1990s+ */}
                         <div className="mb-10">
                             <h4 className="text-xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">1990年代以後：有機茶與環保意識</h4>
-                            <div className="bg-green-50 p-6 rounded-lg space-y-4">
+                            <div className="bg-sky-50 p-6 rounded-lg space-y-4">
                                 <p className="text-stone-700 leading-relaxed">
                                     90年代以後，注重<strong>養生保健與環境保護</strong>的產品成為消費主流，因此強調無農藥、無化學肥料、具環保概念的生產過程，都成為茶葉消費重點。
                                 </p>
                                 <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="bg-white p-4 rounded-lg border border-green-300">
-                                        <h5 className="font-bold text-green-800 mb-2">有機茶發展</h5>
+                                    <div className="bg-white p-4 rounded-lg border border-sky-300">
+                                        <h5 className="font-bold text-sky-800 mb-2">有機茶發展</h5>
                                         <p className="text-stone-700 text-sm leading-relaxed mb-2">
                                             依農委會農糧處2001年資料知道，當時全國有機農產品的栽種面積約1012公頃，其中茶葉約<strong>40公頃</strong>左右。
                                         </p>
-                                        <div className="bg-green-100 p-3 rounded text-center mt-3">
-                                            <div className="text-2xl font-bold text-green-800">30%+</div>
-                                            <div className="text-xs text-green-700">有機茶年成長率（全球茶業成長＜1%）</div>
+                                        <div className="bg-sky-100 p-3 rounded text-center mt-3">
+                                            <div className="text-2xl font-bold text-sky-800">30%+</div>
+                                            <div className="text-xs text-sky-700">有機茶年成長率（全球茶業成長＜1%）</div>
                                         </div>
                                     </div>
                                     <div className="bg-white p-4 rounded-lg border border-amber-300">
@@ -516,7 +516,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 placeholder="搜尋年表關鍵字 (如：荷蘭、杜德、紅茶...)"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-full focus:ring-2 focus:ring-green-500 shadow-sm"
+                                className="w-full pl-10 pr-4 py-3 border border-stone-300 rounded-full focus:ring-2 focus:ring-sky-500 shadow-sm"
                             />
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400" size={20} />
                         </div>
@@ -537,8 +537,8 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 )}
                                 {filteredTimelineData.qing.length > 0 && (
                                     <div>
-                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-green-200 pb-2 inline-block">滿清時期 (1683-1895)</h3>
-                                        <div className="relative border-l-2 border-green-200 ml-3 space-y-8">
+                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-sky-200 pb-2 inline-block">滿清時期 (1683-1895)</h3>
+                                        <div className="relative border-l-2 border-sky-200 ml-3 space-y-8">
                                             {filteredTimelineData.qing.map((item, idx) => React.createElement(TimelineRow, { key: `q-${idx}`, ...item }))}
                                         </div>
                                     </div>

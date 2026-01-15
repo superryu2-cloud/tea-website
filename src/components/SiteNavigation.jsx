@@ -22,7 +22,7 @@ const ACADEMY_STRUCTURE = [
     key: 'xueya',
     label: '學雅',
     chapters: [
-      { id: '01', title: '' },
+      { id: '01', title: '茶之於味：當代茶道的藝術與哲學精神' },
       { id: '02', title: '' },
       { id: '03', title: '儀軌教學 / 茶荷置茶法' },
       { id: '04', title: '高山烏龍' },
@@ -32,10 +32,10 @@ const ACADEMY_STRUCTURE = [
       { id: '08', title: '茶則置茶 / 坪林包種茶' },
       { id: '09', title: '東方美人' },
       { id: '10', title: '做紅茶' },
-      { id: '11', title: '梨山小葉紅 / 大葉紅玉紅茶' },
+      { id: '11', title: '龍茶：小葉紅 / 大葉紅' },
       { id: '12', title: '學雅茶湯會' },
     ],
-    prefix: '/academy/xueya/',
+    prefix: '?tab=academy_xueya_',
   },
   {
     key: 'zhiya',
@@ -58,7 +58,7 @@ const ACADEMY_STRUCTURE = [
       { id: '15', title: '茶會的舉辦與練習' },
       { id: '16', title: '茶會的舉辦：清香渡荷來' },
     ],
-    prefix: '/academy/zhiya/',
+    prefix: '?tab=academy_zhiya_',
   },
 ];
 
@@ -171,7 +171,7 @@ export default function SiteNavigation({
   const isAcademyImplemented = (catKey, num) => {
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10'],
-      xueya: ['03', '05', '06', '07', '08', '11']
+      xueya: ['01', '03', '05', '06', '07', '08', '09', '11'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -179,15 +179,15 @@ export default function SiteNavigation({
   return (
     <nav id="site-nav" className="sticky top-0 z-50 cement-paper backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-[68px]">
-          <div className="flex items-center cursor-pointer" onClick={() => goToTab('journey')}>
-            <div className="mr-3 inline-flex items-center justify-center w-10 h-10 rounded-2xl tool-surface tool-surface--strong">
-              <Leaf className="h-6 w-6 text-emerald-800" />
+        <div className="flex justify-between items-center min-h-[68px] py-3">
+          <div className="flex items-center gap-4 cursor-pointer" onClick={() => goToTab('journey')}>
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl tool-surface tool-surface--strong">
+              <Leaf className="h-7 w-7 text-emerald-800" />
             </div>
             <div className="leading-tight">
-              <div className="text-2xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
+              <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
               <div
-                className="text-xs font-extrabold tracking-widest text-stone-600 select-none"
+                className="mt-1 text-xs font-extrabold tracking-[0.28em] text-stone-600 select-none uppercase"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleSecretClick();
@@ -198,9 +198,10 @@ export default function SiteNavigation({
             </div>
           </div>
 
-          <div className="hidden xl:flex items-center gap-6">
-            {/* Tier 1: Journey / Atlas */}
-            <div className="flex items-center gap-3">
+          <div className="hidden xl:grid nav-main flex-1 items-center">
+            <div />
+            {/* Tier 1: All navigation items at top level - wraps to two rows */}
+            <div className="flex items-center gap-2 flex-wrap justify-center">
               <button
                 type="button"
                 onClick={() => {
@@ -221,42 +222,35 @@ export default function SiteNavigation({
                   </span>
                 </span>
               </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setAcademyNavOpen(false);
-                  const isAtlasContext = activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk';
-                  if (!isAtlasContext) {
-                    goToTab('home');
-                    setAtlasNavOpen(true);
-                    return;
-                  }
-                  setAtlasNavOpen((v) => !v);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'nav-pill--active' : ''}`}
-                aria-expanded={activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? atlasNavOpen : undefined}
-                aria-controls={activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'atlas-secondary-nav' : undefined}
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span className="inline-flex items-center">
-                    {atlasLabel.prefix ? <span className="nav-pill__prefix">{atlasLabel.prefix}</span> : null}
+
+              {/* All Atlas items at top level */}
+              {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => {
+                const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
+                return (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => {
+                      goToTab(item);
+                      setAcademyNavOpen(false);
+                    }}
+                    className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
+                  >
+                    {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
                     <span className="nav-pill__label">
                       <span className="nav-pill__label--flip">
                         <span className="nav-pill__label-inner">
-                          <span className="nav-pill__label-front">{atlasLabel.rest}</span>
+                          <span className="nav-pill__label-front">{label.rest}</span>
                           <span className="nav-pill__label-back" aria-hidden="true">
-                            {atlasLabel.rest}
+                            {label.rest}
                           </span>
                         </span>
                       </span>
                     </span>
-                  </span>
-                  <ChevronDown
-                    size={16}
-                    className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' && atlasNavOpen ? 'rotate-180' : ''}`}
-                  />
-                </span>
-              </button>
+                  </button>
+                );
+              })}
+
               <button
                 type="button"
                 onClick={() => {
@@ -277,13 +271,32 @@ export default function SiteNavigation({
                 </span>
               </button>
 
+              <button
+                type="button"
+                onClick={() => {
+                  goToTab('sensory');
+                  setAcademyNavOpen(false);
+                }}
+                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'sensory' ? 'nav-pill--active' : ''}`}
+              >
+                <span className="nav-pill__label">
+                  <span className="nav-pill__label--flip">
+                    <span className="nav-pill__label-inner">
+                      <span className="nav-pill__label-front">{String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}</span>
+                      <span className="nav-pill__label-back" aria-hidden="true">
+                        {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </button>
+
               {/* Academy (大觀書院) - Controlled by Secret Lock */}
               {museumUnlocked && (
                 <button
                   type="button"
                   onClick={() => {
                     setAcademyNavOpen((v) => !v);
-                    if (!academyNavOpen) setAtlasNavOpen(false);
                   }}
                   className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
                   aria-expanded={academyNavOpen}
@@ -306,52 +319,18 @@ export default function SiteNavigation({
                   </span>
                 </button>
               )}
-              <button
-                type="button"
-                onClick={() => {
-                  goToTab('sensory');
-                  setAcademyNavOpen(false);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'sensory' ? 'nav-pill--active' : ''}`}
-              >
-                <span className="nav-pill__label">
-                  <span className="nav-pill__label--flip">
-                    <span className="nav-pill__label-inner">
-                      <span className="nav-pill__label-front">{String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}</span>
-                      <span className="nav-pill__label-back" aria-hidden="true">
-                        {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </button>
             </div>
 
-            <button
-              type="button"
-              onClick={i18n.toggleLang}
-              className="museum-label"
-              aria-label={i18n.t('ui.language')}
-              title={i18n.t('ui.language')}
-            >
-              {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
-            </button>
-
-            <div className="inline-flex items-center gap-2">
-              <div className="text-xs font-extrabold tracking-widest tool-muted">配色</div>
-              <select
-                value={navTheme}
-                onChange={(e) => setNavTheme(e.target.value)}
-                className="rounded-full border px-3 py-2 text-sm font-extrabold tool-surface tool-surface--strong"
-                aria-label="導覽配色"
-                title={themeLabel}
+            <div className="justify-self-end">
+              <button
+                type="button"
+                onClick={i18n.toggleLang}
+                className="nav-lang-mini"
+                aria-label={i18n.t('ui.language')}
+                title={i18n.t('ui.language')}
               >
-                {NAV_THEMES.map((theme) => (
-                  <option key={theme.key} value={theme.key}>
-                    {theme.label}
-                  </option>
-                ))}
-              </select>
+                {i18n.lang === 'zh-Hant' ? '中' : 'EN'}
+              </button>
             </div>
           </div>
 
@@ -367,63 +346,7 @@ export default function SiteNavigation({
         </div>
       </div>
 
-      {/* Tier 2 (Desktop): Atlas sections */}
-      {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
-        <div className="hidden xl:block relative z-40">
-          <AccordionPanel open={atlasNavOpen} className="grid">
-            <div
-              id="atlas-secondary-nav"
-              className="cement-strip backdrop-blur-md"
-              style={{
-                '--nav-underline': 'rgba(16, 185, 129, 0.55)',
-                '--nav-hover-ink': 'rgba(6, 95, 70, 0.95)',
-                '--nav-active-ink': 'rgba(6, 95, 70, 1)',
-              }}
-            >
-              <div className="max-w-full mx-auto px-2 sm:px-4">
-                <div className="flex flex-nowrap items-center justify-center gap-3 overflow-x-auto no-scrollbar mask-linear-fade">
-                  {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => {
-                        goToTab(item);
-                      }}
-                      className={`nav-pill nav-pill--tier2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
-                    >
-                      <span className="inline-flex items-center gap-2">
-                        {(() => {
-                          const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
-                          return (
-                            <span className="inline-flex items-center">
-                              {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
-                              <span className="nav-pill__label">
-                                <span className="nav-pill__label--flip">
-                                  <span className="nav-pill__label-inner">
-                                    <span className="nav-pill__label-front">{label.rest}</span>
-                                    <span className="nav-pill__label-back" aria-hidden="true">
-                                      {label.rest}
-                                    </span>
-                                  </span>
-                                </span>
-                              </span>
-                            </span>
-                          );
-                        })()}
-                        {item === 'varieties' || item === 'cultivars' || item === 'science' ? (
-                          <ChevronDown
-                            size={16}
-                            className="opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-                          />
-                        ) : null}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </AccordionPanel>
-        </div>
-      ) : null}
+
 
 
 
@@ -471,11 +394,13 @@ export default function SiteNavigation({
                               else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
                               else goToTab('academy_coming_soon');
                             } else if (cat.key === 'xueya') {
-                              if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                              if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
+                              else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
                               else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
                               else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
                               else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
                               else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
+                              else if (parseInt(num, 10) === 9) goToTab('academy_xueya_09');
                               else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
                               else goToTab('academy_coming_soon');
                             } else {
@@ -485,7 +410,7 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-semibold text-[16px] block shrink-0">第{num}堂</span>
+                            <span className="font-semibold text-[16px] block shrink-0">{num}</span>
                             {chapter.title && <span className="block text-[14px] font-normal opacity-75 truncate">{chapter.title}</span>}
                           </div>
                         </a>
@@ -532,8 +457,8 @@ export default function SiteNavigation({
                 </select>
               </div>
 
-              {/* Tier 1 */}
-              <div className="grid grid-cols-2 gap-2 px-2">
+              {/* Tier 1 - All items at top level */}
+              <div className="space-y-2 px-2">
                 <button
                   type="button"
                   onClick={() => goToTab('journey')}
@@ -542,17 +467,6 @@ export default function SiteNavigation({
                 >
                   {String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, '')}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => goToTab(activeTab === 'journey' || activeTab === 'sensory' || activeTab === 'tea_talk' ? 'home' : activeTab)}
-                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? 'tool-item--active' : ''
-                    }`}
-                >
-                  {String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, '')}
-                </button>
-              </div>
-
-              <div className="mt-2 grid grid-cols-2 gap-2 px-2">
                 <button
                   type="button"
                   onClick={() => goToTab('tea_talk')}
@@ -569,6 +483,20 @@ export default function SiteNavigation({
                 >
                   {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
                 </button>
+
+                {/* All Atlas items */}
+                <div className="grid grid-cols-2 gap-2">
+                  {ATLAS_ITEMS.map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => goToTab(item)}
+                      className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${activeTab === item ? 'tool-item--active' : ''
+                        }`}
+                    >
+                      {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Academy (Mobile) */}
@@ -630,11 +558,11 @@ export default function SiteNavigation({
                                           else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
                                           else goToTab('academy_coming_soon');
                                         } else if (cat.key === 'xueya') {
-                                          if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                                          if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
+                              else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
                                           else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
                                           else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
                                           else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
-                                          else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
                                           else if (parseInt(num, 10) === 8) goToTab('academy_xueya_08');
                                           else if (parseInt(num, 10) === 9) goToTab('academy_xueya_09');
                                           else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
@@ -659,39 +587,6 @@ export default function SiteNavigation({
                   </AccordionPanel>
                 </div>
               )}
-
-              {/* Tier 2 */}
-              {activeTab !== 'journey' && activeTab !== 'sensory' && activeTab !== 'tea_talk' ? (
-                <div className="mt-2 px-2">
-                  <button
-                    type="button"
-                    onClick={() => setAtlasNavOpen((v) => !v)}
-                    className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                    aria-expanded={atlasNavOpen}
-                  >
-                    <span>百科分類</span>
-                    <ChevronRight
-                      size={16}
-                      className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${atlasNavOpen ? 'rotate-90' : '-rotate-90'}`}
-                    />
-                  </button>
-
-                  <AccordionPanel open={atlasNavOpen} className="mt-2" disablePointerEventsWhenClosed>
-                    <div className="grid grid-cols-2 gap-2">
-                      {ATLAS_ITEMS.map((item) => (
-                        <button
-                          key={item}
-                          onClick={() => goToTab(item)}
-                          className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${activeTab === item ? 'tool-item--active' : ''
-                            }`}
-                        >
-                          {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
-                        </button>
-                      ))}
-                    </div>
-                  </AccordionPanel>
-                </div>
-              ) : null}
 
               {/* Tier 3 */}
               {activeTab === 'varieties' ? (

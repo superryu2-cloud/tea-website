@@ -40,7 +40,7 @@ function KeyValueRow({ label, value }) {
   );
 }
 
-export default function OrientalBeautyContent() {
+export default function OrientalBeautyContent({ activeSection = 'main' }) {
   const colorSwatches = [
     { label: '白', className: 'bg-white border border-stone-300' },
     { label: '黃', className: 'bg-yellow-300' },
@@ -80,7 +80,8 @@ export default function OrientalBeautyContent() {
         </div>
       </div>
 
-      <div className="space-y-10">
+      {activeSection === 'main' ? (
+        <div className="space-y-10">
         <div className="grid gap-6 lg:grid-cols-2">
           <Panel title="五色茶美學" icon={Sparkles}>
             <p className="text-stone-700 leading-relaxed">
@@ -281,7 +282,73 @@ export default function OrientalBeautyContent() {
           </div>
         </div>
       </div>
+      ) : null}
+
+      {activeSection === 'origins' ? (
+        <Panel title="東方美人茶的前世" icon={History}>
+          <div className="space-y-6 text-stone-700 leading-relaxed">
+            <p>
+              台灣的小葉種茶可追溯至1810年前後，由一位名為柯朝的人，從福建武夷山攜帶茶樹「種子」(非茶苗)，來到當時的櫛魚坑（今新北市瑞芳區），自此開啟了台灣烏龍茶的發展史。
+            </p>
+
+            <div className="space-y-3">
+              <div className="font-bold text-stone-900">名稱演變的歷史：</div>
+              <ol className="list-decimal pl-6 space-y-2">
+                <li>
+                  番庄茶：台灣茶外銷初期的統稱。其命名由來，指在外銷的商行（番庄）或大稻埕等集散地進行精製包裝。1869年，英商杜德（John Dodd）與買辦李春生（Li Chun-sheng）成功將台灣茶銷往美國，價格翻漲數倍，開啟了台灣茶的黃金時代。
+                </li>
+                <li>
+                  高級烏龍：隨著市場需求的提升，品質更佳的茶葉應運而生。經過撿梗、剔除老葉等精製工序的茶，被稱為「高級烏龍」。
+                </li>
+                <li>
+                  白毫烏龍：比高級烏龍等級更高，其外觀帶有顯著的白色茶芽（白毫），成為品質的象徵。
+                </li>
+                <li>
+                  白毛猴：使用「白毛猴」茶樹品種製作的茶。該品種的特點是白毫極多，且不易產生菁味，是早期外銷市場的主力。
+                </li>
+                <li>
+                  膨風茶：此名稱的由來與一樁歷史事件緊密相關。1930年發生「霧社事件」，時任台灣總督石塚英藏 (いしづか えいぞう)因此事將被調職。由於他個人極度喜愛白毫烏龍，便在離台前大量收購台北地區的茶葉，導致茶價飆漲。當時，新竹、苗栗地區的茶商將茶運至台北賣得高價，回鄉分享此事時，被鄉親認為是在「膨風」（吹牛），「膨風茶」之名便由此傳開。
+                </li>
+                <li>
+                  半頭青：當膨風茶價格高漲後，茶農開始嘗試在春、冬兩季也製作此茶。然而，這兩季的茶菁因氣候關係，成品中容易帶有綠色葉片，品質略遜一籌，故被稱為「半頭青」。
+                </li>
+                <li>
+                  三色茶／五色茶：因其茶乾呈現紅、黃、白、褐、綠等多樣色彩而得名。
+                </li>
+                <li>
+                  香檳烏龍：隨著台灣經濟起飛，西式飲品普及。因東方美人金黃透亮的茶湯色澤與香檳酒極為相似，故得此雅名。
+                </li>
+                <li>
+                  東方美人茶：在茶葉市場一度沒落後，為重新推廣此茶，而創造出的行銷名稱。
+                </li>
+              </ol>
+            </div>
+
+            <div className="space-y-3">
+              <div className="font-bold text-stone-900">「東方美人」命名者之謎</div>
+              <p>關於「東方美人」究竟由誰命名，眾說紛紜。</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  吳振鐸老師命名說：藍老師表示，在命名傳聞發生的年代，他與吳老師關係密切，經常隨行擔任助手。若真有此事，吳老師應會提及，因此他對此說法存疑。
+                </li>
+                <li>
+                  蔣經國先生命名說：藍老師更不相信此說法，他以蔣介石先生為南投名間鄉的茶命名為「松柏長青茶」為例進行對比，認為此說法缺乏根據。
+                </li>
+                <li>
+                  新竹縣長秘書命名說：藍老師提出一個他認為較合乎邏輯的推論（但強調未經證實）。當時的新竹縣長陳進興，其一位曾從事化妝品行業的秘書，在籌辦茶葉推廣活動時，結合其對女性市場的理解，取了「東方美人茶」這個富有吸引力的名字。
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <div className="font-bold text-stone-900">產區的獨特性：緯度之差</div>
+              <p>
+                中國福建省大田縣雖引進了台灣的茶樹品種與製茶師傅，卻始終無法複製出桃竹苗地區特有的「涎仔香」（著涎後的蜜香）。其核心原因，便在於「緯度」的差異。桃竹苗產區位於北緯24度左右，而大田縣則在北緯25度以上。不同的緯度導致日照、氣候產生細微差異，進而影響茶樹的生理反應與最終風味。這也凸顯了台灣東方美人茶產區的珍貴與無可取代性。
+              </p>
+            </div>
+          </div>
+        </Panel>
+      ) : null}
     </div>
   );
 }
-

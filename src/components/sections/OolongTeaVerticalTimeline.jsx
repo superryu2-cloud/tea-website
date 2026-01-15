@@ -12,7 +12,8 @@ export default function OolongTeaVerticalTimeline() {
             amber: 'border-amber-500 bg-amber-50',
             orange: 'border-orange-500 bg-orange-50',
             blue: 'border-blue-500 bg-blue-50',
-            amber: 'border-amber-500 bg-amber-50',
+            cyan: 'border-cyan-500 bg-cyan-50',
+            teal: 'border-teal-500 bg-teal-50',
             purple: 'border-purple-500 bg-purple-50'
         };
 
@@ -21,7 +22,8 @@ export default function OolongTeaVerticalTimeline() {
             amber: 'text-amber-600',
             orange: 'text-orange-600',
             blue: 'text-blue-600',
-            amber: 'text-amber-600',
+            cyan: 'text-cyan-600',
+            teal: 'text-teal-600',
             purple: 'text-purple-600'
         };
 

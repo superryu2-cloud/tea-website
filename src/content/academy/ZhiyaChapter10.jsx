@@ -86,6 +86,18 @@ export default function ZhiyaChapter10() {
                             先注熱水，再投茶。滿佈白毫的茶芽接觸水分後，如雪片紛飛飄落，充滿動態詩意。
                         </p>
                     </AcademyHighlightBox>
+
+                    {/* Educational Image */}
+                    <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
+                        <img
+                            src="/images/academy/tea_leaves.png"
+                            alt="新鮮茶芽微距攝影 - 細緻白毫與晨露水珠"
+                            className="w-full h-auto"
+                        />
+                        <p className="text-center text-stone-600 text-sm mt-3 italic bg-stone-50 py-2">
+                            碧螺春茶芽特寫：細嫩如睫的白毫是其標誌性特徵
+                        </p>
+                    </div>
                 </AcademyContentBlock>
             </AcademySection>
 

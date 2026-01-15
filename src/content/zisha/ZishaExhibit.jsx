@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
   Flame,
@@ -76,6 +76,35 @@ function ExhibitImage({ title, src }) {
 
 export default function ZishaExhibit() {
   const [visualMode, setVisualMode] = useState('text');
+  const [activeTocHref, setActiveTocHref] = useState(() => TOC[0]?.href ?? '');
+  const labelRefs = useRef([]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const updateFromHash = () => {
+      const hash = window.location.hash;
+      if (TOC.some((item) => item.href === hash)) setActiveTocHref(hash);
+    };
+    updateFromHash();
+    window.addEventListener('hashchange', updateFromHash);
+    return () => window.removeEventListener('hashchange', updateFromHash);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const updateHeights = () => {
+      labelRefs.current.forEach((el) => {
+        if (!el) return;
+        const front = el.querySelector('.chapter-label-front');
+        if (!front) return;
+        const height = front.getBoundingClientRect().height;
+        if (height) el.style.setProperty('--chapter-flip-line', `${height}px`);
+      });
+    };
+    updateHeights();
+    window.addEventListener('resize', updateHeights);
+    return () => window.removeEventListener('resize', updateHeights);
+  }, []);
 
   const openDetails = (id) => {
     if (typeof window === 'undefined') return;
@@ -101,45 +130,63 @@ export default function ZishaExhibit() {
 
         <div className="lg:grid lg:grid-cols-12 lg:gap-10">
           <aside className="lg:col-span-4">
-            <div className="museum-panel p-6 md:p-7 lg:sticky lg:top-28">
-              <div className="flex items-center gap-2 text-sm font-extrabold text-stone-700 tracking-wide">
-                <SquareGanttChart size={16} className="text-stone-500" />
+            <div className="museum-panel p-6 md:p-7 lg:sticky lg:top-28 tool-surface">
+              <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted flex items-center gap-2">
+                <SquareGanttChart size={14} className="text-stone-400" />
                 導覽目次
               </div>
-              <div className="mt-4 grid gap-2">
-                {TOC.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="museum-card px-4 py-3 border border-stone-200 hover:bg-stone-50 transition-colors"
-                  >
-                    <span className="text-sm font-bold text-stone-900">{item.label}</span>
-                  </a>
-                ))}
+              <div className="space-y-1">
+                {TOC.map((item, index) => {
+                  const isActive = item.href === activeTocHref;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setActiveTocHref(item.href)}
+                      className={`block w-full text-left rounded-xl px-3 py-2.5 transition-colors tool-item chapter-nav-item text-base font-semibold ${isActive ? 'tool-item--active' : ''}`}
+                    >
+                      <span
+                        ref={(el) => {
+                          labelRefs.current[index] = el;
+                        }}
+                        className="block chapter-label--flip"
+                      >
+                        <span className="chapter-label-inner">
+                          <span className="chapter-label-front">{item.label}</span>
+                          <span className="chapter-label-back">{item.label}</span>
+                        </span>
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </aside>
 
           <main className="mt-10 lg:mt-0 lg:col-span-8 space-y-10">
             <div id="zisha-intro" className="scroll-mt-28">
-              <div className="museum-plaque p-8 md:p-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-xs font-extrabold tracking-widest text-stone-700">
+              <div className="museum-plaque p-8 md:p-10 border border-sky-200 bg-sky-50/70 rounded-3xl shadow-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3 py-1 text-xs font-extrabold tracking-widest text-sky-900">
                   EXHIBIT · INTRO
                 </div>
                 <h3 className="mt-4 text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
                   引言：掌中乾坤，文人雅器
                 </h3>
                 <div className="mt-6 space-y-4 max-w-prose text-stone-700 leading-relaxed">
-                  <p>
+                  <div className="rounded-2xl border border-sky-200 bg-white/80 p-5">
+                    <p>
                     在浩瀚的中華茶文化星河中，宜興紫砂壺以其獨特的地位，熠熠生輝。它不僅被譽為「泡茶的最佳利器」，更是超越了實用範疇，
                     成為一種承載著歷史溫度、文人哲思與工藝美學的藝術瑰寶。一把精良的紫砂壺，靜置於茶席之上，便能營造出「野隱幾庭，文明可居」的雅致氛圍，
                     誠如古人所言：「這種只輕的文明讓你捧在了手裡」，彷彿將千年的文化清韻捧於掌中。
-                  </p>
-                  <p>
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-sky-200 bg-white/80 p-5">
+                    <p>
                     本文旨在深入剖析，宜興紫砂壺是如何從一件日常器物，昇華為融合了神話傳說、天賜材質、精湛工藝與文化精神的象徵。
                     我們將循著一條從泥土到藝術的探索路徑，依序探討「天賜之土」的風物根源、「泥料之美」的五色斑斕、「成型之藝」的匠心獨運、
                     「造型之魂」的萬千氣象、「文人點化」的雅士之情，直至「品鑑藏養」的無窮樂趣，帶領讀者全面領略這泥與火交織而成的藝術之歌。
-                  </p>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

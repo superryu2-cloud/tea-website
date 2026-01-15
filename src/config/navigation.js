@@ -59,6 +59,11 @@ export const OOLONG_TOC = [
   { href: '#oolong-taiwan', label: '台灣烏龍' },
 ];
 
+export const RED_TOC = [
+  { href: '#red-lapsang', label: '正山小種' },
+  { href: '#red-jinjunmei', label: '金駿眉' },
+];
+
 export const TEA_REFERENCE_TOC = [
   { href: '#ref-1', label: '1. 六大分類原則與定義' },
   { href: '#ref-2', label: '2. 採摘：方式與品質' },
@@ -71,11 +76,47 @@ export const TEA_REFERENCE_TOC = [
   { href: '#ref-9', label: '9. 台灣青茶製程總覽' },
 ];
 
+export const CULTIVARS_SECTIONS = [
+  {
+    key: 'taiwan-cultivars',
+    label: '台灣茶樹品種',
+    children: [
+      // { href: '#cultivar-registry', label: '品種登記簿' },
+      // { href: '#cultivar-characteristics', label: '品種特性' },
+      // { href: '#cultivar-distribution', label: '產區分布' },
+    ]
+  },
+  {
+    key: 'cultivar-diversity',
+    label: '多樣性的臺灣茶樹栽培品種',
+    children: []
+  },
+  {
+    key: 'cultivar-mystery',
+    label: '品種的奧秘',
+    children: []
+  }
+];
+
+export const SEASONS_SECTIONS = [
+  {
+    key: 'four-seasons',
+    label: '四季採茶',
+  },
+  {
+    key: 'solar-terms',
+    label: '二十四節氣',
+    children: [
+      { href: '#meaning-intro', label: '4 種節氣類型' },
+      { href: '#table-intro', label: '二十四節氣表' },
+      { href: '#zhongqi-intro', label: '什麼是中氣' },
+    ],
+  }
+];
+
 export const CULTIVARS_TOC = [
-  { href: '#cultivar-botany', label: '植物學' },
-  { href: '#cultivar-local', label: '地方品種' },
-  { href: '#cultivar-introduced', label: '引進品種' },
-  { href: '#cultivar-bred', label: '育成品種' },
+  { href: '#cultivar-registry', label: '台灣茶樹品種登記簿' },
+  { href: '#cultivar-diversity', label: '品種多樣性解析' },
 ];
 
 export const SCIENCE_TOC = [
@@ -83,6 +124,7 @@ export const SCIENCE_TOC = [
   { href: '#science-roasting', key: 'roasting', label: '烘焙' },
   { href: '#science-constituents', key: 'constituents', label: '內含物' },
   { href: '#science-aroma', key: 'aroma', label: '香氣' },
+  { href: '#science-process', key: 'process', label: '製茶工藝' },
   { href: '#science-teaching', key: 'teaching', label: '台灣青茶製程整理' },
 ];
 
@@ -105,4 +147,10 @@ export const HISTORY_SECTIONS = [
   { key: 'chineseTeaHistory', label: '中華茶史', icon: 'BookOpen' },
   { key: 'taiwanTeaIndustry', label: '臺灣茶業發展史', icon: 'TrendingUp' },
   { key: 'taiwanEvents', label: '臺灣茶事年表', icon: 'Globe' },
+];
+
+export const TAIWAN_CULTIVARS_TOC = [
+  { href: '#cultivar-intro', label: '品種登記簿說明' },
+  { href: '#cultivar-table', label: '台茶1-25號品種表' },
+  { href: '#cultivar-stats', label: '統計資訊' },
 ];

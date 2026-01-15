@@ -60,7 +60,7 @@ export default function HeroSection({ goToTab, goToTeaExhibit, teaData = [] }) {
     // If no tea data, don't render the daily tea section
     if (!dailyTea) {
         return (
-            <div className="relative overflow-hidden py-10 sm:py-14">
+            <div className="relative overflow-hidden pt-4 pb-10 sm:pt-6 sm:pb-14">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="museum-frame museum-paper relative overflow-hidden rounded-[40px] border border-stone-200/70 shadow-sm">
                         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>
@@ -101,7 +101,7 @@ export default function HeroSection({ goToTab, goToTeaExhibit, teaData = [] }) {
     }
 
     return (
-        <div className="relative overflow-hidden py-10 sm:py-14">
+        <div className="relative overflow-hidden pt-4 pb-10 sm:pt-6 sm:pb-14">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="museum-frame museum-paper relative overflow-hidden rounded-[40px] border border-stone-200/70 shadow-sm">
                     <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>

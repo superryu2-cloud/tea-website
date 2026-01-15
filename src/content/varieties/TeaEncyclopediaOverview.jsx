@@ -5,7 +5,7 @@ export default function TeaEncyclopediaOverview() {
     return (
         <div className="space-y-8">
             {/* Hero Section */}
-            <div className="rounded-3xl border border-amber-100 bg-gradient-to-br from-amber-50 via-white to-green-50 px-8 py-12">
+            <div className="rounded-3xl border border-amber-100 bg-gradient-to-br from-amber-50 via-white to-green-50 px-8 pt-10 pb-12 md:pt-12">
                 <div className="text-center">
                     <div className="text-xs font-extrabold tracking-[0.3em] text-amber-700/70 mb-4">TEA ENCYCLOPEDIA</div>
                     <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 font-sans">

@@ -129,6 +129,19 @@
   .font-serif {
     font-family: var(--font-serif) !important;
   }
+
+  /* Global weight shift: make bold tiers one step lighter */
+  .font-extrabold {
+    font-weight: 700 !important;
+  }
+
+  .font-bold {
+    font-weight: 600 !important;
+  }
+
+  .font-semibold {
+    font-weight: 500 !important;
+  }
 }
 
 @layer components {
@@ -329,6 +342,7 @@
     --nav-underline: rgba(16, 185, 129, 0.68);
   }
 
+
   /* Tool surfaces (sidebars, progress widgets, context bars) */
   .tool-surface {
     background-color: var(--tool-bg);
@@ -374,6 +388,32 @@
     color: var(--tool-muted);
   }
 
+  /* Compact language toggle (top nav) */
+  .nav-lang-mini {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    min-width: 36px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid var(--tool-border);
+    background-color: rgba(255, 255, 255, 0.88);
+    color: var(--tool-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-lang-mini:hover {
+    background-color: rgba(255, 255, 255, 0.96);
+  }
+
+  .nav-main {
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: 24px;
+  }
+
   .tool-item {
     background-color: transparent;
     border: 1px solid var(--tool-border);
@@ -393,17 +433,17 @@
   }
 
   .tool-item:hover {
-    background: linear-gradient(135deg, var(--tool-hover-bg) 0%, rgba(16, 185, 129, 0.08) 100%);
-    border-color: rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, var(--tool-hover-bg) 0%, rgba(245, 158, 11, 0.12) 100%);
+    border-color: rgba(245, 158, 11, 0.35);
     transform: translateX(2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .tool-item--active {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(245, 158, 11, 0.08) 100%);
-    border-color: rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.12) 100%);
+    border-color: rgba(245, 158, 11, 0.5);
     font-weight: 700;
-    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
   .tool-subitem--active {
@@ -716,19 +756,19 @@
   }
 
   .nav-pill--tier1 {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.2;
     padding-left: 12px;
     padding-right: 12px;
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .nav-pill--tier2 {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.2;
     padding-left: 10px;
     padding-right: 10px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .nav-pill--tier3 {
@@ -740,11 +780,11 @@
 
   @media (min-width: 768px) {
     .nav-pill--tier1 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .nav-pill--tier2 {
-      font-size: 17px;
+      font-size: 15px;
     }
 
     .nav-pill--tier3 {

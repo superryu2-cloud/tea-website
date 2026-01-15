@@ -13,7 +13,8 @@ import {
     Soup,
     Zap,
     Clock,
-    RefreshCw
+    RefreshCw,
+    Heart
 } from 'lucide-react';
 
 import AcademySection from '../../components/academy/AcademySection';

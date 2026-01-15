@@ -7,6 +7,15 @@ import { dongdingTimeline } from '../../data/historyCulture';
 export default function DongDingContent() {
     return (
         <div className="animate-fadeIn">
+            {/* Hero Image */}
+            <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                    src="/images/featured/dongding.png"
+                    alt="凍頂烏龍茶 - 緊實球型茶葉與金黃色茶湯，山嵐雲霧背景"
+                    className="w-full h-[400px] object-cover"
+                />
+            </div>
+
             {/* Header */}
             <div className="relative bg-gradient-to-r from-stone-700 to-amber-800 text-amber-50 rounded-2xl overflow-hidden mb-12 p-8 md:p-16 border border-amber-700">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl -mr-32 -mt-32"></div>

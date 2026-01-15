@@ -276,42 +276,22 @@ const JIE_QI_TABLE = [
   },
 ];
 
-export default function SolarTermsPrimer() {
-  return (
-    <div className="lg:grid lg:grid-cols-12 lg:gap-10">
-      <aside className="lg:col-span-4">
-        <div className="museum-panel p-6 md:p-7 lg:sticky lg:top-28">
-          <div className="flex items-center gap-2 text-sm font-extrabold text-stone-700 tracking-wide">
-            <Menu size={16} className="text-stone-500" />
-            導覽目次
-          </div>
-          <div className="mt-4 space-y-2">
-            <a href="#primer" className="block museum-card px-4 py-3 border border-stone-200 hover:bg-stone-50 transition-colors">
-              二十四節氣是什麼？由來與原理
-            </a>
-            <a href="#meaning" className="block museum-card px-4 py-3 border border-stone-200 hover:bg-stone-50 transition-colors">
-              二十四節氣意義：4 種節氣類型
-            </a>
-            <a href="#table" className="block museum-card px-4 py-3 border border-stone-200 hover:bg-stone-50 transition-colors">
-              二十四節氣表（春夏秋冬）
-            </a>
-            <a href="#zhongqi" className="block museum-card px-4 py-3 border border-stone-200 hover:bg-stone-50 transition-colors">
-              什麼是中氣？節／中對照
-            </a>
-          </div>
-          <div className="mt-5 text-xs text-stone-500 leading-relaxed">
-            建議閱讀方式：先看「由來與原理」→ 再用「4 種類型」理解節氣意義 → 需要查表時再展開表格。
-          </div>
-        </div>
-      </aside>
+export default function SolarTermsPrimer({ activeSectionHref = null }) {
+  const activeKey = activeSectionHref ? String(activeSectionHref).replace('#', '') : null;
+  const showAll = !activeKey;
+  const showMeaning = showAll || activeKey === 'meaning-intro';
+  const showTable = showAll || activeKey === 'table-intro';
+  const showZhongqi = showAll || activeKey === 'zhongqi-intro';
 
-      <div className="mt-8 lg:mt-0 lg:col-span-8 space-y-8">
+  return (
+    <div className="space-y-8">
+      {showAll ? (
         <div id="primer" className="scroll-mt-28 museum-plaque p-8 md:p-10">
-        <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-xs font-extrabold tracking-widest text-stone-700">
-          EXHIBIT · SEASONS
-        </div>
-        <h3 className="mt-4 text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">二十四節氣是什麼？由來與原理</h3>
-        <div className="mt-5 space-y-4 max-w-prose">
+          <div className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-xs font-extrabold tracking-widest text-stone-700">
+            EXHIBIT · SEASONS
+          </div>
+          <h3 className="mt-4 text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">二十四節氣是什麼？由來與原理</h3>
+          <div className="mt-5 space-y-4 max-w-prose">
             <p className="text-stone-700 leading-relaxed">
               二十四節氣，是古代人根據太陽在黃道上的位置所制定的時間系統。地球環繞太陽公轉一圈約 360 度，
               每前進 15 度，就形成一個節氣，因此一年共劃分為 24 個節氣。由於受到時差影響，每年度的節氣日期，
@@ -323,166 +303,171 @@ export default function SolarTermsPrimer() {
             </p>
           </div>
         </div>
+      ) : null}
 
-        <div id="meaning" className="scroll-mt-28 space-y-6">
-          <Section id="meaning-intro" title="二十四節氣意義：科普 4 種節氣類型" icon={BookOpen}>
-            <p className="max-w-prose">
-              二十四節氣是中國古代農耕社會為適應自然變化而制定的時間劃分，指導農事與日常生活。這些節氣可依據
-              「季節變換、氣溫變化、降水量、天氣現象與農作狀態」四大類型來劃分。二十四節氣不僅是農業生產的指標，
-              也反映了自然變化的節奏，影響著人們的日常生活。理解這四種類型的節氣，有助於更好地適應氣候變遷、
-              合理安排生活與農業生產。
-            </p>
-          </Section>
+      {showMeaning ? (
+      <div id="meaning" className="scroll-mt-28 space-y-6">
+        <Section id="meaning-intro" title="1. 4 種節氣類型" icon={BookOpen}>
+          <p className="max-w-prose">
+            二十四節氣是中國古代農耕社會為適應自然變化而制定的時間劃分，指導農事與日常生活。這些節氣可依據
+            「季節變換、氣溫變化、降水量、天氣現象與農作狀態」四大類型來劃分。二十四節氣不僅是農業生產的指標，
+            也反映了自然變化的節奏，影響著人們的日常生活。理解這四種類型的節氣，有助於更好地適應氣候變遷、
+            合理安排生活與農業生產。
+          </p>
+        </Section>
 
-          <div className="space-y-4">
-            {TYPE_SECTIONS.map((block) => (
-              <details key={block.id} id={block.id} className="group rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden">
-                <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0">
-                    <block.icon size={18} />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="font-extrabold text-stone-900">{block.title}</div>
-                    <div className="mt-1 text-sm text-stone-600">{block.lead}</div>
-                    <div className="mt-2 text-xs text-stone-500">點此展開／收合內容</div>
-                  </div>
-                </summary>
-                <div className="px-6 pb-6">
-                  <div className="mt-5 grid gap-4 md:grid-cols-2">
-                    {block.items.map((item) => {
-                      const isLong = item.term.startsWith('驚蟄');
-                      const [first, ...rest] = item.content.split('\n\n');
-                      const extra = rest.join('\n\n');
-                      return (
-                        <div
-                          key={item.term}
-                          className={`rounded-2xl border border-stone-200 bg-white p-5 ${isLong ? 'md:col-span-2' : ''}`}
-                        >
-                          <div className="font-extrabold text-stone-900">{item.term}</div>
-                          <div className="mt-2 text-sm text-stone-700 whitespace-pre-line leading-relaxed">{first}</div>
-                          {extra ? (
-                            <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                              <div className="text-xs font-extrabold text-stone-700 tracking-wide">有此一說</div>
-                              <div className="mt-2 text-sm text-stone-700 whitespace-pre-line leading-relaxed">{extra}</div>
-                            </div>
-                          ) : null}
-                        </div>
-                      );
-                    })}
-                  </div>
+        <div className="space-y-4">
+          {TYPE_SECTIONS.map((block) => (
+            <div key={block.id} id={block.id} className="rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden">
+              <div className="px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-3">
+                <span className="mt-0.5 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0">
+                  <block.icon size={18} />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-extrabold text-stone-900">{block.title}</div>
+                  <div className="mt-1 text-sm text-stone-600">{block.lead}</div>
                 </div>
-              </details>
-            ))}
-          </div>
-        </div>
-
-        <div id="table" className="scroll-mt-28 space-y-6">
-          <Section id="table-intro" title="二十四節氣表：節氣一覽表" icon={CalendarDays}>
-            <p className="max-w-prose">以下依春、夏、秋、冬整理節氣名稱、農曆節氣、陽曆日期與太陽位置。</p>
-          </Section>
-
-          <div className="space-y-4">
-            {SOLAR_TERM_TABLES.map((season) => (
-              <details
-                key={season.seasonLabel}
-                className="group rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden"
-              >
-                <summary className="cursor-pointer select-none px-6 py-5 bg-stone-50 flex items-center justify-between gap-4">
-                  <div className="font-extrabold text-stone-900">{season.seasonLabel}（點此展開表格）</div>
-                  <div className="text-xs text-stone-500">節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置</div>
-                </summary>
-                <div className="p-0">
-                  <DataTable title={`${season.seasonLabel}：節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置`}>
-                    <table className="min-w-full divide-y divide-stone-200">
-                      <thead className="bg-stone-100">
-                        <tr>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">節氣名稱</th>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆節氣</th>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆日期</th>
-                          <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">太陽位置</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-stone-200">
-                        {season.rows.map((row) => (
-                          <tr key={`${season.seasonLabel}-${row.term}`} className="hover:bg-stone-50 transition-colors">
-                            <td className="px-6 py-4 whitespace-nowrap font-extrabold text-stone-900">{row.term}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.lunar}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.date}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.solar}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </DataTable>
+              </div>
+              <div className="px-6 pb-6">
+                <div className="mt-5 grid gap-4 md:grid-cols-2">
+                  {block.items.map((item) => {
+                    const isLong = item.term.startsWith('驚蟄');
+                    const [first, ...rest] = item.content.split('\n\n');
+                    const extra = rest.join('\n\n');
+                    return (
+                      <div
+                        key={item.term}
+                        className={`rounded-2xl border border-stone-200 bg-white p-5 ${isLong ? 'md:col-span-2' : ''}`}
+                      >
+                        <div className="font-extrabold text-stone-900">{item.term}</div>
+                        <div className="mt-2 text-sm text-stone-700 whitespace-pre-line leading-relaxed">{first}</div>
+                        {extra ? (
+                          <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                            <div className="text-xs font-extrabold text-stone-700 tracking-wide">有此一說</div>
+                            <div className="mt-2 text-sm text-stone-700 whitespace-pre-line leading-relaxed">{extra}</div>
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </div>
-              </details>
-            ))}
-          </div>
-        </div>
-
-        <div id="zhongqi" className="scroll-mt-28 space-y-6">
-          <Section id="zhongqi-intro" title="什麼是中氣？農曆與 24 節氣對照關係表" icon={BookOpen}>
-            <div className="space-y-4 max-w-prose">
-              <p>
-                為何 24 節氣日期表會出現中氣？「節」與「中」其實是二十四節氣的兩個重要部分。每個農曆月份都包含兩個節氣：
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  「節」代表該月的第一個節氣，通常落在每月 5 日至 8 日，例如立春、立夏、立秋、立冬等。
-                </li>
-                <li>
-                  「中氣」是該月的第二個節氣，通常出現在 20 日至 23 日，例如雨水、夏至、秋分、冬至等。
-                </li>
-              </ul>
-              <p>
-                中氣標誌著季節的真正到來，所以在二十四節氣中具有重要的地位，人們可以根據中氣的時間來規劃農事活動、
-                節慶慶祝等。像是「立春」代表春天開始，而「雨水」（中氣）則表示春季氣候正式進入變化期。
-              </p>
+              </div>
             </div>
-          </Section>
-
-          <Callout title="你知道嗎？">
-            中國古代的農曆月份命名，正是依據「中氣」所在日期來決定的。若某月沒有中氣，便稱為「閏月」。
-          </Callout>
-
-          <details className="group rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden">
-            <summary className="cursor-pointer select-none px-6 py-5 bg-stone-50 flex items-center justify-between gap-4">
-              <div className="font-extrabold text-stone-900">季節 × 農曆月份 × 節／中氣 × 日期（點此展開表格）</div>
-              <div className="text-xs text-stone-500">對照關係表</div>
-            </summary>
-            <div className="p-0">
-              <DataTable title="季節 × 農曆月份 × 節／中氣 × 日期（對照關係表）">
-                <table className="min-w-full divide-y divide-stone-200">
-                  <thead className="bg-stone-100">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">季節</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆月份（節）</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">節氣</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆節氣日期</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆月份（中）</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">中氣</th>
-                      <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆中氣日期</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-stone-200">
-                    {JIE_QI_TABLE.map((row, idx) => (
-                      <tr key={`${row.season}-${row.jie}-${idx}`} className="hover:bg-stone-50 transition-colors">
-                        <td className="px-6 py-4 whitespace-nowrap font-extrabold text-stone-900">{row.season}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.jieMonth}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-700 font-extrabold">{row.jie}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.jieDate}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.zhongMonth}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-700 font-extrabold">{row.zhong}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.zhongDate}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </DataTable>
-            </div>
-          </details>
+          ))}
         </div>
       </div>
+      ) : null}
+
+      {showTable ? (
+      <div id="table" className="scroll-mt-28 space-y-6">
+        <Section id="table-intro" title="2. 二十四節氣表" icon={CalendarDays}>
+          <p className="max-w-prose">以下依春、夏、秋、冬整理節氣名稱、農曆節氣、陽曆日期與太陽位置。</p>
+        </Section>
+
+        <div className="space-y-4">
+          {SOLAR_TERM_TABLES.map((season) => (
+            <div
+              key={season.seasonLabel}
+              className="rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden"
+            >
+              <div className="px-6 py-5 bg-stone-50 flex items-center justify-between gap-4">
+                <div className="font-extrabold text-stone-900">{season.seasonLabel}</div>
+                <div className="text-xs text-stone-500">節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置</div>
+              </div>
+              <div className="p-0">
+                <DataTable title={`${season.seasonLabel}：節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置`}>
+                  <table className="min-w-full divide-y divide-stone-200">
+                    <thead className="bg-stone-100">
+                      <tr>
+                        <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">節氣名稱</th>
+                        <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆節氣</th>
+                        <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆日期</th>
+                        <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">太陽位置</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-200">
+                      {season.rows.map((row) => (
+                        <tr key={`${season.seasonLabel}-${row.term}`} className="hover:bg-stone-50 transition-colors">
+                          <td className="px-6 py-4 whitespace-nowrap font-extrabold text-stone-900">{row.term}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.lunar}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.date}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.solar}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </DataTable>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      ) : null}
+
+      {showZhongqi ? (
+      <div id="zhongqi" className="scroll-mt-28 space-y-6">
+        <Section id="zhongqi-intro" title="3. 什麼是中氣" icon={BookOpen}>
+          <div className="space-y-4 max-w-prose">
+            <p>
+              為何 24 節氣日期表會出現中氣？「節」與「中」其實是二十四節氣的兩個重要部分。每個農曆月份都包含兩個節氣：
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                「節」代表該月的第一個節氣，通常落在每月 5 日至 8 日，例如立春、立夏、立秋、立冬等。
+              </li>
+              <li>
+                「中氣」是該月的第二個節氣，通常出現在 20 日至 23 日，例如雨水、夏至、秋分、冬至等。
+              </li>
+            </ul>
+            <p>
+              中氣標誌著季節的真正到來，所以在二十四節氣中具有重要的地位，人們可以根據中氣的時間來規劃農事活動、
+              節慶慶祝等。像是「立春」代表春天開始，而「雨水」（中氣）則表示春季氣候正式進入變化期。
+            </p>
+          </div>
+        </Section>
+
+        <Callout title="你知道嗎？">
+          中國古代的農曆月份命名，正是依據「中氣」所在日期來決定的。若某月沒有中氣，便稱為「閏月」。
+        </Callout>
+
+        <div className="rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden">
+          <div className="px-6 py-5 bg-stone-50 flex items-center justify-between gap-4">
+            <div className="font-extrabold text-stone-900">季節 × 農曆月份 × 節／中氣 × 日期</div>
+            <div className="text-xs text-stone-500">對照關係表</div>
+          </div>
+          <div className="p-0">
+            <DataTable title="季節 × 農曆月份 × 節／中氣 × 日期（對照關係表）">
+              <table className="min-w-full divide-y divide-stone-200">
+                <thead className="bg-stone-100">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">季節</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆月份（節）</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">節氣</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆節氣日期</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">農曆月份（中）</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">中氣</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-stone-600">陽曆中氣日期</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-stone-200">
+                  {JIE_QI_TABLE.map((row, idx) => (
+                    <tr key={`${row.season}-${row.jie}-${idx}`} className="hover:bg-stone-50 transition-colors">
+                      <td className="px-6 py-4 whitespace-nowrap font-extrabold text-stone-900">{row.season}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.jieMonth}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-700 font-extrabold">{row.jie}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.jieDate}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600">{row.zhongMonth}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-700 font-extrabold">{row.zhong}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-stone-600 font-mono">{row.zhongDate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </DataTable>
+          </div>
+        </div>
+      </div>
+      ) : null}
     </div>
   );
 }

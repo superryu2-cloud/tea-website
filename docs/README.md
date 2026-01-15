@@ -4,6 +4,11 @@
 
 ## 快速入口
 
+- **架構與路由系統**：[`ARCHITECTURE.md`](../ARCHITECTURE.md) ⭐ **NEW**
+  - 完整的應用程式結構、路由系統、導航流程
+  - 新增/修改功能的詳細指南
+  - 常見修改場景與範例
+  - AI 協作必讀文檔
 - 架構與資料位置：`docs/STRUCTURE.md`
 - 內容/資料維護方式（新增文章、分拆大段內容）：`docs/CONTENT_AND_DATA.md`
 - 常見錯誤與排查：`docs/TROUBLESHOOTING.md`

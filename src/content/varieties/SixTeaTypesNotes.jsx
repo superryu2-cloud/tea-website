@@ -1,6 +1,4 @@
 import React from 'react';
-import OolongTeaVerticalTimeline from '../../components/sections/OolongTeaVerticalTimeline';
-import RedTeaVerticalTimeline from '../../components/sections/RedTeaTreeTimeline';
 
 function ProcessLine({ children }) {
   return (
@@ -765,9 +763,6 @@ export default function SixTeaTypesNotes({ kind }) {
   if (kind === 'red') {
     return (
       <div className="space-y-6">
-        {/* Timeline Section */}
-        <RedTeaVerticalTimeline />
-
         <div className="grid gap-3 lg:grid-cols-3">
           <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
             <div className="text-xs font-extrabold tracking-widest text-stone-500">起源座標</div>
@@ -1161,9 +1156,6 @@ export default function SixTeaTypesNotes({ kind }) {
   if (kind === 'oolong') {
     return (
       <div className="space-y-6">
-        {/* Timeline Section */}
-        <OolongTeaVerticalTimeline />
-
         <div className="grid gap-3 lg:grid-cols-3">
           <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
             <div className="text-xs font-extrabold tracking-widest text-stone-500">發酵光譜</div>

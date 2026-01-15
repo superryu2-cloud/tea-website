@@ -68,7 +68,7 @@ export default function TaiwanCultivarDiversity() {
                 多樣性的台灣茶樹栽培品種與特性解析
               </h2>
               <p className="mt-4 text-stone-600 leading-relaxed">
-                以育種、分類與產區適製性為主線，整理台灣茶樹品種的記憶框架，方便教學與自學快速對照。
+                以育種、分類與產區適製性為主線，整理台灣茶樹品種。
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-stone-200 text-stone-700">
@@ -306,7 +306,7 @@ export default function TaiwanCultivarDiversity() {
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <div className="text-sm font-extrabold text-stone-900">註記</div>
             <div className="mt-2 text-sm text-stone-600 leading-relaxed">
-              本文保留來源標號（如 [1][2]）以便後續補上完整參考文獻清單；如你提供參考來源，我可以把文末整理成正式引用格式。
+              
             </div>
           </div>
         </div>
