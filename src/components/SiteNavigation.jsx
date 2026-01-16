@@ -32,7 +32,7 @@ const ACADEMY_STRUCTURE = [
       { id: '08', title: '茶則置茶 / 坪林包種茶' },
       { id: '09', title: '東方美人' },
       { id: '10', title: '做紅茶' },
-      { id: '11', title: '龍茶：小葉紅 / 大葉紅' },
+      { id: '11', title: '紅茶：小葉紅 / 大葉紅' },
       { id: '12', title: '學雅茶湯會' },
     ],
     prefix: '?tab=academy_xueya_',
@@ -176,15 +176,20 @@ export default function SiteNavigation({
     return implemented[catKey]?.includes(num);
   };
 
+  const navRows = [
+    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured'],
+    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'academy'],
+  ];
+
   return (
-    <nav id="site-nav" className="sticky top-0 z-50 cement-paper backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${academyNavOpen ? 'nav-drawer-open' : ''}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center min-h-[68px] py-3">
-          <div className="flex items-center gap-4 cursor-pointer" onClick={() => goToTab('journey')}>
+          <div className="flex items-center gap-4 cursor-pointer pr-4" onClick={() => goToTab('journey')}>
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl tool-surface tool-surface--strong">
               <Leaf className="h-7 w-7 text-emerald-800" />
             </div>
-            <div className="leading-tight">
+            <div className="leading-tight min-w-[190px]">
               <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
               <div
                 className="mt-1 text-xs font-extrabold tracking-[0.28em] text-stone-600 select-none uppercase"
@@ -200,125 +205,146 @@ export default function SiteNavigation({
 
           <div className="hidden xl:grid nav-main flex-1 items-center">
             <div />
-            {/* Tier 1: All navigation items at top level - wraps to two rows */}
-            <div className="flex items-center gap-2 flex-wrap justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  goToTab('journey');
-                  setAcademyNavOpen(false);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'journey' ? 'nav-pill--active' : ''}`}
-              >
-                {journeyLabel.prefix ? <span className="nav-pill__prefix">{journeyLabel.prefix}</span> : null}
-                <span className="nav-pill__label">
-                  <span className="nav-pill__label--flip">
-                    <span className="nav-pill__label-inner">
-                      <span className="nav-pill__label-front">{journeyLabel.rest}</span>
-                      <span className="nav-pill__label-back" aria-hidden="true">
-                        {journeyLabel.rest}
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </button>
-
-              {/* All Atlas items at top level */}
-              {ATLAS_ITEMS.filter((item) => item !== 'sensory' && item !== 'tea_talk').map((item) => {
-                const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
-                return (
-                  <button
-                    key={item}
-                    type="button"
-                    onClick={() => {
-                      goToTab(item);
-                      setAcademyNavOpen(false);
-                    }}
-                    className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
-                  >
-                    {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
-                    <span className="nav-pill__label">
-                      <span className="nav-pill__label--flip">
-                        <span className="nav-pill__label-inner">
-                          <span className="nav-pill__label-front">{label.rest}</span>
-                          <span className="nav-pill__label-back" aria-hidden="true">
-                            {label.rest}
+            {/* Tier 1: Fixed two-row navigation */}
+            <div className="nav-main-center flex flex-col items-center gap-0 w-full max-w-[820px] px-4">
+              <div className="nav-main-grid">
+                {navRows.map((row, rowIndex) =>
+                  row.map((item, colIndex) => {
+                    let content = null;
+                    if (item === 'academy') {
+                      if (!museumUnlocked) return null;
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setAcademyNavOpen((v) => !v);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
+                          aria-expanded={academyNavOpen}
+                        >
+                          <span className="inline-flex items-center gap-2">
+                            <span className="nav-pill__label">
+                              <span className="nav-pill__label--flip">
+                                <span className="nav-pill__label-inner">
+                                  <span className="nav-pill__label-front">大觀書院</span>
+                                  <span className="nav-pill__label-back" aria-hidden="true">
+                                    大觀書院
+                                  </span>
+                                </span>
+                              </span>
+                            </span>
+                            <ChevronDown
+                              size={16}
+                              className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
+                            />
                           </span>
-                        </span>
-                      </span>
-                    </span>
-                  </button>
-                );
-              })}
-
-              <button
-                type="button"
-                onClick={() => {
-                  goToTab('tea_talk');
-                  setAcademyNavOpen(false);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'tea_talk' ? 'nav-pill--active' : ''}`}
-              >
-                <span className="nav-pill__label">
-                  <span className="nav-pill__label--flip">
-                    <span className="nav-pill__label-inner">
-                      <span className="nav-pill__label-front">{String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}</span>
-                      <span className="nav-pill__label-back" aria-hidden="true">
-                        {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  goToTab('sensory');
-                  setAcademyNavOpen(false);
-                }}
-                className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'sensory' ? 'nav-pill--active' : ''}`}
-              >
-                <span className="nav-pill__label">
-                  <span className="nav-pill__label--flip">
-                    <span className="nav-pill__label-inner">
-                      <span className="nav-pill__label-front">{String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}</span>
-                      <span className="nav-pill__label-back" aria-hidden="true">
-                        {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </button>
-
-              {/* Academy (大觀書院) - Controlled by Secret Lock */}
-              {museumUnlocked && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setAcademyNavOpen((v) => !v);
-                  }}
-                  className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
-                  aria-expanded={academyNavOpen}
-                >
-                  <span className="inline-flex items-center gap-2">
-                    <span className="nav-pill__label">
-                      <span className="nav-pill__label--flip">
-                        <span className="nav-pill__label-inner">
-                          <span className="nav-pill__label-front">大觀書院</span>
-                          <span className="nav-pill__label-back" aria-hidden="true">
-                            大觀書院
+                        </button>
+                      );
+                    } else if (item === 'journey') {
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            goToTab('journey');
+                            setAcademyNavOpen(false);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'journey' ? 'nav-pill--active' : ''}`}
+                        >
+                          {journeyLabel.prefix ? <span className="nav-pill__prefix">{journeyLabel.prefix}</span> : null}
+                          <span className="nav-pill__label">
+                            <span className="nav-pill__label--flip">
+                              <span className="nav-pill__label-inner">
+                                <span className="nav-pill__label-front">{journeyLabel.rest}</span>
+                                <span className="nav-pill__label-back" aria-hidden="true">
+                                  {journeyLabel.rest}
+                                </span>
+                              </span>
+                            </span>
                           </span>
-                        </span>
-                      </span>
-                    </span>
-                    <ChevronDown
-                      size={16}
-                      className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
-                    />
-                  </span>
-                </button>
-              )}
+                        </button>
+                      );
+                    } else if (item === 'tea_talk') {
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            goToTab('tea_talk');
+                            setAcademyNavOpen(false);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'tea_talk' ? 'nav-pill--active' : ''}`}
+                        >
+                          <span className="nav-pill__label">
+                            <span className="nav-pill__label--flip">
+                              <span className="nav-pill__label-inner">
+                                <span className="nav-pill__label-front">{String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}</span>
+                                <span className="nav-pill__label-back" aria-hidden="true">
+                                  {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </button>
+                      );
+                    } else if (item === 'sensory') {
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            goToTab('sensory');
+                            setAcademyNavOpen(false);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === 'sensory' ? 'nav-pill--active' : ''}`}
+                        >
+                          <span className="nav-pill__label">
+                            <span className="nav-pill__label--flip">
+                              <span className="nav-pill__label-inner">
+                                <span className="nav-pill__label-front">{String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}</span>
+                                <span className="nav-pill__label-back" aria-hidden="true">
+                                  {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </button>
+                      );
+                    } else {
+                      const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            goToTab(item);
+                            setAcademyNavOpen(false);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${activeTab === item ? 'nav-pill--active' : ''}`}
+                        >
+                          {label.prefix ? <span className="nav-pill__prefix">{label.prefix}</span> : null}
+                          <span className="nav-pill__label">
+                            <span className="nav-pill__label--flip">
+                              <span className="nav-pill__label-inner">
+                                <span className="nav-pill__label-front">{label.rest}</span>
+                                <span className="nav-pill__label-back" aria-hidden="true">
+                                  {label.rest}
+                                </span>
+                              </span>
+                            </span>
+                          </span>
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={`nav-${rowIndex}-${item}`}
+                        className="nav-main-grid__cell"
+                        style={{ gridColumn: colIndex + 1, gridRow: rowIndex + 1 }}
+                      >
+                        {content}
+                      </div>
+                    );
+                  })
+                )}
+              </div>
             </div>
 
             <div className="justify-self-end">
@@ -346,14 +372,16 @@ export default function SiteNavigation({
         </div>
       </div>
 
+      <div
+        className={`nav-drawer-overlay ${academyNavOpen ? 'nav-drawer-overlay--open' : ''}`}
+        aria-hidden="true"
+        onClick={() => setAcademyNavOpen(false)}
+      />
 
 
 
-
-
-
-      {/* Tier 2 (Desktop): Academy Dropdown */}
-      <AccordionPanel open={academyNavOpen} className="hidden xl:grid">
+      {/* Tier 2 (Desktop): Academy Dropdown (Overlay Drawer) */}
+      <div className={`nav-drawer hidden xl:block ${academyNavOpen ? 'nav-drawer--open' : ''}`}>
         <div
           className="cement-strip backdrop-blur-md"
           style={{
@@ -377,9 +405,9 @@ export default function SiteNavigation({
                         <a
                           key={num}
                           href={`${cat.prefix}${num}`}
-                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-4 py-3 text-sm font-base transition-colors ${active
-                            ? 'bg-amber-50 text-amber-900 hover:bg-amber-100 shadow-sm'
-                            : 'bg-white/60 hover:bg-white text-stone-700 hover:text-stone-900'
+                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors ${active
+                            ? 'bg-amber-50 text-amber-950 hover:bg-amber-100 shadow-sm'
+                            : 'bg-white/60 hover:bg-white text-stone-800 hover:text-stone-900'
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -410,8 +438,8 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-semibold text-[16px] block shrink-0">{num}</span>
-                            {chapter.title && <span className="block text-[14px] font-normal opacity-75 truncate">{chapter.title}</span>}
+                            <span className="font-bold text-[18px] block shrink-0">{num}</span>
+                            {chapter.title && <span className="block text-[16px] font-medium leading-snug truncate">{chapter.title}</span>}
                           </div>
                         </a>
                       );
@@ -422,7 +450,7 @@ export default function SiteNavigation({
             </div>
           </div>
         </div>
-      </AccordionPanel>
+      </div>
 
       {/* Tier 3/4 navigation is rendered as a left sidebar inside each exhibit page. */}
 

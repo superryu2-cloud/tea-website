@@ -236,6 +236,15 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const [challengeTotalSeconds, setChallengeTotalSeconds] = useState(0);
   const [challengeFinished, setChallengeFinished] = useState(false);
   const [challengeSelected, setChallengeSelected] = useState(null);
+  const [customSelectedBanks, setCustomSelectedBanks] = useState([]);
+  const [customSelectedTopics, setCustomSelectedTopics] = useState({});
+  const [customCount, setCustomCount] = useState(40);
+  const [customSession, setCustomSession] = useState(null);
+  const [customIndex, setCustomIndex] = useState(0);
+  const [customAnswers, setCustomAnswers] = useState({});
+  const [customFinished, setCustomFinished] = useState(false);
+  const [customReviewOpen, setCustomReviewOpen] = useState(false);
+  const customQuizRef = useRef(null);
   const flipAudioRef = useRef(null);
   const sidebarScrollRef = useRef(null);
   const [revealAnswers, setRevealAnswers] = useState(() => {
@@ -387,6 +396,29 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     return nodeList;
   }, [questions]);
 
+  const customBanks = useMemo(() => bankTree.filter((node) => node.stateKey !== 'all'), [bankTree]);
+
+  const customPool = useMemo(() => {
+    const list = questions ?? [];
+    if (!customSelectedBanks.length) return list;
+    const selected = new Set(customSelectedBanks);
+    const hasTopicFilter = Object.keys(customSelectedTopics).length > 0;
+    return list.filter((q) => {
+      if (!q || typeof q !== 'object') return false;
+      if (!selected.has(q.bank)) return false;
+      if (!hasTopicFilter) return true;
+      const topics = customSelectedTopics[q.bank];
+      if (!Array.isArray(topics) || topics.length === 0) return true;
+      return topics.includes(q.topic);
+    });
+  }, [questions, customSelectedBanks, customSelectedTopics]);
+
+  const customSelectedLabels = useMemo(() => {
+    if (!customSelectedBanks.length) return ['全部題庫'];
+    const lookup = new Map(customBanks.map((bank) => [bank.key, bank.label]));
+    return customSelectedBanks.map((key) => lookup.get(key) ?? key);
+  }, [customBanks, customSelectedBanks]);
+
   const filteredQuestions = useMemo(() => {
     const list = questionsInBank ?? [];
     return list.filter((q) => {
@@ -419,6 +451,64 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       [next[i], next[j]] = [next[j], next[i]];
     }
     return next;
+  };
+
+  const pruneCustomTopics = (selectedBanks, prevTopics) => {
+    const nextTopics = {};
+    const allowed = new Set(selectedBanks);
+    Object.entries(prevTopics ?? {}).forEach(([bankKey, topics]) => {
+      if (!allowed.has(bankKey)) return;
+      if (!Array.isArray(topics) || topics.length === 0) return;
+      nextTopics[bankKey] = topics;
+    });
+    return nextTopics;
+  };
+
+  const toggleCustomBank = (bankKey) => {
+    if (typeof bankKey !== 'string') return;
+    setCustomSelectedBanks((prev) => {
+      const next = prev.includes(bankKey) ? prev.filter((item) => item !== bankKey) : [...prev, bankKey];
+      setCustomSelectedTopics((prevTopics) => pruneCustomTopics(next, prevTopics));
+      return next;
+    });
+  };
+
+  const toggleCustomTopic = (bankKey, topicKey) => {
+    if (typeof bankKey !== 'string' || typeof topicKey !== 'string') return;
+    setCustomSelectedTopics((prev) => {
+      const current = new Set(prev?.[bankKey] ?? []);
+      if (current.has(topicKey)) {
+        current.delete(topicKey);
+      } else {
+        current.add(topicKey);
+      }
+      const next = { ...prev };
+      if (current.size === 0) {
+        delete next[bankKey];
+      } else {
+        next[bankKey] = Array.from(current);
+      }
+      return next;
+    });
+    setCustomSelectedBanks((prev) => (prev.includes(bankKey) ? prev : [...prev, bankKey]));
+  };
+
+  const startCustomSession = () => {
+    const pool = customPool ?? [];
+    const available = pool.length;
+    const desired = Number.isFinite(customCount) ? Math.max(1, Math.round(customCount)) : 1;
+    const size = Math.min(desired, available);
+    const questionsForSession = size > 0 ? shuffleCards(pool).slice(0, size) : [];
+    setCustomSession({
+      questions: questionsForSession,
+      available,
+      size,
+      banks: customSelectedBanks,
+    });
+    setCustomIndex(0);
+    setCustomAnswers({});
+    setCustomFinished(false);
+    setCustomReviewOpen(false);
   };
 
   const cardQuestions = useMemo(() => {
@@ -455,6 +545,18 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     if (!filteredQuestions.length) return [];
     return filteredQuestions.slice(0, Math.min(challengeSize, filteredQuestions.length));
   }, [challengeOn, filteredQuestions, challengeSize]);
+
+  const customQuestions = customSession?.questions ?? [];
+  const customActiveQuestion = customQuestions[customIndex] ?? null;
+  const customScorableQuestions = customQuestions.filter((q) => Number.isInteger(q?.answerIndex));
+  const customAnsweredCount = Object.keys(customAnswers).length;
+  const customUnansweredCount = customQuestions.filter((q) => customAnswers[q.id] == null).length;
+  const customCorrectCount = customScorableQuestions.filter(
+    (q) => customAnswers[q.id] != null && customAnswers[q.id] === q.answerIndex,
+  ).length;
+  const customWrongQuestions = customScorableQuestions.filter(
+    (q) => customAnswers[q.id] != null && customAnswers[q.id] !== q.answerIndex,
+  );
 
   const activeChallengeQuestion = challengeQuestions[challengeIndex] ?? null;
   const activeChallengeAnswerIndex = Number.isInteger(activeChallengeQuestion?.answerIndex)
@@ -573,50 +675,34 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                 </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setRevealAnswers((prev) => !prev)}
-                className={`inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-base font-extrabold transition-colors ${revealAnswers
-                  ? 'border-sky-200 bg-sky-50 text-sky-950 hover:bg-sky-100/60'
-                  : 'border-stone-200 bg-white/80 text-stone-800 hover:bg-white'
-                  }`}
-              >
-                {revealAnswers ? <EyeOff size={16} className="text-sky-600" /> : <Eye size={16} className="text-stone-500" />}
-                {revealAnswers ? '關閉答案' : '顯示答案'}
-              </button>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => setRevealAnswers((prev) => !prev)}
+                  className={`group inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-base font-extrabold transition-all ${revealAnswers
+                    ? 'border-sky-300 bg-gradient-to-r from-sky-100 via-sky-50 to-white text-sky-950 shadow-sm'
+                    : 'border-stone-200 bg-white/80 text-stone-800 hover:-translate-y-0.5 hover:shadow-md'
+                    }`}
+                >
+                  {revealAnswers ? <EyeOff size={16} className="text-sky-700" /> : <Eye size={16} className="text-stone-500 group-hover:text-sky-600" />}
+                  {revealAnswers ? '關閉答案' : '顯示答案'}
+                </button>
 
-              <button
-                type="button"
-                onClick={() => setAnswersById({})}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white/80 px-4 py-2.5 text-base font-extrabold text-stone-800 hover:bg-white transition-colors"
-              >
-                <RotateCcw size={16} className="text-stone-500" />
-                清除作答紀錄
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setAnswersById({})}
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl border border-rose-200 bg-gradient-to-r from-rose-50 via-white to-rose-50 px-4 py-2.5 text-base font-extrabold text-rose-900 transition-all hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <RotateCcw size={16} className="text-rose-500 group-hover:text-rose-600" />
+                  清除作答紀錄
+                </button>
+              </div>
             </div>
           </div>
 
           <div className="museum-frame museum-paper p-5 md:p-6">
             <div className="text-sm font-semibold tracking-widest text-stone-500">題庫（可收合）</div>
             <div className="mt-3 space-y-2">
-              <MenuButton
-                toneKey="all"
-                isActive={showIntro}
-                label="說明"
-                count={null}
-                compact
-                onClick={() =>
-                  preserveSidebarScroll(() => {
-                    setIntroMode(true);
-                    setQuery('');
-                    setActiveBank(null);
-                    setSelectedTopic(null);
-                    setExpandedBankKeys([]);
-                    onSelectTopic?.(null);
-                  })
-                }
-              />
-
               {bankTree.map((node) => {
                 const stateKey = node.stateKey;
                 const isExpanded = expandedBankKeys.includes(stateKey);
@@ -720,11 +806,17 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
               const quickMinHeight = 320;
 
               return (
-                <div className="museum-frame museum-paper p-6 md:p-7">
+                <div className="museum-frame museum-paper relative p-6 md:p-7 border-2 border-sky-300/90 bg-sky-50/60">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <div className="text-xs font-extrabold tracking-widest text-stone-500">QUICK QUIZ</div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="text-xs font-extrabold tracking-widest text-stone-500">QUICK QUIZ</div>
+                        <span className="rounded-full bg-sky-600 px-2.5 py-0.5 text-[11px] font-extrabold tracking-widest text-white shadow-md">
+                          快問卡
+                        </span>
+                      </div>
                       <div className="mt-2 text-lg font-extrabold text-stone-900">快問快答</div>
+                      <div className="mt-2 h-1.5 w-12 rounded-full bg-sky-500/80" />
                       <div className="mt-1 text-sm font-semibold text-stone-600">選一個答案，看看直覺。</div>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -929,11 +1021,11 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                         <div className="absolute -top-3 left-6 h-6 w-24 rounded-full bg-amber-100/80 shadow-sm border border-amber-200/70" />
                         <div className="absolute -right-3 top-8 h-10 w-10 rotate-6 rounded-2xl bg-emerald-100/70 border border-emerald-200/70" />
                         <div className="absolute right-4 top-4 text-[11px] font-extrabold tracking-widest text-stone-400">Q-CARD</div>
-                        <div className="text-base font-semibold text-stone-900 leading-relaxed">
+                        <div className="text-xl md:text-2xl font-semibold text-stone-900 leading-relaxed">
                           {quickQuestion.stem}
                         </div>
 
-                        <div className="mt-4 grid gap-2 md:grid-cols-2">
+                        <div className="mt-4 grid gap-3 md:grid-cols-2">
                           {quickQuestion.choices.map((choice, idx) => {
                             const isSelected = quickSelected === idx;
                             return (
@@ -941,7 +1033,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                                 key={`${quickQuestion.id}-quick-${idx}`}
                                 type="button"
                                 onClick={() => setQuickAnswerIndex(idx)}
-                                className={`rounded-xl border px-4 py-2 text-sm font-semibold text-left transition-colors ${isSelected
+                                className={`rounded-xl border px-4 py-2 text-lg font-semibold text-left transition-colors ${isSelected
                                   ? 'border-emerald-200 bg-emerald-50/60 text-emerald-950'
                                   : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
                                   }`}
@@ -1007,6 +1099,381 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
               );
             })()
           ) : null}
+
+          <div className="museum-frame museum-paper relative p-6 md:p-7 space-y-5 border-2 border-amber-300/90 bg-amber-50/60">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="text-xs font-extrabold tracking-widest text-stone-500">CUSTOM QUIZ</div>
+                  <span className="rounded-full bg-amber-600 px-2.5 py-0.5 text-[11px] font-extrabold tracking-widest text-white shadow-md">
+                    自訂卡
+                  </span>
+                </div>
+                <div className="mt-2 text-lg font-extrabold text-stone-900">自訂測驗</div>
+                <div className="mt-2 h-1.5 w-12 rounded-full bg-amber-500/80" />
+                <div className="mt-1 text-sm font-semibold text-stone-600">從全部題庫挑選範圍與題數，建立專屬考題。</div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    startCustomSession();
+                    setTimeout(() => {
+                      if (!customQuizRef.current) return;
+                      const offset = 120;
+                      const top = customQuizRef.current.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+                    }, 0);
+                  }}
+                  className="rounded-full border border-amber-300 bg-amber-100 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-200"
+                >
+                  開始測驗
+                </button>
+                <button
+                  type="button"
+                      onClick={() => {
+                    setCustomSelectedBanks([]);
+                    setCustomCount(40);
+                    setCustomSession(null);
+                    setCustomAnswers({});
+                    setCustomFinished(false);
+                    setCustomReviewOpen(false);
+                    setCustomIndex(0);
+                  }}
+                  className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-bold text-stone-700 hover:bg-stone-50"
+                >
+                  清空設定
+                </button>
+              </div>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-stone-200 bg-white/70 p-5">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="text-sm font-bold text-stone-900">題數設定</div>
+                    <div className="flex flex-wrap items-center gap-2">
+                    {[10, 20, 40, 50].map((size) => (
+                      <button
+                        key={`custom-size-${size}`}
+                        type="button"
+                        onClick={() => setCustomCount(size)}
+                        className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${customCount === size
+                          ? 'border-amber-300 bg-amber-50 text-amber-950'
+                          : 'border-stone-200 bg-white text-stone-700 hover:bg-stone-50'
+                          }`}
+                      >
+                        {size} 題
+                      </button>
+                    ))}
+                    <div className="flex items-center gap-2 rounded-full border border-stone-200 bg-white px-3 py-2">
+                      <span className="text-sm font-semibold text-stone-600">自訂</span>
+                      <input
+                        type="number"
+                        min={1}
+                        max={200}
+                        value={customCount}
+                        onChange={(event) => {
+                          const next = Number(event.target.value);
+                          if (Number.isNaN(next)) return;
+                          setCustomCount(Math.max(1, Math.min(200, next)));
+                        }}
+                        className="w-20 border-none bg-transparent text-sm font-bold text-stone-900 focus:outline-none"
+                      />
+                      <span className="text-sm font-semibold text-stone-600">題</span>
+                    </div>
+                    </div>
+                    <div className="text-xs text-stone-500 lg:ml-auto">
+                      目前可用題數：{customPool.length} 題
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-stone-200 bg-white/70 p-5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="text-sm font-bold text-stone-900">範圍選擇</div>
+                    <div className="text-xs font-semibold text-stone-500">
+                      已選 {customSelectedBanks.length || '全部'} 區
+                    </div>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const next = customBanks.map((bank) => bank.key);
+                        setCustomSelectedBanks(next);
+                        setCustomSelectedTopics((prevTopics) => pruneCustomTopics(next, prevTopics));
+                      }}
+                      className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:bg-stone-50"
+                    >
+                      全選
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCustomSelectedBanks([]);
+                        setCustomSelectedTopics({});
+                      }}
+                      className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:bg-stone-50"
+                    >
+                      全不選
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setCustomSelectedBanks((prev) => {
+                          const current = new Set(prev);
+                          const next = [];
+                          customBanks.forEach((bank) => {
+                            if (!current.has(bank.key)) next.push(bank.key);
+                          });
+                          setCustomSelectedTopics((prevTopics) => pruneCustomTopics(next, prevTopics));
+                          return next;
+                        })
+                      }
+                      className="rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 hover:bg-stone-50"
+                    >
+                      反選
+                    </button>
+                  </div>
+                  <details className="mt-3 rounded-xl border border-stone-200 bg-white/60">
+                    <summary className="flex cursor-pointer items-center justify-between px-3 py-2 text-xs font-semibold text-stone-700">
+                      <span>各區清單</span>
+                      <span className="text-[11px] text-stone-400">點擊展開／收合</span>
+                    </summary>
+                    <div className="max-h-64 space-y-2 overflow-y-auto border-t border-stone-200 px-3 py-3 pr-2">
+                      {customBanks.length ? (
+                        customBanks.map((bank) => {
+                          const isSelected = customSelectedBanks.includes(bank.key);
+                          const selectedTopics = customSelectedTopics[bank.key] ?? [];
+                          const bankRowClasses = `flex items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm font-semibold transition ${isSelected
+                            ? 'border-emerald-300 bg-emerald-50/70 text-emerald-950'
+                            : 'border-stone-200 bg-white/80 text-stone-800'
+                            }`;
+                          return (
+                            <div key={`custom-bank-${bank.key}`} className="space-y-2">
+                              <label className={bankRowClasses}>
+                                <span className="flex items-center gap-2">
+                                  <input
+                                    type="checkbox"
+                                    className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-400/40"
+                                    checked={isSelected}
+                                    onChange={() => toggleCustomBank(bank.key)}
+                                  />
+                                  <span className="truncate">{bank.label}</span>
+                                </span>
+                                <span className="text-xs font-semibold opacity-70">({bank.count})</span>
+                              </label>
+                              <AccordionPanel open={isSelected}>
+                                <div className="ml-3 pl-3 border-l border-stone-200/70 space-y-1.5 pt-2">
+                                  {bank.topics.length ? (
+                                    bank.topics.map((topic) => (
+                                      <label
+                                        key={`${bank.key}-${topic.topic}`}
+                                        className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-1.5 text-sm font-semibold transition ${selectedTopics.includes(topic.topic)
+                                          ? 'border-emerald-300 bg-emerald-50/60 text-emerald-950'
+                                          : 'border-stone-200 bg-white/70 text-stone-800'
+                                          }`}
+                                      >
+                                        <span className="flex items-center gap-2">
+                                          <input
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-400/40"
+                                            checked={selectedTopics.includes(topic.topic)}
+                                            onChange={() => toggleCustomTopic(bank.key, topic.topic)}
+                                          />
+                                          <span className="truncate">{topic.label}</span>
+                                        </span>
+                                        <span className="text-xs font-semibold opacity-70">({topic.count})</span>
+                                      </label>
+                                    ))
+                                  ) : (
+                                    <div className="rounded-lg border border-stone-200 bg-white/70 px-3 py-2 text-xs font-semibold text-stone-500">
+                                      此區目前沒有題型
+                                    </div>
+                                  )}
+                                  <div className="text-[11px] text-stone-500">
+                                    未選題型時，系統會視為整區全選。
+                                  </div>
+                                </div>
+                              </AccordionPanel>
+                            </div>
+                          );
+                        })
+                      ) : (
+                        <div className="rounded-xl border border-stone-200 bg-white/60 px-4 py-3 text-sm font-semibold text-stone-500">
+                          沒有可用題庫
+                        </div>
+                      )}
+                    </div>
+                  </details>
+                  <div className="mt-3 text-xs text-stone-500">
+                    未勾選題庫時，系統會以「全部題庫」作為出題範圍。
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 space-y-3">
+                <div className="text-sm font-bold text-stone-900">目前設定</div>
+                <div className="flex flex-wrap items-center gap-3 text-sm text-stone-700">
+                  <span>
+                    目標題數：<span className="font-bold text-stone-900">{customCount}</span> 題
+                  </span>
+                  <span>
+                    可用題數：<span className="font-bold text-stone-900">{customPool.length}</span> 題
+                  </span>
+                  <span>
+                    範圍：<span className="font-semibold text-stone-900">{customSelectedLabels.join('、')}</span>
+                  </span>
+                </div>
+                {customSession ? (
+                  <div className="rounded-xl border border-stone-200 bg-white/70 p-3 text-sm text-stone-700">
+                    本次測驗：{customSession.size} / {customSession.available} 題
+                  </div>
+                ) : (
+                  <div className="rounded-xl border border-stone-200 bg-white/70 p-3 text-sm text-stone-500">
+                    尚未開始測驗，按「開始測驗」建立題目。
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {customSession ? (
+              <div
+                ref={customQuizRef}
+                className="rounded-2xl border border-slate-800 bg-slate-900 p-5 text-slate-100 shadow-lg"
+              >
+                {customSession.questions.length === 0 ? (
+                  <div className="text-sm font-semibold text-slate-300">目前沒有可用題目，請調整範圍。</div>
+                ) : customFinished ? (
+                  <div className="space-y-4">
+                    <div className="text-sm font-semibold text-amber-200">完成！</div>
+                    <div className="text-lg font-extrabold text-slate-100">
+                      正確 {customCorrectCount} / {customScorableQuestions.length || '—'}
+                    </div>
+                    <div className="text-sm text-slate-300">
+                      總題數：{customSession.questions.length}｜已作答：{customAnsweredCount}｜未作答：{customUnansweredCount}｜錯題：{customWrongQuestions.length}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setCustomReviewOpen((prev) => !prev)}
+                        className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-bold text-slate-100 hover:bg-slate-700"
+                      >
+                        {customReviewOpen ? '收合錯題回顧' : '展開錯題回顧'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={startCustomSession}
+                        className="rounded-full border border-emerald-400 bg-emerald-500/20 px-4 py-2 text-sm font-bold text-emerald-100 hover:bg-emerald-500/30"
+                      >
+                        重新抽題
+                      </button>
+                    </div>
+
+                    {customReviewOpen ? (
+                      <div className="space-y-3">
+                        {customWrongQuestions.length ? (
+                          customWrongQuestions.map((question) => {
+                            const picked = customAnswers[question.id];
+                            return (
+                              <div key={`custom-wrong-${question.id}`} className="rounded-xl border border-slate-700 bg-slate-800/70 p-4">
+                                <div className="text-sm font-bold text-slate-100">{question.stem}</div>
+                                <div className="mt-2 text-sm text-slate-300">
+                                  你的答案：{picked != null ? `${picked + 1}. ${question.choices[picked]}` : '未作答'}
+                                </div>
+                                <div className="mt-1 text-sm font-semibold text-emerald-200">
+                                  正確答案：{question.answerIndex + 1}. {question.choices[question.answerIndex]}
+                                </div>
+                              </div>
+                            );
+                          })
+                        ) : (
+                          <div className="text-sm font-semibold text-slate-300">本次沒有錯題。</div>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3 py-1 text-base font-bold text-amber-100 ring-1 ring-amber-400/50">
+                        <span className="h-2 w-2 rounded-full bg-amber-300" />
+                        {customIndex + 1} / {customSession.questions.length}
+                      </div>
+                      <div className="text-base font-semibold text-slate-300">
+                        已作答 {customAnsweredCount} 題
+                      </div>
+                    </div>
+                    {customActiveQuestion ? (
+                      <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                        <div className="h-1.5 w-12 rounded-full bg-amber-400/80" />
+                        <div className="border-l-4 border-amber-400 pl-3 text-[24px] md:text-[30px] font-extrabold text-slate-100 leading-snug">
+                          {customActiveQuestion.stem}
+                        </div>
+                        <div className="grid gap-3 md:grid-cols-2">
+                          {customActiveQuestion.choices.map((choice, idx) => {
+                            const isSelected = customAnswers[customActiveQuestion.id] === idx;
+                            return (
+                              <button
+                                key={`${customActiveQuestion.id}-custom-${idx}`}
+                                type="button"
+                                onClick={() => {
+                                  setCustomAnswers((prev) => ({
+                                    ...prev,
+                                    [customActiveQuestion.id]: idx,
+                                  }));
+                                  setCustomIndex((prev) =>
+                                    Math.min(prev + 1, customSession.questions.length - 1),
+                                  );
+                                }}
+                                className={`rounded-xl border px-4 py-3 text-[18px] md:text-[20px] font-semibold text-left transition-colors ${isSelected
+                                  ? 'border-emerald-400 bg-emerald-500/20 text-emerald-50'
+                                  : 'border-slate-700 bg-slate-800/70 text-slate-100 hover:bg-slate-700/70'
+                                  }`}
+                              >
+                                {idx + 1}. {choice}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {customActiveQuestion.answerIndex == null ? (
+                          <div className="text-sm font-semibold text-slate-400">此題未設定標準答案，作答不計分。</div>
+                        ) : null}
+                      </div>
+                    ) : null}
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setCustomIndex((prev) => Math.max(prev - 1, 0))}
+                        className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-base font-bold text-slate-100 hover:bg-slate-700"
+                        disabled={customIndex === 0}
+                      >
+                        上一題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setCustomIndex((prev) => Math.min(prev + 1, customSession.questions.length - 1))
+                        }
+                        className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-base font-bold text-slate-100 hover:bg-slate-700"
+                        disabled={customIndex >= customSession.questions.length - 1}
+                      >
+                        下一題
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCustomFinished(true)}
+                        className="rounded-full border border-amber-400 bg-amber-500/20 px-4 py-2 text-base font-bold text-amber-100 hover:bg-amber-500/30"
+                      >
+                        交卷
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : null}
+          </div>
 
           <div className="flex flex-wrap gap-2">
             <button
@@ -1190,7 +1657,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <div className="text-xs font-extrabold tracking-widest text-stone-500">{q.topicLabel}</div>
-                      <div className="mt-2 text-lg md:text-xl font-extrabold text-stone-900 leading-snug">
+                      <div className="mt-2 text-xl md:text-2xl font-extrabold text-stone-900 leading-snug">
                         {index + 1}. {q.stem}
                       </div>
                     </div>
@@ -1212,7 +1679,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                             key={`${q.id}-${choiceIndex}`}
                             type="button"
                             onClick={() => setAnswersById((prev) => ({ ...prev, [q.id]: choiceIndex }))}
-                            className={`text-left rounded-xl border px-4 py-1.5 transition-colors ${(showFeedback || shouldRevealAnswer) && isCorrectChoice
+                            className={`text-left rounded-xl border px-4 py-2 transition-colors ${(showFeedback || shouldRevealAnswer) && isCorrectChoice
                               ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
                               : isWrongSelected
                                 ? 'border-rose-300 bg-rose-50 text-rose-950'
@@ -1229,10 +1696,10 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                               >
                                 O
                               </span>
-                              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-stone-200 bg-white text-sm font-extrabold text-stone-700">
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-stone-200 bg-white text-base font-extrabold text-stone-700">
                                 {choiceIndex + 1}
                               </span>
-                              <span className="text-base font-semibold leading-snug">{choice}</span>
+                              <span className="text-lg font-semibold leading-snug">{choice}</span>
                             </span>
                           </button>
                         );

@@ -12,6 +12,17 @@ export default function RedOolongContent() {
         content: (
           <div className="space-y-4 text-stone-800 leading-relaxed">
             <p>在民國五、六十年代，台東曾是紅茶外銷的重要產地。然而，這個輝煌的時代卻因兩個主要因素而迅速走向沒落：</p>
+            <p className="text-sm text-stone-700">
+              當時實施的是一種具備高度戰略意義的「契作加工」模式，展現了計畫經濟下的產業組織力。
+            </p>
+            <p className="text-sm font-semibold text-stone-900">紅茶生產體系</p>
+            <p className="text-sm text-stone-700">
+              那是「工廠登記立案制」的時代，唯有登記立案的工廠如「高台茶廠」與「源昌茶工廠（現為新原）」具備加工與行銷權。當時的茶農並無製茶權，茶菁採摘後統一由工廠卡車運回。家家戶戶秤重寫單、全家動員「擠茶」的景象，是老一代台東茶人心中繁榮的社會縮影。
+            </p>
+            <p className="text-sm font-semibold text-stone-900">外銷沒落之謎</p>
+            <p className="text-sm text-stone-700">
+              這段黃金年代的終結，源於國際經濟局勢的劇烈動盪。隨著台幣匯率波動削弱了出口競爭力，加上肯亞等東非紅茶產地的強勢崛起，台東紅茶在國際標場失去優勢。從「外銷導向」轉向「內銷受挫」，導致了長達數十年的產業萎縮，也讓農村陷入了空前的經濟焦慮。
+            </p>
             <ul className="list-disc list-inside space-y-2 text-sm text-stone-700">
               <li>匯率問題： 台幣升值導致台灣紅茶的出口價格上漲，大幅削弱了其在國際市場上的競爭力。</li>
               <li>國際競爭： 以肯亞為代表的新興紅茶產地，憑藉其品質提升且價格低廉的優勢，嚴重衝擊了台灣紅茶的外銷市場。</li>
@@ -112,134 +123,224 @@ export default function RedOolongContent() {
 
       <ReadingAssist contentRef={contentRef} headingSelector="h3, h4" />
       <div ref={contentRef} className="space-y-10">
-        <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-            <Map className="text-orange-700" size={20} />
-            <h3 className="text-lg md:text-xl font-bold text-stone-900">台東茶鄉：三大高台的風土</h3>
-          </div>
-          <div className="px-6 py-6">
+        <div className="rounded-2xl border border-stone-200 bg-white/80 backdrop-blur-sm overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-50/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-orange-500" />
+              <Map className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">台東茶鄉：三大高台的風土</h3>
+            </div>
+            <div className="px-6 py-6 space-y-6">
+            <p className="text-stone-800 leading-relaxed">
+              台東鹿野茶區的興起並非偶然，其地理多樣性為產業奠定了堅實基礎。沿著台九線由南往北，分布著三個各具特色的「高台」地貌，這些地形落差在 200 至 300 公尺之間，形成了類似「山城」與「路邊」的空間層次，不僅利於排水，也創造了獨特的微氣候。這種「階梯式」的地理分布，對後續茶區的品牌辨識與觀光化發展產生了深遠影響。
+            </p>
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
                 <div className="font-bold text-stone-900 mb-2">美農高台</div>
                 <p className="text-sm text-stone-700 leading-relaxed">
-                  旅程的第一站，與鹿野茶葉發展息息相關。至今仍有茶莊，晚上可俯瞰台東市夜景，增添浪漫色彩。
+                  作為由台東市往南的第一站，這裡是台東茶業發展的隱藏起點。知名的「寒舍茶坊」便座落於此，其地勢足以俯瞰整個台東市的燦爛夜景。有趣的是，由於名稱皆有「高台」二字，常有外地旅客在火車站叫計程車時，因導航誤區被載往美農高台而非鹿野高台，意外成為當地產業史中一段充滿人情味的插曲。
                 </p>
               </div>
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
                 <div className="font-bold text-stone-900 mb-2">初鹿高台</div>
                 <p className="text-sm text-stone-700 leading-relaxed">
-                  以「初鹿牧場」聞名。在轉型初期是極重要的茶菁來源地，曾供應總原料的50%。
+                  以初鹿牧場聞名，早期是極其重要的茶菁供應區。在產業全盛時期，初鹿牧場周邊約有 20 公頃的契約耕作，高品質的茶菁供應量曾占當時製茶廠的一半。除了茶葉，這裡的初鹿鮮奶亦是吸引觀光客的重要資源，形成了乳香與茶香交織的特殊地景。
                 </p>
               </div>
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
                 <div className="font-bold text-stone-900 mb-2">鹿野高台</div>
                 <p className="text-sm text-stone-700 leading-relaxed">
-                  核心茶區，現今熱氣球嘉年華舉辦地。昔日滿佈茶樹，地景變遷見證了產業的興衰。
+                  目前知名度最高，與飛行傘、熱氣球等空域活動緊密結合。其廣達四公頃的大草原（原為鳳梨田）與海拔落差形成的視覺層次，讓遊客能從高處俯瞰整個村莊，形成獨特的觀光茶園生態。
                 </p>
               </div>
+            </div>
+            <p className="text-stone-700 leading-relaxed">
+              這種高台地理優勢，使茶業得以與休閒觀光深度結合，打破了傳統農業的單一模式，為後來紅烏龍的品牌化轉型埋下了伏筆。
+            </p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-            <History className="text-orange-700" size={20} />
-            <h3 className="text-lg md:text-xl font-bold text-stone-900">為何需要新品種？台東茶產業的三次危機</h3>
-          </div>
-          <div className="px-6 py-6 space-y-5 text-stone-800 leading-relaxed">
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-amber-500" />
+              <History className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">為何需要新品種？台東茶產業的三次危機</h3>
+            </div>
+            <div className="px-6 py-6 space-y-5 text-stone-800 leading-relaxed">
             <p>
               紅烏龍的誕生並非偶然，而是台東茶產業在歷經多次衝擊後，被逼到「沒有退路」的境地時，才誕生的產物。它是一款真正「從『絕境』中誕生的產物」。
             </p>
             <p>在紅烏龍問世前，台東茶產業曾遭遇了三次幾乎使其一蹶不振的重大危機。</p>
 
             <div className="rounded-2xl border border-stone-200 bg-white/65 p-4 md:p-5">
-              <div className="mb-3 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-center gap-2 text-sm font-extrabold text-stone-800">
-                  <AlertTriangle size={16} className="text-orange-700" />
-                  點選 01／02／03 立即切換內容
+              <div className="space-y-4">
+                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                  <div className="flex items-center gap-2 text-sm font-extrabold text-stone-800">
+                    <AlertTriangle size={16} className="text-orange-700" />
+                    點選 01／02／03 立即切換內容
+                  </div>
+                  <div className="text-xs text-stone-600">提示：滑鼠移到卡片會高亮顯示</div>
                 </div>
-                <div className="text-xs text-stone-600">提示：滑鼠移到卡片會高亮顯示</div>
-              </div>
-              <div className="grid gap-2 md:grid-cols-3">
-                {crises.map((crisis) => {
-                  const isActive = crisis.key === activeCrisisKey;
-                  const [line1, ...restLines] = crisis.title.split('：');
-                  const line2 = restLines.join('：');
-                  return (
-                    <button
-                      key={crisis.key}
-                      type="button"
-                      onClick={() => setActiveCrisisKey(crisis.key)}
-                      className={`group relative w-full overflow-hidden rounded-2xl border px-4 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
-                          ? 'border-amber-300 bg-amber-50/70 text-stone-900'
-                          : 'border-stone-200 bg-white/60 text-stone-800 hover:border-amber-200 hover:bg-amber-50/40'
-                        }`}
-                      aria-pressed={isActive}
-                      title="點選切換"
-                    >
-                      <span
-                        className={`absolute left-0 top-0 h-full w-1 ${isActive ? 'bg-amber-400' : 'bg-transparent group-hover:bg-amber-200'
+                <div className="grid gap-2 md:grid-cols-3">
+                  {crises.map((crisis) => {
+                    const isActive = crisis.key === activeCrisisKey;
+                    const [line1, ...restLines] = crisis.title.split('：');
+                    const line2 = restLines.join('：');
+                    return (
+                      <button
+                        key={crisis.key}
+                        type="button"
+                        onClick={() => setActiveCrisisKey(crisis.key)}
+                        className={`group relative w-full overflow-hidden rounded-2xl border px-4 py-3 text-left transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
+                            ? 'border-amber-300 bg-amber-50/70 text-stone-900'
+                            : 'border-stone-200 bg-white/60 text-stone-800 hover:border-amber-200 hover:bg-amber-50/40'
                           }`}
-                      />
-                      <div className="flex items-start gap-3">
+                        aria-pressed={isActive}
+                        title="點選切換"
+                      >
                         <span
-                          className={`inline-flex items-center justify-center h-9 w-9 rounded-full text-white shrink-0 font-extrabold ${isActive ? 'bg-amber-600' : 'bg-stone-900/85 group-hover:bg-amber-600'
-                            }`}
-                        >
-                          {crisis.number}
-                        </span>
-                        <div className="min-w-0">
-                          <div className="text-base font-extrabold text-stone-900">{line1}</div>
-                          <div className="mt-1 text-xs text-stone-700">{line2}</div>
-                        </div>
-                        <ChevronRight
-                          size={18}
-                          className={`ml-auto mt-1 shrink-0 transition-opacity ${isActive ? 'text-amber-700 opacity-100' : 'text-stone-400 opacity-60 group-hover:opacity-100'
+                          className={`absolute left-0 top-0 h-full w-1 ${isActive ? 'bg-amber-400' : 'bg-transparent group-hover:bg-amber-200'
                             }`}
                         />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="mt-5 grid gap-4 lg:grid-cols-[1.1fr_1fr]">
-                <div className="rounded-2xl border border-stone-200 bg-white/70 p-5">
-                  <div className="text-xs font-bold tracking-widest text-stone-500">CRISIS</div>
-                  <div className="mt-2 text-lg font-bold text-stone-900">{activeCrisis.title}</div>
-                  <div className="mt-4">{activeCrisis.content}</div>
+                        <div className="flex items-start gap-3">
+                          <span
+                            className={`inline-flex items-center justify-center h-9 w-9 rounded-full text-white shrink-0 font-extrabold ${isActive ? 'bg-amber-600' : 'bg-stone-900/85 group-hover:bg-amber-600'
+                              }`}
+                          >
+                            {crisis.number}
+                          </span>
+                          <div className="min-w-0">
+                            <div className="text-base font-extrabold text-stone-900">{line1}</div>
+                            <div className="mt-1 text-xs text-stone-700">{line2}</div>
+                          </div>
+                          <ChevronRight
+                            size={18}
+                            className={`ml-auto mt-1 shrink-0 transition-opacity ${isActive ? 'text-amber-700 opacity-100' : 'text-stone-400 opacity-60 group-hover:opacity-100'
+                              }`}
+                          />
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
-
-                <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-                  <div className="flex items-center gap-2 text-sm font-bold text-stone-700">
-                    <AlertTriangle size={16} className="text-orange-700" />
-                    關鍵一句
-                  </div>
-                  <div className="mt-3 text-[15px] leading-7 text-stone-800">
-                    「紅茶回不去，青茶打不過，蜜香被搶走」的絕境，讓創新與變革成為唯一的出路。
-                  </div>
-                  <div className="mt-5 border-t border-stone-200 pt-5">
-                    <div className="flex items-center gap-2 text-sm font-bold text-stone-700">
-                      <Sparkles size={16} className="text-orange-700" />
-                      你可以怎麼讀
-                    </div>
-                    <ul className="mt-3 space-y-2 text-sm text-stone-700">
-                      <li>先點 01/02/03 了解「危機 → 推力」</li>
-                      <li>再接著看下一章「創新之路」如何把劣勢轉成優勢</li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="rounded-2xl border border-stone-200 bg-white/70 p-5">
+                <div className="text-xs font-bold tracking-widest text-stone-500">CRISIS</div>
+                <div className="mt-2 text-lg font-bold text-stone-900">{activeCrisis.title}</div>
+                <div className="mt-4">{activeCrisis.content}</div>
               </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-orange-500" />
+              <AlertTriangle className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">多重產業瓶頸：鳳梨與甘蔗的退出與危機</h3>
+            </div>
+            <div className="px-6 py-6 space-y-5 text-stone-800 leading-relaxed">
+            <p>
+              在紅茶衰落的同時，台東傳統作物同時面臨退場，形成了一場多重夾擊的「產業絕境」。這種真空狀態讓老一輩農民——包括講者的祖父輩——陷入了極大的經濟恐慌。
+            </p>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">傳統產業的連鎖反應</div>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-stone-700">
+                <li>鳳梨業的終結： 曾經專門供應軍隊需求的「大春」鳳梨罐頭工廠撤離，對當地農民造成重創。大片鳳梨田失去收購去路，直接切斷了許多家庭的生計。</li>
+                <li>糖廠關閉與甘蔗沒落： 隨著台東作為糖業「原料區」的歷史結束，甘蔗田大量流失，曾經的綠色經濟支柱一夕崩塌。</li>
+              </ol>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">生存挑戰評估</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                當時台東交通極度不便，資訊閉塞，農民彷彿被困在孤島。看著鳳梨、甘蔗與紅茶相繼倒下，這種無路可走的絕望，迫使在地人開始向外尋求技術支援，進而開啟了引進南投經驗的「青茶（烏龍茶）」試驗期。
+              </p>
+            </div>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-            <FlaskConical className="text-orange-700" size={20} />
-            <h3 className="text-lg md:text-xl font-bold text-stone-900">絕處逢生：紅烏龍的創新之路</h3>
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-amber-500" />
+              <Sparkles className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">轉型青茶之路：南投經驗與傳奇人物的引入</h3>
+            </div>
+            <div className="px-6 py-6 space-y-5 text-stone-800 leading-relaxed">
+            <p>
+              為了打破絕境，台東茶農開始透過「南投人才引入」與「栽培技術革新」打破技術壁壘，重塑產業結構。
+            </p>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">關鍵技術革新</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                傳奇人物黃石定先生引入了「壓條法」。在當時茶苗昂貴且缺乏扦插技術的背景下，他租下初鹿牧場的茶樹，透過將茶枝壓入土中繁育新苗，再以較低價格轉售給當地農民。這套聰明的商業邏輯，讓原本昂貴的青心烏龍在鹿野得以大規模普及。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">傳奇人物的影響</div>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-stone-700">
+                <li>陳德意與天仁李文川： 經李文川先生引薦，名間鄉製茶大師陳德意來到台東。他精湛的製茶技術讓台東青茶在北部市場聲名大噪，幾乎是「做多少賣多少」。</li>
+                <li>蘇義吉的天價租約： 當時最具指標性的事件是蘇義吉一公頃的茶園，被陳德意以每年 90 萬元 的高價承租。在當時地價不到 300 萬元的年代，年租金竟高達地價的三分之一，這筆「驚天動地」的天價租約瞬間傳遍鹿野，引發了全區大規模改種青茶的浪潮。</li>
+              </ol>
+            </div>
+            </div>
           </div>
-          <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+        </div>
+
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-orange-500" />
+              <BookOpen className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">制度與品牌確立：福鹿茶的命名與官方扶持</h3>
+            </div>
+            <div className="px-6 py-6 space-y-5 text-stone-800 leading-relaxed">
+            <p>
+              1980 年代初期，三項關鍵因素共同作用，使台東茶業從小規模試探轉向專業化與品牌化經營。
+            </p>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">品牌命名史</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                起源於蔣彥士先生在關山品嚐同鄉水餃後的鄉野考察，後來由時任省主席的李登輝先生正式定名為「福鹿茶」。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">三大發展要素分析</div>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-stone-700">
+                <li>技術研發： 民國 70 年茶業改良場台東分場成立，提供了在地化的技術支撐。</li>
+                <li>法規開放： 1982 年修法允許「家庭式小型工廠」經營（免稅制），這是今日台東隨處可見「製茶所」而非大型工廠的法理起源。</li>
+                <li>品牌確立： 透過李登輝先生的命名推廣，「福鹿茶」在市場上確立了正式地位。</li>
+              </ol>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">艱辛創業背景</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                當時物資匱乏，農民多收購中南部淘汰的舊機器，自行修理後組建製茶所。這種「克難精神」支撐了台東青茶的黃金二十年。
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-amber-500" />
+              <FlaskConical className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">絕處逢生：紅烏龍的創新之路</h3>
+            </div>
+            <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
             <p>
               在無路可走的情況下，台東茶人將目光投向了中國大陸的「武夷岩茶」。岩茶製程中「重攪拌、重發酵、重焙火」的工藝特點，為台東茶產業帶來了全新的靈感與啟發。
             </p>
@@ -255,14 +356,32 @@ export default function RedOolongContent() {
             <p>
               然而，紅烏龍的製程汲取了岩茶的精髓，透過「重萎凋、重攪拌」的步驟，成功地將茶菁中原有的苦澀成分，轉化為滑順甘醇的口感。最後再經由「重焙火」工序，增加茶湯的層次與韻味。這個過程如點石成金，讓原本價值較低的夏秋茶，也能搖身一變成為高品質的「黃金」。
             </p>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="text-sm font-bold text-stone-900 mb-2">從競爭敗退到創新：紅烏龍的誕生契機</div>
+              <div className="space-y-3 text-sm text-stone-700 leading-relaxed">
+                <p>
+                  民國 80 年代中期，台東青茶再度面臨危機。由於交通改善與高山茶崛起，低海拔且氣候炎熱的台東，在與鹿谷凍頂或高山茶的競爭中，因清香度不足而節節敗退。
+                </p>
+                <p>
+                  <strong>蜜香紅茶的遺珠之憾：</strong> 台東早期曾研發出蜜香技術，但當時工廠因不願放棄青茶市場，缺乏變革的勇氣；反觀當時已處於廢墟邊緣的瑞穗舞鶴茶區，因「無路可退」而大膽採用，最終讓蜜香紅茶在花蓮發揚光大。
+                </p>
+                <p>
+                  <strong>紅烏龍的技術突破：</strong> 為了在夾縫中生存，民國 97 年正式發表「紅烏龍」。這項技術突破的核心，在於將台東夏季茶菁的「苦澀」劣勢轉化為優勢。製法融合了大陸岩茶的「重發酵、重焙火」精神，並加入紅茶的「揉捻」技術。
+                </p>
+                <p>
+                  <strong>戰略價值：</strong> 「半球型」外觀能保持風味穩定且便於存放。紅烏龍成功結合了「紅茶的色、凍頂的韻、青茶的蜜香」，終於在市場建立了不可取代的獨特性。
+                </p>
+              </div>
+            </div>
             <p>
               這項於民國97年（2008年）正式發表的創新，不僅成功帶領台東茶產業走出困境，更創造出一種風味獨特、市場區隔明顯的全新茶品，開啟了台東茶的嶄新篇章。
             </p>
+            </div>
           </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-stone-200 bg-orange-50/60 p-6">
+          <div className="rounded-2xl border border-stone-200 bg-orange-50/60 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-safe:animate-fadeIn">
             <h3 className="text-xl font-bold text-stone-900 mb-3 flex items-center gap-2">
               <BookOpen className="text-orange-700" size={18} />
               創新工藝密碼（與原本內容結合）
@@ -280,7 +399,7 @@ export default function RedOolongContent() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-stone-900 text-stone-100 p-6">
+          <div className="rounded-2xl border border-stone-200 bg-stone-900 text-stone-100 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl motion-safe:animate-fadeIn">
             <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
               <Star className="text-amber-300" size={18} />
               獨特風味（與原本內容結合）
@@ -311,12 +430,15 @@ export default function RedOolongContent() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-            <Sparkles className="text-orange-700" size={20} />
-            <h3 className="text-lg md:text-xl font-bold text-stone-900">紅烏龍的獨特之處：風味、特色與優勢</h3>
-          </div>
-          <div className="px-6 py-6 space-y-6 text-stone-900 leading-relaxed font-medium">
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-orange-500" />
+              <Sparkles className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">紅烏龍的獨特之處：風味、特色與優勢</h3>
+            </div>
+            <div className="px-6 py-6 space-y-6 text-stone-900 leading-relaxed font-medium">
             <p>為了更清晰地理解紅烏龍的獨特性，可以透過下表來比較它與傳統烏龍茶及紅茶的關鍵差異：</p>
             <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white">
               <table className="min-w-[780px] w-full text-sm">
@@ -359,7 +481,7 @@ export default function RedOolongContent() {
               </table>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
               <div className="text-lg font-extrabold text-stone-900 mb-2">紅烏龍的主要優勢總結</div>
               <p className="text-stone-900 leading-relaxed font-medium">根據上述比較與其發展背景，可以將紅烏龍的核心優勢歸納為以下三點：</p>
               <ol className="mt-4 grid gap-3 md:grid-cols-3 text-stone-900 font-medium">
@@ -380,15 +502,19 @@ export default function RedOolongContent() {
                 紅烏龍的誕生，不僅是一項製茶技術的突破，更是一個地方產業為了生存與尊嚴，奮力一搏的動人故事。
               </p>
             </div>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-            <AlertTriangle className="text-orange-700" size={20} />
-            <h3 className="text-lg md:text-xl font-bold text-stone-900">當前挑戰：原產地 vs 仿製品（與原本內容結合）</h3>
-          </div>
-          <div className="px-6 py-6">
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-amber-500" />
+              <AlertTriangle className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">當前挑戰：原產地 vs 仿製品（與原本內容結合）</h3>
+            </div>
+            <div className="px-6 py-6">
             <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white">
               <table className="min-w-full divide-y divide-stone-200 text-sm">
                 <thead className="bg-stone-100">
@@ -418,10 +544,45 @@ export default function RedOolongContent() {
               </table>
             </div>
             <p className="mt-4 text-stone-600 text-sm italic text-right">*創新非終點，台東茶產業仍需持續精進以應對挑戰。</p>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+        <div className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden group relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:border-amber-200 motion-safe:animate-fadeIn">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-50/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative">
+            <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50/80 to-white flex items-center gap-3">
+              <span className="h-6 w-1.5 rounded-full bg-orange-500" />
+              <MapPin className="text-orange-700" size={20} />
+              <h3 className="text-lg md:text-xl font-bold text-stone-900">東部茶區現狀與未來戰略思考</h3>
+            </div>
+            <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+            <p>
+              目前東部茶區已形成從坪林、宜蘭、花蓮（瑞穗、赤柯山、六十石山）到台東鹿野的茶葉遷徙軸線。
+            </p>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">早期的行商歲月</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                紅烏龍的重生背後，是茶商強韌的勇氣。講者曾回憶，過去載著茶葉北上，在台北茶行門口停下車，因為害怕被冷眼拒絕，竟在車裡坐了一個小時才有勇氣踏出車門。這種「在路頭拜託」的艱辛，是產業背後最溫暖的人文底色。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">紅烏龍的當前挑戰</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                隨著阿里山、名間等茶區也開始製作紅烏龍，台東面臨嚴峻的成本競爭。作為「紅烏龍原鄉」，台東必須思考差異化對策，強化品牌深度與品質控管。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="font-semibold text-stone-900 mb-2">總結與願景</div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                紅烏龍是台東茶業在無路可走的絕境中，憑藉創新與韌性開出的重生奇蹟。面對未來的競爭，我們必須守護這份獨特的價值，讓這份來自高台的茶香，持續在全球市場綻放光芒。
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-stone-200 bg-gradient-to-br from-stone-50 via-white to-orange-50/40 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-safe:animate-fadeIn">
           <h3 className="text-lg md:text-xl font-bold text-stone-900 mb-3">結語：不只是一款茶，更是台東的驕傲</h3>
           <div className="space-y-4 text-stone-800 leading-relaxed">
             <p>
