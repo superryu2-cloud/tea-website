@@ -64,6 +64,9 @@ import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import AromaticsChapter from './content/scienceChapters/AromaticsChapter';
 import TeaProcessCraftChapter from './content/scienceChapters/TeaProcessCraftChapter';
 import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
+import PuerhSection from './sections/PuerhSection';
+import SeasonsSection from './sections/SeasonsSection';
+import BrewingGuideSection from './sections/BrewingGuideSection';
 
 const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
 
@@ -79,7 +82,7 @@ const TeaWebsite = () => {
   const [chenChuanChapterHref, setChenChuanChapterHref] = useState('#cc-all');
   const [teachingChapterHref, setTeachingChapterHref] = useState('#ref-all');
   const [puerhChapterHref, setPuerhChapterHref] = useState('#puerh-1');
-    const [oolongRegionHref, setOolongRegionHref] = useState(null);
+  const [oolongRegionHref, setOolongRegionHref] = useState(null);
   const [sensoryTopic, setSensoryTopic] = useState(null);
   const [redTeaHref, setRedTeaHref] = useState('#red-global');
   const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
@@ -1778,7 +1781,7 @@ const TeaWebsite = () => {
           ? oolongRegionHref
           : varietiesKind === 'red'
             ? redTeaHref
-          : null;
+            : null;
 
     const onSelectVarietiesSubHref = (href) => {
       if (!href) return;
@@ -1989,8 +1992,8 @@ const TeaWebsite = () => {
                 <>
                   <div id="varieties-kind-header" className="h-0" aria-hidden="true" />
                   {kindTea &&
-                  (varietiesKind !== 'oolong' || !oolongRegionHref) &&
-                  (varietiesKind !== 'red' || redTeaHref === '#red-global') ? (
+                    (varietiesKind !== 'oolong' || !oolongRegionHref) &&
+                    (varietiesKind !== 'red' || redTeaHref === '#red-global') ? (
                     <>
                       <SectionCard title="概覽" icon={BookOpen}>
                         <p className="text-lg text-stone-800 leading-relaxed">{kindTea.desc}</p>
@@ -2039,321 +2042,321 @@ const TeaWebsite = () => {
                   ) : null}
 
                   {varietiesKind === 'green' ? (
-                        <SectionCard title="綠茶歷史" icon={Globe}>
-                          <div id="green-tea-history" className="scroll-mt-28">
-                            <GreenTeaHistory />
-                          </div>
-                        </SectionCard>
+                    <SectionCard title="綠茶歷史" icon={Globe}>
+                      <div id="green-tea-history" className="scroll-mt-28">
+                        <GreenTeaHistory />
+                      </div>
+                    </SectionCard>
                   ) : null}
 
-                      {varietiesKind === 'yellow' ? (
-                        <SectionCard title="黃茶歷史" icon={Globe}>
-                          <div id="yellow-tea-history" className="scroll-mt-28">
-                            <YellowTeaHistory />
-                          </div>
-                        </SectionCard>
-                      ) : null}
+                  {varietiesKind === 'yellow' ? (
+                    <SectionCard title="黃茶歷史" icon={Globe}>
+                      <div id="yellow-tea-history" className="scroll-mt-28">
+                        <YellowTeaHistory />
+                      </div>
+                    </SectionCard>
+                  ) : null}
 
-                      {varietiesKind === 'white' ? (
-                        <SectionCard title="白茶歷史" icon={Globe}>
-                          <div id="white-tea-history" className="scroll-mt-28">
-                            <WhiteTeaHistory />
-                          </div>
-                        </SectionCard>
-                      ) : null}
+                  {varietiesKind === 'white' ? (
+                    <SectionCard title="白茶歷史" icon={Globe}>
+                      <div id="white-tea-history" className="scroll-mt-28">
+                        <WhiteTeaHistory />
+                      </div>
+                    </SectionCard>
+                  ) : null}
 
-                      {varietiesKind === 'black' ? (
-                        <SectionCard title="黑茶歷史" icon={Globe}>
-                          <div id="black-tea-history" className="scroll-mt-28">
-                            <BlackTeaHistory />
-                          </div>
-                        </SectionCard>
-                      ) : null}
+                  {varietiesKind === 'black' ? (
+                    <SectionCard title="黑茶歷史" icon={Globe}>
+                      <div id="black-tea-history" className="scroll-mt-28">
+                        <BlackTeaHistory />
+                      </div>
+                    </SectionCard>
+                  ) : null}
 
                   {varietiesKind === 'red' ? (
-                        <>
-                          {redTeaHref === '#red-global' ? (
-                            <SectionCard id="red-global" title="紅茶全球史" icon={Globe}>
-                              <div id="red-tea-global-story" className="scroll-mt-28">
-                                <RedTeaGlobalStory />
+                    <>
+                      {redTeaHref === '#red-global' ? (
+                        <SectionCard id="red-global" title="紅茶全球史" icon={Globe}>
+                          <div id="red-tea-global-story" className="scroll-mt-28">
+                            <RedTeaGlobalStory />
+                          </div>
+                        </SectionCard>
+                      ) : null}
+                      {redTeaHref === '#red-lapsang' ? (
+                        <SectionCard id="red-lapsang" title="正山小種" icon={Leaf}>
+                          <div className="space-y-10 text-stone-700 leading-relaxed">
+                            <div className="relative rounded-2xl border border-stone-200 bg-gradient-to-br from-orange-50 via-rose-50 to-amber-50 p-8 md:p-10 text-stone-800 overflow-hidden">
+                              <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-orange-200/35 blur-3xl -mr-24 -mt-24" />
+                              <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-rose-200/30 blur-3xl -ml-28 -mb-24" />
+                              <div className="relative z-10 max-w-4xl">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-bold">
+                                  <Leaf size={16} className="opacity-90" />
+                                  紅茶始祖 · 正山小種
+                                </div>
+                                <h4 className="mt-4 text-2xl md:text-3xl font-semibold text-stone-900">正山小種的歷史</h4>
+                                <p className="mt-4 text-stone-700 leading-relaxed">
+                                  作為世界紅茶的始祖，正山小種誕生至今迄今已有400多年的歷史。據史料記載，桐木在宋代稱崇安縣仁義鄉，這裡的勞動者主要經濟來源靠桐油及製作綠茶類的“龍團鳳餅”貢茶為生。由於桐油生產的繁榮，當地大量地種植油桐樹，受桐油發展的影響，這一地區地名曰桐木，這裡又是出入中原的關口，故曰桐木關，正山堂江氏家族世代生活於此。
+                                </p>
+                                <div className="mt-5 flex flex-wrap gap-2 text-sm">
+                                  <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
+                                    <Map size={14} className="opacity-70" />
+                                    桐木關
+                                  </span>
+                                  <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
+                                    <Wind size={14} className="opacity-70" />
+                                    松煙香
+                                  </span>
+                                  <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
+                                    <History size={14} className="opacity-70" />
+                                    400多年歷史
+                                  </span>
+                                </div>
                               </div>
-                            </SectionCard>
-                          ) : null}
-                          {redTeaHref === '#red-lapsang' ? (
-                            <SectionCard id="red-lapsang" title="正山小種" icon={Leaf}>
-                              <div className="space-y-10 text-stone-700 leading-relaxed">
-                                <div className="relative rounded-2xl border border-stone-200 bg-gradient-to-br from-orange-50 via-rose-50 to-amber-50 p-8 md:p-10 text-stone-800 overflow-hidden">
-                                  <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-orange-200/35 blur-3xl -mr-24 -mt-24" />
-                                  <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-rose-200/30 blur-3xl -ml-28 -mb-24" />
-                                  <div className="relative z-10 max-w-4xl">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-bold">
-                                      <Leaf size={16} className="opacity-90" />
-                                      紅茶始祖 · 正山小種
+                            </div>
+
+                            <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
+                              <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
+                                <History className="text-orange-700" size={20} />
+                                <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種紅茶的由來</h5>
+                              </div>
+                              <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+                                <p>
+                                  明朝中後期，時局動盪，約西元1568年的某天，正當採茶的季節，一隊官兵途經桐木，正山堂先祖江公為躲避襲擾，當天採摘的茶青沒有來得及製作茶葉，晚上官兵睡在了茶青上，官兵走後，原本做綠茶的茶葉已質變發紅，江公將發酵的茶葉反復揉搓，並用桐木盛產的馬尾松焙制。馬尾松在燃燒過程中，產生濃郁的松煙，茶葉吸收松煙後，色澤變得烏黑油潤，散發出獨特的松脂香味，第二年竟有人以綠茶的數倍價格訂購此茶，正山小種紅茶就這樣妙筆生花般地誕生了。
+                                </p>
+                                <p>
+                                  16世紀末17世紀初（約1604年），正山小種被遠傳海外，由荷蘭商人帶入歐洲，最先它是以治病功能在藥店出售，而此時世界其他紅茶均未誕生。正山小種進入英國，是在倫敦家叫加威的咖啡館，向市民出售，價格高達6~10英鎊， 其在銷售海報中雲：質地溫和， 四季皆宜，飲品衛生、健康，有延年益壽之功效。但隨後紅茶風靡英國皇室乃至整個歐洲，並掀起流傳至今的“下午茶”風尚。
+                                </p>
+                                <p>
+                                  威廉·烏克斯《茶葉全書》中記載: 1607年， 荷蘭東印度公司首次從中國嶺南的澳門採購武夷紅茶（即正山小種），經爪哇轉口銷售歐洲。當時歐洲茶葉市場主要是日本綠茶，正山小種味香醇厚，很快佔領了歐洲茶葉市場，紅茶迅速風靡英倫三島。這是對中國茶葉出口的最早記錄。
+                                </p>
+                                <p>
+                                  1662年葡萄牙公主凱薩琳嫁給英皇查理二世時帶去幾箱中國“正山小種”紅茶作為嫁妝。隨後，安妮女王提倡以茶代酒，正山小種紅茶作為當時的珍品，被引入上流社會，逐漸演化成“下午茶”。
+                                </p>
+                                <p>
+                                  《崇安縣新志》記載：“英吉利人雲，武夷茶色紅為瑪珊，質之佳過錫蘭、印度甚遠，凡以武夷茶待客者，客必起立致敬。”足見正山小種紅茶在當時上流社會備受青睞的程度。英國人親切地把茶葉稱為“香草”，上至貴族， 下至平民，都十分鍾愛紅茶。自此正山小種紅茶在歐洲歷史上成為中國紅茶的象徵，成為世界統飲名茶。
+                                </p>
+                                <p>
+                                  1876年，祁門紅茶在正山小種紅茶的基礎上試製成功，隨後，中國各地的工夫紅茶也以沿襲正山小種工藝的方式，慢慢發展出了滇紅、閩南紅茶等各地工夫紅茶。
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
+                              <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
+                                <Tag className="text-orange-700" size={20} />
+                                <h5 className="text-lg md:text-xl font-bold text-stone-900">為什麼叫正山小種紅茶</h5>
+                              </div>
+                              <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+                                <p>
+                                  “正山小種”紅茶一詞在歐洲最早稱BOHEA，傳說中它是武夷地名的閩南語發音，在歐洲（英國）它是中國茶的象徵，後因貿易繁榮，當地人為區別其它假冒的小種紅茶（人工小種或煙小種）擾亂市場，故取名為“正山小種”。
+                                </p>
+                                <p>
+                                  所謂“正山”，乃真正高山地區所產之意。其涵蓋範圍以武夷山桐木村的廟灣、江墩自然村為中心，北至江西鉛山石隴，南到武夷山曹墩百葉坪，東至武夷山大安村，西至光澤司前幹坑，西南至邵武龍湖觀音坑，方圓565平方公里。現大部分在福建武夷山國家級自然保護區。土壤肥沃，所產茶葉品質無它可比。
+                                </p>
+                                <p>
+                                  “小種”指的是茶樹的品種。陸廷燦《續茶經》載《隨見錄》中提到：“武夷茶，在山上者為岩茶，水邊者為洲茶，......其最佳者，名曰工夫茶。工夫之上，又有小種，則以樹名為名。每株不過數兩，不可多得。”
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
+                              <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
+                                <Flame className="text-orange-700" size={20} />
+                                <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種的製作</h5>
+                              </div>
+                              <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+                                <p>
+                                  在武夷山的桐木關，有兩棟名為“青樓”的木樓，它是專門用來製作正山小種紅茶的工廠。
+                                </p>
+                                <p>
+                                  從前的正山小種製作，需采一芽三四葉為原料，且雨天時不采，露水葉不采，烈日不采，前一天有雨也不采。桐木山中茶樹野生混雜，即使是最熟練的採茶工，一天也只能采回10公斤茶青。
+                                </p>
+                                <p>
+                                  採摘下來的鮮葉，疏落有致的攤曬於木板或竹篾上，利用天氣、氣溫、濕度、風力，散發葉片當中的水分，使茶青變軟，能夠揉撚成條。利用馬尾松木燃燒控制萎凋時的溫度，每隔30分鐘，再次將茶青歸攏，重新攤曬，使每一道茶青能夠均勻鋪陳。
+                                </p>
+                                <p>
+                                  當100斤鮮葉祛除40斤水分時，就是最佳的揉撚時機。揉撚不僅是塑造茶葉優美的外形，更是為了破壞細胞，加速氧化。
+                                </p>
+                                <p>
+                                  發酵，是形成紅茶色、香、味品質特徵的最關鍵工序，在竹編的茶簍中，蓋上濕布，等待七個小時，茶葉就會由青綠色變為古銅色，香氣也變得更加悠然。
+                                </p>
+                                <p>
+                                  過紅鍋是正山小種獨有的一道工序，以180度高溫阻止茶葉繼續發酵，也給茶葉提香，增加回甘。
+                                </p>
+                                <p>
+                                  緊接著，將茶青鋪在竹篾上，馬尾松緩緩燃燒在地底的火灶中，松煙隨著磚縫傳到乾燥間，茶葉在竹篾中，被老松木燃燒所釋放的松香包裹環繞。溫度蒸發了茶青中的多餘水分，也為正山小種注入最後的煙熏香。這種用馬尾松煙薰制作的正山小種紅茶，有著濃重的松木熏香，以及難忘的桂圓甜香。
+                                </p>
+                                <p>
+                                  十餘小時後，桐木關出產的傳統正山小種紅茶便得以製成。沸水之下，松煙香混雜桂圓和若有似乎的果香縈繞鼻尖。緩慢薰制的松香經久不散，沖泡多次仍然韻味十足。
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
+                              <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
+                                <Scale className="text-orange-700" size={20} />
+                                <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種與外山小種有什麼區別</h5>
+                              </div>
+                              <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
+                                <p>
+                                  正山小種紅茶的國家標準GB/T13738中指出：正山小種必須採用以武夷山國家級自然保護區內桐木村的廟灣、江墩自然村為中心，方圓565平方公里內茶樹原料，以小種紅茶傳統工藝製作，具有松煙香和桂圓幹香味。
+                                </p>
+                                <p>正山小種與外山小種的區別就在於：</p>
+                                <div className="space-y-2 rounded-2xl border border-stone-200 bg-stone-50 p-5">
+                                  <p>‧ 地域範圍界定：正山小種紅茶原產地就在武夷山桐木關。據《中國茶經》記載“桐木之內，方為正山”，凡是桐木關所產的茶，均稱作正山。而武夷山附近或者其他地區所產的茶稱外山，以區別桐木關以外所產的小種紅茶。</p>
+                                  <p>‧ 製作工藝要求：正山小種為紅茶的始祖，也是紅茶中最為經典與傳統的茶種，真正的正山小種紅茶需要以武夷山地區高山茶樹茶葉為原料，以傳統技藝並經過馬尾松的天然煙焙工藝制得。</p>
+                                  <p>‧ 品質上的差異：正山小種乃是高山茶，具備特殊的高山韻，滋味醇厚，且耐沖泡耐存放，外山小種大多是低山茶葉，底蘊薄，且不耐沖泡。</p>
+                                </div>
+                                <div className="rounded-2xl border border-stone-200 bg-white p-5">
+                                  目前市場上的正山小種由於原料稀缺或工藝不完善，絕大多數並不產於武夷山本地，且是使用工夫紅茶工藝製作，不具有松煙香。屬於無生產日期、無品質合格證、無生產標準以及無生產廠家，來路不明的產品。有的甚至在表面加糖以增加甜味。
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                        </SectionCard>
+                      ) : null}
+                      {redTeaHref === '#red-jinjunmei' ? (
+                        <SectionCard id="red-jinjunmei" title="金駿眉" icon={Leaf}>
+                          <div className="space-y-8 text-stone-700 leading-relaxed">
+                            <h4 className="text-2xl font-bold text-stone-900">金駿眉的誕生：首泡製茶人的歷史溯源</h4>
+
+                            <section className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 shadow-sm">
+                              <h5 className="text-lg font-bold text-stone-900">1. 緣起：一款出口名茶的國內市場叩問</h5>
+                              <div className="mt-4 space-y-3">
+                                <p>
+                                  作為歷史悠久、享譽海外的紅茶，正山小種長期以來幾乎完全面向出口市場，在國外聲名顯赫，但在國內卻鮮為人知。這種「牆內開花牆外香」的市場格局，既是其發展的獨特背景，也成為了催生一款全新高端紅茶——金駿眉的根本前提。
+                                </p>
+                                <p>
+                                  此一轉變的開端，源於幾位北京友人的到訪。根據首泡製作人梁駿德師傅回憶，當時來自北京的張姓、閻姓及孫姓友人來到武夷山桐木村，在親身體驗了當地優異的生態環境與正山小種的卓越品質後，他們敏銳地提出了一個核心問題：「品質這麼好，為什麼不走國內市場？」這個看似簡單的提問，實則點燃了正山小種革新的火種，挑戰了其百年來的經營慣性。
+                                </p>
+                                <p>
+                                  正是這個直指核心的市場探討，催化了後續的創新思維，為一場充滿未知的製茶實驗埋下了伏筆。
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6 shadow-sm">
+                              <h5 className="text-lg font-bold text-stone-900">2. 契機：一次源於夏茶的試驗性挑戰</h5>
+                              <div className="mt-4 space-y-3">
+                                <p>
+                                  從一個想法到付諸行動，往往需要一個恰當的契機。雖然早在2003年，梁師傅便有過採摘茶芽製作頂級紅茶的初步構想，但因單芽採摘難度大、成本過高而被迫擱置。真正觸發行動的，是2005年一個看似無關的觀察，其高明之處在於，它以一種低風險的方式，巧妙地化解了兩年前成本過高的核心難題。
+                                </p>
+                                <p>
+                                  2005年，北京友人重訪桐木，看到山上長勢極佳的夏茶時，再次提出了建議：「老梁，夏茶長得那麼漂亮，能不能去採點夏茶來做試驗？」並具體提議「採單芽」。這個想法極具顛覆性，挑戰了當地世代相傳的製茶教條——「桐木歷史以來是從不採夏茶的」。梁師傅從中看到了跨界思維的可能性，他分析道：「採芽能做白茶，採芽能做綠茶，我們採點芽來做紅茶。」這意味著將其他茶類的頂級原料標準，引入紅茶的製作中，是一次前所未有的挑戰。
+                                </p>
+                                <p>
+                                  梁師傅最終決定接受這場挑戰，其背後是身為製茶大師極為務實的風險評估。他認為，以夏茶為原料進行試驗，是絕佳的選擇：「如果萬一不成功，損失不大。」這種將風險降至最低的精準判斷，為這次大膽的實驗掃清了障礙，使其得以在2005年6月7日付諸實行。
+                                </p>
+                                <p>
+                                  然而，隨著不足兩斤的珍貴茶芽採摘完成，一個更為嚴峻的挑戰擺在眼前：在沒有任何適用工具的條件下，團隊必須即時開創一套全新的製茶工藝。
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-sky-200 bg-sky-50/70 p-6 shadow-sm">
+                              <h5 className="text-lg font-bold text-stone-900">3. 首泡工藝：四大製程的挑戰與即時創新</h5>
+                              <div className="mt-4 space-y-3">
+                                <p>
+                                  首泡金駿眉的製作過程，是一場在既有條件下不斷應變與創新的經典示範。由於原料僅有不足兩斤的單芽，其嬌嫩程度與稀少數量，使得傳統的正山小種製茶設備與方法完全不適用。這迫使梁師傅必須在萎凋、揉捻、發酵、烘乾四大核心環節中，進行一系列即興的技術革新。
+                                </p>
+                                <p>
+                                  北京友人見到鮮葉後興奮不已，催促道：「老梁，好香啊，這個晚上把它做起來。」梁師傅則幽默地回應：「晚上我要睡覺。」
+                                </p>
+                                <p>
+                                  這段對話，生動地反映了當時眾人對這場實驗的極度期待。
+                                </p>
+                              </div>
+
+                              <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                                <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-sky-700">第一項創新：無煙萎凋</div>
+                                  <p>‧ 挑戰情境： 在沒有現代萎凋槽的條件下，如何處理這批珍貴的鮮葉成為首要難題。傳統的「青樓」會帶來煙味，而炭火則因溫度不均、空氣不流通而被梁師傅斷然否定。</p>
+                                  <p>‧ 解決方案： 梁師傅急中生智，想到了當時用於夜間取暖的「小太陽」燈。他將鮮葉置於篩上，透過調整燈的高度來精準控制溫度。此舉不僅是個簡單的應變，更是一項奠定品質基礎的哲學性突破。它成功實現了可控且完全無煙的萎凋，首次確立並保護了金駿眉獨特的、純淨的花果蜜香基因，使其徹底擺脫了傳統正山小種的松煙氣息。</p>
+                                </div>
+
+                                <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-sky-700">第二項創新：玻璃板揉捻</div>
+                                  <p>‧ 挑戰情境： 萎凋完成後，茶芽極其細嫩，傳統的竹製或木製揉捻工具過於粗糙，極易破壞其完整性。</p>
+                                  <p>‧ 解決方案： 梁師傅注意到辦公桌上的玻璃板，這看似簡單的選擇，實則是對材料科學的直覺性應用。玻璃表面光滑、無孔、摩擦力低，既能有效幫助茶芽塑形，又絲毫不會磨損其嬌嫩的葉面，完美保全了芽頭的品相與內部細胞結構。</p>
+                                </div>
+
+                                <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-sky-700">第三項創新：濕熱毛巾發酵</div>
+                                  <p>‧ 挑戰情境： 紅茶發酵需依靠茶葉自身堆積產生的溫度，但由於茶葉量太少，完全無法達到發酵所需的溫濕度條件。</p>
+                                  <p>‧ 解決方案： 梁師傅再次展現了非凡的智慧。他將茶葉放入審評盤中，用熱水燙過的濕毛巾包裹覆蓋。此法巧妙地模擬出一個微型發酵環境，藉由外部的濕熱條件，為茶葉創造了發酵所需的溫度與濕度，確保了發酵環節的順利完成。</p>
+                                </div>
+
+                                <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-sky-700">第四項創新：火盆烘乾</div>
+                                  <p>‧ 挑戰情境： 最後的烘乾環節，同樣需要避免任何煙味，以保持茶葉最終的純淨香氣。</p>
+                                  <p>‧ 解決方案： 梁師傅利用了農村常見的烤火火盆，在上方放置平圓篩進行烘乾。此方法不僅巧妙地達成了均勻受熱，更徹底杜絕了煙燻的可能，為這泡茶的純淨香氣畫上了完美的句點。</p>
+                                </div>
+                              </div>
+
+                              <div className="mt-5 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
+                                這四個環節的即時創新，不僅逐一攻克了眼前的技術難題，更共同塑造了一套全新的製茶哲學，為金駿眉獨一無二的品質基因奠定了堅實的工藝基礎。
+                              </div>
+                            </section>
+
+                            <section className="rounded-2xl border border-rose-200 bg-rose-50/70 p-6 shadow-sm">
+                              <h5 className="text-lg font-bold text-stone-900">4. 命名與分級：從「駿眉」到金、銀、銅的體系確立</h5>
+                              <div className="mt-5 grid gap-4 lg:grid-cols-3">
+                                <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-rose-700">解析初次命名「駿眉」</div>
+                                  <p>‧ 品鑑場景： 第二天清晨，當北京友人看到烘乾後的茶葉時，無不為之驚嘆。友人聞香後，不禁讚嘆其香氣層次豐富：「老梁啊，有花香、有果香，還有蜜香。」</p>
+                                  <p>‧ 命名邏輯： 這次的成功，實現了團隊長久以來的夙願。正如友人所言：「我們通過一兩年的考慮終於做出一泡高端的紅茶。」在命名時，友人提議，茶葉外形細長如眉毛，故可取一個「眉」字。同時，為了紀念這泡茶的誕生，並向首泡製作者梁駿德師傅致敬，決定取其名中「駿」字。於是，「駿眉」這個名字便應運而生。</p>
+                                </div>
+                                <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-rose-700">闡述「金駿眉」的誕生與分級</div>
+                                  <p>‧ 產品線擴展： 在成功製作單芽後，團隊緊接著嘗試採摘一芽一葉進行製作，發現其口感同樣非常出色。這次的成功，促使他們意識到建立一套標準化分級體系的必要性。</p>
+                                  <p>‧ 建立分級標準： 基於這次的成功經驗，一套依據採摘標準劃分的清晰分級體系得以確立，並以金、銀、銅來命名：</p>
+                                  <div className="mt-3 space-y-2">
+                                    <div className="flex flex-wrap items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-stone-700">
+                                      <span className="rounded-full border border-amber-300 bg-white px-2 py-0.5 text-xs font-semibold text-amber-700">金</span>
+                                      <span>專指以單芽製作的最高等級，即「金駿眉」。</span>
                                     </div>
-                                    <h4 className="mt-4 text-2xl md:text-3xl font-semibold text-stone-900">正山小種的歷史</h4>
-                                    <p className="mt-4 text-stone-700 leading-relaxed">
-                                      作為世界紅茶的始祖，正山小種誕生至今迄今已有400多年的歷史。據史料記載，桐木在宋代稱崇安縣仁義鄉，這裡的勞動者主要經濟來源靠桐油及製作綠茶類的“龍團鳳餅”貢茶為生。由於桐油生產的繁榮，當地大量地種植油桐樹，受桐油發展的影響，這一地區地名曰桐木，這裡又是出入中原的關口，故曰桐木關，正山堂江氏家族世代生活於此。
-                                    </p>
-                                    <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                                      <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
-                                        <Map size={14} className="opacity-70" />
-                                        桐木關
-                                      </span>
-                                      <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
-                                        <Wind size={14} className="opacity-70" />
-                                        松煙香
-                                      </span>
-                                      <span className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-stone-700">
-                                        <History size={14} className="opacity-70" />
-                                        400多年歷史
-                                      </span>
+                                    <div className="flex flex-wrap items-start gap-2 rounded-xl border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-stone-700">
+                                      <span className="rounded-full border border-stone-300 bg-white px-2 py-0.5 text-xs font-semibold text-stone-700">銀</span>
+                                      <span>指以一芽一葉製作的等級，即「銀駿眉」。</span>
+                                    </div>
+                                    <div className="flex flex-wrap items-start gap-2 rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm text-stone-700">
+                                      <span className="rounded-full border border-orange-300 bg-white px-2 py-0.5 text-xs font-semibold text-orange-700">銅</span>
+                                      <span>指以一芽兩葉製作的等級，即「銅駿眉」。</span>
                                     </div>
                                   </div>
                                 </div>
-
-                                <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-                                  <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-                                    <History className="text-orange-700" size={20} />
-                                    <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種紅茶的由來</h5>
-                                  </div>
-                                  <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
-                                    <p>
-                                      明朝中後期，時局動盪，約西元1568年的某天，正當採茶的季節，一隊官兵途經桐木，正山堂先祖江公為躲避襲擾，當天採摘的茶青沒有來得及製作茶葉，晚上官兵睡在了茶青上，官兵走後，原本做綠茶的茶葉已質變發紅，江公將發酵的茶葉反復揉搓，並用桐木盛產的馬尾松焙制。馬尾松在燃燒過程中，產生濃郁的松煙，茶葉吸收松煙後，色澤變得烏黑油潤，散發出獨特的松脂香味，第二年竟有人以綠茶的數倍價格訂購此茶，正山小種紅茶就這樣妙筆生花般地誕生了。
-                                    </p>
-                                    <p>
-                                      16世紀末17世紀初（約1604年），正山小種被遠傳海外，由荷蘭商人帶入歐洲，最先它是以治病功能在藥店出售，而此時世界其他紅茶均未誕生。正山小種進入英國，是在倫敦家叫加威的咖啡館，向市民出售，價格高達6~10英鎊， 其在銷售海報中雲：質地溫和， 四季皆宜，飲品衛生、健康，有延年益壽之功效。但隨後紅茶風靡英國皇室乃至整個歐洲，並掀起流傳至今的“下午茶”風尚。
-                                    </p>
-                                    <p>
-                                      威廉·烏克斯《茶葉全書》中記載: 1607年， 荷蘭東印度公司首次從中國嶺南的澳門採購武夷紅茶（即正山小種），經爪哇轉口銷售歐洲。當時歐洲茶葉市場主要是日本綠茶，正山小種味香醇厚，很快佔領了歐洲茶葉市場，紅茶迅速風靡英倫三島。這是對中國茶葉出口的最早記錄。
-                                    </p>
-                                    <p>
-                                      1662年葡萄牙公主凱薩琳嫁給英皇查理二世時帶去幾箱中國“正山小種”紅茶作為嫁妝。隨後，安妮女王提倡以茶代酒，正山小種紅茶作為當時的珍品，被引入上流社會，逐漸演化成“下午茶”。
-                                    </p>
-                                    <p>
-                                      《崇安縣新志》記載：“英吉利人雲，武夷茶色紅為瑪珊，質之佳過錫蘭、印度甚遠，凡以武夷茶待客者，客必起立致敬。”足見正山小種紅茶在當時上流社會備受青睞的程度。英國人親切地把茶葉稱為“香草”，上至貴族， 下至平民，都十分鍾愛紅茶。自此正山小種紅茶在歐洲歷史上成為中國紅茶的象徵，成為世界統飲名茶。
-                                    </p>
-                                    <p>
-                                      1876年，祁門紅茶在正山小種紅茶的基礎上試製成功，隨後，中國各地的工夫紅茶也以沿襲正山小種工藝的方式，慢慢發展出了滇紅、閩南紅茶等各地工夫紅茶。
-                                    </p>
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-                                  <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-                                    <Tag className="text-orange-700" size={20} />
-                                    <h5 className="text-lg md:text-xl font-bold text-stone-900">為什麼叫正山小種紅茶</h5>
-                                  </div>
-                                  <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
-                                    <p>
-                                      “正山小種”紅茶一詞在歐洲最早稱BOHEA，傳說中它是武夷地名的閩南語發音，在歐洲（英國）它是中國茶的象徵，後因貿易繁榮，當地人為區別其它假冒的小種紅茶（人工小種或煙小種）擾亂市場，故取名為“正山小種”。
-                                    </p>
-                                    <p>
-                                      所謂“正山”，乃真正高山地區所產之意。其涵蓋範圍以武夷山桐木村的廟灣、江墩自然村為中心，北至江西鉛山石隴，南到武夷山曹墩百葉坪，東至武夷山大安村，西至光澤司前幹坑，西南至邵武龍湖觀音坑，方圓565平方公里。現大部分在福建武夷山國家級自然保護區。土壤肥沃，所產茶葉品質無它可比。
-                                    </p>
-                                    <p>
-                                      “小種”指的是茶樹的品種。陸廷燦《續茶經》載《隨見錄》中提到：“武夷茶，在山上者為岩茶，水邊者為洲茶，......其最佳者，名曰工夫茶。工夫之上，又有小種，則以樹名為名。每株不過數兩，不可多得。”
-                                    </p>
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-                                  <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-                                    <Flame className="text-orange-700" size={20} />
-                                    <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種的製作</h5>
-                                  </div>
-                                  <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
-                                    <p>
-                                      在武夷山的桐木關，有兩棟名為“青樓”的木樓，它是專門用來製作正山小種紅茶的工廠。
-                                    </p>
-                                    <p>
-                                      從前的正山小種製作，需采一芽三四葉為原料，且雨天時不采，露水葉不采，烈日不采，前一天有雨也不采。桐木山中茶樹野生混雜，即使是最熟練的採茶工，一天也只能采回10公斤茶青。
-                                    </p>
-                                    <p>
-                                      採摘下來的鮮葉，疏落有致的攤曬於木板或竹篾上，利用天氣、氣溫、濕度、風力，散發葉片當中的水分，使茶青變軟，能夠揉撚成條。利用馬尾松木燃燒控制萎凋時的溫度，每隔30分鐘，再次將茶青歸攏，重新攤曬，使每一道茶青能夠均勻鋪陳。
-                                    </p>
-                                    <p>
-                                      當100斤鮮葉祛除40斤水分時，就是最佳的揉撚時機。揉撚不僅是塑造茶葉優美的外形，更是為了破壞細胞，加速氧化。
-                                    </p>
-                                    <p>
-                                      發酵，是形成紅茶色、香、味品質特徵的最關鍵工序，在竹編的茶簍中，蓋上濕布，等待七個小時，茶葉就會由青綠色變為古銅色，香氣也變得更加悠然。
-                                    </p>
-                                    <p>
-                                      過紅鍋是正山小種獨有的一道工序，以180度高溫阻止茶葉繼續發酵，也給茶葉提香，增加回甘。
-                                    </p>
-                                    <p>
-                                      緊接著，將茶青鋪在竹篾上，馬尾松緩緩燃燒在地底的火灶中，松煙隨著磚縫傳到乾燥間，茶葉在竹篾中，被老松木燃燒所釋放的松香包裹環繞。溫度蒸發了茶青中的多餘水分，也為正山小種注入最後的煙熏香。這種用馬尾松煙薰制作的正山小種紅茶，有著濃重的松木熏香，以及難忘的桂圓甜香。
-                                    </p>
-                                    <p>
-                                      十餘小時後，桐木關出產的傳統正山小種紅茶便得以製成。沸水之下，松煙香混雜桂圓和若有似乎的果香縈繞鼻尖。緩慢薰制的松香經久不散，沖泡多次仍然韻味十足。
-                                    </p>
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-stone-200 bg-white/70 overflow-hidden">
-                                  <div className="px-6 py-5 border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white flex items-center gap-3">
-                                    <Scale className="text-orange-700" size={20} />
-                                    <h5 className="text-lg md:text-xl font-bold text-stone-900">正山小種與外山小種有什麼區別</h5>
-                                  </div>
-                                  <div className="px-6 py-6 space-y-4 text-stone-800 leading-relaxed">
-                                    <p>
-                                      正山小種紅茶的國家標準GB/T13738中指出：正山小種必須採用以武夷山國家級自然保護區內桐木村的廟灣、江墩自然村為中心，方圓565平方公里內茶樹原料，以小種紅茶傳統工藝製作，具有松煙香和桂圓幹香味。
-                                    </p>
-                                    <p>正山小種與外山小種的區別就在於：</p>
-                                    <div className="space-y-2 rounded-2xl border border-stone-200 bg-stone-50 p-5">
-                                      <p>‧ 地域範圍界定：正山小種紅茶原產地就在武夷山桐木關。據《中國茶經》記載“桐木之內，方為正山”，凡是桐木關所產的茶，均稱作正山。而武夷山附近或者其他地區所產的茶稱外山，以區別桐木關以外所產的小種紅茶。</p>
-                                      <p>‧ 製作工藝要求：正山小種為紅茶的始祖，也是紅茶中最為經典與傳統的茶種，真正的正山小種紅茶需要以武夷山地區高山茶樹茶葉為原料，以傳統技藝並經過馬尾松的天然煙焙工藝制得。</p>
-                                      <p>‧ 品質上的差異：正山小種乃是高山茶，具備特殊的高山韻，滋味醇厚，且耐沖泡耐存放，外山小種大多是低山茶葉，底蘊薄，且不耐沖泡。</p>
-                                    </div>
-                                    <div className="rounded-2xl border border-stone-200 bg-white p-5">
-                                      目前市場上的正山小種由於原料稀缺或工藝不完善，絕大多數並不產於武夷山本地，且是使用工夫紅茶工藝製作，不具有松煙香。屬於無生產日期、無品質合格證、無生產標準以及無生產廠家，來路不明的產品。有的甚至在表面加糖以增加甜味。
-                                    </div>
-                                  </div>
-                                </section>
+                                <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
+                                  <div className="text-base font-semibold text-rose-700">辨析「駿」字之謎</div>
+                                  <p>‧ 提出疑問： 隨著金駿眉聲名鵲起，外界對於為何使用代表馬的「駿」字，而非代表桐木崇山峻嶺的「峻」字，產生了諸多猜測與討論。</p>
+                                  <p>‧ 揭示真相： 根據梁師傅的澄清，後續為回應外界的疑問，命名者提出了「因為茶的外形像馬」的官方解釋。他強調，這才是「最真實的一個來歷」，為這場長久以來的字義之爭提供了最終的註解。</p>
+                                </div>
                               </div>
-                            </SectionCard>
-                          ) : null}
-                          {redTeaHref === '#red-jinjunmei' ? (
-                            <SectionCard id="red-jinjunmei" title="金駿眉" icon={Leaf}>
-                              <div className="space-y-8 text-stone-700 leading-relaxed">
-                                <h4 className="text-2xl font-bold text-stone-900">金駿眉的誕生：首泡製茶人的歷史溯源</h4>
-
-                                <section className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 shadow-sm">
-                                  <h5 className="text-lg font-bold text-stone-900">1. 緣起：一款出口名茶的國內市場叩問</h5>
-                                  <div className="mt-4 space-y-3">
-                                    <p>
-                                      作為歷史悠久、享譽海外的紅茶，正山小種長期以來幾乎完全面向出口市場，在國外聲名顯赫，但在國內卻鮮為人知。這種「牆內開花牆外香」的市場格局，既是其發展的獨特背景，也成為了催生一款全新高端紅茶——金駿眉的根本前提。
-                                    </p>
-                                    <p>
-                                      此一轉變的開端，源於幾位北京友人的到訪。根據首泡製作人梁駿德師傅回憶，當時來自北京的張姓、閻姓及孫姓友人來到武夷山桐木村，在親身體驗了當地優異的生態環境與正山小種的卓越品質後，他們敏銳地提出了一個核心問題：「品質這麼好，為什麼不走國內市場？」這個看似簡單的提問，實則點燃了正山小種革新的火種，挑戰了其百年來的經營慣性。
-                                    </p>
-                                    <p>
-                                      正是這個直指核心的市場探討，催化了後續的創新思維，為一場充滿未知的製茶實驗埋下了伏筆。
-                                    </p>
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6 shadow-sm">
-                                  <h5 className="text-lg font-bold text-stone-900">2. 契機：一次源於夏茶的試驗性挑戰</h5>
-                                  <div className="mt-4 space-y-3">
-                                    <p>
-                                      從一個想法到付諸行動，往往需要一個恰當的契機。雖然早在2003年，梁師傅便有過採摘茶芽製作頂級紅茶的初步構想，但因單芽採摘難度大、成本過高而被迫擱置。真正觸發行動的，是2005年一個看似無關的觀察，其高明之處在於，它以一種低風險的方式，巧妙地化解了兩年前成本過高的核心難題。
-                                    </p>
-                                    <p>
-                                      2005年，北京友人重訪桐木，看到山上長勢極佳的夏茶時，再次提出了建議：「老梁，夏茶長得那麼漂亮，能不能去採點夏茶來做試驗？」並具體提議「採單芽」。這個想法極具顛覆性，挑戰了當地世代相傳的製茶教條——「桐木歷史以來是從不採夏茶的」。梁師傅從中看到了跨界思維的可能性，他分析道：「採芽能做白茶，採芽能做綠茶，我們採點芽來做紅茶。」這意味著將其他茶類的頂級原料標準，引入紅茶的製作中，是一次前所未有的挑戰。
-                                    </p>
-                                    <p>
-                                      梁師傅最終決定接受這場挑戰，其背後是身為製茶大師極為務實的風險評估。他認為，以夏茶為原料進行試驗，是絕佳的選擇：「如果萬一不成功，損失不大。」這種將風險降至最低的精準判斷，為這次大膽的實驗掃清了障礙，使其得以在2005年6月7日付諸實行。
-                                    </p>
-                                    <p>
-                                      然而，隨著不足兩斤的珍貴茶芽採摘完成，一個更為嚴峻的挑戰擺在眼前：在沒有任何適用工具的條件下，團隊必須即時開創一套全新的製茶工藝。
-                                    </p>
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-sky-200 bg-sky-50/70 p-6 shadow-sm">
-                                  <h5 className="text-lg font-bold text-stone-900">3. 首泡工藝：四大製程的挑戰與即時創新</h5>
-                                  <div className="mt-4 space-y-3">
-                                    <p>
-                                      首泡金駿眉的製作過程，是一場在既有條件下不斷應變與創新的經典示範。由於原料僅有不足兩斤的單芽，其嬌嫩程度與稀少數量，使得傳統的正山小種製茶設備與方法完全不適用。這迫使梁師傅必須在萎凋、揉捻、發酵、烘乾四大核心環節中，進行一系列即興的技術革新。
-                                    </p>
-                                    <p>
-                                      北京友人見到鮮葉後興奮不已，催促道：「老梁，好香啊，這個晚上把它做起來。」梁師傅則幽默地回應：「晚上我要睡覺。」
-                                    </p>
-                                    <p>
-                                      這段對話，生動地反映了當時眾人對這場實驗的極度期待。
-                                    </p>
-                                  </div>
-
-                                  <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                                    <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-sky-700">第一項創新：無煙萎凋</div>
-                                      <p>‧ 挑戰情境： 在沒有現代萎凋槽的條件下，如何處理這批珍貴的鮮葉成為首要難題。傳統的「青樓」會帶來煙味，而炭火則因溫度不均、空氣不流通而被梁師傅斷然否定。</p>
-                                      <p>‧ 解決方案： 梁師傅急中生智，想到了當時用於夜間取暖的「小太陽」燈。他將鮮葉置於篩上，透過調整燈的高度來精準控制溫度。此舉不僅是個簡單的應變，更是一項奠定品質基礎的哲學性突破。它成功實現了可控且完全無煙的萎凋，首次確立並保護了金駿眉獨特的、純淨的花果蜜香基因，使其徹底擺脫了傳統正山小種的松煙氣息。</p>
-                                    </div>
-
-                                    <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-sky-700">第二項創新：玻璃板揉捻</div>
-                                      <p>‧ 挑戰情境： 萎凋完成後，茶芽極其細嫩，傳統的竹製或木製揉捻工具過於粗糙，極易破壞其完整性。</p>
-                                      <p>‧ 解決方案： 梁師傅注意到辦公桌上的玻璃板，這看似簡單的選擇，實則是對材料科學的直覺性應用。玻璃表面光滑、無孔、摩擦力低，既能有效幫助茶芽塑形，又絲毫不會磨損其嬌嫩的葉面，完美保全了芽頭的品相與內部細胞結構。</p>
-                                    </div>
-
-                                    <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-sky-700">第三項創新：濕熱毛巾發酵</div>
-                                      <p>‧ 挑戰情境： 紅茶發酵需依靠茶葉自身堆積產生的溫度，但由於茶葉量太少，完全無法達到發酵所需的溫濕度條件。</p>
-                                      <p>‧ 解決方案： 梁師傅再次展現了非凡的智慧。他將茶葉放入審評盤中，用熱水燙過的濕毛巾包裹覆蓋。此法巧妙地模擬出一個微型發酵環境，藉由外部的濕熱條件，為茶葉創造了發酵所需的溫度與濕度，確保了發酵環節的順利完成。</p>
-                                    </div>
-
-                                    <div className="space-y-2 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-sky-700">第四項創新：火盆烘乾</div>
-                                      <p>‧ 挑戰情境： 最後的烘乾環節，同樣需要避免任何煙味，以保持茶葉最終的純淨香氣。</p>
-                                      <p>‧ 解決方案： 梁師傅利用了農村常見的烤火火盆，在上方放置平圓篩進行烘乾。此方法不僅巧妙地達成了均勻受熱，更徹底杜絕了煙燻的可能，為這泡茶的純淨香氣畫上了完美的句點。</p>
-                                    </div>
-                                  </div>
-
-                                  <div className="mt-5 rounded-2xl border border-sky-100 bg-white/80 p-5 shadow-sm">
-                                    這四個環節的即時創新，不僅逐一攻克了眼前的技術難題，更共同塑造了一套全新的製茶哲學，為金駿眉獨一無二的品質基因奠定了堅實的工藝基礎。
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-rose-200 bg-rose-50/70 p-6 shadow-sm">
-                                  <h5 className="text-lg font-bold text-stone-900">4. 命名與分級：從「駿眉」到金、銀、銅的體系確立</h5>
-                                  <div className="mt-5 grid gap-4 lg:grid-cols-3">
-                                    <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-rose-700">解析初次命名「駿眉」</div>
-                                      <p>‧ 品鑑場景： 第二天清晨，當北京友人看到烘乾後的茶葉時，無不為之驚嘆。友人聞香後，不禁讚嘆其香氣層次豐富：「老梁啊，有花香、有果香，還有蜜香。」</p>
-                                      <p>‧ 命名邏輯： 這次的成功，實現了團隊長久以來的夙願。正如友人所言：「我們通過一兩年的考慮終於做出一泡高端的紅茶。」在命名時，友人提議，茶葉外形細長如眉毛，故可取一個「眉」字。同時，為了紀念這泡茶的誕生，並向首泡製作者梁駿德師傅致敬，決定取其名中「駿」字。於是，「駿眉」這個名字便應運而生。</p>
-                                    </div>
-                                    <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-rose-700">闡述「金駿眉」的誕生與分級</div>
-                                      <p>‧ 產品線擴展： 在成功製作單芽後，團隊緊接著嘗試採摘一芽一葉進行製作，發現其口感同樣非常出色。這次的成功，促使他們意識到建立一套標準化分級體系的必要性。</p>
-                                      <p>‧ 建立分級標準： 基於這次的成功經驗，一套依據採摘標準劃分的清晰分級體系得以確立，並以金、銀、銅來命名：</p>
-                                      <div className="mt-3 space-y-2">
-                                        <div className="flex flex-wrap items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-stone-700">
-                                          <span className="rounded-full border border-amber-300 bg-white px-2 py-0.5 text-xs font-semibold text-amber-700">金</span>
-                                          <span>專指以單芽製作的最高等級，即「金駿眉」。</span>
-                                        </div>
-                                        <div className="flex flex-wrap items-start gap-2 rounded-xl border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-stone-700">
-                                          <span className="rounded-full border border-stone-300 bg-white px-2 py-0.5 text-xs font-semibold text-stone-700">銀</span>
-                                          <span>指以一芽一葉製作的等級，即「銀駿眉」。</span>
-                                        </div>
-                                        <div className="flex flex-wrap items-start gap-2 rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm text-stone-700">
-                                          <span className="rounded-full border border-orange-300 bg-white px-2 py-0.5 text-xs font-semibold text-orange-700">銅</span>
-                                          <span>指以一芽兩葉製作的等級，即「銅駿眉」。</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className="space-y-2 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
-                                      <div className="text-base font-semibold text-rose-700">辨析「駿」字之謎</div>
-                                      <p>‧ 提出疑問： 隨著金駿眉聲名鵲起，外界對於為何使用代表馬的「駿」字，而非代表桐木崇山峻嶺的「峻」字，產生了諸多猜測與討論。</p>
-                                      <p>‧ 揭示真相： 根據梁師傅的澄清，後續為回應外界的疑問，命名者提出了「因為茶的外形像馬」的官方解釋。他強調，這才是「最真實的一個來歷」，為這場長久以來的字義之爭提供了最終的註解。</p>
-                                    </div>
-                                  </div>
-                                  <div className="mt-4 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
-                                    隨著工藝的成熟與命名的確立，金駿眉不僅擁有了一個響亮的名字，更建立了一套完善的產品標準，為其正式進入市場並引領行業風潮做好了萬全的準備。
-                                  </div>
-                                </section>
-
-                                <section className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 shadow-sm">
-                                  <h5 className="text-lg font-bold text-stone-900">5. 歷史定位：引領正山小種開拓國內市場的里程碑</h5>
-                                  <div className="mt-4 space-y-3">
-                                    <p>
-                                      金駿眉的誕生，其意義遠不止於一款高端紅茶的問世。它是一個重要的歷史轉折點，從根本上改變了正山小種的市場格局，並深刻影響了整個中國紅茶產業的發展。
-                                    </p>
-                                    <p>
-                                      首先，金駿眉的成功，直接終結了正山小種數百年來幾乎完全依賴出口的歷史。它以超凡的品質與獨特的魅力，迅速立足於國內高端茶葉市場，實現了從外銷到內銷的華麗轉身。
-                                    </p>
-                                    <p>
-                                      更為重要的是，金駿眉獲得了行業的廣泛認可與推崇。正如梁師傅所總結，金駿眉之所以能有今日的地位，「正因為全國茶葉產區，大家都在捧這泡茶」。這種跨越產區的現象級追捧，迅速鞏固了其作為頂級紅茶的標竿地位，並引領了一波紅茶創新的風潮。
-                                    </p>
-                                    <p>
-                                      綜上所述，金駿眉的誕生是一個結合了偶然契機、匠心創新與市場遠見的傳奇故事。它不僅為正山小種注入了全新的活力，更為中國紅茶的發展歷史，寫下了濃墨重彩的一筆。
-                                    </p>
-                                  </div>
-                                </section>
+                              <div className="mt-4 rounded-2xl border border-rose-100 bg-white/80 p-5 shadow-sm">
+                                隨著工藝的成熟與命名的確立，金駿眉不僅擁有了一個響亮的名字，更建立了一套完善的產品標準，為其正式進入市場並引領行業風潮做好了萬全的準備。
                               </div>
-                            </SectionCard>
-                          ) : null}
-                        </>
+                            </section>
+
+                            <section className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 shadow-sm">
+                              <h5 className="text-lg font-bold text-stone-900">5. 歷史定位：引領正山小種開拓國內市場的里程碑</h5>
+                              <div className="mt-4 space-y-3">
+                                <p>
+                                  金駿眉的誕生，其意義遠不止於一款高端紅茶的問世。它是一個重要的歷史轉折點，從根本上改變了正山小種的市場格局，並深刻影響了整個中國紅茶產業的發展。
+                                </p>
+                                <p>
+                                  首先，金駿眉的成功，直接終結了正山小種數百年來幾乎完全依賴出口的歷史。它以超凡的品質與獨特的魅力，迅速立足於國內高端茶葉市場，實現了從外銷到內銷的華麗轉身。
+                                </p>
+                                <p>
+                                  更為重要的是，金駿眉獲得了行業的廣泛認可與推崇。正如梁師傅所總結，金駿眉之所以能有今日的地位，「正因為全國茶葉產區，大家都在捧這泡茶」。這種跨越產區的現象級追捧，迅速鞏固了其作為頂級紅茶的標竿地位，並引領了一波紅茶創新的風潮。
+                                </p>
+                                <p>
+                                  綜上所述，金駿眉的誕生是一個結合了偶然契機、匠心創新與市場遠見的傳奇故事。它不僅為正山小種注入了全新的活力，更為中國紅茶的發展歷史，寫下了濃墨重彩的一筆。
+                                </p>
+                              </div>
+                            </section>
+                          </div>
+                        </SectionCard>
+                      ) : null}
+                    </>
                   ) : null}
 
                   {!kindTea && varietiesKind !== 'oolong' && varietiesKind !== 'red' ? (
@@ -2370,101 +2373,9 @@ const TeaWebsite = () => {
     );
   };
 
-  const PuerhSection = () => {
-    const puerhSidebarItems = [{ key: 'puerh', label: '普洱茶' }];
-    const puerhSubItemsByKey = { puerh: PUERH_TOC };
+  // PuerhSection extracted to src/sections/PuerhSection.jsx
 
-    return (
-      <div className="museum-page">
-        <div className="w-full">
-          <AtlasDockLayout
-            topOffsetPx={siteNavHeightPx + 24}
-            sidebar={
-              <ChapterSidebar
-                title="章節"
-                items={puerhSidebarItems}
-                activeKey="puerh"
-                onSelectKey={() => { }}
-                subItemsByKey={puerhSubItemsByKey}
-                activeSubHref={puerhChapterHref}
-                onSelectSubHref={(href) => selectPuerhChapter(href)}
-                topOffsetPx={siteNavHeightPx + 48}
-                pinMode="static"
-              />
-            }
-          >
-            <div className="min-w-0">
-              <PuerhEncyclopedia topOffsetPx={siteNavHeightPx + 20} activeHref={puerhChapterHref} />
-            </div>
-          </AtlasDockLayout>
-        </div>
-      </div>
-    );
-  };
-
-  const SeasonsSection = () => {
-    const [activeSeasonSection, setActiveSeasonSection] = useState('four-seasons');
-    const [activeSeasonHref, setActiveSeasonHref] = useState(null);
-
-    const scrollToSeasonSection = (href) => {
-      if (typeof window === 'undefined') return;
-      if (!href || !href.startsWith('#')) return;
-
-      if (activeSeasonSection === 'solar-terms') {
-        setActiveSeasonHref(href);
-        window.history.replaceState(null, '', href);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-
-      const id = href.slice(1);
-      const element = document.getElementById(id);
-
-      if (element) {
-        const navHeight = document.getElementById('site-nav')?.getBoundingClientRect().height || 0;
-        const offset = navHeight + 20;
-        const y = element.getBoundingClientRect().top + window.scrollY - offset;
-
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        window.history.replaceState(null, '', href);
-        setActiveSeasonHref(href);
-      }
-    };
-
-    return (
-      <div className="museum-page">
-        <AtlasDockLayout
-          sidebar={
-            <CollapsibleSidebar
-              sections={SEASONS_SECTIONS}
-              activeSection={activeSeasonSection}
-              activeSectionHref={activeSeasonHref}
-              onSelectSection={(key) => {
-                setActiveSeasonSection(key);
-                setActiveSeasonHref(null);
-              }}
-              onSelectHref={scrollToSeasonSection}
-              topOffsetPx={siteNavHeightPx + 48}
-            />
-          }
-        >
-          <div className="min-w-0">
-            {activeSeasonSection === 'four-seasons' ? (
-              <div id="four-seasons-content">
-                <FourSeasonsSection />
-              </div>
-            ) : null}
-
-            {activeSeasonSection === 'solar-terms' ? (
-              <div id="solar-terms-content">
-                <SolarTermsPrimer activeSectionHref={activeSeasonHref} />
-              </div>
-            ) : null}
-          </div>
-        </AtlasDockLayout>
-      </div>
-    );
-  };
+  // SeasonsSection extracted to src/sections/SeasonsSection.jsx
 
   const FeaturedTeaSection = () => {
     const notesMode = UI_FLAGS.notesMode;
@@ -2611,12 +2522,12 @@ const TeaWebsite = () => {
                           <button
                             type="button"
                             onClick={() => {
-                            setSelectedFeatured(item.id);
-                            if (item.id === 'orientalbeauty') {
-                              setOrientalBeautySection('main');
-                            }
-                            scrollToFeaturedTop();
-                          }}
+                              setSelectedFeatured(item.id);
+                              if (item.id === 'orientalbeauty') {
+                                setOrientalBeautySection('main');
+                              }
+                              scrollToFeaturedTop();
+                            }}
                             className={`group w-full text-left px-3 py-2 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
                               ? `${activeTextClass} border-stone-200 ring-1 ring-black/10`
                               : 'tool-item tool-item--panel'
@@ -2729,254 +2640,7 @@ const TeaWebsite = () => {
     );
   };
 
-  const BrewingGuide = () => {
-    const notesMode = UI_FLAGS.notesMode;
-    const activeTea = teaData[selectedTeaForBrewing];
-    const [showBrewingAtlas, setShowBrewingAtlas] = useState(!notesMode);
-
-    const TeaTimer = ({ defaultSeconds }) => {
-      const [timeLeft, setTimeLeft] = useState(defaultSeconds);
-      const [isActive, setIsActive] = useState(false);
-
-      useEffect(() => {
-        setTimeLeft(defaultSeconds);
-        setIsActive(false);
-      }, [defaultSeconds]);
-
-      useEffect(() => {
-        let interval = null;
-        if (isActive && timeLeft > 0) {
-          interval = setInterval(() => {
-            setTimeLeft(seconds => seconds - 1);
-          }, 1000);
-        } else if (timeLeft === 0) {
-          setIsActive(false);
-          // Optional: Play sound or alert here
-        }
-        return () => clearInterval(interval);
-      }, [isActive, timeLeft]);
-
-      const toggleTimer = () => setIsActive(!isActive);
-      const resetTimer = () => {
-        setIsActive(false);
-        setTimeLeft(defaultSeconds);
-      };
-
-      const formatTime = (seconds) => {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-      };
-
-      return (
-        <div className="bg-stone-800 text-white p-6 rounded-xl shadow-lg border border-stone-700 flex flex-col items-center justify-center">
-          <h4 className="text-stone-400 text-sm font-bold uppercase tracking-wider mb-4 flex items-center"><Clock size={16} className="mr-2" /> 泡茶計時器</h4>
-          <div className={`text-6xl font-mono font-bold mb-6 ${timeLeft === 0 ? 'text-red-400 animate-pulse' : 'text-white'}`}>
-            {formatTime(timeLeft)}
-          </div>
-          <div className="flex gap-4">
-            <button onClick={toggleTimer} className={`p-3 rounded-full transition-colors ${isActive ? 'bg-amber-600 hover:bg-amber-700' : 'bg-green-600 hover:bg-green-700'}`}>
-              {isActive ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
-            </button>
-            <button onClick={resetTimer} className="p-3 rounded-full bg-stone-600 hover:bg-stone-500 transition-colors">
-              <RotateCcw size={24} />
-            </button>
-          </div>
-          {timeLeft === 0 && <p className="mt-4 text-red-400 font-bold animate-bounce">時間到！請出湯</p>}
-        </div>
-      );
-    };
-
-    return (
-      <div className="museum-page">
-        <div className="museum-stage">
-          {notesMode && (
-            <div className="mb-10 museum-panel p-7 md:p-10">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                <div className="min-w-0">
-                  <div className="museum-label mx-auto lg:mx-0">TEA HOUSE · NOTES</div>
-                  <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">製程與沖泡｜筆記卡</h2>
-                  <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
-                    先用一張筆記卡把「工藝 → 茶性 → 沖泡」串成一條線；需要詳細步驟、表格與選茶沖泡時，再展開完整百科。
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
-                  <button
-                    type="button"
-                    onClick={() => setShowBrewingAtlas(true)}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
-                  >
-                    展開百科
-                    <ChevronRight size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowBrewingAtlas(true);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
-                  >
-                    直接開始沖泡
-                    <ChevronRight size={16} className="text-emerald-700" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 1</div>
-                  <div className="mt-1 font-bold text-stone-900">看懂製程</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">萎凋、做青、殺青、揉捻、乾燥與焙火，決定茶性與香氣。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 2</div>
-                  <div className="mt-1 font-bold text-stone-900">選對水與器</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">水溫、溶氧、礦物質與器具保溫性，會放大或掩蓋風味。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 3</div>
-                  <div className="mt-1 font-bold text-stone-900">時間與出湯</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">投茶量與出湯節奏是「把茶泡好」的最後一哩路。</div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {!notesMode || showBrewingAtlas ? (
-            <>
-              <div className="mb-12 museum-panel p-8 md:p-12 text-center">
-                <div className="museum-label mx-auto">EXHIBIT · BREWING</div>
-                <h2 className="mt-5 text-3xl md:text-4xl font-extrabold text-stone-900">工藝與沖泡指南</h2>
-                <p className="mt-4 text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">從製作工藝理解茶性，用正確的方式喚醒茶魂。</p>
-              </div>
-              <div className="bg-gradient-to-br from-stone-100 to-stone-200 rounded-2xl p-8 md:p-12 mb-16 shadow-lg border border-stone-300 relative overflow-hidden"><div className="relative z-10"><h3 className="text-3xl font-bold text-stone-900 mb-2">製茶工藝：大師的智慧</h3><p className="text-stone-600 text-lg font-medium mb-8">科學與藝術的完美結合</p><div className="grid md:grid-cols-3 gap-6"><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Sun size={20} className="mr-2 text-amber-500" /> 天時地利</h4><p className="text-sm text-stone-600">陽光強弱、氣溫高低、吹南風還是北風、茶園向陽或背陽，這些細微的自然因素都決定了當天的製茶策略。</p></div><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Wind size={20} className="mr-2 text-blue-500" /> 精準拿捏</h4><p className="text-sm text-stone-600">萎凋的時間、揉捻的力道、殺菁的關鍵點。製茶師依賴經驗與手感。</p></div><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Mountain size={20} className="mr-2 text-green-500" /> 多重因素</h4><p className="text-sm text-stone-600">茶葉的好壞是日照、氣溫、濕度、土質、海拔等多重因素共同造就的結果。</p></div></div></div></div>
-
-              {/* Water Quality Section: Why not over-boil? */}
-              <div className="bg-white rounded-2xl p-8 md:p-12 mb-16 border-t-8 border-sky-500 shadow-lg">
-                <div className="flex items-center mb-8">
-                  <div className="bg-sky-100 p-3 rounded-full mr-4">
-                    <Droplets className="text-sky-600" size={32} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-stone-900">為什麼不能用久煮的水泡茶？</h3>
-                    <p className="text-stone-500">科學與文化的雙重解析：從「水」看茶湯的靈魂</p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  {/* Left Column: Science */}
-                  <div className="space-y-6">
-                    <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2">
-                      <FlaskConical className="mr-2 text-sky-500" size={20} /> 一、科學層面
-                    </h4>
-
-                    <div className="space-y-4">
-                      <div className="bg-stone-50 p-4 rounded-lg">
-                        <h5 className="font-bold text-sky-800 mb-1 flex items-center">1. 溶解氧減少 <span className="ml-2 text-xs bg-sky-200 text-sky-800 px-2 py-0.5 rounded-full">關鍵</span></h5>
-                        <p className="text-sm text-stone-600">
-                          水中的溶解氧在煮沸時逸散。含氧量低的水泡茶，茶湯會失去活性，口感平淡沉悶，缺乏鮮爽感。
-                        </p>
-                      </div>
-
-                      <div className="bg-stone-50 p-4 rounded-lg">
-                        <h5 className="font-bold text-stone-800 mb-1">2. 礦物質濃縮</h5>
-                        <p className="text-sm text-stone-600">
-                          長時間煮沸使鈣、鎂濃縮析出形成水垢（碳酸鈣等）。這會影響茶湯澄清度，導致混濁或澀感，也降低熱傳導效率。
-                        </p>
-                      </div>
-
-                      <div className="bg-stone-50 p-4 rounded-lg">
-                        <h5 className="font-bold text-stone-800 mb-1">3. 安全疑慮 (亞硝酸鹽/其他)</h5>
-                        <p className="text-sm text-stone-600">
-                          雖反覆煮沸會微量增加亞硝酸鹽，通常仍在安全範圍。另需注意氯揮發時可能產生的三鹵甲烷，以及微量懸浮顆粒(PM2.5)。
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Culture & Advice */}
-                  <div className="flex flex-col justify-between">
-                    <div className="mb-8">
-                      <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2 mb-4">
-                        <Feather className="mr-2 text-amber-500" size={20} /> 二、品茶文化層面
-                      </h4>
-                      <div className="bg-amber-50 p-5 rounded-lg border border-amber-100">
-                        <ul className="space-y-3 text-stone-700">
-                          <li className="flex items-start">
-                            <span className="font-bold text-amber-800 mr-2 whitespace-nowrap">講究「活水」：</span>
-                            <span className="text-sm">「活水先養茶，靜水不出香」。死水（久煮水）讓茶湯呆滯無生氣。</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="font-bold text-amber-800 mr-2 whitespace-nowrap">專業避忌：</span>
-                            <span className="text-sm">茶藝競賽中，使用久煮水被視為失誤，影響香氣層次。</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2 mb-4">
-                        <CheckCircle className="mr-2 text-green-600" size={20} /> 三、實務建議 & 小結
-                      </h4>
-
-                      <div className="bg-green-50 p-5 rounded-lg border border-green-100">
-                        <ul className="space-y-2 text-stone-700 mb-4 text-sm">
-                          <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 煮水一次沸騰即可，勿反覆燒開。</li>
-                          <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 沒用完的水建議倒掉換新，或加新水再煮。</li>
-                          <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 推薦使用新鮮山泉水或礦泉水。</li>
-                        </ul>
-                        <div className="border-t border-green-200 pt-3 mt-3">
-                          <span className="font-bold text-green-800 block mb-2 text-sm">總結影響：</span>
-                          <div className="grid grid-cols-2 gap-2 text-xs text-stone-600 font-medium">
-                            <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 味道：不鮮活</span>
-                            <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 外觀：易混濁</span>
-                            <span className="flex items-center"><span className="text-amber-500 mr-1">!</span> 健康：理論疑慮</span>
-                            <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 茶藝：不專業</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-                <div className="lg:col-span-3 mb-8 lg:mb-0"><div className="bg-white shadow rounded-lg overflow-hidden"><div className="px-4 py-5 bg-stone-200"><h3 className="font-medium">選擇茶種</h3></div><div className="divide-y divide-stone-100">{teaData.map((tea) => (<button key={tea.id} onClick={() => setSelectedTeaForBrewing(tea.id)} className={`w-full text-left px-4 py-4 ${selectedTeaForBrewing === tea.id ? 'bg-stone-50 border-l-4 border-green-600' : ''}`}>{tea.name}</button>))}</div></div></div>
-                <div className="lg:col-span-9">
-                  <div className="bg-white shadow-lg rounded-lg p-8 border border-stone-100 mb-8">
-                    <h2 className="text-3xl font-bold mb-6" style={{ color: activeTea.textColor }}>{activeTea.name}</h2>
-                    <div className="grid grid-cols-3 gap-4 text-center mb-8"><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">水溫</p><p className="font-bold">{activeTea.temp}</p></div><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">時間</p><p className="font-bold">{activeTea.time}</p></div><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">湯色</p><p className="font-bold">{activeTea.liquorColor}</p></div></div>
-                    <p className="text-stone-700 leading-relaxed mb-8">{activeTea.brewingTips}</p>
-                    <TeaTimer defaultSeconds={activeTea.seconds || 60} />
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : notesMode ? (
-            <div className="museum-panel p-7 md:p-10 text-center">
-              <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
-              <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開完整製程與沖泡百科</div>
-              <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
-                百科包含：製茶工藝導讀、水質科學解析、選茶沖泡建議與計時器。
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
-                <button
-                  type="button"
-                  onClick={() => setShowBrewingAtlas(true)}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
-                >
-                  展開百科內容
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </div>
-    );
-  };
+  // BrewingGuide extracted to src/sections/BrewingGuideSection.jsx
 
   const TeaCeremonySection = () => {
     const [ceremonyTab, setCeremonyTab] = useState('philosophy');
@@ -3701,13 +3365,13 @@ const TeaWebsite = () => {
 
         {activeTab === 'featured' && <FeaturedTeaSection />}
 
-        {activeTab === 'seasons' && <SeasonsSection />}
+        {activeTab === 'seasons' && <SeasonsSection siteNavHeightPx={siteNavHeightPx} />}
 
         {activeTab === 'zisha' && <ZishaExhibit />}
 
         {activeTab === 'science' && <ScienceSection />}
 
-        {activeTab === 'brewing' && <BrewingGuide selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}
+        {activeTab === 'brewing' && <BrewingGuideSection selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}
 
         {activeTab === 'ceremony' && <TeaCeremonySection />}
 

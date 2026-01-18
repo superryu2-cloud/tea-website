@@ -1,0 +1,752 @@
+﻿[
+  {
+    "id": "SIXTEA01-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶屬於哪一種發酵程度？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶製程中用來迅速停止氧化的關鍵工序是？",
+    "choices": ["萎凋", "殺青", "渥堆", "重焙火"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA01-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶常見的湯色與葉底特徵為？",
+    "choices": ["紅湯紅葉", "黃湯黃葉", "清湯綠葉", "褐湯褐葉"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA01-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "下列哪一組最符合綠茶的基本製程？",
+    "choices": ["殺青→揉捻→乾燥", "萎凋→做青→焙火", "渥堆→壓製→陳化", "萎凋→發酵→乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶製作的核心目標為何？",
+    "choices": ["促進氧化發酵", "保留鮮爽與綠色", "形成堆味與陳香", "強化松煙香"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA02-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶屬於哪一種發酵程度？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "後發酵"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA02-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶最具代表性的工序是？",
+    "choices": ["渥堆", "悶黃", "做青", "重焙火"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA02-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶湯色與葉底的典型特徵為？",
+    "choices": ["清湯綠葉", "黃湯黃葉", "紅湯紅葉", "褐湯褐葉"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA02-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶常被形容為介於哪兩者之間？",
+    "choices": ["綠茶與紅茶", "白茶與紅茶", "黑茶與紅茶", "綠茶與黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的「悶黃」通常發生在什麼階段？",
+    "choices": ["殺青後", "揉捻後", "乾燥後", "採摘前"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶典型製程為？",
+    "choices": ["萎凋→乾燥", "殺青→揉捻→乾燥", "渥堆→壓製", "做青→焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶在發酵上的特點是？",
+    "choices": ["以自然緩慢氧化為主", "全發酵", "後發酵", "不經氧化且必殺青"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶湯色常見的描述為？",
+    "choices": ["深紅濃亮", "淡黃清透", "褐黑濃稠", "翠綠鮮明"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA03-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶製作中通常不強調的工序是？",
+    "choices": ["萎凋", "乾燥", "殺青", "日曬"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA03-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "下列哪一項最符合白茶的工藝風格？",
+    "choices": ["工序精簡、以萎凋乾燥為主", "重焙火、厚重香", "渥堆陳化", "強力揉捻促進完全氧化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "青茶（烏龍茶）屬於哪一種發酵程度？",
+    "choices": ["不發酵", "部分發酵", "全發酵", "後發酵"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA04-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶最具代表性的製程步驟是？",
+    "choices": ["做青（搖青）", "渥堆", "重焙火", "殺青後直接乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶葉底常被描述為？",
+    "choices": ["綠葉紅鑲邊", "黃湯黃葉", "紅湯紅葉", "褐湯褐葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "下列哪一組最符合烏龍茶的製程主軸？",
+    "choices": ["萎凋→做青→殺青→揉捻→乾燥", "渥堆→壓製→陳化", "殺青→揉捻→乾燥", "萎凋→發酵→乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶風格多樣的主要原因是？",
+    "choices": ["做青與焙火程度的變化", "僅取決於採摘月份", "只靠加香", "只靠後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶屬於哪一種發酵程度？",
+    "choices": ["不發酵", "輕發酵", "全發酵", "後發酵"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA05-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶的典型製程順序為？",
+    "choices": ["萎凋→揉捻→發酵→乾燥", "殺青→揉捻→乾燥", "渥堆→壓製→陳化", "做青→焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶在國際貿易中常被稱為？",
+    "choices": ["Green Tea", "White Tea", "Black Tea", "Oolong Tea"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA05-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶湯色與葉底的典型特徵為？",
+    "choices": ["清湯綠葉", "紅湯紅葉", "黃湯黃葉", "褐湯褐葉"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA05-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "下列哪一項不是紅茶的核心工序？",
+    "choices": ["萎凋", "揉捻", "發酵", "渥堆"],
+    "answerIndex": 3
+  },
+  {
+    "id": "SIXTEA06-0001",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶屬於哪一種發酵類型？",
+    "choices": ["不發酵", "部分發酵", "全發酵", "後發酵"],
+    "answerIndex": 3
+  },
+  {
+    "id": "SIXTEA06-0002",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶具有代表性的工序是？",
+    "choices": ["悶黃", "渥堆", "做青", "殺青後即乾燥"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA06-0003",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶湯色與葉底常呈現？",
+    "choices": ["清湯綠葉", "紅湯紅葉", "褐湯褐葉", "黃湯黃葉"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA06-0004",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶常見的成形方式為？",
+    "choices": ["緊壓成磚餅", "全程散茶不壓制", "只做球形", "只做細碎顆粒"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0005",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶在存放上的一項特性是？",
+    "choices": ["隨時間可持續轉化", "放久必失香", "越放越青", "只能冷藏"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP01-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_biluochun",
+    "topicLabel": "台灣特色茶：碧螺春綠茶",
+    "stem": "碧螺春綠茶屬於哪一茶類？",
+    "choices": ["綠茶", "白茶", "紅茶", "黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP01-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_biluochun",
+    "topicLabel": "台灣特色茶：碧螺春綠茶",
+    "stem": "碧螺春在特色茶清單中的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP01-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_biluochun",
+    "topicLabel": "台灣特色茶：碧螺春綠茶",
+    "stem": "碧螺春的風味描述最接近下列哪一項？",
+    "choices": ["清鮮花香", "濃焙厚重", "松煙香", "藥香陳韻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP01-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_biluochun",
+    "topicLabel": "台灣特色茶：碧螺春綠茶",
+    "stem": "碧螺春在特色茶清單中被定位為哪一類風味代表？",
+    "choices": ["不發酵綠茶", "重焙烏龍", "重發酵紅茶", "後發酵黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP01-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_biluochun",
+    "topicLabel": "台灣特色茶：碧螺春綠茶",
+    "stem": "下列哪一組描述最符合碧螺春？",
+    "choices": ["不發酵・清鮮花香", "中發酵・焙火厚重", "重發酵・琥珀湯色", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP02-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_wenshan",
+    "topicLabel": "台灣特色茶：文山包種茶",
+    "stem": "文山包種茶的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP02-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_wenshan",
+    "topicLabel": "台灣特色茶：文山包種茶",
+    "stem": "文山包種茶的風格描述為？",
+    "choices": ["清雅幽香", "濃焙厚重", "松煙香", "藥香陳韻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP02-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_wenshan",
+    "topicLabel": "台灣特色茶：文山包種茶",
+    "stem": "文山包種茶在六大茶類中屬於？",
+    "choices": ["綠茶", "青茶（烏龍）", "紅茶", "黑茶"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP02-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_wenshan",
+    "topicLabel": "台灣特色茶：文山包種茶",
+    "stem": "特色茶清單中，文山包種茶的描述為？",
+    "choices": ["輕發酵・清雅幽香", "中發酵・焙火香", "重發酵・蜜香", "後發酵・陳香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP02-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_wenshan",
+    "topicLabel": "台灣特色茶：文山包種茶",
+    "stem": "下列哪一項最接近文山包種茶的風味定位？",
+    "choices": ["清雅幽香、輕發酵", "厚重焙火", "強烈松煙", "濃厚陳香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP03-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_gaoshan_oolong",
+    "topicLabel": "台灣特色茶：高山烏龍茶",
+    "stem": "高山烏龍茶屬於哪一茶類？",
+    "choices": ["綠茶", "青茶（烏龍）", "紅茶", "黑茶"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP03-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_gaoshan_oolong",
+    "topicLabel": "台灣特色茶：高山烏龍茶",
+    "stem": "高山烏龍茶在特色茶清單中的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP03-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_gaoshan_oolong",
+    "topicLabel": "台灣特色茶：高山烏龍茶",
+    "stem": "高山烏龍茶的主要特色為？",
+    "choices": ["高海拔", "重焙火", "松煙香", "後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP03-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_gaoshan_oolong",
+    "topicLabel": "台灣特色茶：高山烏龍茶",
+    "stem": "下列哪一組描述最符合高山烏龍茶？",
+    "choices": ["輕發酵・高海拔", "重焙火・濃厚", "重發酵・蜜香", "後發酵・陳香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP03-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_gaoshan_oolong",
+    "topicLabel": "台灣特色茶：高山烏龍茶",
+    "stem": "高山烏龍茶在特色茶清單中的定位為？",
+    "choices": ["輕發酵的高海拔烏龍", "中發酵的焙火烏龍", "重發酵的蜜香烏龍", "後發酵的陳年黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP04-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_dongding",
+    "topicLabel": "台灣特色茶：凍頂烏龍茶",
+    "stem": "凍頂烏龍茶的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 2
+  },
+  {
+    "id": "TWSP04-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_dongding",
+    "topicLabel": "台灣特色茶：凍頂烏龍茶",
+    "stem": "凍頂烏龍茶的工藝特徵為？",
+    "choices": ["帶焙火", "全不焙火", "松煙熏香", "渥堆後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP04-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_dongding",
+    "topicLabel": "台灣特色茶：凍頂烏龍茶",
+    "stem": "凍頂烏龍茶在六大茶類中屬於？",
+    "choices": ["綠茶", "青茶（烏龍）", "紅茶", "黑茶"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP04-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_dongding",
+    "topicLabel": "台灣特色茶：凍頂烏龍茶",
+    "stem": "特色茶清單中，凍頂烏龍茶的描述為？",
+    "choices": ["中發酵・帶焙火", "輕發酵・清雅幽香", "重發酵・著涎蜜香", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP04-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_dongding",
+    "topicLabel": "台灣特色茶：凍頂烏龍茶",
+    "stem": "相較清香型高山烏龍，凍頂烏龍更突出的風格是？",
+    "choices": ["焙火香", "高海拔", "不發酵", "後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP05-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_tieguanyin",
+    "topicLabel": "台灣特色茶：鐵觀音茶",
+    "stem": "鐵觀音茶在特色茶清單中的主要風格為？",
+    "choices": ["濃焙・觀音韻", "清雅幽香", "松煙香", "後發酵陳香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP05-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_tieguanyin",
+    "topicLabel": "台灣特色茶：鐵觀音茶",
+    "stem": "鐵觀音茶在六大茶類中屬於？",
+    "choices": ["綠茶", "青茶（烏龍）", "紅茶", "黑茶"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP05-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_tieguanyin",
+    "topicLabel": "台灣特色茶：鐵觀音茶",
+    "stem": "以下哪個詞常用來形容鐵觀音的韻味？",
+    "choices": ["觀音韻", "岩韻", "蜜韻", "陳韻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP05-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_tieguanyin",
+    "topicLabel": "台灣特色茶：鐵觀音茶",
+    "stem": "特色茶清單中，鐵觀音茶的描述為？",
+    "choices": ["濃焙・觀音韻", "輕發酵・清雅幽香", "重發酵・著涎蜜香", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP05-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_tieguanyin",
+    "topicLabel": "台灣特色茶：鐵觀音茶",
+    "stem": "下列哪一組最符合鐵觀音茶的風格？",
+    "choices": ["濃焙、觀音韻", "清雅、輕發酵", "清甜、後發酵", "松煙、重熏製"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP06-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_oriental_beauty",
+    "topicLabel": "台灣特色茶：東方美人茶",
+    "stem": "東方美人茶在特色茶清單中的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 3
+  },
+  {
+    "id": "TWSP06-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_oriental_beauty",
+    "topicLabel": "台灣特色茶：東方美人茶",
+    "stem": "東方美人茶最具代表性的香氣描述為？",
+    "choices": ["著涎蜜香", "松煙香", "藥香陳韻", "濃焙焦香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP06-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_oriental_beauty",
+    "topicLabel": "台灣特色茶：東方美人茶",
+    "stem": "東方美人茶的香氣形成與哪種生態現象相關？",
+    "choices": ["小綠葉蟬叮咬", "松木熏製", "渥堆發酵", "重度焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP06-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_oriental_beauty",
+    "topicLabel": "台灣特色茶：東方美人茶",
+    "stem": "特色茶清單中，東方美人茶的描述為？",
+    "choices": ["重發酵・著涎蜜香", "輕發酵・清雅幽香", "中發酵・帶焙火", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP06-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_oriental_beauty",
+    "topicLabel": "台灣特色茶：東方美人茶",
+    "stem": "東方美人茶在六大茶類中屬於？",
+    "choices": ["綠茶", "青茶（烏龍）", "紅茶", "黑茶"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP07-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_red_oolong",
+    "topicLabel": "台灣特色茶：紅烏龍茶",
+    "stem": "紅烏龍茶的主要產地為？",
+    "choices": ["台東鹿野", "南投日月潭", "新北坪林", "嘉義阿里山"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP07-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_red_oolong",
+    "topicLabel": "台灣特色茶：紅烏龍茶",
+    "stem": "紅烏龍茶在台東正式發表的年份為？",
+    "choices": ["2003 年", "2008 年", "2012 年", "2016 年"],
+    "answerIndex": 1
+  },
+  {
+    "id": "TWSP07-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_red_oolong",
+    "topicLabel": "台灣特色茶：紅烏龍茶",
+    "stem": "紅烏龍茶在特色茶清單中的發酵程度為？",
+    "choices": ["不發酵", "輕發酵", "中發酵", "重發酵"],
+    "answerIndex": 3
+  },
+  {
+    "id": "TWSP07-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_red_oolong",
+    "topicLabel": "台灣特色茶：紅烏龍茶",
+    "stem": "紅烏龍茶的湯色常被描述為？",
+    "choices": ["琥珀湯色", "清湯綠色", "黃湯淺淡", "褐黑濃稠"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP07-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_red_oolong",
+    "topicLabel": "台灣特色茶：紅烏龍茶",
+    "stem": "紅烏龍的工藝重點最接近哪一項？",
+    "choices": ["重發酵、重焙火", "不發酵、輕焙火", "後發酵、渥堆", "蒸壓成餅"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP08-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_honey_black",
+    "topicLabel": "台灣特色茶：蜜香紅茶",
+    "stem": "蜜香紅茶的香氣常與哪種昆蟲相關？",
+    "choices": ["小綠葉蟬", "茶尺蠖", "金龜子", "螞蟻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP08-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_honey_black",
+    "topicLabel": "台灣特色茶：蜜香紅茶",
+    "stem": "蜜香紅茶的香氣來源為？",
+    "choices": ["茶樹自然反應形成的蜜香", "人工添加香精", "松煙熏製", "後發酵堆味"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP08-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_honey_black",
+    "topicLabel": "台灣特色茶：蜜香紅茶",
+    "stem": "蜜香紅茶在茶類分類上屬於？",
+    "choices": ["紅茶", "綠茶", "白茶", "黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP08-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_honey_black",
+    "topicLabel": "台灣特色茶：蜜香紅茶",
+    "stem": "蜜香紅茶的代表產地為？",
+    "choices": ["花蓮瑞穗", "南投鹿谷", "新北坪林", "嘉義阿里山"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP08-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_honey_black",
+    "topicLabel": "台灣特色茶：蜜香紅茶",
+    "stem": "蜜香紅茶的香氣形成主因為何？",
+    "choices": ["小綠葉蟬叮咬後的植物防禦反應", "長時間渥堆", "重度焙火", "蒸壓陳化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP09-0001",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_black_tea",
+    "topicLabel": "台灣特色茶：紅茶類",
+    "stem": "小葉紅茶在特色茶清單中的風格描述為？",
+    "choices": ["全發酵・細緻香氣", "全發酵・濃厚飽滿", "不發酵・清鮮花香", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP09-0002",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_black_tea",
+    "topicLabel": "台灣特色茶：紅茶類",
+    "stem": "大葉紅茶在特色茶清單中的風格描述為？",
+    "choices": ["全發酵・濃厚飽滿", "全發酵・細緻香氣", "輕發酵・清雅幽香", "中發酵・帶焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP09-0003",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_black_tea",
+    "topicLabel": "台灣特色茶：紅茶類",
+    "stem": "小葉紅茶與大葉紅茶的共同點為何？",
+    "choices": ["皆為全發酵紅茶", "皆為後發酵黑茶", "皆為不發酵綠茶", "皆為中發酵烏龍"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP09-0004",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_black_tea",
+    "topicLabel": "台灣特色茶：紅茶類",
+    "stem": "若偏好「濃厚飽滿」風格，較適合選擇哪一類？",
+    "choices": ["大葉紅茶", "小葉紅茶", "綠茶", "白茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "TWSP09-0005",
+    "bank": "tw_specialty",
+    "bankLabel": "台灣特色茶",
+    "topic": "tw_black_tea",
+    "topicLabel": "台灣特色茶：紅茶類",
+    "stem": "下列哪一組描述最符合小葉紅茶？",
+    "choices": ["全發酵・細緻香氣", "中發酵・帶焙火", "重發酵・著涎蜜香", "後發酵・陳香濃厚"],
+    "answerIndex": 0
+  }
+]

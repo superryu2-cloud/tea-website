@@ -570,27 +570,6 @@
 
   /* Optimize for medium screens (1280px - 1600px, like 1440x900) */
   @media (min-width: 1280px) and (max-width: 1600px) {
-    .museum-page :where(p, li) {
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .museum-page h1 {
-      font-size: 2.25rem !important;
-    }
-
-    .museum-page h2 {
-      font-size: 2rem !important;
-    }
-
-    .museum-page h3 {
-      font-size: 1.75rem !important;
-    }
-
-    .museum-page h4 {
-      font-size: 1.5rem !important;
-    }
-
     .museum-stage {
       padding-left: 1rem;
       padding-right: 1rem;
