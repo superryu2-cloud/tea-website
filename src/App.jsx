@@ -30,6 +30,7 @@ import BlackTeaHistory from './content/varieties/BlackTeaHistory';
 import SixTeaTypesNotes from './content/varieties/SixTeaTypesNotes';
 import TeaEncyclopediaOverview from './content/varieties/TeaEncyclopediaOverview';
 import OolongRegions from './content/varieties/OolongRegions';
+import WhiteTeaRegions from './content/varieties/WhiteTeaRegions';
 import OolongTeaVerticalTimeline from './components/sections/OolongTeaVerticalTimeline';
 import TaiwanCultivarDiversity from './content/cultivars/TaiwanCultivarDiversity';
 import TaiwanTeaCultivars from './content/cultivars/TaiwanTeaCultivars';
@@ -69,6 +70,11 @@ import SeasonsSection from './sections/SeasonsSection';
 import BrewingGuideSection from './sections/BrewingGuideSection';
 
 const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
+const WHITE_TOC_EXTENDED = [
+  { href: '#white-history', label: '白茶歷史' },
+  { href: '#white-fujian', label: '福建' },
+  { href: '#white-yunnan', label: '雲南' },
+];
 
 const TeaWebsite = () => {
   const i18n = useI18n();
@@ -83,6 +89,7 @@ const TeaWebsite = () => {
   const [teachingChapterHref, setTeachingChapterHref] = useState('#ref-all');
   const [puerhChapterHref, setPuerhChapterHref] = useState('#puerh-1');
   const [oolongRegionHref, setOolongRegionHref] = useState(null);
+  const [whiteRegionHref, setWhiteRegionHref] = useState('#white-history');
   const [sensoryTopic, setSensoryTopic] = useState(null);
   const [redTeaHref, setRedTeaHref] = useState('#red-global');
   const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
@@ -195,6 +202,26 @@ const TeaWebsite = () => {
     }
   };
 
+  const selectWhiteRegion = (href) => {
+    const normalized = String(href ?? '');
+    if (!normalized.startsWith('#white-')) return;
+    setWhiteRegionHref(normalized);
+    if (typeof window !== 'undefined') {
+      const nextUrl = `${window.location.pathname}${window.location.search}${normalized}`;
+      window.history.replaceState(null, '', nextUrl);
+      window.requestAnimationFrame(() => {
+        const contextBar = document.getElementById('varieties-context-bar');
+        const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const targetId = normalized.slice(1);
+        const el = document.getElementById(targetId);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    }
+  };
+
 
 
   const selectScienceTeachingChapter = (href) => {
@@ -215,6 +242,7 @@ const TeaWebsite = () => {
     setMobileMenuOpen(false);
     setVarietiesKind(kindKey);
     if (kindKey === 'ref_chenchuan') setChenChuanChapterHref('#cc-all');
+    if (kindKey === 'white') setWhiteRegionHref('#white-history');
     if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -272,6 +300,7 @@ const TeaWebsite = () => {
     const allowedTeachingHrefs = new Set(TEA_REFERENCE_TOC.map((item) => item.href));
     const allowedPuerhHrefs = new Set(PUERH_TOC.map((item) => item.href));
     const allowedOolongHrefs = new Set(OOLONG_TOC.map((item) => item.href));
+    const allowedWhiteHrefs = new Set(WHITE_TOC_EXTENDED.map((item) => item.href));
 
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
@@ -352,6 +381,11 @@ const TeaWebsite = () => {
         if (nextKind === 'oolong') {
           const hash = window.location.hash;
           if (allowedOolongHrefs.has(hash)) setOolongRegionHref(hash);
+        }
+        if (nextKind === 'white') {
+          const hash = window.location.hash;
+          if (allowedWhiteHrefs.has(hash)) setWhiteRegionHref(hash);
+          else setWhiteRegionHref('#white-history');
         }
       }
     };
@@ -1772,6 +1806,7 @@ const TeaWebsite = () => {
       ref_chenchuan: [{ href: '#cc-all', label: '全部章節' }, ...CHEN_CHUAN_TOC],
       oolong: OOLONG_TOC,
       red: RED_TOC,
+      white: WHITE_TOC_EXTENDED,
     };
 
     const varietiesActiveSubHref =
@@ -1781,7 +1816,9 @@ const TeaWebsite = () => {
           ? oolongRegionHref
           : varietiesKind === 'red'
             ? redTeaHref
-            : null;
+            : varietiesKind === 'white'
+              ? whiteRegionHref
+              : null;
 
     const onSelectVarietiesSubHref = (href) => {
       if (!href) return;
@@ -1789,6 +1826,7 @@ const TeaWebsite = () => {
       if (varietiesKind === 'ref_chenchuan') selectChenChuanChapter(href);
       if (varietiesKind === 'oolong') selectOolongRegion(href);
       if (varietiesKind === 'red') selectRedTeaTopic(href);
+      if (varietiesKind === 'white') selectWhiteRegion(href);
     };
 
     const FactsGrid = ({ tea }) => (
@@ -1965,6 +2003,7 @@ const TeaWebsite = () => {
                   if (key === 'ref_chenchuan') setChenChuanChapterHref('#cc-all');
                   if (key === 'red') setRedTeaHref('#red-global');
                   if (key === 'oolong') setOolongRegionHref(null);
+                  if (key === 'white') setWhiteRegionHref('#white-history');
                   if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 subItemsByKey={varietiesSubItemsByKey}
@@ -1992,8 +2031,9 @@ const TeaWebsite = () => {
                 <>
                   <div id="varieties-kind-header" className="h-0" aria-hidden="true" />
                   {kindTea &&
-                    (varietiesKind !== 'oolong' || !oolongRegionHref) &&
-                    (varietiesKind !== 'red' || redTeaHref === '#red-global') ? (
+                  (varietiesKind !== 'oolong' || !oolongRegionHref) &&
+                  (varietiesKind !== 'red' || redTeaHref === '#red-global') &&
+                  (varietiesKind !== 'white' || !whiteRegionHref || whiteRegionHref === '#white-history') ? (
                     <>
                       <SectionCard title="概覽" icon={BookOpen}>
                         <p className="text-lg text-stone-800 leading-relaxed">{kindTea.desc}</p>
@@ -2058,11 +2098,19 @@ const TeaWebsite = () => {
                   ) : null}
 
                   {varietiesKind === 'white' ? (
-                    <SectionCard title="白茶歷史" icon={Globe}>
-                      <div id="white-tea-history" className="scroll-mt-28">
-                        <WhiteTeaHistory />
-                      </div>
-                    </SectionCard>
+                    <>
+                      {!whiteRegionHref || whiteRegionHref === '#white-history' ? (
+                        <SectionCard id="white-history" title="白茶歷史" icon={Globe}>
+                          <div id="white-tea-history" className="scroll-mt-28">
+                            <WhiteTeaHistory />
+                          </div>
+                        </SectionCard>
+                      ) : null}
+
+                      {whiteRegionHref ? (
+                        <WhiteTeaRegions topOffsetPx={chenChuanScrollOffsetPx} activeHref={whiteRegionHref} />
+                      ) : null}
+                    </>
                   ) : null}
 
                   {varietiesKind === 'black' ? (
@@ -3129,26 +3177,41 @@ const TeaWebsite = () => {
     }, {});
 
     const TimelineRow = ({ year, title, content, world }) => (
-      <div className="flex items-stretch mb-8 relative">
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-stone-300 -ml-[1px]"></div>
-        <div className="w-1/2 pr-8 text-right">
-          {title && (
-            <div className="bg-white p-4 rounded-lg shadow-sm border-r-4 border-green-500 hover:shadow-md transition-shadow inline-block w-full">
-              <h4 className="font-bold text-stone-800 text-lg mb-1">{title}</h4>
-              <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
-            </div>
-          )}
-        </div>
-        <div className="absolute left-1/2 top-1/2 -mt-4 -ml-6 z-10">
-          <span className="bg-stone-800 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md border-2 border-white">{year}</span>
-        </div>
-        <div className="w-1/2 pl-8 text-left">
-          {world && (
-            <div className="bg-stone-100 p-4 rounded-lg shadow-sm border-l-4 border-stone-400 hover:shadow-md transition-shadow inline-block w-full">
-              <div className="flex items-center mb-1"><Globe size={14} className="text-stone-500 mr-2" /><span className="font-bold text-stone-700 text-sm">世界大事</span></div>
-              <p className="text-stone-600 text-sm">{world}</p>
-            </div>
-          )}
+      <div className="relative">
+        <div className="absolute left-1/2 top-0 bottom-0 hidden md:block w-[2px] bg-gradient-to-b from-transparent via-stone-400/90 to-transparent shadow-[0_0_0_1px_rgba(255,255,255,0.65)]" />
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_96px_minmax(0,1fr)] gap-y-6 md:gap-y-0 md:gap-x-4 items-center">
+          <div className="md:pr-3 flex md:justify-end">
+            {title && (
+              <div className="group relative w-full max-w-[480px] rounded-2xl border border-emerald-200/70 bg-transparent px-6 py-5 text-right transition-colors duration-300 hover:border-emerald-300">
+                <span className="absolute -right-3 top-6 hidden md:block h-3 w-3 rounded-full bg-emerald-400 ring-4 ring-white transition-transform duration-300 group-hover:scale-110 group-hover:bg-emerald-500" />
+                <span className="absolute -right-9 top-[27px] hidden md:block h-px w-6 bg-emerald-200 transition-colors duration-300 group-hover:bg-emerald-300" />
+                <div className="mb-2 ml-auto w-fit flex items-center justify-end gap-2 rounded-full bg-transparent px-3 py-1 text-xs font-bold text-emerald-900 ring-1 ring-emerald-200/70 transition-colors duration-300 group-hover:border-emerald-300">
+                  <Calendar size={12} />
+                  台灣事件
+                </div>
+                <h4 className="text-lg font-extrabold text-stone-900">{title}</h4>
+                <p className="mt-2 text-sm text-stone-600 leading-relaxed">{content}</p>
+              </div>
+            )}
+          </div>
+          <div className="relative flex items-center justify-center">
+            <span className="relative z-10 rounded-full border border-white/90 bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 px-5 py-1.5 text-sm md:text-base font-extrabold tracking-wide text-white transition-all duration-300 hover:scale-110 hover:tracking-[0.18em] hover:border-emerald-200 hover:from-emerald-900 hover:via-emerald-800 hover:to-emerald-900 hover:outline hover:outline-2 hover:outline-emerald-200/70">
+              {year}
+            </span>
+          </div>
+          <div className="md:pl-3 flex md:justify-start">
+            {world && (
+              <div className="group relative w-full max-w-[480px] rounded-2xl border border-sky-200/70 bg-transparent px-6 py-5 text-left transition-colors duration-300 hover:border-sky-300">
+                <span className="absolute -left-3 top-6 hidden md:block h-3 w-3 rounded-full bg-sky-400 ring-4 ring-white transition-transform duration-300 group-hover:scale-110 group-hover:bg-sky-500" />
+                <span className="absolute -left-9 top-[27px] hidden md:block h-px w-6 bg-sky-200 transition-colors duration-300 group-hover:bg-sky-300" />
+                <div className="mb-2 w-fit flex items-center gap-2 rounded-full bg-transparent px-3 py-1 text-xs font-bold text-sky-900 ring-1 ring-sky-200/70 transition-colors duration-300 group-hover:border-sky-300">
+                  <Globe size={12} />
+                  世界大事
+                </div>
+                <p className="text-sm text-stone-700 leading-relaxed">{world}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -3334,7 +3397,15 @@ const TeaWebsite = () => {
         setVarietiesKind={setVarietiesKind}
         setScienceRoom={setScienceRoom}
         museumUnlocked={museumUnlocked}
-        onUnlockRequest={() => setIsPasswordModalOpen(true)}
+        onUnlockRequest={(shouldUnlock) => {
+          if (shouldUnlock === false) {
+            // 重新鎖定：移除解鎖狀態
+            setMuseumUnlocked(false);
+          } else {
+            // 顯示密碼框（總是打開，不切換）
+            setIsPasswordModalOpen(true);
+          }
+        }}
       />
 
       <main>
@@ -3342,7 +3413,13 @@ const TeaWebsite = () => {
         {activeTab === 'home' && <HeroSection goToTab={goToTab} goToTeaExhibit={goToTeaExhibit} teaData={teaData} />}
         {activeTab === 'home' && <VarietiesSection />}
 
-        {activeTab === 'puerh' && <PuerhSection />}
+        {activeTab === 'puerh' && (
+          <PuerhSection
+            siteNavHeightPx={siteNavHeightPx}
+            puerhChapterHref={puerhChapterHref}
+            selectPuerhChapter={selectPuerhChapter}
+          />
+        )}
 
         {activeTab === 'sensory' && (
           <div className="museum-page">

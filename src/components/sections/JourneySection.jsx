@@ -58,8 +58,62 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
     ];
 
     return (
-        <div className="museum-page !pt-6 md:!pt-8">
-            <div className="museum-stage">
+        <div className="museum-page !pt-0">
+            {/* Hero Banner - 大型英雄橫幅 */}
+            <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+                <img
+                    src="/images/hero/tea_garden.png"
+                    alt="茶園風景"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-white px-4">
+                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-2xl">
+                            茶韻百科
+                        </h1>
+                        <p className="text-xl md:text-2xl font-light tracking-widest drop-shadow-lg">
+                            TEA EXHIBITION ATLAS
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Supporting Images - 輔助圖片區 */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 mb-12 relative z-10">
+                <div className="grid md:grid-cols-2 gap-6">
+                    <div className="museum-card overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                        <div className="relative h-64 overflow-hidden">
+                            <img
+                                src="/images/hero/tea_ceremony.png"
+                                alt="茶藝時刻"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <h3 className="text-2xl font-extrabold mb-2">茶藝美學</h3>
+                                <p className="text-sm opacity-90">傳統茶道的優雅時刻</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="museum-card overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                        <div className="relative h-64 overflow-hidden">
+                            <img
+                                src="/images/hero/tea_leaves.png"
+                                alt="茶葉之美"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <h3 className="text-2xl font-extrabold mb-2">茶葉之美</h3>
+                                <p className="text-sm opacity-90">晨露中的新鮮茶芽</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="museum-stage !pt-6 md:!pt-8">
                 <div className="mb-10 text-center">
                     <div className="museum-label mx-auto">TEA HOUSE · JOURNEY</div>
                     <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight">

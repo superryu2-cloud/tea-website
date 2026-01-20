@@ -91,25 +91,79 @@
     font-family: var(--font-body);
     font-weight: 400;
     letter-spacing: 0.01em;
-    background-color: #f3f2ee;
-    background-image:
-      radial-gradient(980px 520px at 14% -12%, var(--macaron-mint-soft), transparent 62%),
-      radial-gradient(980px 520px at 88% -14%, var(--macaron-sky-soft), transparent 60%),
-      radial-gradient(980px 560px at 12% 112%, var(--macaron-peach-soft), transparent 64%),
-      linear-gradient(to right, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(120, 113, 108, 0.04) 1px, transparent 1px),
-      linear-gradient(to right, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(120, 113, 108, 0.02) 1px, transparent 1px),
-      linear-gradient(to right, rgba(120, 113, 108, 0.01) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(120, 113, 108, 0.01) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(250, 248, 243, 0.98), rgba(243, 242, 238, 1));
-    background-size:
-      auto, auto, auto,
-      32px 32px, 32px 32px,
-      8px 8px, 8px 8px,
-      2px 2px, 2px 2px,
-      auto;
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f5f3ed;
+    background-image: url('/images/paper_texture.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Light (淺色紙張) */
+  :root[data-paper-theme='light'] body {
+    background-color: #faf8f3;
+    background-image: url('/images/paper_texture_light.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Ivory (牙白紙張) */
+  :root[data-paper-theme='ivory'] body {
+    background-color: #f5f3ed;
+    background-image: url('/images/paper_texture_ivory.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Blue (淺藍紙張) */
+  :root[data-paper-theme='blue'] body {
+    background-color: #e8f4f8;
+    background-image: url('/images/paper_texture_blue.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Dotted (點點紙張) */
+  :root[data-paper-theme='dotted'] body {
+    background-color: #f8f6f2;
+    background-image: url('/images/paper_texture_dotted.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Natural (自然紙張) */
+  :root[data-paper-theme='natural'] body {
+    background-color: #f5f1e8;
+    background-image: url('/images/paper_texture_natural.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  /* Paper Texture Theme: Slate (深藍灰紙張) */
+  :root[data-paper-theme='slate'] body {
+    background-color: #4a5c6a;
+    background-image: url('/images/paper_texture_slate.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+    color: #e8e8e8;
+  }
+
+  /* Paper Texture Theme: Cream (奶油紙張) */
+  :root[data-paper-theme='cream'] body {
+    background-color: #f8f6f0;
+    background-image: url('/images/paper_texture_cream.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
   }
 
   :root[data-nav-theme='lp'] body {
@@ -498,24 +552,24 @@
   .museum-panel .text-xs,
   .museum-card .text-xs,
   .museum-page .text-xs {
-    font-size: 14px !important;
-    line-height: 1.35 !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
   }
 
   .museum-panel .text-sm,
   .museum-card .text-sm,
   .museum-page .text-sm {
-    font-size: 16px !important;
-    line-height: 1.7 !important;
+    font-size: 17px !important;
+    line-height: 1.75 !important;
   }
 
   .museum-page .text-xl {
-    font-size: 22px !important;
-    line-height: 1.25 !important;
+    font-size: 24px !important;
+    line-height: 1.3 !important;
   }
 
   .museum-page h5 {
-    font-size: 18px !important;
+    font-size: 19px !important;
     line-height: 1.25 !important;
   }
 
@@ -636,7 +690,7 @@
   }
 
   .museum-label {
-    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs md:text-sm font-extrabold;
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm md:text-base font-extrabold;
     color: #0f3d2e;
     border-color: rgba(123, 220, 181, 0.55);
     background-color: rgba(123, 220, 181, 0.18);
@@ -817,6 +871,13 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  /* Force display on desktop screens */
+  @media (min-width: 1024px) {
+    .nav-drawer {
+      display: block !important;
+    }
   }
 
   .nav-drawer-overlay {

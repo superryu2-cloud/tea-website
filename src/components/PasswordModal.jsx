@@ -46,7 +46,6 @@ export default function PasswordModal({ isOpen, onClose, onSuccess }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <h2 className="text-2xl font-extrabold text-stone-900 mb-2">大觀書院</h2>
           <p className="text-sm text-stone-600">請輸入通行密碼</p>
         </div>
 

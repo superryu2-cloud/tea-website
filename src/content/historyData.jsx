@@ -526,39 +526,41 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <p className="text-lg">找不到與「<span className="font-bold text-stone-700">{searchTerm}</span>」相關的事件。</p>
                             </div>
                         ) : (
-                            <div className="space-y-16">
-                                {filteredTimelineData.holland.length > 0 && (
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-orange-200 pb-2 inline-block">荷蘭時期 (1624-1662)</h3>
-                                        <div className="relative border-l-2 border-orange-200 ml-3 space-y-8">
-                                            {filteredTimelineData.holland.map((item, idx) => React.createElement(TimelineRow, { key: `h-${idx}`, ...item }))}
+                            <div className="rounded-3xl bg-gradient-to-b from-amber-50/60 via-white to-sky-50/60 p-6 md:p-10 border border-stone-200/70 shadow-sm">
+                                <div className="space-y-16">
+                                    {filteredTimelineData.holland.length > 0 && (
+                                        <div>
+                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">荷蘭時期 (1624-1662)</h3>
+                                            <div className="relative space-y-10">
+                                                {filteredTimelineData.holland.map((item, idx) => React.createElement(TimelineRow, { key: `h-${idx}`, ...item }))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                                {filteredTimelineData.qing.length > 0 && (
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-sky-200 pb-2 inline-block">滿清時期 (1683-1895)</h3>
-                                        <div className="relative border-l-2 border-sky-200 ml-3 space-y-8">
-                                            {filteredTimelineData.qing.map((item, idx) => React.createElement(TimelineRow, { key: `q-${idx}`, ...item }))}
+                                    )}
+                                    {filteredTimelineData.qing.length > 0 && (
+                                        <div>
+                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">滿清時期 (1683-1895)</h3>
+                                            <div className="relative space-y-10">
+                                                {filteredTimelineData.qing.map((item, idx) => React.createElement(TimelineRow, { key: `q-${idx}`, ...item }))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                                {filteredTimelineData.japan.length > 0 && (
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-red-200 pb-2 inline-block">日治時期 (1895-1945)</h3>
-                                        <div className="relative border-l-2 border-red-200 ml-3 space-y-8">
-                                            {filteredTimelineData.japan.map((item, idx) => React.createElement(TimelineRow, { key: `j-${idx}`, ...item }))}
+                                    )}
+                                    {filteredTimelineData.japan.length > 0 && (
+                                        <div>
+                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">日治時期 (1895-1945)</h3>
+                                            <div className="relative space-y-10">
+                                                {filteredTimelineData.japan.map((item, idx) => React.createElement(TimelineRow, { key: `j-${idx}`, ...item }))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                                {filteredTimelineData.roc.length > 0 && (
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 border-b-2 border-blue-200 pb-2 inline-block">國民政府時期 (1945-1990)</h3>
-                                        <div className="relative border-l-2 border-blue-200 ml-3 space-y-8">
-                                            {filteredTimelineData.roc.map((item, idx) => React.createElement(TimelineRow, { key: `r-${idx}`, ...item }))}
+                                    )}
+                                    {filteredTimelineData.roc.length > 0 && (
+                                        <div>
+                                        <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">國民政府時期 (1945-1990)</h3>
+                                            <div className="relative space-y-10">
+                                                {filteredTimelineData.roc.map((item, idx) => React.createElement(TimelineRow, { key: `r-${idx}`, ...item }))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
                         )}
                     </div>

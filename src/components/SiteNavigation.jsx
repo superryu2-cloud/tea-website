@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronRight, Leaf, Menu, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
 import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
@@ -15,6 +15,17 @@ const NAV_THEMES = [
   { key: 'lp', label: '淺藍（LP）' },
   { key: 'slate', label: '深藍灰（玻璃）' },
   { key: 'graphite', label: '石墨黑（玻璃）' },
+];
+
+const PAPER_THEME_STORAGE_KEY = 'tea.paperTheme';
+const PAPER_THEMES = [
+  { key: 'ivory', label: '牙白紙張' },
+  { key: 'light', label: '淺色紙張' },
+  { key: 'blue', label: '淺藍紙張' },
+  { key: 'dotted', label: '點點紙張' },
+  { key: 'natural', label: '自然紙張' },
+  { key: 'slate', label: '深藍灰紙張' },
+  { key: 'cream', label: '奶油紙張' },
 ];
 
 const ACADEMY_STRUCTURE = [
@@ -60,6 +71,24 @@ const ACADEMY_STRUCTURE = [
     ],
     prefix: '?tab=academy_zhiya_',
   },
+  {
+    key: 'chonghua',
+    label: '崇華',
+    chapters: [
+      { id: '01', title: '第01堂' }, { id: '02', title: '第02堂' }, { id: '03', title: '第03堂' },
+      { id: '04', title: '第04堂' }, { id: '05', title: '第05堂' }, { id: '06', title: '第06堂' },
+      { id: '07', title: '第07堂' }, { id: '08', title: '第08堂' }, { id: '09', title: '第09堂' },
+      { id: '10', title: '第10堂' }, { id: '11', title: '第11堂' }, { id: '12', title: '第12堂' },
+      { id: '13', title: '第13堂' }, { id: '14', title: '第14堂' }, { id: '15', title: '第15堂' },
+      { id: '16', title: '第16堂' }, { id: '17', title: '第17堂' }, { id: '18', title: '第18堂' },
+      { id: '19', title: '第19堂' }, { id: '20', title: '第20堂' }, { id: '21', title: '第21堂' },
+      { id: '22', title: '第22堂' }, { id: '23', title: '第23堂' }, { id: '24', title: '第24堂' },
+      { id: '25', title: '第25堂' }, { id: '26', title: '第26堂' }, { id: '27', title: '第27堂' },
+      { id: '28', title: '第28堂' }, { id: '29', title: '第29堂' }, { id: '30', title: '第30堂' },
+      { id: '31', title: '第31堂' }, { id: '32', title: '第32堂' }, { id: '33', title: '第33堂' },
+    ],
+    prefix: '?tab=academy_chonghua_',
+  },
 ];
 
 export default function SiteNavigation({
@@ -86,19 +115,37 @@ export default function SiteNavigation({
     return NAV_THEMES.some((t) => t.key === stored) ? stored : 'default';
   });
 
+  const [paperTheme, setPaperTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'ivory';
+    const stored = window.localStorage?.getItem(PAPER_THEME_STORAGE_KEY);
+    return PAPER_THEMES.some((t) => t.key === stored) ? stored : 'ivory';
+  });
+
+  const [paperDropdownOpen, setPaperDropdownOpen] = useState(false);
+
   const [academyNavOpen, setAcademyNavOpen] = useState(false);
+  const [chonghuaNavOpen, setChonghuaNavOpen] = useState(false);
   const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
+  const [chonghuaMobileOpen, setChonghuaMobileOpen] = useState(false);
 
 
-  // Secret Trigger Logic
+  // Secret Trigger Logic - Toggle Academy visibility with 5 clicks
   const [secretClickCount, setSecretClickCount] = useState(0);
+
   const handleSecretClick = () => {
-    if (museumUnlocked) return;
     setSecretClickCount((prev) => {
       const next = prev + 1;
       if (next >= 5) {
-        onUnlockRequest?.();
-        return 0;
+        if (!museumUnlocked) {
+          // 未解鎖：顯示密碼框
+          onUnlockRequest?.();
+        } else {
+          // 已解鎖：重新鎖定（隱藏大觀書院）
+          localStorage.removeItem('museumUnlocked');
+          onUnlockRequest?.(false);
+        }
+
+        return 0; // 重置計數器
       }
       return next;
     });
@@ -122,7 +169,18 @@ export default function SiteNavigation({
     }
   }, [navTheme]);
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.documentElement.dataset.paperTheme = paperTheme;
+    try {
+      window.localStorage?.setItem(PAPER_THEME_STORAGE_KEY, paperTheme);
+    } catch {
+      // ignore
+    }
+  }, [paperTheme]);
+
   const themeLabel = useMemo(() => NAV_THEMES.find((t) => t.key === navTheme)?.label ?? NAV_THEMES[0].label, [navTheme]);
+  const paperThemeLabel = useMemo(() => PAPER_THEMES.find((t) => t.key === paperTheme)?.label ?? PAPER_THEMES[0].label, [paperTheme]);
 
   const scrollToHrefWithOffset = (href, options = {}) => {
     if (typeof window === 'undefined') return;
@@ -178,28 +236,30 @@ export default function SiteNavigation({
 
   const navRows = [
     ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured'],
-    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'academy'],
+    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'paper_switcher', 'lang_switcher'],
   ];
 
   return (
-    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${academyNavOpen ? 'nav-drawer-open' : ''}`}>
+    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen) ? 'nav-drawer-open' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center min-h-[68px] py-3">
-          <div className="flex items-center gap-4 cursor-pointer pr-4" onClick={() => goToTab('journey')}>
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl tool-surface tool-surface--strong">
+          <div className="flex items-center gap-5 pr-10">
+            {/* 綠色葉子 Logo - 隱藏的5次點擊功能 */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleSecretClick();
+              }}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-2xl tool-surface tool-surface--strong hover:scale-105 transition-transform cursor-pointer"
+              aria-label="Logo"
+            >
               <Leaf className="h-7 w-7 text-emerald-800" />
-            </div>
-            <div className="leading-tight min-w-[190px]">
+            </button>
+
+            {/* 標題 */}
+            <div className="leading-tight min-w-[190px] px-1 py-0.5" onClick={() => goToTab('journey')} style={{ cursor: 'pointer' }}>
               <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
-              <div
-                className="mt-1 text-xs font-extrabold tracking-[0.28em] text-stone-600 select-none uppercase"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleSecretClick();
-                }}
-              >
-                {i18n.t('site.tagline')}
-              </div>
             </div>
           </div>
 
@@ -218,6 +278,7 @@ export default function SiteNavigation({
                           type="button"
                           onClick={() => {
                             setAcademyNavOpen((v) => !v);
+                            setChonghuaNavOpen(false);
                           }}
                           className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${academyNavOpen ? 'nav-pill--active' : ''}`}
                           aria-expanded={academyNavOpen}
@@ -236,6 +297,36 @@ export default function SiteNavigation({
                             <ChevronDown
                               size={16}
                               className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
+                            />
+                          </span>
+                        </button>
+                      );
+                    } else if (item === 'chonghua') {
+                      // 崇華書院不需要解鎖，始終顯示
+                      content = (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setChonghuaNavOpen((v) => !v);
+                            setAcademyNavOpen(false);
+                          }}
+                          className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600/30 ${chonghuaNavOpen ? 'nav-pill--active' : ''}`}
+                          aria-expanded={chonghuaNavOpen}
+                        >
+                          <span className="inline-flex items-center gap-2">
+                            <span className="nav-pill__label">
+                              <span className="nav-pill__label--flip">
+                                <span className="nav-pill__label-inner">
+                                  <span className="nav-pill__label-front">崇華書院</span>
+                                  <span className="nav-pill__label-back" aria-hidden="true">
+                                    崇華書院
+                                  </span>
+                                </span>
+                              </span>
+                            </span>
+                            <ChevronDown
+                              size={16}
+                              className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaNavOpen ? 'rotate-180' : ''}`}
                             />
                           </span>
                         </button>
@@ -307,6 +398,42 @@ export default function SiteNavigation({
                           </span>
                         </button>
                       );
+                    } else if (item === 'paper_switcher') {
+                      const cyclePaperTheme = () => {
+                        const currentIndex = PAPER_THEMES.findIndex(t => t.key === paperTheme);
+                        const nextIndex = (currentIndex + 1) % PAPER_THEMES.length;
+                        setPaperTheme(PAPER_THEMES[nextIndex].key);
+                      };
+
+                      content = (
+                        <button
+                          type="button"
+                          onClick={cyclePaperTheme}
+                          className="nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30 hover:bg-emerald-50 transition-colors"
+                          aria-label="紙張風格"
+                          title={paperThemeLabel}
+                        >
+                          <Palette size={16} className="text-stone-600" />
+                        </button>
+                      );
+                    } else if (item === 'lang_switcher') {
+                      content = (
+                        <button
+                          type="button"
+                          onClick={i18n.toggleLang}
+                          className="nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30"
+                          aria-label={i18n.t('ui.language')}
+                          title={i18n.t('ui.language')}
+                        >
+                          <span className={`text-sm font-bold transition-all ${i18n.lang === 'zh-Hant' ? 'text-emerald-700' : 'text-stone-400'}`}>
+                            中
+                          </span>
+                          <span className="text-stone-300 text-sm font-light">/</span>
+                          <span className={`text-sm font-bold transition-all ${i18n.lang === 'en' ? 'text-emerald-700' : 'text-stone-400'}`}>
+                            EN
+                          </span>
+                        </button>
+                      );
                     } else {
                       const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
                       content = (
@@ -347,17 +474,7 @@ export default function SiteNavigation({
               </div>
             </div>
 
-            <div className="justify-self-end">
-              <button
-                type="button"
-                onClick={i18n.toggleLang}
-                className="nav-lang-mini"
-                aria-label={i18n.t('ui.language')}
-                title={i18n.t('ui.language')}
-              >
-                {i18n.lang === 'zh-Hant' ? '中' : 'EN'}
-              </button>
-            </div>
+            <div className="justify-self-end" />
           </div>
 
           <div className="xl:hidden flex items-center">
@@ -372,27 +489,64 @@ export default function SiteNavigation({
         </div>
       </div>
 
+      {/* Academy/Chonghua Shared Overlay */}
       <div
-        className={`nav-drawer-overlay ${academyNavOpen ? 'nav-drawer-overlay--open' : ''}`}
+        className={`nav-drawer-overlay ${(academyNavOpen || chonghuaNavOpen) ? 'nav-drawer-overlay--open' : ''}`}
         aria-hidden="true"
-        onClick={() => setAcademyNavOpen(false)}
+        onClick={() => {
+          setAcademyNavOpen(false);
+          setChonghuaNavOpen(false);
+        }}
+        style={{ pointerEvents: (academyNavOpen || chonghuaNavOpen) ? 'auto' : 'none' }}
       />
 
 
 
-      {/* Tier 2 (Desktop): Academy Dropdown (Overlay Drawer) */}
-      <div className={`nav-drawer hidden xl:block ${academyNavOpen ? 'nav-drawer--open' : ''}`}>
+      {/* Tier 2 (Desktop): Academy/Chonghua Dropdown - 合併為單一容器 */}
+      <div className={`nav-drawer ${(academyNavOpen || chonghuaNavOpen) ? 'nav-drawer--open' : ''}`}>
         <div
           className="cement-strip backdrop-blur-md"
           style={{
-            '--nav-underline': 'rgba(16, 185, 129, 0.55)',
-            '--nav-hover-ink': 'rgba(6, 95, 70, 0.95)',
-            '--nav-active-ink': 'rgba(6, 95, 70, 1)',
+            '--nav-underline': chonghuaNavOpen ? 'rgba(14, 165, 233, 0.55)' : 'rgba(16, 185, 129, 0.55)',
+            '--nav-hover-ink': chonghuaNavOpen ? 'rgba(7, 89, 133, 0.95)' : 'rgba(6, 95, 70, 0.95)',
+            '--nav-active-ink': chonghuaNavOpen ? 'rgba(7, 89, 133, 1)' : 'rgba(6, 95, 70, 1)',
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col gap-10">
-              {ACADEMY_STRUCTURE.map((cat) => (
+              {/* 顯示崇華內容 */}
+              {chonghuaNavOpen && (
+                <div>
+                  <div className="text-lg font-bold text-stone-500 mb-3 px-2 border-l-4 border-sky-400">
+                    崇華書院
+                  </div>
+                  <div className="grid grid-cols-6 gap-3">
+                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
+                      const num = chapter.id;
+                      return (
+                        <a
+                          key={num}
+                          href={`?tab=academy_chonghua_${num}`}
+                          className="nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors bg-sky-50 text-sky-950 hover:bg-sky-100 shadow-sm"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            goToTab(`academy_chonghua_${num}`);
+                            setChonghuaNavOpen(false);
+                          }}
+                        >
+                          <div className="w-full text-left flex items-baseline gap-3">
+                            <span className="font-bold text-[18px] block shrink-0">{num}</span>
+                            {chapter.title && <span className="block text-[16px] font-medium leading-snug truncate">{chapter.title}</span>}
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 顯示大觀書院內容 */}
+              {academyNavOpen && ACADEMY_STRUCTURE.filter(cat => cat.key !== 'chonghua').map((cat) => (
                 <div key={cat.key}>
                   <div className="text-lg font-bold text-stone-500 mb-3 px-2 border-l-4 border-stone-300">
                     {cat.label}
@@ -463,9 +617,15 @@ export default function SiteNavigation({
                 <button
                   type="button"
                   onClick={i18n.toggleLang}
-                  className="inline-flex items-center justify-center rounded-full px-3 py-1.5 text-xs font-bold tool-item hover:bg-transparent"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-stone-100/80 hover:bg-stone-200/80 transition-all shadow-sm border border-stone-200/50"
                 >
-                  {i18n.lang === 'zh-Hant' ? '中文' : 'EN'}
+                  <span className={`text-xs font-bold transition-all ${i18n.lang === 'zh-Hant' ? 'text-emerald-700' : 'text-stone-400'}`}>
+                    中
+                  </span>
+                  <span className="text-stone-300 text-xs">/</span>
+                  <span className={`text-xs font-bold transition-all ${i18n.lang === 'en' ? 'text-emerald-700' : 'text-stone-400'}`}>
+                    EN
+                  </span>
                 </button>
               </div>
 
@@ -545,7 +705,7 @@ export default function SiteNavigation({
 
                   <AccordionPanel open={academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
                     <div className="space-y-2 pl-2 border-l border-stone-200">
-                      {ACADEMY_STRUCTURE.map((cat) => {
+                      {ACADEMY_STRUCTURE.filter(cat => cat.key !== 'chonghua').map((cat) => {
                         const isOpen = academyMobileSubOpen[cat.key];
                         return (
                           <div key={cat.key}>
@@ -587,7 +747,7 @@ export default function SiteNavigation({
                                           else goToTab('academy_coming_soon');
                                         } else if (cat.key === 'xueya') {
                                           if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
-                              else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                                          else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
                                           else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
                                           else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
                                           else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
@@ -595,6 +755,13 @@ export default function SiteNavigation({
                                           else if (parseInt(num, 10) === 9) goToTab('academy_xueya_09');
                                           else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
                                           else goToTab('academy_coming_soon');
+                                        } else if (cat.key === 'chonghua') {
+                                          const chapterNum = parseInt(num, 10);
+                                          if (chapterNum >= 1 && chapterNum <= 33) {
+                                            goToTab(`academy_chonghua_${num}`);
+                                          } else {
+                                            goToTab('academy_coming_soon');
+                                          }
                                         } else {
                                           goToTab('academy_coming_soon');
                                         }
@@ -615,6 +782,41 @@ export default function SiteNavigation({
                   </AccordionPanel>
                 </div>
               )}
+
+              {/* Chonghua (Mobile) - 不需要解鎖 */}
+              <div className="mt-2 px-2">
+                <button
+                  type="button"
+                  onClick={() => setChonghuaMobileOpen((v) => !v)}
+                  className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                  aria-expanded={chonghuaMobileOpen}
+                >
+                  <span>崇華書院</span>
+                  <ChevronRight
+                    size={16}
+                    className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
+                  />
+                </button>
+
+                <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
+                  <div className="grid grid-cols-3 gap-2 p-2">
+                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => (
+                      <a
+                        key={chapter.id}
+                        href={`?tab=academy_chonghua_${chapter.id}`}
+                        className="text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          goToTab(`academy_chonghua_${chapter.id}`);
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="font-bold text-lg">{chapter.title}</div>
+                      </a>
+                    ))}
+                  </div>
+                </AccordionPanel>
+              </div>
 
               {/* Tier 3 */}
               {activeTab === 'varieties' ? (

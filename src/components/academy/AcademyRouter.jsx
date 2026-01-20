@@ -18,6 +18,39 @@ import XueyaChapter07 from '../../content/academy/XueyaChapter07';
 import XueyaChapter08 from '../../content/academy/XueyaChapter08';
 import XueyaChapter09 from '../../content/academy/XueyaChapter09';
 import XueyaChapter11 from '../../content/academy/XueyaChapter11';
+import ChonghuaChapter01 from '../../content/academy/ChonghuaChapter01';
+import ChonghuaChapter02 from '../../content/academy/ChonghuaChapter02';
+import ChonghuaChapter03 from '../../content/academy/ChonghuaChapter03';
+import ChonghuaChapter04 from '../../content/academy/ChonghuaChapter04';
+import ChonghuaChapter05 from '../../content/academy/ChonghuaChapter05';
+import ChonghuaChapter06 from '../../content/academy/ChonghuaChapter06';
+import ChonghuaChapter07 from '../../content/academy/ChonghuaChapter07';
+import ChonghuaChapter08 from '../../content/academy/ChonghuaChapter08';
+import ChonghuaChapter09 from '../../content/academy/ChonghuaChapter09';
+import ChonghuaChapter10 from '../../content/academy/ChonghuaChapter10';
+import ChonghuaChapter11 from '../../content/academy/ChonghuaChapter11';
+import ChonghuaChapter12 from '../../content/academy/ChonghuaChapter12';
+import ChonghuaChapter13 from '../../content/academy/ChonghuaChapter13';
+import ChonghuaChapter14 from '../../content/academy/ChonghuaChapter14';
+import ChonghuaChapter15 from '../../content/academy/ChonghuaChapter15';
+import ChonghuaChapter16 from '../../content/academy/ChonghuaChapter16';
+import ChonghuaChapter17 from '../../content/academy/ChonghuaChapter17';
+import ChonghuaChapter18 from '../../content/academy/ChonghuaChapter18';
+import ChonghuaChapter19 from '../../content/academy/ChonghuaChapter19';
+import ChonghuaChapter20 from '../../content/academy/ChonghuaChapter20';
+import ChonghuaChapter21 from '../../content/academy/ChonghuaChapter21';
+import ChonghuaChapter22 from '../../content/academy/ChonghuaChapter22';
+import ChonghuaChapter23 from '../../content/academy/ChonghuaChapter23';
+import ChonghuaChapter24 from '../../content/academy/ChonghuaChapter24';
+import ChonghuaChapter25 from '../../content/academy/ChonghuaChapter25';
+import ChonghuaChapter26 from '../../content/academy/ChonghuaChapter26';
+import ChonghuaChapter27 from '../../content/academy/ChonghuaChapter27';
+import ChonghuaChapter28 from '../../content/academy/ChonghuaChapter28';
+import ChonghuaChapter29 from '../../content/academy/ChonghuaChapter29';
+import ChonghuaChapter30 from '../../content/academy/ChonghuaChapter30';
+import ChonghuaChapter31 from '../../content/academy/ChonghuaChapter31';
+import ChonghuaChapter32 from '../../content/academy/ChonghuaChapter32';
+import ChonghuaChapter33 from '../../content/academy/ChonghuaChapter33';
 
 /**
  * Academy chapter configuration
@@ -119,7 +152,40 @@ const ACADEMY_CHAPTERS = {
         category: '大觀書院 · 學雅',
         title: '第十一堂：紅茶的世界版圖',
         intro: '從茶盜羅伯特·福鈞的傳奇，到小葉種與大葉種的科學差異。本章帶您走遍紅茶的全球版圖，理解品種、分級與沖泡的核心知識。'
-    }
+    },
+    academy_chonghua_01: { component: ChonghuaChapter01, category: '崇華書院', title: '第01堂', intro: '規劃中' },
+    academy_chonghua_02: { component: ChonghuaChapter02, category: '崇華書院', title: '第02堂', intro: '規劃中' },
+    academy_chonghua_03: { component: ChonghuaChapter03, category: '崇華書院', title: '第03堂', intro: '規劃中' },
+    academy_chonghua_04: { component: ChonghuaChapter04, category: '崇華書院', title: '第04堂', intro: '規劃中' },
+    academy_chonghua_05: { component: ChonghuaChapter05, category: '崇華書院', title: '第05堂', intro: '規劃中' },
+    academy_chonghua_06: { component: ChonghuaChapter06, category: '崇華書院', title: '第06堂', intro: '規劃中' },
+    academy_chonghua_07: { component: ChonghuaChapter07, category: '崇華書院', title: '第07堂', intro: '規劃中' },
+    academy_chonghua_08: { component: ChonghuaChapter08, category: '崇華書院', title: '第08堂', intro: '規劃中' },
+    academy_chonghua_09: { component: ChonghuaChapter09, category: '崇華書院', title: '第09堂', intro: '規劃中' },
+    academy_chonghua_10: { component: ChonghuaChapter10, category: '崇華書院', title: '第10堂', intro: '規劃中' },
+    academy_chonghua_11: { component: ChonghuaChapter11, category: '崇華書院', title: '第11堂', intro: '規劃中' },
+    academy_chonghua_12: { component: ChonghuaChapter12, category: '崇華書院', title: '第12堂', intro: '規劃中' },
+    academy_chonghua_13: { component: ChonghuaChapter13, category: '崇華書院', title: '第13堂', intro: '規劃中' },
+    academy_chonghua_14: { component: ChonghuaChapter14, category: '崇華書院', title: '第14堂', intro: '規劃中' },
+    academy_chonghua_15: { component: ChonghuaChapter15, category: '崇華書院', title: '第15堂', intro: '規劃中' },
+    academy_chonghua_16: { component: ChonghuaChapter16, category: '崇華書院', title: '第16堂', intro: '規劃中' },
+    academy_chonghua_17: { component: ChonghuaChapter17, category: '崇華書院', title: '第17堂', intro: '規劃中' },
+    academy_chonghua_18: { component: ChonghuaChapter18, category: '崇華書院', title: '第18堂', intro: '規劃中' },
+    academy_chonghua_19: { component: ChonghuaChapter19, category: '崇華書院', title: '第19堂', intro: '規劃中' },
+    academy_chonghua_20: { component: ChonghuaChapter20, category: '崇華書院', title: '第20堂', intro: '規劃中' },
+    academy_chonghua_21: { component: ChonghuaChapter21, category: '崇華書院', title: '第21堂', intro: '規劃中' },
+    academy_chonghua_22: { component: ChonghuaChapter22, category: '崇華書院', title: '第22堂', intro: '規劃中' },
+    academy_chonghua_23: { component: ChonghuaChapter23, category: '崇華書院', title: '第23堂', intro: '規劃中' },
+    academy_chonghua_24: { component: ChonghuaChapter24, category: '崇華書院', title: '第24堂', intro: '規劃中' },
+    academy_chonghua_25: { component: ChonghuaChapter25, category: '崇華書院', title: '第25堂', intro: '規劃中' },
+    academy_chonghua_26: { component: ChonghuaChapter26, category: '崇華書院', title: '第26堂', intro: '規劃中' },
+    academy_chonghua_27: { component: ChonghuaChapter27, category: '崇華書院', title: '第27堂', intro: '規劃中' },
+    academy_chonghua_28: { component: ChonghuaChapter28, category: '崇華書院', title: '第28堂', intro: '規劃中' },
+    academy_chonghua_29: { component: ChonghuaChapter29, category: '崇華書院', title: '第29堂', intro: '規劃中' },
+    academy_chonghua_30: { component: ChonghuaChapter30, category: '崇華書院', title: '第30堂', intro: '規劃中' },
+    academy_chonghua_31: { component: ChonghuaChapter31, category: '崇華書院', title: '第31堂', intro: '規劃中' },
+    academy_chonghua_32: { component: ChonghuaChapter32, category: '崇華書院', title: '第32堂', intro: '規劃中' },
+    academy_chonghua_33: { component: ChonghuaChapter33, category: '崇華書院', title: '第33堂', intro: '規劃中' }
 };
 
 /**

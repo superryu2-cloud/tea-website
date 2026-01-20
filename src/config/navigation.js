@@ -59,6 +59,11 @@ export const OOLONG_TOC = [
   { href: '#oolong-taiwan', label: '台灣烏龍' },
 ];
 
+export const WHITE_TOC = [
+  { href: '#white-fujian', label: '福建' },
+  { href: '#white-yunnan', label: '雲南' },
+];
+
 export const RED_TOC = [
   { href: '#red-lapsang', label: '正山小種' },
   { href: '#red-jinjunmei', label: '金駿眉' },
