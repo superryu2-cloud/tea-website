@@ -71,10 +71,10 @@ export default function ChapterSidebar({
                     onSelectKey(item.key);
                     setActiveCollapse({ key: item.key, collapsed: false });
                   }}
-                  className={`w-full text-left rounded-xl px-3 py-2.5 transition-colors tool-item chapter-nav-item text-base font-semibold ${isActive ? 'tool-item--active' : ''}`}
+                  className={`w-full text-left rounded-xl px-4 py-3 transition-all duration-200 tool-item chapter-nav-item text-lg font-bold hover:scale-[1.02] hover:shadow-md ${isActive ? 'tool-item--active' : ''}`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">
-                    <span className="min-w-0 font-semibold chapter-label--flip">
+                    <span className="min-w-0 font-bold chapter-label--flip">
                       <span className="chapter-label-inner">
                         <span className="chapter-label-front truncate">{item.label}</span>
                         <span className="chapter-label-back truncate">{item.label}</span>
@@ -82,7 +82,7 @@ export default function ChapterSidebar({
                     </span>
                     {hasSub ? (
                       <ChevronDown
-                        size={16}
+                        size={18}
                         className={`shrink-0 opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isExpanded ? 'rotate-180' : ''}`}
                       />
                     ) : null}

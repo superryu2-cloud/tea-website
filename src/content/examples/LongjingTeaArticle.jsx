@@ -1,7 +1,8 @@
-// 龍井茶文章範例 - 展示如何使用 TeaArticleTemplate 元件
+﻿// 龍井茶文章範例 - 展示如何使用 TeaArticleTemplate 元件
 // 這是一個完整的範例，展示所有可用的排版模組
 
 import React from 'react';
+import { AlertTriangle } from 'lucide-react';
 import {
     ArticleHero,
     FeatureCards,
@@ -150,7 +151,7 @@ export default function LongjingTeaArticle() {
 
                     <InfoBox type="warning">
                         <p className="text-sm leading-relaxed">
-                            ⚠️ <strong>注意：</strong>龍井茶的炒製需要多年經驗，
+                            <AlertTriangle size={16} className="inline text-amber-600" /> <strong>注意：</strong>龍井茶的炒製需要多年經驗，
                             鍋溫過高會焦黃，過低則香氣不足。一個熟練的炒茶師傅需要至少5-10年的訓練。
                         </p>
                     </InfoBox>
@@ -251,7 +252,7 @@ export default function LongjingTeaArticle() {
 
                     <InfoBox type="warning">
                         <p className="text-sm leading-relaxed">
-                            ⚠️ <strong>提醒：</strong>從冰箱取出的茶葉，
+                            <AlertTriangle size={16} className="inline text-amber-600" /> <strong>提醒：</strong>從冰箱取出的茶葉，
                             應先讓其回溫至室溫後再開封，避免水氣凝結影響茶質。
                         </p>
                     </InfoBox>

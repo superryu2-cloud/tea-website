@@ -1,8 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
+import { Trophy, PenTool, Coffee, Flower, Leaf, Sun, Droplet, Mountain, Thermometer, Sprout, Tag, Bug, Globe, ShieldCheck, BookOpen, Ship, TrendingUp, MapPin } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
-import { BookOpen, Globe, Ship, Sprout, TrendingUp, MapPin } from 'lucide-react';
-
 export default function ChonghuaChapter03() {
     return (
         <div className="space-y-12">
@@ -333,7 +332,7 @@ export default function ChonghuaChapter03() {
 
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                                 <h4 className="text-lg font-bold text-stone-800 mb-3 flex items-center gap-2">
-                                    <span className="text-2xl">🏆</span>
+                                    <span className="text-2xl"><Trophy size={24} className="inline" /></span>
                                     歷史地位
                                 </h4>
                                 <p className="text-stone-600 leading-relaxed">
@@ -344,7 +343,7 @@ export default function ChonghuaChapter03() {
 
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                                 <h4 className="text-lg font-bold text-stone-800 mb-3 flex items-center gap-2">
-                                    <span className="text-2xl">✍️</span>
+                                    <span className="text-2xl"><PenTool size={24} className="inline" /></span>
                                     名稱含義
                                 </h4>
                                 <p className="text-stone-600 leading-relaxed">
@@ -534,7 +533,7 @@ export default function ChonghuaChapter03() {
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div className="bg-gradient-to-br from-pink-50 to-rose-50 p-6 rounded-xl">
-                                    <div className="text-5xl mb-4">☕</div>
+                                    <div className="text-5xl mb-4"><Coffee size={32} className="inline" /></div>
                                     <p className="text-stone-600 text-sm">
                                         19世紀英國貴族下午茶場景
                                     </p>
@@ -698,7 +697,7 @@ export default function ChonghuaChapter03() {
                         <h4 className="text-2xl font-bold text-stone-800 mb-6 text-center">大吉嶺的三個採摘季</h4>
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-white p-5 rounded-xl shadow-sm">
-                                <div className="text-3xl mb-3">🌸</div>
+                                <div className="text-3xl mb-3"><Flower size={24} className="inline" /></div>
                                 <h5 className="font-bold text-stone-800 mb-2">春摘（First Flush）</h5>
                                 <p className="text-sm text-stone-600">清新花香，茶湯淺金色</p>
                             </div>
@@ -708,7 +707,7 @@ export default function ChonghuaChapter03() {
                                 <p className="text-sm text-stone-600">麝香葡萄香，最受歡迎</p>
                             </div>
                             <div className="bg-white p-5 rounded-xl shadow-sm">
-                                <div className="text-3xl mb-3">🍂</div>
+                                <div className="text-3xl mb-3"><Leaf size={24} className="inline" /></div>
                                 <h5 className="font-bold text-stone-800 mb-2">秋摘（Autumn Flush）</h5>
                                 <p className="text-sm text-stone-600">醇厚圓潤，風味平衡</p>
                             </div>
@@ -744,7 +743,7 @@ export default function ChonghuaChapter03() {
 
                     <div className="mt-6 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl">
                         <div className="flex items-center gap-4">
-                            <div className="text-5xl">☕ ➜ 🍵</div>
+                            <div className="text-5xl"><Coffee size={32} className="inline" /> ➜ <Coffee size={32} className="inline" /></div>
                             <p className="text-stone-700 leading-relaxed italic">
                                 從咖啡到茶葉的轉型，不僅拯救了錫蘭的經濟，
                                 更開創了一個全新的茶葉帝國時代。
@@ -1018,11 +1017,11 @@ export default function ChonghuaChapter03() {
                                 <span className="text-stone-700">火山灰土壤富含礦物質</span>
                             </div>
                             <div className="flex items-start gap-3">
-                                <span className="text-orange-600 text-xl shrink-0">☀️</span>
+                                <span className="text-orange-600 text-xl shrink-0"><Sun size={20} className="inline text-orange-600" /></span>
                                 <span className="text-stone-700">赤道高地日照充足</span>
                             </div>
                             <div className="flex items-start gap-3">
-                                <span className="text-orange-600 text-xl shrink-0">💧</span>
+                                <span className="text-orange-600 text-xl shrink-0"><Droplet size={20} className="inline text-orange-600" /></span>
                                 <span className="text-stone-700">全年降雨穩定均勻</span>
                             </div>
                         </div>
@@ -1377,21 +1376,21 @@ export default function ChonghuaChapter03() {
                             <h4 className="text-xl font-bold text-stone-800 mb-4">優越的地理環境</h4>
                             <div className="space-y-4">
                                 <div className="flex items-start gap-3">
-                                    <span className="text-blue-600 text-2xl shrink-0">🏔️</span>
+                                    <span className="text-blue-600 text-2xl shrink-0"><Mountain size={20} className="inline text-blue-600" /></span>
                                     <div>
                                         <p className="font-medium text-stone-800">海拔約 600-800 公尺</p>
                                         <p className="text-sm text-stone-600">適中的海拔高度</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
-                                    <span className="text-blue-600 text-2xl shrink-0">🌡️</span>
+                                    <span className="text-blue-600 text-2xl shrink-0"><Thermometer size={20} className="inline text-blue-600" /></span>
                                     <div>
                                         <p className="font-medium text-stone-800">高溫多濕、晨霧多霧</p>
                                         <p className="text-sm text-stone-600">氣候條件優越</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
-                                    <span className="text-blue-600 text-2xl shrink-0">🌱</span>
+                                    <span className="text-blue-600 text-2xl shrink-0"><Sprout size={20} className="inline text-blue-600" /></span>
                                     <div>
                                         <p className="font-medium text-stone-800">且土壤呈酸性</p>
                                         <p className="text-sm text-stone-600">與印度阿薩姆產區的風土極為相似</p>
@@ -1491,7 +1490,7 @@ export default function ChonghuaChapter03() {
                         </div>
 
                         <div className="bg-white p-6 rounded-xl shadow-md text-center">
-                            <div className="text-5xl mb-4">🏆</div>
+                            <div className="text-5xl mb-4"><Trophy size={24} className="inline" /></div>
                             <h4 className="text-xl font-bold text-stone-800 mb-3">極高的國際評價</h4>
                             <p className="text-stone-600 leading-relaxed">
                                 當時的台灣紅茶以「滋味強勁、香氣獨特」著稱，
@@ -1540,7 +1539,7 @@ export default function ChonghuaChapter03() {
 
                         <div className="bg-white p-6 rounded-xl shadow-md">
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="text-4xl">🏷️</div>
+                                <div className="text-4xl"><Tag size={32} className="inline" /></div>
                                 <h4 className="text-xl font-bold text-stone-800">品牌遺產</h4>
                             </div>
                             <p className="text-stone-600 leading-relaxed">
@@ -1676,11 +1675,11 @@ export default function ChonghuaChapter03() {
 
                     <div className="mt-6 grid md:grid-cols-3 gap-4">
                         <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                            <div className="text-3xl mb-2">🐛</div>
+                            <div className="text-3xl mb-2"><Bug size={24} className="inline" /></div>
                             <p className="text-sm font-medium text-stone-800">小綠葉蟬叮咬</p>
                         </div>
                         <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                            <div className="text-3xl mb-2">🌿</div>
+                            <div className="text-3xl mb-2"><Sprout size={24} className="inline" /></div>
                             <p className="text-sm font-medium text-stone-800">茶樹防禦機制</p>
                         </div>
                         <div className="bg-white p-4 rounded-lg shadow-sm text-center">
@@ -1842,7 +1841,7 @@ export default function ChonghuaChapter03() {
                 <AcademyContentBlock title="台灣紅茶在國際市場的當代角色" icon={Globe}>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="bg-white p-6 rounded-xl shadow-md text-center">
-                            <div className="text-5xl mb-4">🏷️</div>
+                            <div className="text-5xl mb-4"><Tag size={32} className="inline" /></div>
                             <h4 className="text-xl font-bold text-stone-800 mb-3">獨特的風味標籤</h4>
                             <p className="text-stone-600 leading-relaxed">
                                 憑藉著「紅玉」的薄荷肉桂香與「蜜香紅茶」的天然蜜味，
@@ -1860,7 +1859,7 @@ export default function ChonghuaChapter03() {
                         </div>
 
                         <div className="bg-white p-6 rounded-xl shadow-md text-center">
-                            <div className="text-5xl mb-4">🌏</div>
+                            <div className="text-5xl mb-4"><Globe size={32} className="inline" /></div>
                             <h4 className="text-xl font-bold text-stone-800 mb-3">文化輸出的載體</h4>
                             <p className="text-stone-600 leading-relaxed">
                                 紅茶作為全球共通的語言，是台灣茶文化走向世界的重要載體，
@@ -2032,7 +2031,7 @@ export default function ChonghuaChapter03() {
                         </div>
 
                         <div className="bg-white p-8 rounded-xl shadow-md text-center">
-                            <div className="text-6xl mb-4">🛡️</div>
+                            <div className="text-6xl mb-4"><ShieldCheck size={32} className="inline" /></div>
                             <h4 className="text-xl font-bold text-stone-800 mb-4">極致安心</h4>
                             <p className="text-stone-600 leading-relaxed">
                                 從茶園到茶杯，確保每一口都是健康與高品質。

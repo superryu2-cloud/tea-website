@@ -150,6 +150,167 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
             </p>
           </div>
         </div>
+      ) : chapter.id === 'white-yunnan' ? (
+        <div className="space-y-8 text-stone-700">
+          {/* 當代地位與工藝核心 */}
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8">
+            <h3 className="text-2xl font-extrabold text-stone-900">雲南白茶的當代地位與工藝核心</h3>
+            <p className="mt-4 leading-relaxed">
+              在茶界的版圖中，若說福建白茶是長年「獨霸江湖的長者」，憑藉深厚的市場根基與規格化的等級傲視群雄；那麼雲南古樹白茶則是近年異軍突起的「初出茅廬的少年」，其一亮相便以大葉種特有的壯碩與生命力吸引了無數資深茶人的目光。雲南白茶具備一種「最接近天然」的戰略價值，它不僅是連結森林原始氣息與城市茶空間的橋樑，更是時間與工藝共同釀造的藝術。
+            </p>
+            <p className="mt-3 leading-relaxed">
+              雲南白茶的核心工藝邏輯在於「不炒不揉」，將人為干預降至最低，使其展現出極致的天然活性。這其中的關鍵在於「萎凋」——這不僅僅是水分的蒸發，更是陽光的溫度、山間微風、環境濕度與製茶人靈魂記憶的深度交織。這種工藝最大限度地保留了茶葉中的營養成分與保健活性，造就了茶湯清雅、靈動且極利身心的感官體驗。
+            </p>
+          </div>
+
+          {/* 歷史文獻與原始傳承 */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6">
+            <h3 className="text-2xl font-extrabold text-stone-900">歷史文獻與雲南白茶的原始傳承</h3>
+            <p className="mt-4 leading-relaxed">
+              雲南白茶絕非現代行銷技術下的產物，其根基深埋於千年的歷史沃土之中。早在唐代，樊綽所著的《蠻書》中便明確記載了「銀生城界諸山」一帶的茶事，並提及了「散收五彩造法」。經考證，這種「五彩造法」本質上就是將採摘的鮮葉進行自然乾燥，這正與現代白茶的核心邏輯高度契合，證明了雲南白茶源遠流長的工藝傳統。
+            </p>
+            <p className="mt-3 leading-relaxed">
+              這種工藝的雛形可追溯至早期的僕人（埔人）。在那個尚未發明鐵鍋殺青技術的原始年代，先民們將樹上採摘的鮮葉直接攤晾乾，不經任何揉捻與炒製。這種質樸的「晾乾法」正是白茶最原始的傳承，並在漫長的時間長河中，從山林角落走進了皇家的視野。
+            </p>
+          </div>
+
+          {/* 景谷大白茶與白龍鬚貢茶 */}
+          <div className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-white p-8">
+            <h3 className="text-2xl font-extrabold text-stone-900">景谷大白茶與白龍鬚貢茶的傳奇故事</h3>
+            <p className="mt-4 leading-relaxed">
+              談及雲南白茶，景谷縣是一個繞不開的座標。這裡陽光充沛、雲霧繚繞，肥沃的土地與平均20度的氣候條件，為大葉種提供了絕佳的生長環境。民間流傳著一個關於「成六」的傳奇：這位力大無窮、每天要吃六碗米的大漢，在瀾滄江（藏江）邊做生意時，驚嘆於當地茶樹的優異，便「偷偷摘得」數十粒茶種帶回秧塔種植。經過一百五十餘年的繁衍，這些茶樹已成為珍貴的文化遺產。
+            </p>
+
+            <h4 className="mt-6 text-xl font-extrabold text-stone-900">白龍鬚貢茶</h4>
+            <p className="mt-3 leading-relaxed">
+              在清代道光年間，由景谷大白茶製成的「白龍鬚貢茶」名揚京城。其工藝較為特殊，包含手工殺青、兩次揉捻、解塊、攤晾與曬乾。由於經過兩次揉捻，它具備了「微發酵」的特質，香氣更顯層次。
+            </p>
+            <p className="mt-3 leading-relaxed">
+              進貢時，茶農會用紅線將茶葉精心編織成「穀穗狀」，外觀白毫顯露、身骨壯碩。這種茶不僅帶有獨特的橄欖香氣，且口感極其高甜、氣感飽足，更因具有解酒、解菸、助消化的功效，被朝廷視為稀世珍品。
+            </p>
+          </div>
+
+          {/* 月光美人的虛與實 */}
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <h3 className="text-2xl font-extrabold text-stone-900">營銷傳奇與工藝真相：月光美人的虛與實</h3>
+            <p className="mt-4 leading-relaxed">
+              在白茶市場中，「月光美人」（月光白）無疑是故事包裝最成功的範例。商家將其描述為由少女在深夜月光下採摘、不見日光、自然發酵，甚至賦予其太極陰陽的道家哲思。然而，剝開詩意的外殼，月光美人的誕生其實是雲南雨季氣候下的產物。
+            </p>
+            <p className="mt-3 leading-relaxed">
+              在雨季，由於缺乏陽光曝曬，茶農不得不將鮮葉移入室內，在無光環境下緩慢陰乾。這種長時間、低溫的乾燥過程，使葉面部分發生緩慢氧化呈現深黑色，而芽頭則因白毫覆蓋保持銀白，形成了視覺上的「陰陽兩面」。
+            </p>
+            <p className="mt-3 rounded-lg bg-blue-50 p-4 text-sm leading-relaxed">
+              儘管行銷故事帶有濾鏡，但其風味確實迷人：它不苦不澀、飽滿醇厚，兼具普洱的根底與烏龍的清香。其最引人入勝之處在於那種「四花四果四密」的豐富香氣，既溫潤又深具層次感。
+            </p>
+          </div>
+
+          {/* 雲南與福建白茶對比 */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6">
+            <h3 className="text-2xl font-extrabold text-stone-900">雲南古樹白茶與福建白茶的深度對比</h3>
+            <p className="mt-4 leading-relaxed">
+              從生物學角度看，雲南古樹白茶與福建白茶有著本質的差異。福建白茶多為小葉種，講究銀針、牡丹、壽眉等嚴格等級；而雲南白茶選用大葉種（喬木種）鮮葉，內含物質如氨基酸與可溶性糖含量更高。這使得雲南白茶更為耐泡，且擁有更深沉的喉韻。
+            </p>
+
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border-l-4 border-emerald-500 bg-emerald-50 p-5">
+                <h4 className="text-lg font-extrabold text-emerald-900">福建白茶</h4>
+                <p className="mt-2 text-sm leading-relaxed">
+                  如「江南美人」，水路細柔、香氣高揚清順，小葉種精緻，等級分明。
+                </p>
+              </div>
+              <div className="rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
+                <h4 className="text-lg font-extrabold text-blue-900">雲南古樹白茶</h4>
+                <p className="mt-2 text-sm leading-relaxed">
+                  如「北方豪放美人」，海拔高、內涵強，雖微帶苦澀但回甘迅猛，大葉種壯碩。
+                </p>
+              </div>
+            </div>
+
+            <h4 className="mt-6 text-xl font-extrabold text-stone-900">核心優勢</h4>
+            <ul className="mt-3 space-y-2 pl-5">
+              <li className="leading-relaxed">
+                <strong>轉化潛力：</strong>雲南古樹白茶多採用「複式萎凋」工藝，保留了極高的轉化潛力。由於物質豐富，存放三年的雲南白茶便能出現老茶才有的「藥香」與「棗香」，其轉化效率遠勝其他品種。
+              </li>
+              <li className="leading-relaxed">
+                <strong>迷人蜜韻：</strong>深入湯感的蜜韻、持久的回甘、長效的香醇度。
+              </li>
+              <li className="leading-relaxed">
+                <strong>存放活性：</strong>低溫萎凋賦予的長期存放活性，越陳越香。
+              </li>
+            </ul>
+          </div>
+
+          {/* 沖泡美學 */}
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8">
+            <h3 className="text-2xl font-extrabold text-stone-900">古樹白茶沖泡美學：七步成茶</h3>
+            <p className="mt-4 leading-relaxed">
+              沖泡古樹白茶不應僅視為技術操作，而應是一場與自然生命力的對話。白茶「不怕悶泡」的特性，使其在 90 至 95 度的水溫下亦能展現其深厚的底蘊。
+            </p>
+
+            <h4 className="mt-6 text-xl font-extrabold text-stone-900">器具準備與比例精煉</h4>
+            <p className="mt-3 leading-relaxed">
+              選用白瓷「敞口蓋碗」能應對大葉種拋鬆的物理特性，水質 pH 值建議維持在 7 至 7.5 之間，以激發香氣。建議茶水比為 1:25（如 125ml 蓋碗配 5g 茶），過濃則易掩蓋其清雅靈動的本色。
+            </p>
+
+            <h4 className="mt-6 text-xl font-extrabold text-stone-900">洗茶與溫潤的核心三部曲</h4>
+            <div className="mt-3 space-y-3">
+              <div className="rounded-lg bg-white p-4">
+                <div className="font-extrabold text-stone-900">乾潤法</div>
+                <p className="mt-2 text-sm leading-relaxed">
+                  利用溫燙蓋碗後的餘熱，投入乾茶並蓋上蓋子，藉溫熱喚醒茶葉的沈睡。
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-4">
+                <div className="font-extrabold text-stone-900">蒸潤法</div>
+                <p className="mt-2 text-sm leading-relaxed">
+                  在五點鐘方向定點注水 1/5，隨即蓋上蓋子，讓水蒸氣由下而上慢慢散發，將茶葉「蒸軟」，此過程約需 15 秒。
+                </p>
+              </div>
+              <div className="rounded-lg bg-white p-4">
+                <div className="font-extrabold text-stone-900">濕潤法</div>
+                <p className="mt-2 text-sm leading-relaxed">
+                  再次注水至 3/4 處，確保葉片徹底潤透後迅速出湯，確保後續湯感乾甜。
+                </p>
+              </div>
+            </div>
+
+            <h4 className="mt-6 text-xl font-extrabold text-stone-900">七步成茶的儀式流程</h4>
+            <ol className="mt-3 space-y-2 pl-5 list-decimal">
+              <li className="leading-relaxed">
+                <strong>背氣取茶：</strong>備好適宜茶具，以恭敬心取出 5 克壯碩的古樹茶。
+              </li>
+              <li className="leading-relaxed">
+                <strong>溫器投茶：</strong>全方位溫燙蓋碗（包含蓋子），趁熱投茶。
+              </li>
+              <li className="leading-relaxed">
+                <strong>溫潤三部：</strong>依序完成乾潤、蒸潤、濕潤，徹底激活茶葉。
+              </li>
+              <li className="leading-relaxed">
+                <strong>正式沖泡：</strong>沿五點鐘方向定點，採用「高溫提香壓運法」，拉高水線再迅速下壓，激發高昂花果香。
+              </li>
+              <li className="leading-relaxed">
+                <strong>出湯分茶：</strong>停留約 10 至 15 秒出湯，注意不要留底，以免影響下泡滋味。
+              </li>
+              <li className="leading-relaxed">
+                <strong>感官巡迴：</strong>觀察其在水中如「雲南花瓣」般漂浮的視覺美感，並細嗅蓋香從第一泡到第六道的奇妙轉變。
+              </li>
+              <li className="leading-relaxed">
+                <strong>品味回甘：</strong>體悟那份深入喉韻的蜜韻，享受茶湯對感官的洗禮。
+              </li>
+            </ol>
+          </div>
+
+          {/* 結語 */}
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <h3 className="text-2xl font-extrabold text-stone-900">回歸茶湯的本質體驗</h3>
+            <p className="mt-4 leading-relaxed">
+              雲南古樹白茶是跨越時間的遺贈。從《蠻書》中的「五彩造法」到清代神祕的「白龍鬚」，從民間傳說的「成六」到現代工藝的細膩追求，它承載了雲南大地的厚重與頑強。這不僅是一杯茶湯，更是生機勃勃的活化石。
+            </p>
+            <p className="mt-3 leading-relaxed text-sm text-stone-600">
+              當我們坐在茶桌前，唯有抱持對自然的敬畏，透過正確的沖泡節奏，才能真正讀懂那份源自原始森林深處的生命律動。這份深沉的回甘與迷人的蜜韻，值得每一位愛茶人虔誠對待，細細品讀。
+            </p>
+          </div>
+        </div>
       ) : (
         <p className="leading-relaxed text-stone-700">內容建置中。</p>
       )}

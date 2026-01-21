@@ -14,9 +14,11 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 import AccordionPanel from '../../components/AccordionPanel';
+import ResizableDivider from '../../components/ResizableDivider';
 
 const STORAGE_KEY = 'tea.sensory.practiceAnswers.v1';
 const REVEAL_KEY = 'tea.sensory.practiceRevealAnswers.v1';
+const SIDEBAR_WIDTH_KEY = 'tea.sensorySidebarWidth';
 
 const BANK_PRESETS = [
   { key: 'tea_tech_c', label: '製茶技術丙級' },
@@ -92,6 +94,17 @@ const getLeadingNumber = (value) => {
   return Number.parseInt(match[1], 10);
 };
 
+const renderFlipText = (text) => (
+  <span className="nav-pill__label--flip">
+    <span className="nav-pill__label-inner">
+      <span className="nav-pill__label-front truncate">{text}</span>
+      <span className="nav-pill__label-back truncate" aria-hidden="true">
+        {text}
+      </span>
+    </span>
+  </span>
+);
+
 const MenuButton = ({ toneKey, isActive, label, count, hint, onClick, right, compact = false }) => {
   const tone = getMenuTone(toneKey);
   const Icon = tone.Icon;
@@ -103,7 +116,7 @@ const MenuButton = ({ toneKey, isActive, label, count, hint, onClick, right, com
     <button
       type="button"
       onClick={onClick}
-      className={`group relative w-full text-left overflow-hidden rounded-2xl border transition will-change-transform ${isActive
+      className={`nav-flip-trigger group relative w-full text-left overflow-hidden rounded-2xl border transition will-change-transform ${isActive
         ? `${activeBorder} ${activeBg} ${activeText} shadow-sm`
         : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white hover:shadow-sm'
         }`}
@@ -118,7 +131,7 @@ const MenuButton = ({ toneKey, isActive, label, count, hint, onClick, right, com
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-3">
-            <div className={`min-w-0 text-base font-semibold leading-tight ${compact ? 'truncate' : ''}`}>{label}</div>
+            <div className={`min-w-0 text-base font-semibold leading-tight ${compact ? 'truncate' : ''}`}>{renderFlipText(label)}</div>
             {count != null ? <div className="shrink-0 text-sm font-semibold opacity-70">({count})</div> : null}
           </div>
           {!compact && hint ? <div className="mt-0.5 text-xs font-semibold text-stone-500">{hint}</div> : null}
@@ -139,14 +152,14 @@ const TopicButton = ({ toneKey, isActive, label, count, onClick }) => {
       type="button"
       onClick={onClick}
       title={label}
-      className={`group relative w-full text-left overflow-hidden rounded-xl border transition-colors ${isActive
+      className={`nav-flip-trigger group relative w-full text-left overflow-hidden rounded-xl border transition-colors ${isActive
         ? `${activeBorder} ${activeBg} ${activeText}`
         : 'border-stone-200 bg-white/70 text-stone-900 hover:bg-white'
         }`}
     >
       <span className={`absolute left-0 top-0 h-full w-1 ${tone.accent} opacity-70 group-hover:opacity-90`} />
       <div className="flex items-center justify-between gap-3 px-4 py-1.5">
-        <span className="min-w-0 flex-1 truncate whitespace-nowrap text-base font-semibold leading-tight">{label}</span>
+        <span className="min-w-0 flex-1 text-base font-semibold leading-tight">{renderFlipText(label)}</span>
         <span className="shrink-0 text-sm font-semibold opacity-70">({count})</span>
       </div>
     </button>
@@ -256,6 +269,13 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     const parsed = safeJsonParse(window.localStorage?.getItem(STORAGE_KEY) ?? '');
     return parsed && typeof parsed === 'object' ? parsed : {};
   });
+  const [sidebarWidth, setSidebarWidth] = useState(() => {
+    if (typeof window === 'undefined') return 420;
+    const raw = window.localStorage?.getItem(SIDEBAR_WIDTH_KEY);
+    const parsed = raw ? Number(raw) : NaN;
+    if (!Number.isFinite(parsed)) return 420;
+    return Math.min(Math.max(parsed, 260), 520);
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -274,6 +294,15 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       // ignore
     }
   }, [revealAnswers]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage?.setItem(SIDEBAR_WIDTH_KEY, String(sidebarWidth));
+    } catch {
+      // ignore
+    }
+  }, [sidebarWidth]);
 
   useEffect(() => {
     setSelectedTopic(activeTopic ?? null);
@@ -644,9 +673,20 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     }, 360);
   };
 
+  const handleSidebarResize = (newWidth) => {
+    const clamped = Math.min(Math.max(newWidth, 260), 520);
+    setSidebarWidth(clamped);
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] gap-6 items-start">
-      <aside className="lg:sticky" style={{ '--sidebar-top': `${sidebarTopPx}px`, top: `var(--sidebar-top)` }}>
+    <div
+      className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-0"
+      style={{ '--sensory-sidebar-width': `${sidebarWidth}px` }}
+    >
+      <aside
+        className="lg:sticky sensory-sidebar w-full lg:w-auto"
+        style={{ '--sidebar-top': `${sidebarTopPx}px`, top: `var(--sidebar-top)` }}
+      >
         <div
           ref={sidebarScrollRef}
           className="space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto"
@@ -793,7 +833,14 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
         </div>
       </aside>
 
-      <main className="min-w-0">
+      <ResizableDivider
+        onResize={handleSidebarResize}
+        minWidth={260}
+        maxWidth={520}
+        className="hidden lg:flex"
+      />
+
+      <main className="min-w-0 w-full lg:pl-8">
         <div className="w-full space-y-4">
           {quickQuestion ? (
             (() => {

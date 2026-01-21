@@ -1,5 +1,5 @@
-import React from 'react';
-import { Sparkles, CheckCircle, FlaskConical, Layers, Tag, Leaf, Coffee, BookOpen } from 'lucide-react';
+﻿import React from 'react';
+import { Sparkles, CheckCircle, FlaskConical, Layers, Tag, Leaf, Coffee, BookOpen, Flower, Drama, Microscope, Flame, Sprout, Mountain, CloudSun, Settings, Lightbulb, Target, FileText, Apple } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
 
 export default function AromaticsChapter() {
@@ -24,21 +24,21 @@ export default function AromaticsChapter() {
         <div className="grid gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4 shadow-sm">
             <div className="flex items-center gap-2 text-base font-extrabold text-purple-700">
-              <span className="text-lg">✨</span>
+              <Sparkles size={18} className="text-purple-700" />
               <span>純正</span>
             </div>
             <p className="mt-2 text-sm text-purple-700/80">無異味、雜味，香型特徵明確</p>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-4 shadow-sm">
             <div className="flex items-center gap-2 text-base font-extrabold text-rose-700">
-              <span className="text-lg">🌸</span>
+              <Flower size={18} className="text-rose-700" />
               <span>高揚</span>
             </div>
             <p className="mt-2 text-sm text-rose-700/80">香氣濃郁、持久、穿透力強</p>
           </div>
           <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 shadow-sm">
             <div className="flex items-center gap-2 text-base font-extrabold text-blue-700">
-              <span className="text-lg">🎭</span>
+              <Drama size={18} className="text-blue-700" />
               <span>層次豐富</span>
             </div>
             <p className="mt-2 text-sm text-blue-700/80">前、中、後段香氣有變化與深度</p>
@@ -46,7 +46,7 @@ export default function AromaticsChapter() {
         </div>
         <div className="rounded-xl border border-amber-100 border-l-4 border-l-amber-400 bg-amber-50/70 p-4">
           <div className="flex items-center gap-2 text-base md:text-lg font-extrabold text-amber-900">
-            <span className="text-lg">💡</span>
+            <Lightbulb size={18} className="text-amber-900" />
             <span>品鑑要點</span>
           </div>
           <p className="mt-2 text-sm text-amber-900/80">
@@ -113,7 +113,7 @@ export default function AromaticsChapter() {
         </div>
         <div className="rounded-xl border border-emerald-100 border-l-4 border-l-emerald-400 bg-emerald-50/70 p-4">
           <div className="flex items-center gap-2 text-base md:text-lg font-extrabold text-emerald-900">
-            <span className="text-lg">🔬</span>
+            <Microscope size={18} className="text-emerald-900" />
             <span>科學補充</span>
           </div>
           <p className="mt-2 text-sm text-emerald-900/80">
@@ -191,37 +191,37 @@ export default function AromaticsChapter() {
         <h4 className="text-base md:text-lg font-extrabold text-stone-900">4.1 按香型分類</h4>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4 space-y-2 text-purple-900/80">
-            <h5 className="text-base font-extrabold text-purple-900">🌸 花香型</h5>
+            <h5 className="text-base font-extrabold text-purple-900 flex items-center gap-2"><Flower size={18} /> 花香型</h5>
             <p>特徵：清雅、高揚、似鮮花香氣</p>
             <p>細分：茉莉香、蘭花香、桂花香、玉蘭香、梔子花香等</p>
             <p>代表茶：文山包種、清香型鐵觀音、鳳凰單叢（芝蘭香）</p>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-4 space-y-2 text-rose-900/80">
-            <h5 className="text-base font-extrabold text-rose-900">🍑 果香型</h5>
+            <h5 className="text-base font-extrabold text-rose-900 flex items-center gap-2"><Apple size={18} /> 果香型</h5>
             <p>特徵：甜潤、飽滿、似成熟水果</p>
             <p>細分：蜜桃香、柑橘香、蘋果香、荔枝香、龍眼香等</p>
             <p>代表茶：東方美人、蜜香紅茶、高發酵烏龍茶</p>
           </div>
           <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 space-y-2 text-emerald-900/80">
-            <h5 className="text-base font-extrabold text-emerald-900">🍃 清香型</h5>
+            <h5 className="text-base font-extrabold text-emerald-900 flex items-center gap-2"><Leaf size={18} /> 清香型</h5>
             <p>特徵：清新、爽朗、似嫩葉清香</p>
             <p>細分：嫩香、毫香、清香、鮮香</p>
             <p>代表茶：龍井、碧螺春、高山烏龍茶</p>
           </div>
           <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 space-y-2 text-amber-900/80">
-            <h5 className="text-base font-extrabold text-amber-900">🔥 熟香型</h5>
+            <h5 className="text-base font-extrabold text-amber-900 flex items-center gap-2"><Flame size={18} /> 熟香型</h5>
             <p>特徵：沉穩、醇厚、烘烤氣息</p>
             <p>細分：焙火香、炒米香、板栗香、焦糖香、炭香</p>
             <p>代表茶：武夷岩茶、傳統鐵觀音、焙火烏龍</p>
           </div>
           <div className="rounded-xl border border-indigo-200 bg-indigo-50/70 p-4 space-y-2 text-indigo-900/80">
-            <h5 className="text-base font-extrabold text-indigo-900">✨ 特殊香型</h5>
+            <h5 className="text-base font-extrabold text-indigo-900 flex items-center gap-2"><Sparkles size={18} /> 特殊香型</h5>
             <p>特徵：獨特、難以描述、產地/品種特徵</p>
             <p>細分：岩韻、觀音韻、蜜韻、陳香、藥香、樟香</p>
             <p>代表茶：武夷岩茶（岩韻）、鐵觀音（觀音韻）、老茶（陳香）</p>
           </div>
           <div className="rounded-xl border border-teal-200 bg-teal-50/70 p-4 space-y-2 text-teal-900/80">
-            <h5 className="text-base font-extrabold text-teal-900">🌿 青草/木質香型</h5>
+            <h5 className="text-base font-extrabold text-teal-900 flex items-center gap-2"><Sprout size={18} /> 青草/木質香型</h5>
             <p>特徵：自然、樸實、植物本味</p>
             <p>細分：青草香、竹葉香、松木香、藥草香</p>
             <p>代表茶：生普洱、部分綠茶、輕發酵茶</p>
@@ -278,7 +278,7 @@ export default function AromaticsChapter() {
       <SectionCard title="五、影響香氣的因素" icon={Leaf}>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-emerald-900">🌱 品種因素</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-emerald-900 flex items-center gap-2"><Sprout size={20} /> 品種因素</h4>
             <p className="text-sm text-emerald-900/80">不同茶樹品種的香氣基因表達不同，形成獨特的「品種香」：</p>
             <ul className="list-disc list-inside space-y-2 text-sm text-emerald-900/80">
               <li>青心烏龍：花香明顯</li>
@@ -288,7 +288,7 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-sky-900">🏔️ 產地與風土</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-sky-900 flex items-center gap-2"><Mountain size={20} /> 產地與風土</h4>
             <p className="text-sm text-sky-900/80">海拔、氣候、土壤共同塑造產地特徵香：</p>
             <ul className="list-disc list-inside space-y-2 text-sm text-sky-900/80">
               <li>高山茶：清香、花香顯著</li>
@@ -298,7 +298,7 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-amber-900">🌤️ 季節與氣候</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-amber-900 flex items-center gap-2"><CloudSun size={20} /> 季節與氣候</h4>
             <p className="text-sm text-amber-900/80">採摘季節顯著影響香氣表現：</p>
             <ul className="list-disc list-inside space-y-2 text-sm text-amber-900/80">
               <li>春茶：香氣最佳，清雅高揚</li>
@@ -308,7 +308,7 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-rose-200 bg-rose-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-rose-900">⚙️ 製程工藝</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-rose-900 flex items-center gap-2"><Settings size={20} /> 製程工藝</h4>
             <p className="text-sm text-rose-900/80">工藝是香氣調控的核心手段：</p>
             <ul className="list-disc list-inside space-y-2 text-sm text-rose-900/80">
               <li>萎凋程度：影響花香形成</li>
@@ -323,7 +323,7 @@ export default function AromaticsChapter() {
       <SectionCard title="六、香氣的品鑑與描述" icon={Coffee}>
         <div className="space-y-6">
           <div className="space-y-3">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900">🎯 專業品鑑步驟</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><Target size={20} /> 專業品鑑步驟</h4>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4">
                 <div className="text-base font-extrabold text-purple-900">乾香（干茶香）</div>
@@ -341,7 +341,7 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-stone-200 bg-white/80 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900">💡 品鑑技巧</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><Lightbulb size={20} /> 品鑑技巧</h4>
             <ul className="list-disc list-inside space-y-2 text-sm text-stone-700">
               <li>深呼吸法：深吸一口氣，讓香氣充分進入鼻腔</li>
               <li>多次聞香：前、中、後段香氣會有變化</li>
@@ -351,7 +351,7 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-stone-200 bg-white/80 p-5 space-y-3">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900">📝 常用香氣描述詞彙</h4>
+            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><FileText size={20} /> 常用香氣描述詞彙</h4>
             <div className="flex flex-wrap gap-2 text-sm text-stone-700">
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1">清雅</span>
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1">高揚</span>

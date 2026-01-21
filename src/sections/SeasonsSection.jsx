@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AtlasDockLayout from '../components/AtlasDockLayout';
 import CollapsibleSidebar from '../components/CollapsibleSidebar';
 import FourSeasonsSection from '../content/seasons/FourSeasonsSection';
@@ -8,15 +8,20 @@ import { SEASONS_SECTIONS } from '../config/navigation';
 export default function SeasonsSection({ siteNavHeightPx }) {
     const [activeSeasonSection, setActiveSeasonSection] = useState('four-seasons');
     const [activeSeasonHref, setActiveSeasonHref] = useState(null);
+    const solarTermHrefs = new Set(
+        (SEASONS_SECTIONS.find((section) => section.key === 'solar-terms')?.children ?? []).map((child) => child.href)
+    );
 
     const scrollToSeasonSection = (href) => {
         if (typeof window === 'undefined') return;
         if (!href || !href.startsWith('#')) return;
 
-        if (activeSeasonSection === 'solar-terms') {
+        if (solarTermHrefs.has(href)) {
+            if (activeSeasonSection !== 'solar-terms') {
+                setActiveSeasonSection('solar-terms');
+            }
             setActiveSeasonHref(href);
             window.history.replaceState(null, '', href);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
 
@@ -33,6 +38,29 @@ export default function SeasonsSection({ siteNavHeightPx }) {
             setActiveSeasonHref(href);
         }
     };
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        if (activeSeasonSection !== 'solar-terms' || !activeSeasonHref) return;
+
+        let attempts = 0;
+        const tryScroll = () => {
+            const targetId = activeSeasonHref.slice(1);
+            const element = document.getElementById(targetId);
+            if (element) {
+                const navHeight = document.getElementById('site-nav')?.getBoundingClientRect().height || 0;
+                const offset = navHeight + 20;
+                const y = element.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+                return;
+            }
+            attempts += 1;
+            if (attempts > 30) return;
+            window.setTimeout(tryScroll, 50);
+        };
+
+        tryScroll();
+    }, [activeSeasonSection, activeSeasonHref]);
 
     return (
         <div className="museum-page">

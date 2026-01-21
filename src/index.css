@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -102,7 +102,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Light (淺色紙張) */
+  /* Paper Texture Theme: Light (瘛箄蝝撐) */
   :root[data-paper-theme='light'] body {
     background-color: #faf8f3;
     background-image: url('/images/paper_texture_light.png');
@@ -111,7 +111,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Ivory (牙白紙張) */
+  /* Paper Texture Theme: Ivory (?蝝撐) */
   :root[data-paper-theme='ivory'] body {
     background-color: #f5f3ed;
     background-image: url('/images/paper_texture_ivory.png');
@@ -120,7 +120,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Blue (淺藍紙張) */
+  /* Paper Texture Theme: Blue (瘛箄?蝝撐) */
   :root[data-paper-theme='blue'] body {
     background-color: #e8f4f8;
     background-image: url('/images/paper_texture_blue.png');
@@ -129,7 +129,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Dotted (點點紙張) */
+  /* Paper Texture Theme: Dotted (暺?蝝撐) */
   :root[data-paper-theme='dotted'] body {
     background-color: #f8f6f2;
     background-image: url('/images/paper_texture_dotted.png');
@@ -138,7 +138,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Natural (自然紙張) */
+  /* Paper Texture Theme: Natural (?芰蝝撐) */
   :root[data-paper-theme='natural'] body {
     background-color: #f5f1e8;
     background-image: url('/images/paper_texture_natural.png');
@@ -147,7 +147,7 @@
     background-position: 0 0;
   }
 
-  /* Paper Texture Theme: Slate (深藍灰紙張) */
+  /* Paper Texture Theme: Slate (瘛梯??啁?撘? */
   :root[data-paper-theme='slate'] body {
     background-color: #4a5c6a;
     background-image: url('/images/paper_texture_slate.png');
@@ -157,7 +157,7 @@
     color: #e8e8e8;
   }
 
-  /* Paper Texture Theme: Cream (奶油紙張) */
+  /* Paper Texture Theme: Cream (憟嗆硃蝝撐) */
   :root[data-paper-theme='cream'] body {
     background-color: #f8f6f0;
     background-image: url('/images/paper_texture_cream.png');
@@ -593,7 +593,7 @@
     text-decoration-color: rgba(239, 68, 68, 0.4);
   }
 
-  /* Readability: force higher contrast for “muted” utility colors in content. */
+  /* Readability: force higher contrast for ?uted??utility colors in content. */
   .museum-page .text-stone-500 {
     color: rgba(51, 65, 85, 0.96) !important;
   }
@@ -780,6 +780,34 @@
     background-color: rgba(255, 255, 255, 0.96);
   }
 
+  .ceremony-tab {
+    font-size: 18px;
+    padding: 0.75rem 1.6rem;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: 0 12px 22px rgba(15, 23, 42, 0.12);
+  }
+
+  .ceremony-tab:hover {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+
+  .ceremony-tab .nav-pill__label--flip {
+    --nav-flip-line: 1.5em;
+    line-height: 1.5;
+  }
+
+  .ceremony-tab.museum-tab-active {
+    background-color: rgba(16, 185, 129, 0.22);
+    border-color: rgba(16, 185, 129, 0.5);
+    color: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 12px 24px rgba(16, 185, 129, 0.25);
+  }
+
+  .ceremony-tab.museum-tab-active .nav-pill__label-back {
+    color: rgba(6, 78, 59, 0.98);
+  }
+
   .museum-tab-active {
     border-color: rgba(123, 220, 181, 0.7);
     background-color: rgba(123, 220, 181, 0.18);
@@ -932,7 +960,7 @@
     transform: translateY(0);
   }
 
-  /* Label flip (text) — iWare-like */
+  /* Label flip (text) ??iWare-like */
   .nav-pill__label--flip {
     --nav-flip-line: 1.35em;
     position: relative;
@@ -954,12 +982,23 @@
     letter-spacing: 0.02em;
   }
 
-  .nav-pill__label-back {
-    color: var(--nav-hover-ink, rgba(6, 95, 70, 0.98));
-  }
+.nav-pill__label-back {
+  color: var(--nav-hover-ink, rgba(6, 95, 70, 0.98));
+}
+
+.text-outline-white {
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.92),
+    1px -1px 0 rgba(255, 255, 255, 0.92),
+    -1px 1px 0 rgba(255, 255, 255, 0.92),
+    1px 1px 0 rgba(255, 255, 255, 0.92);
+}
 
   .nav-pill:hover .nav-pill__label--flip .nav-pill__label-inner,
-  .nav-pill:focus-visible .nav-pill__label--flip .nav-pill__label-inner {
+  .nav-pill:focus-visible .nav-pill__label--flip .nav-pill__label-inner,
+  .nav-flip-trigger:hover .nav-pill__label--flip .nav-pill__label-inner,
+  .nav-flip-trigger:focus-visible .nav-pill__label--flip .nav-pill__label-inner,
+  .nav-flip-trigger:active .nav-pill__label--flip .nav-pill__label-inner {
     transform: translateY(calc(var(--nav-flip-line) * -1));
   }
 
@@ -1124,6 +1163,20 @@
   .museum-tab-active:active {
     background-color: rgba(16, 185, 129, 0.20);
   }
+
+  @media (min-width: 768px) {
+    .featured-sidebar {
+      width: var(--featured-sidebar-width, 260px);
+      flex: 0 0 var(--featured-sidebar-width, 260px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sensory-sidebar {
+      width: var(--sensory-sidebar-width, 420px);
+      flex: 0 0 var(--sensory-sidebar-width, 420px);
+    }
+  }
 }
 
 @layer utilities {
@@ -1236,4 +1289,287 @@
 
 .museum-panel::-webkit-scrollbar-thumb:active {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.85) 0%, rgba(245, 158, 11, 0.75) 100%);
+}
+/* Wavy Card Border Effect */
+.wavy-card {
+  position: relative;
+  overflow: visible;
+  box-shadow: 
+    0 2px 8px rgba(251, 191, 36, 0.1),
+    0 4px 16px rgba(245, 158, 11, 0.08),
+    0 8px 24px rgba(251, 191, 36, 0.06);
+}
+
+.wavy-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(245, 158, 11, 0.25) 25%,
+    rgba(251, 191, 36, 0.2) 50%,
+    rgba(245, 158, 11, 0.15) 75%,
+    rgba(251, 191, 36, 0.3) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wavy-card:hover::before {
+  opacity: 1;
+}
+
+.wavy-card:hover {
+  box-shadow: 
+    0 4px 12px rgba(251, 191, 36, 0.15),
+    0 8px 24px rgba(245, 158, 11, 0.12),
+    0 16px 32px rgba(251, 191, 36, 0.1);
+}
+/* Museum Card with Wavy Border Effect */
+.museum-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.museum-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.25) 0%,
+    rgba(245, 158, 11, 0.2) 25%,
+    rgba(251, 191, 36, 0.15) 50%,
+    rgba(245, 158, 11, 0.1) 75%,
+    rgba(251, 191, 36, 0.25) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.museum-card:hover::before {
+  opacity: 1;
+}
+
+.museum-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(251, 191, 36, 0.15),
+    0 8px 24px rgba(245, 158, 11, 0.12),
+    0 16px 32px rgba(251, 191, 36, 0.1);
+}
+/* Museum Label with Yellow Glow Effect */
+.museum-label {
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 2px 6px rgba(251, 191, 36, 0.1),
+    0 4px 12px rgba(245, 158, 11, 0.08);
+}
+
+.museum-label::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(245, 158, 11, 0.25) 50%,
+    rgba(251, 191, 36, 0.3) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.museum-label:hover::before {
+  opacity: 1;
+}
+
+.museum-label:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 10px rgba(251, 191, 36, 0.2),
+    0 8px 20px rgba(245, 158, 11, 0.15),
+    0 12px 28px rgba(251, 191, 36, 0.12);
+}
+/* Glow Button Effect for Footer Links */
+.glow-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(245, 158, 11, 0.25) 50%,
+    rgba(251, 191, 36, 0.3) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glow-button:hover::before {
+  opacity: 1;
+}
+
+.glow-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 10px rgba(251, 191, 36, 0.18),
+    0 8px 20px rgba(245, 158, 11, 0.14),
+    0 12px 28px rgba(251, 191, 36, 0.1);
+}
+/* ========================================
+   Decorative Elements Animation System
+   ======================================== */
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-15px) rotate(5deg); 
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(-5deg); 
+  }
+}
+
+/* Sway Animation */
+@keyframes sway {
+  0%, 100% { 
+    transform: rotate(-3deg); 
+  }
+  50% { 
+    transform: rotate(3deg); 
+  }
+}
+
+/* Gentle Pulse */
+@keyframes gentle-pulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+/* Decoration Classes */
+.decoration-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.decoration-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.decoration-sway {
+  animation: sway 3s ease-in-out infinite;
+}
+
+.decoration-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+/* Base Decoration Styles */
+.tea-decoration {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.tea-decoration-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Corner Decorations */
+.corner-decoration {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+.corner-decoration-tl {
+  top: -8px;
+  left: -8px;
+}
+
+.corner-decoration-tr {
+  top: -8px;
+  right: -8px;
+  transform: scaleX(-1);
+}
+
+.corner-decoration-bl {
+  bottom: -8px;
+  left: -8px;
+  transform: scaleY(-1);
+}
+
+.corner-decoration-br {
+  bottom: -8px;
+  right: -8px;
+  transform: scale(-1);
+}
+
+/* Floating Background Decorations */
+.floating-bg-decoration {
+  position: fixed;
+  pointer-events: none;
+  font-size: 3rem;
+  opacity: 0.18;
+  z-index: 0;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
 import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
@@ -108,6 +108,20 @@ export default function SiteNavigation({
 }) {
   const journeyLabel = splitNavLabel(String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, ''));
   const atlasLabel = splitNavLabel(String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, ''));
+  const academyLabel = '大觀書院';
+  const chonghuaLabel = '崇華書院';
+  const renderFlipLabel = (label) => (
+    <span className="nav-pill__label">
+      <span className="nav-pill__label--flip">
+        <span className="nav-pill__label-inner">
+          <span className="nav-pill__label-front">{label}</span>
+          <span className="nav-pill__label-back" aria-hidden="true">
+            {label}
+          </span>
+        </span>
+      </span>
+    </span>
+  );
 
   const [navTheme, setNavTheme] = useState(() => {
     if (typeof window === 'undefined') return 'default';
@@ -228,7 +242,7 @@ export default function SiteNavigation({
 
   const isAcademyImplemented = (catKey, num) => {
     const implemented = {
-      zhiya: ['02', '03', '04', '05', '06', '07', '09', '10'],
+      zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '05', '06', '07', '08', '09', '11'],
     };
     return implemented[catKey]?.includes(num);
@@ -255,11 +269,13 @@ export default function SiteNavigation({
               aria-label="Logo"
             >
               <Leaf className="h-7 w-7 text-emerald-800" />
+              
             </button>
 
             {/* 標題 */}
             <div className="leading-tight min-w-[190px] px-1 py-0.5" onClick={() => goToTab('journey')} style={{ cursor: 'pointer' }}>
               <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
+              
             </div>
           </div>
 
@@ -535,8 +551,8 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-bold text-[18px] block shrink-0">{num}</span>
-                            {chapter.title && <span className="block text-[16px] font-medium leading-snug truncate">{chapter.title}</span>}
+                            <span className="font-bold text-[18px] block shrink-0">{renderFlipLabel(num)}</span>
+                            {chapter.title && (<span className="block text-[16px] font-medium leading-snug truncate">{renderFlipLabel(chapter.title)}</span>)}
                           </div>
                         </a>
                       );
@@ -574,6 +590,7 @@ export default function SiteNavigation({
                               else if (parseInt(num, 10) === 6) goToTab('academy_zhiya_06');
                               else if (parseInt(num, 10) === 7) goToTab('academy_zhiya_07');
                               else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
+                              else if (parseInt(num, 10) === 14) goToTab('academy_zhiya_14');
                               else goToTab('academy_coming_soon');
                             } else if (cat.key === 'xueya') {
                               if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
@@ -592,8 +609,8 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-bold text-[18px] block shrink-0">{num}</span>
-                            {chapter.title && <span className="block text-[16px] font-medium leading-snug truncate">{chapter.title}</span>}
+                            <span className="font-bold text-[18px] block shrink-0">{renderFlipLabel(num)}</span>
+                            {chapter.title && (<span className="block text-[16px] font-medium leading-snug truncate">{renderFlipLabel(chapter.title)}</span>)}
                           </div>
                         </a>
                       );
@@ -666,10 +683,10 @@ export default function SiteNavigation({
                 <button
                   type="button"
                   onClick={() => goToTab('sensory')}
-                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'sensory' ? 'tool-item--active' : ''
+                  className={`nav-flip-trigger px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'sensory' ? 'tool-item--active' : ''
                     }`}
                 >
-                  {String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, '')}
+                  {renderFlipLabel(String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, ''))}
                 </button>
 
                 {/* All Atlas items */}
@@ -693,10 +710,10 @@ export default function SiteNavigation({
                   <button
                     type="button"
                     onClick={() => setAcademyNavOpen((v) => !v)}
-                    className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                    className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
                     aria-expanded={academyNavOpen}
                   >
-                    <span>大觀書院</span>
+                    {renderFlipLabel(academyLabel)}
                     <ChevronRight
                       size={16}
                       className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
@@ -729,7 +746,7 @@ export default function SiteNavigation({
                                     <a
                                       key={num}
                                       href={`${cat.prefix}${num}`}
-                                      className={`text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
+                                      className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
                                         ? 'bg-amber-50 text-amber-800 shadow-sm'
                                         : 'bg-white text-stone-600 shadow-sm'
                                         }`}
@@ -744,6 +761,7 @@ export default function SiteNavigation({
                                           else if (parseInt(num, 10) === 6) goToTab('academy_zhiya_06');
                                           else if (parseInt(num, 10) === 7) goToTab('academy_zhiya_07');
                                           else if (parseInt(num, 10) === 9) goToTab('academy_zhiya_09');
+                                          else if (parseInt(num, 10) === 14) goToTab('academy_zhiya_14');
                                           else goToTab('academy_coming_soon');
                                         } else if (cat.key === 'xueya') {
                                           if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
@@ -768,8 +786,8 @@ export default function SiteNavigation({
                                         setMobileMenuOpen(false);
                                       }}
                                     >
-                                      <div className="font-bold text-lg">第{num}堂</div>
-                                      {chapter.title && <div className="truncate opacity-75 mt-0.5 text-sm">{chapter.title}</div>}
+                                      <div className="font-bold text-lg">{renderFlipLabel(`?${num}?`)}</div>
+                                      {chapter.title && (<div className="truncate opacity-75 mt-0.5 text-sm">{renderFlipLabel(chapter.title)}</div>)}
                                     </a>
                                   );
                                 })}
@@ -788,10 +806,10 @@ export default function SiteNavigation({
                 <button
                   type="button"
                   onClick={() => setChonghuaMobileOpen((v) => !v)}
-                  className="w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                  className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
                   aria-expanded={chonghuaMobileOpen}
                 >
-                  <span>崇華書院</span>
+                  {renderFlipLabel(chonghuaLabel)}
                   <ChevronRight
                     size={16}
                     className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
@@ -804,14 +822,14 @@ export default function SiteNavigation({
                       <a
                         key={chapter.id}
                         href={`?tab=academy_chonghua_${chapter.id}`}
-                        className="text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
+                        className="nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
                         onClick={(e) => {
                           e.preventDefault();
                           goToTab(`academy_chonghua_${chapter.id}`);
                           setMobileMenuOpen(false);
                         }}
                       >
-                        <div className="font-bold text-lg">{chapter.title}</div>
+                        <div className="font-bold text-lg">{renderFlipLabel(chapter.title)}</div>
                       </a>
                     ))}
                   </div>

@@ -1,6 +1,7 @@
-// Auto-extracted from src/App.jsx
+﻿// Auto-extracted from src/App.jsx
 
 import React from 'react';
+import { Shield, PartyPopper, AlertTriangle, Info } from 'lucide-react';
 import { Clock, Flame, Leaf, Map, Search, Star, TrendingUp, Scale } from 'lucide-react';
 import { dongdingTimeline } from '../../data/historyCulture';
 
@@ -362,7 +363,7 @@ export default function DongDingContent() {
                                             <div>
                                                 <h5 className="font-bold text-stone-800 mb-2">為什麼要買比賽茶？</h5>
                                                 <ul className="space-y-2 text-sm text-stone-600">
-                                                    <li className="flex items-start">🛡️ <span><strong>安全保障</strong>：嚴格驗DNA（確保100%台灣茶）、驗藥殘。買的是一個安全的市場機制。</span></li>
+                                                    <li className="flex items-start"><Shield size={18} className="inline" /> <span><strong>安全保障</strong>：嚴格驗DNA（確保100%台灣茶）、驗藥殘。買的是一個安全的市場機制。</span></li>
                                                     <li className="flex items-start">👀 <span><strong>外觀門檻</strong>：一定要撿枝（挑梗），視覺上「全部圓圓的」才有分數。</span></li>
                                                     <li className="text-xs text-stone-500 mt-1">註：民間不比賽的茶不一定不好，只是外型或焙法風格不同。</li>
                                                 </ul>
@@ -377,7 +378,7 @@ export default function DongDingContent() {
                                         </div>
 
                                         <div className="bg-amber-100/50 p-4 rounded-lg">
-                                            <h5 className="font-bold text-amber-900 mb-2 flex items-center">🎉 6月8日：茶葉嘉年華</h5>
+                                            <h5 className="font-bold text-amber-900 mb-2 flex items-center"><PartyPopper size={18} className="inline" /> 6月8日：茶葉嘉年華</h5>
                                             <p className="text-sm text-stone-700 mb-2">
                                                 每年春茶頒獎通常在鹿谷農會大廣場。請帶著你的杯子去！
                                             </p>
@@ -805,9 +806,9 @@ export default function DongDingContent() {
                                 <h5 className="font-bold text-lg text-green-800 mb-3 text-center">清香型高山茶 (越青/發酵輕)</h5>
                                 <ul className="space-y-2 text-sm text-stone-600">
                                     <li className="flex items-center"><span className="mr-2">👍</span> 香氣揚、吸引人、如青春少女</li>
-                                    <li className="flex items-center"><span className="mr-2">⚠️</span> 茶性較利，易傷胃</li>
-                                    <li className="flex items-center"><span className="mr-2">⚠️</span> 咖啡因敏感者需注意</li>
-                                    <li className="flex items-center"><span className="mr-2">ℹ️</span> 喉韻相對較弱</li>
+                                    <li className="flex items-center"><span className="mr-2"><AlertTriangle size={16} className="inline" /></span> 茶性較利，易傷胃</li>
+                                    <li className="flex items-center"><span className="mr-2"><AlertTriangle size={16} className="inline" /></span> 咖啡因敏感者需注意</li>
+                                    <li className="flex items-center"><span className="mr-2"><Info size={16} className="inline" /></span> 喉韻相對較弱</li>
                                 </ul>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-600">
@@ -816,7 +817,7 @@ export default function DongDingContent() {
                                     <li className="flex items-center"><span className="mr-2">👍</span> 醇厚深沉、喉韻強、如博學學士</li>
                                     <li className="flex items-center"><span className="mr-2">👍</span> 茶性溫和，較不傷胃</li>
                                     <li className="flex items-center"><span className="mr-2">👍</span> 耐沖泡，底韻足</li>
-                                    <li className="flex items-center"><span className="mr-2">ℹ️</span> 花香感較弱，重火氣</li>
+                                    <li className="flex items-center"><span className="mr-2"><Info size={16} className="inline" /></span> 花香感較弱，重火氣</li>
                                 </ul>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Star, Globe, Leaf, Ship, Mountain, Sparkles, TrendingUp } from 'lucide-react';
 
 /**
@@ -113,7 +113,7 @@ export default function OolongTeaVerticalTimeline() {
 
                     <div className="flex justify-center my-6">
                         <div className="bg-cyan-100 border-2 border-cyan-400 px-6 py-4 rounded-xl shadow-md max-w-md text-center">
-                            <div className="font-bold text-cyan-900 text-lg mb-2">🍃 武夷岩茶</div>
+                            <div className="font-bold text-cyan-900 text-lg mb-2"><Leaf size={18} className="inline" /> 武夷岩茶</div>
                             <div className="text-cyan-800 text-sm">半發酵茶的代表 · 岩韻 · 做青工藝</div>
                         </div>
                     </div>
@@ -208,7 +208,7 @@ export default function OolongTeaVerticalTimeline() {
 
                 {/* 工藝特色 */}
                 <div className="mt-8 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200">
-                    <div className="font-bold text-amber-900 mb-3">🔬 青茶工藝核心</div>
+                    <div className="font-bold text-amber-900 mb-3"><Microscope size={18} className="inline" /> 青茶工藝核心</div>
                     <div className="grid md:grid-cols-3 gap-4 text-sm">
                         <div>
                             <div className="font-bold text-stone-800 mb-1">萎凋</div>

@@ -1,0 +1,130 @@
+﻿import React from 'react';
+import AcademySection from '../../components/academy/AcademySection';
+import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
+import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
+import { BookOpen, Eye, Globe, Beaker, Coffee, Sparkles, Users } from 'lucide-react';
+
+export default function ZhiyaChapter14() {
+    return (
+        <div className="space-y-12">
+            {/* 章節標題 */}
+            <AcademySection
+                id="zhiya-14"
+                title="紅茶品評、歷史與沖泡實踐全解析"
+                label="ACADEMY · ZHIYA · CH14"
+                subtitle="從感官品評到文化傳承的完整旅程"
+            >
+                {/* 章節導言 */}
+                <AcademyContentBlock title="課程概述" icon={BookOpen}>
+                    <div className="prose prose-stone max-w-none">
+                        <p className="text-lg leading-relaxed">
+                            本章節將帶您深入探索紅茶的世界，從專業品評技巧、嚴謹的評審流程，
+                            到紅茶的全球傳播史，再到實用的沖泡技術與文化意涵。
+                            這是一場連結感官、知識與美學的完整學習旅程。
+                        </p>
+                    </div>
+                </AcademyContentBlock>
+
+                {/* 第一部分：紅茶品評入門 */}
+                <AcademyContentBlock title="紅茶品評入門：從滋味與外觀談起" icon={Eye}>
+                    <div className="prose prose-stone max-w-none space-y-6">
+                        <p className="text-lg leading-relaxed">
+                            品評一杯紅茶，不僅是單純感受其香氣與滋味，更是理解其品種特性、製作工藝與保存狀態的起點。
+                            這是一門連結感官與知識的藝術，讓我們得以窺見茶葉從茶園到茶杯的完整旅程。
+                            本章節將從學員們親手製作的紅茶初步品評出發，系統性地介紹大葉種紅茶應有的核心滋味特徵，
+                            並闡述如何透過觀察茶乾的外觀，對其品質做出專業的初步判斷。
+                        </p>
+
+                        {/* 大葉種紅茶的滋味精髓 */}
+                        <div className="mt-8">
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">大葉種紅茶的滋味精髓</h4>
+
+                            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl border-l-4 border-amber-500 mb-6">
+                                <p className="text-stone-700 leading-relaxed">
+                                    大葉種紅茶的品評，首重其<strong>「滋味」的飽滿度與結構感</strong>。
+                                    與小葉種紅茶追求的「甜甜順順」不同，優質的大葉種紅茶應具備滋味飽滿、強勁度與恰到好處的收斂感。
+                                    這種強勁的風味特質，使其成為搭配餐點或糕點的理想伴侶，
+                                    此一功能性的搭配，也正是西式下午茶文化得以建立的基礎。
+                                </p>
+                            </div>
+
+                            <p className="leading-relaxed">
+                                品飲大葉種紅茶時，應當如同品味一杯優質紅酒，去感受其在口腔中展現的張力與濃度。
+                                僅有順滑甘甜並不足以體現其品種的優越性，真正的精髓在於那股飽滿厚實、帶有清晰收斂感的口感，
+                                這才是鑑賞大葉種紅茶的核心標準。
+                            </p>
+                        </div>
+
+                        {/* 從茶乾外觀鑑賞紅茶品質 */}
+                        <div className="mt-8">
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">從茶乾外觀鑑賞紅茶品質</h4>
+
+                            <p className="leading-relaxed mb-4">
+                                視覺是品評的第一道關卡。優質紅茶的英文名為「Black Tea」，這已然揭示了其理想的外觀標準。
+                                頂級的紅茶茶乾，其色澤並非單純的紅色或褐色，而是呈現出一種深邃的
+                                <strong className="text-amber-700">「紅到發紫」，甚至帶有「黑紫光」</strong>的油潤光澤。
+                            </p>
+
+                            <div className="grid md:grid-cols-2 gap-6 my-6">
+                                <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                                            <Sparkles className="text-emerald-600" size={20} />
+                                        </div>
+                                        <h5 className="font-bold text-stone-900">優質茶乾特徵</h5>
+                                    </div>
+                                    <ul className="space-y-2 text-sm text-stone-700">
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-emerald-600 mt-1">✓</span>
+                                            <span>深邃的紅到發紫色澤</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-emerald-600 mt-1">✓</span>
+                                            <span>帶有黑紫光的油潤光澤</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-emerald-600 mt-1">✓</span>
+                                            <span>光亮度高，保鮮度良好</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                                            <span className="text-amber-600 text-xl">⚠</span>
+                                        </div>
+                                        <h5 className="font-bold text-stone-900">劣化茶乾特徵</h5>
+                                    </div>
+                                    <ul className="space-y-2 text-sm text-stone-700">
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-amber-600 mt-1">×</span>
+                                            <span>色澤暗沉無光</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-amber-600 mt-1">×</span>
+                                            <span>可能因光照產生劣化</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="text-amber-600 mt-1">×</span>
+                                            <span>保存狀態不佳</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <p className="leading-relaxed">
+                                茶葉的光亮度直接反映了其製作工藝的精湛程度與保存狀況的優劣。
+                                在專業儀器的檢測下，光亮度高的茶葉意味著其保鮮度良好。
+                                反之，若茶乾色澤<strong className="text-amber-700">「暗沉」</strong>，
+                                則如同保養不當的肌膚，通常代表茶葉在製作或儲存過程中可能因光照等因素產生了劣化。
+                                因此，一個油亮、深邃且帶有黑紫光澤的外觀，是高品質紅茶的重要標誌。
+                            </p>
+                        </div>
+
+                        <AcademyHighlightBox type="summary">
+                            深刻理解紅茶的滋味核心與外觀標準，是邁向專業品評的基石。
+                            建立起這套感官標準後，我們便能進一步探索更為系統化與標準化的專業評審流程。
+                        </AcademyHighlightBox>
+                    </div>
+                </AcademyContentBlock>

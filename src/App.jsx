@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useState, useEffect } from 'react';
+﻿import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle, Flower } from 'lucide-react';
 import teaData from './data/teaData';
 import cultivars from './data/cultivars';
@@ -68,6 +68,7 @@ import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
 import PuerhSection from './sections/PuerhSection';
 import SeasonsSection from './sections/SeasonsSection';
 import BrewingGuideSection from './sections/BrewingGuideSection';
+import ResizableDivider from './components/ResizableDivider';
 
 const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
 const WHITE_TOC_EXTENDED = [
@@ -287,7 +288,7 @@ const TeaWebsite = () => {
   };
 
   useEffect(() => {
-    const allowed = new Set([...NAV_ITEMS, 'academy_zhiya_02', 'academy_zhiya_03', 'academy_zhiya_04', 'academy_zhiya_05', 'academy_zhiya_06', 'academy_zhiya_07', 'academy_zhiya_09', 'academy_zhiya_10', 'academy_xueya_01', 'academy_xueya_03', 'academy_xueya_05', 'academy_xueya_06',
+    const allowed = new Set([...NAV_ITEMS, 'academy_zhiya_02', 'academy_zhiya_03', 'academy_zhiya_04', 'academy_zhiya_05', 'academy_zhiya_06', 'academy_zhiya_07', 'academy_zhiya_09', 'academy_zhiya_10', 'academy_zhiya_14', 'academy_xueya_01', 'academy_xueya_03', 'academy_xueya_05', 'academy_xueya_06',
       'academy_xueya_07',
       'academy_xueya_08',
       'academy_xueya_09',
@@ -985,7 +986,7 @@ const TeaWebsite = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {!embedded && (
             <div className="mb-10">
-              <div className="museum-frame museum-paper relative overflow-hidden">
+              <div className="museum-frame museum-paper ">
                 <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-200/35 blur-3xl"></div>
                 <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amber-200/25 blur-3xl"></div>
                 <div className="relative px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -1503,7 +1504,7 @@ const TeaWebsite = () => {
               <>
                 {/* 國際標準六大茶類區塊 */}
                 <div className="mb-16">
-                  <div className="museum-frame museum-paper relative overflow-hidden">
+                  <div className="museum-frame museum-paper ">
                     <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>
                     <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-amber-200/25 blur-3xl"></div>
                     <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
@@ -1858,7 +1859,7 @@ const TeaWebsite = () => {
       return (
         <section className="museum-page">
           <div className="museum-stage">
-            <div className="mb-12 museum-frame museum-paper relative overflow-hidden">
+            <div className="mb-12 museum-frame museum-paper ">
               <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-emerald-200/35 blur-3xl"></div>
               <div className="absolute -bottom-20 -left-24 w-96 h-96 rounded-full bg-amber-200/25 blur-3xl"></div>
               <div className="relative px-8 py-10 md:px-12 md:py-12 text-center">
@@ -2031,9 +2032,9 @@ const TeaWebsite = () => {
                 <>
                   <div id="varieties-kind-header" className="h-0" aria-hidden="true" />
                   {kindTea &&
-                  (varietiesKind !== 'oolong' || !oolongRegionHref) &&
-                  (varietiesKind !== 'red' || redTeaHref === '#red-global') &&
-                  (varietiesKind !== 'white' || !whiteRegionHref || whiteRegionHref === '#white-history') ? (
+                    (varietiesKind !== 'oolong' || !oolongRegionHref) &&
+                    (varietiesKind !== 'red' || redTeaHref === '#red-global') &&
+                    (varietiesKind !== 'white' || !whiteRegionHref || whiteRegionHref === '#white-history') ? (
                     <>
                       <SectionCard title="概覽" icon={BookOpen}>
                         <p className="text-lg text-stone-800 leading-relaxed">{kindTea.desc}</p>
@@ -2430,6 +2431,13 @@ const TeaWebsite = () => {
     const [selectedFeatured, setSelectedFeatured] = useState(() => featuredTeaMenu?.[0]?.id ?? 'tieguanyin');
     const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
     const [orientalBeautySection, setOrientalBeautySection] = useState('main');
+    const [featuredSidebarWidth, setFeaturedSidebarWidth] = useState(() => {
+      if (typeof window === 'undefined') return 260;
+      const raw = window.localStorage?.getItem('tea.featuredSidebarWidth');
+      const parsed = raw ? Number(raw) : NaN;
+      if (!Number.isFinite(parsed)) return 260;
+      return Math.min(Math.max(parsed, 220), 420);
+    });
     const featuredTopRef = React.useRef(null);
     const featuredDidMountRef = React.useRef(false);
     const featuredSidebarOffsetPx = siteNavHeightPx + 48;
@@ -2480,6 +2488,20 @@ const TeaWebsite = () => {
       //   featuredDidMountRef.current = true;
       // }
     }, [selectedFeatured]);
+
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+      try {
+        window.localStorage?.setItem('tea.featuredSidebarWidth', String(featuredSidebarWidth));
+      } catch {
+        // ignore
+      }
+    }, [featuredSidebarWidth]);
+
+    const handleFeaturedResize = (newWidth) => {
+      const clamped = Math.min(Math.max(newWidth, 220), 420);
+      setFeaturedSidebarWidth(clamped);
+    };
 
 
     return (
@@ -2544,109 +2566,121 @@ const TeaWebsite = () => {
           )}
 
           {!notesMode || showFeaturedAtlas ? (
-            <div className="flex flex-col md:flex-row md:items-start gap-8">
+            <div
+              className="flex flex-col md:flex-row md:items-start gap-8 md:gap-0"
+              style={{ '--featured-sidebar-width': `${featuredSidebarWidth}px` }}
+            >
               {/* Sidebar Navigation for Featured Teas */}
-              <PinnedChapterSidebar
-                topOffsetPx={featuredSidebarOffsetPx}
-                pinFrom="md"
-                wrapperClassName="w-full md:w-[260px] mb-8 md:mb-0 self-start"
-              >
-                <div
-                  className="rounded-2xl backdrop-blur shadow-sm p-3 pb-4 tool-surface tool-surface--strong overflow-y-auto"
-                  style={{
-                    maxHeight: `calc(100vh - ${featuredSidebarOffsetPx}px - 24px)`,
-                    scrollPaddingBottom: '24px',
-                  }}
+              <div className="featured-sidebar w-full md:w-auto mb-8 md:mb-0 self-start">
+                <PinnedChapterSidebar
+                  topOffsetPx={featuredSidebarOffsetPx}
+                  pinFrom="md"
+                  wrapperClassName="w-full"
                 >
-                  <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
-                    台灣特色茶
-                  </h3>
-                  <div className="space-y-2 pb-2">
-                    {featuredTeaMenu.map((item) => {
-                      const isActive = selectedFeatured === item.id;
-                      const activeTextClass = getReadableTextClass(item.swatch);
-                      return (
-                        <React.Fragment key={item.id}>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setSelectedFeatured(item.id);
-                              if (item.id === 'orientalbeauty') {
-                                setOrientalBeautySection('main');
-                              }
-                              scrollToFeaturedTop();
-                            }}
-                            className={`group w-full text-left px-3 py-2 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
-                              ? `${activeTextClass} border-stone-200 ring-1 ring-black/10`
-                              : 'tool-item tool-item--panel'
-                              }`}
-                            style={
-                              isActive
-                                ? {
-                                  backgroundColor: item.swatch,
-                                  backgroundImage:
-                                    'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))',
-                                }
-                                : undefined
-                            }
-                          >
-                            <div className="flex items-start gap-2">
-                              <span
-                                className="mt-1 inline-block w-3 h-3 rounded-sm border border-stone-200 bg-white/60"
-                                style={{ backgroundColor: item.swatch }}
-                                aria-hidden="true"
-                              />
-                              <div className="min-w-0">
-                                <span className="block font-extrabold text-lg leading-snug truncate">
-                                  {item.label}
-                                </span>
-                                <span
-                                  className={`block text-sm mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
-                                >
-                                  {item.subtitle}
-                                </span>
-                              </div>
-                            </div>
-                          </button>
-                          {isActive && item.id === 'orientalbeauty' ? (
-                            <div className="mt-2 ml-4 space-y-1">
-                              <button
-                                type="button"
-                                onClick={() => {
+                  <div
+                    className="rounded-2xl backdrop-blur shadow-sm p-3 pb-4 tool-surface tool-surface--strong overflow-y-auto"
+                    style={{
+                      maxHeight: `calc(100vh - ${featuredSidebarOffsetPx}px - 24px)`,
+                      scrollPaddingBottom: '24px',
+                    }}
+                  >
+                    <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
+                      台灣特色茶
+                    </h3>
+                    <div className="space-y-2 pb-2">
+                      {featuredTeaMenu.map((item) => {
+                        const isActive = selectedFeatured === item.id;
+                        const activeTextClass = getReadableTextClass(item.swatch);
+                        return (
+                          <React.Fragment key={item.id}>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setSelectedFeatured(item.id);
+                                if (item.id === 'orientalbeauty') {
                                   setOrientalBeautySection('main');
-                                  scrollToFeaturedTop();
-                                }}
-                                className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'main'
-                                  ? 'tool-subitem--active'
-                                  : 'hover:bg-[var(--tool-hover-bg)]'
-                                  }`}
-                              >
-                                東方美人
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setOrientalBeautySection('origins');
-                                  scrollToFeaturedTop();
-                                }}
-                                className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'origins'
-                                  ? 'tool-subitem--active'
-                                  : 'hover:bg-[var(--tool-hover-bg)]'
-                                  }`}
-                              >
-                                東方美人茶的前世
-                              </button>
-                            </div>
-                          ) : null}
-                        </React.Fragment>
-                      );
-                    })}
+                                }
+                                scrollToFeaturedTop();
+                              }}
+                              className={`group w-full text-left px-3 py-2 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
+                                ? `${activeTextClass} border-stone-200 ring-1 ring-black/10`
+                                : 'tool-item tool-item--panel'
+                                }`}
+                              style={
+                                isActive
+                                  ? {
+                                    backgroundColor: item.swatch,
+                                    backgroundImage:
+                                      'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))',
+                                  }
+                                  : undefined
+                              }
+                            >
+                              <div className="flex items-start gap-2">
+                                <span
+                                  className="mt-1 inline-block w-3 h-3 rounded-sm border border-stone-200 bg-white/60"
+                                  style={{ backgroundColor: item.swatch }}
+                                  aria-hidden="true"
+                                />
+                                <div className="min-w-0">
+                                  <span className="block font-extrabold text-lg leading-snug truncate">
+                                    {item.label}
+                                  </span>
+                                  <span
+                                    className={`block text-sm mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
+                                  >
+                                    {item.subtitle}
+                                  </span>
+                                </div>
+                              </div>
+                            </button>
+                            {isActive && item.id === 'orientalbeauty' ? (
+                              <div className="mt-2 ml-4 space-y-1">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setOrientalBeautySection('main');
+                                    scrollToFeaturedTop();
+                                  }}
+                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'main'
+                                    ? 'tool-subitem--active'
+                                    : 'hover:bg-[var(--tool-hover-bg)]'
+                                    }`}
+                                >
+                                  東方美人
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setOrientalBeautySection('origins');
+                                    scrollToFeaturedTop();
+                                  }}
+                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'origins'
+                                    ? 'tool-subitem--active'
+                                    : 'hover:bg-[var(--tool-hover-bg)]'
+                                    }`}
+                                >
+                                  東方美人茶的前世
+                                </button>
+                              </div>
+                            ) : null}
+                          </React.Fragment>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              </PinnedChapterSidebar>
+                </PinnedChapterSidebar>
+              </div>
+
+              <ResizableDivider
+                onResize={handleFeaturedResize}
+                minWidth={220}
+                maxWidth={420}
+                className="hidden md:flex"
+              />
 
               {/* Content Area */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 md:pl-8">
                 <div ref={featuredTopRef} className="scroll-mt-28" />
                 {selectedFeatured === 'overview' && <FeaturedTeaOverview />}
                 {selectedFeatured === 'longjing' && <LongjingTeaArticle />}
@@ -2693,9 +2727,38 @@ const TeaWebsite = () => {
   const TeaCeremonySection = () => {
     const [ceremonyTab, setCeremonyTab] = useState('philosophy');
     const [showAllUtensils, setShowAllUtensils] = useState(false);
+    const ceremonySectionRef = useRef(null);
+    const [sidebarWidth, setSidebarWidth] = useState(() => {
+      if (typeof window === 'undefined') return 300;
+      const raw = window.localStorage?.getItem('tea.ceremonySidebarWidth');
+      const parsed = raw ? Number(raw) : NaN;
+      if (!Number.isFinite(parsed)) return 300;
+      return Math.min(Math.max(parsed, 200), 500);
+    });
+
+    const handleCeremonyTabChange = (tabId) => {
+      setCeremonyTab(tabId);
+      // Scroll to top of section
+      if (ceremonySectionRef.current) {
+        ceremonySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    const handleResize = (newWidth) => {
+      setSidebarWidth(newWidth);
+    };
+
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+      try {
+        window.localStorage?.setItem('tea.ceremonySidebarWidth', String(sidebarWidth));
+      } catch {
+        // ignore
+      }
+    }, [sidebarWidth]);
 
     return (
-      <div className="museum-page">
+      <div className="museum-page" ref={ceremonySectionRef}>
         <div className="museum-stage">
           <div className="mb-12 museum-panel p-8 md:p-12 text-center">
             <div className="museum-label mx-auto">EXHIBIT · CEREMONY</div>
@@ -2703,366 +2766,396 @@ const TeaWebsite = () => {
             <p className="mt-4 text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">轉心成象，以器載道。從一杯茶湯中看見藝術與修養。</p>
           </div>
 
-          {/* Sub-navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {[
-              { id: 'philosophy', label: '茶藝精神', icon: <Feather size={18} /> },
-              { id: 'utensils', label: '器物之美', icon: <Palette size={18} /> },
-              { id: 'setup', label: '茶席佈置', icon: <Layout size={18} /> },
-              { id: 'ritual', label: '事茶儀軌', icon: <Scroll size={18} /> }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setCeremonyTab(tab.id)}
-                className={`museum-tab ${ceremonyTab === tab.id ? 'museum-tab-active' : ''}`}
-              >
-                {tab.icon} {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Content Switching */}
-          <div className="min-h-[500px]">
-
-            {/* 1. Philosophy */}
-            {ceremonyTab === 'philosophy' && (
-              <div className="animate-fadeIn space-y-12">
-                <div className="bg-stone-50 p-8 md:p-12 rounded-2xl border border-stone-200 text-center">
-                  <h3 className="text-2xl font-bold text-stone-800 mb-6">什麼是茶藝？</h3>
-                  <p className="text-lg text-stone-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                    以茶為本質，透過藝術的形式、揭示的過程，作用於茶湯。<br />
-                    形式可繁可簡，都是為了定調茶的氣場。
-                  </p>
-                  <div className="bg-white p-6 rounded-xl shadow-sm text-left mb-8 border-l-4 border-stone-400">
-                    <h4 className="font-bold text-stone-800 mb-2">轉心成象，是藝術；轉象成心，是智慧</h4>
-                    <p className="text-stone-600 mb-4">
-                      王羲之在《蘭亭序》有講：「心之所向」。心想要什麼，就往那個方向走。<br />
-                      藝術其實就是把心中的感受變成外在的形式成象。比方說，貝多芬的命運交響曲，就是生命狀態、心情，用音符成了曲，變成了聽得到的音樂藝術。
-                    </p>
-                    <p className="text-stone-600">
-                      手，傳遞的是我的心。同樣的茶，不同的人泡，滋味就不一樣。
-                    </p>
-                  </div>
-                  <div className="grid md:grid-cols-3 gap-6 text-left">
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
-                      <span className="text-stone-400 text-xs font-bold uppercase">Tang Dynasty</span>
-                      <h4 className="font-bold text-stone-800 text-lg mb-2">唐・肯定時期</h4>
-                      <p className="text-sm text-stone-600">陸羽《茶經》問世，奠定茶道規矩。飲茶從解渴昇華為精神文化。</p>
+          {/* Two-Column Layout with Resizable Divider */}
+          <div className="flex gap-0">
+            {/* Left Sidebar Navigation */}
+            <div style={{ width: `${sidebarWidth}px`, minWidth: '200px', maxWidth: '500px' }}>
+              <div className="md:sticky md:top-24 space-y-3 pr-4">
+                {[
+                  { id: 'philosophy', label: '茶藝精神', subtitle: 'Philosophy', icon: <Feather size={22} />, color: 'text-purple-600' },
+                  { id: 'utensils', label: '器物之美', subtitle: 'Utensils', icon: <Palette size={22} />, color: 'text-pink-600' },
+                  { id: 'setup', label: '茶席佈置', subtitle: 'Setup', icon: <Layout size={22} />, color: 'text-blue-600' },
+                  { id: 'ritual', label: '事茶儀軌', subtitle: 'Ritual', icon: <Scroll size={22} />, color: 'text-amber-600' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleCeremonyTabChange(tab.id)}
+                    className={`
+                      w-full px-5 py-4 rounded-xl border-2 transition-all duration-300
+                      flex items-center gap-4 text-left relative
+                      ${ceremonyTab === tab.id
+                        ? 'bg-gradient-to-r from-emerald-50 to-emerald-100 border-emerald-400 shadow-md'
+                        : 'bg-white border-stone-200 hover:border-emerald-300 hover:shadow-sm'
+                      }
+                    `}
+                  >
+                    <div className={`transition-transform duration-300 flex-shrink-0 ${ceremonyTab === tab.id ? 'scale-110' : ''} ${tab.color}`}>
+                      {tab.icon}
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
-                      <span className="text-stone-400 text-xs font-bold uppercase">Song Dynasty</span>
-                      <h4 className="font-bold text-stone-800 text-lg mb-2">宋・開展時期</h4>
-                      <p className="text-sm text-stone-600">文風鼎盛，鬥茶風氣興起。蔡襄《茶錄》與蘇軾詩詞，將茶藝推向審美高峰。</p>
+                    <div className="flex-1 min-w-0">
+                      <div className={`font-bold text-lg ${ceremonyTab === tab.id ? 'text-emerald-900' : 'text-stone-800'}`}>
+                        {tab.label}
+                      </div>
+                      <div className={`text-sm ${ceremonyTab === tab.id ? 'text-emerald-600' : 'text-stone-500'}`}>
+                        {tab.subtitle}
+                      </div>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
-                      <span className="text-stone-400 text-xs font-bold uppercase">Ming Dynasty</span>
-                      <h4 className="font-bold text-stone-800 text-lg mb-2">明・發皇時期</h4>
-                      <p className="text-sm text-stone-600">朱元璋罷造團茶，散茶興起。文人雅士講求「雅、適、靜」，奠定現代泡茶法基礎。</p>
-                    </div>
-                  </div>
-                  <div className="mt-8 bg-green-50 p-6 rounded-xl border border-green-100 text-left">
-                    <h4 className="font-bold text-green-800 mb-2 flex items-center"><Globe size={18} className="mr-2" /> 台灣茶藝的獨特性</h4>
-                    <p className="text-stone-700 text-sm leading-relaxed">
-                      台灣的茶藝雖本於明朝，卻顯現出更豐富的面相。它是台灣文化建構上極富特色及文化厚度的一環。
-                      台灣發展的茶藝對茶器、茶種、茶湯、事茶技巧皆有獨到講究，希望品茗者能在賞茶色、聞茶香、品茶味，聽茶聲中進入茶的五感世界。
-                    </p>
-                  </div>
-                </div>
+                    {ceremonyTab === tab.id && (
+                      <div className="w-1 h-8 bg-emerald-500 rounded-full absolute right-0"></div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                {/* Sino-Japanese Comparison */}
-                <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200 mt-12">
-                  <h3 className="text-2xl font-bold text-stone-800 mb-6 text-center">茶藝與茶道</h3>
-                  <div className="space-y-8">
-                    <div className="bg-stone-50 p-6 rounded-lg border-l-4 border-stone-400">
-                      <h4 className="font-bold text-xl text-stone-800 mb-3">唐朝盛行喝茶之道</h4>
-                      <p className="text-stone-600 mb-4 text-sm leading-relaxed">
-                        所謂「茶道」是指品茗的方法及意境。最早出現關於「茶道」記載者為「封氏聞見記」中的「因鳴漸之論潤色之，於是茶道大行。」鴻漸就是有名的茶學專家陸羽。
-                        由於陸羽的大力提倡，因此喝茶之道在唐宋時非常盛行。日本在此時派了許多留學生到中國求學，在求知的過程中，也把茶的一切帶回了日本。日本天平元年（西元七二九年）武聖天皇召僧侶誦經後，贈予中國輸入的「團茶」，這是日本引進中國「茶道」最早且最可信的記載。
+            {/* Resizable Divider */}
+            <ResizableDivider onResize={handleResize} minWidth={200} maxWidth={500} />
+
+            {/* Right Content Area */}
+            <div className="flex-1 min-w-0 pl-8">
+              <div className="min-h-[500px]">
+
+                {/* 1. Philosophy */}
+                {ceremonyTab === 'philosophy' && (
+                  <div className="animate-fadeIn space-y-12">
+                    <div className="bg-stone-50 p-8 md:p-12 rounded-2xl border border-stone-200 text-center">
+                      <h3 className="text-2xl font-bold text-stone-800 mb-6">什麼是茶藝？</h3>
+                      <p className="text-lg text-stone-600 leading-relaxed max-w-3xl mx-auto mb-8">
+                        以茶為本質，透過藝術的形式、揭示的過程，作用於茶湯。<br />
+                        形式可繁可簡，都是為了定調茶的氣場。
+                      </p>
+                      <div className="bg-white p-6 rounded-xl shadow-sm text-left mb-8 border-l-4 border-stone-400">
+                        <h4 className="font-bold text-stone-800 mb-2">轉心成象，是藝術；轉象成心，是智慧</h4>
+                        <p className="text-stone-600 mb-4">
+                          王羲之在《蘭亭序》有講：「心之所向」。心想要什麼，就往那個方向走。<br />
+                          藝術其實就是把心中的感受變成外在的形式成象。比方說，貝多芬的命運交響曲，就是生命狀態、心情，用音符成了曲，變成了聽得到的音樂藝術。
+                        </p>
+                        <p className="text-stone-600">
+                          手，傳遞的是我的心。同樣的茶，不同的人泡，滋味就不一樣。
+                        </p>
+                      </div>
+                      <div className="grid md:grid-cols-3 gap-6 text-left">
+                        <div className="bg-white p-6 rounded-xl shadow-sm">
+                          <span className="text-stone-400 text-xs font-bold uppercase">Tang Dynasty</span>
+                          <h4 className="font-bold text-stone-800 text-lg mb-2">唐・肯定時期</h4>
+                          <p className="text-sm text-stone-600">陸羽《茶經》問世，奠定茶道規矩。飲茶從解渴昇華為精神文化。</p>
+                        </div>
+                        <div className="bg-white p-6 rounded-xl shadow-sm">
+                          <span className="text-stone-400 text-xs font-bold uppercase">Song Dynasty</span>
+                          <h4 className="font-bold text-stone-800 text-lg mb-2">宋・開展時期</h4>
+                          <p className="text-sm text-stone-600">文風鼎盛，鬥茶風氣興起。蔡襄《茶錄》與蘇軾詩詞，將茶藝推向審美高峰。</p>
+                        </div>
+                        <div className="bg-white p-6 rounded-xl shadow-sm">
+                          <span className="text-stone-400 text-xs font-bold uppercase">Ming Dynasty</span>
+                          <h4 className="font-bold text-stone-800 text-lg mb-2">明・發皇時期</h4>
+                          <p className="text-sm text-stone-600">朱元璋罷造團茶，散茶興起。文人雅士講求「雅、適、靜」，奠定現代泡茶法基礎。</p>
+                        </div>
+                      </div>
+                      <div className="mt-8 bg-green-50 p-6 rounded-xl border border-green-100 text-left">
+                        <h4 className="font-bold text-green-800 mb-2 flex items-center"><Globe size={18} className="mr-2" /> 台灣茶藝的獨特性</h4>
+                        <p className="text-stone-700 text-sm leading-relaxed">
+                          台灣的茶藝雖本於明朝，卻顯現出更豐富的面相。它是台灣文化建構上極富特色及文化厚度的一環。
+                          台灣發展的茶藝對茶器、茶種、茶湯、事茶技巧皆有獨到講究，希望品茗者能在賞茶色、聞茶香、品茶味，聽茶聲中進入茶的五感世界。
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Sino-Japanese Comparison */}
+                    <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200 mt-12">
+                      <h3 className="text-2xl font-bold text-stone-800 mb-6 text-center">茶藝與茶道</h3>
+                      <div className="space-y-8">
+                        <div className="bg-stone-50 p-6 rounded-lg border-l-4 border-stone-400">
+                          <h4 className="font-bold text-xl text-stone-800 mb-3">唐朝盛行喝茶之道</h4>
+                          <p className="text-stone-600 mb-4 text-sm leading-relaxed">
+                            所謂「茶道」是指品茗的方法及意境。最早出現關於「茶道」記載者為「封氏聞見記」中的「因鳴漸之論潤色之，於是茶道大行。」鴻漸就是有名的茶學專家陸羽。
+                            由於陸羽的大力提倡，因此喝茶之道在唐宋時非常盛行。日本在此時派了許多留學生到中國求學，在求知的過程中，也把茶的一切帶回了日本。日本天平元年（西元七二九年）武聖天皇召僧侶誦經後，贈予中國輸入的「團茶」，這是日本引進中國「茶道」最早且最可信的記載。
+                          </p>
+                        </div>
+
+                        <div className="space-y-8">
+                          {/* Japanese Tea Ceremony */}
+                          <div className="bg-stone-50 p-6 rounded-lg border-l-4 border-red-500">
+                            <h4 className="font-bold text-xl text-red-800 mb-3">日本樹立了「茶道」精神</h4>
+                            <div className="text-stone-600 mb-4 text-sm leading-relaxed space-y-3">
+                              <p>至延暦二十四年（八〇五年）日本僧侶最澄來中國研習佛學，歸國之時帶回茶籽，種於比叡山之麓，此爲現今日本最古老的茶園。</p>
+                              <p>平安朝初期，因爲貴族、僧侶及文人之間模倣中國文化，所以喫茶之風也開始盛行。建久（一一九一年）及建仁二年（一二〇二年）榮西禪師來華留學兩次，帶回了茶種及「抹茶」的製法，並且將來華學習的心得寫成「喫茶養生記」一書，又將中國百丈禪師的「百丈清規」傳入日本，做為他們行「茶禮」的藍本；於是日本飲茶之風才算是徹底風行。</p>
+                              <p>十五世紀時奈良村田的珠光氏綜合了「茶數寄」與「茶寄合」，再吸收中國儒家、佛教文化的優點，倡導「奠茶奠湯」、「一味同心」的精神。並用日本自製的陶瓷爲茶具，創立了日本獨特的「茶道」。</p>
+                              <p>武野紹鷗再繼承珠光的遺志，將「茶道」加以改良重整，茶室也由「書院式」改成了「草庵式」，使茶道能更大衆化。後來武野將此學傳給千利休。他深深瞭解中、日禪師創「茶禮」、行「茶道」的精義，並貫通了中國古代的「清靜怡情」和「百丈清規」的眞諦，樹立了日本「茶道」的基本精神：「和敬清寂。」</p>
+                            </div>
+                          </div>
+                          {/* Chinese Tea Art */}
+                          <TeaArtSpirit />
+                        </div>
+                      </div>
+                      <p className="mt-8 text-center text-stone-500 italic text-sm">我們實在不忍也不願看著原本屬於茶的一切就此煙消雲散... 祈望能藉此重新燃起您對它的關切與熱愛。</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* 2. Utensils */}
+                {ceremonyTab === 'utensils' && (
+                  <div className="animate-fadeIn space-y-12">
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-stone-800">器物與茶性的對話</h3>
+                      <p className="text-stone-600 mt-2">「器亦有道」。非數之繁備，乃器之可愛。久用手澤潤成記憶，此之謂道器並重。</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      <div className="bg-white p-6 rounded-xl border-t-4 border-stone-200 shadow-sm hover:-translate-y-1 transition-transform">
+                        <h4 className="font-bold text-xl text-stone-800 mb-3">瓷質 (Porcelain)</h4>
+                        <p className="text-xs text-stone-500 mb-4">細緻高頻、潔白精緻</p>
+                        <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
+                          <strong className="block mb-1 text-stone-900">適合：</strong>
+                          綠茶、文山包種、高山烏龍、白毫烏龍、紅茶。
+                        </div>
+                      </div>
+                      <div className="bg-white p-6 rounded-xl border-t-4 border-stone-400 shadow-sm hover:-translate-y-1 transition-transform">
+                        <h4 className="font-bold text-xl text-stone-800 mb-3">炻質 (Stoneware)</h4>
+                        <p className="text-xs text-stone-500 mb-4">堅實陽剛、高香厚實</p>
+                        <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
+                          <strong className="block mb-1 text-stone-900">適合：</strong>
+                          黃茶、白茶、鐵觀音、凍頂烏龍、水仙。
+                        </div>
+                      </div>
+                      <div className="bg-white p-6 rounded-xl border-t-4 border-amber-800 shadow-sm hover:-translate-y-1 transition-transform">
+                        <h4 className="font-bold text-xl text-stone-800 mb-3">陶質 (Pottery)</h4>
+                        <p className="text-xs text-stone-500 mb-4">粗曠低沉、樸實自然</p>
+                        <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
+                          <strong className="block mb-1 text-stone-900">適合：</strong>
+                          重焙火茶、陳年普洱、老茶。
+                        </div>
+                      </div>
+                      <div className="bg-white p-6 rounded-xl border-t-4 border-sky-300 shadow-sm hover:-translate-y-1 transition-transform">
+                        <h4 className="font-bold text-xl text-stone-800 mb-3">玻璃 (Glass)</h4>
+                        <p className="text-xs text-stone-500 mb-4">視覺通透、觀賞性佳</p>
+                        <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
+                          <strong className="block mb-1 text-stone-900">適合：</strong>
+                          碧螺春、龍井（觀賞嫩芽舒展）。
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="bg-stone-100 p-8 rounded-xl border border-stone-200">
+                        <h4 className="font-bold text-lg text-stone-800 mb-4 flex items-center"><Palette className="mr-2" /> 釉色美學</h4>
+                        <div className="space-y-4 text-sm">
+                          <div>
+                            <span className="font-bold text-green-700 block mb-1">青瓷/淡綠色</span>
+                            <p className="text-stone-600">協調綠茶、包種茶的清揚。</p>
+                          </div>
+                          <div>
+                            <span className="font-bold text-stone-700 block mb-1">凝脂/乳白</span>
+                            <p className="text-stone-600">襯托白毫烏龍或黃茶的嬌嫩。</p>
+                          </div>
+                          <div>
+                            <span className="font-bold text-amber-900 block mb-1">鐵紅/紫金/鈞黑</span>
+                            <p className="text-stone-600">呼應凍頂、鐵觀音的深沉韻味。</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-stone-100 p-8 rounded-xl border border-stone-200">
+                        <h4 className="font-bold text-lg text-stone-800 mb-4 flex items-center"><Droplets className="mr-2" /> 茶杯與茶湯的關係</h4>
+                        <div className="space-y-4 text-sm">
+                          <div>
+                            <span className="font-bold text-stone-800 block mb-1">杯內色澤</span>
+                            <ul className="list-disc list-inside text-stone-600">
+                              <li><strong>暖色 (黃/紅)：</strong>令茶湯看起來較為溫暖。</li>
+                              <li><strong>寒色 (青/綠)：</strong>令茶湯看起來深暗，綠茶顯濃，發酵茶顯黑。</li>
+                              <li><strong>白色：</strong>最能顯現茶湯原本的顏色與湯澤。</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <span className="font-bold text-stone-800 block mb-1">杯子深度</span>
+                            <p className="text-stone-600">一般以 2.5cm 為佳，利於觀測茶湯顏色。</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Full Utensil List */}
+                    <div className="border-t border-stone-200 pt-8">
+                      <div className="flex justify-between items-center mb-6">
+                        <h4 className="font-bold text-xl text-stone-800">常用茶器介紹</h4>
+                        <button
+                          onClick={() => setShowAllUtensils(!showAllUtensils)}
+                          className="text-sm text-green-700 font-bold hover:underline"
+                        >
+                          {showAllUtensils ? "收起列表" : "展開完整列表 (32項)"}
+                        </button>
+                      </div>
+
+                      <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-all duration-500 ${showAllUtensils ? 'max-h-[2000px] opacity-100' : 'max-h-64 overflow-hidden opacity-80'}`}>
+                        {[
+                          { name: "茶壺", desc: "中華茶文化博大精深部分。" },
+                          { name: "茶盤", desc: "放茶具，下層盛水。" },
+                          { name: "茶杯", desc: "聞香杯(高)、就口杯(矮)。" },
+                          { name: "茶船/茶池", desc: "承接沖泡溢出之水。" },
+                          { name: "壺盛/壺承", desc: "承接溢水，乾式泡法常用。" },
+                          { name: "壺墊", desc: "保護壺底，避免摩擦。" },
+                          { name: "勻杯/茶海", desc: "均勻茶湯、沉澱茶屑。" },
+                          { name: "茶巾", desc: "保持清潔，擦拭水漬。" },
+                          { name: "茶夾", desc: "清壺夾茶葉用。" },
+                          { name: "茶撥", desc: "撥動茶葉入壺及理茶。" },
+                          { name: "茶荷", desc: "置茶、賞茶、量茶。" },
+                          { name: "茶漏", desc: "置壺口防茶葉散落。" },
+                          { name: "水盂", desc: "裝置廢水。" },
+                          { name: "渣方", desc: "裝置茶渣雜物。" },
+                          { name: "茶則", desc: "取茶葉入壺，避免手觸。" },
+                          { name: "茶倉", desc: "存放茶葉之罐。" },
+                          { name: "蓋置", desc: "放置壺蓋處。" },
+                          { name: "鑑定杯", desc: "比賽評茶用(150cc)。" },
+                        ].map((item, idx) => (
+                          <div key={idx} className="bg-white p-3 rounded border border-stone-200 shadow-sm">
+                            <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
+                            <span className="text-xs text-stone-500">{item.desc}</span>
+                          </div>
+                        ))}
+                        {showAllUtensils && [
+                          { name: "則置", desc: "放茶夾、茶撥之處。" },
+                          { name: "茶掏", desc: "清壺用，竹製為佳。" },
+                          { name: "杯托", desc: "放杯子，防沾濕桌面。" },
+                          { name: "茗壺", desc: "燒水壺之美名。" },
+                          { name: "煮水器", desc: "酒精燈、電磁爐等。" },
+                          { name: "潔方", desc: "茶盤代用品，布材質。" },
+                          { name: "蓋杯", desc: "蓋、身、托三件式。" },
+                          { name: "茶碗", desc: "唐宋開始使用。" },
+                          { name: "茶棚", desc: "所有茶具的家。" },
+                          { name: "茶熘", desc: "去除茶品多餘含水量。" },
+                          { name: "奉茶盤", desc: "方便奉茶至客座。" },
+                          { name: "茶食盤", desc: "裝點心用。" },
+                          { name: "茶末濾網", desc: "過濾茶屑。" },
+                          { name: "同心杯", desc: "個人獨飲含濾心。" },
+                        ].map((item, idx) => (
+                          <div key={`extra-${idx}`} className="bg-white p-3 rounded border border-stone-200 shadow-sm animate-fadeIn">
+                            <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
+                            <span className="text-xs text-stone-500">{item.desc}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. Setup */}
+                {ceremonyTab === 'setup' && (
+                  <div className="animate-fadeIn space-y-12">
+                    <div className="grid md:grid-cols-3 gap-8">
+                      <div className="md:col-span-1 space-y-8">
+                        <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                          <h4 className="font-bold text-lg text-stone-800 mb-4">設置茶席之步驟</h4>
+                          <ol className="space-y-4 text-sm text-stone-600 list-decimal list-inside">
+                            <li>
+                              <strong className="text-stone-800">選茶：</strong>決定今日主角。
+                            </li>
+                            <li>
+                              <strong className="text-stone-800">試茶：</strong>
+                              <p className="pl-4 mt-1 text-xs">使用鑑定杯，了解其發酵度、苦澀度、香氣、焙火情形，以決定沖泡策略。</p>
+                            </li>
+                            <li>
+                              <strong className="text-stone-800">主體部分 (因茶擇器)：</strong>
+                              <p className="pl-4 mt-1 text-xs">
+                                例：凍頂烏龍選圓形壺、燒結度不高、蓋子密。<br />
+                                決定席方(舞台)、壺承、飲杯、勻杯的搭配。
+                              </p>
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                          <h4 className="font-bold text-lg text-stone-800 mb-4">茶席構成要素</h4>
+                          <ul className="space-y-3 text-sm text-stone-600">
+                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>席方：</strong>離桌緣一食指距離。</li>
+                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>壺承：</strong>直徑須大於壺，造型如舞台。</li>
+                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>勻杯：</strong>斷水須順暢，高度不低於杯。</li>
+                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>水盂：</strong>彈性最大，可依比例調整。</li>
+                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>茶巾：</strong>置於事茶者右下壺承45度。</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <div className="bg-stone-800 text-stone-200 p-8 rounded-xl ">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-stone-700 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                          <h4 className="font-bold text-xl text-white mb-8 text-center">茶席基本配置圖 (以事茶者視角)</h4>
+
+                          {/* Diagram Representation */}
+                          <div className="grid grid-cols-3 gap-4 text-center text-xs md:text-sm">
+                            {/* Top Row */}
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (茶倉) <br /> 左上 45°
+                            </div>
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (客人視線)
+                            </div>
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (勻杯) <br /> 右上 45°
+                            </div>
+
+                            {/* Middle Row */}
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (茶荷) <br /> 左側
+                            </div>
+                            <div className="flex items-center justify-center p-8 bg-stone-700 rounded-full border-2 border-stone-500 shadow-lg z-10">
+                              <strong className="text-white">茶壺 & 壺承</strong><br />(正中央)
+                            </div>
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (茶則/茶理) <br /> 右側
+                            </div>
+
+                            {/* Bottom Row */}
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (水盂) <br /> 彈性位置
+                            </div>
+                            <div className="flex items-center justify-center p-4 text-stone-300">
+                              <User size={24} className="mb-1 block mx-auto" />
+                              事茶者
+                            </div>
+                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
+                              (茶巾/蓋置) <br /> 右下 45°
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* 4. Ritual */}
+                {ceremonyTab === 'ritual' && (
+                  <div className="animate-fadeIn">
+                    <div className="relative border-l-2 border-stone-200 ml-4 md:ml-8 space-y-12 my-8">
+                      {[
+                        { title: "1. 備茶展席", desc: "未曾汲水，先備茶具。必潔必燥，開口以待。靜心備水，安全得宜，調整心情。" },
+                        { title: "2. 調息靜氣", desc: "主客行禮（飲水淨口）。溫壺：左手提煮水器，右手執主沖茶器，左右均衡操作。溫勻杯、溫杯：預測容量。" },
+                        { title: "3. 注水溫潤", desc: "備茶、賞茶、置茶（專注嚴謹）、聞香。注水溫潤：提壺靜沸，注水不急不緩。" },
+                        { title: "4. 靜候觀心", desc: "第一道茶：外在顯現為茶道美感與境界塑造之基礎。清杯：由內而外，井然有序。調息出湯。" },
+                        { title: "5. 出湯布茶", desc: "奉茶行禮：平穩謙和。第二道茶：專注細膩。勻杯奉茶：主客互動之藝術，客人連同杯托往前移動。" },
+                        { title: "6. 靜心品味", desc: "端茶：左手拇指餘指輕托杯托。持杯：右手拇指食指拿杯緣。聞香、品茶（分3小口）、聞杯底。" },
+                        { title: "7. 空白之美", desc: "品茶告一段落，品用白開水以顯現茶味（實品茶湯、虛品茶味），或供應茶食、聽樂、品香。" },
+                        { title: "8. 對話賞壺", desc: "清壺賞葉底：延續之情，不再續沖。賞壺：惜物之情，去葉底注水入壺清理，讓客人賞壺。" },
+                        { title: "9. 一期一會", desc: "歸位：時間掌控。理器：動態之美，如行雲流水。收杯：客人將杯送回。茶席之美：表現與分享。" }
+                      ].map((step, idx) => (
+                        <div key={idx} className="relative pl-8">
+                          <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-stone-400 border-2 border-white"></div>
+                          <h4 className="text-xl font-bold text-stone-800 mb-2">{step.title}</h4>
+                          <p className="text-stone-600 leading-relaxed">{step.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="bg-stone-50 p-6 rounded-xl text-center border border-stone-200">
+                      <p className="text-stone-700 italic font-medium">
+                        「形而上者謂之道，形而下者謂之器。」<br />
+                        道器並用，由藝入道，用功於生命本身。
                       </p>
                     </div>
-
-                    <div className="space-y-8">
-                      {/* Japanese Tea Ceremony */}
-                      <div className="bg-stone-50 p-6 rounded-lg border-l-4 border-red-500">
-                        <h4 className="font-bold text-xl text-red-800 mb-3">日本樹立了「茶道」精神</h4>
-                        <div className="text-stone-600 mb-4 text-sm leading-relaxed space-y-3">
-                          <p>至延暦二十四年（八〇五年）日本僧侶最澄來中國研習佛學，歸國之時帶回茶籽，種於比叡山之麓，此爲現今日本最古老的茶園。</p>
-                          <p>平安朝初期，因爲貴族、僧侶及文人之間模倣中國文化，所以喫茶之風也開始盛行。建久（一一九一年）及建仁二年（一二〇二年）榮西禪師來華留學兩次，帶回了茶種及「抹茶」的製法，並且將來華學習的心得寫成「喫茶養生記」一書，又將中國百丈禪師的「百丈清規」傳入日本，做為他們行「茶禮」的藍本；於是日本飲茶之風才算是徹底風行。</p>
-                          <p>十五世紀時奈良村田的珠光氏綜合了「茶數寄」與「茶寄合」，再吸收中國儒家、佛教文化的優點，倡導「奠茶奠湯」、「一味同心」的精神。並用日本自製的陶瓷爲茶具，創立了日本獨特的「茶道」。</p>
-                          <p>武野紹鷗再繼承珠光的遺志，將「茶道」加以改良重整，茶室也由「書院式」改成了「草庵式」，使茶道能更大衆化。後來武野將此學傳給千利休。他深深瞭解中、日禪師創「茶禮」、行「茶道」的精義，並貫通了中國古代的「清靜怡情」和「百丈清規」的眞諦，樹立了日本「茶道」的基本精神：「和敬清寂。」</p>
-                        </div>
-                      </div>
-                      {/* Chinese Tea Art */}
-                      <TeaArtSpirit />
-                    </div>
                   </div>
-                  <p className="mt-8 text-center text-stone-500 italic text-sm">我們實在不忍也不願看著原本屬於茶的一切就此煙消雲散... 祈望能藉此重新燃起您對它的關切與熱愛。</p>
-                </div>
+                )}
               </div>
-            )}
-
-            {/* 2. Utensils */}
-            {ceremonyTab === 'utensils' && (
-              <div className="animate-fadeIn space-y-12">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-stone-800">器物與茶性的對話</h3>
-                  <p className="text-stone-600 mt-2">「器亦有道」。非數之繁備，乃器之可愛。久用手澤潤成記憶，此之謂道器並重。</p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="bg-white p-6 rounded-xl border-t-4 border-stone-200 shadow-sm hover:-translate-y-1 transition-transform">
-                    <h4 className="font-bold text-xl text-stone-800 mb-3">瓷質 (Porcelain)</h4>
-                    <p className="text-xs text-stone-500 mb-4">細緻高頻、潔白精緻</p>
-                    <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
-                      <strong className="block mb-1 text-stone-900">適合：</strong>
-                      綠茶、文山包種、高山烏龍、白毫烏龍、紅茶。
-                    </div>
-                  </div>
-                  <div className="bg-white p-6 rounded-xl border-t-4 border-stone-400 shadow-sm hover:-translate-y-1 transition-transform">
-                    <h4 className="font-bold text-xl text-stone-800 mb-3">炻質 (Stoneware)</h4>
-                    <p className="text-xs text-stone-500 mb-4">堅實陽剛、高香厚實</p>
-                    <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
-                      <strong className="block mb-1 text-stone-900">適合：</strong>
-                      黃茶、白茶、鐵觀音、凍頂烏龍、水仙。
-                    </div>
-                  </div>
-                  <div className="bg-white p-6 rounded-xl border-t-4 border-amber-800 shadow-sm hover:-translate-y-1 transition-transform">
-                    <h4 className="font-bold text-xl text-stone-800 mb-3">陶質 (Pottery)</h4>
-                    <p className="text-xs text-stone-500 mb-4">粗曠低沉、樸實自然</p>
-                    <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
-                      <strong className="block mb-1 text-stone-900">適合：</strong>
-                      重焙火茶、陳年普洱、老茶。
-                    </div>
-                  </div>
-                  <div className="bg-white p-6 rounded-xl border-t-4 border-sky-300 shadow-sm hover:-translate-y-1 transition-transform">
-                    <h4 className="font-bold text-xl text-stone-800 mb-3">玻璃 (Glass)</h4>
-                    <p className="text-xs text-stone-500 mb-4">視覺通透、觀賞性佳</p>
-                    <div className="bg-stone-50 p-3 rounded text-sm text-stone-700">
-                      <strong className="block mb-1 text-stone-900">適合：</strong>
-                      碧螺春、龍井（觀賞嫩芽舒展）。
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-stone-100 p-8 rounded-xl border border-stone-200">
-                    <h4 className="font-bold text-lg text-stone-800 mb-4 flex items-center"><Palette className="mr-2" /> 釉色美學</h4>
-                    <div className="space-y-4 text-sm">
-                      <div>
-                        <span className="font-bold text-green-700 block mb-1">青瓷/淡綠色</span>
-                        <p className="text-stone-600">協調綠茶、包種茶的清揚。</p>
-                      </div>
-                      <div>
-                        <span className="font-bold text-stone-700 block mb-1">凝脂/乳白</span>
-                        <p className="text-stone-600">襯托白毫烏龍或黃茶的嬌嫩。</p>
-                      </div>
-                      <div>
-                        <span className="font-bold text-amber-900 block mb-1">鐵紅/紫金/鈞黑</span>
-                        <p className="text-stone-600">呼應凍頂、鐵觀音的深沉韻味。</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-stone-100 p-8 rounded-xl border border-stone-200">
-                    <h4 className="font-bold text-lg text-stone-800 mb-4 flex items-center"><Droplets className="mr-2" /> 茶杯與茶湯的關係</h4>
-                    <div className="space-y-4 text-sm">
-                      <div>
-                        <span className="font-bold text-stone-800 block mb-1">杯內色澤</span>
-                        <ul className="list-disc list-inside text-stone-600">
-                          <li><strong>暖色 (黃/紅)：</strong>令茶湯看起來較為溫暖。</li>
-                          <li><strong>寒色 (青/綠)：</strong>令茶湯看起來深暗，綠茶顯濃，發酵茶顯黑。</li>
-                          <li><strong>白色：</strong>最能顯現茶湯原本的顏色與湯澤。</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <span className="font-bold text-stone-800 block mb-1">杯子深度</span>
-                        <p className="text-stone-600">一般以 2.5cm 為佳，利於觀測茶湯顏色。</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Full Utensil List */}
-                <div className="border-t border-stone-200 pt-8">
-                  <div className="flex justify-between items-center mb-6">
-                    <h4 className="font-bold text-xl text-stone-800">常用茶器介紹</h4>
-                    <button
-                      onClick={() => setShowAllUtensils(!showAllUtensils)}
-                      className="text-sm text-green-700 font-bold hover:underline"
-                    >
-                      {showAllUtensils ? "收起列表" : "展開完整列表 (32項)"}
-                    </button>
-                  </div>
-
-                  <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-all duration-500 ${showAllUtensils ? 'max-h-[2000px] opacity-100' : 'max-h-64 overflow-hidden opacity-80'}`}>
-                    {[
-                      { name: "茶壺", desc: "中華茶文化博大精深部分。" },
-                      { name: "茶盤", desc: "放茶具，下層盛水。" },
-                      { name: "茶杯", desc: "聞香杯(高)、就口杯(矮)。" },
-                      { name: "茶船/茶池", desc: "承接沖泡溢出之水。" },
-                      { name: "壺盛/壺承", desc: "承接溢水，乾式泡法常用。" },
-                      { name: "壺墊", desc: "保護壺底，避免摩擦。" },
-                      { name: "勻杯/茶海", desc: "均勻茶湯、沉澱茶屑。" },
-                      { name: "茶巾", desc: "保持清潔，擦拭水漬。" },
-                      { name: "茶夾", desc: "清壺夾茶葉用。" },
-                      { name: "茶撥", desc: "撥動茶葉入壺及理茶。" },
-                      { name: "茶荷", desc: "置茶、賞茶、量茶。" },
-                      { name: "茶漏", desc: "置壺口防茶葉散落。" },
-                      { name: "水盂", desc: "裝置廢水。" },
-                      { name: "渣方", desc: "裝置茶渣雜物。" },
-                      { name: "茶則", desc: "取茶葉入壺，避免手觸。" },
-                      { name: "茶倉", desc: "存放茶葉之罐。" },
-                      { name: "蓋置", desc: "放置壺蓋處。" },
-                      { name: "鑑定杯", desc: "比賽評茶用(150cc)。" },
-                    ].map((item, idx) => (
-                      <div key={idx} className="bg-white p-3 rounded border border-stone-200 shadow-sm">
-                        <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
-                        <span className="text-xs text-stone-500">{item.desc}</span>
-                      </div>
-                    ))}
-                    {showAllUtensils && [
-                      { name: "則置", desc: "放茶夾、茶撥之處。" },
-                      { name: "茶掏", desc: "清壺用，竹製為佳。" },
-                      { name: "杯托", desc: "放杯子，防沾濕桌面。" },
-                      { name: "茗壺", desc: "燒水壺之美名。" },
-                      { name: "煮水器", desc: "酒精燈、電磁爐等。" },
-                      { name: "潔方", desc: "茶盤代用品，布材質。" },
-                      { name: "蓋杯", desc: "蓋、身、托三件式。" },
-                      { name: "茶碗", desc: "唐宋開始使用。" },
-                      { name: "茶棚", desc: "所有茶具的家。" },
-                      { name: "茶熘", desc: "去除茶品多餘含水量。" },
-                      { name: "奉茶盤", desc: "方便奉茶至客座。" },
-                      { name: "茶食盤", desc: "裝點心用。" },
-                      { name: "茶末濾網", desc: "過濾茶屑。" },
-                      { name: "同心杯", desc: "個人獨飲含濾心。" },
-                    ].map((item, idx) => (
-                      <div key={`extra-${idx}`} className="bg-white p-3 rounded border border-stone-200 shadow-sm animate-fadeIn">
-                        <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
-                        <span className="text-xs text-stone-500">{item.desc}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* 3. Setup */}
-            {ceremonyTab === 'setup' && (
-              <div className="animate-fadeIn space-y-12">
-                <div className="grid md:grid-cols-3 gap-8">
-                  <div className="md:col-span-1 space-y-8">
-                    <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                      <h4 className="font-bold text-lg text-stone-800 mb-4">設置茶席之步驟</h4>
-                      <ol className="space-y-4 text-sm text-stone-600 list-decimal list-inside">
-                        <li>
-                          <strong className="text-stone-800">選茶：</strong>決定今日主角。
-                        </li>
-                        <li>
-                          <strong className="text-stone-800">試茶：</strong>
-                          <p className="pl-4 mt-1 text-xs">使用鑑定杯，了解其發酵度、苦澀度、香氣、焙火情形，以決定沖泡策略。</p>
-                        </li>
-                        <li>
-                          <strong className="text-stone-800">主體部分 (因茶擇器)：</strong>
-                          <p className="pl-4 mt-1 text-xs">
-                            例：凍頂烏龍選圓形壺、燒結度不高、蓋子密。<br />
-                            決定席方(舞台)、壺承、飲杯、勻杯的搭配。
-                          </p>
-                        </li>
-                      </ol>
-                    </div>
-
-                    <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                      <h4 className="font-bold text-lg text-stone-800 mb-4">茶席構成要素</h4>
-                      <ul className="space-y-3 text-sm text-stone-600">
-                        <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>席方：</strong>離桌緣一食指距離。</li>
-                        <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>壺承：</strong>直徑須大於壺，造型如舞台。</li>
-                        <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>勻杯：</strong>斷水須順暢，高度不低於杯。</li>
-                        <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>水盂：</strong>彈性最大，可依比例調整。</li>
-                        <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>茶巾：</strong>置於事茶者右下壺承45度。</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <div className="bg-stone-800 text-stone-200 p-8 rounded-xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-stone-700 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                      <h4 className="font-bold text-xl text-white mb-8 text-center">茶席基本配置圖 (以事茶者視角)</h4>
-
-                      {/* Diagram Representation */}
-                      <div className="grid grid-cols-3 gap-4 text-center text-xs md:text-sm">
-                        {/* Top Row */}
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (茶倉) <br /> 左上 45°
-                        </div>
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (客人視線)
-                        </div>
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (勻杯) <br /> 右上 45°
-                        </div>
-
-                        {/* Middle Row */}
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (茶荷) <br /> 左側
-                        </div>
-                        <div className="flex items-center justify-center p-8 bg-stone-700 rounded-full border-2 border-stone-500 shadow-lg z-10">
-                          <strong className="text-white">茶壺 & 壺承</strong><br />(正中央)
-                        </div>
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (茶則/茶理) <br /> 右側
-                        </div>
-
-                        {/* Bottom Row */}
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (水盂) <br /> 彈性位置
-                        </div>
-                        <div className="flex items-center justify-center p-4 text-stone-300">
-                          <User size={24} className="mb-1 block mx-auto" />
-                          事茶者
-                        </div>
-                        <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                          (茶巾/蓋置) <br /> 右下 45°
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* 4. Ritual */}
-            {ceremonyTab === 'ritual' && (
-              <div className="animate-fadeIn">
-                <div className="relative border-l-2 border-stone-200 ml-4 md:ml-8 space-y-12 my-8">
-                  {[
-                    { title: "1. 備茶展席", desc: "未曾汲水，先備茶具。必潔必燥，開口以待。靜心備水，安全得宜，調整心情。" },
-                    { title: "2. 調息靜氣", desc: "主客行禮（飲水淨口）。溫壺：左手提煮水器，右手執主沖茶器，左右均衡操作。溫勻杯、溫杯：預測容量。" },
-                    { title: "3. 注水溫潤", desc: "備茶、賞茶、置茶（專注嚴謹）、聞香。注水溫潤：提壺靜沸，注水不急不緩。" },
-                    { title: "4. 靜候觀心", desc: "第一道茶：外在顯現為茶道美感與境界塑造之基礎。清杯：由內而外，井然有序。調息出湯。" },
-                    { title: "5. 出湯布茶", desc: "奉茶行禮：平穩謙和。第二道茶：專注細膩。勻杯奉茶：主客互動之藝術，客人連同杯托往前移動。" },
-                    { title: "6. 靜心品味", desc: "端茶：左手拇指餘指輕托杯托。持杯：右手拇指食指拿杯緣。聞香、品茶（分3小口）、聞杯底。" },
-                    { title: "7. 空白之美", desc: "品茶告一段落，品用白開水以顯現茶味（實品茶湯、虛品茶味），或供應茶食、聽樂、品香。" },
-                    { title: "8. 對話賞壺", desc: "清壺賞葉底：延續之情，不再續沖。賞壺：惜物之情，去葉底注水入壺清理，讓客人賞壺。" },
-                    { title: "9. 一期一會", desc: "歸位：時間掌控。理器：動態之美，如行雲流水。收杯：客人將杯送回。茶席之美：表現與分享。" }
-                  ].map((step, idx) => (
-                    <div key={idx} className="relative pl-8">
-                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-stone-400 border-2 border-white"></div>
-                      <h4 className="text-xl font-bold text-stone-800 mb-2">{step.title}</h4>
-                      <p className="text-stone-600 leading-relaxed">{step.desc}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-stone-50 p-6 rounded-xl text-center border border-stone-200">
-                  <p className="text-stone-700 italic font-medium">
-                    「形而上者謂之道，形而下者謂之器。」<br />
-                    道器並用，由藝入道，用功於生命本身。
-                  </p>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
-        </div >
-      </div >
+        </div>
+      </div>
     );
   };
 
@@ -3070,7 +3163,7 @@ const TeaWebsite = () => {
     return (
       <div className="museum-page">
         <div className="museum-stage">
-          <div className="text-center mb-16"><h2 className="text-3xl font-bold text-stone-900">臺灣茶產區導覽</h2><p className="mt-4 text-stone-600 max-w-3xl mx-auto leading-relaxed">臺灣地形多變、雨量豐沛，造就了「北包種、南凍頂」的多元風味。</p></div>
+          <div className="text-center mb-16"><h2 className="text-3xl font-bold text-stone-900 text-outline-white">臺灣茶產區導覽</h2><p className="mt-4 text-lg md:text-xl text-stone-600 text-outline-white max-w-3xl mx-auto leading-relaxed">臺灣地形多變、雨量豐沛，造就了「北包種、南凍頂」的多元風味。</p></div>
           <div className="grid md:grid-cols-2 gap-8 mb-24">
             <div className="bg-white rounded-xl shadow-lg border-t-8 border-emerald-500 p-8"><h3 className="text-2xl font-bold text-stone-800 mb-2">北部茶區</h3><p className="text-stone-600">文山包種茶、木柵鐵觀音、三峽碧螺春、東方美人</p></div>
             <div className="bg-white rounded-xl shadow-lg border-t-8 border-lime-600 p-8"><h3 className="text-2xl font-bold text-stone-800 mb-2">中部茶區</h3><p className="text-stone-600">凍頂烏龍、高山烏龍、日月潭紅茶</p></div>
@@ -3079,7 +3172,7 @@ const TeaWebsite = () => {
           </div>
 
           {/* World Map Section */}
-          <div className="bg-stone-900 rounded-3xl p-8 md:p-16 text-stone-300 relative overflow-hidden">
+          <div className="bg-stone-900 rounded-3xl p-8 md:p-16 text-stone-300 ">
             {/* Decorative background elements to simulate map lines */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -3217,30 +3310,87 @@ const TeaWebsite = () => {
     );
 
     const historyData = createHistoryData({ searchTerm, setSearchTerm, filteredTimelineData, TimelineRow });
+    const historySectionRef = useRef(null);
+    const [historySidebarWidth, setHistorySidebarWidth] = useState(() => {
+      if (typeof window === 'undefined') return 300;
+      const raw = window.localStorage?.getItem('tea.historySidebarWidth');
+      const parsed = raw ? Number(raw) : NaN;
+      if (!Number.isFinite(parsed)) return 300;
+      return Math.min(Math.max(parsed, 200), 500);
+    });
 
+    const handleHistoryTabChange = (tabId) => {
+      setHistoryTab(tabId);
+      // Scroll to top of section
+      if (historySectionRef.current) {
+        historySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    const handleHistoryResize = (newWidth) => {
+      setHistorySidebarWidth(newWidth);
+    };
+
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+      try {
+        window.localStorage?.setItem('tea.historySidebarWidth', String(historySidebarWidth));
+      } catch {
+        // ignore
+      }
+    }, [historySidebarWidth]);
 
     return (
-      <div className="museum-page">
+      <div className="museum-page" ref={historySectionRef}>
         <div className="museum-stage">
           <div className="mb-12 museum-panel p-8 md:p-12 text-center">
             <div className="museum-label mx-auto">EXHIBIT · HISTORY</div>
             <h2 className="mt-5 text-3xl md:text-4xl font-extrabold text-stone-900">茶道文化史</h2>
             <p className="mt-4 text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">縱橫千年，從神農嘗百草到現代茶藝的生活美學。</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {Object.keys(historyData).map((key) => (
-              <button
-                key={key}
-                onClick={() => setHistoryTab(key)}
-                className={`museum-tab ${historyTab === key ? 'museum-tab-active' : ''}`}
-              >
-                <span className="mr-2">{historyData[key].icon}</span>
-                {historyData[key].title}
-              </button>
-            ))}
-          </div>
-          <div className="animate-fadeIn min-h-[400px] museum-panel p-6 md:p-8">
-            {historyData[historyTab].content}
+          {/* Two-Column Layout with Resizable Divider */}
+          <div className="flex gap-0">
+            {/* Left Sidebar Navigation */}
+            <div style={{ width: `${historySidebarWidth}px`, minWidth: '200px', maxWidth: '500px' }}>
+              <div className="md:sticky md:top-24 space-y-3 pr-4">
+                {Object.keys(historyData).map((key) => (
+                  <button
+                    key={key}
+                    onClick={() => handleHistoryTabChange(key)}
+                    className={`
+                      w-full px-5 py-4 rounded-xl border-2 transition-all duration-300
+                      flex items-center gap-4 text-left relative
+                      ${historyTab === key
+                        ? 'bg-gradient-to-r from-emerald-50 to-emerald-100 border-emerald-400 shadow-md'
+                        : 'bg-white border-stone-200 hover:border-emerald-300 hover:shadow-sm'
+                      }
+                    `}
+                  >
+                    <div className={`transition-transform duration-300 flex-shrink-0 text-2xl ${historyTab === key ? 'scale-110' : ''}`}>
+                      {historyData[key].icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className={`font-bold text-lg ${historyTab === key ? 'text-emerald-900' : 'text-stone-800'}`}>
+                        {historyData[key].title}
+                      </div>
+                    </div>
+                    {historyTab === key && (
+                      <div className="w-1 h-8 bg-emerald-500 rounded-full absolute right-0"></div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Resizable Divider */}
+            <ResizableDivider onResize={handleHistoryResize} minWidth={200} maxWidth={500} />
+
+            {/* Right Content Area */}
+            <div className="flex-1 min-w-0 pl-8">
+              <div className="animate-fadeIn min-h-[400px] museum-panel p-6 md:p-8">
+                {historyData[historyTab].content}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3268,11 +3418,15 @@ const TeaWebsite = () => {
     };
 
     return (
-      <footer className="museum-footer text-stone-900">
-        <div className="museum-footer__inner max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
+      <footer className="museum-footer text-stone-900 ">
+
+
+        <div className="museum-footer__inner max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-5">
               <div className="museum-footer-card p-6">
+
+
                 <div className="flex items-start gap-4">
                   <div className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-white/10 border border-white/10">
                     <Leaf className="h-6 w-6 text-amber-300" />
@@ -3308,7 +3462,7 @@ const TeaWebsite = () => {
                       key={tab}
                       type="button"
                       onClick={() => goToTab(tab)}
-                      className="text-left px-3 py-2 rounded-xl border border-stone-200/80 bg-white/80 hover:bg-white transition-colors text-stone-800"
+                      className="glow-button text-left px-3 py-2 rounded-xl border border-stone-200/80 bg-white/80 hover:bg-white transition-colors text-stone-800"
                     >
                       {label}
                     </button>

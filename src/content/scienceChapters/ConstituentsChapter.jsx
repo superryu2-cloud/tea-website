@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { FlaskConical, Leaf, Droplets, Sparkles, Wind, Flame, Coffee, Layers, X } from 'lucide-react';
 
 export default function ConstituentsChapter() {
@@ -214,6 +214,63 @@ export default function ConstituentsChapter() {
                 <p className="text-lg text-stone-700 leading-relaxed mb-6">
                     一杯茶的風味，是數百種化學物質共同作用的結果。從生青的葉醇、香氣的芳樟醇，到回甘的氨基酸，每一種成分都在茶湯中扮演著獨特的角色。理解這些內含物質，是深入品鑑茶葉的科學基礎。
                 </p>
+                                                {/* Tea Constituents Diagram - Enhanced Design */}
+                <div className="my-8 bg-gradient-to-br from-emerald-50 via-white to-amber-50 rounded-3xl border border-emerald-200 shadow-lg overflow-hidden">
+                    <div className="p-8">
+                        <h3 className="text-2xl font-bold text-stone-900 mb-6 text-center flex items-center justify-center gap-2">
+                            <FlaskConical className="text-emerald-600" size={28} />
+                            茶葉內含物質組成
+                        </h3>
+                        
+                        {/* Full Width Image */}
+                        <div className="mb-8 flex justify-center">
+                            <img 
+                                src="/images/tea_constituents_diagram.png" 
+                                alt="茶葉內含物質分布圖"
+                                className="w-full max-w-3xl h-auto rounded-2xl shadow-md"
+                            />
+                        </div>
+                        
+                        {/* Data Cards Grid - 4 columns */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div className="bg-white rounded-xl p-5 border-t-4 border-emerald-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                <div className="text-center">
+                                    <div className="text-4xl font-bold text-emerald-700 mb-2">48%</div>
+                                    <div className="text-lg font-semibold text-stone-700 mb-1">茶多酚</div>
+                                    <div className="text-xs text-stone-500">澀感</div>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-white rounded-xl p-5 border-t-4 border-amber-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                <div className="text-center">
+                                    <div className="text-4xl font-bold text-amber-700 mb-2">27%</div>
+                                    <div className="text-lg font-semibold text-stone-700 mb-1">其餘水溶性物質</div>
+                                    <div className="text-xs text-stone-500">醣類、香氣等</div>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-white rounded-xl p-5 border-t-4 border-green-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                <div className="text-center">
+                                    <div className="text-4xl font-bold text-green-700 mb-2">15%</div>
+                                    <div className="text-lg font-semibold text-stone-700 mb-1">茶胺酸</div>
+                                    <div className="text-xs text-stone-500">鮮甜味</div>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-white rounded-xl p-5 border-t-4 border-yellow-600 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                <div className="text-center">
+                                    <div className="text-4xl font-bold text-yellow-700 mb-2">10%</div>
+                                    <div className="text-lg font-semibold text-stone-700 mb-1">咖啡因</div>
+                                    <div className="text-xs text-stone-500">苦味</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p className="text-sm text-stone-600 text-center mt-6 italic">
+                            點擊下方互動卡片，深入了解各種內含物質的風味特徵
+                        </p>
+                    </div>
+                </div>
 
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
                     <p className="text-sm text-blue-900">

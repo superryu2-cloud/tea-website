@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ChevronRight, Layout, Map, Layers, Leaf, FlaskConical, PenTool, Mountain, Coffee, Search } from 'lucide-react';
 
 /**
@@ -176,33 +176,43 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
 
                     <div className="lg:sticky lg:top-24 space-y-6">
                         <div className="museum-panel p-6 md:p-8">
+                            
+
                             <div className="flex items-center gap-3">
                                 <Map className="text-emerald-700" />
                                 <div className="text-lg font-extrabold text-stone-900">學習地圖</div>
+                                <span className="text-xl opacity-30"><Coffee size={20} className="inline opacity-30" /></span>
                             </div>
                             <p className="mt-3 text-stone-600 leading-relaxed">
                                 你可以把每一站當成茶席上的一張筆記：先抓住核心，再用需要時才查的「百科卡片」補齊細節。
                             </p>
                             <div className="mt-6 grid grid-cols-2 gap-3">
                                 {[
-                                    { label: '六大茶類', icon: Layers },
-                                    { label: '茶樹品種', icon: Leaf },
-                                    { label: '氧化/烘焙', icon: FlaskConical },
-                                    { label: '製程/工藝', icon: PenTool },
-                                    { label: '特色茶', icon: Mountain },
-                                    { label: '沖泡/茶席', icon: Coffee },
+                                    { label: '六大茶類', icon: Layers, action: () => goToTab('varieties') },
+                                    { label: '茶樹品種', icon: Leaf, action: () => goToTab('cultivars') },
+                                    { label: '氧化/烘焙', icon: FlaskConical, action: () => { setScienceRoom('oxidation'); goToTab('science'); } },
+                                    { label: '製程/工藝', icon: PenTool, action: () => goToTab('tea_talk') },
+                                    { label: '特色茶', icon: Mountain, action: () => goToTab('featured') },
+                                    { label: '沖泡/茶席', icon: Coffee, action: () => goToTab('ceremony') },
                                 ].map((it) => (
-                                    <div key={it.label} className="rounded-2xl border border-stone-200 bg-white/70 px-4 py-3">
+                                    <button
+                                        key={it.label}
+                                        type="button"
+                                        onClick={it.action}
+                                        className="wavy-card rounded-2xl border border-stone-200 bg-white/70 px-4 py-3 transition-all duration-300 hover:scale-105 cursor-pointer"
+                                    >
                                         <div className="flex items-center gap-2 text-stone-800 font-extrabold">
                                             <it.icon size={16} className="text-emerald-700" />
                                             <span className="text-sm">{it.label}</span>
                                         </div>
-                                    </div>
+                                    </button>
                                 ))}
                             </div>
                         </div>
 
                         <div className="museum-panel p-6 md:p-8">
+                            
+
                             <div className="flex items-center gap-3">
                                 <Search className="text-emerald-700" />
                                 <div className="text-lg font-extrabold text-stone-900">百科入口</div>

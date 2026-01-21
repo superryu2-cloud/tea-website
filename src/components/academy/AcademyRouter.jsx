@@ -10,6 +10,7 @@ import ZhiyaChapter06 from '../../content/academy/ZhiyaChapter06';
 import ZhiyaChapter07 from '../../content/academy/ZhiyaChapter07';
 import ZhiyaChapter09 from '../../content/academy/ZhiyaChapter09';
 import ZhiyaChapter10 from '../../content/academy/ZhiyaChapter10';
+import ZhiyaChapter14 from '../../content/academy/ZhiyaChapter14';
 import XueyaChapter01 from '../../content/academy/XueyaChapter01';
 import XueyaChapter03 from '../../content/academy/XueyaChapter03';
 import XueyaChapter05 from '../../content/academy/XueyaChapter05';
@@ -104,6 +105,12 @@ const ACADEMY_CHAPTERS = {
         category: '大觀書院 · 質雅',
         title: '第十堂：茶碗以匙分茶 / 碧螺春 / 武夷岩茶',
         intro: '從茶碗分茶的儀式美學，到碧螺春的鮮爽靈動與武夷岩茶的岩骨花香。本章帶您探索中國名茶的多元風貌，並掌握不同茶類的品鑑與沖泡心法。'
+    },
+    academy_zhiya_14: {
+        component: ZhiyaChapter14,
+        category: '大觀書院 · 質雅',
+        title: '第十四堂：紅茶品評、歷史與沖泡實踐全解析',
+        intro: '從感官品評到文化傳承的完整旅程。深入探索紅茶的專業品評技巧、嚴謹的評審流程、全球傳播史，以及實用的沖泡技術與文化意涵。'
     },
     academy_xueya_01: {
         component: XueyaChapter01,

@@ -51,7 +51,13 @@ export default function TeaTalkColorSection({ topOffsetPx = 0 }) {
               title="章節"
               items={chapters}
               activeKey={activeChapter}
-              onSelectKey={(key) => setActiveChapter(key)}
+              onSelectKey={(key) => {
+                setActiveChapter(key);
+                // Scroll to top when changing chapters
+                if (typeof window !== 'undefined') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               topOffsetPx={topOffsetPx}
               pinMode="static"
             />

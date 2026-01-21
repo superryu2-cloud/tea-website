@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Star, Globe, Leaf, Ship, Crown, Coffee, Flame, Mountain } from 'lucide-react';
 
 /**
@@ -122,7 +122,7 @@ export default function RedTeaVerticalTimeline() {
 
                     <div className="flex justify-center my-6">
                         <div className="bg-red-100 border-2 border-red-400 px-6 py-4 rounded-xl shadow-md max-w-md text-center">
-                            <div className="font-bold text-red-900 text-lg mb-2">🍂 正山小種</div>
+                            <div className="font-bold text-red-900 text-lg mb-2"><Leaf size={18} className="inline" /> 正山小種</div>
                             <div className="text-red-800 text-sm">世界第一款紅茶 · 松煙香 · 桂圓味</div>
                         </div>
                     </div>

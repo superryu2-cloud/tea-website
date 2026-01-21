@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Lightbulb, Plus, ArrowDown } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Lightbulb, Plus, ArrowDown, Leaf, Coffee } from 'lucide-react';
 
 // 茶名組合數據
 const TEA_NAME_COMPONENTS = {
@@ -33,9 +33,9 @@ const TEA_NAME_COMPONENTS = {
         { key: 'assam', label: '阿薩姆', labelEn: 'Assam' }
     ],
     method: [
-        { key: 'green', label: '綠茶', labelEn: 'Green tea', labelJp: '緑茶', icon: '🍃', color: 'bg-green-50 border-green-400' },
-        { key: 'oolong', label: '烏龍茶', labelEn: 'Oolong tea', labelJp: 'ウーロン茶', icon: '🫖', color: 'bg-amber-50 border-amber-400' },
-        { key: 'black', label: '紅茶', labelEn: 'Black tea', labelJp: '紅茶', icon: '🍂', color: 'bg-red-50 border-red-400' }
+        { key: 'green', label: '綠茶', labelEn: 'Green tea', labelJp: '緑茶', icon: Leaf, color: 'bg-green-50 border-green-400' },
+        { key: 'oolong', label: '烏龍茶', labelEn: 'Oolong tea', labelJp: 'ウーロン茶', icon: Coffee, color: 'bg-amber-50 border-amber-400' },
+        { key: 'black', label: '紅茶', labelEn: 'Black tea', labelJp: '紅茶', icon: Leaf, color: 'bg-red-50 border-red-400' }
     ]
 };
 
@@ -206,7 +206,7 @@ const FeaturedTeaOverview = () => {
                                         : `${item.color} opacity-70`
                                         }`}
                                 >
-                                    <div className="text-2xl mb-1">{item.icon}</div>
+                                    <div className="mb-1">{React.createElement(item.icon, { size: 24, className: "mx-auto" })}</div>
                                     <div>{item.label}</div>
                                     <div className="text-xs opacity-75">{item.labelEn}</div>
                                 </button>
