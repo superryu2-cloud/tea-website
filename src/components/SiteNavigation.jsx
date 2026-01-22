@@ -147,34 +147,19 @@ export default function SiteNavigation({
   const [chonghuaMobileOpen, setChonghuaMobileOpen] = useState(false);
 
 
-  // Secret Trigger Logic - Toggle Academy visibility with 5 clicks
+  // Secret Trigger Logic - Open password modal after 5 clicks
   const [secretClickCount, setSecretClickCount] = useState(0);
 
   const handleSecretClick = () => {
     setSecretClickCount((prev) => {
       const next = prev + 1;
       if (next >= 5) {
-        if (daguanUnlocked && chonghuaUnlocked) {
-          // 已解鎖：重新鎖定
-          onUnlockRequest?.(false);
-        } else {
-          // 未完全解鎖：顯示密碼框
-          onUnlockRequest?.('any');
-        }
-
+        onUnlockRequest?.('any');
         return 0; // 重置計數器
       }
       return next;
     });
   };
-
-  useEffect(() => {
-    let timer;
-    if (secretClickCount > 0) {
-      timer = setTimeout(() => setSecretClickCount(0), 1000); // 1秒內沒續點就歸零
-    }
-    return () => clearTimeout(timer);
-  }, [secretClickCount]);
 
   useEffect(() => {
     if (typeof document === 'undefined') return;

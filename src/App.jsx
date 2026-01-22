@@ -3554,8 +3554,10 @@ const TeaWebsite = () => {
   });
   const [passwordModalTarget, setPasswordModalTarget] = useState(null);
   const [academyMenuHidden, setAcademyMenuHidden] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.localStorage?.getItem(ACADEMY_MENU_HIDDEN_KEY) === 'true';
+    if (typeof window === 'undefined') return true;
+    const stored = window.localStorage?.getItem(ACADEMY_MENU_HIDDEN_KEY);
+    if (stored === null) return true;
+    return stored === 'true';
   });
 
   const handleUnlockSuccess = (targetKey) => {
