@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 
-export default function PasswordModal({ isOpen, onClose, onSuccess }) {
+const PASSWORDS = {
+  daguan: '\u5927\u89c0',
+  chonghua: '\u5d07\u83ef',
+};
+
+export default function PasswordModal({ isOpen, onClose, onSuccess, target }) {
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [isShaking, setIsShaking] = useState(false);
-
-  const MUSEUM_PASSWORD = '大觀';
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password === MUSEUM_PASSWORD) {
-      // 密碼正確
-      localStorage.setItem('museumUnlocked', 'true');
-      setError('');
-      onSuccess();
+    const trimmed = password.trim();
+    const candidates = (target && PASSWORDS[target]) ? [[target, PASSWORDS[target]]] : Object.entries(PASSWORDS);
+    const matched = candidates.find(([, value]) => value === trimmed);
+
+    if (matched) {
+      onSuccess?.(matched[0]);
       setPassword('');
     } else {
-      // 密碼錯誤
-      setError('密碼錯誤，請重試');
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
       setPassword('');
@@ -27,7 +28,6 @@ export default function PasswordModal({ isOpen, onClose, onSuccess }) {
 
   const handleClose = () => {
     setPassword('');
-    setError('');
     onClose();
   };
 
@@ -39,33 +39,29 @@ export default function PasswordModal({ isOpen, onClose, onSuccess }) {
         className={`bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all duration-300 ${isShaking ? 'animate-shake' : 'animate-slideUp'
           }`}
       >
-        {/* 標題 */}
+        {/* Header */}
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-100 to-amber-100 mb-4">
             <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <p className="text-sm text-stone-600">請輸入通行密碼</p>
         </div>
 
-        {/* 表單 */}
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <input
               type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="請輸入密碼"
               autoFocus
               className="w-full px-4 py-3 text-base border-2 border-stone-200 rounded-xl focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all"
             />
-            {error && (
-              <p className="mt-2 text-sm text-red-600 animate-fadeIn">{error}</p>
-            )}
+            
           </div>
 
-          {/* 按鈕 */}
+          {/* Actions */}
           <div className="flex gap-3 pt-2">
             <button
               type="button"
@@ -132,3 +128,10 @@ export default function PasswordModal({ isOpen, onClose, onSuccess }) {
     </div>
   );
 }
+
+
+
+
+
+
+

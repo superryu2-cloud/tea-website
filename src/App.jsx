@@ -3519,22 +3519,82 @@ const TeaWebsite = () => {
   };
 
   // Academy Password Protection
-  const [museumUnlocked, setMuseumUnlocked] = useState(() => {
+  const DAGUAN_UNLOCK_KEY = 'academy.daguanUnlocked';
+  const CHONGHUA_UNLOCK_KEY = 'academy.chonghuaUnlocked';
+  const ACADEMY_MENU_HIDDEN_KEY = 'academy.menuHidden';
+  const [daguanUnlocked, setDaguanUnlocked] = useState(() => {
     if (typeof window === 'undefined') return false;
-    return window.localStorage?.getItem('museumUnlocked') === 'true';
+    const stored = window.localStorage?.getItem(DAGUAN_UNLOCK_KEY) === 'true';
+    if (stored) return true;
+    const legacy = window.localStorage?.getItem('museumUnlocked') === 'true';
+    if (legacy) {
+      try {
+        window.localStorage?.setItem(DAGUAN_UNLOCK_KEY, 'true');
+      } catch {
+        // ignore
+      }
+      return true;
+    }
+    return false;
   });
-  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
+  const [chonghuaUnlocked, setChonghuaUnlocked] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const stored = window.localStorage?.getItem(CHONGHUA_UNLOCK_KEY) === 'true';
+    if (stored) return true;
+    const legacy = window.localStorage?.getItem('museumUnlocked') === 'true';
+    if (legacy) {
+      try {
+        window.localStorage?.setItem(CHONGHUA_UNLOCK_KEY, 'true');
+      } catch {
+        // ignore
+      }
+      return true;
+    }
+    return false;
+  });
+  const [passwordModalTarget, setPasswordModalTarget] = useState(null);
+  const [academyMenuHidden, setAcademyMenuHidden] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.localStorage?.getItem(ACADEMY_MENU_HIDDEN_KEY) === 'true';
+  });
 
-  const handleUnlockSuccess = () => {
-    setMuseumUnlocked(true);
-    setIsPasswordModalOpen(false);
+  const handleUnlockSuccess = (targetKey) => {
+    if (targetKey === 'daguan') {
+      setDaguanUnlocked(true);
+      try {
+        window.localStorage?.setItem(DAGUAN_UNLOCK_KEY, 'true');
+      } catch {
+        // ignore
+      }
+    }
+    if (targetKey === 'chonghua') {
+      setChonghuaUnlocked(true);
+      try {
+        window.localStorage?.setItem(CHONGHUA_UNLOCK_KEY, 'true');
+      } catch {
+        // ignore
+      }
+    }
+    setAcademyMenuHidden(false);
+    try {
+      window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
+    } catch {
+      // ignore
+    }
+    try {
+      window.localStorage?.removeItem('museumUnlocked');
+    } catch {
+      // ignore
+    }
+    setPasswordModalTarget(null);
   };
 
   return (
     <div className="min-h-screen text-stone-900">
       <PasswordModal
-        isOpen={isPasswordModalOpen}
-        onClose={() => setIsPasswordModalOpen(false)}
+        isOpen={Boolean(passwordModalTarget)}
+        target={passwordModalTarget}
+        onClose={() => setPasswordModalTarget(null)}
         onSuccess={handleUnlockSuccess}
       />
 
@@ -3550,14 +3610,26 @@ const TeaWebsite = () => {
         setMobileMenuOpen={setMobileMenuOpen}
         setVarietiesKind={setVarietiesKind}
         setScienceRoom={setScienceRoom}
-        museumUnlocked={museumUnlocked}
-        onUnlockRequest={(shouldUnlock) => {
-          if (shouldUnlock === false) {
+        daguanUnlocked={daguanUnlocked}
+        chonghuaUnlocked={chonghuaUnlocked}
+        academyMenuHidden={academyMenuHidden}
+        onUnlockRequest={(targetKey) => {
+          if (targetKey === false) {
             // 重新鎖定：移除解鎖狀態
-            setMuseumUnlocked(false);
+            setDaguanUnlocked(false);
+            setChonghuaUnlocked(false);
+            setAcademyMenuHidden(true);
+            try {
+              window.localStorage?.removeItem(DAGUAN_UNLOCK_KEY);
+              window.localStorage?.removeItem(CHONGHUA_UNLOCK_KEY);
+              window.localStorage?.removeItem('museumUnlocked');
+              window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'true');
+            } catch {
+              // ignore
+            }
           } else {
             // 顯示密碼框（總是打開，不切換）
-            setIsPasswordModalOpen(true);
+            setPasswordModalTarget(targetKey ?? 'any');
           }
         }}
       />
@@ -3611,7 +3683,11 @@ const TeaWebsite = () => {
         {activeTab === 'history' && <HistorySection historyTab={historyTab} setHistoryTab={setHistoryTab} />}
 
         {/* Academy Section - Centralized routing through AcademyRouter */}
-        <AcademyRouter activeTab={activeTab} museumUnlocked={museumUnlocked} />
+        <AcademyRouter
+          activeTab={activeTab}
+          daguanUnlocked={daguanUnlocked}
+          chonghuaUnlocked={chonghuaUnlocked}
+        />
       </main>
 
       {/* AI Components are now correctly defined and called */}

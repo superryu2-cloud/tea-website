@@ -26,6 +26,8 @@ const PAPER_THEMES = [
   { key: 'natural', label: '自然紙張' },
   { key: 'slate', label: '深藍灰紙張' },
   { key: 'cream', label: '奶油紙張' },
+  { key: 'ink', label: '山水潑墨' },
+  { key: 'parchment', label: '復古羊皮' },
 ];
 
 const ACADEMY_STRUCTURE = [
@@ -103,7 +105,9 @@ export default function SiteNavigation({
   setMobileMenuOpen,
   setVarietiesKind,
   setScienceRoom,
-  museumUnlocked,
+  daguanUnlocked,
+  chonghuaUnlocked,
+  academyMenuHidden,
   onUnlockRequest,
 }) {
   const journeyLabel = splitNavLabel(String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, ''));
@@ -150,13 +154,12 @@ export default function SiteNavigation({
     setSecretClickCount((prev) => {
       const next = prev + 1;
       if (next >= 5) {
-        if (!museumUnlocked) {
-          // 未解鎖：顯示密碼框
-          onUnlockRequest?.();
-        } else {
-          // 已解鎖：重新鎖定（隱藏大觀書院）
-          localStorage.removeItem('museumUnlocked');
+        if (daguanUnlocked && chonghuaUnlocked) {
+          // 已解鎖：重新鎖定
           onUnlockRequest?.(false);
+        } else {
+          // 未完全解鎖：顯示密碼框
+          onUnlockRequest?.('any');
         }
 
         return 0; // 重置計數器
@@ -286,13 +289,19 @@ export default function SiteNavigation({
               <div className="nav-main-grid">
                 {navRows.map((row, rowIndex) =>
                   row.map((item, colIndex) => {
+                    if (academyMenuHidden && (item === 'academy' || item === 'chonghua')) {
+                      return null;
+                    }
                     let content = null;
                     if (item === 'academy') {
-                      if (!museumUnlocked) return null;
                       content = (
                         <button
                           type="button"
                           onClick={() => {
+                            if (!daguanUnlocked) {
+                              onUnlockRequest?.('daguan');
+                              return;
+                            }
                             setAcademyNavOpen((v) => !v);
                             setChonghuaNavOpen(false);
                           }}
@@ -318,11 +327,14 @@ export default function SiteNavigation({
                         </button>
                       );
                     } else if (item === 'chonghua') {
-                      // 崇華書院不需要解鎖，始終顯示
                       content = (
                         <button
                           type="button"
                           onClick={() => {
+                            if (!chonghuaUnlocked) {
+                              onUnlockRequest?.('chonghua');
+                              return;
+                            }
                             setChonghuaNavOpen((v) => !v);
                             setAcademyNavOpen(false);
                           }}
@@ -546,6 +558,10 @@ export default function SiteNavigation({
                           className="nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors bg-sky-50 text-sky-950 hover:bg-sky-100 shadow-sm"
                           onClick={(e) => {
                             e.preventDefault();
+                            if (!chonghuaUnlocked) {
+                              onUnlockRequest?.('chonghua');
+                              return;
+                            }
                             goToTab(`academy_chonghua_${num}`);
                             setChonghuaNavOpen(false);
                           }}
@@ -581,6 +597,10 @@ export default function SiteNavigation({
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
+                            if (!daguanUnlocked) {
+                              onUnlockRequest?.('daguan');
+                              return;
+                            }
                             if (cat.key === 'zhiya') {
                               if (parseInt(num, 10) === 10) goToTab('academy_zhiya_10');
                               else if (parseInt(num, 10) === 2) goToTab('academy_zhiya_02');
@@ -618,6 +638,22 @@ export default function SiteNavigation({
                   </div>
                 </div>
               ))}
+
+              {(daguanUnlocked || chonghuaUnlocked) && !academyMenuHidden && (academyNavOpen || chonghuaNavOpen) ? (
+                <div className="pt-4 border-t border-stone-200 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAcademyNavOpen(false);
+                      setChonghuaNavOpen(false);
+                      onUnlockRequest?.(false);
+                    }}
+                    className="rounded-full px-4 py-2 text-sm font-semibold border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 transition-colors"
+                  >
+                    隱藏書院
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -705,11 +741,17 @@ export default function SiteNavigation({
               </div>
 
               {/* Academy (Mobile) */}
-              {museumUnlocked && (
+              {academyMenuHidden ? null : (
                 <div className="mt-2 px-2">
                   <button
                     type="button"
-                    onClick={() => setAcademyNavOpen((v) => !v)}
+                    onClick={() => {
+                      if (!daguanUnlocked) {
+                        onUnlockRequest?.('daguan');
+                        return;
+                      }
+                      setAcademyNavOpen((v) => !v);
+                    }}
                     className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
                     aria-expanded={academyNavOpen}
                   >
@@ -752,6 +794,10 @@ export default function SiteNavigation({
                                         }`}
                                       onClick={(e) => {
                                         e.preventDefault();
+                                        if (!daguanUnlocked) {
+                                          onUnlockRequest?.('daguan');
+                                          return;
+                                        }
                                         if (cat.key === 'zhiya') {
                                           if (parseInt(num, 10) === 10) goToTab('academy_zhiya_10');
                                           else if (parseInt(num, 10) === 2) goToTab('academy_zhiya_02');
@@ -801,11 +847,18 @@ export default function SiteNavigation({
                 </div>
               )}
 
-              {/* Chonghua (Mobile) - 不需要解鎖 */}
-              <div className="mt-2 px-2">
+              {/* Chonghua (Mobile) */}
+              {academyMenuHidden ? null : (
+                <div className="mt-2 px-2">
                 <button
                   type="button"
-                  onClick={() => setChonghuaMobileOpen((v) => !v)}
+                  onClick={() => {
+                    if (!chonghuaUnlocked) {
+                      onUnlockRequest?.('chonghua');
+                      return;
+                    }
+                    setChonghuaMobileOpen((v) => !v);
+                  }}
                   className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
                   aria-expanded={chonghuaMobileOpen}
                 >
@@ -825,6 +878,10 @@ export default function SiteNavigation({
                         className="nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
                         onClick={(e) => {
                           e.preventDefault();
+                          if (!chonghuaUnlocked) {
+                            onUnlockRequest?.('chonghua');
+                            return;
+                          }
                           goToTab(`academy_chonghua_${chapter.id}`);
                           setMobileMenuOpen(false);
                         }}
@@ -835,6 +892,24 @@ export default function SiteNavigation({
                   </div>
                 </AccordionPanel>
               </div>
+              )}
+
+              {(daguanUnlocked || chonghuaUnlocked) && !academyMenuHidden ? (
+                <div className="mt-3 px-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAcademyNavOpen(false);
+                      setChonghuaMobileOpen(false);
+                      onUnlockRequest?.(false);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full rounded-xl px-3 py-2 text-sm font-semibold border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 transition-colors"
+                  >
+                    隱藏書院
+                  </button>
+                </div>
+              ) : null}
 
               {/* Tier 3 */}
               {activeTab === 'varieties' ? (
@@ -981,3 +1056,5 @@ export default function SiteNavigation({
     </nav >
   );
 }
+
+

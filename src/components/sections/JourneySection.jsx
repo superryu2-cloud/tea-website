@@ -15,12 +15,14 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
             title: '六大茶類',
             subtitle: '先建立分類與風味直覺',
             action: () => goToTab('varieties'),
+            image: '/images/journey/step_six.png',
         },
         {
             id: 'cultivars',
             title: '品種',
             subtitle: '葉型、加工適性與台灣栽培品種',
             action: () => goToTab('cultivars'),
+            image: '/images/journey/step_cultivar.png',
         },
         {
             id: 'science',
@@ -30,30 +32,35 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                 setScienceRoom('oxidation');
                 goToTab('science');
             },
+            image: '/images/journey/step_science.png',
         },
         {
             id: 'process',
             title: '製程',
             subtitle: '從採摘到成茶：把工序連成一條線',
             action: () => goToTab('brewing'),
+            image: '/images/journey/step_process.png',
         },
         {
             id: 'tw',
             title: '台灣特色茶',
             subtitle: '把知識套回到具體茶品與產區',
             action: () => goToTab('featured'),
+            image: '/images/journey/step_taiwan.png',
         },
         {
             id: 'brew',
             title: '沖泡',
             subtitle: '用正確手法釋放茶的層次',
             action: () => goToTab('brewing'),
+            image: '/images/journey/step_brewing.png',
         },
         {
             id: 'aesthetics',
             title: '茶藝（茶道）',
             subtitle: '茶席美學、節奏與儀式感',
             action: () => goToTab('ceremony'),
+            image: '/images/journey/step_ceremony.png',
         },
     ];
 
@@ -145,10 +152,17 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
 
                         <div className="space-y-4">
                             {steps.map((s, idx) => (
-                                <div key={s.id} className="museum-card px-5 py-4">
-                                    <div className="flex items-start gap-4">
-                                        <div className="shrink-0">
-                                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center font-extrabold text-emerald-900">
+                                <div key={s.id} className="museum-card px-5 py-6 group hover:border-emerald-200/60 hover:shadow-md transition-all duration-300">
+                                    <div className="flex items-center gap-6">
+                                        <div className="shrink-0 relative group-hover:scale-105 transition-transform duration-300">
+                                            <div className="w-24 h-24 rounded-full bg-stone-50/50 border border-stone-100 flex items-center justify-center overflow-hidden">
+                                                <img
+                                                    src={s.image}
+                                                    alt={s.title}
+                                                    className="w-full h-full object-cover opacity-90 mix-blend-multiply filter contrast-125 sepia-[0.3]"
+                                                />
+                                            </div>
+                                            <div className="absolute -top-1 -left-1 w-8 h-8 rounded-full bg-emerald-800 text-emerald-50 border-2 border-white shadow-sm flex items-center justify-center font-bold text-sm">
                                                 {idx + 1}
                                             </div>
                                         </div>
@@ -176,7 +190,7 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
 
                     <div className="lg:sticky lg:top-24 space-y-6">
                         <div className="museum-panel p-6 md:p-8">
-                            
+
 
                             <div className="flex items-center gap-3">
                                 <Map className="text-emerald-700" />
@@ -211,7 +225,7 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                         </div>
 
                         <div className="museum-panel p-6 md:p-8">
-                            
+
 
                             <div className="flex items-center gap-3">
                                 <Search className="text-emerald-700" />

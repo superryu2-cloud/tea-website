@@ -22,6 +22,151 @@ export default function ZhiyaChapter14() {
                     </p>
                 </AcademyContentBlock>
 
+                {/* 茶事之釀：從冰磚創意到紅茶經緯 */}
+                <AcademyContentBlock title="茶事之釀：從冰磚創意到紅茶經緯" icon={Sparkles}>
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">茶事美學的創新：茶冰磚與視覺敘事</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                在當代茶文化的實踐中，「視覺體驗」與「服務儀式感」早已超越單純的裝飾，轉而成為一種極具戰略價值的感官引導。當夏至、芒種與小滿的暑氣相繼襲來，茶藝師若能透過微小的工藝變化，便能有效提升賓客的期待感，將飲茶昇華為一場感官敘事。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">茶冰磚的製作工法與迎賓設計</h4>
+                            <p className="text-stone-700 leading-relaxed mb-4">
+                                茶冰磚的製作是一場對細節的極致追求。選用高品質的碧螺春茶湯為基底，預先冷凍成圓形或方形的幾何造型。為了強化視覺層次，在結冰過程中需精準嵌入預先泡開、姿態優美的白茶葉片。這種「凍結瞬間」的工藝，讓賓客在夾取冰磚時，能聽見冰晶與玻璃杯碰撞的清脆聲響，視覺上則呈現出葉片在冰中鮮活的立體感。
+                            </p>
+                            <p className="text-stone-700 leading-relaxed">
+                                在迎賓儀式的設計上，將這些晶瑩的茶冰磚置於鮮綠荷葉之上，不僅營造出夏日清涼的視覺衝擊，更安排了互動環節：讓賓客自行夾取冰磚。這種「手作感」讓賓客能近距離觀察冰塊融化的動態過程，感受茶味如何隨融化深度緩慢「滲透」而非僅是淡化，實現滋味的層次遞變。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">「時間之釀」的哲學思維</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                冰磚的融化被賦予了「時間之釀」的哲學意涵。時間在此刻不僅是刻度，更是一種獨特的「調味」。隨著冰塊消融，茶味隨歲月流逝般的節奏滲透而出，象徵著生命的積累與轉化。這種創意將嚴謹的評鑑轉化為一種隨性的生活美學，並為專業競賽中的視覺行銷提供了深刻的啟示。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
+                <AcademyContentBlock title="競技場上的視覺行銷：茶藝比賽的本質與形式" icon={Award}>
+                    <div className="space-y-8">
+                        <p className="text-stone-700 leading-relaxed">
+                            在專業茶藝競賽中，「視覺行銷」與「文化情懷」的運用，往往是決定參賽者能否建立記憶點的關鍵。
+                        </p>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">經典案例：荷花冰磚的動態美感</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                在台北的一場決賽中，曾有台中選手展現了極具張力的創意。他製作了約莫市售大塊冰磚六分之一大小的巨型冰磚，並在結冰過程中將整朵荷花封存其中。隨著比賽進行，冰磚在台上緩慢融化，原本被禁錮的荷花逐漸顯影，甚至在關鍵時刻隨冰消瓦解而自然倒下。這種將靜態裝置轉化為動態敘事的表現，成功將舞台轉化為傳達理念的媒介。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">比賽哲學的辯證：本質與形式的兩難</h4>
+                            <p className="text-stone-700 leading-relaxed mb-4">
+                                然而，在「雙杯式品茗」這類講求規範的競賽中，形式與本質常存在緊張關係。評審在面對創新時，常陷入哲學辯證：過於前衛的形式是否侵奪了比賽的本質？曾有比賽出現同一選手被不同評審分別給予 0 分與 10 分的極端情況，反映了專業領域對「美感創新」與「規範堅守」的判斷差異。
+                            </p>
+                            <p className="text-stone-700 leading-relaxed">
+                                對於卓越的選手而言，參加比賽非僅關乎名次，更在於創造「討論價值」。他們選擇將舞台作為嫁接文化情懷的場所，即便名次隨時間淡去，那份「讓人念念不忘」的傳奇卻能長久留存。這種本質與形式的完美對接，亦體現在紅茶源遠流長的歷史深度中。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
+                <AcademyContentBlock title="紅茶的經緯：從中國福建到全球航海時代" icon={Globe}>
+                    <div className="space-y-8">
+                        <p className="text-stone-700 leading-relaxed">
+                            紅茶在全球貿易史中佔據舉足輕重的戰略地位。釐清其歷史脈絡，必須先從校正發源地的誤解開始。
+                        </p>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">正山小種：發源地的正名與工藝突破</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                紅茶並非發源於印度，其祖庭位於中國福建省武夷山脈的桐木關。所謂「正山小種」，「正山」代表嚴格的產地規範，定義為桐木關周邊約 600 平方公里的區域，其地位猶如民間對「正本山」香材的產地追求；「小種」則指品種為當地的小葉種。
+                            </p>
+                            <p className="text-stone-700 leading-relaxed">
+                                紅茶的誕生源於 16 世紀（1586 年）的一次「偶得之美」。因當地氣候極度潮濕（濕度常達 80-90%），茶農為降低濕度以利發酵，就地取材燃燒松木。茶葉在過程中意外吸附松煙，產生了獨特的「松煙香」與「桂圓味」。這種本是解決生存環境限制的變通工藝，最終演變成了最具辨識度的文化特徵。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">歷史的轉折：從外銷主力到全球經濟影響</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                進入大航海時代，紅茶因其性質極其穩定，在長達半年的海運中比綠茶或烏龍茶更能抵抗走味，遂成為外銷歐洲的主力。紅茶貿易引發的經濟失衡，最終成為鴉片戰爭及帝國主義進入中國的深層誘因。歷史一再重演，人類卻往往難以從中汲取教訓。而這種深沉的歷史感，也反映在各大產區因微氣候差異所形塑的風味圖譜中。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
+                <AcademyContentBlock title="世界紅茶圖譜：品種、風土與香氣表徵" icon={History}>
+                    <div className="space-y-8">
+                        <p className="text-stone-700 leading-relaxed">
+                            海拔、氣候與製作工藝的交織，共同譜寫了世界紅茶的千姿百態。對茶人而言，「尋味」即是對風土靈魂的探索。
+                        </p>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">三大高香紅茶與產區特色</h4>
+                            <div className="space-y-2 text-stone-700 leading-relaxed">
+                                <p>• 祁門紅茶（中國安徽）： 以獨特的「糖香」與「蘋果味」著稱，滋味醇和，為小葉種之巔峰。</p>
+                                <p>• 大吉嶺紅茶（印度）： 產於高海拔，具備迷人的「麝香葡萄」與「蘭花」香氣。</p>
+                                <p>• 斯里蘭卡紅茶（烏瓦）： 滋味強勁，為國際市場經典。</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">產區定義的嚴謹性與反思</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                中國對產區定義日益嚴謹，如武夷岩茶分為正岩、半岩與洲茶，體現了對風土微差異的尊重。反觀台灣部分產區偶有定義混亂之虞，值得反思。此外，雲南「滇紅」（大葉種、強勁）、浙江「九曲紅梅」（龍井品種）、湖北「宜紅」、福建「閩紅」等，皆豐富了紅茶的香氣光譜。這種風味差異，根源於植物組織學中大小葉種的本質區別。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
+                <AcademyContentBlock title="茶葉組織學與加工技術：大葉種與小葉種的滋味秘密" icon={Beaker}>
+                    <div className="space-y-8">
+                        <p className="text-stone-700 leading-relaxed">
+                            理解茶葉的微觀組織，是掌握沖泡技術與預判口感的核心。茶葉滋味乃是生物結構與化學成分共同作用的結果。
+                        </p>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">生物學指標與組織構造差異</h4>
+                            <p className="text-stone-700 leading-relaxed mb-4">
+                                國際常以「葉長 x 葉寬 x 0.7」大於 60 作為區分大葉種的指標，但更核心的差異在於細胞組織：
+                            </p>
+                            <div className="space-y-2 text-stone-700 leading-relaxed">
+                                <p>• 小葉種： 「柵狀組織」與「海綿組織」比例約為 1:1，口感甜美鮮爽，因柵狀結構續存內含物空間有限。</p>
+                                <p>• 大葉種： 「海綿組織」佔比極高（約 3:1）。由於海綿組織屬「圓形組織」，其空隙能容納更多內含物，賦予了大葉種強勁的收斂感與滋味厚度。</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">加工技術與台灣紅茶的傳奇轉型</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                在加工上，傳統功夫紅茶追求條索美感；而現代 CTC 工藝則透過「碎形、撕裂、捲曲」快速萃取，供應調飲市場。
+                                台灣紅茶史上有一段戲劇性的轉型。日治時期，專家為提升競爭力，派遣人員前往印度，據傳將阿薩姆大葉種種子偷偷藏於「空心拐杖」中帶回。這批種子在日月潭魚池地區試種成功，奠定了台灣大葉種紅茶的根基。大小葉種在東西方應用（佐餐、奶茶與純飲）的差異，將茶學推向日常實踐。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
+                <AcademyContentBlock title="日常茶事的轉化與延伸應用" icon={Coffee}>
+                    <div className="space-y-8">
+                        <p className="text-stone-700 leading-relaxed">
+                            茶葉在現代生活中不應侷限於茶盤。透過創意轉化，茶湯能展現廣闊的飲食可能性。
+                        </p>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">剩餘茶湯的創意利用</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                針對「一個人喝不完一壺茶」的日常困擾，建議將剩餘茶湯製成「茶冰球」。這能有效避免茶湯因長時間放置導致蛋白質變性而走味，並維持風味穩定。
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-stone-900 mb-4">生活化調飲與配餐建議</h4>
+                            <div className="space-y-2 text-stone-700 leading-relaxed mb-4">
+                                <p>• 天然氣泡飲： 將茶冰磚加入氣泡水中，取代化學香料。</p>
+                                <p>• 風味融合： 碧螺春加酸梅具生津之效，茶湯亦可融入綠豆湯等甜點。</p>
+                                <p>• 特殊微氣候風味： 以大吉嶺春茶為例，在高海拔低溫環境下，氧化作用被自然限制在 30% 左右。其「非傳統紅湯紅葉」，而是呈現清透的果乾與花香，與常態紅茶大異其趣。</p>
+                            </div>
+                            <p className="text-stone-700 leading-relaxed">
+                                茶事的終點不在技術堆砌，而在於茶藝師、環境與賓客共鳴產生的「氣場」。如同「茶天使」在現場展現的專注，以及在那四分鐘「止靜」中體現的優雅，所有的知識與工藝最終都是為了成就一段珍貴的緣分，讓每一口茶湯都成為與自我連結的寧靜儀式。
+                            </p>
+                        </div>
+                    </div>
+                </AcademyContentBlock>
+
                 {/* 第一部分：紅茶品評入門 */}
                 <AcademyContentBlock title="紅茶品評入門：從滋味與外觀談起" icon={Eye}>
                     <div className="space-y-8">

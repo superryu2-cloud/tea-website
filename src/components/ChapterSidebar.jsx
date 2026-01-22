@@ -41,6 +41,8 @@ export default function ChapterSidebar({
           maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 12px)`,
           overflowAnchor: 'none',
           scrollPaddingBottom: '40px',
+          overscrollBehavior: 'auto',
+          scrollbarGutter: 'stable',
         }}
       >
         <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted">{title}</div>

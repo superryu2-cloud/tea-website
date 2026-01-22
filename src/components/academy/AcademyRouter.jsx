@@ -203,17 +203,22 @@ const ACADEMY_CHAPTERS = {
  * 
  * @param {Object} props
  * @param {string} props.activeTab - Current active tab (e.g., 'academy_zhiya_02')
- * @param {boolean} props.museumUnlocked - Whether the Academy is unlocked
+ * @param {boolean} props.daguanUnlocked - Whether the Daguan Academy is unlocked
+ * @param {boolean} props.chonghuaUnlocked - Whether the Chonghua Academy is unlocked
  * @returns {JSX.Element|null} The rendered Academy chapter or null
  */
-export default function AcademyRouter({ activeTab, museumUnlocked }) {
-    // Only render if Academy is unlocked and activeTab is an Academy route
-    if (!museumUnlocked || !activeTab.startsWith('academy_')) {
+export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnlocked }) {
+    const resolvedActiveTab = typeof activeTab === 'string' ? activeTab : '';
+    if (!resolvedActiveTab.startsWith('academy_')) {
+        return null;
+    }
+    const isChonghua = resolvedActiveTab.startsWith('academy_chonghua_');
+    if ((isChonghua && !chonghuaUnlocked) || (!isChonghua && !daguanUnlocked)) {
         return null;
     }
 
     // Get chapter configuration
-    const chapter = ACADEMY_CHAPTERS[activeTab];
+    const chapter = ACADEMY_CHAPTERS[resolvedActiveTab];
 
     // If chapter not found, render "Coming Soon" page
     if (!chapter) {

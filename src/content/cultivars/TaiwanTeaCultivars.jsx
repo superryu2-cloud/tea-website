@@ -73,7 +73,10 @@ export default function TaiwanTeaCultivars() {
     return (
         <div className="space-y-8">
             {/* Header */}
-            <div className="rounded-3xl border border-green-100 bg-gradient-to-br from-green-50 via-white to-amber-50 px-8 pt-10 pb-12 md:pt-12">
+            <div className="rounded-3xl border border-green-100 bg-gradient-to-br from-green-50 via-white to-amber-50 px-8 pt-10 pb-12 md:pt-12 relative overflow-hidden">
+                <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
+                    <img src="/images/cultivars/icon_diversity.png" alt="" className="w-64 h-64 object-contain translate-x-12 -translate-y-12" />
+                </div>
                 <div className="text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-600 text-white text-xs font-bold mb-4">
                         <Leaf size={14} />
@@ -104,21 +107,53 @@ export default function TaiwanTeaCultivars() {
 
             {/* Statistics Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="rounded-xl border border-stone-200 bg-white p-4 text-center">
-                    <div className="text-3xl font-bold text-green-700 mb-1">26</div>
-                    <div className="text-xs text-stone-600">已登記品種</div>
+                <div className="rounded-xl border border-stone-200 bg-white p-4 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <div className="absolute -right-2 -top-2 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <img src="/images/cultivars/icon_diversity.png" alt="Diversity" className="w-24 h-24 object-contain" />
+                    </div>
+                    <div className="relative z-10 text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-green-50 flex items-center justify-center">
+                            <img src="/images/cultivars/icon_diversity.png" alt="Registered" className="w-8 h-8 object-contain opacity-80" />
+                        </div>
+                        <div className="text-3xl font-bold text-green-700 mb-1">26</div>
+                        <div className="text-xs text-stone-600 font-bold">已登記品種</div>
+                    </div>
                 </div>
-                <div className="rounded-xl border border-stone-200 bg-white p-4 text-center">
-                    <div className="text-3xl font-bold text-amber-700 mb-1">1916</div>
-                    <div className="text-xs text-stone-600">最早育種年</div>
+                <div className="rounded-xl border border-stone-200 bg-white p-4 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12">
+                        <img src="/images/cultivars/icon_diversity.png" alt="History" className="w-28 h-28 object-contain" />
+                    </div>
+                    <div className="relative z-10 text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-amber-50 flex items-center justify-center">
+                            <Calendar size={20} className="text-amber-700 opacity-80" />
+                        </div>
+                        <div className="text-3xl font-bold text-amber-700 mb-1">1916</div>
+                        <div className="text-xs text-stone-600 font-bold">最早育種年</div>
+                    </div>
                 </div>
-                <div className="rounded-xl border border-stone-200 bg-white p-4 text-center">
-                    <div className="text-3xl font-bold text-red-700 mb-1">2024</div>
-                    <div className="text-xs text-stone-600">最新命名年</div>
+                <div className="rounded-xl border border-stone-200 bg-white p-4 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <div className="absolute -left-2 -top-2 opacity-10 group-hover:opacity-20 transition-opacity -rotate-12">
+                        <img src="/images/cultivars/icon_diversity.png" alt="New" className="w-24 h-24 object-contain" />
+                    </div>
+                    <div className="relative z-10 text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-red-50 flex items-center justify-center">
+                            <Leaf size={20} className="text-red-700 opacity-80" />
+                        </div>
+                        <div className="text-3xl font-bold text-red-700 mb-1">2024</div>
+                        <div className="text-xs text-stone-600 font-bold">最新命名年</div>
+                    </div>
                 </div>
-                <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
-                    <div className="text-3xl font-bold text-amber-800 mb-1">0</div>
-                    <div className="text-xs text-amber-700">待補充資料</div>
+                <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <img src="/images/cultivars/icon_diversity.png" alt="Pending" className="w-20 h-20 object-contain" />
+                    </div>
+                    <div className="relative z-10 text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/50 flex items-center justify-center">
+                            <Info size={20} className="text-amber-800 opacity-80" />
+                        </div>
+                        <div className="text-3xl font-bold text-amber-800 mb-1">0</div>
+                        <div className="text-xs text-amber-700 font-bold">待補充資料</div>
+                    </div>
                 </div>
             </div>
 
