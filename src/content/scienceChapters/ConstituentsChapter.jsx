@@ -1,5 +1,111 @@
-﻿import React, { useState } from 'react';
-import { FlaskConical, Leaf, Droplets, Sparkles, Wind, Flame, Coffee, Layers, X } from 'lucide-react';
+﻿import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { FlaskConical, Leaf, Droplets, Sparkles, Wind, Flame, Coffee, Layers, X, Info } from 'lucide-react';
+
+const TeaConstituentsChart = () => {
+    const [hoveredSegment, setHoveredSegment] = useState(null);
+
+    const data = [
+        { id: 'polyphenols', label: '茶多酚', value: 48, color: '#10B981', desc: '澀感、抗氧化', percentage: '48%' },
+        { id: 'others', label: '其他物質', value: 27, color: '#F59E0B', desc: '醣類、果膠、香氣', percentage: '27%' },
+        { id: 'theanine', label: '茶胺酸', value: 15, color: '#22C55E', desc: '鮮甜、回甘', percentage: '15%' },
+        { id: 'caffeine', label: '咖啡因', value: 10, color: '#EAB308', desc: '苦味、提神', percentage: '10%' },
+    ];
+
+    // Calculate chart segments
+    const radius = 100;
+    const circumference = 2 * Math.PI * radius;
+    let accumulatedValue = 0;
+
+    const segments = data.map((item) => {
+        const offset = circumference - (item.value / 100) * circumference;
+        const rotate = (accumulatedValue / 100) * 360;
+        accumulatedValue += item.value;
+        return {
+            ...item,
+            offset,
+            rotate
+        };
+    });
+
+    return (
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+            {/* Donut Chart */}
+            <div className="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0">
+                <svg viewBox="0 0 250 250" className="w-full h-full transform -rotate-90">
+                    {/* Background Circle */}
+                    <circle cx="125" cy="125" r="100" fill="none" stroke="#e5e7eb" strokeWidth="20" />
+
+                    {/* Segments */}
+                    {segments.map((segment) => {
+                        const isHovered = hoveredSegment === segment.id;
+                        const isDimmed = hoveredSegment && !isHovered;
+
+                        return (
+                            <circle
+                                key={segment.id}
+                                cx="125"
+                                cy="125"
+                                r="100"
+                                fill="none"
+                                stroke={segment.color}
+                                strokeWidth={isHovered ? "30" : "24"}
+                                strokeDasharray={circumference}
+                                strokeDashoffset={segment.offset}
+                                strokeLinecap="round"
+                                className="transition-all duration-300 ease-out cursor-pointer"
+                                style={{
+                                    transformOrigin: 'center',
+                                    transform: `rotate(${segment.rotate}deg) scale(${isHovered ? 1.05 : 1})`,
+                                    filter: isHovered ? 'drop-shadow(0px 0px 12px rgba(0,0,0,0.3))' : 'none',
+                                    opacity: isDimmed ? 0.3 : 1
+                                }}
+                                onMouseEnter={() => setHoveredSegment(segment.id)}
+                                onMouseLeave={() => setHoveredSegment(null)}
+                            />
+                        );
+                    })}
+                </svg>
+
+                {/* Center Text */}
+                <div
+                    className={`absolute inset-0 flex flex-col items-center justify-center pointer-events-none transform rotate-0 transition-transform duration-300 ${hoveredSegment ? 'scale-110' : 'scale-100'}`}
+                >
+                    <div className="text-3xl md:text-5xl font-bold text-stone-800 transition-all duration-300">
+                        {hoveredSegment ? data.find(d => d.id === hoveredSegment).percentage : '100%'}
+                    </div>
+                    <div className="text-sm md:text-lg font-bold text-stone-500 mt-2 transition-all duration-300">
+                        {hoveredSegment ? data.find(d => d.id === hoveredSegment).label : '內含物質'}
+                    </div>
+                </div>
+            </div>
+
+            {/* Legend / Info Cards */}
+            <div className="grid grid-cols-2 gap-4 w-full md:max-w-md">
+                {data.map((item) => (
+                    <div
+                        key={item.id}
+                        className={`
+                            p-4 rounded-xl border-l-4 shadow-sm transition-all duration-300 cursor-default
+                            ${hoveredSegment === item.id ? 'transform scale-105 shadow-md bg-white' : 'bg-white/60 hover:bg-white'}
+                        `}
+                        style={{ borderColor: item.color }}
+                        onMouseEnter={() => setHoveredSegment(item.id)}
+                        onMouseLeave={() => setHoveredSegment(null)}
+                    >
+                        <div className="flex justify-between items-center mb-1">
+                            <h4 className="font-bold text-stone-800">{item.label}</h4>
+                            <span className="font-bold px-2 py-0.5 rounded text-sm text-white" style={{ backgroundColor: item.color }}>
+                                {item.percentage}
+                            </span>
+                        </div>
+                        <p className="text-xs text-stone-500">{item.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 export default function ConstituentsChapter() {
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -214,66 +320,38 @@ export default function ConstituentsChapter() {
                 <p className="text-lg text-stone-700 leading-relaxed mb-6">
                     一杯茶的風味，是數百種化學物質共同作用的結果。從生青的葉醇、香氣的芳樟醇，到回甘的氨基酸，每一種成分都在茶湯中扮演著獨特的角色。理解這些內含物質，是深入品鑑茶葉的科學基礎。
                 </p>
-                                                {/* Tea Constituents Diagram - Enhanced Design */}
-                <div className="my-8 bg-gradient-to-br from-emerald-50 via-white to-amber-50 rounded-3xl border border-emerald-200 shadow-lg overflow-hidden">
-                    <div className="p-8">
-                        <h3 className="text-2xl font-bold text-stone-900 mb-6 text-center flex items-center justify-center gap-2">
+
+                {/* Tea Constituents Diagram - Enhanced Design */}
+                <div className="my-16 bg-gradient-to-br from-emerald-50 via-white to-amber-50 rounded-3xl border border-emerald-200 shadow-xl overflow-hidden relative">
+                    <div className="absolute top-0 right-0 p-32 bg-emerald-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 md:block hidden"></div>
+                    <div className="absolute bottom-0 left-0 p-24 bg-amber-100/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 md:block hidden"></div>
+
+                    <div className="p-8 md:p-12 relative z-10">
+                        <h3 className="text-2xl font-bold text-stone-900 mb-10 text-center flex items-center justify-center gap-2">
                             <FlaskConical className="text-emerald-600" size={28} />
                             茶葉內含物質組成
                         </h3>
-                        
-                        {/* Full Width Image */}
-                        <div className="mb-8 flex justify-center">
-                            <img 
-                                src="/images/tea_constituents_diagram.png" 
-                                alt="茶葉內含物質分布圖"
+
+                        {/* Static Image (Restored) */}
+                        <div className="mb-12 flex justify-center">
+                            <img
+                                src="/images/tea_constituents_diagram.png"
+                                alt="茶葉內含物質分布圖（靜態）"
                                 className="w-full max-w-3xl h-auto rounded-2xl shadow-md"
                             />
                         </div>
-                        
-                        {/* Data Cards Grid - 4 columns */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div className="bg-white rounded-xl p-5 border-t-4 border-emerald-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                <div className="text-center">
-                                    <div className="text-4xl font-bold text-emerald-700 mb-2">48%</div>
-                                    <div className="text-lg font-semibold text-stone-700 mb-1">茶多酚</div>
-                                    <div className="text-xs text-stone-500">澀感</div>
-                                </div>
-                            </div>
-                            
-                            <div className="bg-white rounded-xl p-5 border-t-4 border-amber-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                <div className="text-center">
-                                    <div className="text-4xl font-bold text-amber-700 mb-2">27%</div>
-                                    <div className="text-lg font-semibold text-stone-700 mb-1">其餘水溶性物質</div>
-                                    <div className="text-xs text-stone-500">醣類、香氣等</div>
-                                </div>
-                            </div>
-                            
-                            <div className="bg-white rounded-xl p-5 border-t-4 border-green-500 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                <div className="text-center">
-                                    <div className="text-4xl font-bold text-green-700 mb-2">15%</div>
-                                    <div className="text-lg font-semibold text-stone-700 mb-1">茶胺酸</div>
-                                    <div className="text-xs text-stone-500">鮮甜味</div>
-                                </div>
-                            </div>
-                            
-                            <div className="bg-white rounded-xl p-5 border-t-4 border-yellow-600 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                                <div className="text-center">
-                                    <div className="text-4xl font-bold text-yellow-700 mb-2">10%</div>
-                                    <div className="text-lg font-semibold text-stone-700 mb-1">咖啡因</div>
-                                    <div className="text-xs text-stone-500">苦味</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p className="text-sm text-stone-600 text-center mt-6 italic">
-                            點擊下方互動卡片，深入了解各種內含物質的風味特徵
+
+                        <TeaConstituentsChart />
+
+                        <p className="text-sm text-stone-500 text-center mt-8 italic">
+                            互動式圖表：將滑鼠懸停於圓環可查看詳細數據
                         </p>
                     </div>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
-                    <p className="text-sm text-blue-900">
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-r-lg">
+                    <p className="text-sm text-blue-900 flex items-center">
+                        <Info className="mr-2 flex-shrink-0" size={18} />
                         <strong>互動提示：</strong>點擊任意類別卡片，查看詳細說明與茶類範例
                     </p>
                 </div>
@@ -316,50 +394,69 @@ export default function ConstituentsChapter() {
                     </p>
                 </div>
 
-                {selectedCategory && categoryDetails[selectedCategory] && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedCategory(null)}>
-                        <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-                            <div className="p-6">
-                                <div className="flex justify-between items-start mb-4">
-                                    <h3 className="text-2xl font-bold text-stone-900 flex items-center">
-                                        {React.createElement(categoryDetails[selectedCategory].icon, { className: "mr-3", size: 28 })}
-                                        {categoryDetails[selectedCategory].title}
-                                    </h3>
-                                    <button
-                                        onClick={() => setSelectedCategory(null)}
-                                        className="text-stone-400 hover:text-stone-600 transition-colors"
-                                    >
-                                        <X size={24} />
-                                    </button>
-                                </div>
-
-                                <div className="space-y-4">
-                                    <div className="bg-stone-50 p-4 rounded-lg">
-                                        <h4 className="font-bold text-stone-900 mb-2">化合物</h4>
-                                        <p className="text-stone-700">{categoryDetails[selectedCategory].compounds}</p>
+                {selectedCategory && categoryDetails[selectedCategory] && createPortal(
+                    <>
+                        <div className="fixed inset-0 bg-stone-900/60 flex items-center justify-center z-[9999] p-4 backdrop-blur-md transition-all duration-300 animate-fadeIn" onClick={() => setSelectedCategory(null)}>
+                            <div className="bg-white/95 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-100 animate-scaleUp border border-white/20" onClick={(e) => e.stopPropagation()}>
+                                <div className="p-6">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <h3 className="text-3xl font-bold text-stone-900 flex items-center">
+                                            {React.createElement(categoryDetails[selectedCategory].icon, { className: "mr-3", size: 32 })}
+                                            {categoryDetails[selectedCategory].title}
+                                        </h3>
+                                        <button
+                                            onClick={() => setSelectedCategory(null)}
+                                            className="text-stone-400 hover:text-stone-600 transition-colors p-2 rounded-full hover:bg-stone-100/50"
+                                        >
+                                            <X size={28} />
+                                        </button>
                                     </div>
 
-                                    <div>
-                                        <h4 className="font-bold text-stone-900 mb-2">詳細說明</h4>
-                                        <p className="text-stone-700 leading-relaxed">{categoryDetails[selectedCategory].description}</p>
-                                    </div>
+                                    <div className="space-y-6">
+                                        <div className="bg-stone-50/80 p-5 rounded-xl border border-stone-100">
+                                            <h4 className="font-bold text-xl text-stone-900 mb-2">化合物</h4>
+                                            <p className="text-stone-700 font-medium text-lg">{categoryDetails[selectedCategory].compounds}</p>
+                                        </div>
 
-                                    <div>
-                                        <h4 className="font-bold text-stone-900 mb-2">代表茶類</h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {categoryDetails[selectedCategory].examples.map((example, idx) => (
-                                                <span key={idx} className="px-3 py-1 bg-amber-100 text-amber-900 rounded-full text-sm">
-                                                    {example}
-                                                </span>
-                                            ))}
+                                        <div>
+                                            <h4 className="font-bold text-xl text-stone-900 mb-2">詳細說明</h4>
+                                            <p className="text-stone-700 leading-relaxed text-lg">{categoryDetails[selectedCategory].description}</p>
+                                        </div>
+
+                                        <div>
+                                            <h4 className="font-bold text-xl text-stone-900 mb-2">代表茶類</h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {categoryDetails[selectedCategory].examples.map((example, idx) => (
+                                                    <span key={idx} className="px-4 py-1.5 bg-amber-100 text-amber-900 rounded-full text-base font-medium">
+                                                        {example}
+                                                    </span>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <style jsx>{`
+                            @keyframes fadeIn {
+                                from { opacity: 0; }
+                                to { opacity: 1; }
+                            }
+                            @keyframes scaleUp {
+                                from { transform: scale(0.95); opacity: 0; }
+                                to { transform: scale(1); opacity: 1; }
+                            }
+                            .animate-fadeIn {
+                                animation: fadeIn 0.3s ease-out forwards;
+                            }
+                            .animate-scaleUp {
+                                animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                            }
+                        `}</style>
+                    </>,
+                    document.body
                 )}
-            </section>
+            </section >
 
             <section>
                 <h3 className="text-2xl font-bold text-stone-900 mb-6">深入解析：風味化合物的科學</h3>
@@ -518,6 +615,6 @@ export default function ConstituentsChapter() {
                     若要學習如何在品鑑中應用這些知識，可前往書院章節的品鑑實務課程。
                 </p>
             </section>
-        </div>
+        </div >
     );
 }

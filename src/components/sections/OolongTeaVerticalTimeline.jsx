@@ -1,11 +1,11 @@
 ﻿import React from 'react';
-import { Star, Globe, Leaf, Ship, Mountain, Sparkles, TrendingUp } from 'lucide-react';
+import { Star, Globe, Leaf, Ship, Mountain, Sparkles, TrendingUp, Microscope } from 'lucide-react';
 
 /**
  * OolongTeaVerticalTimeline - 青茶（烏龍茶）歷史垂直時間線
  * 左側時間軸線，右側歷史事件卡片
  */
-export default function OolongTeaVerticalTimeline() {
+export default function OolongTeaVerticalTimeline({ onNavigate }) {
     const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'amber' }) => {
         const colorClasses = {
             green: 'border-green-500 bg-green-50',
@@ -177,7 +177,11 @@ export default function OolongTeaVerticalTimeline() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-4 mt-6">
-                        <div className="bg-amber-50 p-5 rounded-lg border-2 border-amber-300">
+                        <button
+                            type="button"
+                            onClick={() => onNavigate?.('#oolong-minbei')}
+                            className="bg-amber-50 p-5 rounded-lg border-2 border-amber-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
+                        >
                             <div className="font-bold text-amber-900 mb-3 text-center">🇨🇳 福建烏龍</div>
                             <div className="text-sm text-amber-800 space-y-1">
                                 <div className="font-bold">閩北岩茶（岩韻）</div>
@@ -185,16 +189,24 @@ export default function OolongTeaVerticalTimeline() {
                                 <div className="font-bold mt-2">閩南安溪（音韻）</div>
                                 <div className="text-xs">鐵觀音、黃金桂</div>
                             </div>
-                        </div>
-                        <div className="bg-orange-50 p-5 rounded-lg border-2 border-orange-300">
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => onNavigate?.('#oolong-guangdong')}
+                            className="bg-orange-50 p-5 rounded-lg border-2 border-orange-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
+                        >
                             <div className="font-bold text-orange-900 mb-3 text-center">🇨🇳 廣東烏龍</div>
                             <div className="text-sm text-orange-800 space-y-1">
                                 <div className="font-bold">鳳凰單叢（山韻）</div>
                                 <div className="text-xs">十大香型：黃枝香、芝蘭香、蜜蘭香等</div>
                                 <div className="text-xs mt-2">以自然香型著稱</div>
                             </div>
-                        </div>
-                        <div className="bg-emerald-50 p-5 rounded-lg border-2 border-emerald-300">
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => onNavigate?.('#oolong-taiwan')}
+                            className="bg-emerald-50 p-5 rounded-lg border-2 border-emerald-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
+                        >
                             <div className="font-bold text-emerald-900 mb-3 text-center">🇹🇼 台灣烏龍</div>
                             <div className="text-sm text-emerald-800 space-y-1">
                                 <div className="font-bold">清香與熟韻（蜜韻）</div>
@@ -202,7 +214,7 @@ export default function OolongTeaVerticalTimeline() {
                                 <div className="text-xs">凍頂烏龍、東方美人</div>
                                 <div className="text-xs">鐵觀音、紅烏龍</div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
 

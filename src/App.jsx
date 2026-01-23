@@ -2072,7 +2072,7 @@ const TeaWebsite = () => {
 
                       {varietiesKind === 'oolong' && !oolongRegionHref ? (
                         <SectionCard title="歷史長河" icon={History}>
-                          <OolongTeaVerticalTimeline />
+                          <OolongTeaVerticalTimeline onNavigate={selectOolongRegion} />
                         </SectionCard>
                       ) : null}
                     </>

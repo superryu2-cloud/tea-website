@@ -1,14 +1,29 @@
 ﻿// Auto-extracted from src/App.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Shield, PartyPopper, AlertTriangle, Info } from 'lucide-react';
-import { Clock, Flame, Leaf, Map, Search, Star, TrendingUp, Scale } from 'lucide-react';
+import { Clock, Flame, Leaf, Map, Search, Star, TrendingUp, Scale, ZoomIn } from 'lucide-react';
 import { dongdingTimeline } from '../../data/historyCulture';
+import ImageLightbox from '../../components/ImageLightbox';
 
 export default function DongDingContent() {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
+
+    const openLightbox = (src, alt) => {
+        setLightboxImage({ src, alt });
+        setLightboxOpen(true);
+    };
+
     return (
         <div className="animate-fadeIn">
             {/* Hero Image */}
+            <ImageLightbox
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+                imageSrc={lightboxImage.src}
+                altText={lightboxImage.alt}
+            />
             <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl">
                 <img
                     src="/images/featured/dongding.png"
@@ -100,6 +115,18 @@ export default function DongDingContent() {
                                 關於凍頂茶的來源，最廣為流傳的故事發生在一百四十多年前。鹿谷舉人<strong>林鳳池</strong>欲往福建參加科舉，獲宗族林三顯資助盤纏。
                                 林鳳池高中舉人後，為報答恩德，從武夷山帶回三十六株烏龍茶苗。其中十二株贈予凍頂山的林三顯，因土質氣候適宜，生長旺盛，逐漸繁殖成今日的凍頂茶園。
                             </p>
+                            <div
+                                className="mb-6 rounded-lg overflow-hidden border border-stone-200 shadow-sm md:float-right md:w-1/3 md:ml-6 group cursor-zoom-in relative"
+                                onClick={() => openLightbox("/images/featured/legend_lin_fengchi.png", "林鳳池舉人攜茶苗歸鄉圖")}
+                            >
+                                <img src="/images/featured/legend_lin_fengchi.png" alt="林鳳池舉人攜茶苗歸鄉圖" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+                                    <span className="bg-black/50 text-white p-2 rounded-full backdrop-blur-sm">
+                                        <ZoomIn size={20} />
+                                    </span>
+                                </div>
+                                <div className="bg-stone-100 px-3 py-1 text-xs text-stone-500 text-center relative z-10">林鳳池舉人攜茶苗歸鄉圖（想像畫）</div>
+                            </div>
                             <div className="bg-white p-4 rounded-lg border-l-4 border-green-600 italic text-stone-600 text-sm">
                                 <p>林鳳池墓（三級古蹟）位於鹿谷鄉初鄉村，碑文亦記載其攜回青心烏龍茶苗之事蹟。</p>
                             </div>

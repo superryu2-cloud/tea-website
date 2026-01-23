@@ -221,6 +221,8 @@
 @layer components {
   .museum-page {
     @apply py-12;
+    position: relative;
+    z-index: 20;
     animation: museum-fade-in-page 220ms ease-out both;
     color: rgba(17, 24, 39, 0.98);
   }
@@ -325,7 +327,7 @@
           calc((100vw - var(--atlas-content-max, 80rem)) / 2 + 24px));
       width: var(--atlas-sidebar-width, 288px);
       height: calc(100vh - var(--atlas-top, 96px));
-      z-index: 40;
+      z-index: 60;
       border-right: 0;
       background: transparent;
       padding: 12px 12px 12px 16px;
