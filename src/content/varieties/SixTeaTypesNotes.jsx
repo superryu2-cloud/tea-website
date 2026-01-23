@@ -1,4 +1,23 @@
 import React from 'react';
+import {
+  Leaf,
+  Droplets,
+  Thermometer,
+  Wind,
+  History,
+  BookOpen,
+  Map,
+  Coffee,
+  Sparkles,
+  Sprout,
+  Info,
+  AlertTriangle,
+  CheckCircle,
+  HelpCircle,
+  Flame,
+  Search,
+  Mountain
+} from 'lucide-react';
 
 function ProcessLine({ children }) {
   return (
@@ -377,57 +396,115 @@ export default function SixTeaTypesNotes({ kind }) {
 
   if (kind === 'green') {
     return (
-      <div className="space-y-6">
-        <div className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-lime-50 px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-emerald-700/70">GREEN TEA</div>
-          <div className="mt-2 text-xl font-extrabold text-stone-900">中國綠茶的文化溯源與品飲指南</div>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            綠茶是「零發酵」茶類，關鍵在於以殺青抑制酶活性、固定鮮葉的清新香氣與翠綠本色。由於茶葉發酵工藝在明代才逐漸成熟，
-            明代以前中國人所飲用的茶，在廣義上多可歸為綠茶；某種程度上，一部中國飲茶史，也是綠茶的演變史。
-          </p>
-        </div>
+      <div className="space-y-12 animate-fadeIn">
 
-        <div className="grid gap-3 lg:grid-cols-3">
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">分類座標</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">六大茶類（依發酵程度）</div>
-            <ul className="mt-2 text-sm text-stone-700 leading-relaxed space-y-1">
-              <li>綠茶：零發酵</li>
-              <li>白茶：微發酵</li>
-              <li>黃茶：輕發酵</li>
-              <li>青茶（烏龍）：半發酵</li>
-              <li>紅茶：全發酵</li>
-              <li>黑茶：後發酵</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">沖泡核心</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">三句話記住綠茶</div>
-            <ul className="mt-2 text-sm text-stone-700 leading-relaxed space-y-1">
-              <li>水溫約 80°C</li>
-              <li>不加蓋、不悶泡</li>
-              <li>茶水比 1:50（150 ml 約 3 g）</li>
-            </ul>
-            <div className="mt-3 text-xs text-stone-500">適用於多數嫩採綠茶；想更清爽可縮短浸泡時間。</div>
-          </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">工藝一眼懂</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">綠茶的典型製程</div>
-            <div className="mt-3 grid gap-2">
-              <div className="rounded-xl bg-stone-50 px-4 py-3 text-sm font-extrabold text-stone-900">殺青（蒸青／炒青）</div>
-              <div className="rounded-xl bg-stone-50 px-4 py-3 text-sm font-extrabold text-stone-900">揉捻</div>
-              <div className="rounded-xl bg-stone-50 px-4 py-3 text-sm font-extrabold text-stone-900">乾燥</div>
+        {/* Hero Section */}
+        <div className="relative rounded-3xl overflow-hidden shadow-xl min-h-[480px] group">
+          <img
+            src="/images/green_tea_floating.png"
+            alt="Fresh Green Tea Leaves Floating"
+            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+            <div className="max-w-2xl text-white space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase">
+                <Leaf size={12} /> Zero Fermentation
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight text-white/95 text-shadow-sm">
+                綠茶：春日的鮮活封印
+              </h2>
+              <p className="text-lg md:text-xl text-emerald-50 leading-relaxed font-light opacity-90">
+                一部中國飲茶史，半部是綠茶。<br />
+                零發酵工藝，只為留住茶葉最原始的清鮮與翠綠。
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">ARTICLE</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">中國綠茶的文化溯源與品飲指南（全文）</div>
+        {/* Classification Visual */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="col-span-1 lg:col-span-1 p-6 rounded-3xl bg-white border border-stone-100 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-emerald-500">
+              <Thermometer size={100} />
+            </div>
+            <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+              <History size={20} className="text-emerald-600" /> 分類座標
+            </h3>
+            <div className="space-y-3 relative z-10">
+              <div className="space-y-1">
+                <div className="flex justify-between items-end text-xs font-bold text-stone-500 uppercase tracking-widest">
+                  <span>Green Tea</span>
+                  <span>0%</span>
+                </div>
+                <div className="h-2 w-full bg-stone-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-emerald-500 w-[5%]" />
+                </div>
+              </div>
+              <ul className="text-sm text-stone-600 space-y-2 mt-4">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  <span className="font-bold text-stone-800">綠茶：零發酵</span>
+                </li>
+                <li className="flex items-center gap-2 opacity-50">
+                  <span className="w-1.5 h-1.5 rounded-full bg-stone-300 shrink-0" />
+                  <span>白茶、黃茶、青茶、紅茶、黑茶</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-          <div className="mt-4 space-y-8 text-sm text-stone-700 leading-relaxed">
+          <div className="col-span-1 lg:col-span-2 p-6 rounded-3xl bg-white border border-stone-100 shadow-sm grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <Coffee size={20} className="text-emerald-600" /> 核心工藝
+              </h3>
+              <div className="flex items-center gap-2 text-sm font-bold text-stone-800">
+                <div className="px-3 py-2 bg-emerald-50 text-emerald-800 rounded-lg border border-emerald-100">殺青 (Kill-Green)</div>
+                <div className="text-stone-300">→</div>
+                <div className="px-3 py-2 bg-stone-50 text-stone-700 rounded-lg border border-stone-200">揉捻</div>
+                <div className="text-stone-300">→</div>
+                <div className="px-3 py-2 bg-stone-50 text-stone-700 rounded-lg border border-stone-200">乾燥</div>
+              </div>
+              <p className="mt-3 text-sm text-stone-600 leading-relaxed">
+                關鍵在第一步「殺青」（蒸或炒），利用高溫破壞酵素活性，固定色澤與香氣。
+              </p>
+            </div>
+
+            <div className="border-l border-stone-100 pl-6">
+              <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <Droplets size={20} className="text-emerald-600" /> 沖泡口訣
+              </h3>
+              <ul className="space-y-2 text-sm text-stone-700">
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-emerald-500" />
+                  <span>水溫 <strong>80°C</strong> (忌沸水)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-emerald-500" />
+                  <span>不加蓋、不悶泡</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle size={14} className="text-emerald-500" />
+                  <span>茶水比 1:50</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Long Article Content */}
+        <div className="bg-white rounded-3xl border border-stone-200 p-8 md:p-12 shadow-sm">
+          <div className="flex items-center gap-3 mb-8 pb-6 border-b border-stone-100">
+            <div className="p-3 bg-stone-100 rounded-full text-stone-600">
+              <BookOpen size={24} />
+            </div>
+            <div>
+              <div className="text-xs font-extrabold tracking-[0.2em] text-stone-500 uppercase">Article</div>
+              <h2 className="text-2xl font-bold text-stone-900">中國綠茶的文化溯源與品飲指南（全文）</h2>
+            </div>
+          </div>
+
+          <div className="prose prose-stone prose-lg max-w-none text-stone-700 leading-relaxed space-y-8">
             <section className="space-y-3">
               <div className="text-base font-extrabold text-stone-900">1. 中國茶的六大分類：以發酵定義茶之本質</div>
               <p>
@@ -450,41 +527,47 @@ export default function SixTeaTypesNotes({ kind }) {
               <p>接下來，讓我們一同回溯時光長河，探尋綠茶悠遠的歷史源頭。</p>
             </section>
 
+            <hr className="border-stone-100" />
+
             <section className="space-y-3">
               <div className="text-base font-extrabold text-stone-900">2. 綠茶的悠久起源：從神話到信史</div>
               <p>
                 追溯綠茶的源頭，是一趟結合了神話傳說、考古實證與文字記載的旅程。這三條線索交織，共同構建了一部關於茶葉起源的完整敘事。
               </p>
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">神話中的「茶祖」</div>
-                <p>
-                  中國茶文化的濫觴，始於一個廣為流傳的神話——神農嘗百草。傳說中，生活在新石-器時代晚期的炎帝神農氏，為辨識草藥親身試毒，曾「一日遇七十二毒」，而當他品嚐到茶樹的葉子時，體內毒素便得以化解。儘管此說法無法考證，但它將神農氏尊為「茶祖」，並奠定了茶在早期認知中「解毒」的藥用基礎。
-                </p>
-              </div>
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">考古學的實證</div>
-                <p>
-                  相較於神話，考古發現則提供了更為確鑿的證據。在浙江餘姚的河姆渡文化遺址中，考古學家發現了距今超過六千年的人工種植茶樹樹根。經過農業部茶葉質量監督檢驗測試中心的色譜檢測技術分析，證實了這些樹根樣本確為茶樹。這一發現將中國有記載的茶樹種植史，從實證角度推至六千年以上。
-                </p>
-                <p>
-                  從生物學角度看，嚴格意義上的「茶」專指由山茶科、山茶屬植物的嫩葉製成的飲品。因此，儘管名稱中帶有「茶」字，如苦丁茶（冬青科）、菊花茶、大麥茶等常見飲品，均不屬於真正的茶類。
-                </p>
-              </div>
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">文字記載的開端</div>
-                <p>
-                  目前有文字可考的最早飲茶記錄，出現在先秦時期的巴蜀地區（今四川、重慶一帶）。當時的先民對茶葉的利用方式極為原始，主要有三種：
-                </p>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>作草藥：將茶葉曬乾保存，作為藥材使用。</li>
-                  <li>咀嚼鮮葉：直接咀嚼新鮮的茶樹葉子，感受其汁液從苦澀到清涼甘潤的變化，這種方式據稱能達到類似刷牙的潔齒效果。</li>
-                  <li>煮成羹湯：將茶葉作為蔬菜，煮成羹湯食用，以增加營養並消解食物中的毒素。</li>
-                </ol>
-                <p>
-                  隨著戰國時期秦國統一巴蜀，這一地區獨特的茶文化開始有了向外傳播的契機，為後續朝代飲茶風尚的演變奠定了堅實的基礎。
-                </p>
+              <div className="grid md:grid-cols-3 gap-6 not-prose">
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">神話中的「茶祖」</div>
+                  <p className="text-sm">
+                    中國茶文化的濫觴，始於一個廣為流傳的神話——神農嘗百草。傳說中，生活在新石-器時代晚期的炎帝神農氏，為辨識草藥親身試毒，曾「一日遇七十二毒」，而當他品嚐到茶樹的葉子時，體內毒素便得以化解。儘管此說法無法考證，但它將神農氏尊為「茶祖」，並奠定了茶在早期認知中「解毒」的藥用基礎。
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">考古學的實證</div>
+                  <p className="text-sm">
+                    相較於神話，考古發現則提供了更為確鑿的證據。在浙江餘姚的河姆渡文化遺址中，考古學家發現了距今超過六千年的人工種植茶樹樹根。經過農業部茶葉質量監督檢驗測試中心的色譜檢測技術分析，證實了這些樹根樣本確為茶樹。這一發現將中國有記載的茶樹種植史，從實證角度推至六千年以上。
+                  </p>
+                  <p className="text-sm">
+                    從生物學角度看，嚴格意義上的「茶」專指由山茶科、山茶屬植物的嫩葉製成的飲品。因此，儘管名稱中帶有「茶」字，如苦丁茶（冬青科）、菊花茶、大麥茶等常見飲品，均不屬於真正的茶類。
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">文字記載的開端</div>
+                  <p className="text-sm">
+                    目前有文字可考的最早飲茶記錄，出現在先秦時期的巴蜀地區（今四川、重慶一帶）。當時的先民對茶葉的利用方式極為原始，主要有三種：
+                  </p>
+                  <ol className="list-decimal pl-5 space-y-1 text-sm">
+                    <li>作草藥：將茶葉曬乾保存，作為藥材使用。</li>
+                    <li>咀嚼鮮葉：直接咀嚼新鮮的茶樹葉子，感受其汁液從苦澀到清涼甘潤的變化，這種方式據稱能達到類似刷牙的潔齒效果。</li>
+                    <li>煮成羹湯：將茶葉作為蔬菜，煮成羹湯食用，以增加營養並消解食物中的毒素。</li>
+                  </ol>
+                  <p className="text-sm">
+                    隨著戰國時期秦國統一巴蜀，這一地區獨特的茶文化開始有了向外傳播的契機，為後續朝代飲茶風尚的演變奠定了堅實的基礎。
+                  </p>
+                </div>
               </div>
             </section>
+
+            <hr className="border-stone-100" />
 
             <section className="space-y-4">
               <div className="text-base font-extrabold text-stone-900">3. 飲茶風尚的演變：一部跨越朝代的文化史</div>
@@ -492,8 +575,8 @@ export default function SixTeaTypesNotes({ kind }) {
                 從秦漢的宮廷飲品到宋代的文人雅趣，再到明代融入日常的沖泡方式，中國的飲茶風尚經歷了數次重大變革。這不僅是製茶工藝的進步史，更是一部映照社會文化變遷的生動歷史。
               </p>
 
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">3.1 秦漢至魏晉南北朝：從宮廷飲品到文化符號</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/50 px-6 py-5 space-y-3">
+                <div className="font-extrabold text-stone-900 text-lg">3.1 秦漢至魏晉南北朝：從宮廷飲品到文化符號</div>
                 <p>
                   秦漢大一統時代，源自巴蜀的茶葉得到初步傳播，逐漸成為官方貴族家庭招待賓客、消遣時光的飲品。此時的加工方法相對簡單：將新鮮茶葉搗成餅狀，再曬乾儲存。飲用時，需先將茶餅置於火上烘烤，隨後碾成碎末，加入開水，並混入蔥、薑、橘皮等調味品以消學茶的澀味。
                 </p>
@@ -506,21 +589,13 @@ export default function SixTeaTypesNotes({ kind }) {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">3.2 唐代：茶聖陸羽與「煎茶」的確立</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/50 px-6 py-5 space-y-3">
+                <div className="font-extrabold text-stone-900 text-lg">3.2 唐代：茶聖陸羽與「煎茶」的確立</div>
                 <p>
                   到了唐代（約公元八世紀前後），飲茶之風已遍及全國，在長安、洛陽等都城尤為盛行。這一時期誕生了被後世尊為「茶聖」的陸羽，他撰寫的《茶經》是世界上現存最早、最全面的茶學專著。
                 </p>
                 <p>
-                  唐代製茶工藝的核心是 <span className="font-extrabold text-stone-900">「殺青」</span>。當時採用「蒸青」的方式，即用蒸汽對鮮葉進行高溫處理。這種對「殺青」工藝的掌握，正是唐代匠人得以中止氧化、定義綠茶本質、並奠定其後數百年主流地位的關鍵。其目的主要有三：
-                </p>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>使葉片變軟，便於後續加工。</li>
-                  <li>抑制酶的活性，防止茶葉氧化發酵，保持其綠色本質。</li>
-                  <li>去除鮮葉的青澀味，激發出清新的香氣。</li>
-                </ol>
-                <p>
-                  然而，當時民間飲茶方式頗為粗放，常在茶湯中加入蔥、薑、棗、橘皮等調味品以消學茶的澀味。陸羽對此痛心疾首，認為此舉無異於 <span className="font-extrabold text-stone-900">「喝溝渠裡的廢水」</span>，是暴殄天物。他在《茶經》中詳細記載並推崇旨在品味茶之本味的 <span className="font-extrabold text-stone-900">「煎茶法」</span>：
+                  唐代製茶工藝的核心是 <span className="font-extrabold text-stone-900">「殺青」</span>。當時民間飲茶方式頗為粗放，常在茶湯中加入蔥、薑、棗、橘皮等調味品以消學茶的澀味。陸羽對此痛心疾首，認為此舉無異於 <span className="font-extrabold text-stone-900">「喝溝渠裡的廢水」</span>，是暴殄天物。他在《茶經》中詳細記載並推崇旨在品味茶之本味的 <span className="font-extrabold text-stone-900">「煎茶法」</span>：
                 </p>
                 <ol className="list-decimal pl-5 space-y-1">
                   <li>炙茶：將茶餅放在火上均勻烘烤。</li>
@@ -532,8 +607,8 @@ export default function SixTeaTypesNotes({ kind }) {
                 </ol>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">3.3 宋代：登峰造極的「點茶」與「鬥茶」文化</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/50 px-6 py-5 space-y-3">
+                <div className="font-extrabold text-stone-900 text-lg">3.3 宋代：登峰造極的「點茶」與「鬥茶」文化</div>
                 <p>
                   宋代將飲茶的精緻與儀式感推向了頂峰，發展出極為考究的 <span className="font-extrabold text-stone-900">「點茶法」</span>。這一技藝堪稱古代的飲品藝術：
                 </p>
@@ -549,8 +624,8 @@ export default function SixTeaTypesNotes({ kind }) {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">3.4 明代：返璞歸真的「泡茶」時代</div>
+              <div className="rounded-2xl border border-stone-200 bg-stone-50/50 px-6 py-5 space-y-3">
+                <div className="font-extrabold text-stone-900 text-lg">3.4 明代：返璞歸真的「泡茶」時代</div>
                 <p>
                   飲茶方式在明代迎來了歷史性的轉折。出身農民的開國皇帝朱元璋認為，宋代繁複的餅茶製作工藝過於奢侈、靡費人工，遂下令廢除，改為進貢散茶。
                 </p>
@@ -564,198 +639,199 @@ export default function SixTeaTypesNotes({ kind }) {
               </p>
             </section>
 
+            <hr className="border-stone-100" />
+
             <section className="space-y-4">
               <div className="text-base font-extrabold text-stone-900">4. 現代綠茶品飲實用指南</div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">4.1 知名綠茶品類鑑賞</div>
-                <p>中國綠茶品類繁多，各具特色。以下是一些廣受讚譽的代表性名茶：</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>杭州西湖龍井</li>
-                  <li>安徽黃山毛峰</li>
-                  <li>安徽六安瓜片</li>
-                  <li>安徽太平猴魁</li>
-                  <li>蘇州碧螺春</li>
-                  <li>江西廬山雲霧</li>
-                  <li>四川竹葉青</li>
-                </ul>
-                <p>
-                  特別說明：您可能還聽過 <span className="font-extrabold text-stone-900">「安吉白茶」</span>，請注意，雖然其名中帶「白」字，但從製茶工藝分類上，它屬於不發酵的綠茶。
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">4.2 綠茶的沖泡藝術</div>
-                <p>想要泡好一杯綠茶，需要掌握器皿選擇與沖泡技巧的要點。</p>
-                <p>
-                  器皿選擇 建議使用玻璃杯或白瓷蓋碗。因為綠茶未經發酵，保留了鮮葉的翠綠色澤與完整形態，使用透明或淺色的器皿，便於在沖泡過程中欣賞茶葉舒展的美態與清澈的湯色。
-                </p>
-                <p className="font-extrabold text-stone-900">沖泡兩大關鍵</p>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>水溫：80°C 左右。綠茶多為鮮嫩的芽頭，絕對不能使用沸水沖泡，過高的溫度會將其「燙壞」，破壞其鮮爽的口感與營養成分。</li>
-                  <li>不加蓋。沖泡過程中不要蓋上蓋子，否則會將茶葉「悶黃」，使其失去鮮綠的色澤和清新的香氣。</li>
-                </ol>
-                <p className="font-extrabold text-stone-900">「三明治泡法」步驟詳解 這是一種能充分展現綠茶風味的實用泡法：</p>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>溫杯注水：先向杯中注入約 80°C 的熱水，水量約為杯子容量的三分之一。</li>
-                  <li>投擲茶葉：將茶葉投入水中。茶水比例建議為 1:50，以一個 150 毫升的杯子為例，投入約 3 克茶葉即可。</li>
-                  <li>輕搖喚醒：沿杯底輕輕轉動杯身，讓茶葉充分浸潤，靜置片刻以「喚醒」茶香。</li>
-                  <li>沿壁注水：待茶葉舒展後，再沿著杯壁緩緩將水注滿。</li>
-                </ol>
-                <p>耐泡度 一般的綠茶可沖泡三道左右。品質極佳的綠茶，其香氣與滋味可以持續六至七道甚至更多。</p>
-              </div>
-
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">4.3 綠茶的功效與飲用宜忌</div>
-                <p>
-                  健康益處 綠茶在六大茶類中擁有最高的茶多酚含量。雖然茶多酚是苦澀味的來源，但它同時也是一種對健康大有裨益的物質，具有抗癌、抗自由基、抗氧化、抗過敏、抗菌、延緩衰老、預防蛀牙、降低心血管疾病風險等多種功效。
-                </p>
-                <p className="font-extrabold text-stone-900">飲用提醒</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>提神效果：綠茶的咖啡因含量較高，提神效果顯著。因此，容易失眠的人應盡量避免在睡前飲用。</li>
-                  <li>茶性寒涼：從中醫角度看，綠茶茶性偏寒涼。體質虛寒的人士不宜過多飲用。</li>
-                </ul>
-              </div>
-
-              <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4 space-y-3">
-                <div className="font-extrabold text-stone-900">4.4 選購綠茶的訣竅：「明前茶」與「雨前茶」</div>
-                <p>在選購高品質綠茶時，您常會遇到兩個術語：「明前茶」和「雨前茶」。</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>明前茶：指在清明節氣之前採摘和製作的茶葉。</li>
-                  <li>雨前茶：指在穀雨節氣之前、清明之後採摘和製作的茶葉。</li>
-                </ul>
-                <p>兩者對比</p>
-                <div className="overflow-hidden rounded-xl border border-stone-200">
-                  <table className="w-full text-sm">
-                    <thead className="bg-stone-50 text-stone-700">
-                      <tr>
-                        <th className="px-4 py-2 text-left font-extrabold">類別</th>
-                        <th className="px-4 py-2 text-left font-extrabold">特點</th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white text-stone-700">
-                      <tr className="border-t border-stone-200">
-                        <td className="px-4 py-3 font-extrabold text-stone-900 whitespace-nowrap">明前茶</td>
-                        <td className="px-4 py-3">
-                          茶樹經過整個冬季的休養，積蓄了豐富的養分，此時萌發的芽頭最為鮮嫩，因此口感最佳，最受市場追捧。
-                        </td>
-                      </tr>
-                      <tr className="border-t border-stone-200">
-                        <td className="px-4 py-3 font-extrabold text-stone-900 whitespace-nowrap">雨前茶</td>
-                        <td className="px-4 py-3">
-                          氣溫回升，茶葉生長速度加快，葉片相對成熟，因此在沖泡時更為耐泡。
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div className="not-prose grid md:grid-cols-2 gap-6">
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">4.1 知名綠茶品類鑑賞</div>
+                  <p className="text-sm">中國綠茶品類繁多，各具特色。以下是一些廣受讚譽的代表性名茶：</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm">
+                    <li>杭州西湖龍井</li>
+                    <li>安徽黃山毛峰</li>
+                    <li>安徽六安瓜片</li>
+                    <li>安徽太平猴魁</li>
+                    <li>蘇州碧螺春</li>
+                    <li>江西廬山雲霧</li>
+                    <li>四川竹葉青</li>
+                  </ul>
+                  <p className="text-sm">
+                    特別說明：您可能還聽過 <span className="font-extrabold text-stone-900">「安吉白茶」</span>，請注意，雖然其名中帶「白」字，但從製茶工藝分類上，它屬於不發酵的綠茶。
+                  </p>
                 </div>
-                <p>
-                  對於初次嘗試的品飲者而言，無需過於糾結。明前茶的鮮爽與雨前茶的醇厚各有千秋，兩者都非常值得購買品嚐，親身體會春日茶園的不同風味。
-                </p>
+
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">4.2 綠茶的沖泡藝術</div>
+                  <p className="text-sm">想要泡好一杯綠茶，需要掌握器皿選擇與沖泡技巧的要點。</p>
+                  <p className="text-sm">
+                    器皿選擇 建議使用玻璃杯或白瓷蓋碗。因為綠茶未經發酵，保留了鮮葉的翠綠色澤與完整形態，使用透明或淺色的器皿，便於在沖泡過程中欣賞茶葉舒展的美態與清澈的湯色。
+                  </p>
+                  <p className="font-extrabold text-stone-900 text-sm">沖泡兩大關鍵</p>
+                  <ol className="list-decimal pl-5 space-y-1 text-sm">
+                    <li>水溫：80°C 左右。綠茶多為鮮嫩的芽頭，絕對不能使用沸水沖泡，過高的溫度會將其「燙壞」，破壞其鮮爽的口感與營養成分。</li>
+                    <li>不加蓋。沖泡過程中不要蓋上蓋子，否則會將茶葉「悶黃」，使其失去鮮綠的色澤和清新的香氣。</li>
+                  </ol>
+                  <p className="font-extrabold text-stone-900 text-sm">「三明治泡法」步驟詳解 這是一種能充分展現綠茶風味的實用泡法：</p>
+                  <ol className="list-decimal pl-5 space-y-1 text-sm">
+                    <li>溫杯注水：先向杯中注入約 80°C 的熱水，水量約為杯子容量的三分之一。</li>
+                    <li>投擲茶葉：將茶葉投入水中。茶水比例建議為 1:50。</li>
+                    <li>輕搖喚醒：沿杯底輕輕轉動杯身，讓茶葉充分浸潤。</li>
+                    <li>沿壁注水：待茶葉舒展後，再沿著杯壁緩緩將水注滿。</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div className="not-prose grid md:grid-cols-2 gap-6">
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">4.3 綠茶的功效與飲用宜忌</div>
+                  <p className="text-sm">
+                    健康益處 綠茶在六大茶類中擁有最高的茶多酚含量。雖然茶多酚是苦澀味的來源，但它同時也是一種對健康大有裨益的物質，具有抗癌、抗自由基、抗氧化、抗過敏、抗菌、延緩衰老、預防蛀牙、降低心血管疾病風險等多種功效。
+                  </p>
+                  <p className="font-extrabold text-stone-900 text-sm">飲用提醒</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm">
+                    <li>提神效果：綠茶的咖啡因含量較高，提神效果顯著。因此，容易失眠的人應盡量避免在睡前飲用。</li>
+                    <li>茶性寒涼：從中醫角度看，綠茶茶性偏寒涼。體質虛寒的人士不宜過多飲用。</li>
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 space-y-3">
+                  <div className="font-extrabold text-stone-900">4.4 選購綠茶的訣竅：「明前茶」與「雨前茶」</div>
+                  <p className="text-sm">在選購高品質綠茶時，您常會遇到兩個術語：「明前茶」和「雨前茶」。</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm">
+                    <li>明前茶：指在清明節氣之前採摘和製作的茶葉。</li>
+                    <li>雨前茶：指在穀雨節氣之前、清明之後採摘和製作的茶葉。</li>
+                  </ul>
+                  <p className="text-sm">兩者對比</p>
+                  <div className="overflow-hidden rounded-xl border border-stone-200">
+                    <table className="w-full text-sm">
+                      <thead className="bg-white text-stone-700">
+                        <tr>
+                          <th className="px-4 py-2 text-left font-extrabold">類別</th>
+                          <th className="px-4 py-2 text-left font-extrabold">特點</th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white text-stone-700">
+                        <tr className="border-t border-stone-200">
+                          <td className="px-4 py-3 font-extrabold text-stone-900 whitespace-nowrap">明前茶</td>
+                          <td className="px-4 py-3">
+                            茶樹經過整個冬季的休養，積蓄了豐富的養分，此時萌發的芽頭最為鮮嫩，因此口感最佳，最受市場追捧。
+                          </td>
+                        </tr>
+                        <tr className="border-t border-stone-200">
+                          <td className="px-4 py-3 font-extrabold text-stone-900 whitespace-nowrap">雨前茶</td>
+                          <td className="px-4 py-3">
+                            氣溫回升，茶葉生長速度加快，葉片相對成熟，因此在沖泡時更為耐泡。
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-sm">
+                    對於初次嘗試的品飲者而言，無需過於糾結。明前茶的鮮爽與雨前茶的醇厚各有千秋，兩者都非常值得購買品嚐，親身體會春日茶園的不同風味。
+                  </p>
+                </div>
               </div>
             </section>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50/70 via-white to-sky-50 px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-emerald-700/70">SPECIAL FEATURE</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">碧螺春（中國）專區：品味春意</div>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            本專區聚焦中國碧螺春（江蘇洞庭山系），非台灣三峽碧螺春。從美學意象、詩意典故、沖泡心法到四時養生，整理成可直接拿來閱讀與教學的版本。
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            {['洞庭山', '驚蟄雨前', '滿披白毫', '上投法', '嚇煞人香'].map((tag) => (
-              <span key={tag} className="rounded-full border border-emerald-200 bg-white/70 px-3 py-1 text-emerald-900">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* Special Feature: Biluochun with Brewing Image */}
+        <div className="grid lg:grid-cols-2 gap-8 bg-gradient-to-br from-stone-50 to-white rounded-3xl p-8 border border-stone-200 overflow-hidden">
 
-        <div className="grid gap-3 lg:grid-cols-2">
-          <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-            <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">AESTHETICS</div>
-            <div className="mt-2 text-lg font-extrabold text-stone-900">詩意與美學：一碗春景的展開</div>
-            <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-              清代文人以「碧綠浮動，清香襲人」形容其神韻：細嫩如睫、滿披白毫的茶芽在水中輕盈舒展與浮動，宛如碧綠花影，清雅香氣隨之襲來。
-              古人亦描寫「洞山無處不飛翠，碧螺春香百里醉」——「飛翠」是嫩綠、淺綠到深綠、墨綠的層次交錯，彷彿山林在春天流動。
-            </p>
-            <div className="mt-4 rounded-2xl bg-stone-50 px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">採摘意象</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                「細雨飄食，春雷動，帶纖手採摘雨前鮮芽」：驚蟄時節春雷乍響，茶樹迸發嫩芽；「帶纖手」指極細緻的採摘手法，以避免損傷細嫩芽頭。
+          {/* Left: Content */}
+          <div className="space-y-6">
+            <div>
+              <div className="text-xs font-extrabold tracking-[0.28em] text-emerald-600">SPECIAL FEATURE</div>
+              <h2 className="text-3xl font-bold text-stone-900 mt-2 mb-4">碧螺春：品味春意</h2>
+              <p className="text-stone-700 leading-relaxed">
+                本專區聚焦中國碧螺春（江蘇洞庭山系）。清代文人以「碧綠浮動，清香襲人」形容其神韻。
               </p>
+              <div className="flex gap-2 mt-4 flex-wrap">
+                {['洞庭山', '驚蟄雨前', '滿披白毫', '上投法', '嚇煞人香'].map((tag) => (
+                  <span key={tag} className="rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs text-emerald-900 font-bold">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-            <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">STORY</div>
-            <div className="mt-2 text-lg font-extrabold text-stone-900">名號源由：人名、地名與外形</div>
-            <ul className="mt-3 text-sm text-stone-700 leading-relaxed list-disc pl-5 space-y-2">
-              <li>人名傳說：相傳「碧螺」姑娘為救愛人採藥墜崖，身殞之處長出茶樹，遂以其名命名。</li>
-              <li>地名來源：原產於洞庭湖東西兩山的碧螺峰，因地得名。</li>
-              <li>外形特徵：色澤碧綠、捲曲如螺、於春採摘——三者合一成「碧螺春」。</li>
-            </ul>
-            <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-amber-700">別名：嚇煞人香</div>
-              <p className="mt-2 text-sm text-amber-900 leading-relaxed">
-                相傳康熙南巡品茶驚豔，賜名「嚇煞人香」。可理解為對嫩芽「毫香／嫩香」的極致稱讚，屬清雅內斂的香氣審美。
-              </p>
+            <div className="space-y-4">
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-emerald-100 text-emerald-700 rounded-lg shrink-0 mt-1"><Sparkles size={18} /></div>
+                <div>
+                  <h4 className="font-bold text-stone-900">嚇煞人香與名號</h4>
+                  <p className="text-sm text-stone-600">
+                    傳說康熙賜名「嚇煞人香」是對其極致嫩香的讚譽。名號源於其外形：色澤碧綠、捲曲如螺、春季採摘。
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="p-2 bg-emerald-100 text-emerald-700 rounded-lg shrink-0 mt-1"><Mountain size={18} /></div>
+                <div>
+                  <h4 className="font-bold text-stone-900">洞庭山風土智慧</h4>
+                  <p className="text-sm text-stone-600">
+                    傳統「花果樹交錯間栽」，茶樹吸取花果香，既造就了獨特香氣，也利用生態遮蔭避霜。
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">BREWING</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">茶品特色與沖泡心法：上投法與「白毫雪落」</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <div className="rounded-2xl bg-stone-50 px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">外形</div>
-              <div className="mt-2 text-sm font-extrabold text-stone-900">捲曲成螺，滿披白毫</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">茶乾形態優美、銀毫滿佈，觀賞性強。</p>
-            </div>
-            <div className="rounded-2xl bg-stone-50 px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">風味</div>
-              <div className="mt-2 text-sm font-extrabold text-stone-900">色香味三鮮</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">茶湯鮮亮、香氣鮮爽、滋味鮮醇；常帶花香果味。</p>
-            </div>
-            <div className="rounded-2xl bg-stone-50 px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">上投法</div>
-              <ol className="mt-2 text-sm text-stone-700 leading-relaxed list-decimal pl-5 space-y-1">
-                <li>先注入適溫熱水</li>
-                <li>再將乾茶輕撒水面</li>
-                <li>觀白毫吸水增重如雪落</li>
+            <div className="bg-stone-100 rounded-2xl p-5">
+              <h4 className="font-bold text-stone-900 mb-2 flex items-center gap-2">
+                <Droplets size={16} /> 獨門泡法：上投法
+              </h4>
+              <ol className="list-decimal pl-5 text-sm text-stone-700 space-y-1">
+                <li>準備玻璃杯，注入 80°C 熱水（約七分滿）。</li>
+                <li>將乾茶輕輕撒在水面上。</li>
+                <li>欣賞 <span className="font-bold text-emerald-700">「白毫雪落」</span>：茶芽吸水後徐徐下沉，如雪花飛舞，美不勝收。</li>
               </ol>
+              <div className="mt-3 text-xs text-stone-500">
+                小技巧：可將舒展茶芽一同咀嚼，微苦後回甘，清涼退火。
+              </div>
             </div>
           </div>
-          <div className="mt-4 rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">品飲小技巧</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              可將舒展茶芽一同入口咀嚼，微苦轉瞬即逝，隨之回甘清涼，有「退火」感。建議仍以 80°C 左右、短浸、不悶為原則。
-            </p>
+
+          {/* Right: Feature Image */}
+          <div className="space-y-6">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg border border-stone-100 group">
+              <img
+                src="/images/green_tea_glass.png"
+                alt="Green Tea Brewing in Glass"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent flex items-end p-6">
+                <div className="text-white text-sm font-bold bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
+                  欣賞茶芽在水中舒展的「茶舞」
+                </div>
+              </div>
+            </div>
+
+            {/* Lifestyle Card (Moved here for layout balance) */}
+            <div className="bg-white rounded-2xl border border-stone-200 p-5">
+              <div className="text-xs font-extrabold tracking-widest text-emerald-600 mb-2">四時養生</div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-2">
+                  <Sprout size={16} className="text-emerald-500" />
+                  <div>
+                    <div className="font-bold text-stone-900 text-sm">春飲綠茶</div>
+                    <div className="text-xs text-stone-500">疏肝理氣，清解春燥</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 opacity-60">
+                  <div className="w-4 h-4 rounded-full border border-stone-300" />
+                  <div>
+                    <div className="font-bold text-stone-900 text-sm">冬飲熟茶</div>
+                    <div className="text-xs text-stone-500">溫養與安定</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">LIFESTYLE</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">茶飲與四時養生：順時而飲的邏輯</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="春飲綠茶：疏肝理氣、清解春燥">
-              春天屬木，對應肝。綠茶性微寒，適合春季飲用，感受清新與清亮的「春意」。
-            </Bullet>
-            <Bullet title="冬飲熟茶：溫養與安定">
-              冬天屬水，其色為黑，對應腎。後發酵熟茶茶性溫和、湯色深濃，適合寒冷時節的日常飲用。
-            </Bullet>
-          </div>
-          <div className="mt-4 rounded-2xl bg-stone-50 px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">茶園管理的生態智慧</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              碧螺春常被提及的「花香果味」，與傳統「花果樹交錯間栽」的生態管理相呼應：既有香氣意象，也有遮蔭、避霜雪、禦秋陽的實際效果，展現順應自然、利用自然的園藝智慧。
-            </p>
-          </div>
-        </div>
-
-        <ProcessLine>重點：殺青固定鮮綠；沖泡以 80°C、少悶、短浸為原則。</ProcessLine>
+        <ProcessLine>重點總結：殺青固定鮮綠；沖泡以 80°C、少悶、短浸為原則。</ProcessLine>
       </div>
     );
   }
