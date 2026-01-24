@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Coffee, Feather, Map, Scroll, Thermometer, Flame, Scale, Sprout, Award, Info } from 'lucide-react';
+import { BookOpen, Coffee, Feather, Map, Scroll, Thermometer, Flame, Scale, Sprout, Award, Info, Droplets } from 'lucide-react';
 
 export default function TieGuanyinContent() {
     return (
@@ -31,9 +31,9 @@ export default function TieGuanyinContent() {
                 {/* Visual Feature: Roasted Tea Image */}
                 <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-800 group relative h-72 md:h-96">
                     <img
-                        src="/images/tieguanyin_roasted.png"
-                        alt="傳統炭焙鐵觀音"
-                        className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105 filter brightness-90"
+                        src="/images/featured/tieguanyin/tieguanyin_orchid_ethereal.png"
+                        alt="Ethereal Iron Goddess"
+                        className="w-full h-full object-cover object-top transform transition-transform duration-1000 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent" />
                     <div className="absolute bottom-6 left-8 right-8 text-white">
@@ -282,7 +282,7 @@ export default function TieGuanyinContent() {
                 <section className="bg-stone-900 text-stone-200 rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-900/40 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
                     <h3 className="text-2xl font-bold text-white mb-8 flex items-center relative z-10">
-                        <Feather className="mr-3 text-amber-500" /> 特色與風味：觀音韻與官韻
+                        <Feather className="mr-3 text-amber-500" /> 特色與風味：觀音韻與音韻
                     </h3>
                     <div className="grid md:grid-cols-2 gap-8 relative z-10">
                         <div className="space-y-6">
@@ -309,7 +309,7 @@ export default function TieGuanyinContent() {
                             </div>
                         </div>
                         <div className="bg-gradient-to-br from-amber-700 to-amber-900 p-8 rounded-2xl flex flex-col justify-center text-center shadow-lg border border-amber-600/30">
-                            <p className="text-3xl font-serif text-amber-100 font-bold mb-4">「官韻」</p>
+                            <p className="text-3xl font-serif text-amber-100 font-bold mb-4">「音韻」</p>
                             <p className="text-base text-amber-200 leading-relaxed">
                                 入口微苦後轉甘，滋味醇厚，齒頰留香。<br />
                                 從淡淡花香到濃郁熟果香，變化極富層次。
@@ -318,85 +318,300 @@ export default function TieGuanyinContent() {
                     </div>
                 </section>
 
-                {/* History Stories */}
-                <section className="bg-stone-50 p-8 md:p-10 rounded-3xl border border-stone-200">
-                    <h3 className="text-2xl font-bold text-stone-800 mb-6 flex items-center">
-                        <Scroll className="mr-3 text-stone-600" /> 文化溯源：觀音托夢與命名傳說
-                    </h3>
-                    <p className="text-stone-600 leading-relaxed mb-8">
-                        民間傳說為品種賦予了極高的情感認同。關於鐵觀音的命名，流傳最廣的是 1720 年前後安溪老茶農魏蔭的故事。
+                {/* Section 2: Craft - The Art of Fire */}
+                <section className="bg-white p-8 md:p-10 rounded-3xl border border-stone-200 shadow-sm">
+                    <div className="flex items-center gap-3 mb-6 border-b border-stone-100 pb-4">
+                        <div className="p-3 bg-amber-50 text-amber-700 rounded-xl">
+                            <Flame size={24} />
+                        </div>
+                        <h3 className="text-2xl font-bold text-stone-800">時間與火的煉金術</h3>
+                    </div>
+
+                    <div className="relative rounded-2xl overflow-hidden mb-8 shadow-md group">
+                        <img
+                            src="/images/featured/tieguanyin/traditional_charcoal_roasting.png"
+                            alt="Traditional Charcoal Roasting"
+                            className="w-full h-72 object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent flex items-end p-6">
+                            <p className="text-white/90 font-medium italic text-lg shadow-black drop-shadow-md">「焙火，不僅是乾燥，更是透過火溫雕琢風味的藝術。」</p>
+                        </div>
+                    </div>
+
+                    <p className="mb-6 leading-relaxed text-stone-700 text-lg">
+                        如果說「弱果酸」是鐵觀音靈動、鮮活的一面，那麼「焙火香」則是其沉穩、醇厚的底蘊。在精準的溫度與時間控制下，茶葉中的醣類與胺基酸會發生兩種關鍵的化學變化：<span className="font-bold text-amber-800">梅納反應 (Maillard reaction)</span> 與 <span className="font-bold text-amber-800">焦糖化 (Caramelization)</span>。這兩種反應共同創造出一系列全新的芳香化合物，將茶葉原有的花果香，轉化為更為複雜、溫暖的焙烤香氣，這正是鐵觀音風味醇厚甘美的秘密所在。
                     </p>
-                    <div className="grid md:grid-cols-2 gap-8 mb-8">
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                            <div className="inline-block px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold rounded mb-3">民間版</div>
-                            <h4 className="font-bold text-xl text-stone-900 mb-3">魏說：觀音托夢</h4>
-                            <p className="text-stone-600 leading-relaxed mb-4 text-sm">
-                                魏蔭居於松岩村，篤信佛教。一日夢中受觀音指點，在溪澗石縫間尋獲奇茶。見其葉肉肥厚、嫩芽紫紅，遂帶回種植於家中的一口<strong>鐵鼎</strong>內悉心培育。
-                            </p>
-                            <p className="text-xs text-stone-400 leading-relaxed border-t border-stone-100 pt-3">
-                                命名結合了觀音信仰，以及茶苗種於鐵鼎、成品重如鐵的特徵。
+
+                    <h5 className="font-bold text-stone-900 mb-4 flex items-center gap-2 text-xl">
+                        風味光譜：從「生鐵」到「熟鐵」
+                    </h5>
+                    <div className="space-y-4 mb-8">
+                        <div className="bg-stone-50 p-6 rounded-xl border-l-4 border-emerald-400 shadow-sm">
+                            <strong className="text-emerald-800 text-xl block mb-2">清香型 (輕焙火 / 生鐵)</strong>
+                            <p className="text-base text-stone-600 leading-relaxed">
+                                現代流行風格。最大限度保留了品種本身的「蘭花香」，茶湯清爽鮮活，刺激性較強，「弱果酸」也最為明顯。
                             </p>
                         </div>
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                            <div className="inline-block px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold rounded mb-3">官方版</div>
-                            <h4 className="font-bold text-xl text-stone-900 mb-3">王說：乾隆賜名</h4>
-                            <p className="text-stone-600 leading-relaxed text-sm">
-                                安溪文人王仕讓發現奇茶，獻給禮部侍郎方苞，轉呈內廷。乾隆皇帝飲後大讚，見其茶<strong>烏潤結實、沉重似鐵，味香形美如觀音</strong>，便賜名「鐵觀音」。
+                        <div className="bg-stone-50 p-6 rounded-xl border-l-4 border-amber-500 shadow-sm">
+                            <strong className="text-amber-800 text-xl block mb-2">濃香型 (中焙火 / 熟鐵)</strong>
+                            <p className="text-base text-stone-600 leading-relaxed">
+                                經過中等程度烘焙，花香轉化為熟果香、蜜糖香。茶湯口感更加順滑、飽滿，火工與茶質達到微妙平衡。
+                            </p>
+                        </div>
+                        <div className="bg-stone-50 p-6 rounded-xl border-l-4 border-stone-700 shadow-sm">
+                            <strong className="text-stone-800 text-xl block mb-2">傳統型 (重焙火 / 炭焙)</strong>
+                            <p className="text-base text-stone-600 leading-relaxed">
+                                最能體現醇厚底蘊。長時間文火慢焙下，香氣深化為濃郁的焦糖香、炒米香甚至堅果香。弱果酸完全融入茶湯化為溫潤質地，暖胃生津。
                             </p>
                         </div>
                     </div>
 
-                    <div className="bg-gradient-to-r from-amber-100 to-amber-50 p-6 rounded-2xl border border-amber-200">
-                        <h5 className="font-extrabold text-amber-900 mb-2">文化意涵與結論</h5>
-                        <p className="text-stone-700 leading-relaxed">
-                            總結而言，紅心歪尾桃是鐵觀音體系中不可撼動的核心。時至今日，凡使用此一純種苗木製成的茶品，皆被嚴謹地稱為<strong>「正欉鐵觀音」（俗稱「正鐵」）</strong>。其純正的遺傳特徵與深厚的歷史文化，共同支撐起了它作為「茶中之王」的永恆名譽。
+                    {/* Comparison Table */}
+                    <div className="overflow-x-auto rounded-xl border border-stone-200 mb-8 bg-white">
+                        <table className="w-full text-left text-sm md:text-base">
+                            <thead className="bg-stone-100 text-stone-700 font-bold uppercase tracking-wider">
+                                <tr>
+                                    <th className="px-6 py-4">焙火程度</th>
+                                    <th className="px-6 py-4">核心香氣</th>
+                                    <th className="px-6 py-4">滋味口感</th>
+                                    <th className="px-6 py-4">湯色</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-stone-100">
+                                <tr className="bg-white hover:bg-stone-50 transition-colors">
+                                    <td className="px-6 py-4 font-bold text-emerald-700">清香型</td>
+                                    <td className="px-6 py-4">鮮爽蘭花、清雅花香</td>
+                                    <td className="px-6 py-4">鮮爽輕盈，弱果酸明顯</td>
+                                    <td className="px-6 py-4">金黃透亮</td>
+                                </tr>
+                                <tr className="bg-white hover:bg-stone-50 transition-colors">
+                                    <td className="px-6 py-4 font-bold text-amber-700">濃香型</td>
+                                    <td className="px-6 py-4">熟果、蜜糖、焦糖</td>
+                                    <td className="px-6 py-4">飽滿順滑，甘潤度佳</td>
+                                    <td className="px-6 py-4">琥珀色</td>
+                                </tr>
+                                <tr className="bg-white hover:bg-stone-50 transition-colors">
+                                    <td className="px-6 py-4 font-bold text-stone-700">傳統型</td>
+                                    <td className="px-6 py-4">炒米、堅果、木質火工</td>
+                                    <td className="px-6 py-4">厚實溫潤，喉韻深長</td>
+                                    <td className="px-6 py-4">深琥珀色 (油潤)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="bg-stone-900 border-stone-800 text-stone-300 p-6 rounded-xl">
+                        <strong className="text-white text-lg block mb-2">超越香氣：「厚度」的誕生</strong>
+                        <p className="leading-relaxed">
+                            焙火賦予的不僅是香氣轉變，更是一種獨特的口感——「厚度」 (Thickness)。優質熟鐵觀音的茶湯在口中會有飽滿、紮實的質感，彷彿絲綢般滑過舌面，這份厚實茶感正是老茶客鍾情的原因。
                         </p>
                     </div>
                 </section>
 
-                {/* Footer Sections: Origin & Brewing */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-                        <h4 className="font-bold text-stone-800 mb-4 flex items-center text-lg"><Map size={20} className="mr-2 text-stone-400" /> 產地發展</h4>
-                        <div className="relative border-l-2 border-stone-200 ml-2 pl-6 space-y-4">
-                            <div className="relative">
-                                <span className="absolute -left-[31px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-white"></span>
-                                <p className="text-stone-700"><strong>源起：</strong>中國福建安溪。</p>
-                            </div>
-                            <div className="relative">
-                                <span className="absolute -left-[31px] top-1.5 w-3 h-3 bg-amber-500 rounded-full border-2 border-white"></span>
-                                <p className="text-stone-700"><strong>1895年：</strong>張迺妙、張迺乾兄弟引進茶苗至<strong>台北木柵</strong>，成為台灣鐵觀音發源地。</p>
-                            </div>
-                            <div className="relative">
-                                <span className="absolute -left-[31px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-white"></span>
-                                <p className="text-stone-700"><strong>擴散：</strong>後延伸至坪林、安坑、石碇。</p>
+                {/* Section 3: Guanyin Rhyme */}
+                <section className="bg-gradient-to-br from-stone-50 to-white p-8 md:p-12 rounded-3xl border border-stone-200 shadow-sm">
+                    <div className="flex items-center gap-3 mb-8 border-b border-stone-200 pb-4">
+                        <div className="p-3 bg-amber-100 text-amber-800 rounded-xl">
+                            <Feather size={24} />
+                        </div>
+                        <h3 className="text-3xl font-bold text-stone-900">解構「觀音韻」</h3>
+                    </div>
+
+                    <div className="flex flex-col lg:flex-row gap-10 mb-12 items-start">
+                        <div className="flex-1">
+                            <p className="mb-6 leading-relaxed text-stone-700 text-lg">
+                                在茶的世界裡，有些詞彙超越了味覺，成為境界的代名詞。「觀音韻」便是如此。它如同一首餘音繞樑的樂曲，只可意會，難以言傳。這份神韻的誕生，是三大關鍵要素完美協奏的結晶：
+                            </p>
+                            <ul className="space-y-6">
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center shrink-0 text-stone-700 font-bold border border-stone-300 text-xl">1</div>
+                                    <div>
+                                        <strong className="text-stone-900 text-lg">風土 (Terroir)</strong>
+                                        <p className="text-stone-600 mt-1">唯有安溪核心產區獨特的地理環境與土壤，才能孕育富含芳香物質的茶菁。</p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center shrink-0 text-stone-700 font-bold border border-stone-300 text-xl">2</div>
+                                    <div>
+                                        <strong className="text-stone-900 text-lg">品種 (Cultivar)</strong>
+                                        <p className="text-stone-600 mt-1">必須是血統純正的「紅心歪尾桃」，其基因攜帶著構成音韻的關鍵物質。</p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center shrink-0 text-stone-700 font-bold border border-stone-300 text-xl">3</div>
+                                    <div>
+                                        <strong className="text-stone-900 text-lg">工藝 (Craftsmanship)</strong>
+                                        <p className="text-stone-600 mt-1">仰賴製茶師對傳統工藝的精準掌握，喚醒並定格茶葉內在潛力。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="w-full lg:w-1/3">
+                            <div className="bg-white p-4 rounded-2xl shadow-lg border border-stone-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                                <img
+                                    src="/images/featured/tieguanyin/red_heart_cultivar_leaf.png"
+                                    alt="Red Heart Crooked Tail Peach Cultivar"
+                                    className="w-full rounded-xl"
+                                />
+                                <p className="text-center text-sm text-stone-400 mt-3 font-serif italic">Red Heart Crooked Tail Peach</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-stone-800 text-amber-50 p-6 rounded-2xl shadow-lg border border-stone-700">
-                        <h4 className="font-bold text-lg mb-4 flex items-center"><Coffee size={20} className="mr-2 text-amber-400" /> 沖泡指南</h4>
-                        <div className="grid grid-cols-3 gap-2 mb-4 text-center">
-                            <div className="bg-stone-700/50 p-2 rounded-lg">
-                                <span className="block text-xs text-stone-400 mb-1">茶量</span>
-                                <span className="font-bold text-amber-200">3g</span>
+                    <div className="bg-white p-8 rounded-3xl border border-stone-100 shadow-md">
+                        <div className="flex items-center gap-3 mb-6">
+                            <Sprout className="text-emerald-600" size={28} />
+                            <h4 className="text-2xl font-bold text-stone-800">味蕾的詩篇：弱果酸</h4>
+                        </div>
+
+                        <p className="mb-6 leading-relaxed text-stone-700 text-lg">
+                            提及「酸」，初學者常聯想到負面風味。然而在頂級鐵觀音中，一抹稍縱即逝、純淨明亮的<span className="font-bold text-emerald-700">「弱果酸」</span>（茶人稱「觀音酸」），卻是其出身與工藝的關鍵密碼。
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                                <h6 className="font-bold text-stone-900 mb-3 text-lg">酸韻起源</h6>
+                                <p className="text-base text-stone-600 leading-relaxed">
+                                    源自關鍵的<strong>「搖青」</strong>工藝。葉片邊緣細胞在碰撞摩擦中輕微破損，啟動精密酶促氧化，轉化生成帶鮮味的琥珀酸與柔和蘋果酸。這與醋的尖銳酸感截然不同，更近於未熟水果的清新酸香。
+                                </p>
                             </div>
-                            <div className="bg-stone-700/50 p-2 rounded-lg">
-                                <span className="block text-xs text-stone-400 mb-1">水溫</span>
-                                <span className="font-bold text-amber-200">100°C</span>
-                            </div>
-                            <div className="bg-stone-700/50 p-2 rounded-lg">
-                                <span className="block text-xs text-stone-400 mb-1">時間</span>
-                                <span className="font-bold text-amber-200">6分</span>
+                            <div className="bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                                <h6 className="font-bold text-stone-900 mb-3 text-lg">鑑賞重點</h6>
+                                <ul className="text-base text-stone-600 space-y-3">
+                                    <li className="flex items-center gap-3"><div className="bg-emerald-100 p-1 rounded-full"><Award size={14} className="text-emerald-600" /></div> <strong>潔淨感：</strong>純淨無雜味</li>
+                                    <li className="flex items-center gap-3"><div className="bg-emerald-100 p-1 rounded-full"><Award size={14} className="text-emerald-600" /></div> <strong>生津感：</strong>迅速刺激唾液，兩頰生津</li>
+                                    <li className="flex items-center gap-3"><div className="bg-emerald-100 p-1 rounded-full"><Award size={14} className="text-emerald-600" /></div> <strong>協調感：</strong>與醇厚甘甜完美融合</li>
+                                </ul>
                             </div>
                         </div>
-                        <div className="pt-4 border-t border-stone-700">
-                            <p className="text-sm text-stone-300 leading-relaxed flex gap-2">
-                                <Thermometer size={16} className="text-red-400 flex-shrink-0 mt-0.5" />
-                                <span>
-                                    <strong>很挑水！</strong>請務必使用<strong>含有礦物質的水</strong>沖泡，才能展現其香氣滋味。若用RO純水，滋味會變得淡薄。
-                                </span>
-                            </p>
+                    </div>
+                </section>
+
+                {/* Section 4: Tasting Guide */}
+                <section className="bg-stone-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden relative">
+                    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                        <div className="absolute right-0 top-0 w-96 h-96 bg-amber-600 rounded-full blur-[150px]"></div>
+                    </div>
+
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-10 border-b border-stone-700 pb-6">
+                            <div className="p-3 bg-stone-800 text-amber-500 rounded-xl">
+                                <Coffee size={24} />
+                            </div>
+                            <h3 className="text-3xl font-bold text-white">品鑑指南：掌握觀音韻的四步實踐</h3>
+                        </div>
+
+                        <p className="mb-12 leading-relaxed text-stone-300 text-lg max-w-3xl">
+                            理解理論後，讓我們將知識付諸實踐。這套完整的品鑑流程，能幫助您捕捉茶湯中的細微變化，將感官體驗系統化。
+                        </p>
+
+                        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+                            <div className="space-y-8">
+                                {/* Step 1 */}
+                                <div className="flex gap-6 group">
+                                    <div className="w-14 h-14 rounded-2xl bg-stone-800 text-amber-500 flex items-center justify-center font-bold text-2xl shrink-0 shadow-lg border border-stone-700 group-hover:border-amber-500/50 transition-colors">1</div>
+                                    <div>
+                                        <h5 className="font-bold text-white text-xl mb-2">觀其形，聞其乾香</h5>
+                                        <p className="text-stone-400 text-base leading-relaxed">
+                                            欣賞緊結勻整的球形外觀。清香型呈鮮潤「砂綠色」，傳統焙火則顯油潤「烏褐色」。輕搖後湊近鼻尖：<br />
+                                            <span className="italic text-amber-200/70">是清揚的花香？還是甜潤的焦糖氣息？這是品質的最初承諾。</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* Step 2 */}
+                                <div className="flex gap-6 group">
+                                    <div className="w-14 h-14 rounded-2xl bg-stone-800 text-amber-500 flex items-center justify-center font-bold text-2xl shrink-0 shadow-lg border border-stone-700 group-hover:border-amber-500/50 transition-colors">2</div>
+                                    <div>
+                                        <h5 className="font-bold text-white text-xl mb-2">察其色，品其湯</h5>
+                                        <p className="text-stone-400 text-base leading-relaxed mb-3">
+                                            以「啜飲」方式讓茶湯霧化覆蓋口腔。專注感受：
+                                        </p>
+                                        <div className="flex flex-wrap gap-3 text-sm">
+                                            <span className="bg-stone-800 px-3 py-1.5 rounded-lg border border-stone-700 text-stone-300"><strong>初感：</strong>明亮弱果酸？</span>
+                                            <span className="bg-stone-800 px-3 py-1.5 rounded-lg border border-stone-700 text-stone-300"><strong>中感：</strong>輕盈或厚實？</span>
+                                            <span className="bg-stone-800 px-3 py-1.5 rounded-lg border border-stone-700 text-stone-300"><strong>尾感：</strong>花香或火香？</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Step 3 */}
+                                <div className="flex gap-6 group">
+                                    <div className="w-14 h-14 rounded-2xl bg-stone-800 text-amber-500 flex items-center justify-center font-bold text-2xl shrink-0 shadow-lg border border-stone-700 group-hover:border-amber-500/50 transition-colors">3</div>
+                                    <div>
+                                        <h5 className="font-bold text-white text-xl mb-2">感其韻，體其甘</h5>
+                                        <p className="text-stone-400 text-base leading-relaxed">
+                                            茶湯下喉後，真正的「觀音韻」才現身。閉眼感受：喉深處是否有清甜回返（回甘）？口腔是否依然殘留香氣（留香）？
+                                        </p>
+                                    </div>
+                                </div>
+                                {/* Step 4 */}
+                                <div className="flex gap-6 group">
+                                    <div className="w-14 h-14 rounded-2xl bg-stone-800 text-amber-500 flex items-center justify-center font-bold text-2xl shrink-0 shadow-lg border border-stone-700 group-hover:border-amber-500/50 transition-colors">4</div>
+                                    <div>
+                                        <h5 className="font-bold text-white text-xl mb-2">審其底，識其本</h5>
+                                        <p className="text-stone-400 text-base leading-relaxed">
+                                            觀察葉底。優質者應柔軟、肥厚富彈性。若見<strong>「綠葉紅鑲邊」</strong>（主體綠、邊緣紅），便是發酵工藝掌控得當的最佳證明。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col justify-center">
+                                <div className="bg-stone-800 p-8 rounded-3xl border border-stone-700 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                                        <Coffee size={120} />
+                                    </div>
+                                    <h4 className="text-2xl font-bold text-white mb-6">器為茶之父：適配器皿</h4>
+
+                                    <p className="mb-8 leading-relaxed text-stone-400">
+                                        古人云：「器為茶之父」。不同的鐵觀音風格，需要不同的器皿來喚醒其最佳狀態。
+                                    </p>
+
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-16 h-16 rounded-xl bg-stone-900 border border-stone-600 flex items-center justify-center shrink-0 shadow-inner">
+                                                <Flame size={32} className="text-amber-600" />
+                                            </div>
+                                            <div>
+                                                <h6 className="font-bold text-amber-200 text-lg">傳統焙火 (熟鐵) — 紫砂壺</h6>
+                                                <p className="text-sm text-stone-400 mt-1">壁厚、疏鬆。吸附火氣，激發深層香氣，使茶湯圓潤。</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-16 h-16 rounded-xl bg-stone-200 border border-stone-400 flex items-center justify-center shrink-0 shadow-inner">
+                                                <Droplets size={32} className="text-sky-600" />
+                                            </div>
+                                            <div>
+                                                <h6 className="font-bold text-white text-lg">清香型 (生鐵) — 白瓷蓋碗</h6>
+                                                <p className="text-sm text-stone-400 mt-1">質密、不吸香。忠實反映清澈色澤與純淨花香。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-8 rounded-2xl overflow-hidden border border-stone-600">
+                                        <img
+                                            src="/images/featured/tieguanyin/yixing_vs_porcelain_art.png"
+                                            alt="Yixing Teapot vs Porcelain Gaiwan"
+                                            className="w-full h-48 object-cover opacity-80 hover:opacity-100 transition-opacity"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Footer Sections: Origin & Brewing (Existing content slightly adjusted) */}
+                <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col md:flex-row gap-8 items-center justify-between">
+                    <div>
+                        <h4 className="font-bold text-stone-800 text-xl mb-2">結語：在複雜中尋找珍貴</h4>
+                        <p className="text-stone-600 max-w-2xl leading-relaxed">
+                            品飲一杯正欉鐵觀音，如同品讀一段豐富的人生。它的苦、澀、酸、甜交織，或許不是第一口就討喜的「美味」，但其背後的歷史脈絡與深厚韻味，使其成為一份珍貴的遺產，值得靜心細品。
+                        </p>
+                    </div>
+                    <div className="flex-shrink-0">
+                        <div className="text-right">
+                            <div className="text-xs text-stone-400 uppercase tracking-widest mb-1">Recommended</div>
+                            <div className="font-bold text-2xl text-stone-900">100°C 沸水</div>
+                            <div className="text-sm text-amber-600 font-bold">重口味・重喉韻</div>
                         </div>
                     </div>
                 </div>

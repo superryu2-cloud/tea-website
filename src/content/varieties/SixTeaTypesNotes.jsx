@@ -16,8 +16,12 @@ import {
   HelpCircle,
   Flame,
   Search,
-  Mountain
+  Mountain,
+  Sun,
+  Calendar,
+  Clock
 } from 'lucide-react';
+import FudingHistory from './chapters/FudingHistory';
 
 function ProcessLine({ children }) {
   return (
@@ -38,174 +42,396 @@ function Bullet({ title, children }) {
 }
 
 export default function SixTeaTypesNotes({ kind }) {
+  const [whiteTab, setWhiteTab] = React.useState('general');
+
   if (!kind) return null;
 
   if (kind === 'white') {
     return (
-      <div className="space-y-6">
-        <div className="rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-indigo-50 px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-sky-700/70">WHITE TEA</div>
-          <div className="mt-2 text-xl font-extrabold text-stone-900">白茶：從工藝、歷史到品飲之道</div>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            白茶的核心不在「顏色」，而在「工藝」：六大茶類中工序最精簡，通常只保留萎凋與乾燥。這種極簡工藝旨在最大限度保留茶葉原始的天然滋味與內含物質，
-            也因此帶來令人著迷的陳化潛力，體現「大道至簡」的哲學。
-          </p>
-        </div>
+      <div className="space-y-8 animate-fadeIn">
 
-        <div className="grid gap-3 lg:grid-cols-3">
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">核心定義</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">萎凋＋乾燥（極簡工藝）</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              白茶是輕微發酵茶（約 5%–10%），以溫和的酶促氧化作為風味轉化起點。
-            </p>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">名稱由來</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">白毫，而非白湯</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              多數白茶因芽頭披白毫而得名；年份增長或烹煮都可能使湯色加深，顏色不是分類標準。
-            </p>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">耐陳關鍵</div>
-            <div className="mt-2 text-sm font-extrabold text-stone-900">一年茶・三年藥・七年寶</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              不是「從無到有」，而是對原本高內質的「優化平衡」：咖啡鹼趨減、胺基酸與黃酮趨增。
-            </p>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">DEFINITION</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">1. 白茶的真正定義：超越顏色的工藝之本</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="顏色迷思（為何不能靠顏色判斷）">
-              白茶得名於白毫；若用較粗老葉梗製作本就可能沒有白毫；年份增長湯色會加深；甚至烹煮時茶湯可能呈紅色——因此僅憑顏色判斷並不準確。
-            </Bullet>
-            <Bullet title="發酵定位（放在六大茶類座標）">
-              綠茶約 0%；白茶約 5%–10%（輕微發酵）；青茶（烏龍）範圍廣；紅茶接近 100%。白茶以極簡工藝啟動溫和轉化，是其本質。
-            </Bullet>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">CRAFT</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">2. 極簡中的極致：剖析白茶的製作工藝</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="「攤放」vs「萎凋」：本質不同">
-              綠茶攤放初期多為水分蒸發的物理過程；白茶萎凋在失水之外，更重要的是引導多酚開始進行酶促氧化反應，屬化學變化，是風味轉化起點。
-            </Bullet>
-            <Bullet title="為何最簡單卻最不 easy">
-              萎凋極受溫度、濕度、氣流影響，製茶師需以最少機械干預精準判斷時機與程度；不足或過度都可能使整批茶失敗。
-            </Bullet>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">HISTORY</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">3. 正本清源：探尋白茶的真實歷史</div>
-          <div className="mt-4 grid gap-3 lg:grid-cols-3">
-            <Bullet title="宋代起源說之辯">
-              《大觀茶論》中的「白茶自為一種」多指當時蒸焙工藝的蒸青綠茶路線，且描述更可能指茶樹品種或特定名目，並非今日萎凋工藝的白茶。
-            </Bullet>
-            <Bullet title="唐代起源說之辯">
-              《茶經》記載「白茶樹」更可能是茶樹品種名稱；在唐代工藝背景下，很難等同現代白茶品類。
-            </Bullet>
-            <Bullet title="周朝曬乾說之辯">
-              現代白茶的萎凋需精密控溫濕與時間，並非簡單曬乾即可替代，直接曬乾忽略了工藝核心與難度。
-            </Bullet>
-          </div>
-          <div className="mt-4 rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">可考的創始時間（工藝史）</div>
-            <ul className="mt-2 text-sm text-stone-700 leading-relaxed list-disc pl-5 space-y-1">
-              <li>1796（清嘉慶初年）：白毫銀針創制，白茶工藝正式確立</li>
-              <li>1922：白牡丹創制（芽葉梗同在，失水率不同，萎凋更難，代表工藝成熟）</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">TYPES</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">4. 當代白茶品類鑑賞</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">白毫銀針</div>
-              <div className="mt-2 text-sm font-extrabold text-stone-900">芽頭為主</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">僅由肥碩芽頭製成，身披白毫，外形挺直如針。</p>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">白牡丹</div>
-              <div className="mt-2 text-sm font-extrabold text-stone-900">芽＋葉</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                一芽一葉或一芽二三葉，形態舒展如花；芽葉梗同在，萎凋控制更考驗功力。
-              </p>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">壽眉／貢眉</div>
-              <div className="mt-2 text-sm font-extrabold text-stone-900">葉片為主</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                多採較成熟葉片；較佳者稱貢眉。茶體更厚、風味層次更豐富。
+        {/* Hero Section */}
+        <div className="relative rounded-3xl overflow-hidden shadow-xl min-h-[400px] group">
+          <img
+            src="/images/white_tea_silver_needle.png"
+            alt="Silver Needle White Tea in Sunlight"
+            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-800/20 to-transparent flex flex-col justify-end p-8 md:p-12">
+            <div className="max-w-2xl text-white space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase">
+                <Sun size={12} /> Micro Fermentation
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight text-white/95 text-shadow-sm flex items-center gap-4">
+                <img src="/images/assets/eastern_art/ink_zen_circle.png" alt="" className="w-16 h-16 opacity-80 invert brightness-0" />
+                白茶：大道至簡的純粹
+              </h2>
+              <p className="text-lg md:text-xl text-stone-100 leading-relaxed font-light opacity-90">
+                工藝極簡，不炒不揉，只隨日月萎凋。
               </p>
             </div>
           </div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="知名產區">
-              福建福鼎白茶、政和白茶，以及雲南大葉種古樹原料製作的古樹白茶等。
-            </Bullet>
-            <Bullet title="年份為何重要？">
-              白茶出廠不是巔峰；陳化是其核心魅力之一，風味與體感會隨時間逐步轉化。
-            </Bullet>
-          </div>
         </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">AGING</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">5. 時間的魔法：一年茶，三年藥，七年寶</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="陳化帶來的轉變：優化平衡">
-              在合適儲存條件下，咖啡鹼含量逐漸減少；胺基酸與黃酮類化合物逐漸增多。陳年白茶因咖啡鹼降低，對睡眠影響更小，亦常被認為更溫和。
-            </Bullet>
-            <Bullet title="核心成分與體感關聯">
-              咖啡鹼（提神、利尿）；胺基酸（鮮甜、平衡苦澀、支持免疫與代謝）；黃酮類（隨陳化增多，是健康價值的重要來源之一）。
-            </Bullet>
-          </div>
+        {/* Tab Navigation */}
+        <div className="flex p-1 bg-stone-100 rounded-2xl border border-stone-200">
+          <button
+            onClick={() => setWhiteTab('general')}
+            className={`flex-1 py-3 px-4 rounded-xl text-sm font-extrabold transition-all duration-300 shadow-sm ${whiteTab === 'general'
+              ? 'bg-stone-800 text-white shadow-md transform scale-[1.02]'
+              : 'bg-white/50 text-stone-500 hover:text-stone-700 hover:bg-white'
+              }`}
+          >
+            白茶通識 (General)
+          </button>
+          <button
+            onClick={() => setWhiteTab('history')}
+            className={`flex-1 py-3 px-4 rounded-xl text-sm font-extrabold transition-all duration-300 shadow-sm ${whiteTab === 'history'
+              ? 'bg-amber-900 text-white shadow-md transform scale-[1.02]'
+              : 'bg-white/50 text-stone-500 hover:text-stone-700 hover:bg-white'
+              }`}
+          >
+            專題：福鼎白茶史 (History)
+          </button>
         </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">BREWING</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">6. 品飲白茶的藝術與訣竅</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="沖泡方式的多樣性">
-              可玻璃杯隨泡觀葉、也可用蓋碗／紫砂走功夫茶路線，細品每一泡的層次變化。
-            </Bullet>
-            <Bullet title="關鍵技巧：先泡後煮">
-              訣竅是「泡淡了再煮」。直接煮乾茶比例難控易苦澀；先泡到滋味變淡，再煮葉底可更穩定地榨取最後精華。
-            </Bullet>
-          </div>
-          <div className="mt-4 rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">耐泡提醒</div>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              高品質白茶非常耐泡，可達二十道以上。建議先充分體驗沖泡的層次變化，真正「滋味幾乎釋放完」再烹煮，更不負好茶。
-            </p>
-          </div>
-        </div>
+        {whiteTab === 'general' ? (
+          <div className="space-y-12 animate-slideInUp">
+            {/* Classification & Process Visuals */}
+            <div className="grid lg:grid-cols-3 gap-6">
+              {/* Classification */}
+              <div className="col-span-1 p-6 rounded-3xl bg-white border border-stone-200 shadow-sm relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none text-sky-500 transition-opacity group-hover:opacity-20">
+                  <Thermometer size={100} />
+                </div>
+                <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                  <History size={20} className="text-sky-600" /> 分類座標
+                </h3>
+                <div className="space-y-6 relative z-10">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-end text-xs font-bold text-stone-500 uppercase tracking-widest">
+                      <span>White Tea</span>
+                      <span>5% - 10%</span>
+                    </div>
+                    <div className="h-3 w-full bg-stone-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-sky-200 w-[10%] relative">
+                        <div className="absolute right-0 top-0 bottom-0 w-1 bg-sky-500 animate-pulse"></div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-stone-400 text-right">微發酵</p>
+                  </div>
+                  <ul className="text-sm text-stone-600 space-y-3">
+                    <li className="flex items-start gap-3">
+                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                      <span className="leading-snug">
+                        <strong className="text-stone-900">非綠茶：</strong>
+                        雖接近綠茶，但有<span className="text-sky-600 font-bold">「輕微發酵」</span>作為風味轉化起點。
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                      <span className="leading-snug">
+                        <strong className="text-stone-900">關鍵字：</strong>
+                        <span className="bg-sky-50 text-sky-700 px-1 rounded">白毫</span>
+                        <span className="mx-1"></span>
+                        <span className="bg-sky-50 text-sky-700 px-1 rounded">萎凋</span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
-          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">PICKING</div>
-          <div className="mt-2 text-lg font-extrabold text-stone-900">7. 如何選擇適合您的白茶</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="偏好清甜爽口">
-              推薦白毫銀針：芽頭胺基酸含量高，鮮甜清雅最突出。
-            </Bullet>
-            <Bullet title="偏好濃郁飽滿">
-              推薦白牡丹、貢眉或壽眉：葉片比例高，多酚等物質更豐富，茶體更厚、層次更複雜。
-            </Bullet>
-          </div>
-        </div>
+              {/* Process Visual - Withering */}
+              <div className="col-span-1 lg:col-span-2 relative rounded-3xl overflow-hidden shadow-sm border border-stone-200 group">
+                <img
+                  src="/images/white_tea_withering.png"
+                  alt="Sun Withering Process"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
 
-        <ProcessLine>嫩葉／芽頭 → 萎凋（以自然條件為主）→ 乾燥 → 白茶；建議先沖泡、後煮葉底</ProcessLine>
-      </div>
+                <div className="relative p-8 h-full flex flex-col justify-center space-y-6">
+                  <div>
+                    <h3 className="text-xl font-bold text-stone-900 mb-2 flex items-center gap-2">
+                      <Sun size={20} className="text-amber-500" /> 核心工藝：萎凋
+                    </h3>
+                    <div className="text-2xl font-black text-stone-800">
+                      「不炒不揉，自然天成」
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <div className="text-xs font-bold tracking-widest text-stone-500 uppercase">THE CRAFT</div>
+                      <p className="text-sm text-stone-700 leading-relaxed">
+                        看似簡單的「曬乾」，實則是極需經驗的<strong>「萎凋」</strong>。
+                        需精準控制陽光、溫度與濕度，引導茶葉內含物質進行微發酵轉化。
+                      </p>
+                    </div>
+                    <div className="space-y-2 border-l-2 border-amber-200 pl-4">
+                      <div className="text-xs font-bold tracking-widest text-stone-500 uppercase">THE RESULT</div>
+                      <p className="text-sm text-stone-700 leading-relaxed">
+                        保留了最豐富的毫香與鮮甜。
+                        <br />
+                        <span className="text-xs text-stone-500 block mt-1">
+                          (相比綠茶的高溫殺青，白茶的酶活性未被完全破壞，故有陳化能力)
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Long Article Content */}
+            <div className="bg-white rounded-3xl border border-stone-200 p-8 md:p-12 shadow-sm">
+              <div className="flex items-center gap-3 mb-8 pb-6 border-b border-stone-100">
+                <div className="p-3 bg-stone-100 rounded-full text-stone-600">
+                  <BookOpen size={24} />
+                </div>
+                <div>
+                  <div className="text-xs font-extrabold tracking-[0.2em] text-stone-500 uppercase">Article</div>
+                  <h2 className="text-2xl font-bold text-stone-900 flex items-center gap-3">
+                    <img src="/images/assets/eastern_art/ink_tea_branch_spot.png" alt="" className="w-10 h-10 object-contain opacity-80" />
+                    白茶：從工藝、歷史到品飲之道（全文）
+                  </h2>
+                </div>
+              </div>
+
+              <div className="prose prose-stone prose-lg max-w-none text-stone-700 leading-relaxed space-y-8">
+
+                {/* 1. Definition */}
+                <section className="space-y-4">
+                  <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">1</span>
+                    白茶的真正定義：超越顏色的工藝之本
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 not-prose">
+                    <div className="bg-stone-50 p-5 rounded-2xl border border-stone-100">
+                      <h4 className="font-bold text-stone-900 mb-2 flex items-center gap-2">
+                        <AlertTriangle size={16} className="text-amber-500" /> 顏色迷思
+                      </h4>
+                      <p className="text-sm">
+                        白茶得名於白毫；若用較粗老葉梗製作本就可能沒有白毫；年份增長湯色會加深；甚至烹煮時茶湯可能呈紅色——因此僅憑顏色判斷並不準確。
+                      </p>
+                    </div>
+                    <div className="bg-stone-50 p-5 rounded-2xl border border-stone-100">
+                      <h4 className="font-bold text-stone-900 mb-2 flex items-center gap-2">
+                        <Map size={16} className="text-sky-500" /> 發酵定位
+                      </h4>
+                      <p className="text-sm">
+                        綠茶約 0%；白茶約 <span className="text-sky-600 font-bold">5%–10%</span>（輕微發酵）；青茶（烏龍）範圍廣；紅茶接近 100%。白茶以極簡工藝啟動溫和轉化，是其本質。
+                      </p>
+                    </div>
+                  </div>
+                </section>
+
+                <hr className="border-stone-100" />
+
+                {/* 2. Craft */}
+                <section className="space-y-4">
+                  <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">2</span>
+                    極簡中的極致：剖析白茶的製作工藝
+                  </div>
+                  <div className="bg-amber-50/50 p-6 rounded-2xl border border-amber-100 not-prose">
+                    <div className="flex gap-4">
+                      <div className="mt-1"><Sun size={24} className="text-amber-500" /></div>
+                      <div>
+                        <h4 className="font-bold text-stone-900 text-lg mb-2">「攤放」vs「萎凋」：本質不同</h4>
+                        <p className="text-stone-700 leading-relaxed">
+                          綠茶攤放初期多為水分蒸發的物理過程；白茶萎凋在失水之外，更重要的是引導多酚開始進行酶促氧化反應，屬化學變化，是風味轉化起點。
+                        </p>
+                        <p className="mt-4 text-sm text-stone-600 italic">
+                          * 為何最簡單卻最不 easy？萎凋極受溫度、濕度、氣流影響，製茶師需以最少機械干預精準判斷時機與程度；不足或過度都可能使整批茶失敗。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <hr className="border-stone-100" />
+
+                {/* 3. History */}
+                <section className="space-y-4">
+                  <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">3</span>
+                    正本清源：探尋白茶的真實歷史
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-4 not-prose">
+                    <div className="p-4 rounded-xl border border-stone-100 bg-white shadow-sm">
+                      <div className="text-xs font-bold text-stone-400 mb-1">宋代起源說之辯</div>
+                      <p className="text-sm text-stone-600">
+                        《大觀茶論》中的「白茶」多指當時蒸焙工藝路線，或指特定茶樹品種，並非今日萎凋工藝的白茶。
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-xl border border-stone-100 bg-white shadow-sm">
+                      <div className="text-xs font-bold text-stone-400 mb-1">唐代起源說之辯</div>
+                      <p className="text-sm text-stone-600">
+                        《茶經》「白茶樹」應為品種名；唐代工藝背景下，很難等同現代白茶品類。
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-xl border border-stone-100 bg-white shadow-sm">
+                      <div className="text-xs font-bold text-stone-400 mb-1">周朝曬乾說之辯</div>
+                      <p className="text-sm text-stone-600">
+                        現代萎凋需精密控溫濕，非簡單曬乾可替代；直接曬乾忽略了工藝核心與難度。
+                      </p>
+                    </div>
+                  </div>
+                  <div className="pl-4 border-l-4 border-sky-200 mt-4 not-prose">
+                    <div className="text-xs font-extrabold tracking-widest text-sky-600 mb-1">可考的創始時間</div>
+                    <ul className="space-y-2 text-stone-700 text-sm">
+                      <li><strong>1796（清嘉慶初年）：</strong> 白毫銀針創制，白茶工藝正式確立。</li>
+                      <li><strong>1922：</strong> 白牡丹創制（芽葉梗同在，失水率不同，工藝更成熟）。</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <hr className="border-stone-100" />
+
+                {/* 4. Types */}
+                <section className="space-y-4">
+                  <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">4</span>
+                    當代白茶品類鑑賞
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-6 not-prose">
+                    <div className="group p-5 rounded-2xl border border-stone-200 bg-gradient-to-br from-white to-stone-50 hover:shadow-md transition-shadow">
+                      <div className="flex items-center justify-between mb-3">
+                        <Sprout size={20} className="text-emerald-500" />
+                        <span className="text-xs px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full font-bold">頂級</span>
+                      </div>
+                      <h3 className="font-bold text-stone-900 text-lg">白毫銀針</h3>
+                      <div className="text-xs font-bold text-stone-500 uppercase mb-2">Yinzhen / Silver Needle</div>
+                      <p className="text-sm text-stone-600">
+                        僅由肥碩芽頭製成，身披白毫，外形挺直如針。
+                      </p>
+                    </div>
+                    <div className="group p-5 rounded-2xl border border-stone-200 bg-gradient-to-br from-white to-stone-50 hover:shadow-md transition-shadow">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex"><Sprout size={16} className="text-emerald-500" /><Leaf size={16} className="text-emerald-600 -ml-1" /></div>
+                        <span className="text-xs px-2 py-1 bg-stone-100 text-stone-600 rounded-full font-bold">主流</span>
+                      </div>
+                      <h3 className="font-bold text-stone-900 text-lg">白牡丹</h3>
+                      <div className="text-xs font-bold text-stone-500 uppercase mb-2">Bai Mudan / White Peony</div>
+                      <p className="text-sm text-stone-600">
+                        一芽一葉或一芽二三葉，形態舒展如花；芽葉梗同在，萎凋控制更考驗功力。
+                      </p>
+                    </div>
+                    <div className="group p-5 rounded-2xl border border-stone-200 bg-gradient-to-br from-white to-stone-50 hover:shadow-md transition-shadow">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex"><Leaf size={16} className="text-stone-500" /><Leaf size={16} className="text-stone-600 -ml-1" /></div>
+                        <span className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full font-bold">醇厚</span>
+                      </div>
+                      <h3 className="font-bold text-stone-900 text-lg">壽眉／貢眉</h3>
+                      <div className="text-xs font-bold text-stone-500 uppercase mb-2">Shou Mei / Gong Mei</div>
+                      <p className="text-sm text-stone-600">
+                        多採較成熟葉片；較佳者稱貢眉。茶體更厚、風味層次更豐富。
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-stone-500 italic">
+                    * 知名產區：福建福鼎白茶、政和白茶，以及雲南大葉種古樹白茶等。
+                  </p>
+                </section>
+
+                <hr className="border-stone-100" />
+
+                {/* 5. Aging - Time Magic */}
+                <section className="space-y-6">
+                  <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">5</span>
+                    時間的魔法：一年茶，三年藥，七年寶
+                  </div>
+                  <div className="not-prose relative py-4">
+                    {/* Timeline Line */}
+                    <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-stone-200 to-amber-200 -z-10 transform -translate-y-1/2 hidden md:block"></div>
+
+                    <div className="grid md:grid-cols-3 gap-6 text-center">
+                      <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm md:transform md:-translate-y-2">
+                        <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-600 font-bold mb-2">1</div>
+                        <div className="font-bold text-stone-900">一年茶</div>
+                        <div className="text-xs text-stone-500">Tea</div>
+                        <p className="text-xs text-stone-600 mt-2">鮮爽、毫香明顯</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-xl border border-amber-200 shadow-sm z-10 relative">
+                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-100 text-amber-600 font-bold mb-2 shadow-inner">3</div>
+                        <div className="font-bold text-stone-900 text-lg">三年藥</div>
+                        <div className="text-xs text-amber-500 font-bold uppercase">Medicine</div>
+                        <p className="text-xs text-stone-600 mt-2">黃酮類增加，性質轉溫</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-xl border border-amber-400 shadow-md md:transform md:-translate-y-2">
+                        <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-500 text-white font-bold mb-2">7</div>
+                        <div className="font-bold text-stone-900">七年寶</div>
+                        <div className="text-xs text-amber-600 font-bold">Treasure</div>
+                        <p className="text-xs text-stone-600 mt-2">陳香馥郁，藥香顯著</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-sky-50 p-5 rounded-2xl text-sm text-stone-700 leading-relaxed not-prose">
+                    <strong>化學轉化的平衡：</strong> 在合適儲存條件下，<span className="text-stone-400 line-through">咖啡鹼</span>趨減（更溫和、不影響睡眠），<span className="text-sky-600 font-bold">胺基酸與黃酮類</span>趨增（更鮮甜、保健價值提升）。
+                  </div>
+                </section>
+
+                <hr className="border-stone-100" />
+
+                {/* 6. Brewing & 7. Picking */}
+                <div className="grid md:grid-cols-2 gap-8 not-prose">
+                  {/* Brewing */}
+                  <section className="space-y-4">
+                    <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">6</span>
+                      品飲藝術與訣竅
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex gap-3">
+                        <Coffee size={18} className="text-stone-400 shrink-0 mt-1" />
+                        <p className="text-sm text-stone-600">
+                          <strong>多樣沖泡：</strong> 可玻璃杯隨泡觀葉（觀賞性強），也可用蓋碗／紫砂細品層次。
+                        </p>
+                      </div>
+                      <div className="flex gap-3">
+                        <Flame size={18} className="text-amber-500 shrink-0 mt-1" />
+                        <p className="text-sm text-stone-600">
+                          <strong>先泡後煮：</strong> 訣竅是「泡淡了再煮」。直接煮易苦；榨取最後精華可用煮茶法。高品質白茶可達二十道以上。
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* Picking */}
+                  <section className="space-y-4">
+                    <div className="text-base font-extrabold text-stone-900 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center text-xs">7</span>
+                      選購指南
+                    </div>
+                    <div className="space-y-3">
+                      <div className="p-3 rounded-lg bg-stone-50 border border-stone-100">
+                        <div className="text-xs font-bold text-stone-500 mb-1">偏好清甜爽口</div>
+                        <div className="font-bold text-stone-900 text-sm">推薦：白毫銀針</div>
+                        <div className="text-xs text-stone-400">芽頭胺基酸高，鮮甜清雅</div>
+                      </div>
+                      <div className="p-3 rounded-lg bg-stone-50 border border-stone-100">
+                        <div className="text-xs font-bold text-stone-500 mb-1">偏好濃郁飽滿</div>
+                        <div className="font-bold text-stone-900 text-sm">推薦：白牡丹、貢眉、壽眉</div>
+                        <div className="text-xs text-stone-400">葉片佔比高，層次豐富茶體厚</div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+
+              </div>
+            </div>
+
+            <ProcessLine>嫩葉／芽頭 → 萎凋（以自然條件為主）→ 乾燥 → 白茶；建議先沖泡、後煮葉底</ProcessLine>
+          </div>
+        ) : (
+          <div className="animate-slideInUp">
+            <FudingHistory />
+          </div>
+        )
+        }
+      </div >
     );
   }
 

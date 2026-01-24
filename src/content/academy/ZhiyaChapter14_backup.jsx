@@ -9,13 +9,12 @@ export default function ZhiyaChapter14() {
 
     // Image Paths
     const images = {
-        hero: '/images/academy/zhiya14/tea_path_eastern_art.png',
-        iceBrick: '/images/academy/zhiya14/tea_ice_brick_art.png', // Realistic
-        iceBrickArt: '/images/academy/zhiya14/tea_ice_brick_painting.png', // Eastern Art (Lotus Leaf)
-        cells: '/images/academy/zhiya14/tea_cell_diagram.png',
-        party: '/images/academy/zhiya14/tea_party_eastern_painting.png',
+        hero: '/images/academy/zhiya14/tea_judging_lineup.png',
+        iceBrick: '/images/academy/zhiya14/tea_ice_brick_art.png',
+        cells: '/images/academy/zhiya14/tea_cell_diagram.png', // Keep the scientific diagram as is for clarity
+        party: '/images/academy/zhiya14/tea_party_breeze.png',
         // Fallback for others if needed, or re-use hero
-        trade: '/images/academy/zhiya14/tea_path_eastern_art.png'
+        trade: '/images/academy/zhiya14/tea_judging_lineup.png'
     };
 
     const tocItems = [
@@ -167,16 +166,6 @@ export default function ZhiyaChapter14() {
                                         <p className="text-stone-700 leading-relaxed">
                                             在迎賓儀式的設計上，將這些晶瑩的茶冰磚置於鮮綠荷葉之上，不僅營造出夏日清涼的視覺衝擊，更安排了互動環節：讓賓客自行夾取冰磚。這種「手作感」讓賓客能近距離觀察冰塊融化的動態過程，感受茶味如何隨融化深度緩慢「滲透」而非僅是淡化，實現滋味的層次遞變。
                                         </p>
-                                        <div className="rounded-2xl overflow-hidden shadow-md my-6 border border-stone-100 max-w-2xl mx-auto">
-                                            <img
-                                                src={images.iceBrickArt}
-                                                alt="Artistic Tea Ice Brick on Lotus Leaf"
-                                                className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-700"
-                                            />
-                                            <div className="bg-stone-50 p-2 text-center text-xs text-stone-500 italic">
-                                                藝術演繹：荷葉上的茶冰磚意象
-                                            </div>
-                                        </div>
                                     </div>
                                     <div className="bg-stone-50 p-6 rounded-xl border border-stone-100">
                                         <h4 className="text-xl font-bold text-stone-900 mb-2">「時間之釀」的哲學思維</h4>

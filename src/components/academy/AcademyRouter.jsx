@@ -13,6 +13,7 @@ import ZhiyaChapter10 from '../../content/academy/ZhiyaChapter10';
 import ZhiyaChapter14 from '../../content/academy/ZhiyaChapter14';
 import XueyaChapter01 from '../../content/academy/XueyaChapter01';
 import XueyaChapter03 from '../../content/academy/XueyaChapter03';
+import XueyaChapter04 from '../../content/academy/XueyaChapter04';
 import XueyaChapter05 from '../../content/academy/XueyaChapter05';
 import XueyaChapter06 from '../../content/academy/XueyaChapter06';
 import XueyaChapter07 from '../../content/academy/XueyaChapter07';
@@ -123,6 +124,12 @@ const ACADEMY_CHAPTERS = {
         category: '大觀書院 · 學雅',
         title: '第三堂：從茶席美學到品飲之道',
         intro: '從「橫向」與「直式」的佈局美學，到器物與茶湯的無聲交流。本章將帶領您探索茶席的密碼，並透過「五美四用」的實踐，進入茶道的心領神會。'
+    },
+    academy_xueya_04: {
+        component: XueyaChapter04,
+        category: '大觀書院 · 學雅',
+        title: '第四堂：人文茶道儀軌：溫、置、注、奉',
+        intro: '從「技術功能」向「情感連結」的昇華。本章解析「溫、置、注、奉」四大儀軌的哲學意涵與實踐細節，引領茶者進入身心合一的生命修煉。'
     },
     academy_xueya_05: {
         component: XueyaChapter05,

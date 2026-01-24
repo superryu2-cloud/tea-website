@@ -38,7 +38,7 @@ const ACADEMY_STRUCTURE = [
       { id: '01', title: '茶之於味：當代茶道的藝術與哲學精神' },
       { id: '02', title: '' },
       { id: '03', title: '儀軌教學 / 茶荷置茶法' },
-      { id: '04', title: '高山烏龍' },
+      { id: '04', title: '人文茶道儀軌' },
       { id: '05', title: '凍頂烏龍茶深度解析' },
       { id: '06', title: '鐵觀音' },
       { id: '07', title: '蓋杯 / 紅烏龍' },
@@ -231,7 +231,7 @@ export default function SiteNavigation({
   const isAcademyImplemented = (catKey, num) => {
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
-      xueya: ['01', '03', '05', '06', '07', '08', '09', '11'],
+      xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -257,13 +257,13 @@ export default function SiteNavigation({
               aria-label="Logo"
             >
               <Leaf className="h-7 w-7 text-emerald-800" />
-              
+
             </button>
 
             {/* 標題 */}
             <div className="leading-tight min-w-[190px] px-1 py-0.5" onClick={() => goToTab('journey')} style={{ cursor: 'pointer' }}>
               <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
-              
+
             </div>
           </div>
 
@@ -600,6 +600,7 @@ export default function SiteNavigation({
                             } else if (cat.key === 'xueya') {
                               if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
                               else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                              else if (parseInt(num, 10) === 4) goToTab('academy_xueya_04');
                               else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
                               else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
                               else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
@@ -797,6 +798,7 @@ export default function SiteNavigation({
                                         } else if (cat.key === 'xueya') {
                                           if (parseInt(num, 10) === 1) goToTab('academy_xueya_01');
                                           else if (parseInt(num, 10) === 3) goToTab('academy_xueya_03');
+                                          else if (parseInt(num, 10) === 4) goToTab('academy_xueya_04');
                                           else if (parseInt(num, 10) === 5) goToTab('academy_xueya_05');
                                           else if (parseInt(num, 10) === 6) goToTab('academy_xueya_06');
                                           else if (parseInt(num, 10) === 7) goToTab('academy_xueya_07');
@@ -835,48 +837,48 @@ export default function SiteNavigation({
               {/* Chonghua (Mobile) */}
               {academyMenuHidden ? null : (
                 <div className="mt-2 px-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!chonghuaUnlocked) {
-                      onUnlockRequest?.('chonghua');
-                      return;
-                    }
-                    setChonghuaMobileOpen((v) => !v);
-                  }}
-                  className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                  aria-expanded={chonghuaMobileOpen}
-                >
-                  {renderFlipLabel(chonghuaLabel)}
-                  <ChevronRight
-                    size={16}
-                    className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
-                  />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!chonghuaUnlocked) {
+                        onUnlockRequest?.('chonghua');
+                        return;
+                      }
+                      setChonghuaMobileOpen((v) => !v);
+                    }}
+                    className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                    aria-expanded={chonghuaMobileOpen}
+                  >
+                    {renderFlipLabel(chonghuaLabel)}
+                    <ChevronRight
+                      size={16}
+                      className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
+                    />
+                  </button>
 
-                <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
-                  <div className="grid grid-cols-3 gap-2 p-2">
-                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => (
-                      <a
-                        key={chapter.id}
-                        href={`?tab=academy_chonghua_${chapter.id}`}
-                        className="nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (!chonghuaUnlocked) {
-                            onUnlockRequest?.('chonghua');
-                            return;
-                          }
-                          goToTab(`academy_chonghua_${chapter.id}`);
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <div className="font-bold text-lg">{renderFlipLabel(chapter.title)}</div>
-                      </a>
-                    ))}
-                  </div>
-                </AccordionPanel>
-              </div>
+                  <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
+                    <div className="grid grid-cols-3 gap-2 p-2">
+                      {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => (
+                        <a
+                          key={chapter.id}
+                          href={`?tab=academy_chonghua_${chapter.id}`}
+                          className="nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (!chonghuaUnlocked) {
+                              onUnlockRequest?.('chonghua');
+                              return;
+                            }
+                            goToTab(`academy_chonghua_${chapter.id}`);
+                            setMobileMenuOpen(false);
+                          }}
+                        >
+                          <div className="font-bold text-lg">{renderFlipLabel(chapter.title)}</div>
+                        </a>
+                      ))}
+                    </div>
+                  </AccordionPanel>
+                </div>
               )}
 
               {(daguanUnlocked || chonghuaUnlocked) && !academyMenuHidden ? (

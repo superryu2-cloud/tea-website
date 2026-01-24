@@ -603,10 +603,10 @@ const TeaWebsite = () => {
           {!notesMode || showScienceAtlas ? (
             <>
               <AtlasDockLayout
-                topOffsetPx={siteNavHeightPx + 16}
+                topOffsetPx={siteNavHeightPx + 48}
                 sidebar={
                   <ChapterSidebar
-                    title="章節"
+                    title="科學實驗室"
                     items={scienceSidebarItems}
                     activeKey={scienceRoom}
                     onSelectKey={(key) => {
@@ -1996,7 +1996,7 @@ const TeaWebsite = () => {
             topOffsetPx={siteNavHeightPx + 24}
             sidebar={
               <ChapterSidebar
-                title="章節"
+                title="六大茶類導覽"
                 items={varietiesSidebarItems}
                 activeKey={varietiesKind}
                 onSelectKey={(key) => {
@@ -2602,9 +2602,9 @@ const TeaWebsite = () => {
                                 }
                                 scrollToFeaturedTop();
                               }}
-                              className={`group w-full text-left px-3 py-2 rounded-xl transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive
-                                ? `${activeTextClass} border-stone-200 ring-1 ring-black/10`
-                                : 'tool-item tool-item--panel'
+                              className={`chapter-nav-item group w-full text-left px-3 py-2 rounded-xl transition-all border box-border focus-visible:outline-none focus:scale-[1.02] ${isActive
+                                ? `${activeTextClass} border-amber-300/50 ring-1 ring-black/5 shadow-md`
+                                : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md tool-muted hover:text-stone-900'
                                 }`}
                               style={
                                 isActive
@@ -2623,8 +2623,11 @@ const TeaWebsite = () => {
                                   aria-hidden="true"
                                 />
                                 <div className="min-w-0">
-                                  <span className="block font-extrabold text-lg leading-snug truncate">
-                                    {item.label}
+                                  <span className="block font-bold text-lg leading-snug truncate chapter-label--flip">
+                                    <span className="chapter-label-inner">
+                                      <span className="chapter-label-front truncate">{item.label}</span>
+                                      <span className={`chapter-label-back truncate ${isActive ? activeTextClass : 'text-amber-600'}`}>{item.label}</span>
+                                    </span>
                                   </span>
                                   <span
                                     className={`block text-sm mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
@@ -2642,12 +2645,17 @@ const TeaWebsite = () => {
                                     setOrientalBeautySection('main');
                                     scrollToFeaturedTop();
                                   }}
-                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'main'
-                                    ? 'tool-subitem--active'
-                                    : 'hover:bg-[var(--tool-hover-bg)]'
+                                  className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 text-base font-semibold transition-colors border ${orientalBeautySection === 'main'
+                                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
+                                    : 'border-transparent hover:bg-stone-50 text-stone-600 hover:text-stone-900'
                                     }`}
                                 >
-                                  東方美人
+                                  <span className="block chapter-label--flip">
+                                    <span className="chapter-label-inner">
+                                      <span className="chapter-label-front truncate">東方美人</span>
+                                      <span className="chapter-label-back truncate text-amber-600">東方美人</span>
+                                    </span>
+                                  </span>
                                 </button>
                                 <button
                                   type="button"
@@ -2655,12 +2663,17 @@ const TeaWebsite = () => {
                                     setOrientalBeautySection('origins');
                                     scrollToFeaturedTop();
                                   }}
-                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'origins'
-                                    ? 'tool-subitem--active'
-                                    : 'hover:bg-[var(--tool-hover-bg)]'
+                                  className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 text-base font-semibold transition-colors border ${orientalBeautySection === 'origins'
+                                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
+                                    : 'border-transparent hover:bg-stone-50 text-stone-600 hover:text-stone-900'
                                     }`}
                                 >
-                                  東方美人茶的前世
+                                  <span className="block chapter-label--flip">
+                                    <span className="chapter-label-inner">
+                                      <span className="chapter-label-front truncate">東方美人茶的前世</span>
+                                      <span className="chapter-label-back truncate text-amber-600">東方美人茶的前世</span>
+                                    </span>
+                                  </span>
                                 </button>
                               </div>
                             ) : null}
@@ -3672,7 +3685,7 @@ const TeaWebsite = () => {
 
         {activeTab === 'seasons' && <SeasonsSection siteNavHeightPx={siteNavHeightPx} />}
 
-        {activeTab === 'zisha' && <ZishaExhibit />}
+        {activeTab === 'zisha' && <ZishaExhibit siteNavHeightPx={siteNavHeightPx} />}
 
         {activeTab === 'science' && <ScienceSection />}
 

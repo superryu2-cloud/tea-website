@@ -1,4 +1,74 @@
 import React, { useRef } from 'react';
+import {
+  MapPin,
+  Sun,
+  Award,
+  Info,
+  Leaf,
+  Mountain,
+  Coffee,
+  Box,
+  Clock,
+  Circle,
+  Disc,
+  Feather,
+  Flag,
+  Gem,
+  CheckCircle2,
+  AlertTriangle,
+  TrendingUp,
+  BrainCircuit,
+  Fingerprint,
+  Wind,
+  CornerUpRight,
+  Smile,
+  Activity,
+  Triangle,
+  Citrus,
+  Sprout,
+  Moon,
+  Star,
+  TreePine,
+  Flower2,
+  Flower,
+  Droplet,
+  Timer,
+  Waves,
+  ArrowDownRight,
+  ArrowRight,
+  ArrowUpRight,
+  Flame,
+  Crown,
+  Tent,
+  FlameKindling,
+  Quote,
+  Zap,
+  Check,
+  Bug,
+  Hammer,
+  CloudSun,
+  Thermometer,
+  ThermometerSun,
+  CloudRain,
+  RefreshCcw,
+  XCircle,
+  Scale,
+  Scroll,
+  Layers,
+  Palette,
+  Microscope,
+  Hand,
+  Eye,
+  Gift,
+  Droplets,
+  AlertCircle,
+  Users,
+  Pipette,
+  PlusCircle,
+  MinusCircle,
+  Hourglass
+
+} from 'lucide-react';
 
 function Section({ id, title, children }) {
   return (
@@ -41,182 +111,296 @@ const CHAPTERS = {
   '#puerh-1': {
     title: '一：什麼是普洱茶',
     content: (
-      <div className="space-y-5">
-        <Subheading>普洱茶的價值與迷思</Subheading>
-        <p>許多人手中或許都藏有幾片普洱，如何能確定，所擁有的就是真正意義上的普洱茶？</p>
-        <p>
-          真正的普洱茶，具備「越陳越香、越放越值錢」的核心價值。那麼，究竟什麼樣的茶才能被稱為真正的普洱茶，並擁有如此獨特的轉化魅力呢？
-        </p>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-          <Subheading>普洱茶的形態多樣性</Subheading>
-          <p>市面上的普洱茶形態各異，常見的主要有以下幾種：</p>
-          <ul className="list-disc pl-5 space-y-2 text-base text-stone-700">
-            <li>筒裝：將七片餅茶用竹筍殼包裝在一起，便於運輸與長期儲存。</li>
-            <li>357克大餅：這是市面上最經典、最常見的規格，也被稱為「七子餅」。</li>
-            <li>茶磚：將茶葉壓製成長方形或正方形的磚狀，形態規整。</li>
-            <li>200克小餅：相較於357克大餅，更小巧精緻，適合小批量品飲與收藏。</li>
-            <li>茶頭：熟茶在渥堆發酵過程中，因果膠質豐富而自然結成塊狀的茶，滋味醇厚耐泡。</li>
-            <li>龍珠：為方便沖泡而生，將茶葉手工揉製成一粒一泡的球形，近年來十分流行。</li>
-          </ul>
-          <p className="text-base text-stone-700 leading-relaxed">
-            儘管外形千變萬化，但它們的本質是相同的——其原料都是來自於一種被稱為「曬青毛茶」的散茶。
-          </p>
+      <div className="space-y-8">
+        {/* Visual Hero */}
+        <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[2/1] group">
+          <img
+            src="/images/varieties/puerh/puerh_mountain_art.png"
+            alt="Majestic Ancient Tea Mountain"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent flex flex-col justify-end p-8">
+            <div className="max-w-xl text-white">
+              <span className="inline-block px-3 py-1 bg-amber-600/90 text-amber-50 rounded-full text-xs font-bold tracking-widest mb-3 backdrop-blur-sm">
+                AGED TEA
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black mb-2 leading-tight">
+                越陳越香的<br />時光藝術
+              </h2>
+              <p className="text-stone-200 text-lg font-light border-l-4 border-amber-600 pl-4">
+                普洱茶的核心價值，在於其獨特的「後發酵」能力，使其具備隨時間轉化出更佳風味的生命力。
+              </p>
+            </div>
+          </div>
         </div>
 
-        <Callout title="國家標準的確立：普洱茶的權威定義">
-          <p>
-            在2008年國家標準確立之前，普洱茶市場曾因過度炒作而亂象叢生。大量來自雲南周邊省份（如四川、貴州）的茶葉被運至雲南壓製，冒充普洱茶銷售。然而，消費者很快發現，這些仿冒品存放多年後，非但沒有越陳越香，反而味道愈發寡淡。
-          </p>
-          <p className="mt-3">
-            其根本原因在於，它們的加工工藝多為綠茶所用的「烘青」（烘乾機烘烤）或「炒青」（高溫鍋炒），高溫早已破壞了茶葉中的「活性酶」。失去了這些賦予茶葉生命力的活性酶，茶自然不具備後發酵的基礎。為此，國家於2008年正式頒布了普洱茶的地理標誌保護產品標準，為真正的普洱茶提供了權威、明確的定義與保障，從根本上劃清了真偽的界線。
-          </p>
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6 shadow-sm">
+          <div className="flex items-start gap-4">
+            <div className="hidden md:flex flex-col items-center gap-2 text-stone-300">
+              <div className="w-px h-12 bg-stone-200"></div>
+              <Info size={24} />
+              <div className="w-px h-full bg-stone-200"></div>
+            </div>
+            <div className="flex-1 space-y-4">
+              <Subheading>普洱茶的價值與迷思</Subheading>
+              <p className="text-lg text-stone-800 font-medium leading-relaxed">
+                許多人手中或許都藏有幾片普洱，如何能確定，所擁有的就是真正意義上的普洱茶？
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                真正的普洱茶，具備「越陳越香、越放越值錢」的核心價值。那麼，究竟什麼樣的茶才能被稱為真正的普洱茶，並擁有如此獨特的轉化魅力呢？
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Shapes Visual Section */}
+        <div className="bg-stone-50 rounded-3xl border border-stone-200 p-6 md:p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-stone-200 rounded-lg text-stone-600"><Box size={20} /></div>
+            <h4 className="text-xl font-bold text-stone-900">普洱茶的形態多樣性</h4>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative rounded-2xl overflow-hidden shadow-md border border-stone-200 group">
+              <img
+                src="/images/puerh_shapes.png"
+                alt="Pu-erh Tea Shapes: Cake, Brick, Tuo, Dragon Ball"
+                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md p-3 text-center">
+                <span className="text-stone-200 text-xs font-bold tracking-widest uppercase">Classic Shapes</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                { icon: Disc, name: "七子餅 (Cake)", desc: "357g 經典圓餅，最常見的收藏規格。" },
+                { icon: Box, name: "茶磚 (Brick)", desc: "長方或正方磚狀，早期便於馬幫運輸。" },
+                { icon: Circle, name: "沱茶 (Tuo)", desc: "如碗狀或蘑菇狀，透氣性佳。" },
+                { icon: Gem, name: "龍珠 (Pearl)", desc: "精緻球形，一粒一泡，現代便攜之選。" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-4 p-3 bg-white rounded-xl border border-stone-200 hover:border-amber-300 transition-colors">
+                  <div className="p-2.5 bg-stone-100 text-stone-600 rounded-full shrink-0">
+                    <item.icon size={18} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-stone-800 text-sm">{item.name}</div>
+                    <div className="text-xs text-stone-500">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+              <div className="mt-2 p-3 bg-amber-50 border border-amber-100 rounded-xl text-xs text-amber-800 leading-relaxed flex gap-2">
+                <Info size={14} className="shrink-0 mt-0.5" />
+                儘管外形千變萬化，其本質皆源自同一原料——「曬青毛茶」。
+              </div>
+              <div className="text-xs text-stone-500 mt-2 space-y-1">
+                <div className="font-bold">其他常見形態：</div>
+                <ul className="list-disc pl-4 space-y-1">
+                  <li><strong>筒裝 (Tong)：</strong>將七片餅茶用竹筍殼包裝，利於轉化與運輸。</li>
+                  <li><strong>茶頭 (Tea Head)：</strong>熟茶發酵自然結塊，果膠豐富，耐泡度極高。</li>
+                  <li><strong>小餅 (Small Cake)：</strong>如 100g/200g 規格，適合嘗鮮與送禮。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Callout title="權威定義：國家標準 (2008)">
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="flex-1 text-sm text-stone-700 leading-relaxed space-y-3">
+              <p>
+                在2008年國標確立前，大量非雲南產（如川、黔）或非曬青工藝（烘青、炒青）的茶葉冒充普洱。這些茶因高溫殺死了「活性酶」，存放多年後非但不會變香，反而味寡如水。
+              </p>
+              <div className="flex items-center gap-2 font-bold text-amber-700 bg-amber-50 p-2 rounded-lg inline-block">
+                <CheckCircle2 size={16} /> 核心保障：越陳越香的基礎
+              </div>
+            </div>
+            <div className="w-full md:w-1/3 bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+              <div className="text-center space-y-3">
+                <Award size={40} className="mx-auto text-amber-500" />
+                <div className="text-xs text-stone-500 font-bold uppercase tracking-widest">Official Standard</div>
+                <div className="text-stone-900 font-bold text-sm">地理標誌保護產品</div>
+                <div className="h-px bg-stone-100 w-1/2 mx-auto"></div>
+                <div className="text-xs text-stone-400">GB/T 22111-2008</div>
+              </div>
+            </div>
+          </div>
         </Callout>
 
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 space-y-4">
-          <Subheading>普洱茶定義的三大關鍵詞解析</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            要確保您購買到的是具備「越陳越香」潛力的正宗普洱茶，只需牢記以下三個關鍵詞。這三大核心支柱，共同構成了普洱茶的權威定義。
-          </p>
-          <ol className="list-decimal pl-5 space-y-1 text-sm text-stone-700">
-            <li>地理標誌保護範圍</li>
-            <li>雲南大葉種曬青茶</li>
-            <li>特定加工工藝</li>
-          </ol>
+        {/* 3 Keywords Cards */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xl font-bold text-stone-900 flex items-center gap-2">
+              <div className="w-2 h-6 bg-stone-800 rounded-full"></div>
+              定義的三大關鍵詞
+            </h4>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                id: 1,
+                title: "地理標誌保護範圍",
+                sub: "Geography",
+                icon: MapPin,
+                color: "text-emerald-600",
+                bg: "bg-emerald-50",
+                border: "border-emerald-100",
+                desc: "必須是雲南省內指定產區（11個州市，639個鄉鎮）。"
+              },
+              {
+                id: 2,
+                title: "雲南大葉種曬青",
+                sub: "Species & Process",
+                icon: Leaf,
+                color: "text-amber-600",
+                bg: "bg-amber-50",
+                border: "border-amber-100",
+                desc: "特定優良品種（內含物質豐富）+ 日光乾燥（保留活性）。"
+              },
+              {
+                id: 3,
+                title: "特定加工工藝",
+                sub: "Technique",
+                icon: Coffee,
+                color: "text-rose-600",
+                bg: "bg-rose-50",
+                border: "border-rose-100",
+                desc: "曬青毛茶 → 蒸壓成型 (生茶) 或 渥堆發酵 (熟茶)。"
+              }
+            ].map(card => (
+              <div key={card.id} className={`p-5 rounded-2xl border ${card.border} ${card.bg} hover:shadow-md transition-shadow`}>
+                <card.icon className={`mb-3 ${card.color}`} size={28} />
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">{card.sub}</div>
+                <div className="font-bold text-stone-900 text-lg mb-2">{card.title}</div>
+                <div className="text-sm text-stone-600 leading-snug">{card.desc}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        {/* Region Map Concept */}
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6">
           <Subheading>關鍵詞一：地理標誌保護範圍</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            這條標準明確規定，只有在特定地理範圍內種植和加工的茶葉，才能被稱為普洱茶。這個範圍，主要指雲南省內約90%的產茶區。換言之，無論是來自貴州、四川，還是福建、台灣的茶葉，即便在雲南加工，也不能稱之為普洱茶。
-          </p>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            雲南的普洱茶產區廣闊，其中以沿瀾滄江流域分佈的四大核心產區產量最大、最為重要：
+          <p className="text-stone-700 text-sm">
+            主要指雲南省內約 90% 的產茶區。離開此範圍（如四川、貴州），即便工藝相同，亦不可稱為普洱。
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">保山茶區</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                此區以生產高品質的「滇紅」（雲南紅茶）而聞名，普洱茶原料產量相對較少，但品質不俗。
-              </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">代表山頭：</div>
-              <ul className="mt-2 space-y-2 text-sm text-stone-700 list-disc pl-5">
-                <li>黃家寨：其風味獨特，被形容為兼具「易武的柔、冰島的香、昔歸的甜」。</li>
-                <li>昔歸（或漭水/石佛）：地處雲霧繚繞的深山，以其長達八小時的「強回甘」特性而著稱。</li>
-              </ul>
-            </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Region Cards */}
+            {[
+              {
+                name: "保山茶區",
+                desc: "滇紅名產地，普洱原料較少但品質不俗。",
+                mountains: ["黃家寨 (兼具柔/香/甜)", "昔歸 (強回甘)"],
+                color: "from-amber-500 to-orange-600"
+              },
+              {
+                name: "臨滄茶區",
+                desc: "生態優良，香甜柔和，台灣市場受歡迎。",
+                mountains: ["冰島", "壩糯", "懂過", "大雪山"],
+                extra: "香竹箐 3200年茶王樹",
+                color: "from-emerald-500 to-teal-600"
+              },
+              {
+                name: "普洱茶區",
+                desc: "茶馬古道重鎮，天然氧吧，台地茶多。",
+                mountains: ["邦崴 (過渡型茶樹)", "景邁山", "困鹿山"],
+                color: "from-stone-500 to-stone-700"
+              },
+              {
+                name: "西雙版納茶區",
+                desc: "世界茶源中心，古六大茶山所在地。",
+                mountains: ["古六大：易武、倚邦...", "新六大：老班章、南糯..."],
+                color: "from-rose-500 to-pink-600"
+              }
+            ].map((region, idx) => (
+              <div key={idx} className="relative overflow-hidden rounded-xl border border-stone-100 shadow-sm group hover:border-stone-300 transition-colors">
+                <div className={`absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b ${region.color}`}></div>
+                <div className="p-4 pl-6">
+                  <h5 className="font-bold text-stone-900 text-lg mb-1">{region.name}</h5>
+                  <p className="text-xs text-stone-500 mb-3">{region.desc}</p>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">臨滄茶區</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                此區茶品因生態環境優良、香甜柔和、價格適中而在台灣市場廣受歡迎。臨滄同樣是滇紅的重要產地（註：鳳慶滇紅聞名遐邇，但鳳慶縣隸屬臨滄市，而非保山市）。
+                  <div className="space-y-1">
+                    {region.mountains.map((m, i) => (
+                      <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-stone-700 bg-stone-50 px-2 py-1 rounded w-fit">
+                        <Mountain size={12} className="text-stone-400" /> {m}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">代表山頭：冰島、壩糯、懂過、大雪山等。</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">特別之處：</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                位於鳳慶縣的香竹箐，擁有一棵樹齡高達3200年的栽培型古樹茶王。在2021年，其10公斤鮮葉曾拍出1088萬人民幣的天價，足見其珍稀程度。
+            ))}
+          </div>
+        </div>
+
+        {/* Process & Species */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6">
+            <Subheading>關鍵詞二：雲南大葉種</Subheading>
+            <div className="mt-4 space-y-4">
+              <div className="flex items-start gap-3">
+                <Leaf size={24} className="text-emerald-600 shrink-0 mt-1" />
+                <div>
+                  <strong className="block text-stone-900 text-sm">基因庫完整</strong>
+                  <span className="text-xs text-stone-600">葉大、樹齡長、樹型高大。</span>
+                </div>
+              </div>
+              <div className="pl-9 space-y-2">
+                <div className="text-xs p-2 bg-emerald-50 rounded text-emerald-800 border border-emerald-100">
+                  <strong>群體種 (原生)：</strong> 有性繁殖，風味複雜多變 (古樹茶主力)。
+                </div>
+                <div className="text-xs p-2 bg-stone-50 rounded text-stone-600 border border-stone-100">
+                  <strong>無性系 (改良)：</strong> 扦插繁殖，品質穩定 (台地茶主力)。
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">普洱茶區</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                此區歷史悠久，曾是茶馬古道上的重要驛站和普洱茶集散地。其氣候冬無嚴寒、夏無酷暑，被譽為「天然氧吧」。
+          <div className="rounded-2xl border border-stone-200 bg-white p-6">
+            <Subheading>關鍵詞三：特定工藝</Subheading>
+            <div className="mt-4 space-y-4">
+              <div className="flex items-start gap-3">
+                <Sun size={24} className="text-amber-500 shrink-0 mt-1" />
+                <div>
+                  <strong className="block text-stone-900 text-sm">曬青 (Sun-Dried)</strong>
+                  <span className="text-xs text-stone-600">靈魂所在。日光溫和乾燥，保留「活性酶」。</span>
+                </div>
               </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                產區特點：台地茶（茶園茶）佔比較大，如壯觀的「大渡崗萬畝茶園」。當地政府高度重視有機種植管理，許多茶園獲得了有機、綠色甚至歐盟認證。
-              </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">代表山頭：邦崴、千家寨、困鹿山、景邁山等。</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">特別之處：</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                邦崴（當地讀音為 Bān Wān）的一棵1800年過渡型茶樹，因其同時具備野生與栽培型基因，成為了證明「世界茶源在雲南」的活化石。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">西雙版納茶區</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                這是普洱茶最核心的產區，被國際公認為世界茶樹原產地的中心地帶，也是茶馬古道的源頭。這裡擁有面積廣闊且保存完好的古茶園。「西雙版納」在傣語中意為「十二塊田地」。
-              </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">古六大茶山：</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                蠻磚、曼撒（今易武）、倚邦、莽枝、革登。這些茶山在清代是皇家貢茶的主要來源。市面上流傳下來的百年老茶標本，如宋聘號、同慶號，以及後來的「紅印圓茶」，其原料均出自易武，證明了易武茶卓越的陳放潛力。
-              </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">新六大茶山：</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                老班章、老曼峨、勐宋、南糯山、巴達、賀開。這些山頭是近代崛起的新星，其中「班章為王，易武為后」的說法已深入人心。
+              <div className="pl-9 mt-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-stone-400 mb-1">
+                  <span>PROCESS FLOW</span>
+                  <div className="h-px bg-stone-200 flex-1"></div>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-stone-800">
+                  <span className="px-2 py-1 bg-amber-100 rounded">曬青毛茶</span>
+                  <span>→</span>
+                  <div className="flex flex-col gap-1">
+                    <span className="px-2 py-1 border border-stone-200 rounded">蒸壓 (生茶)</span>
+                    <span className="px-2 py-1 border border-stone-200 rounded">渥堆 (熟茶)</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>關鍵詞二：雲南大葉種曬青茶</Subheading>
-          <div className="space-y-2 text-sm text-stone-700 leading-relaxed">
-            <p>
-              雲南大葉種 這是中國著名的優良茶樹品種，基因庫完整，是普洱茶的原生種。其特點包括葉片面積寬大（40-60平方厘米）、樹齡長（可達數百年甚至上千年）、樹形高大（多為喬木，可高達數米甚至十幾米）。
+        {/* Summary Footer */}
+        <div className="rounded-2xl p-6 bg-stone-800 text-stone-300 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-6 opacity-10">
+            <Award size={100} />
+          </div>
+          <div className="relative z-10">
+            <h5 className="text-white font-bold text-lg mb-2 flex items-center gap-2">
+              <CheckCircle2 className="text-emerald-400" /> 核心總結
+            </h5>
+            <p className="text-sm leading-relaxed opacity-90 mb-4">
+              普洱茶的權威定義 = <strong>雲南產區</strong> + <strong>大葉種原料</strong> + <strong>曬青工藝</strong>。
             </p>
-            <p>• 代表性品種：</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                群體種：即原生種，是透過有性繁殖（種子繁殖）而來的後代，基因具多樣性。這是古樹普洱茶複雜而獨特風味的主要原料來源，如勐海大葉種、鳳慶大葉種。
-              </li>
-              <li>
-                無性系品種：由茶科所採用無性繁殖（扦插、嫁接）技術培育的優良品種，基因單一穩定。如雲抗系、雲選系，多用於台地茶（茶園茶）的種植，以確保品質和產量的穩定性。
-              </li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-sm text-stone-700 leading-relaxed">
-            <div className="font-extrabold text-stone-900">曬青茶</div>
-            <div className="mt-2">
-              這是普洱茶工藝的靈魂所在。「曬青」指的是採用日光曬乾的乾燥方式。與綠茶常用的「炒青」或「烘青」不同，日光曬乾能以溫和的方式去除水分，最大限度地保存茶葉中的活性酶。這些活性酶是普洱茶得以在漫長歲月中持續轉化、越陳越香的生命基礎與潛在活力。這也是普洱茶與綠茶工藝最根本的區別。
+            <div className="p-3 bg-white/10 rounded-xl text-xs border border-white/10">
+              <strong className="text-amber-400">專家的話：</strong>
+              存茶建議選擇「餅茶」優於「散茶」。緊壓形式創造的微環境，能帶來更豐富（90種 vs 40種香氣）的轉化驚喜。
             </div>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>關鍵詞三：特定加工工藝</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">普洱茶的加工工藝可分為兩個核心階段：</p>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              第一階段：製作曬青毛茶（半成品） 鮮葉從茶樹上採摘下來後，需經過攤晾、殺青、揉捻、日曬四個步驟，製成「曬青毛茶」。此時的散茶，僅僅是普洱茶的半成品。
-            </li>
-            <li>
-              第二階段：製成最終產品（生茶與熟茶） 以曬青毛茶為原料，通過不同的後續工藝，製成兩種最終形態：
-              <ul className="mt-2 list-disc pl-5 space-y-2">
-                <li>生茶：將曬青毛茶以蒸壓成形的方式，壓製成餅、磚、沱等緊壓茶。新製成的生茶香氣高揚，富含花香、果香與蜜香。</li>
-                <li>熟茶：將曬青毛茶進行渥堆發酵（一種人工加速陳化的工藝），製成熟茶。熟茶茶性溫和，湯色紅濃透亮，香氣以沉穩的陳香為主。</li>
-              </ul>
-            </li>
-          </ul>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            普洱茶一旦被壓製成餅，它的生命歷程才真正開始萌發，「像小baby一樣，一天一天地長大」。每一年的存放，都會帶來不同的驚喜，這正是普洱茶轉化的無窮魅力。
-          </p>
-        </div>
-
-        <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">課程總結與核心要點回顧</div>
-          <div className="text-sm leading-relaxed">本堂課我們學習了普洱茶的權威定義，其核心可總結為以下三點：</div>
-          <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed">
-            <li>
-              關鍵詞一：地理標誌保護範圍
-              <div className="mt-1 text-stone-200">◦ 要點：原料必須來自雲南省內的指定產區。</div>
-            </li>
-            <li>
-              關鍵詞二：雲南大葉種曬青茶
-              <div className="mt-1 text-stone-200">◦ 要點：茶樹品種必須是雲南大葉種，且乾燥工藝必須是日光曬乾（曬青）。</div>
-            </li>
-            <li>
-              關鍵詞三：特定加工工藝
-              <div className="mt-1 text-stone-200">◦ 要點：以曬青毛茶為原料，或蒸壓成形的生茶，或渥堆發酵的熟茶。</div>
-            </li>
-          </ul>
-          <div className="text-sm leading-relaxed">
-            在品鑑實踐中，若您發現一款茶存放多年後味道越來越淡，其根本原因很可能就是未使用「曬青」工藝，茶葉內的活性物質在初期已被高溫破壞。
-          </div>
-          <div className="text-sm leading-relaxed">
-            最後，提供一個專業建議：存茶，存餅茶優於存散茶。根據雲南農科所的研究，散茶陳放後可分析出的香氣種類約為40多種，而壓製成餅茶後，在同樣條件下陳放，其香氣種類可高達90多種。緊壓的形式為茶葉創造了一個更穩定的微環境，有利於更豐富、更深邃的轉化。
           </div>
         </div>
       </div>
@@ -225,125 +409,231 @@ const CHAPTERS = {
   '#puerh-2': {
     title: '二：普洱茶的前世今生',
     content: (
-      <div className="space-y-5">
-        <Subheading>普洱茶的前世：從起源到清代盛世</Subheading>
-        <p>我們將1733年之前，主要依靠文獻記載的這段漫長歲月，定義為普洱茶的「前世」。</p>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>起源與傳說（商周至三國）</Subheading>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>最早文獻記載：</strong>
-              關於雲南茶葉最早的文字記錄，可追溯至商周時期。據《華陽國志·巴志》記載：「周武王伐紂，實巴蜀之產……其茶蜜皆納貢之。」這表明當時的雲南地區已將茶作為貢品。
-            </li>
-            <li>
-              <strong>茶祖傳說：</strong>
-              在雲南的產茶區，三國時期的蜀漢丞相<strong>諸葛亮（武侯）</strong>被眾多少數民族尊奉為「茶祖」。據清代檀萃的《滇海虞衡志》記載：「茶山有茶王樹，較五獨大，本武侯遺種，至今民祀之。」傳說當年諸葛亮南征，軍中士兵因水土不服而染上瘟疫，他在夢中得仙人指點，用當地茶葉煮水給士兵飲用，果然藥到病除。為此，他鼓勵並帶領當地民族開山種茶，留下了許多與茶相關的地名傳說，如攸樂、莽枝、蠻磚、革登等。至今，在茶王節等重要節日，當地人民仍會舉行盛大活動祭拜這位「茶神」。
-            </li>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>興盛與發展（唐、宋、元、明）</Subheading>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>唐代：興起與外傳</strong>
-              普洱茶「興於唐，盛於宋」。唐代樊綽所著的《蠻書》中記載：「茶出銀生城界諸山，散收，無採造法，蒙舍蠻以椒、薑、桂和烹而飲之。」這清晰地指出了當時普洱茶的產區（今普洱市、西雙版納一帶），原始的加工方式（僅曬乾，無複雜工藝），以及獨特的飲用方法（加入花椒、生薑、桂皮一同烹煮）。據後人阮福在《普洱茶記》中考證，「西蕃之用普茶，已自唐始」，意指唐代普洱茶已傳入西藏，開啟了以茶換馬的「茶馬互市」，並催生了偉大的茶馬古道。
-            </li>
-            <li>
-              <strong>元明：定名與傳承</strong>
-              「普洱」這一地名，由元代的「步日部」音譯演變而來。當時，雲南出產的茶葉被統稱為「普茶」。到了明代，《滇略》記載：「士庶所用，皆普茶也，蒸而團之。」這表明，緊壓茶在當時已非常普及。值得一提的是，雖然明太祖朱元璋下詔廢除團茶，推行散茶，但雲南因「天高皇帝遠」，完整地保留了製作緊壓茶的傳統。
-            </li>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 space-y-3">
-          <Subheading>巔峰時期（清代）</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            清朝是普洱茶發展的極盛時期。表示「普洱茶名重天下，出普洱府所屬六大茶山，周八百里，入山做茶者數十萬人。茶客收買，運於各處。」這生動地刻畫了當時茶葉貿易的空前盛況。普洱茶被列為皇家貢茶，道光皇帝更御賜「瑞貢天朝」牌匾，懸掛於易武鎮，印證了其至高無上的地位。
-          </p>
-          <div className="text-sm text-stone-700 leading-relaxed">
-            每當我讀到普洱茶的這段歷史，心中總會感到格外的感動。手中的這一杯茶，不僅是滋味的享受，更是千年文脈的傳承。
+      <div className="space-y-12">
+        {/* Hero Section */}
+        <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[21/9] group">
+          <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-transparent transition-colors duration-700"></div>
+          <img
+            src="/images/varieties/puerh/puerh_caravan_art.png"
+            alt="Ancient Tea Horse Road Caravan Illustration"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-stone-800/80 backdrop-blur border border-stone-700 text-stone-300 rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                <Mountain size={14} /> History & Legacy
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+                茶馬古道的<br />千年回響
+              </h2>
+              <p className="text-stone-300 text-lg md:text-xl font-light leading-relaxed">
+                從三國的一葉藥草，到清朝的瑞貢天朝，普洱茶的歷史就是一部雲南各民族的文化史。
+              </p>
+            </div>
           </div>
         </div>
 
-        <Subheading>普洱茶的今生：從號級茶到百家爭鳴</Subheading>
-        <p>我們將1733年之後，有實物產品可考證的這段歷史，定義為普洱茶的「今生」。其發展脈絡可劃分為以下五個時代：</p>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-3">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">1733 起</div>
-            <div className="text-lg font-extrabold text-stone-900">號級茶時代</div>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>標誌：</strong>清朝第一個茶莊「同興號」的成立。
-              </li>
-              <li>
-                <strong>特點：</strong>以同慶號、宋聘號等私人茶莊（老字號）為主導。生產上採用石磨、木模等傳統工具壓製；產品形態以團茶、餅茶為主；包裝上已具備強烈的品牌意識，使用內飛（壓在茶餅內的小票）和大票（包裹在整筒茶外的大張說明紙），並印有「以此票為證，謹防假冒」字樣。
-              </li>
-            </ul>
+        {/* Section 1: The Past (Timeline Style) */}
+        <div>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-3 bg-stone-100 rounded-xl text-stone-800">
+              <Leaf size={24} />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-stone-900">前世：從起源到清代盛世</h3>
+              <p className="text-stone-500">1733年之前：主要依靠文獻記載的漫長歲月</p>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-3">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">1950–1972</div>
-            <div className="text-lg font-extrabold text-stone-900">印級茶時代</div>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>背景：</strong>新中國成立後，私人茶莊退出歷史舞台，由昆明、勐海、下關三大國營茶廠統一管理生產。
-              </li>
-              <li>
-                <strong>特點：</strong>「印級茶」的名稱來源於其棉紙包裝上加蓋的「八中」商標印章顏色。其中，紅印圓茶是此時代的標誌性產品，如今在市場上價值極高。
-              </li>
-            </ul>
-          </div>
+          <div className="relative border-l-2 border-stone-200 ml-4 space-y-10 pb-4">
+            {/* Timeline Item 1 */}
+            <div className="relative pl-8 group">
+              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
+              <div className="mb-2">
+                <span className="text-xs font-black tracking-widest text-stone-400 uppercase">BEGINNINGS</span>
+                <h4 className="text-xl font-bold text-stone-900">起源與傳說（商周至三國）</h4>
+              </div>
+              <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 group-hover:border-amber-100 transition-colors">
+                <ul className="space-y-4">
+                  <li className="flex gap-4 items-start">
+                    <div className="p-2 bg-white rounded-lg border border-stone-200 shrink-0"><CheckCircle2 size={16} className="text-emerald-600" /></div>
+                    <div className="text-sm text-stone-700 leading-relaxed">
+                      <strong className="block text-stone-900 mb-1">最早文獻記載</strong>
+                      據《華陽國志·巴志》：「周武王伐紂，實巴蜀之產……其茶蜜皆納貢之。」表明商周時期雲南已將茶作為貢品。
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="p-2 bg-white rounded-lg border border-stone-200 shrink-0"><CheckCircle2 size={16} className="text-emerald-600" /></div>
+                    <div className="text-sm text-stone-700 leading-relaxed">
+                      <strong className="block text-stone-900 mb-1">茶祖諸葛亮（武侯）傳說</strong>
+                      三國時諸葛亮南征，夢得仙人指點，以當地茶葉煮水治癒士兵瘟疫。後被尊為「茶祖」，留下攸樂、革登等地名傳說。至今茶王節仍祭拜這位「茶神」。
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-3">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">1972–1992</div>
-            <div className="text-lg font-extrabold text-stone-900">七子餅茶時代</div>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>標誌：</strong>1973年，熟茶渥堆發酵工藝在昆明茶廠試製成功。
-              </li>
-              <li>
-                <strong>特點：</strong>這項技術的發明，使得普洱茶的陳化過程得以人為加速，僅需一個多月即可達到類似老生茶數十年的醇厚口感，為普洱茶的發展開啟了全新的篇章。
-              </li>
-            </ul>
-          </div>
+            {/* Timeline Item 2 */}
+            <div className="relative pl-8 group">
+              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
+              <div className="mb-2">
+                <span className="text-xs font-black tracking-widest text-stone-400 uppercase">DEVELOPMENT</span>
+                <h4 className="text-xl font-bold text-stone-900">興盛與發展（唐、宋、元、明）</h4>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
+                  <div className="text-amber-800 font-bold mb-2 flex items-center gap-2 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> 唐代：興起與外傳
+                  </div>
+                  <p className="text-sm text-stone-600 leading-relaxed">
+                    「普洱茶興於唐，盛於宋」。唐代《蠻書》記載加工為「散收，無採造法」，飲法則加「椒薑桂」。此時茶葉已傳入西藏，開啟「茶馬互市」與茶馬古道。
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
+                  <div className="text-amber-800 font-bold mb-2 flex items-center gap-2 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> 元明：定名與傳承
+                  </div>
+                  <p className="text-sm text-stone-600 leading-relaxed">
+                    由元代「步日部」演變為「普洱」。明代《滇略》載：「士庶所用，皆普茶也，蒸而團之。」證明緊壓茶工藝（並未隨朱元璋廢團茶而消失）在雲南得以完整保留。
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-3">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">1992–2007</div>
-            <div className="text-lg font-extrabold text-stone-900">中期茶時代</div>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>背景：</strong>中國開啟市場經濟，國營茶廠紛紛推出自有品牌（如中茶、大益、下關），同時大量私營茶廠開始崛起。
-              </li>
-              <li>
-                <strong>特點：</strong>市場上出現了許多至今仍具影響力的產品，如紅大益、紫大益、大白菜、綠大樹等。
-              </li>
-            </ul>
+            {/* Timeline Item 3 */}
+            <div className="relative pl-8 group">
+              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
+              <div className="mb-2">
+                <span className="text-xs font-black tracking-widest text-amber-500 uppercase">GOLDEN AGE</span>
+                <h4 className="text-xl font-bold text-stone-900">巔峰時期（清代）</h4>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10"><Award size={80} className="text-amber-600" /></div>
+                <div className="relative z-10 space-y-3">
+                  <p className="text-amber-900 font-medium italic text-lg opacity-80">
+                    「普洱茶名重天下，出普洱府所屬六大茶山，周八百里，入山做茶者數十萬人...」
+                  </p>
+                  <div className="h-px bg-amber-200 w-24"></div>
+                  <p className="text-sm text-amber-900/80 leading-relaxed">
+                    清朝是極盛期，普洱茶列為皇家貢茶。道光皇帝御賜 <strong>「瑞貢天朝」</strong> 牌匾，懸掛於易武，確立了其至高無上的地位。這不僅是美味，更是千年的文脈傳承。
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 space-y-3">
-          <div className="text-xs font-extrabold tracking-widest text-stone-500">2007 至今</div>
-          <div className="text-lg font-extrabold text-stone-900">新代茶時代</div>
-          <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>背景：</strong>2007年普洱茶市場崩盤後，行業進入理性發展期。國營茶廠紛紛改制私有化。
-            </li>
-            <li>
-              <strong>特點：</strong>市場風向從過去的品牌拼配茶，轉向對原料來源的極致追求。茶商們深入源頭，發掘不同山頭的獨特風味，「山頭茶」、「古樹茶」的概念應運而生，形成了「百花齊放，百家爭鳴」的繁榮局面。
-            </li>
-          </ul>
+        {/* Section 2: The Present (Era Cards) */}
+        <div>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-3 bg-stone-100 rounded-xl text-stone-800">
+              <Box size={24} />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-stone-900">今生：從號級茶到百家爭鳴</h3>
+              <p className="text-stone-500">1733年至今：五大時代的演變</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                period: "1733 起",
+                name: "號級茶時代",
+                icon: Award,
+                color: "text-amber-700",
+                bg: "bg-amber-50",
+                border: "border-amber-200",
+                bullets: [
+                  "標誌：清代首個茶莊「同興號」成立。",
+                  "主導：私人老字號（同慶號、宋聘號）。",
+                  "特點：傳統石磨壓製，有品牌意識（內飛、大票）。"
+                ]
+              },
+              {
+                period: "1950 - 1972",
+                name: "印級茶時代",
+                icon: Disc,
+                color: "text-rose-700",
+                bg: "bg-rose-50",
+                border: "border-rose-200",
+                bullets: [
+                  "背景：國營三大廠統一管理（昆明、勐海、下關）。",
+                  "標誌：「八中」商標，紅印圓茶為代表。",
+                  "價值：如今市場價值極高的骨灰級老茶。"
+                ]
+              },
+              {
+                period: "1972 - 1992",
+                name: "七子餅茶時代",
+                icon: CheckCircle2,
+                color: "text-emerald-700",
+                bg: "bg-emerald-50",
+                border: "border-emerald-200",
+                bullets: [
+                  "標誌：1973年昆明茶廠試製「熟茶渥堆發酵」成功。",
+                  "意義：人工加速陳化，開啟普洱茶新篇章（月餘即達陳韻）。"
+                ]
+              },
+              {
+                period: "1992 - 2007",
+                name: "中期茶時代",
+                icon: Mountain,
+                color: "text-stone-700",
+                bg: "bg-stone-50",
+                border: "border-stone-200",
+                bullets: [
+                  "背景：市場經濟開啟，私營茶廠崛起。",
+                  "名品：大益改制前的經典（紅大益、紫大益、大白菜、綠大樹）。"
+                ]
+              },
+              {
+                period: "2007 至今",
+                name: "新代茶時代",
+                icon: Sun,
+                color: "text-sky-700",
+                bg: "bg-sky-50",
+                border: "border-sky-200 md:col-span-2 lg:col-span-2",
+                bullets: [
+                  "背景：2007崩盤後回歸理性，追求原料極致。",
+                  "特點：山頭茶、古樹茶崛起。百花齊放，百家爭鳴。"
+                ]
+              }
+            ].map((era, idx) => (
+              <div key={idx} className={`rounded-2xl border ${era.border} bg-white p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden ${era.border.includes('col-span') ? era.border : ''}`}>
+                <div className={`absolute top-0 right-0 p-4 opacity-5 ${era.color}`}><era.icon size={100} /></div>
+                <div className="relative z-10">
+                  <span className={`inline-block px-2 py-1 rounded text-xs font-bold tracking-widest uppercase mb-2 ${era.bg} ${era.color}`}>
+                    {era.period}
+                  </span>
+                  <h4 className="text-xl font-black text-stone-900 mb-4">{era.name}</h4>
+                  <ul className="space-y-3">
+                    {era.bullets.map((txt, i) => (
+                      <li key={i} className="flex gap-3 text-sm text-stone-600 leading-snug">
+                        <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${era.color.replace('text-', 'bg-')}`}></div>
+                        <span>{txt.split('：').map((part, k) => k === 0 ? <strong className="text-stone-800" key={k}>{part}：</strong> : part)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">課程總結與品飲審美的變遷</div>
-          <div className="text-sm leading-relaxed">
-            回顧普洱茶的歷史，我們看到了一條清晰的脈絡：從唐宋元明清的「前世」積澱，到號級茶、印級茶、國營廠時代的「今生」演變，最終在2007年後迎來了山頭古樹茶的崛起。
-          </div>
-          <div className="text-sm leading-relaxed">
-            與此同時，市場的品飲審美標準也在發生深刻變化。2007年的市場亂象，讓消費者對傳統大廠的拼配模式產生疑慮，轉而追求更透明、更具風土特色的品飲體驗。人們不再僅僅追逐遙不可及的號級老茶或標準化的數字拼配茶，而是更傾向於品味和探索不同山頭的獨特韻味——例如老班章的霸氣、冰島的甜潤、易武的柔美。
+        {/* Conclusion Footer */}
+        <div className="rounded-2xl p-6 bg-stone-900 text-stone-300">
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <div className="p-4 bg-stone-800 rounded-full shrink-0">
+              <Gem size={32} className="text-amber-400" />
+            </div>
+            <div className="space-y-2 text-center md:text-left">
+              <h5 className="text-white font-bold text-lg">品飲審美的變遷</h5>
+              <p className="text-sm leading-relaxed opacity-80">
+                從唐宋的古樸，到國營廠的拼配標準，再到今日山頭古樹的百家爭鳴。
+                現代茶客不再盲目追求傳說中的號級老茶，轉而探索 <strong>老班章的霸氣、冰島的甜潤、易武的柔美</strong>，這是一種更透明、更具風土質感的品飲進階。
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -352,143 +642,240 @@ const CHAPTERS = {
   '#puerh-3': {
     title: '三：普洱茶的分類',
     content: (
-      <div className="space-y-5">
-        <Subheading>按加工方式分類：生茶 vs. 熟茶</Subheading>
-        <p>這是普洱茶最基本、也是最重要的分類方式。它們的核心區別在於是否經過「渥堆發酵」這道人工干預工藝。</p>
-
-        <div className="museum-card museum-paper overflow-hidden">
-          <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">KEY COMPARISON</div>
-            <div className="mt-1 font-extrabold text-stone-900">生茶（Sheng/Raw） vs. 熟茶（Shou/Ripe）</div>
-          </div>
-          <div className="overflow-x-auto bg-white">
-            <table className="min-w-full text-sm text-stone-700">
-              <thead className="bg-stone-50">
-                <tr className="text-left">
-                  <th className="px-5 py-3 font-extrabold text-stone-900">維度</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">生茶 (Sheng/Raw)</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">熟茶 (Shou/Ripe)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-200">
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">工藝</td>
-                  <td className="px-5 py-4">鮮葉經殺青、揉捻、曬乾後，直接蒸壓成形，依靠自然發酵陳化。</td>
-                  <td className="px-5 py-4">以曬青毛茶為原料，經人工渥堆發酵工藝加速陳化。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">新茶茶餅顏色</td>
-                  <td className="px-5 py-4">墨綠色，條索清晰。</td>
-                  <td className="px-5 py-4">棕褐色或黑褐色。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">茶湯顏色</td>
-                  <td className="px-5 py-4">橙黃明亮。</td>
-                  <td className="px-5 py-4">紅濃透亮，呈棗紅色或酒紅色。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">香氣特點</td>
-                  <td className="px-5 py-4">香氣高揚，富含花香、蜜香、果香。</td>
-                  <td className="px-5 py-4">香氣馥郁溫厚，以陳香、木香、棗香為主。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">口感特點</td>
-                  <td className="px-5 py-4">有明顯的苦澀感，但能迅速化開，回甘生津快。</td>
-                  <td className="px-5 py-4">口感溫和柔潤，甜滑醇厚，幾乎無苦澀感。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">茶性</td>
-                  <td className="px-5 py-4">茶氣濃郁，較為猛烈。</td>
-                  <td className="px-5 py-4">茶性溫暖柔和，不影響睡眠。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">健康益處</td>
-                  <td className="px-5 py-4">-</td>
-                  <td className="px-5 py-4">
-                    渥堆過程富含益生菌，有助於降脂降壓、保護腸胃。茶性溫和，茶多酚轉化為小分子更易吸收，適合人群更廣。
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div className="space-y-12">
+        {/* Intro */}
+        <div className="flex flex-col md:flex-row gap-6 items-center">
+          <div className="flex-1 space-y-4">
+            <Subheading>按加工方式分類：生茶 vs. 熟茶</Subheading>
+            <p className="text-lg text-stone-800 leading-relaxed">
+              這是普洱茶<strong>最基本、也是最重要</strong>的分類方式。
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              它們的核心區別在於是否經過 <strong>「渥堆發酵」</strong> 這道人工干預工藝。這決定了茶葉的顏色、香氣、口感以及後期的轉化路徑。
+            </p>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        {/* Visual Comparison Section */}
+        <div className="rounded-3xl border border-stone-200 bg-white overflow-hidden shadow-xl">
+          {/* Visual Hero Split */}
+          <div className="relative aspect-[2/1] md:aspect-[3/1] group">
+            <img
+              src="/images/varieties/puerh/puerh_yin_yang_art.png"
+              alt="Artistic Raw vs Ripe Pu-erh Tea Contrast"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/40 via-transparent to-amber-900/60"></div>
+
+            {/* Labels Overlay */}
+            <div className="absolute inset-0 flex">
+              <div className="flex-1 flex items-center justify-center p-6">
+                <div className="bg-white/90 backdrop-blur-md px-6 py-3 rounded-full text-emerald-800 font-black tracking-widest shadow-lg border border-emerald-100 transform -translate-x-4 md:-translate-x-0">
+                  RAW (SHENG) <span className="hidden md:inline">· 生茶</span>
+                </div>
+              </div>
+              <div className="w-px bg-white/50 backdrop-blur"></div>
+              <div className="flex-1 flex items-center justify-center p-6">
+                <div className="bg-stone-900/90 backdrop-blur-md px-6 py-3 rounded-full text-amber-500 font-black tracking-widest shadow-lg border border-amber-900/50 transform translate-x-4 md:translate-x-0">
+                  RIPE (SHOU) <span className="hidden md:inline">· 熟茶</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Comparison Cards Grid */}
+          <div className="p-2 bg-stone-50 grid grid-cols-1 md:grid-cols-2 gap-2">
+            {/* Raw Side */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-100 space-y-6">
+              <div className="flex items-center gap-3 text-emerald-700 mb-2">
+                <Leaf size={24} /> <h4 className="font-bold text-lg">生茶特徵</h4>
+              </div>
+
+              <div className="space-y-5">
+                {[
+                  { label: "工藝", val: "殺青→揉捻→曬乾→蒸壓。自然發酵。" },
+                  { label: "茶餅顏色", val: "墨綠色，條索清晰。" },
+                  { label: "茶湯顏色", val: "橙黃明亮。", colorDot: "bg-amber-400" },
+                  { label: "香氣", val: "高揚，花香/蜜香/果香為主。" },
+                  { label: "口感", val: "苦澀明顯但化開快，回甘生津強烈。" },
+                  { label: "茶性", val: "茶氣濃郁猛烈 (較寒)。" }
+                ].map((row, i) => (
+                  <div key={i} className="flex gap-3 text-sm">
+                    <span className="font-bold text-emerald-800 w-20 shrink-0 text-right">{row.label}</span>
+                    <span className="text-stone-600 flex-1 flex items-center gap-2">
+                      {row.colorDot && <span className={`w-3 h-3 rounded-full ${row.colorDot} shadow-sm border border-black/5`}></span>}
+                      {row.val}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Ripe Side */}
+            <div className="bg-stone-800 rounded-2xl p-6 border border-stone-700 space-y-6 text-stone-300">
+              <div className="flex items-center gap-3 text-amber-500 mb-2">
+                <Coffee size={24} /> <h4 className="font-bold text-lg text-white">熟茶特徵</h4>
+              </div>
+
+              <div className="space-y-5">
+                {[
+                  { label: "工藝", val: "經「渥堆發酵」(人工加速陳化)。" },
+                  { label: "茶餅顏色", val: "棕褐色 或 黑褐色。" },
+                  { label: "茶湯顏色", val: "紅濃透亮 (棗紅/酒紅)。", colorDot: "bg-red-900" },
+                  { label: "香氣", val: "溫厚，陳香/木香/棗香為主。" },
+                  { label: "口感", val: "溫潤甜滑，幾乎無苦澀。" },
+                  { label: "茶性", val: "溫暖柔和，不礙睡眠 (溫性)。" }
+                ].map((row, i) => (
+                  <div key={i} className="flex gap-3 text-sm">
+                    <span className="font-bold text-amber-500/80 w-20 shrink-0 text-right">{row.label}</span>
+                    <span className="text-stone-300 flex-1 flex items-center gap-2">
+                      {row.colorDot && <span className={`w-3 h-3 rounded-full ${row.colorDot} shadow-sm border border-white/20`}></span>}
+                      {row.val}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 p-3 bg-stone-700/50 rounded-xl border border-stone-600 text-xs leading-relaxed flex gap-2">
+                <CheckCircle2 size={16} className="text-amber-500 shrink-0" />
+                <div>
+                  <strong className="text-white">健康益處：</strong>
+                  渥堆富含益生菌，降脂護胃。小分子易吸收，適合人群廣。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Classification 2: Blending / Single Origin / Single Tree */}
+        <div className="space-y-6">
           <Subheading>按用料工藝分類：拼配、純料與單株</Subheading>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>拼配 (Blended Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>將不同產區、不同年份、不同等級甚至不同品種的毛茶，按照特定比例混合壓製而成。
-                </div>
-                <div>
-                  <strong>◦ 目的與特點：</strong>拼配是一門高超的技術。其優點在於可以揚長避短，將不同茶葉的優點結合，彌補單一原料的缺陷，創造出更協調、更穩定的口感。在計劃經濟時代，拼配也是為了標準化產品口感、增加產量以應對大宗出口訂單的重要手段。
-                </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {/* Card 1: Blended */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-amber-300 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 mb-4">
+                <Disc size={20} />
               </div>
-            </li>
-            <li>
-              <strong>純料 (Single-Origin Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>這是一個「相對概念」，通常指採用同一產區、同一年份、同一季節、同一樹種的茶葉製成的茶。如今，市場上更傾向於稱之為「山頭茶」。
-                </div>
-                <div>
-                  <strong>◦ 目的與特點：</strong>純料茶旨在集中體現某個特定山頭的風土特徵和獨特風味，如老班章的霸氣、易武的柔美等。它是品鑑者探索產區風味差異的最佳載體。
-                </div>
+              <h4 className="text-lg font-black text-stone-900 mb-2">拼配</h4>
+              <div className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Blended Tea</div>
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                將不同產區、年份、等級的毛茶按比例混合。
+              </p>
+              <div className="text-xs text-stone-500 bg-stone-50 p-3 rounded-lg border border-stone-100">
+                <strong className="text-stone-700 block mb-1">目的：</strong>
+                揚長避短，創造協調穩定的口感。大廠標準化產品的基石。
               </div>
-            </li>
-            <li>
-              <strong>單株 (Single-Tree Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>特指僅用一棵古茶樹上採摘的茶葉，單獨製作而成的茶。
-                </div>
-                <div>
-                  <strong>◦ 目的與特點：</strong>單株是普洱茶發燒友級別玩家的終極追求。其價格通常遠高於同產區的純料茶。口感極為純粹、直接，能最大限度地展現該棵樹的個體特徵，但不同單株之間差異巨大。例如，在我製作19棵老班章單株的經驗中，其中一棵因膠質極重，炒製時黏連不散，其風味與其餘18棵截然不同，保留了最原始的老班章韻味，令人感動。
-                </div>
+            </div>
+
+            {/* Card 2: Single Origin */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-300 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4">
+                <Mountain size={20} />
               </div>
-            </li>
-          </ul>
+              <h4 className="text-lg font-black text-stone-900 mb-2">純料 (山頭茶)</h4>
+              <div className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Single Origin</div>
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                同一產區、季節、樹種。「相對概念」。
+              </p>
+              <div className="text-xs text-stone-500 bg-stone-50 p-3 rounded-lg border border-stone-100">
+                <strong className="text-stone-700 block mb-1">目的：</strong>
+                體現特定山頭的風土特徵（如老班章的霸氣）。
+              </div>
+            </div>
+
+            {/* Card 3: Single Tree */}
+            <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-200 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mb-4">
+                <Gem size={20} />
+              </div>
+              <h4 className="text-lg font-black text-stone-900 mb-2">單株</h4>
+              <div className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-4">Single Tree</div>
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                極致追求。僅用一棵古樹採摘製作。
+              </p>
+              <div className="text-xs text-stone-500 bg-white/50 p-3 rounded-lg border border-amber-100">
+                <strong className="text-stone-700 block mb-1">特點：</strong>
+                口感最純粹直接，但個體差異大。價格昂貴，發燒友之選。
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>按茶樹生長方式分類：野生、栽培型與台地茶</Subheading>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>野生茶 (Wild Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>指在原始森林中非人工栽培的茶樹。以千家寨一棵2700年的野生茶樹王為代表。
+        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 md:p-8">
+          <Subheading>按茶樹生長方式分類</Subheading>
+
+          <div className="grid gap-8 mt-6">
+            {/* Wild Tea */}
+            <div className="flex gap-4 group">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                  <AlertTriangle size={20} />
                 </div>
-                <div>
-                  <strong>◦ 特點：</strong>茶氣充沛，生長環境綠色無污染。但必須強調，未經「馴化」的野生茶可能含有輕微毒性，腸胃較弱者飲用後易感不適。像我本人，一喝未馴化好的野生茶就會腸胃不適。因此，直接採摘飲用存在一定風險。
+                <div className="w-px h-full bg-stone-200 border-l border-dashed border-stone-300"></div>
+              </div>
+              <div className="pb-6">
+                <h4 className="text-lg font-bold text-stone-900">野生茶 (Wild Tea)</h4>
+                <p className="text-sm text-stone-600 mt-1 mb-2">原始森林中非人工栽培（如千家寨2700年茶王）。</p>
+                <div className="text-xs bg-red-50 text-red-800 p-2 rounded border border-red-100 inline-block font-medium">
+                  <strong>注意：</strong> 未馴化可能含微毒，腸胃弱者慎飲。
                 </div>
               </div>
-            </li>
-            <li>
-              <strong>栽培型古樹茶 (Cultivated Ancient Tree Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>由古代先民從野生茶樹中選育，經過長期人工馴化、栽培、選育而來的茶樹品種。如同野豬被馴化為家豬，這是人類智慧與自然選擇的共同結果。
+            </div>
+
+            {/* Cultivated Ancient Tree */}
+            <div className="flex gap-4 group">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                  <Award size={20} />
                 </div>
-                <div>
-                  <strong>◦ 特點：</strong>這是目前市面上絕大多數古樹茶的類型。其優點是安全性高、口感協調度好、內含物質豐富。以鳳慶香竹箐一棵3200年的栽培型茶王樹為代表。
+                <div className="w-px h-full bg-stone-200 border-l border-dashed border-stone-300"></div>
+              </div>
+              <div className="pb-6">
+                <h4 className="text-lg font-bold text-stone-900">栽培型古樹茶 (Cultivated Ancient Tree)</h4>
+                <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">Mainstream Choice</div>
+                <p className="text-sm text-stone-600 leading-relaxed mb-3">
+                  由古代先民選育馴化而來（如鳳慶3200年茶王）。是市面上古樹茶的主力。
+                </p>
+                <ul className="text-sm text-stone-700 space-y-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-500" /> 安全性高
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-500" /> 口感協調、內質豐富
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Plantation Tea */}
+            <div className="flex gap-4 group">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-stone-500 group-hover:text-white transition-colors">
+                  <Box size={20} />
                 </div>
               </div>
-            </li>
-            <li>
-              <strong>台地茶 (Plantation Tea)</strong>
-              <div className="mt-2 space-y-2">
-                <div>
-                  <strong>◦ 定義：</strong>指運用現代種植技術，在密植高產的茶園中生長的茶，樹齡較短，多為1949年後種植。
-                </div>
-                <div>
-                  <strong>◦ 特點：</strong>為了追求產量，通常需要施肥、打藥等較多的人為干預。其沖泡表現與古樹茶迥異：台地茶往往在前兩泡就釋放出最強烈的香氣和滋味，如同<strong>「高點直線下降」</strong>，後續乏力；而古樹茶的表現則像一條優美的<strong>「拋物線」</strong>，由淺入深，層次感豐富，持久耐泡。我常覺得這有點像做人：有些人初見時熱情似火，讓你覺得他特別好，但慢慢接觸後卻發現，他並非當初表現的那個樣子；而東方人的處世之道，更像是古樹茶，初識時平淡，深交後方顯其醇厚與真誠。
+              <div className="pb-2">
+                <h4 className="text-lg font-bold text-stone-900">台地茶 (Plantation Tea)</h4>
+                <p className="text-sm text-stone-600 mt-1 mb-3">
+                  現代密植高產茶園，多為1949年後種植。需人為干預（施肥等）。
+                </p>
+                <div className="bg-white p-3 rounded-xl border border-stone-200 text-sm leading-relaxed">
+                  <div className="flex items-center gap-2 mb-2 font-bold text-stone-800">
+                    <TrendingUp size={16} className="text-amber-500" />
+                    口感對比：拋物線 vs 直線
+                  </div>
+                  <p className="text-stone-600 text-xs">
+                    <strong>台地茶：</strong>高開低走。前兩泡香氣強烈，隨後迅速淡薄（直線下降）。<br />
+                    <strong>古樹茶：</strong>循序漸進。由淺入深，層次豐富，耐泡度高（優美拋物線）。
+                  </p>
+                  <div className="mt-2 text-xs text-stone-400 italic">
+                    * 這如同做人，古樹茶更似東方處世之道，深交後方顯醇厚。
+                  </div>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
 
         <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
@@ -551,409 +938,552 @@ const CHAPTERS = {
             <li>按存放方式：分為乾倉與濕倉。</li>
           </ol>
         </div>
-      </div>
+      </div >
     ),
   },
   '#puerh-4': {
     title: '四：普洱茶的品鑑方式',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>品鑑八法：系統化感知普洱茶</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            以「時、外形、香氣、湯色、滋味、活性、葉底、茶韻」八大維度，建立可重複、可比較的品鑑框架。
-          </p>
+      <div className="space-y-12">
+        {/* Intro */}
+        <div className="rounded-3xl bg-stone-900 p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-800/50 backdrop-blur text-amber-400 text-xs font-bold tracking-widest uppercase">
+              <Gem size={14} /> The Art of Tasting
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              品鑑八法：系統化感知普洱茶
+            </h2>
+            <p className="text-stone-400 text-lg leading-relaxed">
+              以「時、外形、香氣、湯色、滋味、活性、葉底、茶韻」八大維度，建立可重複、可比較的專業品鑑框架。
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">01</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">時（茶時）</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-              品茶需講究「茶時」，即品飲的環境與時機。三大因素會顯著影響茶湯的表現和您的感受：
-            </div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>天氣：</strong>晴天時空氣乾燥，香氣高揚奔放；雨天時濕度大氣壓低，香氣會顯得沉悶。
-              </li>
-              <li>
-                <strong>溫度：</strong>天氣寒冷時，身體自然會偏好溫暖醇厚的熟茶；炎熱時，則可能更青睞生津解渴的生茶。
-              </li>
-              <li>
-                <strong>海拔：</strong>海拔高的地方，水的沸點低（可能不足100°C），會影響茶葉內含物質的浸出，進而改變茶湯的滋味。
-              </li>
-            </ul>
-          </div>
+        {/* The 8 Dimensions Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">02</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">外形（乾茶）</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">在沖泡之前，請您先觀察乾茶的外形，這可以對茶葉品質有一個初步的判斷。</div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>餅形：</strong>是否周正、圓潤，邊緣是否勻稱。
-              </li>
-              <li>
-                <strong>條索：</strong>是緊結清晰，還是鬆泡雜亂？好的茶葉條索應油潤有光澤，而非灰暗無光。
-              </li>
-              <li>
-                <strong>淨度：</strong>是否含有茶果、粗梗、泥土等雜質。
-              </li>
-              <li>
-                <strong>嫩度：</strong>是芽頭居多還是一芽兩葉，亦或是粗枝大葉。但需注意，如易武茶，即使採摘等級不那麼細嫩，滋味也可能極佳。
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 md:col-span-2">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">03</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">香氣</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">鑑賞普洱茶的香氣，需從多個維度進行：</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-                <div className="font-extrabold text-stone-900">香氣維度</div>
-                <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                  <li>
-                    <strong>高低：</strong>指香氣的擴散度。香氣高的茶，一經沖泡便滿室生香。
-                  </li>
-                  <li>
-                    <strong>長短：</strong>指香氣的持久度。好的香氣不僅停留在空氣中，更能融入茶湯，形成「水含香」，飲後齒頰留香。
-                  </li>
-                  <li>
-                    <strong>濃淡：</strong>指香氣的馥郁程度。
-                  </li>
-                </ul>
+          {/* 01. Timing */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">01</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">時（茶時）</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Timing & Environment</div>
               </div>
-
-              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-                <div className="font-extrabold text-stone-900">香氣類型</div>
-                <div className="mt-3 text-sm text-stone-700 leading-relaxed">普洱茶的香氣極為豐富，常見的有：</div>
-                <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                  <li>
-                    <strong>花香：</strong>如蘭花香、玫瑰花香、玉蘭花香等，清新愉悅。
-                  </li>
-                  <li>
-                    <strong>果香：</strong>如水蜜桃香、龍眼香、哈密瓜香等，甜美迷人。
-                  </li>
-                  <li>
-                    <strong>有年份的香氣：</strong>經歲月陳化後，會轉化出沉穩的木質香、藥香、蔘香等，能帶給人平靜、安穩的感受。
-                  </li>
-                </ul>
+            </div>
+            <p className="text-sm text-stone-600 mb-4">品飲的環境與時機顯著影響感受。</p>
+            <div className="space-y-3 bg-stone-50 rounded-xl p-4">
+              <div className="flex gap-3 text-sm">
+                <CloudSun size={18} className="text-amber-500 shrink-0" />
+                <span className="text-stone-700"><strong>天氣：</strong>晴天香氣高揚；雨天香氣沈悶。</span>
+              </div>
+              <div className="flex gap-3 text-sm">
+                <Thermometer size={18} className="text-rose-500 shrink-0" />
+                <span className="text-stone-700"><strong>溫度：</strong>天冷宜熟茶（暖）；天熱宜生茶（解渴）。</span>
+              </div>
+              <div className="flex gap-3 text-sm">
+                <Mountain size={18} className="text-stone-500 shrink-0" />
+                <span className="text-stone-700"><strong>海拔：</strong>高海拔沸點低，影響物質浸出與滋味。</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">04</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">湯色</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-              無論茶湯是淺黃、金黃、橙紅還是琥珀紅，<strong>「晶瑩透亮」</strong>是判斷品質優劣的黃金標準。
+          {/* 02. Appearance */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">02</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">外形（乾茶）</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Appearance</div>
+              </div>
             </div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>優質湯色：</strong>清澈透亮，富有光澤，在陽光下甚至能看到一層美麗的「金圈」。
-              </li>
-              <li>
-                <strong>劣質湯色：</strong>渾濁、灰暗、無光澤。這通常意味著製作工藝或倉儲環境存在問題，如茶葉受潮、發霉等。
-              </li>
+            <p className="text-sm text-stone-600 mb-4">沖泡前對品質的初步判斷。</p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { label: "餅形", desc: "周正圓潤，邊緣勻稱。" },
+                { label: "條索", desc: "緊結清晰，油潤有光澤。" },
+                { label: "淨度", desc: "無雜質(茶果/粗梗/泥土)。" },
+                { label: "嫩度", desc: "芽頭 vs 粗老 (易武粗老亦佳)。" }
+              ].map((item, i) => (
+                <div key={i} className="bg-stone-50 p-3 rounded-lg text-xs">
+                  <strong className="block text-stone-900 mb-1">{item.label}</strong>
+                  <span className="text-stone-500">{item.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 03. Aroma (Full Width) */}
+          <div className="md:col-span-2 bg-gradient-to-br from-white to-amber-50 rounded-2xl p-6 border border-amber-100 shadow-sm">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 font-bold text-xl">03</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">香氣</h4>
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">Aroma</div>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h5 className="font-bold text-stone-900 flex items-center gap-2"><Wind size={16} /> 香氣維度</h5>
+                <ul className="space-y-3">
+                  <li className="flex gap-3 text-sm text-stone-700">
+                    <span className="font-bold text-amber-600 w-12 shrink-0">高低</span>
+                    <span>擴散度。好茶一泡滿室生香。</span>
+                  </li>
+                  <li className="flex gap-3 text-sm text-stone-700">
+                    <span className="font-bold text-amber-600 w-12 shrink-0">長短</span>
+                    <span>持久度。「水含香」，飲後齒頰留香。</span>
+                  </li>
+                  <li className="flex gap-3 text-sm text-stone-700">
+                    <span className="font-bold text-amber-600 w-12 shrink-0">濃淡</span>
+                    <span>馥郁程度。</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h5 className="font-bold text-stone-900 flex items-center gap-2"><Flower size={16} /> 常見類型</h5>
+                <div className="flex flex-wrap gap-2">
+                  {["蘭花香", "玫瑰香", "水蜜桃香", "龍眼香", "木質香(陳)", "藥香(陳)", "蔘香(陳)"].map((t, i) => (
+                    <span key={i} className="px-3 py-1 bg-white border border-amber-200 rounded-full text-xs text-amber-800 font-medium">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-stone-500 italic mt-2">
+                  * 有年份的陳茶會轉出沈穩木質、藥香，帶給人平靜感。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 04. Color */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">04</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">湯色</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Liquor Color</div>
+              </div>
+            </div>
+            <div className="bg-stone-50 rounded-xl p-4 text-center mb-4">
+              <div className="text-sm font-bold text-stone-800 mb-2">黃金標準</div>
+              <div className="text-2xl font-black text-amber-500 tracking-wider">晶瑩透亮</div>
+            </div>
+            <ul className="space-y-2 text-sm text-stone-600">
+              <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0" /> 清澈透亮，有「金圈」(優)</li>
+              <li className="flex gap-2"><XCircle size={16} className="text-stone-400 shrink-0" /> 渾濁灰暗，無光澤 (劣/受潮)</li>
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">05</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">滋味</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">普洱茶的滋味來源於茶多酚、氨基酸、咖啡鹼等多種內含物質。</div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>苦澀的正面意義：</strong>苦澀是普洱茶的「骨架」和基底，是其內含物質豐富的體現。好茶的標誌在於「苦能回甘，澀能生津」，苦澀感能迅速化開，並轉化為持久的甜潤與滿口的津液。
-              </li>
-              <li>
-                <strong>其他滋味：</strong>接下來，請您感受茶湯的厚薄（飽滿度）、甜味、壓舌感（茶湯在舌面上的重量感）、果膠感（黏稠順滑度），以及水路的寬廣或細膩（如老班章的水路寬廣，而曼松的水路則如絲綢般細膩）。
-              </li>
-            </ul>
+          {/* 05. Taste */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">05</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">滋味</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Taste</div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="text-sm text-stone-700 border-l-2 border-stone-300 pl-3 italic">
+                「苦能回甘，澀能生津。」
+              </div>
+              <p className="text-xs text-stone-500">
+                苦澀是骨架。關鍵在於是否能<strong>迅速化開</strong>並轉化為甜潤。
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <span className="p-2 bg-stone-50 rounded text-center text-stone-700">飽滿度 (厚薄)</span>
+                <span className="p-2 bg-stone-50 rounded text-center text-stone-700">壓舌感 (重量)</span>
+                <span className="p-2 bg-stone-50 rounded text-center text-stone-700">果膠感 (黏稠)</span>
+                <span className="p-2 bg-stone-50 rounded text-center text-stone-700">水路 (寬/細)</span>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">06</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">活性</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">「活性」是普洱茶最核心的魅力，也是其能夠「越陳越香」的物質基礎。</div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>活性來源：</strong>主要來自茶葉中的「糖苷類物質」，它們是微生物在後期轉化過程中的養分。微生物的養分充足，轉化工作才能到位。
-              </li>
-              <li>
-                <strong>判斷方法：</strong>請您感受口腔中是否有快速而強烈的回甘與生津，以及喉嚨深處是否有舒適的清涼感。對於資深茶客而言，在挑選具有陳放潛力的茶時，活性的重要性甚至高於香氣。
-              </li>
-            </ul>
+          {/* 06. Activity */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200 border-l-4 border-l-emerald-500">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold text-xl">06</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">活性 (核心)</h4>
+                <div className="text-xs font-bold text-emerald-500 uppercase tracking-widest">Activity</div>
+              </div>
+            </div>
+            <p className="text-sm text-stone-600 mb-3">
+              「越陳越香」的物質基礎 (糖苷類)。資深茶客最看重的維度。
+            </p>
+            <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl text-emerald-800 text-sm font-bold">
+              <Zap size={16} /> 強烈回甘生津 + 喉韻清涼
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">07</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">葉底</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">品鑑的最後一步是觀察沖泡後的葉底，它能真實反映茶葉的原料品質。</div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>嗅覺：</strong>聞葉底是否有雜味、焦味或異味。
-              </li>
-              <li>
-                <strong>視覺：</strong>辨別葉片的老嫩度、是否勻整、色澤是否鮮活。
-              </li>
-              <li>
-                <strong>觸覺：</strong>用手指輕捏葉底，感受其彈性。若一揉即爛，可能意味著發酵過度或品質不佳。
-              </li>
-            </ul>
+          {/* 07. Leaf Bottom */}
+          <div className="bg-white rounded-2xl p-6 border border-stone-200">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">07</div>
+              <div>
+                <h4 className="text-xl font-bold text-stone-900">葉底</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Wet Leaf</div>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm text-stone-600">
+              <div className="flex justify-between border-b border-stone-100 pb-1">
+                <span>嗅覺</span> <span className="text-stone-900 font-medium">無雜味/焦味</span>
+              </div>
+              <div className="flex justify-between border-b border-stone-100 pb-1">
+                <span>視覺</span> <span className="text-stone-900 font-medium">勻整/鮮活</span>
+              </div>
+              <div className="flex justify-between">
+                <span>觸覺</span> <span className="text-stone-900 font-medium">有彈性 (忌一揉即爛)</span>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">08</div>
-            <div className="mt-1 text-lg font-extrabold text-stone-900">茶韻（最高層次）</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">這是品鑑的最高層次，是一種更個人化、更深層次的身心體驗。</div>
-            <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>體感與茶氣：</strong>身體最直接的反應，如微微發汗、打嗝、腹部溫暖，或是反之的脹氣、不適等。
-              </li>
-              <li>
-                <strong>陳韻：</strong>有年份的老茶所帶來的獨特能量感和歲月氣息。
-              </li>
-              <li>
-                <strong>喉韻：</strong>茶湯滑過喉嚨時帶來的感受，是優質古樹茶的必備特徵。好的喉韻深邃而持久，如同在為食道做按摩。
-              </li>
-              <li>
-                <strong>神韻：</strong>這是最個人化的感受。古人云「從來佳茗似佳人」，您可以嘗試將茶的個性擬人化。它可能像小龍女般清冷脫俗，也可能像霸道總裁般強勢而溫柔（如老班章）。就好像我喝老曼峨，總覺得它特別像我的先生——初嚐極苦，但苦盡甘來，苦與甜是同時抵達的。
-              </li>
-            </ul>
+          {/* 08. Rhyme (Conclusion) */}
+          <div className="md:col-span-2 bg-stone-900 rounded-2xl p-8 text-center text-stone-300 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5"><Gem size={120} /></div>
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <div className="w-12 h-12 mx-auto rounded-full bg-stone-800 flex items-center justify-center text-amber-500 font-bold text-xl mb-4 border border-stone-700">08</div>
+              <h4 className="text-2xl font-black text-white mb-2">茶韻 (最高層次)</h4>
+              <div className="text-xs font-bold text-stone-500 uppercase tracking-widest mb-6">Tea Rhyme</div>
+
+              <div className="grid md:grid-cols-3 gap-6 text-left">
+                <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
+                  <strong className="block text-white mb-2">體感</strong>
+                  <span className="text-sm opacity-80">微汗、打嗝、暖腹 (vs 脹氣不適)。</span>
+                </div>
+                <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
+                  <strong className="block text-white mb-2">茶氣</strong>
+                  <span className="text-sm opacity-80">身體的直接能量反饋。</span>
+                </div>
+                <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
+                  <strong className="block text-white mb-2">陳韻</strong>
+                  <span className="text-sm opacity-80">歲月帶來的安穩感與層次。</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">課程總結與品鑑實踐指導</div>
-          <div className="text-sm leading-relaxed">品鑑普洱茶的八大維度：</div>
-          <ol className="list-decimal pl-5 space-y-2 text-sm leading-relaxed">
-            <li>時：品鑑的環境基礎，決定了茶的最佳表現。</li>
-            <li>外形：未泡先識，是對品質的初步預判。</li>
-            <li>香氣：探索茶的靈氣，感受其層次與變化。</li>
-            <li>湯色：品質的直觀體現，以晶瑩透亮為準則。</li>
-            <li>滋味：感受茶的骨架，品味苦澀之後的回甘生津。</li>
-            <li>活性：判斷陳化潛力的核心，是越陳越香的基礎。</li>
-            <li>葉底：還原茶葉的真實面貌，是最終的品質驗證。</li>
-            <li>茶韻：身心合一的體驗，是品鑑的最高境界。</li>
-          </ol>
+        <div className="bg-stone-900 rounded-3xl p-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 opacity-10 text-white"><Eye size={120} /></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 bg-white/10 rounded-xl backdrop-blur text-white border border-white/20">
+                <Palette size={24} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white">課程總結：品鑑八法</h4>
+                <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">The 8 Dimensions</div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: "時 (Timing)", desc: "天時地利，身心狀態。", icon: Clock },
+                { label: "外形 (Look)", desc: "條索緊結，色澤潤澤。", icon: Eye },
+                { label: "香氣 (Smell)", desc: "熱聞、冷聞、杯底香。", icon: Wind },
+                { label: "湯色 (Color)", desc: "晶瑩透亮，無渾濁。", icon: Droplet },
+                { label: "滋味 (Taste)", desc: "苦澀轉化，回甘生津。", icon: Coffee },
+                { label: "活性 (Life)", desc: "越陳越香的物質基礎。", icon: Zap },
+                { label: "葉底 (Leaf)", desc: "肥嫩勻整，鮮活柔韌。", icon: Leaf },
+                { label: "茶韻 (Rhyme)", desc: "體感、喉韻、愉悅感。", icon: Smile }
+              ].map((item, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 p-4 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div className="flex items-center gap-3 mb-2 text-stone-300 group-hover:text-amber-400 transition-colors">
+                    <item.icon size={16} />
+                    <span className="font-bold text-sm">{item.label}</span>
+                  </div>
+                  <p className="text-xs text-stone-500 leading-relaxed pl-7">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
     ),
   },
   '#puerh-5': {
     title: '五：普洱生茶的製作工藝',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>引言：從茶樹到茶湯的旅程</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            本課的目標，是帶領大家完整地走過一段奇妙的旅程：從茶樹上的一片鮮活綠葉，如何歷經道道工序，最終轉化為我們杯中澄澈明亮的茶湯。
-          </p>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            理解這個過程，不僅能滿足我們的好奇心，更是提升品鑑能力的基石。當了解每一個環節背後的目的與智慧時，將能更深刻地體會到一杯茶的來之不易，並從風味中解讀出工藝的印記。
-          </p>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-stone-100 p-8 md:p-12 text-center relative overflow-hidden group">
+          <img
+            src="/images/puerh_production_process.png"
+            alt="Pu-erh Production Sun Drying"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 to-stone-100/90 group-hover:from-stone-900/80 group-hover:to-stone-800/80 transition-colors duration-1000"></div>
+
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6 group-hover:text-white transition-colors duration-1000">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 bg-white/50 backdrop-blur text-stone-600 text-xs font-bold tracking-widest uppercase group-hover:bg-stone-800/50 group-hover:text-amber-400 group-hover:border-stone-600 transition-all">
+              <Hammer size={14} /> Craftsmanship
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight text-stone-900 group-hover:text-white transition-colors">
+              從茶樹到茶湯的旅程
+            </h2>
+            <p className="text-stone-600 text-lg leading-relaxed group-hover:text-stone-300 transition-colors">
+              理解每一個環節背後的目的與智慧，從風味中解讀出工藝的印記。
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        {/* Section 1: 5 Core Steps */}
+        <div className="space-y-8">
           <Subheading>生茶初製五大核心步驟</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            普洱茶的初製階段，是奠定其後期轉化潛力的關鍵。這五個核心步驟環環相扣，其共同目標是在去除青草氣、塑造條索的同時，最大程度地保留茶葉的內在活性，為未來數十年的陳化之旅打下堅實基礎。
+          <p className="text-sm text-stone-700 leading-relaxed max-w-4xl">
+            共同目標：去除青草氣、塑造條索、<strong>保留內在活性</strong> (為陳化打基礎)。
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 1</div>
-              <div className="mt-1 text-lg font-extrabold text-stone-900">鮮葉採摘</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                雲南的大葉種普洱茶樹大多高大，且生長形態參差不齊，難以進行機械化操作，因此至今仍以人工採摘為主。採摘標準普遍為「一心二葉」，由經驗豐富的茶農用食指與拇指輕巧掐下。值得注意的是，普洱茶的含水量較高，通常需要 <strong>4至5公斤</strong> 的新鮮茶葉，才能製作出1公斤的曬青毛茶。
+          <div className="grid gap-6">
+            {/* Step 1: Picking */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-5"><Sprout size={80} /></div>
+                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                  <div className="shrink-0 flex md:flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-lg shadow-sm border border-emerald-200">01</div>
+                    <div className="text-xs font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Picking</div>
+                  </div>
+                  <div className="space-y-3 flex-1">
+                    <h4 className="text-xl font-bold text-stone-900">鮮葉採摘</h4>
+                    <p className="text-sm text-stone-600 leading-relaxed">
+                      雲南大葉種樹型高大，至今仍以<strong>人工採摘</strong>為主。標準為「一心二葉」。
+                    </p>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-100">
+                      <Scale size={14} /> 轉換率：4-5kg 鮮葉 ≈ 1kg 毛茶
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 2</div>
-              <div className="mt-1 text-lg font-extrabold text-stone-900">攤晾（萎凋）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                攤晾，亦可稱為萎凋，其目的是讓鮮葉在短時間內適度失水，並引發一系列有益的化學轉變。此過程與烏龍茶的長時間萎凋不同，普洱茶的攤晾時間較短，旨在：
+            {/* Step 2: Withering */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-5"><Wind size={80} /></div>
+                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                  <div className="shrink-0 flex md:flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-lg shadow-sm border border-amber-200">02</div>
+                    <div className="text-xs font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Withering</div>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    <div>
+                      <h4 className="text-xl font-bold text-stone-900">攤晾（萎凋）</h4>
+                      <p className="text-sm text-stone-600 mt-2">讓鮮葉適度失水，引發化學轉變。</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="p-3 bg-stone-50 rounded-lg text-xs border border-stone-100">
+                        <strong className="block text-stone-800 mb-1">降低苦澀</strong>
+                        <span className="text-stone-500">轉化兒茶素。</span>
+                      </div>
+                      <div className="p-3 bg-stone-50 rounded-lg text-xs border border-stone-100">
+                        <strong className="block text-stone-800 mb-1">發展香氣</strong>
+                        <span className="text-stone-500">揮發青草氣。</span>
+                      </div>
+                      <div className="p-3 bg-stone-50 rounded-lg text-xs border border-stone-100">
+                        <strong className="block text-stone-800 mb-1">增加鮮爽</strong>
+                        <span className="text-stone-500">產生氨基酸。</span>
+                      </div>
+                    </div>
+
+                    {/* Field Note */}
+                    <div className="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-100 text-sm md:flex gap-4">
+                      <div className="shrink-0 font-bold text-amber-800 mb-2 md:mb-0 w-32 uppercase tracking-wide text-xs">Field Note</div>
+                      <div className="text-stone-700 leading-relaxed text-xs">
+                        <strong>為何是「短時攤晾」？</strong><br />
+                        為了鎖住內含物質作為轉化骨架。通常分兩段：茶山竹棚初步攤晾 → 運回後二次攤晾。標準：茶梗拗折不斷。
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>降低苦澀度：</strong>促進酯型兒茶素轉化為非酯型兒茶素。
-                </li>
-                <li>
-                  <strong>發展香氣：</strong>讓低沸點的青草氣化合物揮發，並氧化形成部分香氣物質。
-                </li>
-                <li>
-                  <strong>增加鮮爽度：</strong>蛋白質水解產生更多游離氨基酸。
-                </li>
-              </ul>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 lg:col-span-2">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">FIELD NOTE</div>
-              <div className="mt-1 font-extrabold text-stone-900">為何是「短時攤晾」？</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                普洱茶之所以選擇短時攤晾，是為了「鎖住」更多的內含物質，保留足夠的糖分與多酚類作為後期轉化的「骨架」。講師分享道，這在現實中常源於必要性而分為兩個階段。茶農們可能花費數小時徒步進入原始森林，採摘整個上午。為防止鮮葉在袋中「捂到」而變質，他們會先將茶葉攤放在山中臨時搭建的竹棚平台上。這第一階段溫和的攤晾就在茶山完成。直到下午返回家中，才會進行第二次更為可控的攤晾，直至茶梗用手拗折而不斷時，才進入殺青環節。
+            {/* Step 3: Shaqing */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-colors">
+                <div className="absolute top-0 right-0 p-4 opacity-5"><Flame size={80} /></div>
+                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                  <div className="shrink-0 flex md:flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-black text-lg shadow-sm border border-rose-200 group-hover:bg-rose-500 group-hover:text-white transition-colors">03</div>
+                    <div className="text-xs font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Kill-Green</div>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    <h4 className="text-xl font-bold text-stone-900">殺青 (關鍵差異)</h4>
+                    <div className="text-sm text-stone-700 leading-relaxed border-l-2 border-rose-300 pl-4 py-1">
+                      講求 <strong>「悶抖結合」</strong> 與 <strong>「保留一定活性」</strong>。<br />
+                      與綠茶徹底鈍化酶活性有根本區別。
+                    </div>
+                    <ul className="space-y-2 text-sm text-stone-600">
+                      <li className="flex gap-2 items-start">
+                        <Thermometer size={16} className="text-rose-500 mt-0.5 shrink-0" />
+                        <span><strong>溫度控制：</strong>鍋溫雖高 (250°C)，但葉溫控制在 <strong>70-90°C</strong>。既殺青又不完全殺死酶。</span>
+                      </li>
+                      <li className="flex gap-2 items-start">
+                        <Hand size={16} className="text-stone-400 mt-0.5 shrink-0" />
+                        <span><strong>經驗之談：</strong>老師傅憑「鐵砂掌」徒手翻炒感知溫度，機器難以取代。</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 3</div>
-              <div className="mt-1 text-lg font-extrabold text-stone-900">殺青</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                普洱茶的殺青工藝極具特色，講求 <strong>「悶抖結合」</strong> 與 <strong>「保留一定活性」</strong>。這與綠茶追求高溫、快速、徹底鈍化酶活性的做法有著根本區別。
+            {/* Step 4: Rolling */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-5"><Wind size={80} /></div>
+                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                  <div className="shrink-0 flex md:flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-stone-100 text-stone-700 flex items-center justify-center font-black text-lg shadow-sm border border-stone-200">04</div>
+                    <div className="text-xs font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Rolling</div>
+                  </div>
+                  <div className="space-y-3 flex-1">
+                    <h4 className="text-xl font-bold text-stone-900">揉捻</h4>
+                    <p className="text-sm text-stone-600 leading-relaxed">
+                      破壞細胞組織，讓茶汁顯露表面。
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 text-xs">
+                      <span className="px-3 py-2 bg-stone-50 rounded border border-stone-100">
+                        <strong>目的：</strong>增加茶湯滋味與厚度。
+                      </span>
+                      <span className="px-3 py-2 bg-stone-50 rounded border border-stone-100">
+                        <strong>原則：</strong>嫩葉輕揉，老葉重揉。手工揉捻可避免過度產生澀感。
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>目的：</strong>利用高溫快速鈍化大部分酶的活性，中止發酵，同時蒸發水分，散發青草氣。
-                </li>
-                <li>
-                  <strong>溫度控制：</strong>鍋溫雖可達約250°C，但當鮮葉投入後，葉溫會控制在 <strong>70至90°C</strong>之間。這個溫度既能殺青，又不至於將酶活性完全殺死。
-                </li>
-                <li>
-                  <strong>經驗之談：</strong>經驗老到的師傅甚至能徒手在鍋中翻炒，憑藉長年累月練就的「鐵砂掌」精準感知葉片溫度，這是機器難以取代的技藝。
-                </li>
-              </ul>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 4</div>
-              <div className="mt-1 text-lg font-extrabold text-stone-900">揉捻</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                殺青後的茶葉變得柔軟，此時便進入揉捻環節。其主要目的有二：一是破壞茶葉的細胞組織，讓茶汁與富含果膠的內含物質滲出，附著於條索表面，為茶湯的滋味與厚度打下基礎；二是將葉片塑造成緊實的條索狀。
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>原則：</strong>遵循「嫩葉輕揉，老葉重揉」的原則，精準控制力道與時間。
-                </li>
-                <li>
-                  <strong>工藝：</strong>高品質的古樹茶多採用手工揉捻，以便師傅能更精確地感知茶汁滲出的程度，避免過度揉捻產生澀感。
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 lg:col-span-2">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 5</div>
-              <div className="mt-1 text-lg font-extrabold text-stone-900">曬青</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                這是普洱茶製作中 <strong>「非常關鍵的一個步驟」</strong>，也是其區別於烘青、炒青綠茶的核心所在。揉捻後的茶葉會被均勻攤開，在日光下自然曬乾。
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>優勢：</strong>日光曬乾能最大程度保留茶葉中的活性物質與有機質。同時，曬青毛茶的細胞孔隙較大，有利於其在後期轉化過程中散發熱量。
-                </li>
-                <li>
-                  <strong>核心禁忌：</strong>普洱茶 <strong>絕對不能進入烘房烘乾</strong>。一旦經過高溫烘焙，其活性將喪失殆盡，後期轉化的潛力也隨之消失，僅僅成為一款「曬乾的綠茶」。
-                </li>
-              </ul>
-              <div className="mt-4 text-sm text-stone-700 leading-relaxed">
-                完成這五大步驟後，得到的便是「曬青毛茶」。至此，初製階段宣告完成，而這也正是普洱生茶與熟茶即將分道揚鑣的岔路口。
+            {/* Step 5: Sun Drying */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="bg-white rounded-2xl p-6 border border-amber-200 border-l-4 border-l-amber-500 shadow-md relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10"><Sun size={80} className="text-amber-500" /></div>
+                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                  <div className="shrink-0 flex md:flex-col items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-lg shadow-sm">05</div>
+                    <div className="text-xs font-bold text-amber-500 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Sun Dry</div>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    <h4 className="text-xl font-bold text-stone-900 flex items-center gap-2">曬青 <span className="text-xs text-amber-600 font-normal px-2 py-0.5 bg-amber-100 rounded-full">核心靈魂</span></h4>
+                    <p className="text-sm text-stone-700 leading-relaxed">
+                      普洱茶區別於綠茶(烘/炒)的關鍵。日光自然乾燥。
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-xs">
+                        <strong className="text-emerald-800 flex items-center gap-1 mb-1"><CheckCircle2 size={12} /> 優勢</strong>
+                        保留活性物質與有機質。細胞孔隙大，利於後期散熱轉化。
+                      </div>
+                      <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-xs text-stone-600">
+                        <strong className="text-red-800 flex items-center gap-1 mb-1"><AlertTriangle size={12} /> 核心禁忌</strong>
+                        <strong>絕不可進烘房！</strong>高溫烘焙會殺死活性，淪為「曬乾的綠茶」，失去陳化潛力。
+                      </div>
+                    </div>
+                    <div className="text-xs text-stone-400 italic text-right mt-1">
+                      → 至此完成「曬青毛茶」(生/熟茶的分岔口)。
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>緊壓與成型工序</Subheading>
+        {/* Section 2: Shape & Package */}
+        <div className="rounded-3xl bg-stone-800 p-8 text-stone-300">
+          <Subheading className="text-white">緊壓與成型工序</Subheading>
+          <p className="text-sm mb-8 opacity-80">曬青毛茶可直接飲用，但壓製成餅更利於運輸與陳化。</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
+              <Scale size={20} className="text-amber-400 mb-3" />
+              <h5 className="font-bold text-white mb-2">稱重</h5>
+              <p className="text-xs leading-relaxed opacity-90">
+                經典 <strong>357g</strong> (七餅=2.5kg，便於馬幫計算)。現亦有200g、龍珠等。
+              </p>
+            </div>
+            <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
+              <Disc size={20} className="text-amber-400 mb-3" />
+              <h5 className="font-bold text-white mb-2">壓製</h5>
+              <p className="text-xs leading-relaxed opacity-90">
+                蒸汽蒸軟 → 入模具 → 石磨(傳統)或機器壓製。鬆緊適度為佳。
+              </p>
+            </div>
+            <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
+              <Wind size={20} className="text-amber-400 mb-3" />
+              <h5 className="font-bold text-white mb-2">晾乾</h5>
+              <p className="text-xs leading-relaxed opacity-90">
+                自然陰乾。國標含水量 <strong>&lt;13%</strong> 防霉。不可過低(&lt;5%)否則失活性。
+              </p>
+            </div>
+            <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
+              <Gift size={20} className="text-amber-400 mb-3" />
+              <h5 className="font-bold text-white mb-2">包裝</h5>
+              <p className="text-xs leading-relaxed opacity-90">
+                白棉紙 + <strong>天然筍殼</strong>。防潮、透過性好，營造微環境 (雖易蟲蛀但仍為首選)。
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Section 3: Aging Potential (Color Path) */}
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 space-y-6">
+          <Subheading>生茶的陳化潛力與轉變 (後發酵)</Subheading>
           <p className="text-sm text-stone-700 leading-relaxed">
-            曬青毛茶既可以直接以散茶形式品飲，也可經過緊壓、乾燥與包裝，成為我們更為熟悉的普洱茶餅、磚或沱。
+            普洱生茶的魅力在於時間賦予的變化。以廣東倉儲為例，湯色演變路徑清晰可見：
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">稱重</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                根據規格與形狀，取相應重量的毛茶。最傳統的「七子餅」規格為 <strong>357克</strong>，其由來是因七餅為一筒，總重恰好約2.5公斤，便於古代茶馬古道的運輸與計量。當然，現代市場也出現了200克、100克甚至7克龍珠等多元化規格。
-              </div>
-            </div>
+          <div className="relative pt-6 pb-2">
+            {/* Timeline Gradient Bar */}
+            <div className="h-4 w-full rounded-full bg-gradient-to-r from-yellow-200 via-amber-500 to-rose-900 shadow-inner mb-8"></div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">壓製</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                稱重後的毛茶會被蒸汽短暫蒸軟，使其變得柔韌且富有粘性，然後迅速置入模具中進行壓製成型。傳統工藝採用石磨重壓，力度均勻，茶餅鬆緊適度；現代工廠則多使用液壓機，效率更高。除了餅茶，還有磚茶、沱茶等多種形態。
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { age: "1-2年", color: "bg-yellow-200 text-yellow-900", title: "鮮活期", desc: "淺黃/黃綠，清亮鮮活。" },
+                { age: "3-5年", color: "bg-orange-300 text-orange-900", title: "轉化期", desc: "橙紅，苦澀減弱，甜醇顯現。" },
+                { age: "5-8年", color: "bg-amber-500 text-amber-900", title: "醇和期", desc: "琥珀紅，飽滿順滑。" },
+                { age: "8-15年", color: "bg-rose-600 text-white", title: "陳香期", desc: "石榴紅，陳香初顯。" },
+                { age: "15-30年", color: "bg-rose-800 text-white", title: "陳韻期", desc: "寶石紅，晶瑩剔透，韻味悠長。" },
+                { age: "30年+", color: "bg-rose-950 text-white", title: "巔峰期", desc: "酒紅深邃，化境之美。" }
+              ].map((stage, i) => (
+                <div key={i} className="relative p-4 rounded-xl border border-stone-100 shadow-sm bg-white hover:border-amber-200 transition-colors">
+                  <div className={`absolute top-0 left-0 w-full h-1.5 ${stage.color.split(' ')[0]}`}></div>
+                  <div className="font-black text-lg text-stone-900 mb-1">{stage.age}</div>
+                  <div className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">{stage.title}</div>
+                  <p className="text-sm text-stone-600 leading-snug">{stage.desc}</p>
+                </div>
+              ))}
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">晾乾</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                壓製成型的茶餅內部仍含有較高水分，需要放置在通風的晾乾架上自然陰乾。根據國家標準，普洱茶的成品含水量必須控制在 <strong>13%以下</strong>，以防在後期儲存中發霉變質。然而，水分也不能過低，若低於 <strong>5%</strong>，茶葉活性會大幅降低，影響陳化潛力與口感潤滑度。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">包裝</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                傳統的包裝方式極具智慧。首先用食品級的白棉紙將單片茶餅包裹，再將七餅疊為一筒，用天然的 <strong>筍殼</strong> 紮緊。
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>筍殼的優點：</strong>具有良好的防潮、防異味效果，能為普洱茶的長期陳化提供一個穩定而潔淨的微環境。
-                </li>
-                <li>
-                  <strong>筍殼的缺點：</strong>天然材質容易滋生蟲蛀，這也是為何有些老茶的筍殼包裝上會看到蟲蛀的粉末。
-                </li>
-                <li>
-                  <strong>現代實踐：</strong>在包裝前，筍殼會經過日曬與火烤處理，一來去除邊緣的毛刺，二來起到一定的驅蟲作用。儘管現代出現了鋁箔、紙箱等替代包裝，但講師個人依然認為筍殼包裝是「最佳的選擇」，最能體現普洱茶的「古早味」。
-                </li>
-              </ul>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                至此，一餅普洱生茶的製作已然完成。接下來的旅程，將交由最神奇的催化劑——時間，在漫長的歲月中靜待其發生美妙的轉變。
-              </div>
+            <div className="mt-4 text-xs text-stone-500 italic text-center">
+              * 變化速度因倉儲環境（溫濕度、通風）而異。
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>生茶的陳化潛力與轉變</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            普洱生茶最大的魅力，不僅在於新茶時的鮮爽甘冽，更在於其獨一無二的「後發酵」潛力。隨著時間的推移，茶葉中的內含物質在微生物與氧化的共同作用下，會發生一系列複雜的轉化，風味與口感日趨醇和。以廣東地區倉儲的生茶為例，其湯色的演變路徑清晰地展現了這一過程：
-          </p>
-
-          <div className="museum-card museum-paper overflow-hidden">
-            <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">COLOR PATH</div>
-              <div className="mt-1 font-extrabold text-stone-900">湯色演變（廣東倉儲示例）</div>
+        {/* Chapter Summary */}
+        <div className="rounded-2xl p-6 bg-stone-900 text-stone-300 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-6 opacity-5"><Hammer size={100} /></div>
+          <div className="relative z-10 space-y-4">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="p-2 bg-stone-800 rounded-lg border border-stone-700"><CheckCircle2 className="text-emerald-500" size={20} /></div>
+              <h5 className="font-bold text-white text-lg">總結：原始工藝的智慧</h5>
             </div>
-            <div className="p-5">
-              <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>1-2年：</strong>淺黃色、黃綠色，茶湯清亮，帶有新茶的鮮活感。
-                </li>
-                <li>
-                  <strong>3-5年：</strong>逐漸轉為橙紅色，苦澀感減弱，甜醇度開始顯現。
-                </li>
-                <li>
-                  <strong>5-8年：</strong>呈現琥珀帶紅的色澤，口感趨於飽滿順滑。
-                </li>
-                <li>
-                  <strong>8-15年：</strong>變為迷人的石榴紅，陳香初顯。
-                </li>
-                <li>
-                  <strong>15-30年：</strong>湯色猶如寶石紅，晶瑩剔透，茶湯醇厚，韻味悠長。
-                </li>
-                <li>
-                  <strong>30年以上：</strong>最終呈現深邃的酒紅色，達到品飲的巔峰狀態。
-                </li>
-              </ul>
-              <div className="mt-4 text-sm text-stone-700 leading-relaxed">
-                需要強調的是，湯色的變化速度與最終呈現，會因倉儲環境的溫度、濕度與通風情況不同而存在差異。
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結：原始工藝的智慧</div>
-          <div className="text-sm leading-relaxed">
-            從 鮮葉採摘 開始，歷經 攤晾、殺青、揉捻，再到關鍵的 日光曬青，製成曬青毛茶。而後，再通過 稱重、蒸壓、晾乾 與 包裝，最終成為一餅等待時間雕琢的藝術品。
-          </div>
-          <div className="text-sm leading-relaxed">
-            不難發現，普洱生茶的製作過程，是一種人為干預相對較少的原始工藝。這正呼應了一句樸素的哲學：「頂級的食材，烹飪方式都是最簡單的。」普洱茶正是憑藉其優異的大葉種內含物質，透過最質樸的工藝保留其活性，將後續的風味塑造權交給了時間與微生物。
-          </div>
-          <div className="text-sm leading-relaxed">
-            也正因如此，普洱茶被譽為「可以喝的古董」，它越放越香，其每年的細微變化都如同孩子的成長，充滿了未知的驚喜與期待。
+            <p className="text-sm leading-relaxed opacity-90">
+              普洱茶被譽為<strong>「可以喝的古董」</strong>。其製作工藝（採摘→攤晾→殺青→揉捻→曬青）人為干預極少，旨在保留活性。
+              這呼應了樸素的哲學：「頂級的食材，烹飪方式都是最簡單的。」將風味的塑造權交給了<strong>時間</strong>與<strong>微生物</strong>。
+            </p>
           </div>
         </div>
       </div>
@@ -962,251 +1492,212 @@ const CHAPTERS = {
   '#puerh-6': {
     title: '六：普洱生茶的沖泡技巧',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>引言：喚醒茶葉靈魂的藝術</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            如果說優質的原料與精湛的工藝是普洱茶的「體」，那麼精準的沖泡則是喚醒其靈魂、充分釋放其美好風味的「用」。
-          </p>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            大家準備好自己喜愛的茶具與課程配備的生茶樣品，尋找一個安靜的角落，讓心沉靜下來，將一片片沉睡的茶葉喚醒，轉化為一杯充滿生命力的茶湯的過程。那麼，泡好一杯茶，我們首先需要關注的是什麼？答案是水——這一切美好的源頭。
-          </p>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-emerald-900 p-8 md:p-12 text-center text-emerald-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-10"><Droplets size={200} /></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-700 bg-emerald-800/50 backdrop-blur text-emerald-300 text-xs font-bold tracking-widest uppercase">
+              <Coffee size={14} /> Brewing Guide
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              喚醒茶葉靈魂的藝術
+            </h2>
+            <p className="text-emerald-200/80 text-lg leading-relaxed">
+              精準的沖泡是將「體」（原料工藝）轉化為「用」（風味體驗）的關鍵。從水開始，尋找一切美好的源頭。
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        {/* 3 Core Elements */}
+        <div className="space-y-6">
           <Subheading>沖泡的核心三要素：水、溫、比</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            水、水溫與茶水比例，是構成一杯茶湯的基礎框架，猶如建築的地基，任何一個環節的偏差都可能導致最終風味的失衡。精準掌控這三大要素，是沖泡好一杯普洱生茶的先決條件。
+          <p className="text-sm text-stone-700 leading-relaxed max-w-4xl">
+            猶如建築的地基，精準掌控這三大要素是沖泡好茶的先決條件。
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">WATER</div>
-              <div className="mt-1 font-extrabold text-stone-900">水的選擇（茶之母）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                經過多年的實踐總結，優質的礦泉水 是沖泡普洱茶的最佳選擇。理想的水應具備以下特點：
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>pH值適中：</strong>最佳範圍在 <strong>6.5至7.5</strong> 之間。過酸或過鹼的水都會影響茶湯的甜潤度。
-                </li>
-                <li>
-                  <strong>硬度適宜：</strong>水中的礦物質含量不宜過高。鈣、鎂離子含量過高的硬水，會使茶湯色澤發黑、口感粗糙，不夠細膩。
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">TEMP</div>
-              <div className="mt-1 font-extrabold text-stone-900">水溫的掌控</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                普洱茶屬於大葉種喬木，內含物質豐富，需要 足夠高的溫度 才能充分激發其深層的香氣與滋味。
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>海拔影響：</strong>水的沸點會隨海拔升高而降低。例如，在台灣平地水的沸點可達101°C，而在雲南昆明約為94°C，到了西藏則可能只有75°C。
-                </li>
-                <li>
-                  <strong>具體建議：</strong>一般情況下，沖泡普洱生茶應使用 <strong>100°C</strong> 的沸水。但對於三年內的、芽頭較多的細嫩新茶，為了避免燙傷茶葉產生澀感，可在潤茶及前幾泡時，將水溫適當降至 <strong>95°C</strong> 左右。
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">RATIO</div>
-              <div className="mt-1 font-extrabold text-stone-900">茶水比的平衡</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                茶水比，即注水量與投茶量的比例，直接決定了茶湯的濃度與口感。
-              </div>
-              <div className="mt-3 space-y-2 text-sm text-stone-700 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* WATER */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Droplet size={80} /></div>
+              <div className="relative z-10 space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-100/50 text-blue-600 flex items-center justify-center font-black text-lg border border-blue-100">pH</div>
                 <div>
-                  <strong>建議比例：</strong>
+                  <h4 className="text-lg font-bold text-stone-900">水的選擇</h4>
+                  <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">The Mother of Tea</div>
                 </div>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>
-                    <strong>1:20</strong>（如150毫升蓋碗投茶7.5克）：此比例沖泡出的茶湯滋味飽滿，層次豐富，是較為通用的黃金比例。
-                  </li>
-                  <li>
-                    <strong>1:25：</strong>此比例的茶湯會顯得更為清甜，適合喜歡淡雅口感的茶友。
+                <ul className="space-y-2 text-sm text-stone-600">
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0" /> 優選礦泉水</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-blue-500 shrink-0" /> pH: <strong>6.5 - 7.5</strong> (適中)</li>
+                  <li className="flex gap-2"><AlertCircle size={16} className="text-stone-400 shrink-0" /> 硬度勿過高 (鈣鎂高則湯黑味粗)</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* TEMP */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Thermometer size={80} /></div>
+              <div className="relative z-10 space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-rose-100/50 text-rose-600 flex items-center justify-center font-black text-lg border border-rose-100">°C</div>
+                <div>
+                  <h4 className="text-lg font-bold text-stone-900">水溫掌控</h4>
+                  <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Heat Activation</div>
+                </div>
+                <ul className="space-y-2 text-sm text-stone-600">
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-rose-500 shrink-0" /> 標準：<strong>100°C 沸水</strong> (大葉種)</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-rose-500 shrink-0" /> 嫩茶：<strong>95°C</strong> (避燙傷)</li>
+                  <li className="flex gap-2 items-start text-xs text-stone-500 bg-stone-50 p-2 rounded">
+                    <Mountain size={14} className="mt-0.5 shrink-0" />
+                    <span>海拔影響沸點 (台灣101°C / 昆明94°C / 西藏75°C)</span>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
 
-          <div className="mt-1 text-sm text-stone-700 leading-relaxed">
-            掌握了這三大基礎要素，我們還需要為它們尋找一個完美的載體——茶具。
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>器為茶之父：茶具的選擇與影響</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            茶具不僅僅是盛放茶與水的工具，其材質、器型都會直接作用於茶湯，對最終的風味呈現產生微妙而關鍵的影響。
-          </p>
-
-          <div className="museum-card museum-paper overflow-hidden">
-            <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">BOILING KETTLE</div>
-              <div className="mt-1 font-extrabold text-stone-900">煮水器的選擇</div>
-            </div>
-            <div className="overflow-x-auto bg-white">
-              <table className="min-w-full text-sm text-stone-700">
-                <thead className="bg-stone-50">
-                  <tr className="text-left">
-                    <th className="px-5 py-3 font-extrabold text-stone-900">材質</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">效果評估</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">適用建議</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">注意事項</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-200">
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">不銹鋼</td>
-                    <td className="px-5 py-4">公正，不加分不減分</td>
-                    <td className="px-5 py-4">通用選擇，穩定可靠</td>
-                    <td className="px-5 py-4">無特殊影響</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">陶壺（紫砂/紫陶/柴燒）</td>
-                    <td className="px-5 py-4">最佳選擇，能提升風味</td>
-                    <td className="px-5 py-4">沖泡生茶的首選</td>
-                    <td className="px-5 py-4">-</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">鐵壺</td>
-                    <td className="px-5 py-4">適合老茶與熟茶，能提升湯感厚度</td>
-                    <td className="px-5 py-4">不建議用於新製生茶，可能掩蓋其鮮活感</td>
-                    <td className="px-5 py-4">需注意保養，避免鏽味影響水質</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">銀壺</td>
-                    <td className="px-5 py-4">軟化水質，但可能削弱茶的風骨</td>
-                    <td className="px-5 py-4">建議用於熟茶，能使其更甜潤順滑</td>
-                    <td className="px-5 py-4">泡出的生茶可能缺乏勁道與骨架感</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">玻璃壺</td>
-                    <td className="px-5 py-4">不建議使用</td>
-                    <td className="px-5 py-4">-</td>
-                    <td className="px-5 py-4">會降低茶湯的圓潤度與飽滿度</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">主泡器（新茶：五年內）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                首選 <strong>白瓷蓋碗</strong>。白瓷材質中正平和，不吸香不吸味，能均衡地展現新生茶的香氣、滋味與湯色。器型上，建議選擇 <strong>敞口、肚圓</strong> 的款式，既方便投茶，也利於茶葉在水中充分舒展。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">主泡器（老茶：五年以上）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                可選用透氣性佳的 <strong>紫砂壺、紫陶壺</strong> 等。壺的選擇標準為 <strong>口闊</strong>（方便投茶）、<strong>腹圓</strong>（利於舒展）、<strong>直流</strong>（出水順暢）。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">公杯的選擇</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                公杯，又稱茶海，用於勻和茶湯、沉澱茶末。雖然玻璃公杯便於觀賞湯色，但它會略微降低茶湯的細膩度與飽滿度。若以品飲體驗為優先，自飲時建議選用 <strong>銀、紫砂或紫陶公杯</strong>，更能保持茶湯的優良質感。
+            {/* RATIO */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Scale size={80} /></div>
+              <div className="relative z-10 space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-amber-100/50 text-amber-600 flex items-center justify-center font-black text-lg border border-amber-100">1:20</div>
+                <div>
+                  <h4 className="text-lg font-bold text-stone-900">茶水比例</h4>
+                  <div className="text-xs font-bold text-stone-400 uppercase tracking-widest">Balance</div>
+                </div>
+                <ul className="space-y-2 text-sm text-stone-600">
+                  <li className="flex gap-2"><Star size={16} className="text-amber-500 shrink-0" /> <strong>1:20</strong> (黃金比)</li>
+                  <li className="pl-6 text-xs text-stone-500">例：150ml蓋碗投茶7.5g (滋味飽滿)</li>
+                  <li className="flex gap-2 border-t border-dashed border-stone-200 pt-2"><Users size={16} className="text-stone-400 shrink-0" /> <strong>1:25</strong> (清甜/淡雅)</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
+        {/* Teaware Comparison */}
+        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 md:p-8 space-y-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+              <Subheading>器為茶之父：茶具選擇</Subheading>
+              <p className="text-sm text-stone-600 mt-2">材質直接作用於茶湯風味。</p>
+            </div>
+          </div>
+
+          {/* Boiling Kettle Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { name: "不銹鋼", tag: "公正", icon: <Pipette size={18} />, pros: "不加分不減分", cons: "通用穩定", color: "bg-stone-200 text-stone-700" },
+              { name: "陶壺", tag: "首選", icon: <Coffee size={18} />, pros: "提升風味 (最佳)", cons: "沖泡生茶首選", color: "bg-amber-200 text-amber-900" },
+              { name: "鐵壺", tag: "老茶", icon: <Hammer size={18} />, pros: "提升厚度", cons: "不宜新茶(掩蓋鮮活)", color: "bg-stone-800 text-stone-300" },
+              { name: "銀壺", tag: "熟茶", icon: <Gem size={18} />, pros: "軟化水質(甜潤)", cons: "削弱生茶風骨", color: "bg-indigo-100 text-indigo-700" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-4 rounded-xl border border-stone-200 hover:shadow-md transition-shadow">
+                <div className={`inline-flex items-center gap-2 px-2 py-1 rounded mb-3 text-xs font-bold ${item.color}`}>
+                  {item.icon} {item.tag}
+                </div>
+                <h5 className="font-bold text-stone-900 mb-2">{item.name}</h5>
+                <div className="text-xs space-y-1">
+                  <div className="text-emerald-700 flex gap-1"><PlusCircle size={12} className="mt-0.5" /> {item.pros}</div>
+                  <div className="text-rose-700 flex gap-1"><MinusCircle size={12} className="mt-0.5" /> {item.cons}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Brewing Vessel Recommendation */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div className="p-4 bg-white rounded-xl border border-stone-200 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center shrink-0">🍵</div>
+              <div>
+                <strong className="block text-stone-900 mb-1">主泡器 (新茶 &lt;5年)</strong>
+                <p className="text-xs text-stone-600 leading-relaxed">首選<strong>白瓷蓋碗</strong> (敞口/肚圓)。不吸味，展現真香。</p>
+              </div>
+            </div>
+            <div className="p-4 bg-white rounded-xl border border-stone-200 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center shrink-0">🫖</div>
+              <div>
+                <strong className="block text-stone-900 mb-1">主泡器 (老茶 &gt;5年)</strong>
+                <p className="text-xs text-stone-600 leading-relaxed"><strong>紫砂/紫陶壺</strong>。口闊、腹圓、直流。透氣性佳。</p>
+              </div>
+            </div>
+            <div className="p-4 bg-white rounded-xl border border-stone-200 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center shrink-0">🌊</div>
+              <div>
+                <strong className="block text-stone-900 mb-1">公道杯</strong>
+                <p className="text-xs text-stone-600 leading-relaxed">自飲推薦<strong>銀/紫砂/紫陶</strong> (保質感)。玻璃雖美但略降細膩度。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 7-Step Brewing Guide */}
+        <div className="space-y-6">
           <Subheading>實戰演練：沖泡七步驟詳解</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            理論準備就緒，接下來讓我們進入實戰環節。一套標準化且充滿細節的沖泡流程，是穩定出品一杯好茶的保證。
-          </p>
+          <div className="relative border-l-2 border-stone-200 ml-4 space-y-8 pl-8 py-2">
 
-          <ol className="space-y-4">
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 1</div>
-              <div className="mt-1 font-extrabold text-stone-900">備器</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                將自己喜愛的茶具佈置在茶席上。擺放時不僅要考慮美觀，更要符合人體工學，確保每一個器物都順手、易取。核心是讓自己處於一個放鬆、靜心的狀態，因為泡茶者安穩的心境，會自然地傳遞給茶湯。
-              </div>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 2</div>
-              <div className="mt-1 font-extrabold text-stone-900">取茶與解茶</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                初學者可使用電子秤，確保茶水比的精準。解茶時，應順著茶餅的紋理，用茶針 輕輕扭動、分層剝下，盡量保持條索的完整。切忌直接掰斷，以免產生過多碎末，導致茶湯苦澀。
-              </div>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 3</div>
-              <div className="mt-1 font-extrabold text-stone-900">溫器</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                用沸水將主泡器與公杯、品茗杯充分溫熱，務必做到 「溫熱溫透」，連蓋碗的蓋子也要淋到。這不僅是為了清潔，更是為了提高器具溫度，為接下來的醒茶做好準備。
-              </div>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 4</div>
-              <div className="mt-1 font-extrabold text-stone-900">投茶與潤茶（醒茶）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                潤茶，或稱醒茶，是喚醒沉睡茶葉的關鍵一步，分為乾濕兩個階段：
-              </div>
-              <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>乾潤（乾醒）：</strong>趁蓋碗極熱時，迅速將茶葉投入，立即蓋上蓋子。利用蓋碗內的蒸騰熱氣，讓茶葉的香氣初步甦醒。此時可開蓋聞香，講師提醒：「這個時候我們可以稍微的聞一下。它非常的香...可以判斷一款茶它的味道乾不乾淨。」
-                </li>
-                <li>
-                  <strong>濕潤：</strong>沿蓋碗邊緣環繞注水，讓所有茶葉均勻接觸水分。潤茶一次即可，時間約5-10秒。出湯時動作要穩，務必 將潤茶水瀝乾，但切忌來回抖動蓋碗，以免影響後續茶湯的細膩度。潤茶水瀝乾後，同樣要將蓋子打開，讓茶葉短暫「呼吸」一下，散去水汽，這有助於更好地喚醒香氣。講師在示範中聞香讚道：「好香啊。然後花香特別的馥郁。」
-                </li>
-              </ul>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 5</div>
-              <div className="mt-1 font-extrabold text-stone-900">正式沖泡</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                普洱生茶的注水手法，可總結為 「高溫、提香、壓韻」 的心法。
-              </div>
-              <div className="mt-3 rounded-2xl border border-stone-200 bg-white p-4">
-                <div className="font-extrabold text-stone-900">手法拆解</div>
-                <ol className="mt-3 list-decimal pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                  <li>將蓋碗想像成一個時鐘，在 5點鐘或7點鐘方向（取決於左右手習慣）定點注水。</li>
-                  <li>水線要 細，沿著蓋碗內壁注入，避免直衝茶葉中心。</li>
-                  <li>
-                    注水時，將水線從低處 緩慢拉高約10公分，再輕輕下壓。這個提拉的動作，能有效激發茶葉的香氣，並將韻味壓入茶湯之中。
-                  </li>
-                </ol>
-              </div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                <strong>時間控制：</strong>注水時間約10秒，浸泡時間則根據茶葉的緊壓程度與沖泡次數，在10-20秒之間靈活調整。每泡出湯時，務必瀝乾淨，為下一泡做好準備。
-              </div>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 6</div>
-              <div className="mt-1 font-extrabold text-stone-900">開蓋呼吸</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                每一泡沖泡完畢、出湯之後，都要將蓋碗的蓋子打開，放在一旁，讓高溫下的葉底有機會接觸空氣、「呼吸」散熱，避免因長時間悶泡而產生熟味。
-              </div>
-            </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP 7</div>
-              <div className="mt-1 font-extrabold text-stone-900">分湯與品飲</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                在分湯前，才將品茗杯中的溫杯水倒掉，以保持杯子的溫度。分湯至七分滿即可，寓意「茶倒七分滿，留下三分是人情」。茶湯的最佳品飲溫度約為50°C。同時，為保持風味的連續性，每泡之間的沖泡間隔不宜超過三分鐘。尤其是前幾泡，應專注品飲，才能完整捕捉到一杯好茶最精彩的變化。講師笑言：「每次上課一個人喝茶，我都覺得特別浪費，應該要找一個人來跟我分享。」這也提醒我們，好茶當與好友共享。
-              </div>
-            </li>
-          </ol>
-        </div>
+            {/* Step 1 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">1</div>
+              <h5 className="font-bold text-stone-900 text-lg">備器</h5>
+              <p className="text-sm text-stone-600 mt-1">佈置茶席，符合人體工學。核心：<strong>靜心</strong>。</p>
+            </div>
 
-        <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結：專注品飲的價值</div>
-          <div className="text-sm leading-relaxed">
-            普洱生茶的沖泡流程，從基礎的 水、溫、比 三要素，到 器為茶之父 的茶具選擇，再到實戰演練的 七大步驟。
-          </div>
-          <div className="text-sm leading-relaxed">
-            核心要點：潤茶時的「乾潤」與「濕潤」兩段式喚醒，以及正式沖泡時獨特的「高溫提香壓韻」注水手法。理論的學習最終需要通過雙手的實踐來印證。親自動手，反覆練習，感受茶湯在細節變化中的響應。
+            {/* Step 2 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">2</div>
+              <h5 className="font-bold text-stone-900 text-lg">取茶與解茶</h5>
+              <p className="text-sm text-stone-600 mt-1">使用電子秤。順紋理用茶針分層剝下。<strong>切忌掰斷</strong> (防碎末苦澀)。</p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">3</div>
+              <h5 className="font-bold text-stone-900 text-lg">溫器</h5>
+              <p className="text-sm text-stone-600 mt-1">沸水淋透主泡器、公杯、杯子 (含蓋)。提高溫度助醒茶。</p>
+            </div>
+
+            {/* Step 4: Waking Tea */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">4</div>
+              <h5 className="font-bold text-stone-900 text-lg">投茶與潤茶 (醒茶)</h5>
+              <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="p-3 bg-stone-100 rounded-lg text-xs">
+                  <strong className="block text-stone-900 mb-1">乾潤 (乾醒)</strong>
+                  趁熱投茶加蓋。利用餘熱甦醒香氣。<br /><span className="italic text-stone-500">此時聞香判斷味道是否乾淨。</span>
+                </div>
+                <div className="p-3 bg-stone-100 rounded-lg text-xs">
+                  <strong className="block text-stone-900 mb-1">濕潤</strong>
+                  環繞注水，5-10秒瀝乾。<strong>忌抖動蓋碗</strong>。開蓋呼吸散水氣。<br /><span className="italic text-stone-500">此時花香馥郁。</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 5: Brewing (Core) */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">5</div>
+              <h5 className="font-bold text-stone-900 text-lg">正式沖泡 (高溫、提香、壓韻)</h5>
+              <div className="mt-3 bg-stone-50 p-4 rounded-xl border border-stone-200">
+                <ul className="space-y-2 text-sm text-stone-700 list-disc pl-5">
+                  <li><strong>定點注水：</strong>5點或7點方向。</li>
+                  <li><strong>這線細：</strong>沿內壁注入，避開中心。</li>
+                  <li><strong>提拉手法：</strong>從低處緩慢拉高10cm再下壓。<strong>激發香氣，壓入茶韻。</strong></li>
+                  <li><strong>時間：</strong>注水約10秒，浸泡10-20秒 (隨次數調整)。</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Step 6 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">6</div>
+              <h5 className="font-bold text-stone-900 text-lg">開蓋呼吸</h5>
+              <p className="text-sm text-stone-600 mt-1">每泡出湯後<strong>開蓋散熱</strong>。避免悶出熟味。</p>
+            </div>
+
+            {/* Step 7 */}
+            <div className="relative">
+              <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">7</div>
+              <h5 className="font-bold text-stone-900 text-lg">分湯與品飲</h5>
+              <p className="text-sm text-stone-600 mt-1">低斟分茶 (留香)。品飲時「吸氣啜飲」，讓茶湯霧化充滿口腔。</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1215,185 +1706,191 @@ const CHAPTERS = {
   '#puerh-7': {
     title: '七：普洱熟茶的工藝與歷史',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>引言：時間的魔法與人工的智慧</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            普洱熟茶的世界。相較於生茶的鮮爽與勁道，熟茶以其溫潤醇和、對腸胃刺激性低的特點，成為了許多人接觸普洱茶的入門之選。
-          </p>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            熟茶是如何通過一種被稱為「渥堆發酵」的人工智慧，在短短幾十天內模擬出自然陳化數十年的效果，並追溯這項獨特工藝的發展歷史。
-          </p>
-        </div>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-amber-950 p-8 md:p-12 text-center text-amber-50 relative overflow-hidden group">
+          <img
+            src="/images/puerh_ripe_soup.png"
+            alt="Ripe Pu-erh Tea Soup"
+            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-1000 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>熟茶的感官特徵與審美</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            普洱熟茶的審美體系與生茶截然不同。如果說品鑑生茶追求的是香氣、回甘、喉韻與變幻，那麼優質熟茶的核心魅力則在於其無與倫比的 <strong>湯感</strong>。
-          </p>
-
-          <div className="museum-card museum-paper overflow-hidden">
-            <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">AESTHETICS</div>
-              <div className="mt-1 font-extrabold text-stone-900">熟茶審美維度</div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/50 bg-black/40 backdrop-blur text-amber-300 text-xs font-bold tracking-widest uppercase">
+              <Hourglass size={14} /> 1973 Revolution
             </div>
-            <div className="overflow-x-auto bg-white">
-              <table className="min-w-full text-sm text-stone-700">
-                <thead className="bg-stone-50">
-                  <tr className="text-left">
-                    <th className="px-5 py-3 font-extrabold text-stone-900">審美維度</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">特徵描述</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-200">
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">外形</td>
-                    <td className="px-5 py-4">
-                      呈褐色或紅棕色，因經過渥堆發酵，條索完整度較生茶低。優質熟茶表面常顯現金黃色的茶毫。部分茶餅會採用「撒面茶」工藝，即在表面鋪撒一層等級較高的原料，以求美觀。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">風味（審美核心）</td>
-                    <td className="px-5 py-4">
-                      強調 「湯感的滑厚、甜、醇、柔」。一杯頂級的熟茶，其茶湯應如「媽媽在炭火上慢煲的濃湯」，入口絲滑，幾乎感受不到水的硬度，只有綿密柔軟的質感。閉上眼品味，那種溫潤的「米湯感」是其最高境界。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">香氣</td>
-                    <td className="px-5 py-4">
-                      具有獨特的陳香。新製的熟茶會帶有「渥堆味」，這是發酵過程的正常氣息，會隨時間陳放而散去。優質熟茶應展現出迷人的 焦糖香 與 蜜糖香，陳化若干年後，更會衍生出 樟香、陳香、棗香 等沉穩的香氣。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">湯色</td>
-                    <td className="px-5 py-4">
-                      標準的湯色為 「紅濃透亮」，呈現深紅色或琥珀色，即使色深依然晶瑩剔透。若茶湯發黑、渾濁不透光，則通常是發酵過重或工藝不佳的表現。
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-br from-amber-100 to-orange-200">
+              時間的魔法，人工的智慧
+            </h2>
+            <p className="text-amber-100/90 text-lg leading-relaxed drop-shadow-md">
+              渥堆發酵 (Wo Dui)：在短短數十天內，模擬出自然陳化數十年的醇厚口感。這是一場微生物與時間的精密舞蹈。
+            </p>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>熟茶工藝的發展歷程：五個世代的演進</Subheading>
+        {/* Section 1: Aesthetics (Soup Feel) */}
+        <div className="space-y-6">
+          <Subheading>熟茶審美：無與倫比的「湯感」</Subheading>
           <p className="text-sm text-stone-700 leading-relaxed">
-            我們今天所熟知的普洱熟茶「渥堆發酵」工藝，並非自古有之，而是經歷了數十年摸索與演進的結果，最終在1973年於雲南走向成熟。其發展大致可分為五個世代：
+            若生茶求氣韻，熟茶則求<strong>湯感</strong>。極致的熟茶應如「米湯」般溫潤。
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">GEN 1</div>
-              <div className="mt-1 font-extrabold text-stone-900">第一代（歷史源頭）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                歷史文獻中（如李拂一的《佛海茶業概論》）曾記載過一種「紅湯普洱茶」的製法，但此工藝現已失傳，與當代熟茶並無直接傳承關係。
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Flavor (Core) */}
+            <div className="md:col-span-2 relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100 overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Droplet size={100} className="text-amber-900" /></div>
+              <h4 className="flex items-center gap-2 font-bold text-amber-900 text-xl mb-3">
+                <Star className="fill-current" size={20} /> 風味核心：湯感 (Texture)
+              </h4>
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="flex-1 text-stone-700 text-sm leading-relaxed">
+                  強調 <strong>「滑、厚、甜、醇、柔」</strong>。如媽媽慢煲的濃湯，入口絲滑，無水之硬度。
+                  <br /><span className="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-xs font-bold">最高境界：米湯感</span>
+                </div>
               </div>
             </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">GEN 2</div>
-              <div className="mt-1 font-extrabold text-stone-900">第二代（南洋潑水茶）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                為滿足港澳及東南亞市場對紅湯老茶的巨大需求，廣東茶商摸索出對雲南曬青毛茶進行「潑水發酵」的方法，催熟茶葉，後由廣東省茶葉公司將此技術系統化，製作出著名的「廣雲貢餅」。
+
+            {/* Aroma */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm">
+              <h5 className="font-bold text-stone-900 mb-2 flex items-center gap-2"><Wind size={16} /> 香氣 (Aroma)</h5>
+              <p className="text-xs text-stone-600 mb-3">獨特陳香。新茶帶「渥堆味」(正常)，隨時間散去轉為焦糖/蜜糖香。</p>
+              <div className="flex flex-wrap gap-2">
+                {['焦糖香', '蜜糖香', '樟香', '棗香'].map(t => (
+                  <span key={t} className="px-2 py-1 bg-stone-100 text-stone-600 rounded text-[10px]">{t}</span>
+                ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">GEN 3 · 1973</div>
-              <div className="mt-1 font-extrabold text-stone-900">第三代（大堆發酵法）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                1973年，以吳啟英、鄒炳良等前輩為代表的雲南茶人，在借鑒廣東經驗的基礎上，結合雲南本地的氣候與環境，成功研發出穩定性與轉化率更高的「大堆發酵」技術。此法奠定了現代普洱熟茶工藝的基石。
-              </div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">GEN 4</div>
-              <div className="mt-1 font-extrabold text-stone-900">第四代（外源菌添加發酵）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                隨著科學的進步，人們對發酵過程中微生物的作用有了更深刻的理解。於是，人為篩選並添加有益菌種的發酵技術應運而生，如大益集團研發的「黑馬技術」。這種方法使得發酵過程更可控，產品質量更穩定。
+
+            {/* Color */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm">
+              <h5 className="font-bold text-stone-900 mb-2 flex items-center gap-2"><Palette size={16} /> 湯色 (Color)</h5>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-red-900 border-2 border-white shadow-sm shrink-0"></div>
+                <p className="text-xs text-stone-600">
+                  <strong>紅濃透亮</strong>。深紅/琥珀色，晶瑩剔透。<br />
+                  <span className="text-rose-500">忌：發黑渾濁 (發酵過重/工藝不佳)。</span>
+                </p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">GEN 5</div>
-            <div className="mt-1 font-extrabold text-stone-900">第五代（小堆離地發酵）</div>
-            <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-              傳統大堆發酵動輒10噸起步，高昂的原料成本與風險使其無法使用價格高昂的古樹茶。「小堆離地發酵」技術的出現（發酵量可從50至200公斤不等），完美解決了這一痛點。它不僅提升了發酵環境的潔淨度，更使得用頂級古樹原料製作高端熟茶成為可能，極大地拓展了熟茶的品質天花板。
+        {/* Section 2: History (5 Generations) */}
+        <div className="rounded-2xl bg-stone-100 p-6 md:p-8 space-y-6">
+          <Subheading>熟茶工藝演進：五個世代</Subheading>
+          <p className="text-sm text-stone-600">從偶然摸索到精準科學。1973年是現代熟茶的誕生元年。</p>
+
+          <div className="relative border-l-2 border-stone-300 ml-3 md:ml-6 space-y-8 pl-8 py-2">
+            {[
+              { gen: "1", title: "歷史源頭", desc: "古籍記載的「紅湯普洱」，技藝已失傳。", icon: <Scroll size={14} /> },
+              { gen: "2", title: "南洋潑水茶", desc: "廣東茶商為應對港澳需求，對曬青毛茶進行「潑水發酵」。廣雲貢餅的前身。", icon: <Waves size={14} /> },
+              { gen: "3", year: "1973", title: "大堆發酵 (奠基)", desc: "吳啟英、鄒炳良借鑒廣東經驗，結合雲南氣候研發「大堆發酵」。現代熟茶基石。", icon: <Flag size={14} />, highlight: true },
+              { gen: "4", title: "外源菌添加", desc: "大益「黑馬技術」。人工篩選優勢菌種，發酵更可控。", icon: <Microscope size={14} /> },
+              { gen: "5", title: "小堆離地", desc: "解決大堆需10噸原料的限制。50-200kg即可發酵，使古樹熟茶成為可能。", icon: <Box size={14} /> }
+            ].map((g, i) => (
+              <div key={i} className="relative">
+                <div className={`absolute -left-[41px] top-0 w-6 h-6 rounded-full flex items-center justify-center ring-4 ring-stone-100 ${g.highlight ? 'bg-amber-600 text-white shadow-lg scale-110' : 'bg-stone-300 text-stone-600'}`}>
+                  <span className="text-[10px] font-bold">{g.gen}</span>
+                </div>
+                {g.year && <div className="absolute -left-[90px] top-0.5 text-xs font-black text-amber-600 hidden md:block">{g.year}</div>}
+                <h5 className={`font-bold text-lg flex items-center gap-2 ${g.highlight ? 'text-amber-800' : 'text-stone-900'}`}>
+                  {g.title}
+                  {g.year && <span className="md:hidden text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">{g.year}</span>}
+                </h5>
+                <p className="text-sm text-stone-600 mt-1 leading-relaxed">{g.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 3: Wo Dui Process */}
+        <div className="space-y-6">
+          <Subheading>核心工藝：渥堆發酵 (Wo Dui)</Subheading>
+          <p className="text-sm text-stone-700 leading-relaxed max-w-4xl">
+            區別於生茶的關鍵一步。在可控溫濕度下，利用<strong>微生物、濕熱、氧化</strong>作用加速陳化。
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+              <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mb-3"><CloudRain size={20} /></div>
+              <h5 className="font-bold text-emerald-900 mb-2">1. 濕水與堆積</h5>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                曬青毛茶加水(約30-50%)，堆高70cm以上。創造濕熱環境啟動發酵。
+              </p>
+            </div>
+            <div className="p-4 bg-amber-50 rounded-xl border border-amber-100">
+              <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mb-3"><Thermometer size={20} /></div>
+              <h5 className="font-bold text-amber-900 mb-2">2. 溫濕度控制</h5>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                核心技術。堆溫不可&gt;64°C (防燒堆碳化)，亦不可過低。
+              </p>
+            </div>
+            <div className="p-4 bg-rose-50 rounded-xl border border-rose-100">
+              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 mb-3"><RefreshCcw size={20} /></div>
+              <h5 className="font-bold text-rose-900 mb-2">3. 翻堆 (Fan Dui)</h5>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                如炒菜般翻動。調節內外溫度/通氣，確保發酵均勻。極考驗經驗。
+              </p>
+            </div>
+            <div className="p-4 bg-purple-50 rounded-xl border border-purple-100">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-3"><Bug size={20} /></div>
+              <h5 className="font-bold text-purple-900 mb-2">4. 微生物菌群</h5>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                老廠房的牆壁是寶藏，富含億萬專有菌群，賦予獨特風味印記。
+              </p>
             </div>
           </div>
+        </div>
 
-          <div className="text-sm text-stone-700 leading-relaxed">
-            這五代技術的演進，清晰地展現了普洱熟茶工藝從依賴自然、偶然摸索，到科學化、精準可控的發展路徑。
+        {/* Section 4: Post-Process */}
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 space-y-6">
+          <Subheading>後續工序：從毛茶到成品</Subheading>
+
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4 items-start p-3 hover:bg-stone-50 rounded-lg transition-colors">
+              <div className="w-8 h-8 rounded bg-stone-100 flex items-center justify-center shrink-0 font-bold text-stone-500 text-xs">A</div>
+              <div>
+                <strong className="block text-stone-900 text-sm">乾燥與解塊</strong>
+                <div className="text-xs text-stone-600 mt-1">
+                  通風自然風乾 (含水&lt;14%)。解開黏連塊，過硬難解者即為<strong>「老茶頭」</strong>(果膠豐富/甜潤)。
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start p-3 hover:bg-stone-50 rounded-lg transition-colors">
+              <div className="w-8 h-8 rounded bg-stone-100 flex items-center justify-center shrink-0 font-bold text-stone-500 text-xs">B</div>
+              <div>
+                <strong className="block text-stone-900 text-sm">分篩與揀剔</strong>
+                <div className="text-xs text-stone-600 mt-1">分級 (1/3/5/7級)或一口料。靜電去雜 + 人工挑剔 (極耗人力)。</div>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start p-3 hover:bg-stone-50 rounded-lg transition-colors">
+              <div className="w-8 h-8 rounded bg-stone-100 flex items-center justify-center shrink-0 font-bold text-stone-500 text-xs">C</div>
+              <div>
+                <strong className="block text-stone-900 text-sm">倉儲散料 (散堆味)</strong>
+                <div className="text-xs text-stone-600 mt-1">不立即壓餅。麻袋陳放1-3年散去「渥堆味」，待陳香顯現。</div>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start p-3 bg-red-50 rounded-lg border border-red-100">
+              <div className="w-8 h-8 rounded bg-red-100 flex items-center justify-center shrink-0 font-bold text-red-600 text-xs">!</div>
+              <div>
+                <strong className="block text-red-900 text-sm">最終乾燥 (烘房) - 關鍵區別</strong>
+                <div className="text-xs text-red-800/80 mt-1">
+                  熟茶餅必須進入烘房！<strong>60°C烘烤36-72小時</strong>。因熟茶緊實，自然晾乾易內部發霉。
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>核心技術：渥堆發酵全解析</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            「渥堆發酵」是熟茶製作的靈魂，是區別於生茶的最關鍵一步。它是一個在可控環境下，利用微生物、濕熱、氧化共同作用，加速茶葉陳化的過程。
-          </p>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>渥堆原理：</strong>
-              在潔淨的發酵車間內，將曬青毛茶加水（濕水）後，堆積成一定高度（通常70公分以上）的茶堆。通過控制溫濕度，利用茶葉自身攜帶及環境中的有益微生物進行發酵。整個發酵週期通常為 4至12週。
-            </li>
-            <li>
-              <strong>發酵師傅與環境的關鍵角色：</strong>
-              渥堆發酵技術含量極高，不僅極其考驗發酵師傅的經驗，對環境的要求也同樣苛刻。溫度是成敗的關鍵：溫度過低，發酵無法啟動；溫度過高，尤其是堆心溫度超過 64°C，則會發生「燒堆」，導致茶葉碳化，茶湯發酸，失去價值。同時，老廠所擁有的「相對穩定的菌群環境」亦是無價之寶。講師指出，老廠房牆壁上看似塵土的物質，可能蘊含著上億個有益微生物，它們共同構成了一個獨特且穩定的專有微生態，賦予了茶葉難以被新廠複製的風味印記。
-            </li>
-            <li>
-              <strong>水質的影響：</strong>
-              用於「濕水」的水質直接影響熟茶的品質。如今，許多注重品質的茶廠，如大益使用其專屬的「元井」，或特地尋找優質山泉水來進行發酵，以求更純淨甘甜的口感。
-            </li>
-            <li>
-              <strong>翻堆的重要性：</strong>
-              茶堆內部和外部的溫度、濕度、氧氣接觸量都不同，為確保發酵均勻，發酵師傅需要根據堆溫的變化，定時進行「翻堆」。這個動作如同炒菜時的翻炒，是調節溫度、讓茶葉充分轉化的必要手段。
-            </li>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>從毛茶到成品的後續工序</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            渥堆發酵完成後，還需經過一系列精細的處理，才能最終成為一餅合格的普洱熟茶。
-          </p>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>乾燥：</strong>
-              發酵完成的茶葉會被攤開，並在中間「開溝」以增加通風，在室內自然風乾，使含水率降至14%以下。切記，熟茶毛料 不可烘乾或曬乾，以免破壞其風味。
-            </li>
-            <li>
-              <strong>解塊與老茶頭：</strong>
-              渥堆過程中，富含果膠和菌絲蛋白的茶葉會黏連結塊。解塊後的便是熟散茶。其中，一些黏連得特別緊實、難以解開的硬塊，便是發酵的副產物——「老茶頭」。老茶頭茶湯異常飽滿甜潤，膠質感十足，深受茶友喜愛。
-            </li>
-            <li>
-              <strong>分篩與挑揀：</strong>
-              傳統工藝會對熟散茶進行分級（如1、3、5、7級），而現代則多為「一口料」不再分級。之後會通過靜電吸附去除雜質，並進行人工挑揀，將混入的石子、穀殼、頭髮絲等雜物一一揀出，這是一道極為耗費人力的工序。
-            </li>
-            <li>
-              <strong>倉儲陳化（散茶狀態）：</strong>
-              剛發酵完的熟茶不宜立即壓餅，因為其「渥堆味」較重。通常會將熟散茶以麻袋裝好，在潔淨的倉庫中陳放 一到三年，有時甚至長達五年以上，待渥堆味散去，茶性趨於穩定，陳香、棗香等更怡人的香氣顯現後，再進行下一步。
-            </li>
-            <li>
-              <strong>蒸壓與定型：</strong>
-              陳化後的熟散茶，經過稱重、蒸汽蒸軟、壓製成型等工序，與生茶的壓餅流程類似。
-            </li>
-            <li>
-              <strong>最終乾燥（烘房）：</strong>
-              這是熟茶壓餅後 至關重要 的一步。與生茶不同，熟茶餅 一定 要進入烘房，在約 60°C 的相對低溫下，烘烤 36至72小時。這是因為熟茶餅較厚實，自然晾乾難以完全乾透，若內部殘留水分，極易在後期從內部發霉。
-            </li>
-          </ul>
-          <div className="text-sm text-stone-700 leading-relaxed">
-            經過以上所有工序，一餅品質穩定、風味醇和的普洱熟茶才算真正誕生。
-          </div>
-        </div>
-
+        {/* Summary */}
         <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結：酵素之茶的健康價值</div>
+          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結：酵素之茶</div>
           <div className="text-sm leading-relaxed">
-            普洱熟茶從濕水渥堆、翻堆乾燥，到分揀陳化、蒸壓烘乾的全過程。這是一門結合了傳統經驗與現代科學的複雜工藝。
+            普洱熟茶是一門結合傳統經驗與現代科學的工藝。它被稱為<strong>「酵素茶」</strong>，富含微生物與轉化酶。
           </div>
           <div className="text-sm leading-relaxed">
-            從健康價值的角度看，普洱熟茶堪稱一款真正的 「酵素茶」。其富含的微生物、有益菌群與多種轉化酶，對人體有諸多益處。講師建議，脾胃虛弱的現代人，不妨嘗試連續半個月每日飲用適量熟茶，可能會感受到腸胃蠕動改善、新陳代謝加快、膚色提亮等積極變化。在快節奏、高壓力的生活中，一杯溫潤的熟茶，無疑是對身心極佳的滋養。
+            講師建議：脾胃虛弱者可連續半月飲用熟茶，滋養身心，改善代謝。在快節奏生活中，這是一杯溫暖的慰藉。
           </div>
         </div>
       </div>
@@ -1402,199 +1899,192 @@ const CHAPTERS = {
   '#puerh-8': {
     title: '八：普洱熟茶的沖泡藝術',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>引言：釋放醇厚溫潤之美</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            如何通過精準的沖泡技藝，將其 「濃厚順滑」、「米湯感」 的獨特魅力完美展現出來。
-          </p>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            普洱熟茶看似溫和易泡，實則對茶師的功力是一大考驗。沖泡得當，它便是一碗溫暖心脾的瓊漿玉液；若手法不當，則可能導致滋味寡淡、湯感薄削，甚至出現令人不悅的「鎖喉感」，白白浪費了一款好茶。
-          </p>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-orange-950 p-8 md:p-12 text-center text-orange-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Coffee size={200} /></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-800 bg-orange-900/50 backdrop-blur text-orange-300 text-xs font-bold tracking-widest uppercase">
+              <ThermometerSun size={14} /> The Art of Warmth
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              釋放醇厚溫潤之美
+            </h2>
+            <p className="text-orange-200/80 text-lg leading-relaxed">
+              熟茶之美在於「湯感」。沖泡的核心是「低、緩、輕、柔」，如對待一位溫和的長者，引導出其米湯般的醇滑。
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>基礎知識：熟茶的等級劃分</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            在沖泡前，了解熟茶的等級劃分，有助於我們預判茶性，從而選擇更合適的沖泡策略。傳統國營茶廠時期，熟茶有著系統的分級方法（如1、3、5、7、9級），並對應著如「7572」等經典編號。然而，隨著市場的發展，如今多以「一口料」（即不分級的同一批原料）為主，等級概念有所弱化。
-          </p>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            市面上常見的 「宮廷級」，並非歷史上的御用概念，而是指採用特級以上的細嫩芽頭製成的熟茶，是現代市場的產物。其特點是毫香濃郁，但因用料細嫩，耐泡度相對較低。
-          </p>
-
-          <div className="museum-card museum-paper overflow-hidden">
-            <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">GRADING</div>
-              <div className="mt-1 font-extrabold text-stone-900">感官審評趨勢（特級 → 九級）</div>
-            </div>
-            <div className="overflow-x-auto bg-white">
-              <table className="min-w-full text-sm text-stone-700">
-                <thead className="bg-stone-50">
-                  <tr className="text-left">
-                    <th className="px-5 py-3 font-extrabold text-stone-900">等級</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">條索趨勢</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">香氣趨勢</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">滋味趨勢</th>
-                    <th className="px-5 py-3 font-extrabold text-stone-900">湯色趨勢</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-200">
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">特級/一級</td>
-                    <td className="px-5 py-4">緊細/緊結，紅褐顯毫</td>
-                    <td className="px-5 py-4">陳香濃郁</td>
-                    <td className="px-5 py-4">濃醇甘爽/回甘</td>
-                    <td className="px-5 py-4">紅艷明亮</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">三級/五級</td>
-                    <td className="px-5 py-4">尚緊結/緊實，褐潤帶梗</td>
-                    <td className="px-5 py-4">陳香濃厚</td>
-                    <td className="px-5 py-4">醇厚回甘</td>
-                    <td className="px-5 py-4">紅濃明亮</td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-4 font-bold text-stone-900">七級/九級</td>
-                    <td className="px-5 py-4">尚緊實/粗鬆，褐欠潤</td>
-                    <td className="px-5 py-4">陳香純正/平和</td>
-                    <td className="px-5 py-4">醇和/純正回甘</td>
-                    <td className="px-5 py-4">紅尚濃/褐紅</td>
-                  </tr>
-                </tbody>
-              </table>
+        {/* Section 1: Grading System */}
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+              <Subheading>識茶：等級與選料</Subheading>
+              <p className="text-sm text-stone-600 mt-2">了解等級有助於預判茶性與沖泡策略。</p>
             </div>
           </div>
-          <div className="text-sm text-stone-700 leading-relaxed">等級僅為參考，一杯茶最終的呈現，更依賴於沖泡者的技藝。</div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-stone-50 rounded-xl p-5 border border-stone-200">
+              <h5 className="font-bold text-stone-900 mb-3 flex items-center gap-2"><Crown size={18} className="text-amber-500" /> 宮廷級 (Gongting)</h5>
+              <p className="text-xs text-stone-600 leading-relaxed mb-3">
+                特級以上細嫩芽頭。<strong>毫香濃郁</strong>，口感細膩，但耐泡度較低。現代市場產物。
+              </p>
+              <div className="w-full h-1 bg-gradient-to-r from-amber-200 to-transparent rounded-full"></div>
+            </div>
+            <div className="bg-stone-50 rounded-xl p-5 border border-stone-200">
+              <h5 className="font-bold text-stone-900 mb-3 flex items-center gap-2"><Layers size={18} className="text-stone-500" /> 傳統分級 (1-9級)</h5>
+              <p className="text-xs text-stone-600 leading-relaxed mb-3">
+                數字越大葉片越粗老。<strong>7-9級</strong>多含梗，雖粗獷但<strong>甜度高、耐泡</strong>，陳化後棗香顯著。
+              </p>
+              <div className="w-full h-1 bg-gradient-to-r from-stone-300 to-stone-100 rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="p-4 bg-orange-50 rounded-xl border border-orange-100 flex gap-3">
+            <div className="shrink-0"><Info size={20} className="text-orange-600" /></div>
+            <div className="text-xs text-orange-900 leading-relaxed">
+              <strong>趨勢</strong>：如今多流行<strong>「一口料」</strong>(不分級)，保留原料的整體性。取茶時建議「大塊、小塊、碎茶」均勻搭配，以保證每一泡濃淡協調。
+            </div>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>沖泡前的關鍵準備</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            一杯熟茶的成敗，往往在注水之前就已決定。細緻的準備工作，是沖泡出醇厚茶湯的基礎。
+        {/* Section 2: Preparation (Waking Tea) */}
+        <div className="space-y-6">
+          <Subheading>關鍵準備：醒茶 (Waking Tea)</Subheading>
+          <p className="text-sm text-stone-700 leading-relaxed max-w-4xl">
+            熟茶沖泡成敗的關鍵往往在注水之前。解除緊壓與渥堆氣，讓茶葉「呼吸」。
           </p>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>分析茶性：</strong>
-              拿到一款茶，首先要 <strong>聞其乾茶</strong>。判斷它屬於帶有渥堆味的新茶，還是已顯現花蜜香、陳香的中期茶，亦或是散發藥香、沉香的老茶。不同的茶齡與倉儲狀態，需要不同的沖泡策略來揚長避短。
-            </li>
-            <li>
-              <strong>醒茶：</strong>
-              這是提升熟茶風味 <strong>最關鍵的動作之一</strong>。其目的是解除茶餅長期緊壓帶來的沉悶感與倉儲中的雜氣，釋放渥堆氣，讓茶葉「呼吸」。
-              <div className="mt-2 rounded-2xl border border-stone-200 bg-stone-50 p-4">
-                <div className="space-y-2">
-                  <div>
-                    <strong>◦ 理想操作：</strong>提前一個月左右，將茶餅撬散成小塊，放入紫砂罐等透氣性良好的容器中靜置。
+
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden group hover:border-amber-300 transition-colors">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity"><Wind size={80} /></div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold"><Check size={20} /></div>
+                <h5 className="font-bold text-stone-900">理想操作</h5>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                提前 <strong>1個月</strong> 撬散，放入紫砂罐。徹底散去雜味，喚醒活性。
+              </p>
+            </div>
+            <div className="flex-1 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden group hover:border-amber-300 transition-colors">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity"><Clock size={80} /></div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold"><AlertCircle size={20} /></div>
+                <h5 className="font-bold text-stone-900">應急操作</h5>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                至少提前 <strong>1-2天</strong> 撬散。讓茶葉與空氣充分接觸。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 3: Brewing Technique (Low Slow) */}
+        <div className="rounded-3xl bg-stone-900 text-stone-100 p-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Feather size={200} /></div>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <Subheading className="text-white">核心心法：低、緩、輕、柔</Subheading>
+              <p className="text-stone-300 leading-relaxed">
+                生茶求「激發」，熟茶求<strong>「引導」</strong>。
+              </p>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="bg-white/10 rounded-xl p-4 border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-colors">
+                  <div className="p-3 bg-indigo-500/20 rounded-lg text-indigo-300 shrink-0">
+                    <Waves size={24} />
                   </div>
                   <div>
-                    <strong>◦ 應急操作：</strong>即便時間不允許，也應至少提前一至兩天將當次要沖泡的量撬散，讓其與空氣充分接觸。
+                    <strong className="text-white text-lg block mb-1">1. 水流貼壁 (Wall)</strong>
+                    <p className="text-stone-400 text-sm leading-relaxed">
+                      定點注水於壺壁。避免水柱直衝茶葉，防止湯感渾濁或出現「醬油湯」。
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-colors">
+                  <div className="p-3 bg-amber-500/20 rounded-lg text-amber-300 shrink-0">
+                    <ArrowDownRight size={24} />
+                  </div>
+                  <div>
+                    <strong className="text-white text-lg block mb-1">2. 低斟緩注 (Slow)</strong>
+                    <p className="text-stone-400 text-sm leading-relaxed">
+                      壺嘴放低，細水長流。如同「太極」般柔和，引導出茶湯的膠質感。
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-colors">
+                  <div className="p-3 bg-rose-500/20 rounded-lg text-rose-300 shrink-0">
+                    <ThermometerSun size={24} />
+                  </div>
+                  <div>
+                    <strong className="text-white text-lg block mb-1">3. 高溫恆定 (Heat)</strong>
+                    <p className="text-stone-400 text-sm leading-relaxed">
+                      必須 <strong>100°C 沸水</strong>。熟茶發酵度高，唯有高溫才能激發其陳香與甜度。
+                    </p>
                   </div>
                 </div>
               </div>
-            </li>
-            <li>
-              <strong>取茶：</strong>
-              取茶時，務必做到 <strong>「大塊、小塊、碎茶」均勻搭配</strong>。這樣可以確保茶葉在沖泡過程中釋出內含物質的節奏相對協調，避免前幾泡過濃而後續迅速變淡。
-            </li>
-          </ul>
-        </div>
+            </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>沖泡要素與技法精髓</Subheading>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>用水選擇：</strong>熟茶對水的pH值寬容度比生茶更高，可接受 <strong>7.0至8.5</strong> 的弱鹼性水。但仍需避免 <strong>過硬或鹼性過強</strong> 的水，因其會讓茶湯色澤變暗、口感發澀、順滑度降低。
-            </li>
-            <li>
-              <strong>主泡器選擇：</strong>強烈建議使用 <strong>紫砂壺、紫陶壺或柴燒壺</strong>。這類陶器具有良好的保溫性和一定的透氣性，能更好地聚攏熟茶的香氣，並醇化湯感。理想的壺型為 「上下比較一致、肚子大」 的直筒形或仿古形，有利於茶葉均勻釋放。
-            </li>
-            <li>
-              <strong>茶水比：</strong>建議採用比生茶更濃郁的比例，通常為 <strong>1:15至1:20</strong>。1:15的比例能帶來非常濃厚酽滑的湯感，適合重口味的茶客。
-            </li>
-            <li>
-              <strong>潤茶：</strong>方式與生茶類似（乾潤+濕潤），但因熟茶條索更緊結，潤茶時間需稍長，約 <strong>20秒</strong>，以充分喚醒茶葉。投茶乾醒後，講師聞香讚道：「哇，好香啊。有一種糯香和稻米的香味。」
-            </li>
-            <li>
-              <strong>沖泡手法（核心技法）：</strong>這是與生茶沖泡最大的區別。生茶講求「高溫提香壓韻」，而沖泡熟茶的核心心法是 <strong>「低、緩、輕、柔」</strong>。
-              <div className="mt-2 rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-2">
-                <div>
-                  <strong>◦ 具體操作：</strong>注水點仍在5點或7點鐘方向，但水流要 <strong>緊貼壺口</strong>，低且緩慢地注入。水流粗細為「中水流」。
+            <div className="bg-stone-800/50 rounded-2xl p-6 border border-stone-700">
+              <h5 className="font-bold text-white mb-4 flex items-center gap-2"><Zap size={18} className="text-amber-500" /> 參數速查</h5>
+              <div className="space-y-4 text-sm">
+                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                  <span className="text-stone-400">器具</span>
+                  <span className="font-bold text-amber-200">紫砂壺 (首選)</span>
                 </div>
-                <div>
-                  <strong>◦ 核心理念：</strong>對待熟茶要像對待一位溫和的長者，溫柔、不打擾，輕柔地引導出其最美好、最醇厚的一面。
+                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                  <span className="text-stone-400">水溫</span>
+                  <span className="font-bold text-amber-200">100°C (沸水)</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                  <span className="text-stone-400">茶水比</span>
+                  <span className="font-bold text-amber-200">1:15 - 1:20 (更濃)</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                  <span className="text-stone-400">潤茶</span>
+                  <span className="font-bold text-amber-200">20秒 (稍長)</span>
                 </div>
               </div>
-            </li>
-            <li>
-              <strong>水溫：</strong>無論新茶、老茶，沖泡熟茶 <strong>一定</strong> 要用 <strong>100°C</strong> 的沸水。足夠的溫度是確保湯感濃醇度、避免出現「茶水分離」寡淡口感的絕對保證。
-            </li>
-            <li>
-              <strong>出湯：</strong>同樣要輕柔。為了最大限度保持茶湯的醇厚感，出湯口應盡量降低，甚至貼近公杯的杯壁緩緩注入，避免茶湯因高衝而產生衝擊，影響其一體性。
-            </li>
-          </ul>
-        </div>
-
-        <div className="museum-card museum-paper overflow-hidden">
-          <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">SIDE-BY-SIDE</div>
-            <div className="mt-1 font-extrabold text-stone-900">生茶 vs. 熟茶：沖泡核心差異</div>
-          </div>
-          <div className="overflow-x-auto bg-white">
-            <table className="min-w-full text-sm text-stone-700">
-              <thead className="bg-stone-50">
-                <tr className="text-left">
-                  <th className="px-5 py-3 font-extrabold text-stone-900">項目</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">普洱生茶沖泡</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">普洱熟茶沖泡</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-200">
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">核心手法</td>
-                  <td className="px-5 py-4">高溫、提香、壓韻（有拉高動作）</td>
-                  <td className="px-5 py-4">低、緩、輕、柔（貼近壺口）</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">建議水溫</td>
-                  <td className="px-5 py-4">95-100°C（新茶可稍降）</td>
-                  <td className="px-5 py-4">必須100°C</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">建議主泡器</td>
-                  <td className="px-5 py-4">白瓷蓋碗（尤適新茶）</td>
-                  <td className="px-5 py-4">紫砂壺/紫陶壺/柴燒壺</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">建議茶水比</td>
-                  <td className="px-5 py-4">1:20 - 1:25</td>
-                  <td className="px-5 py-4">1:15 - 1:20</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">潤茶時間</td>
-                  <td className="px-5 py-4">約5-10秒（視茶而定）</td>
-                  <td className="px-5 py-4">稍長，約20秒</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="px-5 py-4 bg-white/70 text-sm text-stone-700 leading-relaxed">
-            兩者手法的核心哲學差異顯而易見：充滿年輕活力的生普，需要「提香壓韻」這樣動態的手法去主動激發其複雜的香氣與骨架；而歷經人工陳化的熟普，則需用「低、緩、輕、柔」的態度溫柔對待，引導其深沉醇和的本質，而非驚擾。前者是一場充滿能量的對話，後者則是一次心懷敬意的聆聽。
+            </div>
           </div>
         </div>
 
+        {/* Section 4: Side-by-Side Comparison */}
+        <div className="space-y-6">
+          <Subheading>總結：生茶 vs 熟茶 沖泡差異</Subheading>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+            <div className="bg-emerald-50/50 p-8 space-y-4">
+              <h4 className="text-xl font-black text-emerald-900 flex items-center gap-2"><Leaf size={20} /> 普洱生茶</h4>
+              <div className="text-emerald-800/80 text-sm font-bold tracking-widest uppercase">Dynamic & Active</div>
+              <hr className="border-emerald-200" />
+              <ul className="space-y-3 text-sm text-stone-700">
+                <li className="flex gap-2"><ArrowUpRight size={16} className="text-emerald-600 shrink-0" /> <strong>高溫提香壓韻</strong> (拉高水線)</li>
+                <li className="flex gap-2"><Thermometer size={16} className="text-emerald-600 shrink-0" /> 95-100°C (新茶可降)</li>
+                <li className="flex gap-2"><Coffee size={16} className="text-emerald-600 shrink-0" /> 白瓷蓋碗 (爽利)</li>
+                <li className="flex gap-2"><Scale size={16} className="text-emerald-600 shrink-0" /> 1:20 - 1:25</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50/50 p-8 space-y-4 md:border-l border-t md:border-t-0 border-stone-200">
+              <h4 className="text-xl font-black text-amber-900 flex items-center gap-2"><Flame size={20} /> 普洱熟茶</h4>
+              <div className="text-amber-800/80 text-sm font-bold tracking-widest uppercase">Mellow & Deep</div>
+              <hr className="border-amber-200" />
+              <ul className="space-y-3 text-sm text-stone-700">
+                <li className="flex gap-2"><ArrowDownRight size={16} className="text-amber-600 shrink-0" /> <strong>低緩輕柔</strong> (貼壁注水)</li>
+                <li className="flex gap-2"><Thermometer size={16} className="text-amber-600 shrink-0" /> 100°C (必須沸水)</li>
+                <li className="flex gap-2"><Coffee size={16} className="text-amber-600 shrink-0" /> 紫砂壺 (聚熱醇化)</li>
+                <li className="flex gap-2"><Scale size={16} className="text-amber-600 shrink-0" /> 1:15 - 1:20 (濃郁)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Closing */}
         <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結與回顧</div>
+          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">最終境界</div>
           <div className="text-sm leading-relaxed">
-            沖泡普洱熟茶從準備到完成的過程。追求的審美標準是 「濃厚、醇滑、甜潤」 的極致湯感。
-          </div>
-          <div className="text-sm leading-relaxed">為此，幾個關鍵要點需要反覆練習與體會：</div>
-          <ol className="list-decimal pl-5 space-y-2 text-sm leading-relaxed">
-            <li>沖泡前的醒茶 是必不可少的步驟。</li>
-            <li>取茶時的均勻性 決定了茶湯的穩定度。</li>
-            <li>100°C的恆定高溫 是醇厚湯感的保證。</li>
-            <li>「低、緩、輕、柔」的注水心法 是釋放熟茶溫潤之美的靈魂。</li>
-          </ol>
-          <div className="text-sm leading-relaxed">
-            閉上眼，想像一杯優質的熟茶在您的溫柔沖泡下，呈現出紅濃透亮的湯色，入口甜潤，帶有迷人的花果香，滑過喉嚨時是那般溫暖飽滿，彷彿兒時記憶中的米湯……這便是熟茶沖泡藝術的魅力所在。
+            閉上眼，想像茶湯如兒時記憶中的<strong>米湯</strong>般滑過喉嚨。溫暖、飽滿、甜潤。這就是熟茶的極致——一份不被打擾的溫柔。
           </div>
         </div>
       </div>
@@ -1603,151 +2093,174 @@ const CHAPTERS = {
   '#puerh-9': {
     title: '九：普洱茶的香氣與感官密碼',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>課程介紹：解鎖品飲的關鍵</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            在品飲的世界裡，「香氣」與「感官」是我們體驗一杯茶靈魂的起點，也是鑑賞其品質的基石。品飲中看似主觀的嗅覺與味覺體驗，轉化為一套可分析、可解構的專業技能。
-          </p>
-        </div>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-indigo-950 p-8 md:p-12 text-center text-indigo-50 relative overflow-hidden group">
+          <img
+            src="/images/puerh_aroma_art.png"
+            alt="Abstract Tea Aroma Art"
+            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-1000 mix-blend-screen"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/90 to-purple-900/80 mix-blend-multiply"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">AROMA PATH 1</div>
-            <div className="mt-1 font-extrabold text-stone-900">鼻腔感受（Nasal Perception）</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-              指茶湯沖泡時，香氣隨著熱氣蒸騰而上，由鼻腔直接嗅聞到的氣味。這是最直接、最先接觸到的香氣層次。
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-400/30 bg-indigo-900/60 backdrop-blur text-indigo-200 text-xs font-bold tracking-widest uppercase shadow-lg">
+              <Fingerprint size={14} /> Sensory Code
             </div>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">AROMA PATH 2</div>
-            <div className="mt-1 font-extrabold text-stone-900">口腔感受（Oral Perception）</div>
-            <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-              指茶湯入喉後，部分帶有香氣的水氣從口腔後部上行至鼻腔，形成所謂的「口齒留香」或「水含香」。這是一種更深層、更持久的香氣體驗。
-            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight text-white drop-shadow-lg">
+              解鎖品飲的靈魂密碼
+            </h2>
+            <p className="text-indigo-100/90 text-lg leading-relaxed drop-shadow-md">
+              品飲並非玄學。從鼻腔到口腔，從品種香到地域味，這是一場可被解構的感官旅程。
+            </p>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>普洱茶香氣的四大維度</Subheading>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DIMENSION 1</div>
-              <div className="mt-1 font-extrabold text-stone-900">品種香（Variety Aroma）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                品種香是茶樹與生俱來的天賦，是其基因中固有的香氣特徵，而非後天加工所賦予。雲南大葉種普洱茶家族龐大，不同樹種皆有其獨特的香氣標記。例如，布朗山的老曼峨地區同時存在苦茶種與甜茶種，兩種茶樹雖然生長環境相近，但其鮮葉製成的茶，所呈現的香氣卻截然不同，這便是最典型的品種香差異。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DIMENSION 2</div>
-              <div className="mt-1 font-extrabold text-stone-900">地域香（Regional Aroma）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                地域香，或稱「山頭味」，是特定地理環境賦予茶葉的、不可複製的獨特屬性。陽光、氣溫、降雨、土壤乃至茶園朝向等因素，共同塑造了每個產區的標誌性香氣。例如，同屬布朗山大葉種，相距僅十數公里的老班章與老曼峨，其茶品香型卻風格迥異。這種由風土（Terroir）決定的獨特風味，正是近年來山頭茶備受追捧的核心價值所在。
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DIMENSION 3</div>
-              <div className="mt-1 font-extrabold text-stone-900">季節香（Seasonal Aroma）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                普洱茶的採摘主要集中在春秋兩季，不同季節的氣候條件造就了風格迥然的香氣特點。
-              </div>
-              <div className="mt-4 space-y-3 text-sm text-stone-700 leading-relaxed">
-                <div className="rounded-2xl border border-stone-200 bg-white p-4">
-                  <div className="font-extrabold text-stone-900">春茶（Spring Tea）</div>
-                  <div className="mt-2">
-                    經過整個冬季的休養生息，春茶積累了極其豐富的內含物質。其香氣表現為馥郁、高揚，帶有鮮爽的清香與濃郁的毫香，充滿了春天的生命力。將春茶鮮葉置於攤晾室中，其散發的天然花香甚至勝過任何昂貴的香水。
-                  </div>
-                </div>
-                <div className="rounded-2xl border border-stone-200 bg-white p-4">
-                  <div className="font-extrabold text-stone-900">秋茶（Autumn Tea）</div>
-                  <div className="mt-2">
-                    業界素有「春水秋香」之說。秋季氣候乾燥，有利於香氣物質的保留與凝聚。秋茶（又稱谷花茶）的香氣以顯著的花蜜香為特徵，風格上比春茶更為溫柔、甜潤，刺激性較低。若論日常品飲，秋茶性價比極高（價格約為春茶一半）；但若論長期陳放轉化的潛力，則內含物質更豐富的春茶依然是首選。
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DIMENSION 4</div>
-              <div className="mt-1 font-extrabold text-stone-900">工藝香（Process Aroma）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                相較於極度講究製程發香的烏龍茶或紅茶，普洱茶並不刻意追求工藝香。其核心工藝的目標是最大限度地保留茶葉的天然活性，為後期轉化留下空間。普洱茶最典型且至關重要的工藝香，便是來自日光乾燥所賦予的「太陽味」。這種吸收了太陽能量的氣息，不僅是辨識傳統曬青工藝的標誌，更是普洱茶得以「越陳越香」的能量基礎。
-              </div>
+        {/* Section 1: Two Paths of Aroma */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="relative bg-white rounded-2xl p-8 border border-stone-200 overflow-hidden group hover:shadow-md transition-shadow">
+            <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity"><Wind size={100} /></div>
+            <div className="relative z-10">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">PATHWAY 1</div>
+              <h4 className="text-xl font-bold text-stone-900 mb-3">鼻腔感受 (Nasal)</h4>
+              <div className="h-1 w-12 bg-indigo-500 rounded-full mb-4"></div>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                <strong>直觀香氣</strong>。茶湯熱氣蒸騰，直接由鼻腔嗅聞。最直接、第一時間的香氣衝擊。
+              </p>
             </div>
           </div>
-
-          <Callout title="總結">
-            總結而言，品種、地域、季節與工藝這四大維度，共同構建了分析普洱茶香氣的完整座標系。要真正掌握這門技藝，唯有通過大量的品飲實踐，將理論知識與感官記憶相結合，才能逐步建立起屬於自己的香氣資料庫。
-          </Callout>
+          <div className="relative bg-white rounded-2xl p-8 border border-stone-200 overflow-hidden group hover:shadow-md transition-shadow">
+            <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity"><CornerUpRight size={100} /></div>
+            <div className="relative z-10">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">PATHWAY 2</div>
+              <h4 className="text-xl font-bold text-stone-900 mb-3">口腔感受 (Oral / Retronasal)</h4>
+              <div className="h-1 w-12 bg-indigo-500 rounded-full mb-4"></div>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                <strong>口齒留香</strong>。茶湯入喉，香氣從口腔後部上行至鼻腔。更深層、持久的「水含香」。
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>普洱茶感官的五味密碼</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            普洱茶的滋味由五種基本味覺構成：酸、甜、苦、鮮、澀。理解這五種味道如何相互作用與轉化，是深入品鑑普洱茶的關鍵。
-          </p>
-
+        {/* Section 2: 4 Dimensions of Aroma */}
+        <div className="space-y-6">
+          <Subheading>建立座標系：香氣四大維度</Subheading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">SOUR</div>
-              <div className="mt-1 font-extrabold text-stone-900">酸（Sourness）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                在普洱茶的審美體系中，「酸」並非全然的負面指標，而是構成茶湯飽滿度與層次感的關鍵角色。優質的酸是平衡而愉悅的，它能促進生津（Saliva Production），並且是形成梅子香、棗香等迷人果韻的基礎。我們需要區分「好的酸」與「壞的酸」：前者使茶湯更立體、更深邃；後者則表現為發酵不當的熟茶所產生的「餿酸味」，令人不悅。
+            <div className="p-5 bg-white rounded-xl border border-stone-200 shadow-sm hover:border-emerald-300 transition-colors">
+              <div className="flex items-center justify-between mb-3">
+                <div className="bg-emerald-100/50 p-2 rounded-lg text-emerald-700"><Microscope size={20} /></div>
+                <div className="text-xs font-extrabold text-stone-300 uppercase tracking-widest">GENES</div>
+              </div>
+              <strong className="text-lg text-stone-900 block mb-2">品種香 (Variety)</strong>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                天賦基因。如布朗山「苦茶種」與「甜茶種」的本質差異。
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-xl border border-stone-200 shadow-sm hover:border-amber-300 transition-colors">
+              <div className="flex items-center justify-between mb-3">
+                <div className="bg-amber-100/50 p-2 rounded-lg text-amber-700"><Mountain size={20} /></div>
+                <div className="text-xs font-extrabold text-stone-300 uppercase tracking-widest">TERROIR</div>
+              </div>
+              <strong className="text-lg text-stone-900 block mb-2">地域香 (Terroir / 山頭氣)</strong>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                不可複製的風土。老班章與老曼峨相距十里，風味迥異。
+              </p>
+            </div>
+            <div className="p-5 bg-white rounded-xl border border-stone-200 shadow-sm hover:border-indigo-300 transition-colors">
+              <div className="flex items-center justify-between mb-3">
+                <div className="bg-indigo-100/50 p-2 rounded-lg text-indigo-700"><ThermometerSun size={20} /></div>
+                <div className="text-xs font-extrabold text-stone-300 uppercase tracking-widest">SEASON</div>
+              </div>
+              <strong className="text-lg text-stone-900 block mb-2">季節香 (Seasonal)</strong>
+              <div className="space-y-2 mt-2">
+                <div className="flex gap-2 text-xs items-center btn-basic">
+                  <span className="font-bold text-indigo-700">春茶</span> 馥郁高揚，生命力強 (收藏首選)
+                </div>
+                <div className="flex gap-2 text-xs items-center btn-basic">
+                  <span className="font-bold text-amber-700">秋茶</span> 花蜜香顯，溫柔甜潤 (高CP值)
+                </div>
+              </div>
+            </div>
+            <div className="p-5 bg-white rounded-xl border border-stone-200 shadow-sm hover:border-rose-300 transition-colors">
+              <div className="flex items-center justify-between mb-3">
+                <div className="bg-rose-100/50 p-2 rounded-lg text-rose-700"><Hammer size={20} /></div>
+                <div className="text-xs font-extrabold text-stone-300 uppercase tracking-widest">PROCESS</div>
+              </div>
+              <strong className="text-lg text-stone-900 block mb-2">工藝香 (Process)</strong>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                普洱的核心是<strong>「太陽味」</strong>(日光乾燥)。保留活性，越陳越香的基礎。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 3: The 5 Tastes */}
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6">
+          <Subheading>五味密碼：酸甜苦鮮澀</Subheading>
+          <p className="text-sm text-stone-600">理解這五種味道的轉化，是深入品鑑的關鍵。</p>
+
+          <div className="space-y-4">
+            {/* Sweet */}
+            <div className="flex gap-4 p-4 rounded-xl bg-amber-50 border border-amber-100 items-start">
+              <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold"><Smile size={20} /></div>
+              <div className="space-y-2">
+                <strong className="text-amber-900 block">甜 (Sweetness) - 能量與愉悅</strong>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-amber-800/80">
+                  <span className="bg-white px-2 py-1 rounded border border-amber-100">1. 入口即甜 (直接)</span>
+                  <span className="bg-white px-2 py-1 rounded border border-amber-100">2. 回甘 (轉化)</span>
+                  <span className="bg-white px-2 py-1 rounded border border-amber-100">3. 尾水甜 (純粹)</span>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">SWEET</div>
-              <div className="mt-1 font-extrabold text-stone-900">甜（Sweetness）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                甜是能量的象徵，是品飲中最直接的愉悅感來源。普洱茶的甜味物質主要來自可溶性的單糖、雙糖以及部分氨基酸。其甜感可分為三個層次：
-              </div>
-              <ol className="mt-3 list-decimal pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-                <li>
-                  <strong>入口即甜：</strong>茶湯入口時，舌面直接感受到的甜味。
-                </li>
-                <li>
-                  <strong>回甘（Hui Gan）：</strong>茶湯嚥下後，喉嚨深處逐漸返回的甘甜感，持久而深邃。
-                </li>
-                <li>
-                  <strong>尾水甜（Wei Shui Tian）：</strong>沖泡至尾段，茶中其他滋味物質釋出殆盡，此時茶湯呈現出如同紅糖水或蜂蜜水般的純粹甜潤。
-                </li>
-              </ol>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">BITTER</div>
-              <div className="mt-1 font-extrabold text-stone-900">苦（Bitterness）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                苦，是普洱茶的「風骨」。作為雲南大葉種，其豐富的茶多酚與咖啡鹼含量，注定了它必然帶有苦感。評判苦味優劣的標準在於其轉化速度：優質的苦應「來得快，去得也快」，迅速化開並轉為甘甜（回甘）。若苦味持續停留在口腔，久久不散，則非佳品。正如一款存放十年的極苦老曼峨野生茶，其苦澀盡數褪去，轉化為令人難以置信的甘甜，這正是普洱茶「苦盡甘來」的魅力所在。
+            {/* Bitter */}
+            <div className="flex gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200 items-start">
+              <div className="w-10 h-10 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center shrink-0 font-bold"><Activity size={20} /></div>
+              <div>
+                <strong className="text-stone-900 block">苦 (Bitterness) - 普洱的風骨</strong>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                  評判標準在於<strong>轉化速度</strong>。優質苦「來快去快」，迅速化為回甘。如老曼峨十年陳茶，苦盡甘來。
+                </p>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">UMAMI</div>
-              <div className="mt-1 font-extrabold text-stone-900">鮮（Freshness/Umami）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                鮮爽感主要源於茶葉中的氨基酸，特別是含量最高的茶氨酸（Theanine）。茶氨酸不僅貢獻了甜味與鮮味，還能帶來精神上的放鬆與愉悅感。鮮爽度在春茶中表現最為明顯，隨著茶葉的陳放，這種鮮活感會逐漸減弱，轉而被更沉穩的醇厚度與陳香所取代。
+            {/* Astringent */}
+            <div className="flex gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200 items-start">
+              <div className="w-10 h-10 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center shrink-0 font-bold"><Triangle size={20} /></div>
+              <div>
+                <strong className="text-stone-900 block">澀 (Astringency) - 收斂感</strong>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                  黃金法則：<strong>「澀能生津」</strong>。好的澀感能迅速引發唾液分泌，化乾為潤。
+                </p>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 md:col-span-2">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">ASTRINGENT</div>
-              <div className="mt-1 font-extrabold text-stone-900">澀（Astringency）</div>
-              <div className="mt-3 text-sm text-stone-700 leading-relaxed">
-                澀是一種物理性的口腔感受，常被描述為「收斂感」，即口腔黏膜失去潤滑的感覺。這是因為茶湯中的多酚類物質與唾液中的蛋白質結合，導致口腔表皮產生皺縮感。由於雲南大葉種內含物質極為豐富，其澀感通常比其他茶類更為明顯。評判澀感的黃金法則是「澀能生津」。好的澀感應當能在口腔中迅速引發唾液分泌，化澀為潤，最終帶來舒適的品飲體驗。
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Sour */}
+              <div className="flex gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200 items-center">
+                <div className="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center shrink-0 font-bold"><Citrus size={16} /></div>
+                <div className="text-xs">
+                  <strong className="block text-stone-900">酸 (Sourness)</strong>
+                  <span className="text-stone-500">好酸生津(梅子香)，壞酸令人不悅(餿)。</span>
+                </div>
+              </div>
+              {/* Umami */}
+              <div className="flex gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200 items-center">
+                <div className="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center shrink-0 font-bold"><Sprout size={16} /></div>
+                <div className="text-xs">
+                  <strong className="block text-stone-900">鮮 (Umami)</strong>
+                  <span className="text-stone-500">茶氨酸貢獻。春茶最顯，隨陳化減弱。</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Summary */}
         <div className="rounded-2xl p-5 space-y-3 glass-panel">
-          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結</div>
+          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">感官總結</div>
           <div className="text-sm leading-relaxed">
-            剖析了普洱茶的香氣與感官密碼。必須建立一套專屬於普洱茶的審美體系，欣賞其獨特的苦澀基底與轉化潛力，而非套用其他茶類的標準。掌握了這些基礎，將這些分析技能應用於品鑑雲南另一種極具特色的茶品——雲南白茶。
+            唯有通過大量實踐，建立專屬於普洱的座標系，才能欣賞其獨特的苦澀轉化與越陳越香的魅力。接下來，我們將探索雲南的另一寶藏——<strong>雲南白茶</strong>。
           </div>
         </div>
       </div>
@@ -1756,152 +2269,156 @@ const CHAPTERS = {
   '#puerh-10': {
     title: '十：雲南白茶的賞析與沖泡',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>雲南白茶的崛起</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            長久以來，福建一直是白茶江湖中德高望重的長者。然而近年來，一位來自雲南的「初出茅廬的少年」——雲南古樹白茶，憑藉其獨特的魅力，一經亮相便引發了整個茶界的矚目。本課程將帶您深入探索雲南白茶的悠久淵源、源自古樹原料的獨特品質，並通過詳細的實作指導，掌握泡好一杯高香高甜的雲南白茶的精準技法。
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>雲南白茶的歷史與特色</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">
-            白茶的核心工藝在於「不炒不揉，以萎凋為中心」，是最接近自然的茶類。雲南製作白茶的歷史可謂源遠流長：
-          </p>
-          <ul className="list-disc pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>唐代《蠻書》</strong>中「茶出銀生城界諸山，散收無採造法」的記載，被推測為最原始的自然乾燥製茶法，即白茶工藝的雛形。
-            </li>
-            <li>
-              清代道光年間，景谷縣的「白龍鬚貢茶」成為稀世珍品。其工藝較為複雜，需先手工殺青、初次揉捻，待日曬至半乾時再進行二次復揉，使其帶有微發酵特徵。
-            </li>
-            <li>
-              <strong>「月光美人」</strong>的浪漫傳說，實則是一個成功的營銷故事。其真實起源是在雨季無法進行日光晾曬時，茶農將鮮葉置於室內陰乾而成。這種避光萎凋的方式，造就了其芽頭呈白、葉片呈黑的獨特外觀。
-            </li>
-          </ul>
-        </div>
-
-        <div className="museum-card museum-paper overflow-hidden">
-          <div className="px-5 py-4 border-b border-stone-200 bg-white/70">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">COMPARISON</div>
-            <div className="mt-1 font-extrabold text-stone-900">雲南古樹白茶 vs. 福建白茶</div>
-          </div>
-          <div className="overflow-x-auto bg-white">
-            <table className="min-w-full text-sm text-stone-700">
-              <thead className="bg-stone-50">
-                <tr className="text-left">
-                  <th className="px-5 py-3 font-extrabold text-stone-900">特性</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">雲南古樹白茶</th>
-                  <th className="px-5 py-3 font-extrabold text-stone-900">福建白茶</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-200">
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">原料</td>
-                  <td className="px-5 py-4">雲南大葉種古樹鮮葉，內含物質豐富。</td>
-                  <td className="px-5 py-4">福建當地小葉種茶樹。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">風味</td>
-                  <td className="px-5 py-4">高香高甜，滋味濃厚，喉韻深沉，如同北方或山中美人。</td>
-                  <td className="px-5 py-4">香氣高揚，水路細膩柔順，風格清雅，如同江南美人。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">分類</td>
-                  <td className="px-5 py-4">通常不作細分，多為一芽二葉。</td>
-                  <td className="px-5 py-4">分為白毫銀針、白牡丹、貢眉、壽眉等不同等級。</td>
-                </tr>
-                <tr>
-                  <td className="px-5 py-4 font-bold text-stone-900">轉化</td>
-                  <td className="px-5 py-4">糖苷類物質含量高，轉化速度極快，存放三年即可出現明顯的棗香、藥香。</td>
-                  <td className="px-5 py-4">轉化相對緩慢，需更長時間陳放。</td>
-                </tr>
-              </tbody>
-            </table>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-slate-900 p-8 md:p-12 text-center text-slate-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Moon size={200} /></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700 bg-slate-800/50 backdrop-blur text-slate-300 text-xs font-bold tracking-widest uppercase">
+              <Star size={14} /> Rising Star
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              月光下的古樹珍寶
+            </h2>
+            <p className="text-slate-200/80 text-lg leading-relaxed">
+              不炒不揉，自然萎凋。雲南古樹白茶，以其高香高甜、轉化迅速的獨特魅力，正成為茶界最耀眼的新星。
+            </p>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>雲南古樹白茶的四大優質特點</Subheading>
-          <ol className="list-decimal pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-            <li>
-              <strong>迷人的蜜韻：</strong>香氣濃郁持久，能夠深入茶湯，蜜香顯著。
-            </li>
-            <li>
-              <strong>優秀的回甘與持久度：</strong>回甘迅猛，生津持久，滋味飽滿。
-            </li>
-            <li>
-              <strong>香醇度持久：</strong>得益於大葉種豐富的內含物質，茶湯香氣與醇厚度能維持多泡。
-            </li>
-            <li>
-              <strong>活性高，轉化潛力大：</strong>採用低溫複式萎凋，最大限度保留了茶葉活性，為後期陳化奠定了絕佳基礎。
-            </li>
-          </ol>
-          <div className="text-sm text-stone-700 leading-relaxed">
-            了解了雲南白茶的卓越之處，接下來的關鍵便是如何通過精準的沖泡，將其魅力完全釋放。
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-          <Subheading>雲南古樹白茶沖泡實作</Subheading>
-          <p className="text-sm text-stone-700 leading-relaxed">本節將引導您完成一次完美的雲南古樹白茶沖泡體驗。</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">備器（Preparing the Teaware）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                <strong>主泡器：</strong>建議選擇開口較闊的白瓷蓋碗，便於容納白茶拋鬆碩大的條索。
+        {/* Section 1: Comparison (Yunnan vs Fujian) */}
+        <div className="space-y-6">
+          <Subheading>顛覆傳統：雲南白茶 vs 福建白茶</Subheading>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* Yunnan Card */}
+            <div className="bg-stone-50 rounded-2xl p-6 border-l-4 border-amber-500 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Sprout size={100} className="text-amber-900" /></div>
+              <h4 className="flex items-center gap-2 font-bold text-stone-900 text-xl mb-4">
+                <TreePine size={24} className="text-amber-600" /> 雲南古樹白茶
+              </h4>
+              <div className="space-y-4">
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">原料</span>
+                  <span className="text-sm font-medium text-stone-800">大葉種古樹鮮葉 (內含物質極富)。</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">風格</span>
+                  <span className="text-sm font-medium text-stone-800">高香高甜，喉韻深沉。如「北方美人」。</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">轉化</span>
+                  <span className="text-sm font-medium text-stone-800">極快。3年即現<span className="text-amber-700 font-bold">棗香/藥香</span>。</span>
+                </div>
               </div>
             </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
-              <div className="font-extrabold text-stone-900">取茶（Measuring the Tea）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                <strong>茶水比：</strong>推薦1:25的比例。白茶宜淡不宜濃，略淡的投茶量更能凸顯其清雅靈動的特質。
-              </div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 md:col-span-2">
-              <div className="font-extrabold text-stone-900">用水（Water Selection）</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                <strong>水質：</strong>理想的酸鹼度（pH值）在 <strong>7至7.5</strong> 之間，有助於激發其最佳香氣。
+
+            {/* Fujian Card */}
+            <div className="bg-white rounded-2xl p-6 border-l-4 border-stone-300 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Flower2 size={100} className="text-stone-900" /></div>
+              <h4 className="flex items-center gap-2 font-bold text-stone-900 text-xl mb-4">
+                <MapPin size={24} className="text-stone-400" /> 福建白茶 (傳統)
+              </h4>
+              <div className="space-y-4">
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">原料</span>
+                  <span className="text-sm text-stone-600">當地中小葉種茶樹。</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">風格</span>
+                  <span className="text-sm text-stone-600">秀氣清雅，水路細膩。如「江南美人」。</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="shrink-0 w-16 text-xs text-stone-500 font-bold uppercase mt-1">轉化</span>
+                  <span className="text-sm text-stone-600">相對緩慢，需更長時間陳放。</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 space-y-4">
-            <div className="text-xs font-extrabold tracking-widest text-amber-900/70">KEY TECHNIQUE</div>
-            <div className="text-lg font-extrabold text-stone-900">關鍵技法：溫潤分三步</div>
-            <div className="text-sm text-stone-700 leading-relaxed">這是泡好白茶的秘訣，旨在溫和而充分地喚醒茶葉。</div>
-            <ol className="list-decimal pl-5 space-y-3 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>第一步：乾潤（Dry Warming）</strong> 將蓋碗用沸水充分燙熱後倒乾，趁著器皿的高溫，迅速投入乾茶並蓋上蓋子。利用餘溫進行第一次「乾醒」。
-              </li>
-              <li>
-                <strong>第二步：蒸潤（Steam Moistening）</strong> 向蓋碗中注入少量熱水（約1/5滿），立即蓋上蓋子，靜置約15秒。讓升騰的蒸汽溫和地軟化茶葉的表面。
-              </li>
-              <li>
-                <strong>第三步：溫潤（Wet Rinsing）</strong> 再次注水至蓋碗約3/4滿，靜置約10秒，讓茶葉充分濕潤。隨後將此次潤茶水徹底倒棄。
-              </li>
-            </ol>
+        {/* Section 2: Key Features */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 text-center">
+            <Flower size={24} className="mx-auto text-amber-600 mb-2" />
+            <strong className="block text-stone-900 text-sm">迷人蜜韻</strong>
+            <span className="text-xs text-stone-600">香氣深入茶湯</span>
           </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 space-y-3">
-            <div className="font-extrabold text-stone-900">正式沖泡流程</div>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong>注水（Infusing）：</strong>採用「高溫提香壓韻法」。在蓋碗五點鐘方向定點低斟，水流平穩，水溫控制在90-95°C。
-              </li>
-              <li>
-                <strong>時間（Steeping Time）：</strong>第一泡約10秒，第二泡約15秒，後續可根據茶湯濃度，逐步延長至20-25秒。
-              </li>
-              <li>
-                <strong>出湯（Pouring）：</strong>每次出湯務必徹底瀝乾，避免殘留的茶湯影響下一泡的滋味。
-              </li>
-            </ul>
+          <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 text-center">
+            <Droplet size={24} className="mx-auto text-amber-600 mb-2" />
+            <strong className="block text-stone-900 text-sm">回甘持久</strong>
+            <span className="text-xs text-stone-600">迅猛而生津</span>
           </div>
+          <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 text-center">
+            <Timer size={24} className="mx-auto text-amber-600 mb-2" />
+            <strong className="block text-stone-900 text-sm">香氣耐泡</strong>
+            <span className="text-xs text-stone-600">多泡仍有餘香</span>
+          </div>
+          <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 text-center">
+            <TrendingUp size={24} className="mx-auto text-amber-600 mb-2" />
+            <strong className="block text-stone-900 text-sm">轉化潛力</strong>
+            <span className="text-xs text-stone-600">活性保留極佳</span>
+          </div>
+        </div>
 
-          <div className="text-sm text-stone-700 leading-relaxed">
-            通過這套精細的沖泡流程，特別是「溫潤三步法」，將能完美呈現雲南古樹白茶香甜、柔潤、醇厚的最佳風味，感受其獨特的山野蜜韻。
+        {/* Section 3: Brewing Technique (3-Step) */}
+        <div className="rounded-3xl bg-stone-900 text-stone-100 p-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Waves size={200} /></div>
+          <div className="relative z-10 space-y-8">
+            <div className="flex justify-between items-end border-b border-stone-700 pb-4">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">關鍵技法：溫潤三步曲</h3>
+                <p className="text-stone-400 text-sm">白茶條索疏鬆且大，需溫柔喚醒。</p>
+              </div>
+              <div className="text-right hidden md:block">
+                <div className="text-xs text-stone-500 uppercase tracking-widest">Target Temp</div>
+                <div className="text-lg font-bold text-amber-500">90-95°C</div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-full border-2 border-amber-500 text-amber-500 flex items-center justify-center font-bold text-xl">1</div>
+                <h4 className="font-bold text-lg text-white">乾潤 (Dry Warming)</h4>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  沸水燙熱蓋碗 → 倒乾水 → <strong>趁熱投茶</strong> → 蓋蓋。<br />利用餘溫進行第一次乾醒。
+                </p>
+              </div>
+              <div className="space-y-3 relative">
+                <div className="hidden md:block absolute top-6 left-[-25px] text-stone-600"><ArrowRight size={20} /></div>
+                <div className="w-12 h-12 rounded-full border-2 border-stone-500 text-stone-400 flex items-center justify-center font-bold text-xl">2</div>
+                <h4 className="font-bold text-lg text-white">蒸潤 (Steam Moistening)</h4>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  注水僅 <strong>1/5</strong> → 立即蓋蓋 → 靜置 <strong>15秒</strong>。<br />讓蒸汽軟化茶葉表面。
+                </p>
+              </div>
+              <div className="space-y-3 relative">
+                <div className="hidden md:block absolute top-6 left-[-25px] text-stone-600"><ArrowRight size={20} /></div>
+                <div className="w-12 h-12 rounded-full border-2 border-stone-500 text-stone-400 flex items-center justify-center font-bold text-xl">3</div>
+                <h4 className="font-bold text-lg text-white">溫潤 (Wet Rinsing)</h4>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  注水至 <strong>3/4</strong> → 靜置 <strong>10秒</strong> → <strong>徹底倒掉</strong>。<br />完成喚醒，準備正式沖泡。
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-stone-800 rounded-xl p-4 border border-stone-700 flex flex-col md:flex-row gap-6 items-center">
+              <div className="flex items-center gap-2 text-amber-500 font-bold shrink-0">
+                <Info size={18} /> 正式沖泡要點
+              </div>
+              <div className="flex gap-4 text-sm text-stone-300">
+                <span>• <strong>高溫提香</strong> (定點低斟)</span>
+                <span>• <strong>茶水比 1:25</strong> (宜淡)</span>
+                <span>• <strong>出湯瀝乾</strong> (忌留根)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Summary */}
+        <div className="rounded-2xl p-5 space-y-3 glass-panel">
+          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結</div>
+          <div className="text-sm leading-relaxed">
+            掌握「溫潤三步法」，便能完美釋放雲南古樹白茶的山野蜜韻。它既有普洱的醇厚，又有白茶的清雅，是值得細細品味的跨界珍品。
           </div>
         </div>
       </div>
@@ -1910,161 +2427,154 @@ const CHAPTERS = {
   '#puerh-11': {
     title: '十一：雲南紅茶的賞析與沖泡',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>課程介紹：滇紅的歷史與榮光</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            提及雲南，普洱茶的光環總是如此耀眼。然而，在這片茶葉的發源地，還誕生了另一款足以載入史冊的名茶——滇紅。它不僅是中國紅茶版圖上的璀璨明珠，更在特殊的歷史時期承載了一個國家的使命與夢想。
-          </p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="museum-card museum-paper p-5">
-            <Subheading>紅茶概論</Subheading>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              紅茶，因其乾茶、茶湯與葉底皆呈紅色而得名，屬於全發酵茶。其基本工藝流程包括萎凋、揉捻、發酵和乾燥。
-            </p>
-            <div className="mt-3 rounded-xl border border-stone-200 bg-white p-4">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">BASIC PROCESS</div>
-              <div className="mt-2 flex flex-wrap gap-2 text-sm">
-                {['萎凋', '揉捻', '發酵', '乾燥'].map((x) => (
-                  <span key={x} className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-stone-800">
-                    {x}
-                  </span>
-                ))}
-              </div>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-rose-950 p-8 md:p-12 text-center text-rose-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Flame size={200} /></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-rose-800 bg-rose-900/50 backdrop-blur text-rose-300 text-xs font-bold tracking-widest uppercase">
+              <Crown size={14} /> The Oriental Ruby
             </div>
-          </div>
-
-          <div className="museum-card museum-paper p-5">
-            <Subheading>滇紅的誕生</Subheading>
-            <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-              憑藉雲南大葉種茶樹豐富的茶多酚含量所造就的飽滿滋味，滇紅迅速崛起，成為中國四大傳統工夫紅茶之一，更曾作為國禮贈予英國伊麗莎白女王，書寫了屬於自己的光輝篇章。
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              滇紅的榮光
+            </h2>
+            <p className="text-rose-200/80 text-lg leading-relaxed">
+              1938年烽火中誕生，曾作為國禮贈予英女王。雲南大葉種的濃強鮮爽，書寫了中國紅茶的傳奇篇章。
             </p>
           </div>
         </div>
 
-        <div className="museum-card museum-paper p-6">
-          <Subheading>滇紅的誕生史詩（時間軸）</Subheading>
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
-            <table className="w-full text-sm">
-              <thead className="bg-stone-50 text-stone-700">
-                <tr>
-                  <th className="px-4 py-3 text-left font-extrabold">時間</th>
-                  <th className="px-4 py-3 text-left font-extrabold">事件</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-200 text-stone-700">
-                <tr>
-                  <td className="px-4 py-3 whitespace-nowrap font-bold text-stone-900">1938</td>
-                  <td className="px-4 py-3">
-                    抗日戰爭期間，中國沿海主要紅茶產區淪陷，出口中斷；為換取外匯支援抗戰，開發新的紅茶基地迫在眉睫。
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 whitespace-nowrap font-bold text-stone-900">1938</td>
-                  <td className="px-4 py-3">
-                    時任祁門茶葉改良場技師的馮紹裘臨危受命，來到雲南鳳慶，發現當地大葉種茶樹品質優異，當年成功試製第一批高品質紅茶，並定名為「滇紅」。
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 whitespace-nowrap font-bold text-stone-900">1939–1942</td>
-                  <td className="px-4 py-3">鳳慶與勐海兩地開始批量生產滇紅並出口；後因滇緬公路被日軍切斷，出口被迫中止。</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 whitespace-nowrap font-bold text-stone-900">1950–1990年代</td>
-                  <td className="px-4 py-3">
-                    新中國成立後，滇紅恢復出口；出口市場隨國際局勢變化，從蘇聯、東歐集團逐步轉向歐美與亞非各國，遠銷全球二十多個國家和地區。
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="museum-card museum-paper p-6">
-          <Subheading>被遺忘的珍品：雲南曬紅</Subheading>
-          <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE DIFFERENCE</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                曬紅與常規滇紅最大的區別在於最後的乾燥環節：傳統滇紅採用高溫烘焙；曬紅則完全依靠自然日曬乾燥。
+        {/* Section 1: History Timeline */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-6">
+            <Subheading>歷史豐碑：臨危受命</Subheading>
+            <div className="relative border-l-2 border-stone-200 pl-8 space-y-8 py-2">
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-rose-600 border-4 border-white shadow-sm"></div>
+                <div className="text-xs font-bold text-rose-600 mb-1">1938</div>
+                <strong className="block text-stone-900 text-lg">烽火創製</strong>
+                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
+                  抗戰期間，馮紹裘先生在鳳慶試製成功，定名「滇紅」。以出口換取外匯支援抗戰。
+                </p>
               </div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">WHY IT MATTERS</div>
-              <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-                這種低溫、緩慢的乾燥方式，最大限度地保留了茶葉的天然活性，使其在甜潤度、體感與可陳放性上呈現出與眾不同的魅力。
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-300 border-4 border-white"></div>
+                <div className="text-xs font-bold text-stone-500 mb-1">1939-1942</div>
+                <strong className="block text-stone-900 text-lg">短暫輝煌與中斷</strong>
+                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
+                  開始批量生產出口。後因滇緬公路被切斷而被迫中止。
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-stone-900 border-4 border-white"></div>
+                <div className="text-xs font-bold text-stone-500 mb-1">1950s-1980s</div>
+                <strong className="block text-stone-900 text-lg">國禮時代</strong>
+                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
+                  恢復出口，遠銷蘇聯與歐美。成為國家外事禮茶，譽滿全球。
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">UNIQUE APPEAL</div>
-            <ul className="mt-3 grid gap-2 md:grid-cols-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong className="text-stone-900">陽光的氣息：</strong>茶湯帶有日光風味，口感清甜自然。
-              </li>
-              <li>
-                <strong className="text-stone-900">茶性溫和：</strong>無傳統烘焙紅茶的「燥火感」，對腸胃更友好。
-              </li>
-              <li>
-                <strong className="text-stone-900">兼具普洱神韻：</strong>口感醇厚飽滿，同時保留類似生普的回甘。
-              </li>
-              <li>
-                <strong className="text-stone-900">可陳放收藏：</strong>保留活性，具「越陳越香」潛力，可像普洱茶一樣收藏。
-              </li>
-            </ul>
-            <Callout title="NOTE">
-              曬紅如同一座橋樑，連接了紅茶的香甜與普洱的活性，是一款被時光遺忘、如今正重新煥發光彩的茶中珍品。
-            </Callout>
+          {/* Process Visualization */}
+          <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200">
+            <Subheading>製作工藝</Subheading>
+            <div className="mt-6 flex flex-wrap gap-4 justify-center">
+              {['萎凋 (Withering)', '揉捻 (Rolling)', '發酵 (Fermenting)', '乾燥 (Drying)'].map((step, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                  <div className="w-20 h-20 rounded-2xl bg-white border border-rose-100 flex items-center justify-center text-rose-600 shadow-sm font-bold text-2xl">
+                    {i + 1}
+                  </div>
+                  <span className="text-xs font-bold text-stone-600 uppercase tracking-widest text-center w-24">{step}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 p-4 bg-white rounded-xl border border-rose-100 flex items-start gap-3">
+              <div className="shrink-0 text-rose-500"><Info size={20} /></div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                <strong>核心特徵：</strong>憑藉雲南大葉種豐富的茶多酚，發酵後的滇紅滋味<strong>濃、強、鮮</strong>，金毫顯露，湯色紅豔明亮。
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="museum-card museum-paper p-6">
-          <Subheading>雲南曬紅沖泡實作</Subheading>
+        {/* Section 2: Shai Hong (Sun-Dried) */}
+        <div className="space-y-6">
+          <Subheading>被遺忘的珍品：雲南曬紅 (Shai Hong)</Subheading>
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-100 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-12 opacity-5"><Sun size={200} className="text-amber-600" /></div>
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-2xl font-black text-amber-900 mb-4">陽光的味道</h4>
+                <p className="text-amber-900/80 leading-relaxed mb-6">
+                  與傳統烘焙紅茶不同，曬紅完全依靠<strong>自然日曬乾燥</strong>。這種古老工藝保留了茶葉活性，使其兼具紅茶的香甜與普洱的陳化潛力。
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full bg-white/50 text-amber-900 text-xs font-bold border border-amber-100">🌞 日光風味</span>
+                  <span className="px-3 py-1 rounded-full bg-white/50 text-amber-900 text-xs font-bold border border-amber-100">🌿 茶性溫和</span>
+                  <span className="px-3 py-1 rounded-full bg-white/50 text-amber-900 text-xs font-bold border border-amber-100">⏳ 越陳越香</span>
+                </div>
+              </div>
+              <div className="bg-white/60 backdrop-blur rounded-xl p-6 border border-amber-100 flex flex-col justify-center">
+                <strong className="text-amber-900 text-sm tracking-widest uppercase mb-4">Comparison</strong>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center border-b border-amber-200/50 pb-2">
+                    <span className="text-stone-600">傳統滇紅</span>
+                    <span className="font-bold text-stone-900">高溫烘焙 (提香)</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-amber-200/50 pb-2">
+                    <span className="text-stone-600">雲南曬紅</span>
+                    <span className="font-bold text-amber-700">低溫日曬 (保活)</span>
+                  </div>
+                  <div className="text-xs text-stone-500 mt-2 italic">
+                    "曬紅如同一座橋樑，連接了紅茶的香甜與普洱的活性。"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <Callout title="核心沖泡參數">
-            <ul className="list-disc pl-5 space-y-1">
-              <li>
-                <strong>主泡器：</strong>推薦使用白瓷小壺或玻璃小壺，便於觀色聞香。
-              </li>
-              <li>
-                <strong>茶水比：</strong>建議 1:25（與白茶類似），略淡沖泡更能體現其清甜口感。
-              </li>
-              <li>
-                <strong>水溫：</strong>92–95°C；若想降低澀感，可適當降溫至 90°C。
-              </li>
-            </ul>
-          </Callout>
-
-          <div className="rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">STEP BY STEP</div>
-            <ol className="mt-3 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong className="text-stone-900">1. 溫器與醒茶：</strong>
-                用沸水將茶壺徹底燙熱後倒乾；趁熱投入茶葉、蓋上壺蓋，進行「乾醒」以喚醒內在香氣。
-              </li>
-              <li>
-                <strong className="text-stone-900">2. 溫潤：</strong>
-                注入熱水，水量剛好沒過茶葉即可。若是緊壓餅茶潤茶約 10 秒；散茶約 5 秒；迅速倒掉潤茶水。
-              </li>
-              <li>
-                <strong className="text-stone-900">3. 沖泡：</strong>
-                沿壺壁五點鐘方向定點低斟，注水至八九分滿。第一泡浸泡時間約 15–20 秒。
-              </li>
-              <li>
-                <strong className="text-stone-900">4. 出湯與呼吸：</strong>
-                將茶湯平穩倒入公道杯。出湯後記得打開壺蓋散去熱氣，避免茶葉被悶壞。
-              </li>
-            </ol>
+        {/* Section 3: Brewing Guide */}
+        <div className="space-y-6">
+          <Subheading>沖泡指南：釋放紅豔果香</Subheading>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Step 1 */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 hover:border-rose-300 transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-stone-100 group-hover:bg-rose-100 text-stone-500 group-hover:text-rose-600 flex items-center justify-center font-bold mb-4 transition-colors">1</div>
+              <h5 className="font-bold text-stone-900 mb-2">溫器與醒茶</h5>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                沸水燙熱茶壺。趁熱投入茶葉，蓋蓋<strong>乾醒</strong>。喚醒內韻。
+              </p>
+            </div>
+            {/* Step 2 */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 hover:border-rose-300 transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-stone-100 group-hover:bg-rose-100 text-stone-500 group-hover:text-rose-600 flex items-center justify-center font-bold mb-4 transition-colors">2</div>
+              <h5 className="font-bold text-stone-900 mb-2">3秒溫潤</h5>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                水量沒過茶葉，<strong>快進快出</strong> (約3-5秒)。迅速倒掉潤茶水。
+              </p>
+            </div>
+            {/* Step 3 */}
+            <div className="bg-white rounded-2xl p-6 border border-stone-200 hover:border-rose-300 transition-colors group">
+              <div className="w-10 h-10 rounded-full bg-stone-100 group-hover:bg-rose-100 text-stone-500 group-hover:text-rose-600 flex items-center justify-center font-bold mb-4 transition-colors">3</div>
+              <h5 className="font-bold text-stone-900 mb-2">定點低斟</h5>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                水溫 <strong>90-95°C</strong>。沿壺壁低斟。首泡 15-20秒。出湯需瀝乾。
+              </p>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-            <div className="text-xs font-extrabold tracking-widest text-emerald-900/70">TASTE NOTE</div>
-            <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-              掌握以上要點，您便能沖泡出一杯湯色紅豔、果香馥郁、口感香甜醇滑的雲南曬紅。
-            </div>
+          <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 flex justify-between items-center text-sm">
+            <span className="text-stone-600"><strong>Tip:</strong> 若想降低澀感，水溫可降至 90°C，且投茶量不宜過多 (1:25為佳)。</span>
+          </div>
+        </div>
+
+        {/* Summary */}
+        <div className="rounded-2xl p-5 space-y-3 glass-panel">
+          <div className="text-xs font-extrabold tracking-widest glass-panel__kicker">總結</div>
+          <div className="text-sm leading-relaxed">
+            從國禮榮光到陽光滋味。滇紅以其濃強鮮爽的特性，展現了雲南大葉種在普洱之外的另一種熱烈奔放的生命力。
           </div>
         </div>
       </div>
@@ -2073,100 +2583,156 @@ const CHAPTERS = {
   '#puerh-12': {
     title: '十二：雲南少數民族特色飲茶文化',
     content: (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-          <Subheading>課程介紹：火塘邊的茶香</Subheading>
-          <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-            歡迎最終章。這一次，我們將離開精緻的茶席，踏上一段尋訪雲南茶文化根源的旅程。在雲南的崇山峻嶺中，幾乎每個少數民族的家裡都有一個永不熄滅的「火塘」。它不僅是取暖炊食的地方，更是家庭的中心、社交的場所與精神的圖騰。本課程將帶您圍坐火塘邊，探尋那些質樸、奔放且傳承千百年的飲茶傳統，並以一場生動的土法烤茶實作，為我們的學習之旅畫上一個溫暖而醇香的句點。
-          </p>
+      <div className="space-y-12">
+        {/* Intro Hero */}
+        <div className="rounded-3xl bg-orange-900 p-8 md:p-12 text-center text-orange-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Tent size={200} /></div>
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-700 bg-orange-800/50 backdrop-blur text-orange-200 text-xs font-bold tracking-widest uppercase">
+              <FlameKindling size={14} /> The Roots of Tea
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              火塘邊的茶香
+            </h2>
+            <p className="text-orange-200/80 text-lg leading-relaxed">
+              離開精緻的茶席，回到茶的最初源頭。在雲南的火塘邊，聆聽少數民族傳承千年的古老茶韻。
+            </p>
+          </div>
         </div>
 
-        <div className="museum-card museum-paper p-6">
+        {/* Section 1: Ethnic Cultures Grid (3x3) */}
+        <div className="space-y-6">
           <Subheading>各民族的獨特飲茶方式</Subheading>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DE'ANG</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">德昂族的酸茶</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                被譽為「古老茶農」的德昂族人嗜好濃茶。他們獨創的「酸茶」是一種發酵茶，製作工藝獨特；其成品滋味酸甜，帶有奶酪香與桂花香，口感兼具熟普的柔和與生普的甘甜，生津解渴。
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* 1. De'ang */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">DE'ANG</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">德昂族 • 酸茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                古老發酵工藝。土坑密封發酵，帶有奶酪/桂花香。食用飲用皆可。
               </p>
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">BULANG</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">布朗族的烤茶</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                自詡為茶神後裔的布朗族，將茶的氣息融入生活：把茶葉置於木瓢中，與燒紅的火炭一同抖動烤香，再放入陶罐注水煮沸飲用，山野氣息十足。
+            {/* 2. Bulang */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">BULANG</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">布朗族 • 烤茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                土罐/竹筒烤至焦香。焦糖香濃郁，山野氣十足。
               </p>
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">LISU</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">傈僳族的鹽巴茶與漆油茶</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                被稱為「火的民族」的傈僳族，火塘中的火種長年不滅。日常飲「鹽巴茶」，以鹽調味烤茶湯；隆重場合則作「漆油茶」，將茶湯與漆樹果實榨油混入芝麻、核桃攪打，風味類似酥油茶，是高原補能的佳品。
+            {/* 3. Jino */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">JINO</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">基諾族 • 涼拌茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                "Long Pa". 鮮葉揉碎加辣椒、大蒜涼拌。是菜也是茶。
               </p>
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">DAI</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">傣族的竹筒茶</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                臨水而居、與竹為伴的傣族人就地取材：將鮮茶葉炭火烤香，放入裝有山泉水的新鮮竹筒，直接置火上燒煮，茶湯融合竹香與茶香，清爽而醇。
+            {/* 4. Wa */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">WA</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">佤族 • 燒茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                鐵板燒烤至焦黃甚至焦黑，再水煮。苦盡甘來，性格豪邁。
               </p>
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">NAXI</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">納西族的龍虎鬥</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                先烤香煮成濃茶湯；另於茶盞倒入玉米酒並點燃。再把滾燙茶湯沖入燃燒酒盞，茶酒交融發出滋滋聲，如龍爭虎鬥。此茶濃烈驅寒，是當地治療感冒的傳統良方。
+            {/* 5. Lahu */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">LAHU</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">拉祜族 • 烤茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                "香、濃、釅"。陶罐烤茶，待客最高禮節。
               </p>
             </div>
-
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-              <div className="text-xs font-extrabold tracking-widest text-stone-500">BAI</div>
-              <div className="mt-1 text-base font-extrabold text-stone-900">白族的三道茶</div>
-              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
-                「一苦二甜三回味」的人生哲理，是白族待客的最高禮儀：第一道苦茶（感通茶烤製，味濃且苦）；第二道甜茶（紅糖、乳扇與核桃，苦盡甘來）；第三道回味茶（蜂蜜、花椒、生薑、桂皮等，五味雜陳，回味無窮）。
+            {/* 6. Lisu */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">LISU</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">傈僳族 • 油鹽茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                日常飲鹽巴茶；隆重時加漆油/核桃/芝麻攪打，似酥油茶。
+              </p>
+            </div>
+            {/* 7. Dai */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">DAI</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">傣族 • 竹筒茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                鮮茶入竹筒火烤。竹香融於茶香，清爽而醇厚。
+              </p>
+            </div>
+            {/* 8. Naxi */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">NAXI</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">納西族 • 龍虎鬥</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                茶湯沖入燃燒的酒盞。滋滋作響，濃烈驅寒，治感冒良方。
+              </p>
+            </div>
+            {/* 9. Bai */}
+            <div className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+              <div className="text-xs font-bold text-stone-400 tracking-widest uppercase mb-2">BAI</div>
+              <h4 className="font-bold text-stone-900 text-lg mb-2">白族 • 三道茶</h4>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                一苦(烤茶)、二甜(紅糖/乳扇)、三回味(蜂蜜/花椒)。人生哲理。
               </p>
             </div>
           </div>
         </div>
 
-        <div className="museum-card museum-paper p-6">
-          <Subheading>土法烤茶實作</Subheading>
-          <p className="mt-3 text-sm text-stone-700 leading-relaxed">
-            烤茶是雲南各民族最普遍的飲茶方式。透過烘烤，不僅能顯著提升香氣與滋味，也能去除茶葉的寒性；即使是新茶，烤後也會變得溫潤香甜。
+        {/* Section 2: Tu Fa Kao Cha Practice */}
+        <div className="rounded-3xl bg-stone-900 text-stone-100 p-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5"><Zap size={200} /></div>
+          <Subheading className="text-white relative z-10">實作：土法烤茶 (Tu Fa Kao Cha)</Subheading>
+          <p className="text-stone-400 relative z-10 mb-8">
+            一把陶罐，一撮粗茶，一盆炭火。還原最原始的品飲體驗。
           </p>
 
-          <div className="mt-4 rounded-2xl border border-stone-200 bg-white p-5">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">小罐罐烤茶步驟</div>
-            <ol className="mt-3 space-y-2 text-sm text-stone-700 leading-relaxed">
-              <li>
-                <strong className="text-stone-900">1. 預熱陶罐：</strong>將空的小陶罐置於炭火或電爐上，加熱至滾燙。
-              </li>
-              <li>
-                <strong className="text-stone-900">2. 投茶與烘烤：</strong>投入約 3 克茶葉，持續不斷抖動陶罐（「百抖茶」）使其均勻受熱，直至茶葉呈焦黃色、散發濃郁焦香。
-              </li>
-              <li>
-                <strong className="text-stone-900">3. 注水煮沸：</strong>沿罐口注入沸水，茶湯會瞬間沸騰；繼續加熱至再次沸騰即可。
-              </li>
-              <li>
-                <strong className="text-stone-900">4. 出湯品飲：</strong>倒入公道杯或茶碗中，趁熱品飲那份獨特的焦香與甘甜。
-              </li>
-            </ol>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="w-16 h-16 rounded-2xl bg-orange-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-orange-900/50">1</div>
+              <h5 className="font-bold text-xl text-white">抖 (Shake)</h5>
+              <p className="text-sm text-stone-400 leading-relaxed">
+                將茶葉投入陶罐，置於炭火上。不斷<strong>抖動</strong>，受熱均勻。直至葉色焦黃，香氣四溢。
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-16 h-16 rounded-2xl bg-orange-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-orange-900/50">2</div>
+              <h5 className="font-bold text-xl text-white">沖 (Quench)</h5>
+              <p className="text-sm text-stone-400 leading-relaxed">
+                趁熱將沸水沖入高溫陶罐。<strong>"呲啦"</strong>一聲，茶香瞬間爆發，泡沫湧起 (雷響茶)。
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-16 h-16 rounded-2xl bg-orange-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-orange-900/50">3</div>
+              <h5 className="font-bold text-xl text-white">飲 (Enjoy)</h5>
+              <p className="text-sm text-stone-400 leading-relaxed">
+                待泡沫散去，倒出茶湯。滋味<strong>焦香濃烈</strong>，極具穿透力。暖胃提神。
+              </p>
+            </div>
           </div>
-
-          <Callout title="TIP">
-            若烤過頭出現明顯焦苦，可降低烘烤時間、縮短煮沸時間，並以「多次少量」方式調整濃淡。
-          </Callout>
         </div>
 
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <div className="text-xs font-extrabold tracking-widest text-emerald-900/70">課程結語</div>
-          <div className="mt-2 text-sm text-stone-700 leading-relaxed">
-            在雲南高海拔地區，氣候濕寒，一壺暖身、暖心又暖胃的烤茶，是當地人生活中最質樸的慰藉。從第九課的香氣密碼，到第十二課的火塘茶香，我們共同走過了十二堂普洱茶的深度探索之旅。希望課程雖已結束，但您與茶的緣分才剛剛開始。
+        {/* Final Closing */}
+        <div className="rounded-3xl bg-gradient-to-br from-indigo-900 to-stone-900 p-8 md:p-16 text-center space-y-8 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/noise.png')] opacity-10 mix-blend-overlay"></div>
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <div className="w-20 h-20 bg-white/10 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-6 text-white border border-white/20">
+              <Check size={40} />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+              旅程圓滿結束
+            </h2>
+            <p className="text-indigo-200 text-lg leading-relaxed">
+              從西雙版納的熱帶雨林，到歷史悠久的茶馬古道；從生茶的霸氣，到熟茶的溫潤；從精緻的蓋碗，到豪邁的火塘。
+              <br /><br />
+              我們跨越了時間與空間，探索了普洱茶的每一個維度。
+              願這份百科全書成為您茶路上的指引，在未來的每一次品飲中，都能感受到那份來自雲南山野的真摯與溫暖。
+            </p>
+            <div className="pt-8 border-t border-white/10 mt-8">
+              <p className="text-sm text-stone-400 uppercase tracking-widest font-bold">
+                The Encyclopedia of Pu-erh Tea
+              </p>
+            </div>
           </div>
         </div>
       </div>

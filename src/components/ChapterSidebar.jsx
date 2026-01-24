@@ -36,7 +36,6 @@ export default function ChapterSidebar({
     <aside className={asideClassName} style={asideStyle}>
       <div
         ref={scrollContainerRef}
-        className="museum-panel px-4 pt-4 pb-10 pr-2 overflow-y-auto tool-surface"
         style={{
           maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 12px)`,
           overflowAnchor: 'none',
@@ -44,9 +43,12 @@ export default function ChapterSidebar({
           overscrollBehavior: 'auto',
           scrollbarGutter: 'stable',
         }}
+        className="rounded-2xl backdrop-blur shadow-sm p-3 pb-4 tool-surface tool-surface--strong overflow-y-auto"
       >
-        <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted">{title}</div>
-        <div className="space-y-1">
+        <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
+          {title}
+        </h3>
+        <div className="space-y-2">
           {resolvedItems.map((item) => {
             const hasSub = hasSubByKey.get(item.key);
             const isActive = item.key === activeKey;
@@ -73,19 +75,22 @@ export default function ChapterSidebar({
                     onSelectKey(item.key);
                     setActiveCollapse({ key: item.key, collapsed: false });
                   }}
-                  className={`w-full text-left rounded-xl px-4 py-3 transition-all duration-200 tool-item chapter-nav-item text-lg font-bold hover:scale-[1.02] hover:shadow-md ${isActive ? 'tool-item--active' : ''}`}
+                  className={`chapter-nav-item group w-full text-left px-4 py-3 rounded-xl transition-all duration-300 border focus-visible:outline-none focus:scale-[1.02] ${isActive
+                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
+                    : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md tool-muted hover:text-stone-900'
+                    }`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">
-                    <span className="min-w-0 font-bold chapter-label--flip">
+                    <span className="min-w-0 font-bold text-lg chapter-label--flip leading-snug">
                       <span className="chapter-label-inner">
                         <span className="chapter-label-front truncate">{item.label}</span>
-                        <span className="chapter-label-back truncate">{item.label}</span>
+                        <span className="chapter-label-back truncate text-amber-600">{item.label}</span>
                       </span>
                     </span>
                     {hasSub ? (
                       <ChevronDown
-                        size={18}
-                        className={`shrink-0 opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isExpanded ? 'rotate-180' : ''}`}
+                        size={16}
+                        className={`shrink-0 opacity-50 transition-transform duration-[320ms] ease-out group-hover:opacity-100 ${isExpanded ? 'rotate-180 text-amber-600' : ''}`}
                       />
                     ) : null}
                   </span>
@@ -94,42 +99,43 @@ export default function ChapterSidebar({
                 {hasSub ? (
                   <AccordionPanel
                     open={isExpanded}
-                    className="ml-2 pl-2 border-l"
-                    style={{ borderColor: 'var(--tool-border)' }}
-                    contentClassName="pt-1"
+                    className="ml-3 pl-3 border-l border-stone-200/60"
+                    contentClassName="pt-1 space-y-1"
                   >
-                    <div className="space-y-1">
-                      {subItems.map((sub) => {
-                        const subActive = sub.href === activeSubHref;
-                        return (
-                          <button
-                            key={sub.href}
-                            type="button"
-                            onMouseDown={(event) => event.preventDefault()}
-                            onClick={() => {
-                              const preservedScrollTop = scrollContainerRef.current?.scrollTop ?? null;
-                              onSelectSubHref?.(sub.href);
-                              if (preservedScrollTop == null || typeof window === 'undefined') return;
-                              window.requestAnimationFrame(() => {
-                                if (scrollContainerRef.current) scrollContainerRef.current.scrollTop = preservedScrollTop;
-                                window.setTimeout(() => {
-                                  if (scrollContainerRef.current) scrollContainerRef.current.scrollTop = preservedScrollTop;
-                                }, 0);
-                              });
-                            }}
-                            className={`w-full text-left rounded-lg px-3 py-2.5 transition-colors chapter-subitem text-base font-semibold ${subActive ? 'tool-subitem--active' : 'hover:bg-[var(--tool-hover-bg)]'
-                              }`}
-                          >
-                            <span className="block chapter-label--flip">
-                              <span className="chapter-label-inner">
-                                <span className="chapter-label-front truncate">{sub.label}</span>
-                                <span className="chapter-label-back truncate">{sub.label}</span>
-                              </span>
+                    {subItems.map((sub) => {
+                      const subActive = sub.href === activeSubHref;
+                      return (
+                        <button
+                          key={sub.href}
+                          type="button"
+                          onMouseDown={(event) => event.preventDefault()}
+                          onClick={() => {
+                            const preservedScrollTop = scrollContainerRef.current?.scrollTop ?? null;
+                            onSelectSubHref?.(sub.href);
+                            // Scroll preservation logic
+                            if (preservedScrollTop == null || typeof window === 'undefined') return;
+                            window.requestAnimationFrame(() => {
+                              if (scrollContainerRef.current) scrollContainerRef.current.scrollTop = preservedScrollTop;
+                            });
+                          }}
+                          className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 transition-colors relative group/sub ${subActive
+                            ? 'bg-stone-100/80 text-stone-900 font-bold shadow-sm ring-1 ring-stone-200/50'
+                            : 'hover:bg-stone-50 text-stone-600 hover:text-stone-900'
+                            }`}
+                        >
+                          <span className="block text-base font-semibold chapter-label--flip">
+                            <span className="chapter-label-inner">
+                              <span className="chapter-label-front truncate">{sub.label}</span>
+                              <span className="chapter-label-back truncate text-amber-600">{sub.label}</span>
                             </span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                          </span>
+                          {/* Active Indicator Dot */}
+                          {subActive && (
+                            <span className="absolute left-[-17px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-amber-500 shadow-sm" />
+                          )}
+                        </button>
+                      );
+                    })}
                   </AccordionPanel>
                 ) : null}
               </div>
