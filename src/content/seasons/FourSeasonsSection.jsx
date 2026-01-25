@@ -30,74 +30,90 @@ export default function FourSeasonsSection() {
             </div>
 
             {/* Seasons Grid */}
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 gap-10 mb-16">
                 {/* Spring */}
-                <div className="bg-green-50/50 rounded-xl overflow-hidden border border-green-100 hover:shadow-md transition-all">
-                    <div className="bg-green-100 p-4 flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-green-800 flex items-center"><Sprout className="mr-2" /> 春茶</h3>
-                        <span className="text-sm font-medium text-green-700 bg-white/60 px-2 py-1 rounded">清明 ~ 穀雨 (約4月)</span>
+                <div className="bg-green-50/50 rounded-3xl overflow-hidden border border-green-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div className="h-64 relative overflow-hidden">
+                        <img src="/images/seasons/spring_picking.png" alt="Spring Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent" />
+                        <div className="absolute bottom-5 left-6 text-white">
+                            <h3 className="text-3xl font-black flex items-center drop-shadow-md"><Sprout className="mr-3" size={28} /> 春茶</h3>
+                            <div className="mt-1 text-green-100 font-medium text-sm bg-green-900/40 px-2 py-1 rounded-lg backdrop-blur-sm inline-block border border-green-500/30">清明 ~ 穀雨 (約4月)</div>
+                        </div>
                     </div>
-                    <div className="p-6">
-                        <p className="text-stone-700 mb-4 leading-relaxed">
+                    <div className="p-8 flex-1 flex flex-col">
+                        <p className="text-stone-700 mb-6 leading-relaxed text-lg flex-1">
                             經過冬季的休養生息，氣溫回暖雨量充沛。茶芽飽滿，葉質柔軟。
                         </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="bg-white text-green-800 text-xs px-2 py-1 rounded border border-green-200">產量之冠</span>
-                            <span className="bg-white text-green-800 text-xs px-2 py-1 rounded border border-green-200">品質最優</span>
-                            <span className="bg-white text-green-800 text-xs px-2 py-1 rounded border border-green-200">滋味鮮爽</span>
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                            <span className="bg-white text-green-800 text-sm px-3 py-1.5 rounded-full border border-green-200 font-bold shadow-sm">產量之冠</span>
+                            <span className="bg-white text-green-800 text-sm px-3 py-1.5 rounded-full border border-green-200 font-bold shadow-sm">品質最優</span>
+                            <span className="bg-white text-green-800 text-sm px-3 py-1.5 rounded-full border border-green-200 font-bold shadow-sm">滋味鮮爽</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Summer */}
-                <div id="summer-tea" className="scroll-mt-28 bg-orange-50/50 rounded-xl overflow-hidden border border-orange-100 hover:shadow-md transition-all">
-                    <div className="bg-orange-100 p-4 flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-orange-800 flex items-center"><Sun className="mr-2" /> 夏茶</h3>
-                        <span className="text-sm font-medium text-orange-700 bg-white/60 px-2 py-1 rounded">約5 ~ 8月</span>
+                <div id="summer-tea" className="scroll-mt-28 bg-orange-50/50 rounded-3xl overflow-hidden border border-orange-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div className="h-64 relative overflow-hidden">
+                        <img src="/images/seasons/summer_picking.png" alt="Summer Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent" />
+                        <div className="absolute bottom-5 left-6 text-white">
+                            <h3 className="text-3xl font-black flex items-center drop-shadow-md"><Sun className="mr-3" size={28} /> 夏茶</h3>
+                            <div className="mt-1 text-orange-100 font-medium text-sm bg-orange-900/40 px-2 py-1 rounded-lg backdrop-blur-sm inline-block border border-orange-500/30">約5 ~ 8月</div>
+                        </div>
                     </div>
-                    <div className="p-6">
-                        <p className="text-stone-700 mb-4 leading-relaxed">
+                    <div className="p-8 flex-1 flex flex-col">
+                        <p className="text-stone-700 mb-6 leading-relaxed text-lg flex-1">
                             溫度高日照長，茶葉生長快，胺基酸減少，口感較澀，適合製作發酵度高的<span className="font-bold text-red-600">紅茶</span>。
                         </p>
-                        <div className="bg-white p-3 rounded-lg border border-orange-200 shadow-sm">
-                            <p className="text-sm text-orange-900 font-bold mb-1">例外：東方美人 (白毫烏龍)</p>
-                            <p className="text-xs text-stone-600">端午前後最佳！悶熱吸引<span className="font-bold">小綠葉蟬</span>叮咬，造就獨特蜜香。</p>
+                        <div className="bg-white p-4 rounded-2xl border border-orange-200 shadow-sm mt-auto">
+                            <p className="text-base text-orange-900 font-black mb-1 flex items-center"><Flame size={16} className="mr-1" /> 例外：東方美人 (白毫烏龍)</p>
+                            <p className="text-sm text-stone-600 leading-snug">端午前後最佳！悶熱吸引<span className="font-bold text-stone-800">小綠葉蟬</span>叮咬，造就獨特蜜香。</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Autumn */}
-                <div id="autumn-tea" className="scroll-mt-28 bg-amber-50/50 rounded-xl overflow-hidden border border-amber-100 hover:shadow-md transition-all">
-                    <div className="bg-amber-100 p-4 flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-amber-800 flex items-center"><Wheat className="mr-2" /> 秋茶</h3>
-                        <span className="text-sm font-medium text-amber-700 bg-white/60 px-2 py-1 rounded">立秋 ~ 白露 (8末-10末)</span>
+                <div id="autumn-tea" className="scroll-mt-28 bg-amber-50/50 rounded-3xl overflow-hidden border border-amber-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div className="h-64 relative overflow-hidden">
+                        <img src="/images/seasons/autumn_picking.png" alt="Autumn Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
+                        <div className="absolute bottom-5 left-6 text-white">
+                            <h3 className="text-3xl font-black flex items-center drop-shadow-md"><Wheat className="mr-3" size={28} /> 秋茶</h3>
+                            <div className="mt-1 text-amber-100 font-medium text-sm bg-amber-900/40 px-2 py-1 rounded-lg backdrop-blur-sm inline-block border border-amber-500/30">立秋 ~ 白露 (8末-10末)</div>
+                        </div>
                     </div>
-                    <div className="p-6">
-                        <p className="text-stone-700 mb-4 leading-relaxed">
+                    <div className="p-8 flex-1 flex flex-col">
+                        <p className="text-stone-700 mb-6 leading-relaxed text-lg flex-1">
                             可採收兩次。立秋茶帶夏氣適合紅茶；白露茶轉平和適合烏龍。溫差加大造就獨特「秋香」。
                         </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="bg-white text-amber-800 text-xs px-2 py-1 rounded border border-amber-200">秋香</span>
-                            <span className="bg-white text-amber-800 text-xs px-2 py-1 rounded border border-amber-200">溫差大</span>
-                            <span className="bg-white text-amber-800 text-xs px-2 py-1 rounded border border-amber-200">香氣高</span>
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                            <span className="bg-white text-amber-800 text-sm px-3 py-1.5 rounded-full border border-amber-200 font-bold shadow-sm">秋香</span>
+                            <span className="bg-white text-amber-800 text-sm px-3 py-1.5 rounded-full border border-amber-200 font-bold shadow-sm">溫差大</span>
+                            <span className="bg-white text-amber-800 text-sm px-3 py-1.5 rounded-full border border-amber-200 font-bold shadow-sm">香氣高</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Winter */}
-                <div id="winter-tea" className="scroll-mt-28 bg-blue-50/50 rounded-xl overflow-hidden border border-blue-100 hover:shadow-md transition-all">
-                    <div className="bg-blue-100 p-4 flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-blue-800 flex items-center"><Snowflake className="mr-2" /> 冬茶</h3>
-                        <span className="text-sm font-medium text-blue-700 bg-white/60 px-2 py-1 rounded">霜降 ~ 小雪 (約10-11月)</span>
+                <div id="winter-tea" className="scroll-mt-28 bg-blue-50/50 rounded-3xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div className="h-64 relative overflow-hidden">
+                        <img src="/images/seasons/winter_picking.png" alt="Winter Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
+                        <div className="absolute bottom-5 left-6 text-white">
+                            <h3 className="text-3xl font-black flex items-center drop-shadow-md"><Snowflake className="mr-3" size={28} /> 冬茶</h3>
+                            <div className="mt-1 text-blue-100 font-medium text-sm bg-blue-900/40 px-2 py-1 rounded-lg backdrop-blur-sm inline-block border border-blue-500/30">霜降 ~ 小雪 (約10-11月)</div>
+                        </div>
                     </div>
-                    <div className="p-6">
-                        <p className="text-stone-700 mb-4 leading-relaxed">
+                    <div className="p-8 flex-1 flex flex-col">
+                        <p className="text-stone-700 mb-6 leading-relaxed text-lg flex-1">
                             生長緩慢，葉片厚實。香氣內斂、滋味濃郁，耐泡度高。與春茶並列為最佳採收季。
                         </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="bg-white text-blue-800 text-xs px-2 py-1 rounded border border-blue-200">品質優</span>
-                            <span className="bg-white text-blue-800 text-xs px-2 py-1 rounded border border-blue-200">香氣內斂</span>
-                            <span className="bg-white text-blue-800 text-xs px-2 py-1 rounded border border-blue-200">滋味濃</span>
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                            <span className="bg-white text-blue-800 text-sm px-3 py-1.5 rounded-full border border-blue-200 font-bold shadow-sm">品質優</span>
+                            <span className="bg-white text-blue-800 text-sm px-3 py-1.5 rounded-full border border-blue-200 font-bold shadow-sm">香氣內斂</span>
+                            <span className="bg-white text-blue-800 text-sm px-3 py-1.5 rounded-full border border-blue-200 font-bold shadow-sm">滋味濃</span>
                         </div>
                     </div>
                 </div>

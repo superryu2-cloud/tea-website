@@ -671,6 +671,148 @@ export default function BlackTeaVarietiesContent() {
                 </div>
             </section>
 
-        </div>
+            {/* 7.0 蜜香紅茶 */}
+            <section className="max-w-5xl mx-auto px-4 md:px-0">
+                <div className="flex items-start md:items-center gap-6 mb-12">
+                    <span className="text-6xl font-serif text-stone-300 font-bold -mt-4 select-none">07</span>
+                    <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-stone-800 mb-2 font-serif">蜜香紅茶的起源秘密</h3>
+                        <span className="text-base text-stone-500 font-medium tracking-wide">小綠葉蟬與舞鶴台地的生態傳奇</span>
+                    </div>
+                </div>
+
+                <div className="space-y-16">
+                    {/* 1.0 Intro */}
+                    <div className="bg-white p-8 md:p-12 rounded-3xl border border-stone-200 shadow-sm relative overflow-hidden">
+                        <div className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none">
+                            <img src="/images/academy/chonghua-chapter03/organic_tea_garden.png" alt="Organic Tea Garden" className="w-full h-full object-cover" />
+                        </div>
+                        <h4 className="font-bold text-xl text-stone-800 mb-6 flex items-center gap-3 relative z-10">
+                            <Sprout className="text-emerald-600" size={28} />
+                            蜜香之源：從「蟲害危機」誕生的天然風味
+                        </h4>
+                        <p className="text-lg text-stone-700 leading-loose relative z-10 mb-6">
+                            蜜香紅茶的誕生，堪稱台灣茶業史上最具顛覆性的轉折。在追求極致感官體驗的精品茶市場中，這款茶常因其醇厚的蜂蜜甜香引人遐想，不少初識者誤以為是製程中添加了蜂蜜，或是仰賴某種神祕的加味工藝。然而，真正的蜜香並非外求，而是源於一場大自然與生態博弈下的「危機轉型」。
+                        </p>
+                        <p className="text-lg text-stone-700 leading-loose relative z-10">
+                            蜜香紅茶的核心精髓，源自於茶農一度視為夢魘的「小綠葉蟬」蟲害。這並非單純的製茶改良，而是一次戰略性的視角切換：將傳統農業觀點中的「天災」轉化為「至寶」。這種「由損害成就極致」的邏輯，不僅確立了蜜香紅茶在精品市場的稀缺價值，更定義了其作為生態與工藝結合的獨特地位。要透析這場感官饗宴，必須先深入了解這場生態變革的核心主角。
+                        </p>
+                    </div>
+
+                    {/* 2.0 Eco Protagonist */}
+                    <div className="bg-stone-50 p-8 md:p-12 rounded-[3rem] border border-stone-200">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="p-4 bg-emerald-100 text-emerald-800 rounded-full"><Microscope size={28} /></div>
+                            <h4 className="text-2xl font-bold text-stone-900">生態主角：小綠葉蟬的生物特性與感官貢獻</h4>
+                        </div>
+                        <div className="prose prose-lg text-stone-700 max-w-none leading-loose">
+                            <p className="mb-6">
+                                在專業的品質控管領域，理解小綠葉蟬（學名：Jacobiasca formosana，俗稱小綠浮塵子）的生命週期是關鍵。這種體型微小的生物，生命週期僅約數十天，雖全年皆能見其蹤跡，但每年的 5 月至 7 月是其繁衍與活動的高峰期。
+                            </p>
+                            <p>
+                                小綠葉蟬採「刺吸式」口器吸取茶樹幼嫩芽葉的汁液。受害的茶葉會顯現出捲曲、皺縮、萎凋及生長停滯等病理徵狀。對早期追求產量最大化的茶農而言，這無疑是一場農業災難，因為受傷的茶菁會導致產量急遽下降，造成直接的經濟損失。然而，正是這種生長停滯，促使葉片內部的化學物質開始濃縮與轉化，為後續的神祕蜜味埋下了伏筆。這場農業災難並未讓產業止步，反而成為推動製茶技術革命的催化劑。
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* 3.0 & 4.0 Timeline/Geography */}
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                            <h4 className="font-bold text-xl text-stone-800 mb-6 flex items-center gap-2">
+                                <FlaskConical className="text-amber-500" size={24} />
+                                研發里程碑：從實驗室到茶園
+                            </h4>
+                            <p className="text-stone-700 leading-relaxed text-lg">
+                                在傳統產業面臨結構性瓶頸時，技術研發往往是化腐朽為神奇的動力。1990 年代末期，台東茶葉改良場的陳惠藏課長開啟了一項具備產業前瞻性的研究。陳課長的技術邏輯在於「工藝優化與製程適配性」：他借鑒百年「東方美人茶」的原理，將同樣受過小綠葉蟬吸食的茶菁，嘗試製成發酵綠茶及全發酵的紅茶。實驗成品令人驚艷，茶湯不僅具備天然的蜂蜜香氣，且相較於工序極其繁瑣的傳統烏龍茶，蜜香紅茶的生產模式具備更高的 sensory value（感官價值）與成本競爭力。儘管技術研發大獲成功，但在缺乏區域品牌與風土故事的支撐下，蜜香紅茶初期面臨了嚴重的市場推廣瓶頸。直到這項技術遇見了花蓮舞鶴台地，才真正找到了屬於它的舞台。
+                            </p>
+                        </div>
+                        <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                            <h4 className="font-bold text-xl text-stone-800 mb-6 flex items-center gap-2">
+                                <Map className="text-rose-500" size={24} />
+                                地理與歷史契機：舞鶴台地的差異化生存之道
+                            </h4>
+                            <p className="text-stone-700 leading-relaxed text-lg">
+                                舞鶴台地位於紅葉溪與秀姑巒溪的交會處，海拔約 100 至 300 公尺，地理環境得天獨厚。回顧其產業史，從早期的咖啡、香茅到鳳梨，舞鶴一直扮演著多元農產的重鎮。1970 年代，在政策引導下轉植茶葉，並由時任農發會主委李崇道博士命名為「天鶴茶」，曾有一段輝煌歲月。然而，1990 年代高山茶的強勢崛起，對中低海拔的舞鶴茶造成了毀滅性的擠壓，銷量大幅萎縮，農民被迫棄耕。這種產業轉型期的陣痛，雖然令地方經濟受挫，卻也迫使農民在絕境中尋求「差異化」的道路，而這股求變的勇氣，最終與蜜香技術產生了完美的化學反應。當產業轉向尋求突破時，一項環境保護政策的推動，意外地開啟了蜜香紅茶與自然共榮的新時代。
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* 5.0 & 6.0 Ecology & Value */}
+                    <div className="bg-emerald-950 text-emerald-50 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl">
+                        <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none">
+                            <img src="/images/academy/chonghua-chapter03/honey_black_tea.png" alt="Honey Black Tea" className="w-full h-full object-cover grayscale" />
+                        </div>
+                        <div className="relative z-10 space-y-12">
+                            <div>
+                                <h4 className="text-2xl font-serif font-black mb-6 text-white flex items-center gap-3">
+                                    <Globe size={28} className="text-emerald-400" />
+                                    無毒農業的推動：從抗拒害蟲到生態共榮
+                                </h4>
+                                <div className="space-y-6 text-emerald-100/90 text-lg leading-loose">
+                                    <p>
+                                        2003 年，花蓮縣長謝深山與農發處長杜立華推動「無毒農業」政策，這成為蜜香紅茶命運的轉折點。當時舞鶴茶葉產銷班班長高肇昫率先響應，停止在茶園施用殺蟲劑。停藥後，小綠葉蟬如預期般爆發，茶園滿目瘡痍。
+                                    </p>
+                                    <p>
+                                        面對被蟲叮咬後的「大葉烏龍」茶菁，高班長應用先前向成會長學習的技術進行試製，結果大獲全勝。這段過程揭示了一個深層的戰略邏輯：「無毒耕作」不僅是為了環保，更是蜜香品質的絕對先決條件。唯有維持健康的生態鏈，小綠葉蟬才能生存，進而引發那股神祕的蜜香。這種從「對抗自然」到「擁抱生態」的思維轉變，成為高品質蜜香紅茶的立足基石。
+                                    </p>
+                                    <p>
+                                        這場源於土地的創新實驗，很快就在國際舞台上轉化為真實的品牌價值。
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="border-t border-emerald-800/50 pt-10">
+                                <h4 className="text-2xl font-serif font-black mb-6 text-white flex items-center gap-3">
+                                    <Award size={28} className="text-amber-400" />
+                                    榮耀與產值提升：反直覺的因果經濟
+                                </h4>
+                                <div className="space-y-6 text-emerald-100/90 text-lg leading-loose">
+                                    <p>
+                                        權威獎項是將農產品轉化為精品品牌的強力槓桿。2006 年，高肇昫憑藉蜜香紅茶奪得首屆天下名茶大賽紅茶組金牌；2010 年，其親戚粘阿瑞女士更在國際名茶評比中橫掃四面金牌。
+                                    </p>
+                                    <p>
+                                        媒體的接連報導引發了市場的狂熱，蜜香紅茶身價倍增。更重要的是，這在產業內建立了一套反直覺的因果關係：「蟲害越嚴重，茶香越濃郁」。由於受害嚴重的茶菁能轉化為單價更高的優質茶，茶農更願意堅持無毒、有機的經營，成功實現了經濟收益與生態保育的正向循環。
+                                    </p>
+                                    <p>
+                                        在商業成功的背後，科學界也終於解開了蜜香生成的生物化學密碼，確認這並非偶然的產物。
+                                    </p>
+                                </div>
+                                <div className="bg-emerald-900/50 p-6 rounded-2xl mt-8 border border-emerald-700/50">
+                                    <p className="text-center text-xl font-bold text-emerald-200">
+                                        「蟲害越嚴重，茶香越濃郁」
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 7.0 Science */}
+                    <div className="bg-white p-10 md:p-12 rounded-[3rem] border border-stone-200 shadow-sm">
+                        <h4 className="text-2xl font-bold text-stone-800 mb-8 flex items-center gap-3">
+                            <FlaskConical size={32} className="text-purple-600" />
+                            科學解密：茶樹與昆蟲的「生物性握手」
+                        </h4>
+                        <div className="prose prose-lg text-stone-700 max-w-none leading-loose">
+                            <p className="mb-6">
+                                蜜香的真相，實際上是茶樹精妙的「求救信號」。根據中國農業科學院茶葉研究所陳宗懋先生的研究，當茶樹遭受小綠葉蟬叮咬時，會啟動自我保護機制，分泌出揮發性化學成分（揮發性萜類化合物等）。這些成分散發的香氣，是為了吸引小綠葉蟬的天敵——「白斑蠟蛛」（White-spotted wax spider）前來捕食害蟲，這是一種精準的生物控制策略。
+                            </p>
+                            <p>
+                                科學實驗證實，單純以物理方式（如昆蟲針刺）模擬損傷，無法讓茶樹產生特定的蜜香成分。關鍵在於<strong className="text-purple-800 font-bold mx-1">「小綠葉蟬的口腔分泌物（唾液）」</strong>。當唾液中的特定酵素與茶樹組織接觸後，才會觸發那股不可複製的天然蜜香。這種「生物性握手」讓蜜香紅茶具備了極高的進入壁壘——它無法被人工合成或化學模擬，是純粹的大自然結晶。
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Conclusion */}
+                    <div className="text-center max-w-4xl mx-auto py-12">
+                        <Feather size={32} className="mx-auto text-stone-400 mb-6" />
+                        <h4 className="text-2xl font-serif font-bold text-stone-800 mb-6">結語</h4>
+                        <p className="text-xl text-stone-600 leading-relaxed italic font-light">
+                            蜜香紅茶的傳奇，是生態、技術與勇氣結合的結晶。它代表了一種全新的農業思維：將大自然的考驗視為賦予價值的契機。這不僅是一款琥珀色茶湯的誕生，更是一個區域產業在逆境中重生的史詩。當我們品飲這抹天然蜜香時，所感知的正是台灣茶業在永續耕作與職人工藝中，對土地最深情的表白。
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div >
     );
 }

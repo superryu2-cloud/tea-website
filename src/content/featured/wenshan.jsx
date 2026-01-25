@@ -1,12 +1,9 @@
 import React from 'react';
 import { BookOpen, Coffee, Droplets, History, Info, Map, Sprout, Wind, Flower, Leaf, BadgeCheck } from 'lucide-react';
-import ReadingAssist from '../../components/ReadingAssist';
 
 export default function WenshanPouchongContent() {
-    const contentRef = React.useRef(null);
     return (
         <div className="animate-fadeIn space-y-12">
-            <ReadingAssist contentRef={contentRef} headingSelector="h3" />
             {/* Hero Section */}
             <div className="relative bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50 text-emerald-900 rounded-3xl overflow-hidden p-8 md:p-16 border border-emerald-100 shadow-xl shadow-emerald-100/50">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none" />
@@ -29,7 +26,7 @@ export default function WenshanPouchongContent() {
                 </div>
             </div>
 
-            <div ref={contentRef} className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
                 {/* Visual Feature: Tea Leaves Image */}
                 <div className="rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative h-64 md:h-80">
                     <img

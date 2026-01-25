@@ -17,12 +17,15 @@ export default function OrientalBeautySupplement() {
   return (
     <div className="museum-panel p-7 md:p-10">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div className="min-w-0">
+        <div className="min-w-0 relative z-10">
           <div className="museum-label">TEACHING · NOTES</div>
           <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-stone-900">臺灣東方美人茶特色介紹</h3>
-          <p className="mt-3 text-stone-700 leading-relaxed">
+          <p className="mt-3 text-stone-700 leading-relaxed max-w-3xl">
             以下內容為東方美人茶的「產業 × 歷史 × 風味 × 產地 × 製程 × 評鑑 × 應用」完整整理，方便教學與對照。
           </p>
+        </div>
+        <div className="hidden md:block absolute right-0 bottom-0 w-64 h-64 opacity-20 pointer-events-none">
+          <img src="/images/featured/orientalbeauty/landscape_painting.png" alt="" className="w-full h-full object-cover mask-image-gradient" style={{ maskImage: 'linear-gradient(to bottom, transparent, black)' }} />
         </div>
       </div>
 
@@ -128,6 +131,11 @@ export default function OrientalBeautySupplement() {
                     <span className="font-bold">其他名稱：</span>香檳烏龍茶、冰風茶。
                   </li>
                 </ol>
+                <div className="mt-6 rounded-2xl overflow-hidden border border-stone-100 shadow-sm relative group h-48">
+                  <img src="/images/featured/orientalbeauty/landscape_painting.png" alt="Tea Landscape" className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors" />
+                  <div className="absolute bottom-3 right-3 text-[10px] text-white/90 bg-black/30 px-2 py-1 rounded backdrop-blur-sm">東方美人茶園意象</div>
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -180,14 +188,25 @@ export default function OrientalBeautySupplement() {
                       <span className="font-bold">五色茶與三色茶之辨：</span>
                       <ul className="list-disc pl-5 mt-2 space-y-1 text-stone-600">
                         <li>
-                          <span className="font-bold">五色：</span>白、黃、綠、紅、赤。
-                        </li>
-                        <li>
                           <span className="font-bold">比賽標準：</span>綠色（發酵不完全）與黃色（表示出老葉）會被挑掉。因此，<span className="font-bold">三色茶較好</span>。
                         </li>
                       </ul>
                     </li>
                   </ol>
+                  <div className="mt-6 rounded-2xl overflow-hidden border border-stone-100 shadow-sm relative group">
+                    <div className="flex bg-stone-100 border-b border-stone-200">
+                      <div className="w-1/2 p-4 flex items-center justify-center border-r border-stone-200">
+                        <img src="/images/featured/orientalbeauty/five_colors_leaves.png" alt="五色茶乾" className="w-24 h-24 object-cover rounded-full shadow-md border-2 border-white" />
+                      </div>
+                      <div className="w-1/2 p-4 flex items-center justify-center bg-amber-50/50">
+                        <img src="/images/featured/orientalbeauty/amber_soup.png" alt="琥珀茶湯" className="w-24 h-24 object-cover rounded-full shadow-md border-2 border-white" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 text-center text-xs font-bold text-stone-500 py-2 bg-stone-50">
+                      <div>五色斑斕・白毫顯著</div>
+                      <div>琥珀水色・明澈油亮</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -304,6 +323,16 @@ export default function OrientalBeautySupplement() {
                   <span className="font-bold">農藥殘留：</span>雖然小綠葉蟬怕農藥，但無農藥殘留（ND值）不代表茶園在無農藥環境下種植。
                 </li>
               </ol>
+              <div className="mt-6">
+                <div className="rounded-2xl overflow-hidden border border-emerald-100 shadow-lg relative group h-64">
+                  <img src="/images/featured/orientalbeauty/leafhopper.png" alt="小綠葉蟬" className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-6 text-white">
+                    <div className="font-serif text-2xl font-bold mb-1">Jacobiasca formosana</div>
+                    <div className="text-sm opacity-90">小綠葉蟬・蜜香的靈魂繪師</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </details>

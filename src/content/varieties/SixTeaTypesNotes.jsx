@@ -22,7 +22,6 @@ import {
   Clock
 } from 'lucide-react';
 import FudingHistory from './chapters/FudingHistory';
-import OolongRegionDiagram from './OolongRegionDiagram';
 
 function ProcessLine({ children }) {
   return (
@@ -1516,8 +1515,62 @@ export default function SixTeaTypesNotes({ kind }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6 overflow-hidden">
-          <OolongRegionDiagram />
+        <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
+          <div className="text-xs font-extrabold tracking-[0.28em] text-stone-500">MAP</div>
+          <div className="mt-2 text-lg font-extrabold text-stone-900">青茶品類地圖：三大產區的代表名品</div>
+
+          <div className="mt-4 grid gap-3 lg:grid-cols-3">
+            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">福建烏龍</div>
+              <div className="mt-2 text-sm font-extrabold text-stone-900">閩北岩茶 × 閩南安溪</div>
+              <ul className="mt-2 text-sm text-stone-700 leading-relaxed list-disc pl-5 space-y-1">
+                <li>閩北：武夷岩茶（岩韻）— 大紅袍、肉桂、水仙、奇種、名叢</li>
+                <li>四大名叢：大紅袍、鐵羅漢、白雞冠、水金龜（注意：用字為草叢的「叢」）</li>
+                <li>閩南：安溪系（花香鮮爽）— 鐵觀音、黃旦（黃金桂）、水仙、永春佛手</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">廣東烏龍</div>
+              <div className="mt-2 text-sm font-extrabold text-stone-900">鳳凰單叢（高揚香型）</div>
+              <p className="mt-2 text-sm text-stone-700 leading-relaxed">
+                以自然香型著稱，記載多達 79 種。1996 年官方確定十大代表香型：
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                {[
+                  '黃枝香',
+                  '芝蘭香',
+                  '蜜蘭香',
+                  '桂花香',
+                  '玉蘭香',
+                  '薑花香',
+                  '夜來香',
+                  '茉莉香',
+                  '杏仁香',
+                  '肉桂香',
+                ].map((tag) => (
+                  <span key={tag} className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-stone-700">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-stone-200 bg-white px-5 py-4">
+              <div className="text-xs font-extrabold tracking-widest text-stone-500">台灣烏龍</div>
+              <div className="mt-2 text-sm font-extrabold text-stone-900">風土延伸的清香與熟韻</div>
+              <ul className="mt-2 text-sm text-stone-700 leading-relaxed list-disc pl-5 space-y-1">
+                <li>文山包種</li>
+                <li>高山烏龍</li>
+                <li>凍頂烏龍</li>
+                <li>白毫烏龍（東方美人）</li>
+                <li>鐵觀音</li>
+              </ul>
+              <div className="mt-3 text-xs text-stone-500">
+                教學記憶點（韻）：台灣蜜韻、閩北岩韻、閩南音韻、廣東山韻。
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="rounded-3xl border border-stone-200 bg-white px-6 py-6">
