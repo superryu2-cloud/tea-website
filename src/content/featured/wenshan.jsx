@@ -1,17 +1,20 @@
 import React from 'react';
 import { BookOpen, Coffee, Droplets, History, Info, Map, Sprout, Wind, Flower, Leaf, BadgeCheck } from 'lucide-react';
+import ReadingAssist from '../../components/ReadingAssist';
 
 export default function WenshanPouchongContent() {
+    const contentRef = React.useRef(null);
     return (
         <div className="animate-fadeIn space-y-12">
+            <ReadingAssist contentRef={contentRef} headingSelector="h3" />
             {/* Hero Section */}
             <div className="relative bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50 text-emerald-900 rounded-3xl overflow-hidden p-8 md:p-16 border border-emerald-100 shadow-xl shadow-emerald-100/50">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyan-100/30 to-emerald-50/30 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-emerald-100 text-emerald-800 text-sm font-bold shadow-sm backdrop-blur-sm mb-6">
-                        <Leaf size={14} className="text-emerald-600" />
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-emerald-100 text-emerald-800 text-base font-bold shadow-sm backdrop-blur-sm mb-6">
+                        <Leaf size={16} className="text-emerald-600" />
                         <span className="tracking-widest">輕發酵｜清香</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-teal-900 leading-tight mb-8">
@@ -26,7 +29,7 @@ export default function WenshanPouchongContent() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
+            <div ref={contentRef} className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
                 {/* Visual Feature: Tea Leaves Image */}
                 <div className="rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative h-64 md:h-80">
                     <img
@@ -57,7 +60,7 @@ export default function WenshanPouchongContent() {
                                 <span className="p-1.5 bg-emerald-100 rounded-lg text-emerald-700"><Wind size={18} /></span>
                                 香氣特色
                             </h4>
-                            <p className="text-stone-600 leading-relaxed">
+                            <p className="text-stone-600 leading-relaxed text-lg">
                                 帶有明顯的天然花香，依品種不同可能呈現<span className="font-bold text-emerald-700">蘭花、桂花或野薑花香</span>。香氣越清揚、越持久，品質越佳。
                             </p>
                         </div>
@@ -66,7 +69,7 @@ export default function WenshanPouchongContent() {
                                 <span className="p-1.5 bg-teal-100 rounded-lg text-teal-700"><Droplets size={18} /></span>
                                 茶湯滋味
                             </h4>
-                            <p className="text-stone-600 leading-relaxed">
+                            <p className="text-stone-600 leading-relaxed text-lg">
                                 <span className="font-bold text-teal-700">蜜綠顯黃，清澈明亮</span>。入口滋味甘潤、不苦不澀，活性強，講究「香、濃、醇、韻、美」。
                             </p>
                         </div>
@@ -118,7 +121,7 @@ export default function WenshanPouchongContent() {
                                 <p className="text-amber-900 font-bold text-lg mb-1">
                                     「包」裝起來的「種」茶
                                 </p>
-                                <p className="text-stone-600 text-sm">
+                                <p className="text-stone-600 text-base">
                                     這就是包種茶名稱的由來。雖然現在多用真空包裝，但這個充滿歷史感的名字被保留了下來。
                                 </p>
                             </div>

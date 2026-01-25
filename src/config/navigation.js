@@ -144,8 +144,7 @@ export const FEATURED_TOC = [
   { href: '#featured-orientalbeauty', label: '東方美人茶' },
   { href: '#featured-redoolong', label: '紅烏龍茶' },
   { href: '#featured-honeyblack', label: '蜜香紅茶' },
-  { href: '#featured-black_smallleaf', label: '小葉種紅茶' },
-  { href: '#featured-black_largeleaf', label: '大葉種紅茶' },
+  { href: '#featured-black_varieties', label: '大/小葉種紅茶' },
 ];
 
 export const HISTORY_SECTIONS = [

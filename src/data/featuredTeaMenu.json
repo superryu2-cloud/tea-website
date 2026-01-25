@@ -63,17 +63,10 @@
     "activeClass": "bg-amber-700 text-white"
   },
   {
-    "id": "black_smallleaf",
-    "label": "小葉種紅茶",
-    "subtitle": "全發酵｜細緻花香",
-    "swatch": "#dc2626",
-    "activeClass": "bg-red-600 text-white"
-  },
-  {
-    "id": "black_largeleaf",
-    "label": "大葉種紅茶",
-    "subtitle": "全發酵｜濃厚飽滿",
-    "swatch": "#7f1d1d",
-    "activeClass": "bg-red-800 text-white"
+    "id": "black_varieties",
+    "label": "大/小葉種紅茶",
+    "subtitle": "全發酵｜雙重奏",
+    "swatch": "#b91c1c",
+    "activeClass": "bg-red-900 text-white"
   }
 ]

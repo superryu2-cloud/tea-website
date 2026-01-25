@@ -17,8 +17,7 @@ import WenshanPouchongContent from './content/featured/wenshan';
 import BiluochunGreenTeaContent from './content/featured/biluochun';
 import FeaturedTeaOverview from './content/featured/FeaturedTeaOverview';
 import GaoshanOolongContent from './content/featured/gaoshanoolong';
-import SmallLeafBlackTeaContent from './content/featured/black_smallleaf';
-import LargeLeafBlackTeaContent from './content/featured/black_largeleaf';
+import BlackTeaVarietiesContent from './content/featured/BlackTeaVarieties';
 import LongjingTeaArticle from './content/examples/LongjingTeaArticle';
 import ChenChuanTeaClassification from './content/varieties/ChenChuanTeaClassification';
 import PuerhEncyclopedia from './content/varieties/PuerhEncyclopedia';
@@ -2707,8 +2706,7 @@ const TeaWebsite = () => {
                   <OrientalBeautyContent activeSection={orientalBeautySection} />
                 )}
                 {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
-                {selectedFeatured === 'black_smallleaf' && <SmallLeafBlackTeaContent />}
-                {selectedFeatured === 'black_largeleaf' && <LargeLeafBlackTeaContent />}
+                {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
               </div>
             </div>
           ) : notesMode ? (

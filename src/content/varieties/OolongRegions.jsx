@@ -1,6 +1,7 @@
 import React from 'react';
 import { Feather, Leaf, Mountain } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
+import TaiwanTeaMap from '../../components/TaiwanTeaMap';
 
 export default function OolongRegions({ topOffsetPx, activeHref = null }) {
   const scrollMarginTop = Number.isFinite(topOffsetPx) ? topOffsetPx : undefined;
@@ -386,6 +387,8 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
             ))}
           </div>
         </div>
+      ) : chapter.id === 'oolong-taiwan' ? (
+        <TaiwanTeaMap />
       ) : (
         <p className="leading-relaxed text-stone-700">內容建置中。</p>
       )}
