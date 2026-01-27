@@ -270,7 +270,7 @@ export default function SiteNavigation({
           <div className="hidden xl:grid nav-main flex-1 items-center">
             <div />
             {/* Tier 1: Fixed two-row navigation */}
-            <div className="nav-main-center flex flex-col items-center gap-0 w-full max-w-[820px] px-4">
+            <div className="nav-main-center flex flex-col items-center gap-0 w-full max-w-[920px] px-4">
               <div className="nav-main-grid">
                 {navRows.map((row, rowIndex) =>
                   row.map((item, colIndex) => {

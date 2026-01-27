@@ -1,23 +1,161 @@
+import { useState } from 'react';
 import { AlertTriangle, Coffee, Globe, Mountain } from 'lucide-react';
 import RedTeaTreeTimeline from '../../components/sections/RedTeaTreeTimeline';
+import ImageModal from '../../components/ImageModal';
 
 export default function RedTeaGlobalStory() {
+  const [previewImage, setPreviewImage] = useState(null);
   return (
     <div className="space-y-12 animate-fadeIn text-stone-800">
       {/* Tree Timeline Section */}
       <RedTeaTreeTimeline />
 
-      <div className="bg-red-50 p-8 rounded-xl border border-red-100">
-        <h3 className="text-3xl font-bold text-red-900 mb-6">牆內開花牆外香：紅茶的身世之謎</h3>
-        <p className="text-lg leading-relaxed mb-4">
-          提到紅茶，總有一種國際的感覺。阿薩姆、錫蘭、伯爵、立頓... 聯想到的往往是加奶加糖的英國貴族下午茶。
-          很少有人首先想到，紅茶的發源地其實在中國。
-        </p>
-        <p className="text-lg leading-relaxed">
-          紅茶的誕生地是明朝末年的福建崇安縣（今武夷山市）。這是一段從「意外」到「征服世界」的傳奇。
-        </p>
+      {/* World Black Tea Origins Visual Section */}
+      <div className="rounded-[3rem] overflow-hidden bg-[#1c1917] text-stone-200 shadow-2xl relative">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-rose-900/10 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-900/10 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
+
+        <div className="relative z-10 p-10 md:p-16 space-y-16">
+          {/* Header */}
+          <div className="text-center space-y-6">
+            <div className="flex items-center justify-center gap-3 text-blue-300 mb-2">
+              <Globe size={28} />
+              <h3 className="text-3xl md:text-4xl font-bold font-serif tracking-wide text-white">世界紅茶產地示意</h3>
+            </div>
+            <p className="text-stone-400 max-w-3xl mx-auto text-lg leading-relaxed font-light">
+              從中國武夷山的發源，到印度阿薩姆的工業化，再到錫蘭的海洋風味。紅茶的足跡遍布全球，每個產區都有其獨特的風土記憶。
+            </p>
+          </div>
+
+          {/* Origin Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Wuyi Card */}
+            <div className="group relative rounded-3xl overflow-hidden bg-stone-800/50 border border-stone-700/50 hover:border-rose-900/50 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-900/10">
+              <div
+                className="h-48 overflow-hidden relative cursor-zoom-in"
+                onClick={() => setPreviewImage({ src: '/images/varieties/black_tea/wuyi_mountains.png', alt: 'Wuyi Mountains - 中國武夷山' })}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent z-10" />
+                <img
+                  src="/images/varieties/black_tea/wuyi_mountains.png"
+                  alt="Wuyi Mountains"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="px-3 py-1 bg-rose-900/90 text-rose-100 text-xs font-bold rounded-full backdrop-blur-sm border border-rose-700/50">發源地</span>
+                </div>
+              </div>
+              <div className="p-8 space-y-4">
+                <div>
+                  <h4 className="text-2xl font-bold text-white mb-1">中國・武夷山</h4>
+                  <span className="text-stone-500 text-sm font-medium tracking-wider">Wuyi Mountains</span>
+                </div>
+                <p className="text-stone-400 leading-relaxed text-sm">
+                  紅茶的誕生地。以「正山小種」聞名，帶有獨特的松煙香與桂圓味，是開啟全球紅茶歷史的起點。
+                </p>
+                <div className="pt-4 border-t border-stone-700/50 flex items-center gap-2 text-rose-400 text-xs">
+                  <Mountain size={14} />
+                  <span>福建省崇安縣</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Assam Card */}
+            <div className="group relative rounded-3xl overflow-hidden bg-stone-800/50 border border-stone-700/50 hover:border-amber-900/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-900/10">
+              <div
+                className="h-48 overflow-hidden relative cursor-zoom-in"
+                onClick={() => setPreviewImage({ src: '/images/varieties/black_tea/assam_tea_gardens.png', alt: 'Assam - 印度阿薩姆' })}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent z-10" />
+                <img
+                  src="/images/varieties/black_tea/assam_tea_gardens.png"
+                  alt="Assam Tea Gardens"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="px-3 py-1 bg-amber-700/90 text-amber-100 text-xs font-bold rounded-full backdrop-blur-sm border border-amber-500/50">最大產區</span>
+                </div>
+              </div>
+              <div className="p-8 space-y-4">
+                <div>
+                  <h4 className="text-2xl font-bold text-white mb-1">印度・阿薩姆</h4>
+                  <span className="text-stone-500 text-sm font-medium tracking-wider">Assam</span>
+                </div>
+                <p className="text-stone-400 leading-relaxed text-sm">
+                  位於喜馬拉雅山南麓。茶湯濃烈、色澤深紅，帶有濃郁麥芽香，是英式早餐茶的主要基底，適合調製奶茶。
+                </p>
+                <div className="pt-4 border-t border-stone-700/50 flex items-center gap-2 text-amber-500 text-xs">
+                  <Globe size={14} />
+                  <span>印度東北部</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Ceylon Card */}
+            <div className="group relative rounded-3xl overflow-hidden bg-stone-800/50 border border-stone-700/50 hover:border-blue-900/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/10">
+              <div
+                className="h-48 overflow-hidden relative cursor-zoom-in"
+                onClick={() => setPreviewImage({ src: '/images/varieties/black_tea/ceylon_highlands.png', alt: 'Ceylon - 斯里蘭卡錫蘭' })}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent z-10" />
+                <img
+                  src="/images/varieties/black_tea/ceylon_highlands.png"
+                  alt="Ceylon Highlands"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="px-3 py-1 bg-blue-900/90 text-blue-100 text-xs font-bold rounded-full backdrop-blur-sm border border-blue-700/50">高地茶</span>
+                </div>
+              </div>
+              <div className="p-8 space-y-4">
+                <div>
+                  <h4 className="text-2xl font-bold text-white mb-1">斯里蘭卡・錫蘭</h4>
+                  <span className="text-stone-500 text-sm font-medium tracking-wider">Ceylon (Sri Lanka)</span>
+                </div>
+                <p className="text-stone-400 leading-relaxed text-sm">
+                  受季風影響，風味清新爽口。烏瓦 (Uva) 產區帶有獨特的鈴蘭花香與薄荷涼氣，被譽為世界三大高香紅茶之一。
+                </p>
+                <div className="pt-4 border-t border-stone-700/50 flex items-center gap-2 text-blue-400 text-xs">
+                  <Mountain size={14} />
+                  <span>斯里蘭卡中央山脈</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Darjeeling Banner */}
+          <div
+            className="relative rounded-2xl overflow-hidden border border-stone-700/50 group cursor-zoom-in"
+            onClick={() => setPreviewImage({ src: '/images/varieties/black_tea/darjeeling_himalayas.png', alt: 'Darjeeling - 印度大吉嶺' })}
+          >
+            <div className="absolute inset-0">
+              <img
+                src="/images/varieties/black_tea/darjeeling_himalayas.png"
+                alt="Darjeeling"
+                className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-stone-900/80 group-hover:bg-stone-900/70 transition-colors duration-700" />
+            </div>
+
+            <div className="relative z-10 p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left pointer-events-none">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full shadow-lg shadow-amber-900/20 text-stone-900">
+                  <Coffee size={24} />
+                </div>
+                <div>
+                  <h5 className="text-xl font-bold text-amber-100">另有「紅茶中的香檳」—— 印度大吉嶺 (Darjeeling)</h5>
+                  <p className="text-stone-400 text-sm mt-1">以麝香葡萄風味著稱，產量稀少且珍貴。</p>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <span className="px-4 py-2 border border-stone-600 rounded-lg text-stone-400 text-sm tracking-widest hover:bg-stone-800 transition-colors cursor-default">PREMIUM</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
+      {/* 壹、意外的誕生：從綠茶到發酵 (Restored) */}
       <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
         <h4 className="text-2xl font-bold text-stone-800 mb-6 flex items-center">
           <Mountain className="mr-3 text-stone-600" /> 壹、意外的誕生：從綠茶到發酵
@@ -42,6 +180,7 @@ export default function RedTeaGlobalStory() {
         </div>
       </div>
 
+      {/* 貳、西傳與皇室風潮 (Restored) */}
       <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
         <h4 className="text-2xl font-bold text-stone-800 mb-6 flex items-center">
           <Globe className="mr-3 text-blue-600" /> 貳、西傳與皇室風潮
@@ -131,6 +270,14 @@ export default function RedTeaGlobalStory() {
           </div>
         </div>
       </div>
+
+      {/* Image Zoom Modal */}
+      <ImageModal
+        isOpen={!!previewImage}
+        onClose={() => setPreviewImage(null)}
+        src={previewImage?.src}
+        alt={previewImage?.alt}
+      />
     </div>
   );
 }

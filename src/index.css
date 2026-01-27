@@ -1,4 +1,6 @@
-﻿@tailwind base;
+﻿@import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap');
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -215,6 +217,14 @@
 
   .font-semibold {
     font-weight: 500 !important;
+  }
+
+  .font-calligraphy {
+    font-family: 'Ma Shan Zheng', cursive !important;
+  }
+
+  .font-kai {
+    font-family: 'Ma Shan Zheng', cursive !important;
   }
 }
 
@@ -689,7 +699,7 @@
 
     /* Fix sidebar text truncation on medium screens */
     .chapter-label--flip {
-      font-size: 17px;
+      font-size: 18px;
     }
 
     .chapter-label-front,
@@ -706,8 +716,8 @@
 
     .chapter-subitem {
       padding: 0.6rem 0.75rem;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: 600;
       transition: all 0.2s ease;
     }
 
@@ -877,35 +887,32 @@
   }
 
   .nav-pill--tier1 {
-    font-size: 17px;
-    line-height: 1.25;
-    padding-left: 12px;
-    padding-right: 12px;
+    font-size: 18px;
+    line-height: 1.2;
+    padding: 6px 12px;
     font-weight: 700;
   }
 
   .nav-pill--tier2 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.2;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 6px 10px;
     font-weight: 600;
   }
 
   .nav-pill--tier3 {
     font-size: 16px;
     line-height: 1.2;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 6px 10px;
   }
 
   @media (min-width: 768px) {
     .nav-pill--tier1 {
-      font-size: 17px;
+      font-size: 18px;
     }
 
     .nav-pill--tier2 {
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .nav-pill--tier3 {
@@ -925,9 +932,9 @@
   .nav-main-grid {
     display: grid;
     grid-template-columns: repeat(8, max-content);
-    column-gap: 12px;
-    row-gap: 0;
-    justify-content: start;
+    column-gap: 10px;
+    row-gap: 4px;
+    justify-content: center;
     align-items: center;
   }
 
@@ -1635,63 +1642,65 @@
   font-size: 3rem;
   opacity: 0.18;
   z-index: 0;
-}/* Chapter Label Flip Effect */
+}
+
+/* Chapter Label Flip Effect */
 .chapter-label--flip {
-    display: block;
-    overflow: hidden;
-    height: 1.5em;
-    /* Adjust based on line-height */
-    line-height: 1.5em;
-    perspective: 400px;
+  display: block;
+  overflow: hidden;
+  height: 1.5em;
+  /* Adjust based on line-height */
+  line-height: 1.5em;
+  perspective: 400px;
 }
 
 .chapter-label-inner {
-    display: block;
-    position: relative;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-style: preserve-3d;
+  display: block;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
 }
 
 .chapter-nav-item:hover .chapter-label-inner,
 .chapter-subitem:hover .chapter-label-inner {
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .chapter-label-front,
 .chapter-label-back {
-    display: block;
-    height: 100%;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
+  display: block;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .chapter-label-front {
-    transform: rotateX(0deg);
+  transform: rotateX(0deg);
 }
 
 .chapter-label-back {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    color: #d97706;
-    /* Amber-600 */
-    transform: rotateX(-20deg);
-    /* Tilt slightly for effect */
-    transform-origin: top;
-    opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  color: #d97706;
+  /* Amber-600 */
+  transform: rotateX(-20deg);
+  /* Tilt slightly for effect */
+  transform-origin: top;
+  opacity: 0;
 }
 
 .chapter-nav-item:hover .chapter-label-back,
 .chapter-subitem:hover .chapter-label-back {
-    opacity: 1;
-    transform: rotateX(0deg);
+  opacity: 1;
+  transform: rotateX(0deg);
 }
 
 /* Sidebar Background Texture */
 .sidebar-texture-bg {
-    background-image: url('/images/paper_texture_natural.png');
-    background-size: 200px;
-    background-repeat: repeat;
-    background-blend-mode: overlay;
+  background-image: url('/images/paper_texture_natural.png');
+  background-size: 200px;
+  background-repeat: repeat;
+  background-blend-mode: overlay;
 }

@@ -320,7 +320,7 @@ export default function RedOolongContent() {
                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-xs mt-0.5">1</span>
                 <div>
                   <span className="font-bold text-stone-800 block">命名</span>
-                  <span className="text-sm text-stone-600">蔣彥士品嚐水餃後鄉野考察，後由李登輝先生定名「福鹿茶」。</span>
+                  <span className="text-sm text-stone-600">民國71年4月，前總統李登輝任台灣省主席，在地方政要的陪同下，前來鹿野永安訪視，品嚐在地生產的茶葉，並應茶農之請，特將鹿野的茶葉命名為「福鹿茶」，從此鹿野永安的茶就以福鹿茶行銷，逐漸發展成為東台灣最大的茶鄉。</span>
                 </div>
               </li>
               <li className="flex gap-3">

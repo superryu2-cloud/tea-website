@@ -27,6 +27,7 @@ export default {
           '"Microsoft YaHei"',
           ...defaultTheme.fontFamily.sans,
         ],
+        calligraphy: ['"Ma Shan Zheng"', "cursive"],
       },
     },
   },

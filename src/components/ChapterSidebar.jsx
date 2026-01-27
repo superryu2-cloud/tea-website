@@ -123,7 +123,7 @@ export default function ChapterSidebar({
                             : 'hover:bg-stone-50 text-stone-600 hover:text-stone-900'
                             }`}
                         >
-                          <span className="block text-base font-semibold chapter-label--flip">
+                          <span className="block text-lg font-semibold chapter-label--flip">
                             <span className="chapter-label-inner">
                               <span className="chapter-label-front truncate">{sub.label}</span>
                               <span className="chapter-label-back truncate text-amber-600">{sub.label}</span>

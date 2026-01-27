@@ -13,275 +13,327 @@ import {
   ArrowRight,
   TrendingUp,
   AlertOctagon,
-  FlaskConical
+  FlaskConical,
+  Sprout,
+  Users,
+  Trophy,
+  Book,
+  Feather
 } from 'lucide-react';
 
-function Tag({ className, children }) {
+function SectionTitle({ icon: Icon, title, subtitle, colorClass = "text-amber-800" }) {
   return (
-    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-bold shadow-sm ${className}`}>
-      {children}
-    </span>
-  );
-}
-
-function SectionTitle({ icon: Icon, title, subtitle }) {
-  return (
-    <div className="flex items-start gap-4 mb-6">
-      <div className="p-3 bg-amber-100 text-amber-700 rounded-2xl shadow-sm">
-        <Icon size={24} />
+    <div className="flex items-start gap-4 mb-10">
+      <div className={`p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-stone-100 ${colorClass}`}>
+        <Icon size={28} strokeWidth={1.5} />
       </div>
-      <div>
-        <h3 className="text-2xl font-bold text-stone-900">{title}</h3>
-        {subtitle && <p className="text-stone-500 text-sm mt-1">{subtitle}</p>}
+      <div className="pt-2">
+        <h3 className={`text-3xl font-bold ${colorClass} font-serif tracking-wide`}>{title}</h3>
+        {subtitle && <p className="text-stone-500 text-base mt-2 font-medium">{subtitle}</p>}
       </div>
     </div>
   )
 }
 
-function Card({ title, icon: Icon, children, className = '' }) {
+function QuoteBlock({ children }) {
   return (
-    <div className={`bg-white rounded-3xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden ${className}`}>
-      <div className="px-8 py-6 border-b border-stone-50 bg-gradient-to-r from-stone-50/50 to-white flex items-center gap-3">
-        {Icon ? (
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-amber-50 text-amber-600">
-            <Icon size={20} />
-          </span>
-        ) : null}
-        <h3 className="text-xl font-bold text-stone-800">{title}</h3>
-      </div>
-      <div className="px-8 py-8 space-y-4 text-stone-700 leading-relaxed">
+    <div className="relative p-10 rounded-3xl bg-[#fdfbf7] border border-[#e6dcc3] my-12 shadow-[0_4px_20px_-8px_rgba(180,160,120,0.3)]">
+      <div className="absolute -top-4 -left-2 text-6xl text-amber-200/50 font-serif">“</div>
+      <p className="text-xl text-stone-700 leading-relaxed italic relative z-10 font-serif tracking-wide">
         {children}
-      </div>
+      </p>
+      <div className="absolute -bottom-10 -right-2 text-6xl text-amber-200/50 font-serif rotate-180">“</div>
     </div>
   );
 }
 
 export default function HoneyAromaBlackTeaContent() {
   return (
-    <div className="animate-fadeIn space-y-12">
-      {/* Hero Section - Ghibli Style Structure */}
-      <div className="relative rounded-3xl overflow-hidden shadow-2xl group h-[500px] border border-stone-900/10">
+    <div className="animate-fadeIn space-y-24 max-w-6xl mx-auto px-4 md:px-8 pb-32">
+      {/* Hero Section - Ghibli Style */}
+      <div className="relative rounded-[3rem] overflow-hidden shadow-2xl group min-h-[650px] border-[6px] border-white ring-1 ring-stone-200">
         <img
-          src="/images/honey_black_tea.png"
+          src="/images/honey_black_ghibli_hero.png"
           alt="Honey Black Tea Landscape"
-          className="w-full h-full object-cover transform transition-transform duration-[3s] group-hover:scale-105"
+          className="w-full h-full object-cover absolute inset-0 transform transition-transform duration-[3s] group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-900/20 to-amber-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="max-w-3xl text-shadow-lg">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-200 backdrop-blur-md text-xs font-bold mb-4 shadow-lg">
-                <Leaf size={14} className="text-amber-400" />
-                <span className="tracking-widest">台灣特色茶｜蜜香紅茶</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight mb-4 drop-shadow-2xl font-serif">
-                從蟲害到金牌的奇蹟
-              </h2>
-              <p className="text-lg md:text-xl text-stone-200 font-light tracking-wide drop-shadow-md max-w-2xl">
-                原本的蟲害災難，意外開啟了天然蜜香的誕生路徑。<br className="hidden md:block" />
-                當人類願意退一步，大自然便以最豐厚的風味回報。
-              </p>
+        <div className="absolute bottom-0 left-0 p-10 md:p-16 w-full z-10">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 backdrop-blur-md text-sm font-bold mb-6 shadow-xl">
+              <Leaf size={16} className="text-amber-400" />
+              <span className="tracking-[0.2em] uppercase">Formosa Honey Black Tea</span>
             </div>
-
-            <div className="flex flex-wrap gap-2 md:justify-end">
-              <Tag className="bg-amber-950/80 border-amber-700 text-amber-100 backdrop-blur-sm">
-                <Sparkles size={14} /> 天然蜜香
-              </Tag>
-              <Tag className="bg-emerald-950/80 border-emerald-700 text-emerald-100 backdrop-blur-sm">
-                <Bug size={14} /> 小綠葉蟬
-              </Tag>
-              <Tag className="bg-stone-800/80 border-stone-600 text-stone-200 backdrop-blur-sm">
-                <MapPin size={14} /> 花蓮舞鶴
-              </Tag>
+            <h2 className="text-4xl md:text-6xl font-black text-white leading-tight mb-8 drop-shadow-2xl font-serif tracking-wide">
+              蜜香紅茶：<br />
+              <span className="text-amber-200">蟲吻</span>與<span className="text-amber-200">金牌</span>的傳奇旅程
+            </h2>
+            <div className="flex flex-wrap gap-3 text-base font-medium text-stone-200">
+              <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🍃 花蓮舞鶴</span>
+              <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🐛 小綠葉蟬</span>
+              <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🌿 自然農法</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Introduction Section (Restored) */}
-      <section className="bg-white rounded-3xl p-8 md:p-12 border border-stone-100 shadow-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-stone-100 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 pointer-events-none" />
-        <SectionTitle icon={History} title="引言：一場「不完美」的相遇" />
-        <div className="text-lg text-stone-700 leading-relaxed italic space-y-6 relative z-10 border-l-4 border-amber-300 pl-6">
+      {/* Introduction */}
+      <section className="relative max-w-4xl mx-auto">
+        <SectionTitle icon={Book} title="引言：一場「不完美」的相遇" />
+        <div className="text-xl text-stone-700 leading-relaxed space-y-8 font-medium tracking-wide">
           <p>
-            想像一位憂心忡忡的茶農，步入本該是滿園翠綠的茶田，迎來的卻不是飽滿的嫩芽，而是一片片遭蟲吻後蜷曲、枯黃的葉片。
-            在傳統耕作的觀念裡，這是一場徹頭徹尾的災難。
+            想像一位憂心忡忡的茶農，步入本該是滿園翠綠的茶田，迎來的卻不是飽滿的嫩芽，而是一片片遭蟲吻後蜷曲、枯黃的葉片。空氣中瀰漫的不是茶香，而是心血付諸東流的嘆息。在傳統耕作的觀念裡，這是一場徹頭徹尾的災難。
           </p>
           <p>
-            空氣中瀰漫的不是茶香，而是心血付諸東流的嘆息：產量下降、收成不穩、品質難保——一切看起來都指向「失敗」。
-            但也正是這份不完美，讓茶樹啟動了意想不到的防禦機制，埋下蜜香的伏筆。
-          </p>
-          <p className="font-bold text-stone-900">
-            旅程的起點，得從那隻曾被視為不祥之兆的小蟲說起。
+            然而，這場看似毀滅性的蟲害，是如何意外地催生出一款帶有天然蜜香、享譽國際的傳奇紅茶？本文將引領您走進這段曲折的旅程，探索蜜香紅茶如何從一場生態危機，蛻變為台灣農業史上的一頁奇蹟。而這趟旅程的起點，得從那隻曾被視為不祥之兆的小蟲說起——牠究竟是害蟲，還是帶來奇蹟的功臣？
           </p>
         </div>
       </section>
 
-      {/* Core Story: The "Defect" turned Gold */}
-      <div className="grid lg:grid-cols-2 gap-6 items-stretch">
-        {/* Left: The Insect & Misconception */}
-        <div className="rounded-3xl border border-emerald-50 bg-white p-8 flex flex-col justify-between shadow-sm">
-          <div>
-            <SectionTitle icon={Bug} title="害蟲？功臣？" subtitle="The Little Green Leafhopper" />
-            <div className="relative rounded-2xl overflow-hidden mb-6 group">
-              <img src="/images/leafhopper.png" alt="小綠葉蟬" className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <span className="text-white font-bold text-sm flex items-center gap-2">
-                  <Bug size={14} /> Jacobiasca formosana
-                </span>
+      {/* Part 1: The Insect - Eastern Art Style */}
+      <section className="bg-[#fcfaf7] rounded-[3rem] p-8 md:p-14 shadow-xl overflow-hidden relative border border-[#ede5d5]">
+        {/* Background Texture Overlay */}
+        <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/rice-paper-2.png')] pointer-events-none"></div>
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-100/50 rounded-full blur-[80px]"></div>
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          {/* Artistic Image Side */}
+          <div className="order-2 lg:order-1 relative">
+            <div className="relative p-3 bg-white shadow-2xl rounded-2xl rotate-[-2deg] border border-stone-100">
+              <img
+                src="/images/leafhopper_watercolor_art.png"
+                alt="Artistic Watercolor Leafhopper"
+                className="w-full h-auto rounded-xl"
+              />
+              <div className="absolute bottom-6 right-6 font-serif text-stone-400 text-xs writing-vertical-rl tracking-widest opacity-80">
+                小綠葉蟬 · 著涎之美
               </div>
             </div>
-            <div className="space-y-4">
-              <ul className="space-y-2 text-sm bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
-                <li className="flex gap-2"><span className="font-bold text-emerald-800 w-12 shrink-0">別名</span> <span className="text-emerald-900">小綠浮塵子、煙仔、跳仔</span></li>
-                <li className="flex gap-2"><span className="font-bold text-emerald-800 w-12 shrink-0">習性</span> <span className="text-emerald-900">吸食茶樹嫩芽汁液，導致茶芽生長以及發育受阻，葉片捲曲、褐變。</span></li>
-                <li className="flex gap-2"><span className="font-bold text-emerald-800 w-12 shrink-0">活躍期</span> <span className="text-emerald-900">全年皆有，5-7 月芒種至大暑期間最為猖獗。</span></li>
-              </ul>
+            {/* Decorative Seal */}
+            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-red-800/80 text-white rounded-lg flex items-center justify-center font-serif font-bold text-2xl shadow-lg border-2 border-white/50 backdrop-blur-sm">
+              蜜香
+            </div>
+          </div>
 
-              <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 flex gap-3 text-sm">
-                <AlertOctagon className="text-amber-600 shrink-0 mt-0.5" size={18} />
-                <div>
-                  <strong className="text-amber-800 block mb-1">關鍵誤解釐清</strong>
-                  <span className="text-amber-900/80">蜜香並非來自蟲的口水，而是茶樹被叮咬後，為了求救而啟動防禦機制，所「自我生成」的特殊芳香物質。</span>
+          {/* Content Side */}
+          <div className="order-1 lg:order-2">
+            <SectionTitle icon={Bug} title="1. 害蟲或功臣？" subtitle="重新認識小綠葉蟬" colorClass="text-emerald-800" />
+
+            <div className="space-y-8">
+              <p className="text-lg text-stone-700 leading-relaxed font-medium">
+                在揭開蜜香的秘密之前，讓我們先認識故事中這位意想不到的主角——小綠葉蟬。在傳統茶農眼中，牠是帶來毀滅的惡客。
+              </p>
+
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-emerald-100/50 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-emerald-400"></div>
+                <h4 className="flex items-center text-lg font-bold text-emerald-800 mb-4">
+                  <ShieldAlert size={18} className="mr-2" />
+                  小綠葉蟬檔案
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex flex-col sm:flex-row sm:gap-4">
+                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">別名</span>
+                    <span className="text-stone-700 font-medium">小綠浮塵子。</span>
+                  </li>
+                  <li className="flex flex-col sm:flex-row sm:gap-4">
+                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">習性</span>
+                    <span className="text-stone-700 font-medium leading-relaxed">以刺吸式口器吸食茶樹嫩芽汁液，導致茶葉捲曲萎縮、停止生長。</span>
+                  </li>
+                  <li className="flex flex-col sm:flex-row sm:gap-4">
+                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">活躍期</span>
+                    <span className="text-stone-700 font-medium">全年皆有，但以每年5至7月的夏季最為猖獗。</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-emerald-100/50">
+                <h4 className="flex items-center text-xl font-bold text-amber-800 mb-6">
+                  <Sparkles size={20} className="mr-2" /> 蜜香的誕生機制
+                </h4>
+                <div className="relative pl-8 space-y-6">
+                  <div className="absolute left-3 top-2 bottom-6 w-0.5 bg-gradient-to-b from-amber-300 to-transparent"></div>
+                  {[
+                    { title: "茶樹的求救", content: "嫩芽被叮咬後，茶樹啟動防禦機制，釋放求救信號。" },
+                    { title: "天敵的召喚", content: "分泌特殊芳香物質，試圖吸引白斑蠟蛛等天敵前來。" },
+                    { title: "蜜香的轉化", content: "這些芳香物質經烘焙轉化，昇華為獨特的天然蜜香。" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="relative group">
+                      <div className="absolute -left-[27px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-amber-400 shadow-sm z-10 group-hover:scale-125 transition-transform duration-300"></div>
+                      <h5 className="font-bold text-stone-800 text-lg mb-1">{item.title}</h5>
+                      <p className="text-stone-600 font-medium leading-relaxed">{item.content}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right: The Mechanism (Dense Layout) */}
-        <div className="rounded-3xl border border-stone-200 bg-stone-50 p-8 flex flex-col shadow-inner">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-stone-200 rounded-xl text-stone-600"><ShieldAlert size={20} /></div>
-            <h3 className="text-xl font-bold text-stone-900">植物的求救訊號：蜜香機制</h3>
+        {/* Scientific Note */}
+        <div className="mt-12 bg-amber-500/5 p-6 md:p-8 rounded-2xl border border-amber-200/50 flex flex-col md:flex-row gap-6 items-start">
+          <div className="p-3 bg-amber-100 rounded-full text-amber-700 shrink-0 shadow-sm"><FlaskConical size={24} /></div>
+          <div>
+            <h5 className="font-bold text-amber-900 mb-2 text-lg">解鎖蜜香的鑰匙</h5>
+            <p className="text-stone-700 font-medium leading-relaxed">
+              實驗證明，若單純用針刺傷茶芽，並無法產生蜜香；必須要沾上小綠葉蟬的口腔分泌物（唾液）再去刺激，茶樹才會生成這種特殊的蜜香成分。這證明了<span className="text-amber-700 underline decoration-amber-300 underline-offset-4 decoration-2">小綠葉蟬的唾液</span>是啟動這一切的關鍵鑰匙，一場大自然精妙的設計。
+            </p>
           </div>
+        </div>
+      </section>
 
-          <div className="relative space-y-0 flex-1 flex flex-col justify-center pl-4">
-            {/* Timeline Line */}
-            <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-stone-200" />
-
+      {/* Part 2: Innovation - Modern Clean Style */}
+      <section className="grid md:grid-cols-12 gap-10 items-center">
+        <div className="md:col-span-5">
+          <div className="bg-stone-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-stone-800 rounded-bl-full -mr-10 -mt-10 opacity-50"></div>
+            <SectionTitle icon={FlaskConical} title="2. 技術革新" subtitle="從廢茶到名茶" colorClass="text-amber-400" />
+            <p className="text-stone-300 leading-relaxed text-lg mb-6 font-light">
+              故事的轉捩點發生在1990年代末，已故的<strong>台東茶改場課長陳惠藏先生</strong>。
+            </p>
+            <p className="text-stone-300 leading-relaxed text-lg font-light">
+              他受到「東方美人茶」同樣利用小綠葉蟬著涎原理的啟發，開始嘗試將這些被茶農視為廢料的受損茶菁，用於新的製茶實驗。經過不斷改良，成功製成了帶有天然蜜香的綠茶與紅茶。
+            </p>
+          </div>
+        </div>
+        <div className="md:col-span-7">
+          <div className="grid sm:grid-cols-2 gap-6">
             {[
-              { step: "01", title: "受害與防禦開啟", desc: "嫩芽被小綠葉蟬叮咬，茶樹啟動自我保護機制，開始釋放化學信號。", color: "bg-stone-400" },
-              { step: "02", title: "召喚保鑣 (天敵)", desc: "釋放特殊氣味（新洛蒙），意圖吸引白斑獵蛛、長腳蛛等天敵來捕食葉蟬。", color: "bg-stone-500" },
-              { step: "03", title: "蜜香的誕生", desc: "這些原本為了求救而產生的芳香物質，在製茶師傅的重萎凋、揉捻與發酵工藝轉化下，昇華成我們杯中迷人的天然蜜香。", color: "bg-amber-500", highlight: true }
-            ].map((item, idx) => (
-              <div key={idx} className="relative pl-10 pb-8 last:pb-0 group">
-                <span className={`absolute left-0 top-0 w-10 h-10 rounded-full ${item.color} text-white flex items-center justify-center font-bold text-sm ring-4 ring-stone-50 z-10 shadow-sm group-hover:scale-110 transition-transform`}>
-                  {item.step}
-                </span>
-                <h4 className={`font-bold text-lg mb-1 ${item.highlight ? 'text-amber-700' : 'text-stone-800'}`}>{item.title}</h4>
-                <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+              { icon: Award, color: "red", title: "風味極佳", desc: "成品茶湯甘醇，並帶有濃郁的天然蜂蜜香氣。" },
+              { icon: TrendingUp, color: "blue", title: "經濟效益", desc: "製作過程相對簡單，且生產成本較低，為茶農帶來新機遇。" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl border border-stone-100 shadow-lg hover:-translate-y-2 transition-transform duration-300">
+                <div className={`w-14 h-14 rounded-2xl bg-${item.color}-50 text-${item.color}-600 flex items-center justify-center mb-6`}>
+                  <item.icon size={28} />
+                </div>
+                <h4 className="text-xl font-bold text-stone-900 mb-3">{item.title}</h4>
+                <p className="text-stone-600 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* History & Innovation Grid (Restored Details) */}
-      <section className="space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="h-8 w-1 bg-amber-500 rounded-full" />
-          <h3 className="text-2xl font-bold text-stone-900">舞鶴台地的重生：從衰敗到榮耀</h3>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Card 1: Context & Crisis */}
-          <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm group hover:border-amber-200 transition-colors">
-            <div className="flex items-center gap-3 mb-4 text-stone-500">
-              <History size={20} />
-              <span className="font-bold text-sm tracking-wider uppercase">Context (1970s - 1990s)</span>
-            </div>
-            <h4 className="font-bold text-xl text-stone-900 mb-3">昔日天鶴茶的沒落</h4>
-            <p className="text-stone-600 leading-relaxed mb-4">
-              花蓮瑞穗的舞鶴台地，曾以「天鶴茶」聞名。但在 1990 年代，因高山茶崛起，低海拔茶區逐漸失去優勢。加上鳳梨、甘蔗等傳統產業撤退，台地一度面臨產業中斷的危機。
-            </p>
+          <div className="mt-8 text-center text-stone-400 font-serif italic text-lg">
+            “當時，蜜香茶仍是一項潛力無窮的發明，靜靜等待著一個能讓它發光發熱的舞台。”
           </div>
+        </div>
+      </section>
 
-          {/* Card 2: Policy & Turning Point */}
-          <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm group hover:border-amber-200 transition-colors">
-            <div className="flex items-center gap-3 mb-4 text-emerald-600">
-              <Leaf size={20} />
-              <span className="font-bold text-sm tracking-wider uppercase">Turning Point (2000s)</span>
-            </div>
-            <h4 className="font-bold text-xl text-stone-900 mb-3">無毒農業的豪賭</h4>
-            <p className="text-stone-600 leading-relaxed mb-4">
-              2000年初，花蓮推動「無毒農業」。產銷班長 <strong>高肇煦</strong> 率先響應，停止噴灑農藥。
-              <br />
-              <span className="text-emerald-700 font-bold block mt-2">結果：小綠葉蟬大爆發，茶園滿目瘡痍。</span>
+      {/* Part 3: Wuhe Terrace - Layout */}
+      <section>
+        <SectionTitle icon={MapPin} title="3. 舞鶴台地的困境與重生" />
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          {/* Card 1 */}
+          <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm relative overflow-hidden group hover:shadow-xl transition-shadow duration-500">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-stone-50 rounded-bl-full -mr-12 -mt-12 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
+            <h4 className="text-2xl font-bold text-stone-900 mb-6 relative z-10 font-serif">天鶴茶的輝煌與沒落</h4>
+            <p className="text-lg text-stone-600 leading-relaxed mb-8 relative z-10 font-medium">
+              讓蜜香紅茶大放異彩的舞台，在東台灣的另一端——花蓮瑞穗的舞鶴台地——悄然搭起。這裡位於紅葉溪與秀姑巒溪交會處，極宜茶樹生長。曾以「天鶴茶」聞名，但在90年代高山茶崛起後，銷量一落千丈，茶產業陷入困境。
             </p>
-            <p className="text-xs text-stone-400 mt-2">
-              *當時沒人知道，這場看似毀滅的蟲害，是上天給的禮物。
-            </p>
-          </div>
-
-          {/* Card 3: Innovation (Full Width or Split) */}
-          <div className="md:col-span-2 bg-gradient-to-r from-stone-50 to-white p-8 rounded-2xl border border-stone-200 shadow-sm flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4 text-amber-600">
-                <FlaskConical size={20} />
-                <span className="font-bold text-sm tracking-wider uppercase">Innovation</span>
-              </div>
-              <h4 className="font-bold text-xl text-stone-900 mb-2">化腐朽為神奇</h4>
-              <p className="text-stone-600 leading-relaxed">
-                茶改場台東分場 <strong>陳惠藏課長</strong> 來到舞鶴輔導，看著受損的茶菁，提出大膽構想：「如果不做烏龍，改做全發酵的紅茶呢？」
-                <br /><br />
-                這一試，發現經過蟲咬的茶菁在全發酵後，竟散發出濃郁的蜜糖香。這種將「廢料變黃金」的技術，不僅解決了蟲害問題，更創造了全新的風味類別。
+            <div className="p-6 bg-red-50/50 rounded-2xl border border-red-100 relative z-10">
+              <span className="text-red-800 font-bold block mb-2 flex items-center"><TrendingUp className="rotate-180 mr-2" size={18} /> 昔日困境</span>
+              <p className="text-stone-600 font-medium">
+                許多茶農血本無歸，不得不忍痛放棄茶園，改種其他作物維生。
               </p>
             </div>
-            <div className="w-full md:w-1/3 p-6 bg-amber-50 rounded-xl border border-amber-100 text-center">
-              <div className="text-amber-900 font-bold text-lg mb-1">蜜香紅茶</div>
-              <div className="text-xs text-amber-700 mb-3">Honey Black Tea</div>
-              <div className="text-3xl font-black text-amber-500 mb-2">2006</div>
-              <div className="text-sm text-stone-600">天下名茶大賽金牌<br />一戰成名</div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-emerald-900 text-emerald-50 p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-800 rounded-bl-full -mr-12 -mt-12 opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
+            <h4 className="text-2xl font-bold text-white mb-6 relative z-10 font-serif">無毒農業的挑戰</h4>
+            <p className="text-lg text-emerald-100/90 leading-relaxed mb-8 relative z-10 font-light">
+              2003年，花蓮推動「無毒農業」政策。舞鶴茶葉產銷班班長高肇煦率先響應，決心停止在茶園使用殺蟲劑。但這個決定，卻帶來了始料未及的生態反撲。
+            </p>
+            <div className="p-6 bg-emerald-800/50 backdrop-blur-md rounded-2xl border border-emerald-700/50 relative z-10">
+              <span className="text-white font-bold block mb-2 flex items-center"><AlertOctagon size={18} className="mr-2 text-amber-400" /> 生態反撲</span>
+              <p className="text-emerald-100/80 font-normal">
+                失去了農藥抑制，小綠葉蟬爆發性增生，茶樹受損情況比以往任何時候都嚴重。
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Awards: The Trophy Case */}
-      <div className="bg-gradient-to-r from-stone-900 to-stone-800 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-        <div className="absolute -right-20 -top-20 w-80 h-80 bg-amber-500/20 rounded-full blur-[80px] pointer-events-none" />
+      {/* Part 4: Gold Medal - Scroll Style */}
+      <section className="relative py-12">
+        <div className="absolute inset-0 bg-stone-800 rounded-[3rem] -z-10 shadow-2xl overflow-hidden">
+          {/* Abstract Gold Dust Background */}
+          <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-600/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+        </div>
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-4 max-w-lg">
-            <div className="flex items-center gap-3 text-amber-400 font-bold tracking-widest text-xs uppercase">
-              <Award size={16} /> World Champion
+        <div className="text-white p-8 md:p-14 relative">
+          <SectionTitle icon={Trophy} title={<span className="text-white">4. 化危機為轉機：金牌之路</span>} colorClass="text-amber-400" />
+
+          <div className="space-y-16 relative z-10">
+            {/* Story */}
+            <div className="max-w-3xl">
+              <h4 className="text-3xl font-bold text-amber-400 mb-6 font-serif">逆境中的決策</h4>
+              <p className="text-stone-300 leading-relaxed text-xl font-light">
+                面對滿園受損的茶樹，<span className="font-bold text-white">高肇煦班長</span>沒有放棄。他回想起茶改場的技術，大膽地將受害最嚴重的「大葉烏龍」運用新技術製成紅茶。<br /><br />
+                <span className="text-white font-serif text-2xl border-b-2 border-amber-500/50 pb-2 inline-block">結果，成品香氣濃郁，一鳴驚人。</span>
+              </p>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black font-serif text-white">
-              世界金牌的肯定
-            </h3>
-            <p className="text-stone-300 leading-relaxed">
-              從國內的天下名茶金牌，到2010年國際名茶評比勇奪四面金牌（年阿瑞女士）。蜜香紅茶的成功，證明了台灣茶不只有高山烏龍，在特色紅茶領域同樣能站上世界巔峰。
-            </p>
-          </div>
 
-          <div className="flex flex-col gap-4 w-full md:w-auto">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl flex items-center gap-4">
-              <div className="text-2xl font-black text-amber-400">2006</div>
-              <div>
-                <div className="font-bold text-sm">天下名茶大賽</div>
-                <div className="text-xs text-stone-400">紅茶組 金牌獎</div>
+            {/* Timeline Scroll */}
+            <div className="bg-[#e8dfc8] text-stone-900 rounded-3xl p-10 border-4 border-[#c7b299] shadow-2xl relative">
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#c7b299] rounded-full flex items-center justify-center mb-8 border-4 border-[#e8dfc8] shadow-md">
+                <Award size={24} className="text-amber-900" />
               </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl flex items-center gap-4">
-              <div className="text-2xl font-black text-amber-400">2010</div>
-              <div>
-                <div className="font-bold text-sm">國際名茶評比</div>
-                <div className="text-xs text-stone-400">四面金牌</div>
+
+              <h4 className="text-2xl font-bold text-amber-900 mb-12 text-center mt-6 font-serif tracking-widest">🏆 榮耀時刻</h4>
+
+              <div className="grid md:grid-cols-2 gap-12 md:gap-20 relative">
+                {/* Vertical Line for Desktop */}
+                <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-amber-900/20 -translate-x-1/2 hidden md:block border-l-2 border-dashed border-amber-900/30"></div>
+
+                {/* 2006 */}
+                <div className="text-center relative">
+                  <div className="inline-block px-6 py-2 bg-amber-800 text-amber-100 rounded-full font-bold text-xl mb-6 shadow-lg">2006 年</div>
+                  <div className="bg-white/50 p-6 rounded-2xl border border-amber-900/10">
+                    <h5 className="font-bold text-xl mb-3 text-stone-900">第一屆天下名茶大賽</h5>
+                    <p className="text-stone-700 font-medium mb-4">
+                      高肇煦班長以蜜香紅茶參加<br />「第一屆天下名茶大賽」
+                    </p>
+                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-bold shadow-md">
+                      紅茶組 金牌獎 🥇
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2010 */}
+                <div className="text-center relative">
+                  <div className="inline-block px-6 py-2 bg-amber-800 text-amber-100 rounded-full font-bold text-xl mb-6 shadow-lg">2010 年</div>
+                  <div className="bg-white/50 p-6 rounded-2xl border border-amber-900/10">
+                    <h5 className="font-bold text-xl mb-3 text-stone-900">國際名茶評比</h5>
+                    <p className="text-stone-700 font-medium mb-4">
+                      其親戚年阿瑞女士參加<br />在台灣舉辦的國際名茶評比
+                    </p>
+                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-bold shadow-md">
+                      一舉奪得 四面金牌 🥇🥇🥇🥇
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Conclusion Quote */}
-      <div className="text-center py-8">
-        <p className="text-xl md:text-2xl font-serif font-bold text-stone-800 italic max-w-3xl mx-auto leading-relaxed">
-          「蜜香紅茶證明了：當我們停止對抗自然，學會共生，失敗也能轉化為最甜美的果實。」
-        </p>
-      </div>
+      {/* Conclusion */}
+      <section className="pb-12 text-center max-w-5xl mx-auto">
+        <div className="mb-8 flex justify-center text-amber-600 animate-bounce-slow">
+          <Sprout size={56} strokeWidth={1.5} />
+        </div>
+        <h3 className="text-4xl font-bold text-stone-900 mb-8 font-serif tracking-wide">結論：從害蟲到夥伴的共生智慧</h3>
+        <div className="space-y-8 text-xl text-stone-600 leading-loose font-medium px-4">
+          <p>
+            蜜香紅茶的傳奇，是一個將「蟲害危機」轉變為「世界金牌」的勵志故事。它最核心的洞見，在於茶農們驚訝地發現了一個奇妙的循環：茶菁被小綠葉蟬叮咬得越嚴重，茶葉的蜜香反而越加濃郁，最終製成的紅茶品質更好，價格也能賣得更高。
+          </p>
+          <QuoteBlock>
+            蜜香紅茶的誕生，不僅是一款名茶的崛起，更是一種化危機為轉機、與自然和諧共存的深刻智慧。
+          </QuoteBlock>
+        </div>
+      </section>
     </div>
   );
 }

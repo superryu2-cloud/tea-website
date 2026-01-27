@@ -1,8 +1,43 @@
-// Auto-extracted from src/App.jsx
+﻿// Auto-extracted from src/App.jsx
 
-import React from 'react';
-import { Leaf, Droplets, Clock, BookOpen, Search, Menu, X, ChevronRight, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Leaf, Droplets, Clock, BookOpen, Search, Menu, X, ChevronRight, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle, Hammer } from 'lucide-react';
 import { chineseTeaDynasties, dongdingTimeline, teaNameEtymology, teaNicknames } from '../data/historyCulture';
+import ImageLightbox from '../components/ImageLightbox';
+import shennongImage from '../assets/images/history_shennong.png';
+import scrollTexture from '../assets/images/history_calligraphy_scroll.png';
+import dynastyRiver from '../assets/images/history_dynasty_river.png';
+import teaHouseImage from '../assets/images/history_tea_house_ghibli.png';
+import highMountainImage from '../assets/images/history_high_mountain_ghibli.png';
+
+function ZoomableImage({ src, alt, containerClassName, imgClassName, overlayClassName, children }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className={containerClassName}>
+            <button
+                type="button"
+                onClick={() => setIsOpen(true)}
+                className="group absolute inset-0 w-full h-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
+                aria-label={`${alt || '圖片'}（點擊放大）`}
+            >
+                <img src={src} alt={alt} className={imgClassName} />
+                {overlayClassName ? <div className={overlayClassName} /> : null}
+                {children}
+                <span className="absolute bottom-4 right-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 text-stone-700 shadow-lg opacity-0 transition-opacity group-hover:opacity-100">
+                    <Search size={18} />
+                </span>
+            </button>
+            <ImageLightbox
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                imageSrc={src}
+                altText={alt}
+            />
+        </div>
+    );
+}
+
 
 export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineData, TimelineRow }) {
     return {
@@ -10,67 +45,152 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
             title: "中華茶史",
             icon: <BookOpen size={24} />,
             content: (
-                <div className="space-y-12 animate-fadeIn text-stone-800">
-                    {/* Shennong */}
-                    <div className="bg-stone-50 p-8 rounded-xl border border-stone-200">
-                        <h3 className="text-3xl font-bold text-stone-900 mb-6">神農氏：茶的發現者</h3>
-                        <div className="prose prose-stone max-w-none">
-                            <p className="mb-4">相傳神農氏「嘗百草」。有一天，他翻山越嶺，口渴得很，忽然有一片樹葉飄落眼前，撿起細看，青嫩可愛；用手一餒，汁液潤滑；以鼻一嗅，氣味芬芳；用舌一舐，苦澀非常。於是，憑著神農氏豐富的經驗，便斷定是一種止渴、提神的藥。</p>
-                            <p className="text-stone-700">以當時來說，神農氏發現茶樹，只是鑑別、斷定茶有藥效而已；真正使茶成為「國飲」的地位，是數千年來難以數計的無名氏不斷的栽培、更新、繁衍，由嚼青葉，而發明為採葉焙製；由採葉焙製，而改良為煎烹飲啜。如此的發明再發明，改良再改良，使得此一深具民族性的飲料，能流傳千古而為世人所飲用。</p>
-                        </div>
-                    </div>
-
-                    {/* Etymology & Nicknames */}
-                    <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
-                        <h4 className="text-2xl font-bold text-stone-800 mb-6 flex items-center">
-                            <PenTool className="mr-3 text-stone-600" /> 茶名考
-                        </h4>
-                        <p className="text-stone-700 leading-relaxed mb-6">
-                            茶古作「荼」或「 」。唐陸羽茶經會說；「其字或從草，或從木，或草木並。其名一曰茶，二日檟，三日蔎，四日茗，五曰荈。」又據神農本草：「苦荼，一名茶，一名選，一名游，冬生益州川谷山陵道旁，凌冬不死，三月三日採乾。」可見古時荼字在古書上的稱謂及意義不同，為便於考究，列舉如下：
-                        </p>
-                        <div className="space-y-4">
-                            {teaNameEtymology.map((item, idx) => (
-                                <div key={idx} className="bg-stone-50 p-4 rounded-lg border border-stone-200">
-                                    <h5 className="font-bold text-stone-800 mb-2">（{["一", "二", "三", "四", "五", "六", "七", "八"][idx]}）{item.name}</h5>
-                                    <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+                <div className="space-y-16 animate-fadeIn text-stone-800">
+                    {/* Shennong - Ghibli Legend Style */}
+                    <div className="bg-[#fcfaf5] rounded-[2.5rem] p-8 md:p-12 shadow-lg border border-[#e8dfc8] relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-100 rounded-bl-full opacity-30 -mr-16 -mt-16 z-0"></div>
+                        <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
+                            <div className="order-2 md:order-1">
+                                <div className="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 font-bold text-sm mb-6 shadow-sm border border-amber-200">
+                                    茶的起源 · 上古傳說
                                 </div>
-                            ))}
+                                <h3 className="text-4xl font-black text-amber-950 mb-6 font-calligraphy tracking-tight drop-shadow-sm">神農氏：茶的發現者</h3>
+                                <div className="prose prose-lg prose-stone max-w-none font-medium text-stone-800">
+                                    <p className="mb-6 leading-relaxed">
+                                        相傳神農氏「嘗百草」。有一天，他翻山越嶺，口渴得很，忽然有一片樹葉飄落眼前，撿起細看，青嫩可愛；用手一餒，汁液潤滑；以鼻一嗅，氣味芬芳；用舌一舐，苦澀非常。於是，憑著神農氏豐富的經驗，便斷定是一種止渴、提神的藥。
+                                    </p>
+                                    <p className="text-stone-700 text-base border-l-4 border-amber-400 pl-4 py-3 italic bg-amber-50 rounded-r-lg shadow-inner">
+                                        以當時來說，神農氏發現茶樹，只是鑑別、斷定茶有藥效而已；真正使茶成為「國飲」的地位，是數千年來難以數計的無名氏不斷的栽培、更新、繁衍，由嚼青葉，而發明為採葉焙製；由採葉焙製，而改良為煎烹飲啜。如此的發明再發明，改良再改良，使得此一深具民族性的飲料，能流傳千古而為世人所飲用。
+                                    </p>
+                                </div>
+                            </div>
+                            <ZoomableImage
+                                src={shennongImage}
+                                alt="Shennong Tasting Herbs"
+                                containerClassName="order-1 md:order-2 relative h-full min-h-[300px] md:min-h-[400px] rounded-2xl overflow-hidden shadow-xl border-4 border-white transform hover:rotate-1 transition-transform duration-500"
+                                imgClassName="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2s]"
+                                overlayClassName="absolute inset-0 bg-gradient-to-t from-amber-950/30 to-transparent mix-blend-multiply"
+                            />
                         </div>
-                        <p className="mt-6 text-stone-700">
-                            由上面知道，茶的稱謂很多，不專是指茶樹上的茶來說。但到了唐陸羽茶經問世，於是將數種不同意義的「荼」減去一劃，成為含一種意義的「茶」字；所以自中唐以後，一般學者因受陸羽的影響，逐漸將「荼」改寫為「茶」了。
-                        </p>
                     </div>
 
-                    {/* Nicknames */}
-                    <div className="bg-stone-50 p-8 rounded-xl border border-stone-200">
-                        <h4 className="text-2xl font-bold text-stone-800 mb-6 flex items-center">
-                            <Star className="mr-3 text-amber-600" /> 茶的別稱
+                    {/* Etymology - Bamboo Scroll Style */}
+                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-stone-400/30 bg-[#2c241b]">
+                        <img src={scrollTexture} alt="Ancient Scroll Texture" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 to-stone-800/80"></div>
+
+                        <div className="relative z-10 p-8 md:p-12 text-stone-100">
+                            {/* Header */}
+                            <div className="flex items-center gap-4 mb-10 border-b border-white/10 pb-6">
+                                <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-md">
+                                    <PenTool className="text-amber-200" size={28} />
+                                </div>
+                                <div>
+                                    <h4 className="text-3xl font-bold font-calligraphy text-amber-50 text-shadow-sm">茶名考</h4>
+                                    <div className="text-amber-200/60 text-sm tracking-widest uppercase mt-1 font-medium">Etymology of Tea</div>
+                                </div>
+                            </div>
+
+                            {/* Top Content: Intro & Fun Fact */}
+                            <div className="grid md:grid-cols-2 gap-8 mb-12">
+                                <div className="bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm">
+                                    <p className="text-xl leading-loose text-stone-200 font-calligraphy">
+                                        茶古作<span className="text-3xl text-amber-300 mx-1 font-bold">「荼」</span>或<span className="text-3xl text-amber-300 mx-1 font-bold">「 」</span>。
+                                    </p>
+                                    <p className="mt-4 text-stone-300 leading-relaxed text-base font-light tracking-wide">
+                                        唐陸羽茶經會說；「其字或從草，或從木，或草木並。其名一曰茶，二日檟，三日蔎，四日茗，五曰荈。」
+                                    </p>
+                                    <p className="mt-4 text-stone-300 leading-relaxed text-base font-light tracking-wide">
+                                        又據神農本草：「苦荼，一名茶，一名選，一名游，冬生益州川谷山陵道旁，凌冬不死，三月三日採乾。」
+                                    </p>
+                                </div>
+                                <div className="bg-amber-900/40 p-6 rounded-xl border border-amber-500/30 shadow-inner flex flex-col justify-center">
+                                    <h5 className="text-amber-400 font-bold mb-3 flex items-center text-lg"><Sparkles size={18} className="mr-2" /> 演變小知識</h5>
+                                    <p className="text-stone-200 leading-relaxed">
+                                        到了唐陸羽茶經問世，將數種不同意義的「荼」減去一劃，成為含一種意義的「茶」字；所以自中唐以後，一般學者因受陸羽的影響，逐漸將「荼」改寫為「茶」了。
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Bottom Content: Cards Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {teaNameEtymology.map((item, idx) => (
+                                    <div key={idx} className="bg-white/5 p-5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
+                                        <div className="text-xs text-amber-500/80 mb-2 group-hover:text-amber-400 transition-colors font-medium tracking-widest">
+                                            {["一", "二", "三", "四", "五", "六", "七", "八"][idx]}
+                                        </div>
+                                        <h5 className="font-bold text-amber-50 text-xl mb-2 font-calligraphy tracking-wide">{item.name}</h5>
+                                        <p className="text-sm text-stone-300 leading-relaxed font-light">{item.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Nicknames Grid */}
+                    <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-stone-200 shadow-sm">
+                        <h4 className="text-2xl font-bold text-stone-800 mb-8 flex items-center font-calligraphy">
+                            <Star className="mr-3 text-amber-500" /> 茶的雅稱與別名
                         </h4>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {teaNicknames.map((item, idx) => (
-                                <div key={idx} className="bg-white p-5 rounded-lg shadow-sm border border-stone-200">
-                                    <h5 className="font-bold text-lg text-amber-800 mb-2">{item.name}</h5>
+                                <div key={idx} className="bg-stone-50 p-6 rounded-2xl border border-stone-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300">
+                                    <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-serif font-bold text-lg mb-4 shadow-sm">{item.name[0]}</div>
+                                    <h5 className="font-bold text-lg text-stone-900 mb-3">{item.name}</h5>
                                     <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Dynasties */}
-                    <div className="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
-                        <h4 className="text-2xl font-bold text-stone-800 mb-8 flex items-center">
-                            <History className="mr-3 text-blue-600" /> 歷代茶事
-                        </h4>
-                        <div className="space-y-10">
-                            {chineseTeaDynasties.map((item, idx) => (
-                                <div key={idx} className="relative pl-8">
-                                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500 border-2 border-white"></div>
-                                    <h5 className="text-xl font-bold text-blue-900 mb-3">{item.dynasty}</h5>
-                                    {item.content.map((p, i) => (
-                                        <p key={i} className="text-stone-600 leading-relaxed mb-3">{p}</p>
-                                    ))}
-                                </div>
-                            ))}
+                    {/* Dynasties - River Timeline */}
+                    <div className="bg-gradient-to-b from-[#fdfbf9] to-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-stone-200 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-64 md:h-96 opacity-10 pointer-events-none">
+                            <img src={dynastyRiver} alt="River of History" className="w-full h-full object-cover grayscale" />
+                        </div>
+
+                        <div className="relative z-10">
+                            <h4 className="text-3xl font-bold text-stone-900 mb-12 flex items-center justify-center font-calligraphy">
+                                <History className="mr-3 text-stone-400" /> 歷代茶事 · 千年流轉
+                            </h4>
+
+                            <div className="space-y-12 relative max-w-5xl mx-auto pl-4 md:pl-0">
+                                {/* Vertical Line - Left Aligned */}
+                                <div className="absolute left-8 top-4 bottom-4 w-0.5 bg-stone-200 border-l border-dashed border-stone-300"></div>
+
+                                {chineseTeaDynasties.map((item, idx) => (
+                                    <div key={idx} className="relative pl-24">
+                                        {/* Timeline Dot */}
+                                        <div className="absolute left-8 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white border-4 border-stone-300 z-20 mt-8 shadow-sm"></div>
+
+                                        {/* Card */}
+                                        <div className={`p-8 rounded-2xl border shadow-sm relative group hover:-translate-y-1 transition-transform duration-300 ${idx === 0 ? 'bg-emerald-50 border-emerald-100' :
+                                            idx === 1 ? 'bg-blue-50 border-blue-100' :
+                                                idx === 2 ? 'bg-amber-50 border-amber-100' :
+                                                    'bg-stone-50 border-stone-200'
+                                            }`}>
+                                            {/* Arrow (Left side only) */}
+                                            <div className={`absolute top-8 -left-3 w-6 h-6 rotate-45 border-l border-b ${idx === 0 ? 'bg-emerald-50 border-emerald-100' :
+                                                idx === 1 ? 'bg-blue-50 border-blue-100' :
+                                                    idx === 2 ? 'bg-amber-50 border-amber-100' :
+                                                        'bg-stone-50 border-stone-200'
+                                                }`}></div>
+
+                                            <h5 className={`text-6xl font-black mb-8 font-calligraphy tracking-wider ${idx === 0 ? 'text-emerald-900' :
+                                                idx === 1 ? 'text-blue-900' :
+                                                    idx === 2 ? 'text-amber-900' :
+                                                        'text-stone-900'
+                                                }`}>{item.dynasty}</h5>
+
+                                            <div className="space-y-4">
+                                                {item.content.map((p, i) => (
+                                                    <p key={i} className="text-stone-700 leading-relaxed text-base border-l-2 border-stone-300/30 pl-4">{p}</p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,23 +204,25 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                     {/* Introduction */}
                     <div className="bg-stone-900 rounded-3xl overflow-hidden shadow-xl">
                         <div className="relative h-64 md:h-80">
-                            <img
+                            <ZoomableImage
                                 src="/images/history/qing_tamsui.png"
                                 alt="19th Century Tamsui Port"
-                                className="w-full h-full object-cover opacity-80"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-0 left-0 p-8 md:p-10">
-                                <h3 className="text-4xl font-extrabold text-white mb-2 tracking-tight drop-shadow-lg">臺灣茶業發展史</h3>
-                                <div className="text-stone-300 text-lg font-light">從三寶之一到文化象徵</div>
-                            </div>
+                                containerClassName="absolute inset-0"
+                                imgClassName="w-full h-full object-cover opacity-80"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-8 md:p-10">
+                                    <h3 className="text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg font-calligraphy">臺灣茶業發展史</h3>
+                                    <div className="text-stone-100 text-xl font-medium tracking-wide">從三寶之一到文化象徵</div>
+                                </div>
+                            </ZoomableImage>
                         </div>
                         <div className="p-8 md:p-12">
                             <div className="prose prose-invert max-w-none">
-                                <p className="text-xl text-stone-200 leading-relaxed font-light mb-6">
-                                    臺灣由於氣候溫暖、潮濕且雨量均勻，故自古即產有茶樹。早期臺灣主要輸出品以<strong className="text-amber-400">茶葉、樟腦、蔗糖</strong>為大宗，當時稱為<strong>臺灣三寶</strong>，更是風光一時。
+                                <p className="text-xl text-stone-100 leading-relaxed font-normal mb-8 tracking-wide">
+                                    臺灣由於氣候溫暖、潮濕且雨量均勻，故自古即產有茶樹。早期臺灣主要輸出品以<strong className="text-amber-300">茶葉、樟腦、蔗糖</strong>為大宗，當時稱為<strong>臺灣三寶</strong>，更是風光一時。
                                 </p>
-                                <p className="text-stone-400 leading-relaxed border-t border-stone-700 pt-6">
+                                <p className="text-stone-300 leading-relaxed border-t border-stone-600 pt-8 font-medium">
                                     茶葉牽動了民間產業的發展，也影響了臺灣文化百年來的演變過程。從清朝的烏龍茶引入，到日治時期的現代化改革，再到戰後的外銷黃金時代，臺灣茶業的發展史，就是一部臺灣近代經濟與文化的縮影。
                                 </p>
                             </div>
@@ -114,8 +236,8 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <Leaf size={28} />
                             </span>
                             <div>
-                                <h3 className="text-3xl font-bold text-stone-900">清朝時期</h3>
-                                <div className="text-sky-600 font-medium">烏龍茶的引入與外銷年代</div>
+                                <h3 className="text-4xl font-bold text-stone-900 font-calligraphy mb-1">清朝時期</h3>
+                                <div className="text-sky-700 font-bold text-lg">烏龍茶的引入與外銷年代</div>
                             </div>
                         </div>
 
@@ -169,10 +291,11 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             </div>
 
                             <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-stone-100 flex flex-col">
-                                <img
+                                <ZoomableImage
                                     src="/images/history/qing_tamsui.png"
                                     alt="1865年 杜特氏"
-                                    className="w-full h-48 object-cover"
+                                    containerClassName="relative w-full h-48"
+                                    imgClassName="w-full h-full object-cover"
                                 />
                                 <div className="p-8 flex-1 flex flex-col">
                                     <div className="mb-auto">
@@ -231,27 +354,26 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <Star size={28} />
                             </span>
                             <div>
-                                <h3 className="text-3xl font-bold text-stone-900">1885年</h3>
-                                <div className="text-amber-700 font-medium">臺灣建省與製茶革新</div>
+                                <h3 className="text-4xl font-bold text-stone-900 font-calligraphy mb-1">1885年</h3>
+                                <div className="text-amber-800 font-bold text-lg">臺灣建省與製茶革新</div>
                             </div>
                         </div>
 
-                        <div className="bg-stone-900 rounded-3xl overflow-hidden shadow-xl">
+                            <div className="bg-stone-900 rounded-3xl overflow-hidden shadow-xl">
                             <div className="grid md:grid-cols-2">
-                                <div className="relative h-64 md:h-auto">
-                                    <img
-                                        src="/images/history/baozhong_masters.png"
-                                        alt="魏靜時與王水錦"
-                                        className="w-full h-full object-cover opacity-90"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-stone-900/10 md:to-stone-900/80"></div>
-                                </div>
+                                <ZoomableImage
+                                    src="/images/history/baozhong_masters.png"
+                                    alt="魏靜時與王水錦"
+                                    containerClassName="relative h-64 md:h-auto"
+                                    imgClassName="w-full h-full object-cover opacity-90"
+                                    overlayClassName="absolute inset-0 bg-gradient-to-r from-transparent to-stone-900/10 md:to-stone-900/80"
+                                />
 
                                 <div className="p-8 md:p-12 text-white">
                                     <div className="inline-block px-3 py-1 rounded bg-amber-900/50 text-amber-300 border border-amber-500/30 text-xs font-bold mb-6 backdrop-blur-sm">
                                         自然清香年代的開端
                                     </div>
-                                    <p className="text-lg text-stone-300 leading-relaxed mb-8">
+                                    <p className="text-xl text-stone-200 leading-relaxed mb-8 font-medium tracking-wide">
                                         <strong>西元1885年 清光緒11年</strong>，臺灣建省，製茶技術進入重大革新。兩位關鍵人物發明了新的製茶法，震驚茶業界。
                                     </p>
 
@@ -301,8 +423,8 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <History size={28} />
                             </span>
                             <div>
-                                <h3 className="text-3xl font-bold text-stone-900">日治時期</h3>
-                                <div className="text-red-700 font-medium">1895-1945：茶業現代化與轉型</div>
+                                <h3 className="text-4xl font-bold text-stone-900 font-calligraphy mb-1">日治時期</h3>
+                                <div className="text-red-800 font-bold text-lg">1895-1945：茶業現代化與轉型</div>
                             </div>
                         </div>
 
@@ -329,20 +451,28 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             </div>
 
                             {/* 1916: Standardization */}
-                            <div className="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm flex flex-col">
-                                <h4 className="text-xl font-bold text-stone-900 mb-4 flex items-center">
-                                    <span className="w-2 h-8 bg-red-500 rounded-full mr-3"></span>
-                                    1916年：技術標準化
+                            <div className="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm">
+                                <h4 className="text-xl font-bold text-stone-900 mb-6 flex items-center">
+                                    <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-3 text-red-600">
+                                        <Scale size={20} />
+                                    </div>
+                                    1916年 · 技術標準化
                                 </h4>
-                                <div className="space-y-4 flex-1">
+                                <div className="space-y-6">
                                     <p className="text-stone-700 leading-relaxed text-sm">
                                         茶業試驗所選定<strong>魏靜時</strong>（南港式）及<strong>王水錦</strong>（文山式）之製法為標準，全台推廣。日本政府更確立「南港式製造法」為台灣製茶技術的母法。
                                     </p>
-                                    <div className="bg-red-50 p-4 rounded-xl">
-                                        <div className="text-sm font-bold text-red-900 mb-2">1918年：四大品種選定</div>
-                                        <div className="grid grid-cols-2 gap-2">
+                                    <div className="bg-red-50 p-5 rounded-2xl border border-red-100">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <div className="text-sm font-bold text-red-900">1918年 四大品種選定</div>
+                                            <Sprout size={16} className="text-red-400" />
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-3">
                                             {['青心烏龍', '大葉烏龍', '青心大冇', '硬枝紅心'].map((v, i) => (
-                                                <div key={i} className="bg-white px-2 py-1 rounded text-xs text-center text-stone-700 border border-red-100">{v}</div>
+                                                <div key={i} className="bg-white px-3 py-2 rounded-lg text-xs font-medium text-stone-700 border border-red-100 flex items-center shadow-sm">
+                                                    <Leaf size={12} className="text-green-500 mr-2 shrink-0" />
+                                                    {v}
+                                                </div>
                                             ))}
                                         </div>
                                     </div>
@@ -366,22 +496,31 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                         </div>
 
                         {/* 1939-1945: War Impact */}
-                        <div className="bg-stone-50 rounded-3xl p-8 border border-stone-200 flex flex-col justify-center">
-                            <h4 className="text-xl font-bold text-stone-900 mb-4 flex items-center">
-                                <Flame className="mr-2 text-red-600" size={24} /> 1939-1945：戰爭摧殘
+                        <div className="bg-stone-100 rounded-3xl p-8 border border-stone-200 flex flex-col justify-center">
+                            <h4 className="text-xl font-bold text-stone-900 mb-6 flex items-center">
+                                <span className="w-10 h-10 rounded-full bg-stone-300 flex items-center justify-center mr-3 text-stone-600">
+                                    <Flame size={20} />
+                                </span>
+                                1939-1945 · 戰爭摧殘
                             </h4>
                             <div className="space-y-4">
-                                <div className="bg-white p-4 rounded-xl border border-stone-200">
-                                    <div className="text-sm font-bold text-stone-800 mb-1">糧食管制</div>
-                                    <p className="text-xs text-stone-600 leading-relaxed">
-                                        日本政府劃定臺灣為雜糧供應區，強制廢茶園改種蕃薯、馬鈴薯。製茶機器被徵收熔化製成兵器。
-                                    </p>
+                                <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex gap-4">
+                                    <div className="mt-1"><Wheat size={18} className="text-amber-600" /></div>
+                                    <div>
+                                        <div className="text-sm font-bold text-stone-800 mb-1">糧食管制</div>
+                                        <p className="text-sm text-stone-600 leading-relaxed">
+                                            日本政府劃定臺灣為雜糧供應區，強制廢茶園改種蕃薯、馬鈴薯。製茶機器被徵收熔化製成兵器。
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="bg-white p-4 rounded-xl border border-stone-200">
-                                    <div className="text-sm font-bold text-stone-800 mb-1">勞力缺乏</div>
-                                    <p className="text-xs text-stone-600 leading-relaxed">
-                                        太平洋戰爭爆發，壯丁被徵調充軍，茶園荒蕪。外銷海運中斷，臺灣茶業陷入黑暗期。
-                                    </p>
+                                <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex gap-4">
+                                    <div className="mt-1"><User size={18} className="text-stone-500" /></div>
+                                    <div>
+                                        <div className="text-sm font-bold text-stone-800 mb-1">勞力缺乏</div>
+                                        <p className="text-sm text-stone-600 leading-relaxed">
+                                            太平洋戰爭爆發，壯丁被徵調充軍，茶園荒蕪。外銷海運中斷，臺灣茶業陷入黑暗期。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -394,37 +533,53 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <RefreshCw size={28} />
                             </span>
                             <div>
-                                <h3 className="text-3xl font-bold text-stone-900">戰後復興</h3>
-                                <div className="text-blue-700 font-medium">1945-1970：從廢墟到黃金時代</div>
+                                <h3 className="text-4xl font-bold text-stone-900 font-calligraphy mb-1">戰後復興</h3>
+                                <div className="text-blue-800 font-bold text-lg">1945-1970：從廢墟到黃金時代</div>
                             </div>
                         </div>
 
                         {/* 1945-1947: Reconstruction */}
-                        <div className="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full -mr-20 -mt-20 opacity-50"></div>
-                            <div className="relative z-10">
-                                <h4 className="text-2xl font-bold text-blue-900 mb-6">1945-1947：廢墟中的重建</h4>
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="space-y-4">
-                                        <p className="text-stone-700 leading-relaxed">
-                                            戰後臺灣茶業幾乎停滯，是<strong>最差的時期</strong>。政府成立「臺灣茶業公司」，積極整頓茶園與工廠。
-                                        </p>
-                                        <div className="bg-red-50 p-4 rounded-xl border border-red-100">
+                        <div className="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm group">
+                            <h4 className="text-2xl font-bold text-blue-900 mb-8 flex items-center">
+                                <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mr-4 shadow-sm">
+                                    <RotateCcw size={24} />
+                                </div>
+                                1945-1947 · 廢墟中的重建
+                            </h4>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-6">
+                                    <p className="text-stone-700 leading-relaxed border-l-4 border-blue-200 pl-4 py-1">
+                                        戰後臺灣茶業幾乎停滯，是<strong>最差的時期</strong>。政府成立「臺灣茶業公司」，積極整頓茶園與工廠。
+                                    </p>
+                                    <div className="bg-red-50 p-5 rounded-xl border border-red-100 flex gap-4 items-start">
+                                        <ShieldAlert size={20} className="text-red-500 mt-1 shrink-0" />
+                                        <div>
                                             <div className="text-sm font-bold text-red-800 mb-1">1947 二二八事件衝擊</div>
-                                            <p className="text-xs text-stone-600">
+                                            <p className="text-sm text-stone-600 leading-relaxed">
                                                 舊台幣四萬換新台幣一元，加上出口結匯政策，使剛要復甦的茶業再次元氣大傷。
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="flex flex-col justify-center">
-                                        <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                                            <h5 className="font-bold text-blue-800 mb-3">復興關鍵</h5>
-                                            <ul className="space-y-2 text-sm text-stone-700">
-                                                <li className="flex items-center"><CheckCircle size={16} className="text-blue-500 mr-2" /> 國際對手（印度、錫蘭）尚未復原</li>
-                                                <li className="flex items-center"><CheckCircle size={16} className="text-blue-500 mr-2" /> 政府輔導與農林公司成立</li>
-                                                <li className="flex items-center"><CheckCircle size={16} className="text-blue-500 mr-2" /> 茶農與業者的勤奮重建</li>
-                                            </ul>
-                                        </div>
+                                </div>
+                                <div className="flex flex-col justify-center">
+                                    <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-blue-100 shadow-sm">
+                                        <h5 className="font-bold text-blue-800 mb-4 flex items-center">
+                                            <Hammer className="mr-2" size={18} /> 復興關鍵
+                                        </h5>
+                                        <ul className="space-y-3 text-sm text-stone-700">
+                                            <li className="flex items-center p-2 rounded-lg bg-blue-50/50">
+                                                <CheckCircle size={16} className="text-blue-500 mr-3 shrink-0" />
+                                                國際對手（印度、錫蘭）尚未復原
+                                            </li>
+                                            <li className="flex items-center p-2 rounded-lg bg-blue-50/50">
+                                                <CheckCircle size={16} className="text-blue-500 mr-3 shrink-0" />
+                                                政府輔導與農林公司成立
+                                            </li>
+                                            <li className="flex items-center p-2 rounded-lg bg-blue-50/50">
+                                                <CheckCircle size={16} className="text-blue-500 mr-3 shrink-0" />
+                                                茶農與業者的勤奮重建
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -461,11 +616,17 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                         <div className="bg-amber-50 rounded-3xl p-8 md:p-10 border border-amber-100 shadow-sm">
                             <div className="flex flex-col md:flex-row gap-8 items-center">
                                 <div className="flex-1">
-                                    <h4 className="text-2xl font-bold text-amber-900 mb-4">1960-1970年代：茶藝文化的興起</h4>
-                                    <p className="text-stone-700 leading-relaxed mb-6">
+                                    <h4 className="text-3xl font-bold text-amber-900 mb-6 flex items-center font-calligraphy">
+                                        <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mr-4 shadow-sm">
+                                            <Palette size={24} />
+                                        </div>
+                                        1960's · 茶藝文化的興起
+                                    </h4>
+                                    <p className="text-stone-800 leading-relaxed mb-6 font-medium text-lg">
                                         隨著經濟起飛，茶葉消費從解渴轉向品味。民俗學會理事長提議以<strong>「茶藝」</strong>取代「茶道」，確立了臺灣獨特的茶文化名稱。
                                     </p>
-                                    <div className="bg-white p-5 rounded-2xl border border-amber-200">
+                                    <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-sm relative">
+                                        <div className="absolute -left-2 top-4 w-1 h-8 bg-amber-400 rounded-full"></div>
                                         <div className="flex items-center gap-3 mb-2">
                                             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">公</div>
                                             <div className="font-bold text-stone-800">1973年11月</div>
@@ -475,13 +636,18 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex-1 relative">
-                                    <div className="aspect-video bg-amber-900/10 rounded-2xl flex items-center justify-center border border-amber-200">
-                                        <div className="text-center text-amber-800/60">
-                                            <Layout size={48} className="mx-auto mb-2 opacity-50" />
-                                            <span className="text-sm">茶藝館氛圍</span>
+                                <div className="flex-1 relative w-full h-full min-h-[300px]">
+                                    <ZoomableImage
+                                        src={teaHouseImage}
+                                        alt="1970s Tea House"
+                                        containerClassName="absolute inset-0 rounded-2xl overflow-hidden shadow-lg border-2 border-amber-200"
+                                        imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    >
+                                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-amber-950/80 to-transparent p-6">
+                                            <span className="text-white font-bold tracking-widest uppercase text-sm block mb-1">Tea Art Era</span>
+                                            <div className="text-amber-200 text-xs font-medium">人文 · 空間 · 藝術</div>
                                         </div>
-                                    </div>
+                                    </ZoomableImage>
                                 </div>
                             </div>
                         </div>
@@ -494,30 +660,44 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <TrendingUp size={28} />
                             </span>
                             <div>
-                                <h3 className="text-3xl font-bold text-stone-900">現代發展</h3>
-                                <div className="text-stone-600 font-medium">1970-2000+：轉型與新機遇</div>
+                                <h3 className="text-4xl font-bold text-stone-900 font-calligraphy mb-1">現代發展</h3>
+                                <div className="text-emerald-700 font-bold text-lg">1970-2000+：轉型與新機遇</div>
                             </div>
                         </div>
+
+                        {/* Hero Image for Modern Era */}
+                        <ZoomableImage
+                            src={highMountainImage}
+                            alt="Modern High Mountain Tea"
+                            containerClassName="rounded-3xl overflow-hidden shadow-xl border border-stone-200 relative h-64 md:h-80"
+                            imgClassName="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-8">
+                                <h4 className="text-3xl font-bold text-white mb-2 font-calligraphy">高山茶的興起</h4>
+                                <p className="text-stone-100 font-medium">雲霧繚繞中的台灣新名片</p>
+                            </div>
+                        </ZoomableImage>
 
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-4"><RotateCcw size={20} /></div>
-                                <h5 className="font-bold text-stone-900 text-lg mb-2">產銷轉型</h5>
-                                <p className="text-stone-600 text-sm leading-relaxed">
+                                <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">產銷轉型</h5>
+                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
                                     從外銷轉為內銷為主。雖然北部茶園減少，但中部高山茶區興起，維持年產22,000公噸的高產量。
                                 </p>
                             </div>
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center mb-4"><Sprout size={20} /></div>
-                                <h5 className="font-bold text-stone-900 text-lg mb-2">有機與環保</h5>
-                                <p className="text-stone-600 text-sm leading-relaxed">
+                                <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">有機與環保</h5>
+                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
                                     90年代後，養生與環保成為主流。有機茶年成長率高達30%以上，遠高於全球平均。
                                 </p>
                             </div>
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center mb-4"><Bot size={20} /></div>
-                                <h5 className="font-bold text-stone-900 text-lg mb-2">茶藝與文化</h5>
-                                <p className="text-stone-600 text-sm leading-relaxed">
+                                <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">茶藝與文化</h5>
+                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
                                     「茶藝」一名確立，古色古香的茶館興起。茶葉更成為優質高價的「舶來品」返銷大陸。
                                 </p>
                             </div>
@@ -592,5 +772,6 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
         }
     };
 }
+
 
 export default createHistoryData;

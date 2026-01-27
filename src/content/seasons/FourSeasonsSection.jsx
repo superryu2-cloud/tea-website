@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Flame, Leaf, Snowflake, Sprout, Sun, Wheat } from 'lucide-react';
+import ImageLightbox from '../../components/ImageLightbox';
 
 export default function FourSeasonsSection() {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
+
+    const openLightbox = (src, alt) => {
+        setLightboxImage({ src, alt });
+        setLightboxOpen(true);
+    };
+
+    const handleImageKeyDown = (event, src, alt) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openLightbox(src, alt);
+    };
+
     return (
         <div className="space-y-8">
+            <ImageLightbox
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+                imageSrc={lightboxImage.src}
+                altText={lightboxImage.alt}
+            />
             {/* Introduction */}
             <div id="spring-tea" className="scroll-mt-28 mb-12 museum-panel px-8 pt-8 pb-8 md:px-12 md:pt-12 md:pb-12 text-center">
                 <div className="museum-label mx-auto">EXHIBIT · FOUR SEASONS</div>
@@ -33,7 +54,14 @@ export default function FourSeasonsSection() {
             <div className="grid md:grid-cols-2 gap-10 mb-16">
                 {/* Spring */}
                 <div className="bg-green-50/50 rounded-3xl overflow-hidden border border-green-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                    <div className="h-64 relative overflow-hidden">
+                    <div
+                        className="h-64 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Spring Tea Picking"
+                        onClick={() => openLightbox('/images/seasons/spring_picking.png', 'Spring Tea Picking')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/spring_picking.png', 'Spring Tea Picking')}
+                    >
                         <img src="/images/seasons/spring_picking.png" alt="Spring Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent" />
                         <div className="absolute bottom-5 left-6 text-white">
@@ -55,7 +83,14 @@ export default function FourSeasonsSection() {
 
                 {/* Summer */}
                 <div id="summer-tea" className="scroll-mt-28 bg-orange-50/50 rounded-3xl overflow-hidden border border-orange-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                    <div className="h-64 relative overflow-hidden">
+                    <div
+                        className="h-64 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Summer Tea Picking"
+                        onClick={() => openLightbox('/images/seasons/summer_picking.png', 'Summer Tea Picking')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/summer_picking.png', 'Summer Tea Picking')}
+                    >
                         <img src="/images/seasons/summer_picking.png" alt="Summer Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent" />
                         <div className="absolute bottom-5 left-6 text-white">
@@ -76,7 +111,14 @@ export default function FourSeasonsSection() {
 
                 {/* Autumn */}
                 <div id="autumn-tea" className="scroll-mt-28 bg-amber-50/50 rounded-3xl overflow-hidden border border-amber-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                    <div className="h-64 relative overflow-hidden">
+                    <div
+                        className="h-64 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Autumn Tea Picking"
+                        onClick={() => openLightbox('/images/seasons/autumn_picking.png', 'Autumn Tea Picking')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/autumn_picking.png', 'Autumn Tea Picking')}
+                    >
                         <img src="/images/seasons/autumn_picking.png" alt="Autumn Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
                         <div className="absolute bottom-5 left-6 text-white">
@@ -98,7 +140,14 @@ export default function FourSeasonsSection() {
 
                 {/* Winter */}
                 <div id="winter-tea" className="scroll-mt-28 bg-blue-50/50 rounded-3xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                    <div className="h-64 relative overflow-hidden">
+                    <div
+                        className="h-64 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Winter Tea Picking"
+                        onClick={() => openLightbox('/images/seasons/winter_picking.png', 'Winter Tea Picking')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/winter_picking.png', 'Winter Tea Picking')}
+                    >
                         <img src="/images/seasons/winter_picking.png" alt="Winter Tea Picking" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
                         <div className="absolute bottom-5 left-6 text-white">

@@ -1,5 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Lightbulb, Plus, ArrowDown, Leaf, Coffee } from 'lucide-react';
+import TaiwanTeaMap from '../../components/TaiwanTeaMap';
+
 
 // 茶名組合數據
 const TEA_NAME_COMPONENTS = {
@@ -371,6 +373,26 @@ const FeaturedTeaOverview = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            </section>
+            {/* Section 5: 台灣茶產地地圖 */}
+            <section className="museum-panel p-8 md:p-12">
+                <div className="text-center mb-12">
+                    <div className="flex items-center justify-center mb-4">
+                        <div className="w-12 h-1 bg-amber-600 rounded-full mr-4"></div>
+                        <div>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900">臺灣茶產地導覽</h2>
+                            <p className="text-lg text-stone-600">Taiwan Tea Regions Map</p>
+                        </div>
+                        <div className="w-12 h-1 bg-amber-600 rounded-full ml-4"></div>
+                    </div>
+                    <p className="text-stone-500 mx-auto whitespace-nowrap">
+                        臺灣得天獨厚的地理環境，孕育出豐富多樣的茶品。點擊地圖探索各縣市的代表茶類。
+                    </p>
+                </div>
+
+                <div className="max-w-6xl mx-auto">
+                    <TaiwanTeaMap />
                 </div>
             </section>
         </div>

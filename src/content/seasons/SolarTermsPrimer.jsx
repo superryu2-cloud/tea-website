@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BookOpen, CalendarDays, Compass, Droplets, Menu, Sun, CloudRain, Snowflake, ThermometerSun } from 'lucide-react';
 import { Callout, DataTable, Section } from '../references/ui';
+import ImageLightbox from '../../components/ImageLightbox';
 
 const TYPE_SECTIONS = [
   {
@@ -282,13 +283,39 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
   const showMeaning = showAll || activeKey === 'meaning-intro';
   const showTable = showAll || activeKey === 'table-intro';
   const showZhongqi = showAll || activeKey === 'zhongqi-intro';
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
+
+  const openLightbox = (src, alt) => {
+    setLightboxImage({ src, alt });
+    setLightboxOpen(true);
+  };
+
+  const handleImageKeyDown = (event, src, alt) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    openLightbox(src, alt);
+  };
 
   return (
     <div className="space-y-8">
+      <ImageLightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        imageSrc={lightboxImage.src}
+        altText={lightboxImage.alt}
+      />
       {showAll ? (
         <div id="primer" className="scroll-mt-28 p-8 md:p-0">
           {/* New Ghibli-esque Hero */}
-          <div className="rounded-3xl overflow-hidden shadow-2xl relative group h-[400px] md:h-[500px] mb-8">
+          <div
+            className="rounded-3xl overflow-hidden shadow-2xl relative group h-[400px] md:h-[500px] mb-8 cursor-zoom-in"
+            role="button"
+            tabIndex={0}
+            aria-label="Zoom Cycle of Seasons"
+            onClick={() => openLightbox('/images/seasons/solar_terms_wheel.png', 'Cycle of Seasons')}
+            onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/solar_terms_wheel.png', 'Cycle of Seasons')}
+          >
             <img
               src="/images/seasons/solar_terms_wheel.png"
               alt="Cycle of Seasons"
@@ -353,7 +380,14 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
 
                   {/* Image Column for specific sections */}
                   {block.id === 'types-temperature' && (
-                    <div className="w-full md:w-1/3 h-64 md:h-auto relative group order-first md:order-last">
+                    <div
+                      className="w-full md:w-1/3 h-64 md:h-auto relative group order-first md:order-last cursor-zoom-in"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Zoom ${sectionImageAlt}`}
+                      onClick={() => openLightbox(sectionImage, sectionImageAlt)}
+                      onKeyDown={(event) => handleImageKeyDown(event, sectionImage, sectionImageAlt)}
+                    >
                       <img src={sectionImage} alt={sectionImageAlt} className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-l" />
                       <div className="absolute bottom-4 left-4 text-white font-bold text-shadow-md">
@@ -364,11 +398,25 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                   )}
                   {block.id === 'types-precipitation' && (
                     <div className="w-full md:w-1/3 h-64 md:h-auto relative group order-first md:order-last">
-                      <div className="h-1/2 relative overflow-hidden">
+                      <div
+                        className="h-1/2 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Spring Rain"
+                        onClick={() => openLightbox('/images/seasons/spring_rain.png', 'Spring Rain')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/spring_rain.png', 'Spring Rain')}
+                      >
                         <img src="/images/seasons/spring_rain.png" alt="Rain" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/10" />
                       </div>
-                      <div className="h-1/2 relative overflow-hidden">
+                      <div
+                        className="h-1/2 relative overflow-hidden cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Zoom Autumn Dew"
+                        onClick={() => openLightbox('/images/seasons/autumn_dew.png', 'Autumn Dew')}
+                        onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/autumn_dew.png', 'Autumn Dew')}
+                      >
                         <img src="/images/seasons/autumn_dew.png" alt="Dew" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/10" />
                       </div>
@@ -379,7 +427,14 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                     </div>
                   )}
                   {block.id === 'types-phenomena' && (
-                    <div className="w-full md:w-1/3 h-64 md:h-auto relative group order-first md:order-last">
+                    <div
+                      className="w-full md:w-1/3 h-64 md:h-auto relative group order-first md:order-last cursor-zoom-in"
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Zoom Frost"
+                      onClick={() => openLightbox('/images/seasons/winter_frost.png', 'Frost')}
+                      onKeyDown={(event) => handleImageKeyDown(event, '/images/seasons/winter_frost.png', 'Frost')}
+                    >
                       <img src="/images/seasons/winter_frost.png" alt="Frost" className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-l" />
                       <div className="absolute bottom-4 left-4 text-white font-bold text-shadow-md">
@@ -467,7 +522,14 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                   className="rounded-3xl border border-stone-200 bg-white shadow-lg overflow-hidden"
                 >
                   {/* Visual Header */}
-                  <div className="h-32 relative overflow-hidden">
+                  <div
+                    className="h-32 relative overflow-hidden cursor-zoom-in"
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Zoom season header image"
+                    onClick={() => openLightbox(headerImage, season.seasonLabel)}
+                    onKeyDown={(event) => handleImageKeyDown(event, headerImage, season.seasonLabel)}
+                  >
                     <img src={headerImage} alt={season.seasonLabel} className="w-full h-full object-cover opacity-90" />
                     <div className="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent" />
                     <div className="absolute inset-0 flex items-center px-8">

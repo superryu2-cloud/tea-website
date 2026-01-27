@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, ChevronRight, Sun, Wind, Mountain, Droplets, FlaskConical, Feather, CheckCircle, ArrowRight, Play, Pause, RotateCcw } from 'lucide-react';
+import { Clock, ChevronRight, Sun, Wind, Mountain, Droplets, FlaskConical, Feather, CheckCircle, ArrowRight, Play, Pause, RotateCcw, Award } from 'lucide-react';
+import sunImage from '../assets/images/brewing_sun_terroir.png';
+import windImage from '../assets/images/brewing_wind_precision.png';
+import mountainImage from '../assets/images/brewing_mountain_factors.png';
+import waterHeroImage from '../assets/images/brewing_water_hero.png';
 import teaData from '../data/teaData';
 import { UI_FLAGS } from '../config/uiFlags';
 
@@ -120,94 +124,161 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
 
                 {!notesMode || showBrewingAtlas ? (
                     <>
-                        <div className="mb-12 museum-panel p-8 md:p-12 text-center">
-                            <div className="museum-label mx-auto">EXHIBIT · BREWING</div>
-                            <h2 className="mt-5 text-3xl md:text-4xl font-extrabold text-stone-900">工藝與沖泡指南</h2>
-                            <p className="mt-4 text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">從製作工藝理解茶性，用正確的方式喚醒茶魂。</p>
-                        </div>
-                        <div className="bg-gradient-to-br from-stone-100 to-stone-200 rounded-2xl p-8 md:p-12 mb-16 shadow-lg border border-stone-300 relative overflow-hidden"><div className="relative z-10"><h3 className="text-3xl font-bold text-stone-900 mb-2">製茶工藝：大師的智慧</h3><p className="text-stone-600 text-lg font-medium mb-8">科學與藝術的完美結合</p><div className="grid md:grid-cols-3 gap-6"><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Sun size={20} className="mr-2 text-amber-500" /> 天時地利</h4><p className="text-sm text-stone-600">陽光強弱、氣溫高低、吹南風還是北風、茶園向陽或背陽，這些細微的自然因素都決定了當天的製茶策略。</p></div><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Wind size={20} className="mr-2 text-blue-500" /> 精準拿捏</h4><p className="text-sm text-stone-600">萎凋的時間、揉捻的力道、殺菁的關鍵點。製茶師依賴經驗與手感。</p></div><div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500"><h4 className="font-bold text-stone-800 mb-3 flex items-center"><Mountain size={20} className="mr-2 text-green-500" /> 多重因素</h4><p className="text-sm text-stone-600">茶葉的好壞是日照、氣溫、濕度、土質、海拔等多重因素共同造就的結果。</p></div></div></div></div>
 
-                        {/* Water Quality Section: Why not over-boil? */}
-                        <div className="bg-white rounded-2xl p-8 md:p-12 mb-16 border-t-8 border-sky-500 shadow-lg">
-                            <div className="flex items-center mb-8">
-                                <div className="bg-sky-100 p-3 rounded-full mr-4">
-                                    <Droplets className="text-sky-600" size={32} />
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-stone-900">為什麼不能用久煮的水泡茶？</h3>
-                                    <p className="text-stone-500">科學與文化的雙重解析：從「水」看茶湯的靈魂</p>
+                        <div className="mb-12 museum-panel p-8 md:p-12 text-center bg-[#fdfbf7] border border-[#e8dfc8]">
+                            <div className="museum-label mx-auto text-stone-500 tracking-[0.2em]">EXHIBIT · BREWING</div>
+                            <h2 className="mt-5 text-4xl md:text-5xl font-extrabold text-stone-800 font-serif">工藝與沖泡指南</h2>
+                            <p className="mt-4 text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-serif">從製作工藝理解茶性，用正確的方式喚醒茶魂。</p>
+                        </div>
+
+                        {/* Craft Section - Ghibli Cards */}
+                        <div className="bg-[#fcfaf5] rounded-[2rem] p-8 md:p-12 mb-16 shadow-lg border border-[#e6e2d6] relative overflow-hidden">
+                            <div className="relative z-10">
+                                <h3 className="text-3xl font-bold text-stone-900 mb-2 font-serif">製茶工藝：大師的智慧</h3>
+                                <p className="text-stone-600 text-lg font-medium mb-10 font-serif italic border-b border-stone-200 pb-4 inline-block">科學與藝術的完美結合</p>
+
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    {/* Card 1: Sun */}
+                                    <div className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                                        <div className="h-48 overflow-hidden relative">
+                                            <div className="absolute inset-0 bg-amber-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                                            <img src={sunImage} alt="Tea Terroir Sun" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-6 relative">
+                                            <div className="absolute -top-8 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg z-20">
+                                                <Sun size={28} className="text-amber-500" />
+                                            </div>
+                                            <h4 className="font-bold text-xl text-stone-800 mb-3 font-serif">天時地利</h4>
+                                            <p className="text-stone-600 leading-relaxed text-[15px]">陽光強弱、氣溫高低、吹南風還是北風、茶園向陽或背陽，這些細微的自然因素都決定了當天的製茶策略。</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Card 2: Wind/Hands */}
+                                    <div className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                                        <div className="h-48 overflow-hidden relative">
+                                            <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                                            <img src={windImage} alt="Tea Craft Precision" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-6 relative">
+                                            <div className="absolute -top-8 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg z-20">
+                                                <Wind size={28} className="text-blue-500" />
+                                            </div>
+                                            <h4 className="font-bold text-xl text-stone-800 mb-3 font-serif">精準拿捏</h4>
+                                            <p className="text-stone-600 leading-relaxed text-[15px]">萎凋的時間、揉捻的力道、殺菁的關鍵點。製茶師依賴經驗與手感。</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Card 3: Mountain */}
+                                    <div className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                                        <div className="h-48 overflow-hidden relative">
+                                            <div className="absolute inset-0 bg-green-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                                            <img src={mountainImage} alt="Tea Factors" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        </div>
+                                        <div className="p-6 relative">
+                                            <div className="absolute -top-8 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg z-20">
+                                                <Mountain size={28} className="text-emerald-500" />
+                                            </div>
+                                            <h4 className="font-bold text-xl text-stone-800 mb-3 font-serif">多重因素</h4>
+                                            <p className="text-stone-600 leading-relaxed text-[15px]">茶葉的好壞是日照、氣溫、濕度、土質、海拔等多重因素共同造就的結果。</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div className="grid md:grid-cols-2 gap-8">
-                                {/* Left Column: Science */}
-                                <div className="space-y-6">
-                                    <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2">
-                                        <FlaskConical className="mr-2 text-sky-500" size={20} /> 一、科學層面
-                                    </h4>
-
-                                    <div className="space-y-4">
-                                        <div className="bg-stone-50 p-4 rounded-lg">
-                                            <h5 className="font-bold text-sky-800 mb-1 flex items-center">1. 溶解氧減少 <span className="ml-2 text-xs bg-sky-200 text-sky-800 px-2 py-0.5 rounded-full">關鍵</span></h5>
-                                            <p className="text-sm text-stone-600">
-                                                水中的溶解氧在煮沸時逸散。含氧量低的水泡茶，茶湯會失去活性，口感平淡沉悶，缺乏鮮爽感。
-                                            </p>
+                        {/* Water Quality Section - Hero Layout */}
+                        <div className="bg-white rounded-[2.5rem] overflow-hidden mb-16 shadow-xl border border-stone-100">
+                            {/* Hero Image Header */}
+                            <div className="h-64 md:h-80 relative w-full overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                                <div className="absolute bottom-6 left-6 md:left-10 z-20 text-white">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="bg-sky-500/20 backdrop-blur-md p-2 rounded-lg border border-sky-400/30">
+                                            <Droplets className="text-sky-200" size={24} />
                                         </div>
-
-                                        <div className="bg-stone-50 p-4 rounded-lg">
-                                            <h5 className="font-bold text-stone-800 mb-1">2. 礦物質濃縮</h5>
-                                            <p className="text-sm text-stone-600">
-                                                長時間煮沸使鈣、鎂濃縮析出形成水垢（碳酸鈣等）。這會影響茶湯澄清度，導致混濁或澀感，也降低熱傳導效率。
-                                            </p>
-                                        </div>
-
-                                        <div className="bg-stone-50 p-4 rounded-lg">
-                                            <h5 className="font-bold text-stone-800 mb-1">3. 安全疑慮 (亞硝酸鹽/其他)</h5>
-                                            <p className="text-sm text-stone-600">
-                                                雖反覆煮沸會微量增加亞硝酸鹽，通常仍在安全範圍。另需注意氯揮發時可能產生的三鹵甲烷，以及微量懸浮顆粒(PM2.5)。
-                                            </p>
-                                        </div>
+                                        <span className="text-sky-200 font-bold tracking-wider text-sm uppercase">Water Science</span>
                                     </div>
+                                    <h3 className="text-3xl md:text-4xl font-bold font-serif mb-2 text-shadow-lg">為什麼不能用久煮的水泡茶？</h3>
+                                    <p className="text-stone-200 text-lg font-medium opacity-90">科學與文化的雙重解析：從「水」看茶湯的靈魂</p>
                                 </div>
+                                <img src={waterHeroImage} alt="Science vs Tradition Water" className="w-full h-full object-cover" />
+                            </div>
 
-                                {/* Right Column: Culture & Advice */}
-                                <div className="flex flex-col justify-between">
-                                    <div className="mb-8">
-                                        <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2 mb-4">
-                                            <Feather className="mr-2 text-amber-500" size={20} /> 二、品茶文化層面
+                            <div className="p-8 md:p-12">
+                                <div className="grid md:grid-cols-2 gap-12">
+                                    {/* Left Column: Science */}
+                                    <div className="space-y-8">
+                                        <h4 className="font-bold text-2xl text-stone-800 flex items-center border-b-2 border-sky-100 pb-3 font-serif">
+                                            <span className="text-sky-500 text-3xl mr-3">01</span> 科學層面
                                         </h4>
-                                        <div className="bg-amber-50 p-5 rounded-lg border border-amber-100">
-                                            <ul className="space-y-3 text-stone-700">
-                                                <li className="flex items-start">
-                                                    <span className="font-bold text-amber-800 mr-2 whitespace-nowrap">講究「活水」：</span>
-                                                    <span className="text-sm">「活水先養茶，靜水不出香」。死水（久煮水）讓茶湯呆滯無生氣。</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="font-bold text-amber-800 mr-2 whitespace-nowrap">專業避忌：</span>
-                                                    <span className="text-sm">茶藝競賽中，使用久煮水被視為失誤，影響香氣層次。</span>
-                                                </li>
-                                            </ul>
+
+                                        <div className="space-y-6">
+                                            <div className="pl-4 border-l-4 border-sky-200 hover:border-sky-400 transition-colors">
+                                                <h5 className="font-bold text-stone-800 text-lg mb-2 flex items-center">1. 溶解氧減少 <span className="ml-3 text-[10px] bg-sky-100 text-sky-700 px-2 py-1 rounded tracking-wider uppercase font-bold">Key Factor</span></h5>
+                                                <p className="text-stone-600 leading-relaxed">
+                                                    水中的溶解氧在煮沸時逸散。含氧量低的水泡茶，茶湯會失去活性，口感平淡沉悶，缺乏鮮爽感。
+                                                </p>
+                                            </div>
+
+                                            <div className="pl-4 border-l-4 border-stone-200 hover:border-stone-400 transition-colors">
+                                                <h5 className="font-bold text-stone-800 text-lg mb-2">2. 礦物質濃縮</h5>
+                                                <p className="text-stone-600 leading-relaxed">
+                                                    長時間煮沸使鈣、鎂濃縮析出形成水垢（碳酸鈣等）。這會影響茶湯澄清度，導致混濁或澀感，也降低熱傳導效率。
+                                                </p>
+                                            </div>
+
+                                            <div className="pl-4 border-l-4 border-stone-200 hover:border-stone-400 transition-colors">
+                                                <h5 className="font-bold text-stone-800 text-lg mb-2">3. 安全疑慮 (亞硝酸鹽/其他)</h5>
+                                                <p className="text-stone-600 leading-relaxed">
+                                                    雖反覆煮沸會微量增加亞硝酸鹽，通常仍在安全範圍。另需注意氯揮發時可能產生的三鹵甲烷，以及微量懸浮顆粒(PM2.5)。
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div>
-                                        <h4 className="font-bold text-xl text-stone-800 flex items-center border-b border-stone-200 pb-2 mb-4">
-                                            <CheckCircle className="mr-2 text-green-600" size={20} /> 三、實務建議 & 小結
-                                        </h4>
+                                    {/* Right Column: Culture & Advice */}
+                                    <div className="flex flex-col h-full">
+                                        <div className="mb-10">
+                                            <h4 className="font-bold text-2xl text-stone-800 flex items-center border-b-2 border-amber-100 pb-3 font-serif">
+                                                <span className="text-amber-500 text-3xl mr-3">02</span> 品茶文化層面
+                                            </h4>
+                                            <div className="mt-6 bg-[#fffbf0] p-6 rounded-2xl border border-[#efeadd] relative">
+                                                <div className="absolute top-0 right-0 w-20 h-20 bg-amber-100 rounded-bl-full opacity-20"></div>
+                                                <ul className="space-y-5 text-stone-700 relative z-10">
+                                                    <li className="flex gap-3">
+                                                        <Feather className="text-amber-600 shrink-0 mt-1" size={18} />
+                                                        <div>
+                                                            <strong className="block text-amber-900 font-serif text-lg mb-1">講究「活水」</strong>
+                                                            <span className="text-stone-600 leading-relaxed block">「活水先養茶，靜水不出香」。死水（久煮水）讓茶湯呆滯無生氣。</span>
+                                                        </div>
+                                                    </li>
+                                                    <li className="flex gap-3">
+                                                        <Award className="text-amber-600 shrink-0 mt-1" size={18} />
+                                                        <div>
+                                                            <strong className="block text-amber-900 font-serif text-lg mb-1">專業避忌</strong>
+                                                            <span className="text-stone-600 leading-relaxed block">茶藝競賽中，使用久煮水被視為失誤，影響香氣層次。</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
 
-                                        <div className="bg-green-50 p-5 rounded-lg border border-green-100">
-                                            <ul className="space-y-2 text-stone-700 mb-4 text-sm">
-                                                <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 煮水一次沸騰即可，勿反覆燒開。</li>
-                                                <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 沒用完的水建議倒掉換新，或加新水再煮。</li>
-                                                <li className="flex items-start"><ArrowRight size={16} className="mt-1 mr-2 text-green-600 flex-shrink-0" /> 推薦使用新鮮山泉水或礦泉水。</li>
-                                            </ul>
-                                            <div className="border-t border-green-200 pt-3 mt-3">
-                                                <span className="font-bold text-green-800 block mb-2 text-sm">總結影響：</span>
-                                                <div className="grid grid-cols-2 gap-2 text-xs text-stone-600 font-medium">
-                                                    <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 味道：不鮮活</span>
-                                                    <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 外觀：易混濁</span>
-                                                    <span className="flex items-center"><span className="text-amber-500 mr-1">!</span> 健康：理論疑慮</span>
-                                                    <span className="flex items-center"><span className="text-red-500 mr-1">✕</span> 茶藝：不專業</span>
+                                        <div className="mt-auto">
+                                            <h4 className="font-bold text-xl text-stone-800 flex items-center mb-4 font-serif">
+                                                <CheckCircle className="mr-2 text-emerald-600" size={24} /> 實務建議 & 總結
+                                            </h4>
+
+                                            <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100">
+                                                <ul className="space-y-3 text-stone-700 mb-6 font-medium">
+                                                    <li className="flex items-center"><span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-3"></span> 煮水一次沸騰即可，勿反覆燒開。</li>
+                                                    <li className="flex items-center"><span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-3"></span> 沒用完的水建議倒掉換新，或加新水再煮。</li>
+                                                    <li className="flex items-center"><span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-3"></span> 推薦使用新鮮山泉水或礦泉水。</li>
+                                                </ul>
+                                                <div className="border-t border-emerald-200 pt-4 grid grid-cols-2 gap-3 text-sm font-bold text-stone-600">
+                                                    <span className="flex items-center bg-white px-3 py-2 rounded shadow-sm"><span className="text-red-500 mr-2 text-lg">✕</span> 味道：不鮮活</span>
+                                                    <span className="flex items-center bg-white px-3 py-2 rounded shadow-sm"><span className="text-red-500 mr-2 text-lg">✕</span> 外觀：易混濁</span>
+                                                    <span className="flex items-center bg-white px-3 py-2 rounded shadow-sm"><span className="text-amber-500 mr-2 text-lg">!</span> 健康：理論疑慮</span>
+                                                    <span className="flex items-center bg-white px-3 py-2 rounded shadow-sm"><span className="text-red-500 mr-2 text-lg">✕</span> 茶藝：不專業</span>
                                                 </div>
                                             </div>
                                         </div>
