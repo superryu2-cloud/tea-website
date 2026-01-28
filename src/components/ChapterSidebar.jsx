@@ -4,6 +4,7 @@ import AccordionPanel from './AccordionPanel';
 
 export default function ChapterSidebar({
   title = '章節',
+  icon: Icon,
   items,
   activeKey,
   onSelectKey,
@@ -43,11 +44,22 @@ export default function ChapterSidebar({
           overscrollBehavior: 'auto',
           scrollbarGutter: 'stable',
         }}
-        className="rounded-2xl backdrop-blur shadow-sm p-3 pb-4 tool-surface tool-surface--strong overflow-y-auto"
+        className="rounded-3xl border border-stone-200 bg-white shadow-lg shadow-stone-200/50 p-6 overflow-y-auto"
       >
-        <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
-          {title}
-        </h3>
+        {Icon ? (
+          <div className="flex items-center gap-3 mb-6 px-1">
+            <div className="w-10 h-10 rounded-2xl border border-stone-200 bg-white shadow-sm flex items-center justify-center text-emerald-600">
+              <Icon size={20} strokeWidth={2.5} />
+            </div>
+            <h3 className="text-xl font-extrabold text-stone-900 tracking-tight">
+              {title}
+            </h3>
+          </div>
+        ) : (
+          <h3 className="text-stone-500 font-bold mb-4 pl-1">
+            {title}
+          </h3>
+        )}
         <div className="space-y-2">
           {resolvedItems.map((item) => {
             const hasSub = hasSubByKey.get(item.key);
@@ -75,9 +87,9 @@ export default function ChapterSidebar({
                     onSelectKey(item.key);
                     setActiveCollapse({ key: item.key, collapsed: false });
                   }}
-                  className={`chapter-nav-item group w-full text-left px-4 py-3 rounded-xl transition-all duration-300 border focus-visible:outline-none focus:scale-[1.02] ${isActive
-                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
-                    : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md tool-muted hover:text-stone-900'
+                  className={`chapter-nav-item group w-full text-left px-4 py-3 rounded-2xl transition-all duration-300 border focus-visible:outline-none ${isActive
+                    ? 'bg-amber-50 border-amber-300 text-stone-900 shadow-sm'
+                    : 'bg-white border-stone-200 text-stone-600 hover:border-amber-200 hover:bg-amber-50/50 hover:text-stone-900'
                     }`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">

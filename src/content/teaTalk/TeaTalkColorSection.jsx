@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { BookOpen, Palette, Sparkles } from 'lucide-react';
+import { BookOpen, Palette, Sparkles, Leaf } from 'lucide-react';
 import AtlasDockLayout from '../../components/AtlasDockLayout';
 import ChapterSidebar from '../../components/ChapterSidebar';
 import SectionCard from '../../components/SectionCard';
@@ -48,7 +48,8 @@ export default function TeaTalkColorSection({ topOffsetPx = 0 }) {
           topOffsetPx={topOffsetPx}
           sidebar={
             <ChapterSidebar
-              title="章節"
+              title="茶韻之旅"
+              icon={Leaf}
               items={chapters}
               activeKey={activeChapter}
               onSelectKey={(key) => {

@@ -77,7 +77,7 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center text-white px-4">
                         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-2xl">
-                            茶韻百科
+                            茶韻之旅
                         </h1>
                         <p className="text-xl md:text-2xl font-light tracking-widest drop-shadow-lg">
                             TEA EXHIBITION ATLAS

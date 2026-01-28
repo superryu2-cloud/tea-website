@@ -3,7 +3,7 @@ export const SUPPORTED_LANGS = ['zh-Hant', 'en'];
 export const translations = {
   'zh-Hant': {
     site: {
-      title: '茶韻百科',
+      title: '茶韻之旅',
       tagline: 'TEA EXHIBITION ATLAS',
     },
     nav: {
@@ -35,10 +35,10 @@ export const translations = {
       backToTop: '回到頂部',
     },
     footer: {
-      aboutTitle: '茶韻百科',
+      aboutTitle: '茶韻之旅',
       aboutText: '以教學與研究為導向整理茶學百科，內容持續更新，歡迎作為課堂與自學參考。',
       quickLinks: '快速連結',
-      copyright: '茶韻百科',
+      copyright: '茶韻之旅',
       designedFor: 'Designed for Tea Lovers.',
     },
   },
