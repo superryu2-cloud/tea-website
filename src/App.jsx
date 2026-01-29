@@ -1,5 +1,5 @@
 ﻿import React, { useMemo, useState, useEffect, useRef } from 'react';
-import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle, Flower } from 'lucide-react';
+import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
 import teaData from './data/teaData';
 import cultivars from './data/cultivars';
 import solarTerms from './data/solarTerms';
@@ -69,6 +69,8 @@ import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
 import PuerhSection from './sections/PuerhSection';
 import SeasonsSection from './sections/SeasonsSection';
 import BrewingGuideSection from './sections/BrewingGuideSection';
+import DraggableWrapper from './components/DraggableWrapper';
+import SteepedSereneHome from './components/sections/SteepedSereneHome';
 import ResizableDivider from './components/ResizableDivider';
 
 const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
@@ -97,6 +99,7 @@ const TeaWebsite = () => {
   const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
   const [pendingOffsetScrollTarget, setPendingOffsetScrollTarget] = useState(null);
   const [siteNavHeightPx, setSiteNavHeightPx] = useState(88);
+  const [selectedFeatured, setSelectedFeatured] = useState(() => featuredTeaMenu?.[0]?.id ?? 'tieguanyin');
   const chenChuanScrollOffsetPx = siteNavHeightPx + 20;
 
   const cultivarsSubnav = useAnchoredSubnav({
@@ -250,23 +253,41 @@ const TeaWebsite = () => {
 
   const goToTeaExhibit = (tea) => {
     if (!tea || typeof tea !== 'object') return;
-    if (tea.id === 6) {
-      goToTab('puerh');
-      return;
+
+    // Handle Numeric IDs (Basic Tea Data)
+    if (typeof tea.id === 'number') {
+      if (tea.id === 6) {
+        goToTab('puerh');
+        return;
+      }
+
+      const kindByTeaId = {
+        0: 'green',
+        1: 'white',
+        2: 'yellow',
+        3: 'oolong',
+        4: 'red',
+        5: 'black',
+      };
+
+      const kindKey = kindByTeaId[tea.id];
+      if (kindKey) {
+        goToVarietiesKind(kindKey);
+        return;
+      }
     }
 
-    const kindByTeaId = {
-      0: 'green',
-      1: 'white',
-      2: 'yellow',
-      3: 'oolong',
-      4: 'red',
-      5: 'black',
-    };
-
-    const kindKey = kindByTeaId[tea.id];
-    if (!kindKey) return;
-    goToVarietiesKind(kindKey);
+    // Handle String IDs (Featured Teas)
+    if (typeof tea.id === 'string') {
+      if (featuredTeaMenu.some(item => item.id === tea.id)) {
+        setSelectedFeatured(tea.id);
+        setActiveTab('featured');
+        setAtlasNavOpen(true);
+        setMobileMenuOpen(false);
+        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+    }
   };
 
   const goToTab = (tab) => {
@@ -295,6 +316,7 @@ const TeaWebsite = () => {
       'academy_xueya_09',
       'academy_xueya_11',
       'academy_coming_soon',
+      'brand'
     ]);
     const allowedRooms = new Set(SCIENCE_TOC.map((item) => item.key).filter(Boolean));
     const allowedVarietiesKinds = new Set(VARIETIES_KINDS.map((k) => k.key));
@@ -2429,7 +2451,7 @@ const TeaWebsite = () => {
 
   const FeaturedTeaSection = () => {
     const notesMode = UI_FLAGS.notesMode;
-    const [selectedFeatured, setSelectedFeatured] = useState(() => featuredTeaMenu?.[0]?.id ?? 'tieguanyin');
+    // selectedFeatured is now lifted to TeaWebsite level
     const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
     const [orientalBeautySection, setOrientalBeautySection] = useState('main');
     const [featuredSidebarWidth, setFeaturedSidebarWidth] = useState(() => {
@@ -2748,6 +2770,95 @@ const TeaWebsite = () => {
       if (!Number.isFinite(parsed)) return 300;
       return Math.min(Math.max(parsed, 200), 500);
     });
+    const [deskLayoutSeed, setDeskLayoutSeed] = useState(0);
+
+    const deskItems = useMemo(() => ([
+      {
+        id: 'stage',
+        label: '壺承',
+        className: 'w-32 h-32 rounded-full border-4 border-stone-600 bg-stone-800/80 shadow-2xl',
+        textClass: 'text-stone-100',
+        x: 360,
+        y: 40,
+      },
+      {
+        id: 'tray',
+        label: '席方',
+        className: 'w-72 h-20 rounded-[28px] border border-stone-600/40 bg-stone-700/40 shadow-lg',
+        textClass: 'text-stone-200',
+        x: 220,
+        y: 150,
+      },
+      {
+        id: 'fair',
+        label: '勻杯',
+        className: 'w-16 h-20 rounded-2xl bg-stone-100 border border-stone-200 shadow-md',
+        textClass: 'text-stone-800',
+        x: 250,
+        y: 80,
+      },
+      {
+        id: 'waste',
+        label: '水盂',
+        className: 'w-24 h-24 rounded-full border border-stone-600 bg-stone-900/40 shadow-md',
+        textClass: 'text-stone-200',
+        x: 80,
+        y: 60,
+      },
+      {
+        id: 'lid',
+        label: '蓋置',
+        className: 'w-16 h-16 rounded-full bg-stone-900/60 border border-stone-700 shadow-sm',
+        textClass: 'text-stone-300',
+        x: 520,
+        y: 80,
+      },
+      {
+        id: 'caddy',
+        label: '茶倉',
+        className: 'w-20 h-24 rounded-xl bg-stone-100/90 border border-stone-200 shadow-md',
+        textClass: 'text-stone-700',
+        x: 620,
+        y: 50,
+      },
+      {
+        id: 'cloth',
+        label: '茶巾',
+        className: 'w-16 h-16 rounded-lg bg-stone-200/80 border border-stone-300 shadow-sm',
+        textClass: 'text-stone-600',
+        x: 520,
+        y: 180,
+      },
+      {
+        id: 'tools',
+        label: '茶則/茶夾',
+        className: 'w-24 h-10 rounded-md bg-amber-900/80 border border-amber-950/40 shadow-sm',
+        textClass: 'text-amber-100',
+        x: 190,
+        y: 90,
+      },
+      {
+        id: 'vase',
+        label: '花器',
+        className: 'w-14 h-28 rounded-t-full rounded-b-md bg-stone-50 border border-stone-200 shadow-lg',
+        textClass: 'text-stone-600',
+        x: 720,
+        y: 50,
+      },
+    ]), []);
+
+    const guestCups = useMemo(() => (
+      Array.from({ length: 6 }, (_, index) => ({
+        id: `guest-${index + 1}`,
+        label: `杯 ${index + 1}`,
+        x: 140 + (index * 95),
+        y: 230,
+      }))
+    ), []);
+
+    const resetDeskLayout = () => {
+      setDeskLayoutSeed((prev) => prev + 1);
+    };
 
     const handleCeremonyTabChange = (tabId) => {
       setCeremonyTab(tabId);
@@ -2772,6 +2883,28 @@ const TeaWebsite = () => {
 
     return (
       <div className="museum-page" ref={ceremonySectionRef}>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          .ceremony-desk-canvas {
+            background-color: #1a1817;
+            background-image: 
+              radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%),
+              linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+          }
+          .draggable-item {
+            cursor: grab;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+          .draggable-item:active {
+            cursor: grabbing;
+            transform: scale(1.1) rotate(2deg);
+          }
+          .draggable-card {
+            transition: box-shadow 0.3s ease !important;
+          }
+        ` }} />
         <div className="museum-stage">
           <div className="mb-12 museum-panel p-8 md:p-12 text-center">
             <div className="museum-label mx-auto">EXHIBIT · CEREMONY</div>
@@ -3053,81 +3186,92 @@ const TeaWebsite = () => {
                 {/* 3. Setup */}
                 {ceremonyTab === 'setup' && (
                   <div className="animate-fadeIn space-y-12">
-                    <div className="grid md:grid-cols-3 gap-8">
-                      <div className="md:col-span-1 space-y-8">
-                        <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                          <h4 className="font-bold text-lg text-stone-800 mb-4">設置茶席之步驟</h4>
-                          <ol className="space-y-4 text-sm text-stone-600 list-decimal list-inside">
-                            <li>
-                              <strong className="text-stone-800">選茶：</strong>決定今日主角。
-                            </li>
-                            <li>
-                              <strong className="text-stone-800">試茶：</strong>
-                              <p className="pl-4 mt-1 text-xs">使用鑑定杯，了解其發酵度、苦澀度、香氣、焙火情形，以決定沖泡策略。</p>
-                            </li>
-                            <li>
-                              <strong className="text-stone-800">主體部分 (因茶擇器)：</strong>
-                              <p className="pl-4 mt-1 text-xs">
-                                例：凍頂烏龍選圓形壺、燒結度不高、蓋子密。<br />
-                                決定席方(舞台)、壺承、飲杯、勻杯的搭配。
-                              </p>
-                            </li>
-                          </ol>
-                        </div>
-
-                        <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                          <h4 className="font-bold text-lg text-stone-800 mb-4">茶席構成要素</h4>
-                          <ul className="space-y-3 text-sm text-stone-600">
-                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>席方：</strong>離桌緣一食指距離。</li>
-                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>壺承：</strong>直徑須大於壺，造型如舞台。</li>
-                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>勻杯：</strong>斷水須順暢，高度不低於杯。</li>
-                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>水盂：</strong>彈性最大，可依比例調整。</li>
-                            <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>茶巾：</strong>置於事茶者右下壺承45度。</li>
-                          </ul>
-                        </div>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      {/* Top Info Row */}
+                      <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                        <h4 className="font-bold text-lg text-stone-800 mb-4">設置茶席之步驟</h4>
+                        <ol className="space-y-4 text-sm text-stone-600 list-decimal list-inside">
+                          <li>
+                            <strong className="text-stone-800">選茶：</strong>決定今日主角。
+                          </li>
+                          <li>
+                            <strong className="text-stone-800">試茶：</strong>
+                            <p className="pl-4 mt-1 text-xs">使用鑑定杯，了解其發酵度、苦澀度、香氣、焙火情形，以決定沖泡策略。</p>
+                          </li>
+                          <li>
+                            <strong className="text-stone-800">主體部分 (因茶擇器)：</strong>
+                            <p className="pl-4 mt-1 text-xs">
+                              例：凍頂烏龍選圓形壺、燒結度不高、蓋子密。<br />
+                              決定席方(舞台)、壺承、飲杯、勻杯的搭配。
+                            </p>
+                          </li>
+                        </ol>
                       </div>
 
-                      <div className="md:col-span-2">
-                        <div className="bg-stone-800 text-stone-200 p-8 rounded-xl ">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-stone-700 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                          <h4 className="font-bold text-xl text-white mb-8 text-center">茶席基本配置圖 (以事茶者視角)</h4>
+                      <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                        <h4 className="font-bold text-lg text-stone-800 mb-4">茶席構成要素</h4>
+                        <ul className="space-y-3 text-sm text-stone-600">
+                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>席方：</strong>離桌緣一食指距離。</li>
+                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>壺承：</strong>直徑須大於壺，造型如舞台。</li>
+                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>勻杯：</strong>斷水須順暢，高度不低於杯。</li>
+                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>水盂：</strong>彈性最大，可依比例調整。</li>
+                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>茶巾：</strong>置於事茶者右下壺承45度。</li>
+                        </ul>
+                      </div>
+                    </div>
 
-                          {/* Diagram Representation */}
-                          <div className="grid grid-cols-3 gap-4 text-center text-xs md:text-sm">
-                            {/* Top Row */}
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (茶倉) <br /> 左上 45°
-                            </div>
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (客人視線)
-                            </div>
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (勻杯) <br /> 右上 45°
-                            </div>
+                    <div className="md:col-span-2">
+                      <div className="bg-stone-900 text-stone-200 p-8 rounded-2xl relative overflow-hidden border border-stone-800 shadow-xl">
+                        <div className="absolute -top-12 -right-10 w-48 h-48 bg-stone-700/40 rounded-full blur-3xl"></div>
 
-                            {/* Middle Row */}
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (茶荷) <br /> 左側
-                            </div>
-                            <div className="flex items-center justify-center p-8 bg-stone-700 rounded-full border-2 border-stone-500 shadow-lg z-10">
-                              <strong className="text-white">茶壺 & 壺承</strong><br />(正中央)
-                            </div>
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (茶則/茶理) <br /> 右側
-                            </div>
-
-                            {/* Bottom Row */}
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (水盂) <br /> 彈性位置
-                            </div>
-                            <div className="flex items-center justify-center p-4 text-stone-300">
-                              <User size={24} className="mb-1 block mx-auto" />
-                              事茶者
-                            </div>
-                            <div className="flex items-center justify-center p-4 border border-stone-600 border-dashed rounded text-stone-500">
-                              (茶巾/蓋置) <br /> 右下 45°
-                            </div>
+                        <div className="text-center mb-6">
+                          <div className="text-xs uppercase tracking-[0.4em] text-stone-500">Tea Desk Lab</div>
+                          <h4 className="font-bold text-2xl text-white mt-2">自由茶席配置</h4>
+                          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-stone-500">
+                            <button
+                              type="button"
+                              onClick={resetDeskLayout}
+                              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-stone-200 hover:bg-white/20 transition-colors"
+                            >
+                              <RotateCcw size={14} />
+                              重置位置
+                            </button>
+                            <span>點住物件即可拖曳</span>
                           </div>
+                        </div>
+
+                        <div className="relative h-[320px] ceremony-desk-canvas rounded-2xl border border-stone-700/70 shadow-inner overflow-hidden">
+                          <div className="absolute inset-6 border border-stone-700/40 rounded-xl pointer-events-none"></div>
+                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-20 bg-gradient-to-r from-white/10 via-white/0 to-white/10 pointer-events-none"></div>
+
+                          {deskItems.map((item) => (
+                            <DraggableWrapper key={`${deskLayoutSeed}-${item.id}`} initialPos={{ x: item.x, y: item.y }}>
+                              <div className={`draggable-item relative flex flex-col items-center justify-center text-center ${item.className}`}>
+                                <div className="drag-handle absolute inset-0"></div>
+                                {item.icon ? (
+                                  <item.icon size={16} className={`mb-1 ${item.iconClass || 'text-stone-300'}`} />
+                                ) : null}
+                                <div className={`pointer-events-none ${item.textClass || 'text-stone-200'}`}>
+                                  <div className="text-xs font-semibold">{item.label}</div>
+                                </div>
+                              </div>
+                            </DraggableWrapper>
+                          ))}
+
+                          {guestCups.map((cup) => (
+                            <DraggableWrapper key={`${deskLayoutSeed}-${cup.id}`} initialPos={{ x: cup.x, y: cup.y }}>
+                              <div className="draggable-item relative flex flex-col items-center gap-1">
+                                <div className="drag-handle absolute inset-0"></div>
+                                <div className="w-14 h-14 rounded-full bg-stone-100 border border-stone-200 shadow-sm flex items-center justify-center text-stone-500 text-[10px] font-semibold">
+                                  {cup.label}
+                                </div>
+                              </div>
+                            </DraggableWrapper>
+                          ))}
+                        </div>
+
+                        <div className="mt-3 text-center text-xs text-stone-500">
+                          物件與杯子皆可自由移動。
                         </div>
                       </div>
                     </div>
@@ -3168,7 +3312,7 @@ const TeaWebsite = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   };
 

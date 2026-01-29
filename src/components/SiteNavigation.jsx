@@ -712,17 +712,62 @@ export default function SiteNavigation({
                 </button>
 
                 {/* All Atlas items */}
-                <div className="grid grid-cols-2 gap-2">
-                  {ATLAS_ITEMS.map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => goToTab(item)}
-                      className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${activeTab === item ? 'tool-item--active' : ''
-                        }`}
-                    >
-                      {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
-                    </button>
-                  ))}
+                <div className="space-y-2">
+                  {ATLAS_ITEMS.map((item) => {
+                    const isActive = activeTab === item;
+                    return (
+                      <div key={item} className="space-y-1">
+                        <button
+                          onClick={() => goToTab(item)}
+                          className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${isActive ? 'tool-item--active' : ''
+                            }`}
+                        >
+                          {String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, '')}
+                        </button>
+
+                        {/* Varieties Mobile Sub-navigation (Tier 3 & 4) */}
+                        {item === 'varieties' && isActive && (
+                          <div className="ml-4 pl-4 border-l border-stone-200 space-y-2 mt-1 py-1">
+                            {VARIETIES_KINDS.map((kind) => {
+                              const subItems = VARIETIES_SUBITEMS_BY_KEY[kind.key] || [];
+                              const isKindActive = varietiesKind === kind.key;
+                              return (
+                                <div key={kind.key} className="space-y-1">
+                                  <button
+                                    onClick={() => setVarietiesKind(kind.key)}
+                                    className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${isKindActive ? 'bg-amber-100 text-amber-900 shadow-sm' : 'text-stone-600 hover:bg-stone-50'
+                                      }`}
+                                  >
+                                    <div className="flex items-center justify-between w-full">
+                                      <span>{kind.label}</span>
+                                      {subItems.length > 0 && <ChevronDown size={12} className={`opacity-50 ${isKindActive ? 'rotate-180' : ''}`} />}
+                                    </div>
+                                  </button>
+
+                                  {isKindActive && subItems.length > 0 && (
+                                    <div className="ml-3 pl-3 border-l border-stone-100 space-y-1 py-1">
+                                      {subItems.map((sub) => (
+                                        <button
+                                          key={sub.href}
+                                          onClick={() => {
+                                            scrollToHrefWithOffset(sub.href, { behavior: 'smooth' });
+                                            setMobileMenuOpen(false);
+                                          }}
+                                          className="w-full text-left px-2 py-1.5 rounded text-[11px] font-medium text-stone-500 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+                                        >
+                                          {sub.label}
+                                        </button>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -806,21 +851,16 @@ export default function SiteNavigation({
                                           else if (parseInt(num, 10) === 9) goToTab('academy_xueya_09');
                                           else if (parseInt(num, 10) === 11) goToTab('academy_xueya_11');
                                           else goToTab('academy_coming_soon');
-                                        } else if (cat.key === 'chonghua') {
-                                          const chapterNum = parseInt(num, 10);
-                                          if (chapterNum >= 1 && chapterNum <= 33) {
-                                            goToTab(`academy_chonghua_${num}`);
-                                          } else {
-                                            goToTab('academy_coming_soon');
-                                          }
                                         } else {
                                           goToTab('academy_coming_soon');
                                         }
                                         setMobileMenuOpen(false);
                                       }}
                                     >
-                                      <div className="font-bold text-lg">{renderFlipLabel(`?${num}?`)}</div>
-                                      {chapter.title && (<div className="truncate opacity-75 mt-0.5 text-sm">{renderFlipLabel(chapter.title)}</div>)}
+                                      <div className="w-full text-left flex items-baseline gap-3">
+                                        <span className="font-bold text-[18px] block shrink-0">{renderFlipLabel(num)}</span>
+                                        {chapter.title && (<span className="block text-[16px] font-medium leading-snug truncate">{renderFlipLabel(chapter.title)}</span>)}
+                                      </div>
                                     </a>
                                   );
                                 })}
@@ -835,7 +875,7 @@ export default function SiteNavigation({
               )}
 
               {/* Chonghua (Mobile) */}
-              {academyMenuHidden ? null : (
+              {chonghuaUnlocked && !academyMenuHidden ? (
                 <div className="mt-2 px-2">
                   <button
                     type="button"
@@ -873,13 +913,15 @@ export default function SiteNavigation({
                             setMobileMenuOpen(false);
                           }}
                         >
-                          <div className="font-bold text-lg">{renderFlipLabel(chapter.title)}</div>
+                          <div className="w-full text-center">
+                            <span className="font-bold text-[18px]">{renderFlipLabel(chapter.id)}</span>
+                          </div>
                         </a>
                       ))}
                     </div>
                   </AccordionPanel>
                 </div>
-              )}
+              ) : null}
 
               {(daguanUnlocked || chonghuaUnlocked) && !academyMenuHidden ? (
                 <div className="mt-3 px-2">
@@ -897,151 +939,10 @@ export default function SiteNavigation({
                   </button>
                 </div>
               ) : null}
-
-              {/* Tier 3 */}
-              {activeTab === 'varieties' ? (
-                <div className="mt-2 px-2">
-                  <div className="text-xs font-bold text-stone-500 px-1 py-2">六大茶類</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {VARIETIES_KINDS.map((kind) => (
-                      <button
-                        key={kind.key}
-                        type="button"
-                        onClick={() => {
-                          setVarietiesKind(kind.key);
-                          setMobileMenuOpen(false);
-                          if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${varietiesKind === kind.key ? 'tool-item--active' : ''
-                          }`}
-                      >
-                        {kind.label}
-                      </button>
-                    ))}
-                  </div>
-
-                  {VARIETIES_SUBITEMS_BY_KEY[varietiesKind]?.length ? (
-                    <div className="mt-3">
-                      <div className="text-xs font-bold text-stone-500 px-1 py-2">子章節</div>
-                      <div className="space-y-1">
-                        {VARIETIES_SUBITEMS_BY_KEY[varietiesKind].map((item) => (
-                          <button
-                            key={item.href}
-                            type="button"
-                            onClick={() => {
-                              setMobileMenuOpen(false);
-                              if (typeof window === 'undefined') return;
-                              const shouldDispatchPopstate = varietiesKind === 'oolong';
-                              window.requestAnimationFrame(() => {
-                                window.requestAnimationFrame(() => {
-                                  scrollToHrefWithOffset(item.href, { dispatchPopstate: shouldDispatchPopstate });
-                                });
-                              });
-                            }}
-                            className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                          >
-                            {item.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              ) : null}
-
-              {/* Tier 3: Science */}
-              {activeTab === 'science' ? (
-                <div className="mt-2 px-2">
-                  <div className="text-xs font-bold text-stone-500 px-1 py-2">科學章節</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {SCIENCE_TOC.map((item) => (
-                      <button
-                        key={item.key}
-                        type="button"
-                        onClick={() => {
-                          setScienceRoom(item.key);
-                          setMobileMenuOpen(false);
-                          if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className={`px-3 py-2 rounded-xl text-sm font-semibold w-full text-left transition-colors tool-item ${scienceRoom === item.key ? 'tool-item--active' : ''
-                          }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                  {scienceRoom === 'teaching' && (
-                    <div className="mt-3">
-                      <div className="text-xs font-bold text-stone-500 px-1 py-2">教學引用</div>
-                      <div className="space-y-1">
-                        {TEA_REFERENCE_TOC.map((item) => (
-                          <button
-                            key={item.href}
-                            type="button"
-                            onClick={() => {
-                              setMobileMenuOpen(false);
-                              scrollToHrefWithOffset(item.href, { dispatchPopstate: true });
-                            }}
-                            className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                          >
-                            {item.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ) : null}
-
-              {/* Tier 3: Puerh */}
-              {activeTab === 'puerh' ? (
-                <div className="mt-2 px-2">
-                  <div className="text-xs font-bold text-stone-500 px-1 py-2">普洱茶百科</div>
-                  <div className="space-y-1">
-                    {PUERH_TOC.map((item) => (
-                      <button
-                        key={item.href}
-                        type="button"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          scrollToHrefWithOffset(item.href);
-                        }}
-                        className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
-              {/* Tier 3: Cultivars */}
-              {activeTab === 'cultivars' ? (
-                <div className="mt-2 px-2">
-                  <div className="text-xs font-bold text-stone-500 px-1 py-2">品種章節</div>
-                  <div className="space-y-1">
-                    {CULTIVARS_TOC.map((item) => (
-                      <button
-                        key={item.href}
-                        type="button"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          scrollToHrefWithOffset(item.href);
-                        }}
-                        className="w-full text-left rounded-xl px-3 py-2 text-sm font-semibold tool-item"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
             </div>
           </div>
         )
       }
-    </nav >
+    </nav>
   );
 }
-
-

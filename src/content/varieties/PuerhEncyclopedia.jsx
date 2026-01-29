@@ -282,7 +282,7 @@ const CHAPTERS = {
         {/* Region Map Concept */}
         <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6">
           <Subheading>關鍵詞一：地理標誌保護範圍</Subheading>
-          <p className="text-stone-700 text-sm">
+          <p className="text-stone-700 text-base">
             主要指雲南省內約 90% 的產茶區。離開此範圍（如四川、貴州），即便工藝相同，亦不可稱為普洱。
           </p>
 
@@ -319,11 +319,11 @@ const CHAPTERS = {
                 <div className={`absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b ${region.color}`}></div>
                 <div className="p-4 pl-6">
                   <h5 className="font-bold text-stone-900 text-lg mb-1">{region.name}</h5>
-                  <p className="text-xs text-stone-500 mb-3">{region.desc}</p>
+                  <p className="text-sm text-stone-600 mb-3">{region.desc}</p>
 
                   <div className="space-y-1">
                     {region.mountains.map((m, i) => (
-                      <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-stone-700 bg-stone-50 px-2 py-1 rounded w-fit">
+                      <div key={i} className="flex items-center gap-1.5 text-sm font-medium text-stone-700 bg-stone-50 px-2 py-1 rounded w-fit">
                         <Mountain size={12} className="text-stone-400" /> {m}
                       </div>
                     ))}
