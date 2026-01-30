@@ -9,7 +9,7 @@ export default function AromaticsChapter() {
         <p>
           茶葉香氣來自數百種揮發性芳香物質。從化學基礎到形成機制、分類方式，系統性地解析茶葉香氣的科學原理。
         </p>
-        <h4 className="text-base md:text-lg font-extrabold text-stone-900">茶葉香氣科學</h4>
+        <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900">茶葉香氣科學</h4>
         <p>
           香氣是茶葉品質的靈魂，也是品鑑的核心要素之一。本章從化學角度解析茶葉香氣的物質基礎、形成機制、分類方式，
           以及如何透過製程工藝調控香氣表現，幫助您建立科學化的香氣認知體系。
@@ -23,33 +23,33 @@ export default function AromaticsChapter() {
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4 shadow-sm">
-            <div className="flex items-center gap-2 text-base font-extrabold text-purple-700">
+            <div className="flex items-center gap-2 text-[17px] font-extrabold text-purple-700">
               <Sparkles size={18} className="text-purple-700" />
               <span>純正</span>
             </div>
-            <p className="mt-2 text-sm text-purple-700/80">無異味、雜味，香型特徵明確</p>
+            <p className="mt-2 text-base text-purple-700/80">無異味、雜味，香型特徵明確</p>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-4 shadow-sm">
-            <div className="flex items-center gap-2 text-base font-extrabold text-rose-700">
+            <div className="flex items-center gap-2 text-[17px] font-extrabold text-rose-700">
               <Flower size={18} className="text-rose-700" />
               <span>高揚</span>
             </div>
-            <p className="mt-2 text-sm text-rose-700/80">香氣濃郁、持久、穿透力強</p>
+            <p className="mt-2 text-base text-rose-700/80">香氣濃郁、持久、穿透力強</p>
           </div>
           <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 shadow-sm">
-            <div className="flex items-center gap-2 text-base font-extrabold text-blue-700">
+            <div className="flex items-center gap-2 text-[17px] font-extrabold text-blue-700">
               <Drama size={18} className="text-blue-700" />
               <span>層次豐富</span>
             </div>
-            <p className="mt-2 text-sm text-blue-700/80">前、中、後段香氣有變化與深度</p>
+            <p className="mt-2 text-base text-blue-700/80">前、中、後段香氣有變化與深度</p>
           </div>
         </div>
         <div className="rounded-xl border border-amber-100 border-l-4 border-l-amber-400 bg-amber-50/70 p-4">
-          <div className="flex items-center gap-2 text-base md:text-lg font-extrabold text-amber-900">
+          <div className="flex items-center gap-2 text-[17px] md:text-[19px] font-extrabold text-amber-900">
             <Lightbulb size={18} className="text-amber-900" />
             <span>品鑑要點</span>
           </div>
-          <p className="mt-2 text-sm text-amber-900/80">
+          <p className="mt-2 text-base text-amber-900/80">
             專業品鑑時，香氣評分通常佔總分的 25-30%，與滋味並列為最重要的評價指標。高品質茶葉的香氣應該「聞香知茶」，
             能夠反映品種、產地、工藝的特徵。
           </p>
@@ -62,7 +62,7 @@ export default function AromaticsChapter() {
           這些物質含量極低（通常僅佔乾茶重量的 0.01-0.03%），但對香氣表現至關重要。
         </p>
         <div className="overflow-x-auto rounded-xl border border-purple-100 shadow-sm bg-white/70">
-          <table className="min-w-full divide-y divide-purple-100 text-sm">
+          <table className="min-w-full divide-y divide-purple-100 text-base">
             <thead>
               <tr className="bg-purple-50">
                 <th className="px-4 py-3 text-left font-extrabold text-purple-700">化合物類別</th>
@@ -112,11 +112,11 @@ export default function AromaticsChapter() {
           </table>
         </div>
         <div className="rounded-xl border border-emerald-100 border-l-4 border-l-emerald-400 bg-emerald-50/70 p-4">
-          <div className="flex items-center gap-2 text-base md:text-lg font-extrabold text-emerald-900">
+          <div className="flex items-center gap-2 text-[17px] md:text-[19px] font-extrabold text-emerald-900">
             <Microscope size={18} className="text-emerald-900" />
             <span>科學補充</span>
           </div>
-          <p className="mt-2 text-sm text-emerald-900/80">
+          <p className="mt-2 text-base text-emerald-900/80">
             目前已從茶葉中鑑定出超過 700 種揮發性芳香物質，但真正對香氣有顯著貢獻的「關鍵香氣成分」
             約 50-100 種。這些物質的種類、含量、比例共同決定了茶葉的香氣特徵。
           </p>
@@ -128,7 +128,7 @@ export default function AromaticsChapter() {
 
         <div className="space-y-4">
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-emerald-900">3.1 鮮葉固有香氣</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-emerald-900">3.1 鮮葉固有香氣</h4>
             <p>新鮮茶葉本身含有一定量的芳香物質，主要包括：</p>
             <ul className="list-disc list-inside space-y-2">
               <li>萜烯類化合物：如芳樟醇、香葉醇，賦予清新的花香</li>
@@ -138,22 +138,22 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-amber-900">3.2 萎凋階段的香氣變化</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-amber-900">3.2 萎凋階段的香氣變化</h4>
             <p>萎凋是香氣轉化的關鍵起點：</p>
             <div className="rounded-xl border border-amber-200/60 bg-white/80 p-4 space-y-2">
               <div>
                 <h5 className="font-bold text-stone-900">物理變化</h5>
-                <p className="text-sm text-stone-600">水分散失 → 細胞膜透性增加 → 酶與底物接觸</p>
+                <p className="text-base text-stone-600">水分散失 → 細胞膜透性增加 → 酶與底物接觸</p>
               </div>
               <div>
                 <h5 className="font-bold text-stone-900">化學變化</h5>
-                <p className="text-sm text-stone-600">青葉醇降解 → 芳樟醇氧化物增加 → 花香顯現</p>
+                <p className="text-base text-stone-600">青葉醇降解 → 芳樟醇氧化物增加 → 花香顯現</p>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl border border-rose-200 bg-rose-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-rose-900">3.3 發酵/做青階段的香氣發展</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-rose-900">3.3 發酵/做青階段的香氣發展</h4>
             <p>這是香氣最豐富、最複雜的形成階段：</p>
             <ul className="list-disc list-inside space-y-2 text-rose-900/80">
               <li>酶促氧化：多酚氧化酶（PPO）催化兒茶素氧化，產生大量芳香醛、酮類</li>
@@ -164,7 +164,7 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-purple-200 bg-purple-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-purple-900">3.4 殺青對香氣的影響</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-purple-900">3.4 殺青對香氣的影響</h4>
             <p>殺青的高溫處理對香氣有雙重作用：</p>
             <ul className="list-disc list-inside space-y-2 text-purple-900/80">
               <li>❌ 破壞作用：鈍化酶活性，中止發酵；部分低沸點香氣揮發散失</li>
@@ -173,14 +173,14 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-sky-900">3.5 烘焙產生的香氣</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-sky-900">3.5 烘焙產生的香氣</h4>
             <p>烘焙是香氣再造的重要環節，尤其對烏龍茶、紅茶：</p>
             <ul className="list-disc list-inside space-y-2 text-sky-900/80">
               <li>低溫烘焙（80-100°C）：保留花香、果香，提升甜香</li>
               <li>中溫烘焙（100-120°C）：產生蜜香、焦糖香</li>
               <li>高溫烘焙（120-150°C）：形成火香、炭香、焙火韻</li>
             </ul>
-            <p className="rounded-lg border border-sky-200/70 bg-white/80 p-3 text-sm text-sky-900/80">
+            <p className="rounded-lg border border-sky-200/70 bg-white/80 p-3 text-base text-sky-900/80">
               關鍵反應：美拉德反應（Maillard Reaction）+ 焦糖化反應（Caramelization） → 產生吡嗪類、呋喃類等烘烤香氣物質
             </p>
           </div>
@@ -188,49 +188,49 @@ export default function AromaticsChapter() {
       </SectionCard>
 
       <SectionCard title="四、茶葉香氣分類" icon={Tag}>
-        <h4 className="text-base md:text-lg font-extrabold text-stone-900">4.1 按香型分類</h4>
+        <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900">4.1 按香型分類</h4>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4 space-y-2 text-purple-900/80">
-            <h5 className="text-base font-extrabold text-purple-900 flex items-center gap-2"><Flower size={18} /> 花香型</h5>
+            <h5 className="text-[17px] font-extrabold text-purple-900 flex items-center gap-2"><Flower size={18} /> 花香型</h5>
             <p>特徵：清雅、高揚、似鮮花香氣</p>
             <p>細分：茉莉香、蘭花香、桂花香、玉蘭香、梔子花香等</p>
             <p>代表茶：文山包種、清香型鐵觀音、鳳凰單叢（芝蘭香）</p>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-4 space-y-2 text-rose-900/80">
-            <h5 className="text-base font-extrabold text-rose-900 flex items-center gap-2"><Apple size={18} /> 果香型</h5>
+            <h5 className="text-[17px] font-extrabold text-rose-900 flex items-center gap-2"><Apple size={18} /> 果香型</h5>
             <p>特徵：甜潤、飽滿、似成熟水果</p>
             <p>細分：蜜桃香、柑橘香、蘋果香、荔枝香、龍眼香等</p>
             <p>代表茶：東方美人、蜜香紅茶、高發酵烏龍茶</p>
           </div>
           <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 space-y-2 text-emerald-900/80">
-            <h5 className="text-base font-extrabold text-emerald-900 flex items-center gap-2"><Leaf size={18} /> 清香型</h5>
+            <h5 className="text-[17px] font-extrabold text-emerald-900 flex items-center gap-2"><Leaf size={18} /> 清香型</h5>
             <p>特徵：清新、爽朗、似嫩葉清香</p>
             <p>細分：嫩香、毫香、清香、鮮香</p>
             <p>代表茶：龍井、碧螺春、高山烏龍茶</p>
           </div>
           <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 space-y-2 text-amber-900/80">
-            <h5 className="text-base font-extrabold text-amber-900 flex items-center gap-2"><Flame size={18} /> 熟香型</h5>
+            <h5 className="text-[17px] font-extrabold text-amber-900 flex items-center gap-2"><Flame size={18} /> 熟香型</h5>
             <p>特徵：沉穩、醇厚、烘烤氣息</p>
             <p>細分：焙火香、炒米香、板栗香、焦糖香、炭香</p>
             <p>代表茶：武夷岩茶、傳統鐵觀音、焙火烏龍</p>
           </div>
           <div className="rounded-xl border border-indigo-200 bg-indigo-50/70 p-4 space-y-2 text-indigo-900/80">
-            <h5 className="text-base font-extrabold text-indigo-900 flex items-center gap-2"><Sparkles size={18} /> 特殊香型</h5>
+            <h5 className="text-[17px] font-extrabold text-indigo-900 flex items-center gap-2"><Sparkles size={18} /> 特殊香型</h5>
             <p>特徵：獨特、難以描述、產地/品種特徵</p>
             <p>細分：岩韻、觀音韻、蜜韻、陳香、藥香、樟香</p>
             <p>代表茶：武夷岩茶（岩韻）、鐵觀音（觀音韻）、老茶（陳香）</p>
           </div>
           <div className="rounded-xl border border-teal-200 bg-teal-50/70 p-4 space-y-2 text-teal-900/80">
-            <h5 className="text-base font-extrabold text-teal-900 flex items-center gap-2"><Sprout size={18} /> 青草/木質香型</h5>
+            <h5 className="text-[17px] font-extrabold text-teal-900 flex items-center gap-2"><Sprout size={18} /> 青草/木質香型</h5>
             <p>特徵：自然、樸實、植物本味</p>
             <p>細分：青草香、竹葉香、松木香、藥草香</p>
             <p>代表茶：生普洱、部分綠茶、輕發酵茶</p>
           </div>
         </div>
 
-        <h4 className="text-base md:text-lg font-extrabold text-stone-900 mt-6">4.2 不同茶類的香氣特徵</h4>
+        <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900 mt-6">4.2 不同茶類的香氣特徵</h4>
         <div className="overflow-x-auto rounded-xl border border-indigo-100 shadow-sm bg-white/70">
-          <table className="min-w-full divide-y divide-indigo-100 text-sm">
+          <table className="min-w-full divide-y divide-indigo-100 text-base">
             <thead>
               <tr className="bg-indigo-50">
                 <th className="px-4 py-3 text-left font-extrabold text-indigo-700">茶類</th>
@@ -278,9 +278,9 @@ export default function AromaticsChapter() {
       <SectionCard title="五、影響香氣的因素" icon={Leaf}>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-emerald-900 flex items-center gap-2"><Sprout size={20} /> 品種因素</h4>
-            <p className="text-sm text-emerald-900/80">不同茶樹品種的香氣基因表達不同，形成獨特的「品種香」：</p>
-            <ul className="list-disc list-inside space-y-2 text-sm text-emerald-900/80">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-emerald-900 flex items-center gap-2"><Sprout size={20} /> 品種因素</h4>
+            <p className="text-base text-emerald-900/80">不同茶樹品種的香氣基因表達不同，形成獨特的「品種香」：</p>
+            <ul className="list-disc list-inside space-y-2 text-base text-emerald-900/80">
               <li>青心烏龍：花香明顯</li>
               <li>金萱：奶香、桂花香</li>
               <li>鐵觀音：觀音韻（蘭花香）</li>
@@ -288,9 +288,9 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-sky-900 flex items-center gap-2"><Mountain size={20} /> 產地與風土</h4>
-            <p className="text-sm text-sky-900/80">海拔、氣候、土壤共同塑造產地特徵香：</p>
-            <ul className="list-disc list-inside space-y-2 text-sm text-sky-900/80">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-sky-900 flex items-center gap-2"><Mountain size={20} /> 產地與風土</h4>
+            <p className="text-base text-sky-900/80">海拔、氣候、土壤共同塑造產地特徵香：</p>
+            <ul className="list-disc list-inside space-y-2 text-base text-sky-900/80">
               <li>高山茶：清香、花香顯著</li>
               <li>岩茶產區：岩韻（礦物質香）</li>
               <li>雲霧繚繞：香氣細膩、持久</li>
@@ -298,9 +298,9 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-amber-900 flex items-center gap-2"><CloudSun size={20} /> 季節與氣候</h4>
-            <p className="text-sm text-amber-900/80">採摘季節顯著影響香氣表現：</p>
-            <ul className="list-disc list-inside space-y-2 text-sm text-amber-900/80">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-amber-900 flex items-center gap-2"><CloudSun size={20} /> 季節與氣候</h4>
+            <p className="text-base text-amber-900/80">採摘季節顯著影響香氣表現：</p>
+            <ul className="list-disc list-inside space-y-2 text-base text-amber-900/80">
               <li>春茶：香氣最佳，清雅高揚</li>
               <li>夏茶：香氣較弱，易有苦澀</li>
               <li>秋茶：香氣濃郁，但不如春茶細膩</li>
@@ -308,9 +308,9 @@ export default function AromaticsChapter() {
             </ul>
           </div>
           <div className="rounded-2xl border border-rose-200 bg-rose-50/70 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-rose-900 flex items-center gap-2"><Settings size={20} /> 製程工藝</h4>
-            <p className="text-sm text-rose-900/80">工藝是香氣調控的核心手段：</p>
-            <ul className="list-disc list-inside space-y-2 text-sm text-rose-900/80">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-rose-900 flex items-center gap-2"><Settings size={20} /> 製程工藝</h4>
+            <p className="text-base text-rose-900/80">工藝是香氣調控的核心手段：</p>
+            <ul className="list-disc list-inside space-y-2 text-base text-rose-900/80">
               <li>萎凋程度：影響花香形成</li>
               <li>發酵程度：決定香型走向</li>
               <li>殺青溫度：影響熟香產生</li>
@@ -323,26 +323,26 @@ export default function AromaticsChapter() {
       <SectionCard title="六、香氣的品鑑與描述" icon={Coffee}>
         <div className="space-y-6">
           <div className="space-y-3">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><Target size={20} /> 專業品鑑步驟</h4>
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900 flex items-center gap-2"><Target size={20} /> 專業品鑑步驟</h4>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-4">
-                <div className="text-base font-extrabold text-purple-900">乾香（干茶香）</div>
-                <p className="mt-2 text-sm text-purple-900/80">聞乾茶香氣，判斷品質與新鮮度</p>
+                <div className="text-[17px] font-extrabold text-purple-900">乾香（干茶香）</div>
+                <p className="mt-2 text-base text-purple-900/80">聞乾茶香氣，判斷品質與新鮮度</p>
               </div>
               <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-4">
-                <div className="text-base font-extrabold text-rose-900">熱香（沖泡後）</div>
-                <p className="mt-2 text-sm text-rose-900/80">聞蓋香、水香，評估香型與強度</p>
+                <div className="text-[17px] font-extrabold text-rose-900">熱香（沖泡後）</div>
+                <p className="mt-2 text-base text-rose-900/80">聞蓋香、水香，評估香型與強度</p>
               </div>
               <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4">
-                <div className="text-base font-extrabold text-blue-900">冷香（葉底香）</div>
-                <p className="mt-2 text-sm text-blue-900/80">聞葉底冷香，判斷香氣持久度</p>
+                <div className="text-[17px] font-extrabold text-blue-900">冷香（葉底香）</div>
+                <p className="mt-2 text-base text-blue-900/80">聞葉底冷香，判斷香氣持久度</p>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl border border-stone-200 bg-white/80 p-5 space-y-2">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><Lightbulb size={20} /> 品鑑技巧</h4>
-            <ul className="list-disc list-inside space-y-2 text-sm text-stone-700">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900 flex items-center gap-2"><Lightbulb size={20} /> 品鑑技巧</h4>
+            <ul className="list-disc list-inside space-y-2 text-base text-stone-700">
               <li>深呼吸法：深吸一口氣，讓香氣充分進入鼻腔</li>
               <li>多次聞香：前、中、後段香氣會有變化</li>
               <li>對比品鑑：同時品鑑多款茶，更易辨別差異</li>
@@ -351,8 +351,8 @@ export default function AromaticsChapter() {
           </div>
 
           <div className="rounded-2xl border border-stone-200 bg-white/80 p-5 space-y-3">
-            <h4 className="text-base md:text-lg font-extrabold text-stone-900 flex items-center gap-2"><FileText size={20} /> 常用香氣描述詞彙</h4>
-            <div className="flex flex-wrap gap-2 text-sm text-stone-700">
+            <h4 className="text-[17px] md:text-[19px] font-extrabold text-stone-900 flex items-center gap-2"><FileText size={20} /> 常用香氣描述詞彙</h4>
+            <div className="flex flex-wrap gap-2 text-base text-stone-700">
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1">清雅</span>
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1">高揚</span>
               <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1">持久</span>

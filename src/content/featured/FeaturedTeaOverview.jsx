@@ -107,8 +107,8 @@ const FeaturedTeaOverview = () => {
                 <div className="text-center mb-12">
                     <div className="museum-label mx-auto mb-4">TEA NAME BUILDER</div>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900 mb-3">臺灣茶名稱組合表</h2>
-                    <p className="text-lg text-stone-600">Taiwan tea name combination table</p>
-                    <p className="text-sm text-stone-500 mt-1">台茶の名前組み合わせ表</p>
+                    <p className="text-[19px] text-stone-600">Taiwan tea name combination table</p>
+                    <p className="text-[17px] text-stone-500 mt-1">台茶の名前組み合わせ表</p>
                 </div>
 
                 {/* 組合步驟 */}
@@ -116,10 +116,10 @@ const FeaturedTeaOverview = () => {
                     {/* Step 1: 風味 */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-center mb-4">
-                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-lg mr-3">1</div>
+                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-[19px] mr-3">1</div>
                             <div>
                                 <h3 className="text-xl font-bold text-stone-800">風味</h3>
-                                <p className="text-sm text-stone-500">Flavor / 風味</p>
+                                <p className="text-[17px] text-stone-500">Flavor / 風味</p>
                             </div>
                         </div>
                         <div className="space-y-2">
@@ -133,7 +133,7 @@ const FeaturedTeaOverview = () => {
                                         }`}
                                 >
                                     <div>{item.label}</div>
-                                    <div className="text-xs opacity-75">{item.labelEn}</div>
+                                    <div className="text-sm opacity-75">{item.labelEn}</div>
                                 </button>
                             ))}
                         </div>
@@ -142,10 +142,10 @@ const FeaturedTeaOverview = () => {
                     {/* Step 2: 產地 */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-center mb-4">
-                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-lg mr-3">2</div>
+                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-[19px] mr-3">2</div>
                             <div>
                                 <h3 className="text-xl font-bold text-stone-800">產地</h3>
-                                <p className="text-sm text-stone-500">Origin / 原産地</p>
+                                <p className="text-[17px] text-stone-500">Origin / 原産地</p>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
@@ -153,7 +153,7 @@ const FeaturedTeaOverview = () => {
                                 <button
                                     key={item.key}
                                     onClick={() => setSelectedOrigin(item)}
-                                    className={`px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all ${selectedOrigin?.key === item.key
+                                    className={`px-3 py-2 rounded-lg border-2 font-bold text-[17px] transition-all ${selectedOrigin?.key === item.key
                                         ? 'bg-amber-600 text-white border-amber-700 ring-2 ring-amber-400'
                                         : 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200'
                                         }`}
@@ -167,10 +167,10 @@ const FeaturedTeaOverview = () => {
                     {/* Step 3: 品種 */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-center mb-4">
-                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-lg mr-3">3</div>
+                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-[19px] mr-3">3</div>
                             <div>
                                 <h3 className="text-xl font-bold text-stone-800">品種</h3>
-                                <p className="text-sm text-stone-500">Cultivar / 品種</p>
+                                <p className="text-[17px] text-stone-500">Cultivar / 品種</p>
                             </div>
                         </div>
                         <div className="space-y-2">
@@ -178,7 +178,7 @@ const FeaturedTeaOverview = () => {
                                 <button
                                     key={item.key}
                                     onClick={() => setSelectedCultivar(item)}
-                                    className={`w-full px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all ${selectedCultivar?.key === item.key
+                                    className={`w-full px-3 py-2 rounded-lg border-2 font-bold text-[17px] transition-all ${selectedCultivar?.key === item.key
                                         ? 'bg-amber-700 text-white border-amber-800 ring-2 ring-amber-500'
                                         : 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
                                         }`}
@@ -192,10 +192,10 @@ const FeaturedTeaOverview = () => {
                     {/* Step 4: 製作方法 */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-center mb-4">
-                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-lg mr-3">4</div>
+                            <div className="w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-[19px] mr-3">4</div>
                             <div>
                                 <h3 className="text-xl font-bold text-stone-800">製作方法</h3>
-                                <p className="text-sm text-stone-500">Method / 製造方法</p>
+                                <p className="text-[17px] text-stone-500">Method / 製造方法</p>
                             </div>
                         </div>
                         <div className="space-y-2">
@@ -210,7 +210,7 @@ const FeaturedTeaOverview = () => {
                                 >
                                     <div className="mb-1">{React.createElement(item.icon, { size: 24, className: "mx-auto" })}</div>
                                     <div>{item.label}</div>
-                                    <div className="text-xs opacity-75">{item.labelEn}</div>
+                                    <div className="text-sm opacity-75">{item.labelEn}</div>
                                 </button>
                             ))}
                         </div>
@@ -220,14 +220,14 @@ const FeaturedTeaOverview = () => {
                 {/* 組合結果 */}
                 <div className="bg-gradient-to-r from-green-50 to-amber-50 p-8 rounded-xl border-2 border-stone-300 shadow-lg">
                     <div className="text-center">
-                        <div className="text-sm font-bold text-stone-600 mb-2">組合結果</div>
+                        <div className="text-[17px] font-bold text-stone-600 mb-2">組合結果</div>
                         <div className="text-3xl md:text-4xl font-extrabold text-stone-900 mb-4">
                             {generateTeaName()}
                         </div>
                         {selectedFlavor && selectedOrigin && selectedCultivar && selectedMethod && (
-                            <div className="text-sm text-stone-600 space-y-1">
+                            <div className="text-[17px] text-stone-600 space-y-1">
                                 <div>{selectedFlavor.label} + {selectedOrigin.label} + {selectedCultivar.label} + {selectedMethod.label}</div>
-                                <div className="text-xs text-stone-500">
+                                <div className="text-sm text-stone-500">
                                     {selectedFlavor.labelEn} + {selectedOrigin.labelEn} + {selectedCultivar.labelEn} + {selectedMethod.labelEn}
                                 </div>
                             </div>
@@ -243,8 +243,8 @@ const FeaturedTeaOverview = () => {
                         <Lightbulb className="text-yellow-500 mr-3" size={32} />
                         <div>
                             <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900">你可以從茶名裡知道</h2>
-                            <p className="text-lg text-stone-600">You can know it from the name of the tea</p>
-                            <p className="text-sm text-stone-500 mt-1">お茶の名前からわかる</p>
+                            <p className="text-[19px] text-stone-600">You can know it from the name of the tea</p>
+                            <p className="text-[17px] text-stone-500 mt-1">お茶の名前からわかる</p>
                         </div>
                     </div>
                 </div>
@@ -252,10 +252,10 @@ const FeaturedTeaOverview = () => {
                 {/* 示例茶名卡片 */}
                 <div className="max-w-2xl mx-auto mb-8">
                     <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-stone-200">
-                        <div className="text-sm font-bold text-stone-500 mb-2">茶名 / Tea of Name / お茶の名前</div>
+                        <div className="text-[17px] font-bold text-stone-500 mb-2">茶名 / Tea of Name / お茶の名前</div>
                         <div className="text-3xl font-extrabold text-stone-900 mb-2">{EXAMPLE_TEA.fullName}</div>
-                        <div className="text-sm text-stone-600">{EXAMPLE_TEA.fullNameEn}</div>
-                        <div className="text-xs text-stone-500">{EXAMPLE_TEA.fullNameJp}</div>
+                        <div className="text-[17px] text-stone-600">{EXAMPLE_TEA.fullNameEn}</div>
+                        <div className="text-sm text-stone-500">{EXAMPLE_TEA.fullNameJp}</div>
                     </div>
                 </div>
 
@@ -268,18 +268,18 @@ const FeaturedTeaOverview = () => {
                     {EXAMPLE_TEA.components.map((comp) => (
                         <div key={comp.step} className="relative">
                             <div className="bg-white p-6 rounded-xl shadow-md border-2 border-stone-200 hover:shadow-lg transition-shadow">
-                                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-[19px] shadow-lg">
                                     {comp.step}
                                 </div>
                                 <div className="mb-4">
-                                    <div className="text-lg font-bold text-stone-900">{comp.label}</div>
-                                    <div className="text-xs text-stone-500">{comp.labelEn}</div>
-                                    <div className="text-xs text-stone-400">{comp.labelJp}</div>
+                                    <div className="text-[19px] font-bold text-stone-900">{comp.label}</div>
+                                    <div className="text-sm text-stone-500">{comp.labelEn}</div>
+                                    <div className="text-sm text-stone-400">{comp.labelJp}</div>
                                 </div>
                                 <div className="bg-stone-50 p-3 rounded-lg border border-stone-200">
                                     <div className="text-xl font-bold text-stone-900 mb-1">{comp.value}</div>
-                                    <div className="text-xs text-stone-600">{comp.valueEn}</div>
-                                    <div className="text-xs text-stone-500">{comp.valueJp}</div>
+                                    <div className="text-sm text-stone-600">{comp.valueEn}</div>
+                                    <div className="text-sm text-stone-500">{comp.valueJp}</div>
                                 </div>
                             </div>
                             {comp.step < 4 && (
@@ -298,7 +298,7 @@ const FeaturedTeaOverview = () => {
 
                 <div className="max-w-4xl mx-auto space-y-6">
                     <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-600">
-                        <p className="text-lg text-stone-700 leading-relaxed mb-4">
+                        <p className="text-[19px] text-stone-700 leading-relaxed mb-4">
                             解析臺灣茶（台灣茶）的命名規則。只要記住，臺灣茶（台灣茶）的名稱通常包含四個部分：
                         </p>
                         <div className="text-center py-4">
@@ -317,19 +317,19 @@ const FeaturedTeaOverview = () => {
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-white p-5 rounded-lg shadow-sm border border-stone-200">
                             <div className="font-bold text-stone-900 mb-2">風味</div>
-                            <div className="text-sm text-stone-600">如清香、甘香、濃香、蜜香</div>
+                            <div className="text-[17px] text-stone-600">如清香、甘香、濃香、蜜香</div>
                         </div>
                         <div className="bg-white p-5 rounded-lg shadow-sm border border-stone-200">
                             <div className="font-bold text-stone-900 mb-2">產地</div>
-                            <div className="text-sm text-stone-600">如阿里山、凍頂山</div>
+                            <div className="text-[17px] text-stone-600">如阿里山、凍頂山</div>
                         </div>
                         <div className="bg-white p-5 rounded-lg shadow-sm border border-stone-200">
                             <div className="font-bold text-stone-900 mb-2">品種</div>
-                            <div className="text-sm text-stone-600">如青心烏龍、四季春</div>
+                            <div className="text-[17px] text-stone-600">如青心烏龍、四季春</div>
                         </div>
                         <div className="bg-white p-5 rounded-lg shadow-sm border border-stone-200">
                             <div className="font-bold text-stone-900 mb-2">製作方法</div>
-                            <div className="text-sm text-stone-600">茶葉製作發酵工藝，如烏龍茶、紅茶</div>
+                            <div className="text-[17px] text-stone-600">茶葉製作發酵工藝，如烏龍茶、紅茶</div>
                         </div>
                     </div>
                 </div>
@@ -346,11 +346,11 @@ const FeaturedTeaOverview = () => {
                     {SPECIAL_TEA_NAMES.map((tea, idx) => (
                         <div key={idx} className="bg-gradient-to-br from-white to-stone-50 p-6 rounded-xl shadow-lg border-2 border-stone-200 hover:shadow-xl transition-shadow">
                             <div className="text-center mb-4">
-                                <div className="inline-block bg-amber-600 text-white px-4 py-2 rounded-full font-bold text-lg mb-3">
+                                <div className="inline-block bg-amber-600 text-white px-4 py-2 rounded-full font-bold text-[19px] mb-3">
                                     {tea.commercialName}
                                 </div>
                             </div>
-                            <div className="space-y-2 text-sm">
+                            <div className="space-y-2 text-[17px]">
                                 <div className="flex items-center justify-between p-2 bg-green-50 rounded">
                                     <span className="text-stone-600">風味</span>
                                     <span className="font-bold text-stone-900">{tea.components.flavor}</span>
@@ -368,7 +368,7 @@ const FeaturedTeaOverview = () => {
                                     <span className="font-bold text-stone-900">{tea.components.method}</span>
                                 </div>
                             </div>
-                            <div className="mt-4 pt-4 border-t border-stone-200 text-center text-xs text-stone-500">
+                            <div className="mt-4 pt-4 border-t border-stone-200 text-center text-sm text-stone-500">
                                 {tea.components.flavor}+{tea.components.origin}+{tea.components.cultivar}+{tea.components.method}
                             </div>
                         </div>
@@ -382,7 +382,7 @@ const FeaturedTeaOverview = () => {
                         <div className="w-12 h-1 bg-amber-600 rounded-full mr-4"></div>
                         <div>
                             <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900">臺灣茶產地導覽</h2>
-                            <p className="text-lg text-stone-600">Taiwan Tea Regions Map</p>
+                            <p className="text-[19px] text-stone-600">Taiwan Tea Regions Map</p>
                         </div>
                         <div className="w-12 h-1 bg-amber-600 rounded-full ml-4"></div>
                     </div>

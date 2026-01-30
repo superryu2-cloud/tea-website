@@ -10,11 +10,11 @@ export default function YellowTeaHistory() {
             {/* Introduction */}
             <div className="bg-yellow-50 p-8 rounded-xl border border-yellow-100">
                 <h3 className="text-3xl font-bold text-yellow-900 mb-6">黃茶：悶黃工藝的獨特魅力</h3>
-                <p className="text-lg leading-relaxed mb-4">
+                <p className="text-[19px] leading-relaxed mb-4">
                     黃茶是中國特有的茶類，以獨特的「悶黃」工藝著稱。在綠茶的基礎上，增加了悶黃工序，
                     使茶葉在濕熱作用下發生非酶性氧化，形成黃葉黃湯的特點。
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-[19px] leading-relaxed">
                     黃茶產量稀少，歷史上多為貢茶，有「黃金貴族」之稱。其滋味醇和，香氣清悅，
                     是追求高雅品味的茶客之選。
                 </p>
@@ -36,7 +36,7 @@ export default function YellowTeaHistory() {
                     </p>
                     <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400 my-6">
                         <h5 className="font-bold text-yellow-900 mb-2">悶黃的奧秘</h5>
-                        <p className="text-sm">
+                        <p className="text-[17px]">
                             悶黃是黃茶的核心工藝，在殺青或揉捻後，將茶葉堆積或包裹，利用濕熱作用促進葉綠素降解，
                             形成黃色。這個過程需要反復進行，稱為「悶黃」或「燜堆」。
                         </p>
@@ -57,21 +57,21 @@ export default function YellowTeaHistory() {
                     <div className="grid md:grid-cols-3 gap-6 mt-6">
                         <div className="bg-yellow-50 p-4 rounded-lg">
                             <span className="font-bold text-yellow-900 block mb-2">君山銀針</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於湖南岳陽君山島，唐代已為貢茶。芽頭肥壯，滿披白毫，沖泡時茶芽豎立，
                                 有「三起三落」的奇觀。清代被列為「貢茶」。
                             </p>
                         </div>
                         <div className="bg-yellow-50 p-4 rounded-lg">
                             <span className="font-bold text-yellow-900 block mb-2">蒙頂黃芽</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於四川蒙頂山，唐代即為貢茶。有「揚子江心水，蒙山頂上茶」的美譽。
                                 茶葉扁直，色澤金黃，香氣清悅。
                             </p>
                         </div>
                         <div className="bg-yellow-50 p-4 rounded-lg">
                             <span className="font-bold text-yellow-900 block mb-2">霍山黃芽</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於安徽霍山，明代列為貢茶。茶葉條索緊細，色澤金黃，
                                 滋味醇厚，有「金枝玉葉」之稱。
                             </p>
@@ -113,7 +113,7 @@ export default function YellowTeaHistory() {
                 <div className="border-t border-stone-600 pt-6 grid md:grid-cols-2 gap-6">
                     <div>
                         <span className="block text-yellow-400 font-bold mb-2">代表品種</span>
-                        <ul className="text-sm space-y-1 text-stone-400">
+                        <ul className="text-[17px] space-y-1 text-stone-400">
                             <li>君山銀針、蒙頂黃芽、霍山黃芽</li>
                             <li>北港毛尖、溈山毛尖、遠安黃茶</li>
                             <li>廣東大葉青（黃大茶）</li>
@@ -121,7 +121,7 @@ export default function YellowTeaHistory() {
                     </div>
                     <div>
                         <span className="block text-yellow-400 font-bold mb-2">沖泡建議</span>
-                        <ul className="text-sm space-y-1 text-stone-400">
+                        <ul className="text-[17px] space-y-1 text-stone-400">
                             <li>比例：1 : 50（3g茶配150ml水）</li>
                             <li>水溫：80-85°C</li>
                             <li>器具：玻璃杯或白瓷蓋碗</li>

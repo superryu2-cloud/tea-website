@@ -44,10 +44,10 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                     {Icon && (
                         <div className="flex items-center mb-2">
                             <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
-                            <h4 className="font-bold text-stone-800 text-base">{title}</h4>
+                            <h4 className="font-bold text-stone-800 text-lg">{title}</h4>
                         </div>
                     )}
-                    {!Icon && <h4 className="font-bold text-stone-800 text-base mb-2">{title}</h4>}
+                    {!Icon && <h4 className="font-bold text-stone-800 text-lg mb-2">{title}</h4>}
                     <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
                 </div>
             </div >
@@ -68,7 +68,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                 <div className="mb-8">
                     <div className="mb-6 flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full border border-green-300 inline-flex">
                         <Leaf className="text-green-700" size={20} />
-                        <span className="font-bold text-green-900">早期茶葉發展</span>
+                        <span className="font-bold text-green-900 text-lg">早期茶葉發展</span>
                     </div>
 
                     <div className="ml-4">
@@ -87,7 +87,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                     <div className="flex justify-center mb-6">
                         <div className="bg-cyan-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2">
                             <Star size={20} className="animate-pulse" />
-                            <span className="font-bold">青茶誕生</span>
+                            <span className="font-bold text-lg">青茶誕生</span>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                 <div className="mt-12">
                     <div className="mb-6 flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full border border-blue-300 inline-flex">
                         <Globe className="text-blue-700" size={20} />
-                        <span className="font-bold text-blue-900">全球化與名稱演變</span>
+                        <span className="font-bold text-blue-900 text-lg">全球化與名稱演變</span>
                     </div>
 
                     <div className="ml-4">
@@ -173,7 +173,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                 <div className="mt-16 pt-8 border-t-2 border-stone-200">
                     <div className="mb-6 flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full border border-purple-300 inline-flex">
                         <Mountain className="text-purple-700" size={20} />
-                        <span className="font-bold text-purple-900">三大產區代表</span>
+                        <span className="font-bold text-purple-900 text-lg">三大產區代表</span>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-4 mt-6">
@@ -182,7 +182,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                             onClick={() => onNavigate?.('#oolong-minbei')}
                             className="bg-amber-50 p-5 rounded-lg border-2 border-amber-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
                         >
-                            <div className="font-bold text-amber-900 mb-3 text-center">🇨🇳 福建烏龍</div>
+                            <div className="font-bold text-amber-900 text-lg mb-3 text-center">🇨🇳 福建烏龍</div>
                             <div className="text-sm text-amber-800 space-y-1">
                                 <div className="font-bold">閩北岩茶（岩韻）</div>
                                 <div className="text-xs">大紅袍、肉桂、水仙</div>
@@ -195,7 +195,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                             onClick={() => onNavigate?.('#oolong-guangdong')}
                             className="bg-orange-50 p-5 rounded-lg border-2 border-orange-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
                         >
-                            <div className="font-bold text-orange-900 mb-3 text-center">🇨🇳 廣東烏龍</div>
+                            <div className="font-bold text-orange-900 text-lg mb-3 text-center">🇨🇳 廣東烏龍</div>
                             <div className="text-sm text-orange-800 space-y-1">
                                 <div className="font-bold">鳳凰單叢（山韻）</div>
                                 <div className="text-xs">十大香型：黃枝香、芝蘭香、蜜蘭香等</div>
@@ -207,7 +207,7 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
                             onClick={() => onNavigate?.('#oolong-taiwan')}
                             className="bg-emerald-50 p-5 rounded-lg border-2 border-emerald-300 hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer text-left w-full"
                         >
-                            <div className="font-bold text-emerald-900 mb-3 text-center">🇹🇼 台灣烏龍</div>
+                            <div className="font-bold text-emerald-900 text-lg mb-3 text-center">🇹🇼 台灣烏龍</div>
                             <div className="text-sm text-emerald-800 space-y-1">
                                 <div className="font-bold">清香與熟韻（蜜韻）</div>
                                 <div className="text-xs">文山包種、高山烏龍</div>
@@ -220,18 +220,18 @@ export default function OolongTeaVerticalTimeline({ onNavigate }) {
 
                 {/* 工藝特色 */}
                 <div className="mt-8 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200">
-                    <div className="font-bold text-amber-900 mb-3"><Microscope size={18} className="inline" /> 青茶工藝核心</div>
+                    <div className="font-bold text-amber-900 text-lg mb-3"><Microscope size={18} className="inline" /> 青茶工藝核心</div>
                     <div className="grid md:grid-cols-3 gap-4 text-sm">
                         <div>
-                            <div className="font-bold text-stone-800 mb-1">萎凋</div>
+                            <div className="font-bold text-stone-800 text-lg mb-1">萎凋</div>
                             <div className="text-stone-600">日光/室內萎凋，適度失水</div>
                         </div>
                         <div>
-                            <div className="font-bold text-stone-800 mb-1">做青</div>
+                            <div className="font-bold text-stone-800 text-lg mb-1">做青</div>
                             <div className="text-stone-600">搖青、走水與氧化，香氣層次增幅最大</div>
                         </div>
                         <div>
-                            <div className="font-bold text-stone-800 mb-1">焙火</div>
+                            <div className="font-bold text-stone-800 text-lg mb-1">焙火</div>
                             <div className="text-stone-600">穩定乾燥並激發芳香物質</div>
                         </div>
                     </div>

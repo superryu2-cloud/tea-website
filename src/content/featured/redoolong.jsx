@@ -32,17 +32,17 @@ export default function RedOolongContent() {
           <div className="space-y-4 text-stone-800 leading-relaxed">
             <p>在民國五、六十年代，台東曾是紅茶外銷的重要產地。然而，這個輝煌的時代卻因兩個主要因素而迅速走向沒落：</p>
             <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
-              <p className="text-sm font-bold text-orange-900 mb-1">當時背景：計畫經濟下的契約耕作</p>
-              <p className="text-sm text-stone-700">
+              <p className="text-[17px] font-bold text-orange-900 mb-1">當時背景：計畫經濟下的契約耕作</p>
+              <p className="text-[17px] text-stone-700">
                 當時實施的是一種具備高度戰略意義的「契作加工」模式。唯有登記立案的工廠（如高台茶廠、源昌茶工廠）具備加工與行銷權。茶農無製茶權，全家動員「擠茶」秤重，是老一代台東人的集體記憶。
               </p>
             </div>
 
-            <p className="text-sm font-bold text-stone-900 mt-2">外銷沒落之謎</p>
-            <p className="text-sm text-stone-700">
+            <p className="text-[17px] font-bold text-stone-900 mt-2">外銷沒落之謎</p>
+            <p className="text-[17px] text-stone-700">
               這段黃金年代的終結，源於國際經濟局勢的劇烈動盪。
             </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-stone-700">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[17px] text-stone-700">
               <li className="flex items-start gap-2 bg-white p-3 rounded-lg border border-stone-200">
                 <span className="text-red-500 font-bold">匯率重擊</span>
                 <span>台幣升值導致出口價格上漲，削弱國際競爭力。</span>
@@ -52,7 +52,7 @@ export default function RedOolongContent() {
                 <span>肯亞等新興產地以品質與低價優勢，嚴重衝擊市場。</span>
               </li>
             </ul>
-            <p className="text-sm text-stone-700 italic border-l-4 border-stone-300 pl-3">
+            <p className="text-[17px] text-stone-700 italic border-l-4 border-stone-300 pl-3">
               當外銷通路受阻，台東紅茶轉向內銷市場時，卻因國內市場規模有限，無法支撐原有產業鏈，導致茶廠紛紛倒閉。
             </p>
           </div>
@@ -71,19 +71,19 @@ export default function RedOolongContent() {
             <div className="grid gap-3 md:grid-cols-2">
               <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
                 <div className="font-bold text-stone-900 mb-1">黃石定先生</div>
-                <div className="text-xs text-stone-500 mb-2">技術突破</div>
-                <p className="text-sm text-stone-700">利用「壓條法」在初鹿牧場成功繁殖青心烏龍茶苗，解決茶苗短缺，降低農民門檻。</p>
+                <div className="text-base text-stone-500 mb-2">技術突破</div>
+                <p className="text-[17px] text-stone-700">利用「壓條法」在初鹿牧場成功繁殖青心烏龍茶苗，解決茶苗短缺，降低農民門檻。</p>
               </div>
               <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
                 <div className="font-bold text-stone-900 mb-1">製茶師陳德意</div>
-                <div className="text-xs text-stone-500 mb-2">市場信心</div>
-                <p className="text-sm text-stone-700">以一年九十萬「天價」承租一公頃茶園。此舉讓大家看見潛力，掀起鹿野種茶風潮，打造「福鹿茶」品牌。</p>
+                <div className="text-base text-stone-500 mb-2">市場信心</div>
+                <p className="text-[17px] text-stone-700">以一年九十萬「天價」承租一公頃茶園。此舉讓大家看見潛力，掀起鹿野種茶風潮，打造「福鹿茶」品牌。</p>
               </div>
             </div>
 
             <div className="bg-stone-100 p-4 rounded-xl mt-2">
               <p className="font-bold text-stone-900 mb-2">然而，市場風向變了...</p>
-              <p className="text-sm text-stone-700">
+              <p className="text-[17px] text-stone-700">
                 民國 84、85 年左右，消費者開始瘋狂追捧<strong>「高山茶」</strong>。
                 台東因氣候炎熱、海拔較低，所產福鹿茶在「清香與喉韻」上無法與高冷相抗衡，再次陷入困境。
               </p>
@@ -104,19 +104,19 @@ export default function RedOolongContent() {
             <div className="flex flex-col md:flex-row gap-4 items-center bg-orange-50 p-4 rounded-xl border border-orange-100">
               <div className="flex-1">
                 <span className="block font-bold text-stone-900 mb-1">台東的猶豫</span>
-                <span className="text-sm text-stone-700">多數茶廠沉浸在過去思維，抱持觀望心態，缺乏改變魄力。</span>
+                <span className="text-[17px] text-stone-700">多數茶廠沉浸在過去思維，抱持觀望心態，缺乏改變魄力。</span>
               </div>
               <ArrowRight className="text-orange-300 hidden md:block" />
               <div className="md:hidden text-orange-300">⬇</div>
               <div className="flex-1">
                 <span className="block font-bold text-stone-900 mb-1">花蓮的果斷</span>
-                <span className="text-sm text-stone-700">鄰近的舞鶴茶區抓住機會，打響蜜香紅茶名號，搶佔先機。</span>
+                <span className="text-[17px] text-stone-700">鄰近的舞鶴茶區抓住機會，打響蜜香紅茶名號，搶佔先機。</span>
               </div>
             </div>
             <p className="font-bold text-orange-800 text-center py-2 border-y border-orange-200 bg-white">
               「紅茶回不去，青茶打不過，蜜香被搶走」
             </p>
-            <p className="text-sm text-stone-700 text-center">
+            <p className="text-[17px] text-stone-700 text-center">
               這接二連三的打擊，將台東茶產業推向絕境，創新與變革已是唯一的出路。
             </p>
           </div>
@@ -133,14 +133,14 @@ export default function RedOolongContent() {
             <ul className="space-y-3">
               <li className="bg-white p-3 rounded-lg border border-stone-200">
                 <span className="font-bold text-stone-900 block">鳳梨業的終結</span>
-                <span className="text-sm text-stone-600">供應軍隊的「大春」鳳梨罐頭工廠撤離，鳳梨田失去收購去路，切斷生計。</span>
+                <span className="text-[17px] text-stone-600">供應軍隊的「大春」鳳梨罐頭工廠撤離，鳳梨田失去收購去路，切斷生計。</span>
               </li>
               <li className="bg-white p-3 rounded-lg border border-stone-200">
                 <span className="font-bold text-stone-900 block">甘蔗沒落</span>
-                <span className="text-sm text-stone-600">作為糖業「原料區」的歷史結束，甘蔗田流失，綠色經濟支柱崩塌。</span>
+                <span className="text-[17px] text-stone-600">作為糖業「原料區」的歷史結束，甘蔗田流失，綠色經濟支柱崩塌。</span>
               </li>
             </ul>
-            <p className="text-sm text-stone-500 italic mt-2">
+            <p className="text-[17px] text-stone-500 italic mt-2">
               當時台東交通不便、資訊閉塞，農民彷彿困在孤島。這種絕望迫使在地人向外尋求技術支援，開啟引進南投經驗的「青茶」試驗期。
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function RedOolongContent() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-amber-200/20 to-orange-200/20 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-orange-200 text-orange-800 text-sm font-bold shadow-sm backdrop-blur-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-orange-200 text-orange-800 text-[17px] font-bold shadow-sm backdrop-blur-sm mb-6">
             <Flame size={14} className="text-orange-600" />
             <span className="tracking-widest">絕境重生｜台灣特色茶</span>
           </div>
@@ -172,21 +172,21 @@ export default function RedOolongContent() {
             絕境中誕生的奇蹟。<br className="md:hidden" />解決夏秋茶苦澀，結合紅茶醇厚與烏龍甘韻的創新之作。
           </p>
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-xs font-bold shadow-sm backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-base font-bold shadow-sm backdrop-blur-md">
               <MapPin size={14} />
               台東鹿野
             </span>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-xs font-bold shadow-sm backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-base font-bold shadow-sm backdrop-blur-md">
               <FlaskConical size={14} />
               紅茶×烏龍工藝
             </span>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-xs font-bold shadow-sm backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-orange-100 text-orange-900 text-base font-bold shadow-sm backdrop-blur-md">
               <History size={14} />
               2008年發表
             </span>
           </div>
 
-          <blockquote className="mt-8 border-l-4 border-orange-500 pl-6 italic text-stone-600 text-lg font-serif">
+          <blockquote className="mt-8 border-l-4 border-orange-500 pl-6 italic text-stone-600 text-[19px] font-serif">
             「台東會做這個紅烏龍，其實是真的從絕境中誕生的，是在完全想不到有任何出路的狀況下誕生的。」
           </blockquote>
         </div>
@@ -201,13 +201,13 @@ export default function RedOolongContent() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-orange-950/80 via-transparent to-transparent" />
         <div className="absolute bottom-8 left-8 text-white max-w-2xl">
-          <div className="flex items-center gap-2 text-orange-300 font-bold mb-2 uppercase tracking-wider text-sm">
+          <div className="flex items-center gap-2 text-orange-300 font-bold mb-2 uppercase tracking-wider text-[17px]">
             <Droplets size={16} /> Amber Red Liquid
           </div>
           <h3 className="text-3xl font-bold mb-2">
             如琥珀般的橙紅
           </h3>
-          <p className="text-orange-50 opacity-90 text-lg">
+          <p className="text-orange-50 opacity-90 text-[19px]">
             重發酵、重焙火。茶湯水色橙紅，滋味醇厚圓滑，帶有熟果香。
           </p>
         </div>
@@ -223,7 +223,7 @@ export default function RedOolongContent() {
             <div className="p-2 bg-orange-100 text-orange-700 rounded-xl"><Map size={24} /></div>
             <h3 className="text-2xl font-bold text-stone-900">台東茶鄉：三大高台的風土</h3>
           </div>
-          <p className="text-stone-600 leading-relaxed mb-8 text-lg">
+          <p className="text-stone-600 leading-relaxed mb-8 text-[19px]">
             台東鹿野茶區沿著台九線由南往北，分布著三個各具特色的「高台」地貌。地形落差 200-300 公尺，形成類似「山城」與「路邊」的空間層次，利於排水並創造獨特微氣候。
           </p>
           <div className="grid gap-6 md:grid-cols-3">
@@ -237,7 +237,7 @@ export default function RedOolongContent() {
                   <place.icon size={24} />
                 </div>
                 <div className="font-bold text-xl text-stone-900 mb-3">{place.name}</div>
-                <p className="text-stone-600 text-sm leading-relaxed">{place.desc}</p>
+                <p className="text-stone-600 text-[17px] leading-relaxed">{place.desc}</p>
               </div>
             ))}
           </div>
@@ -262,13 +262,13 @@ export default function RedOolongContent() {
                     key={crisis.key}
                     onClick={() => setActiveCrisisKey(crisis.key)}
                     className={`w-full text-left p-4 rounded-xl border transition-all duration-200 flex items-center gap-3 ${isActive
-                        ? 'bg-white border-orange-300 shadow-md ring-1 ring-orange-100'
-                        : 'bg-stone-100 border-transparent hover:bg-stone-200/50'
+                      ? 'bg-white border-orange-300 shadow-md ring-1 ring-orange-100'
+                      : 'bg-stone-100 border-transparent hover:bg-stone-200/50'
                       }`}
                   >
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${isActive ? 'bg-orange-500 text-white' : 'bg-stone-300 text-stone-600'
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-base ${isActive ? 'bg-orange-500 text-white' : 'bg-stone-300 text-stone-600'
                       }`}>{crisis.number}</div>
-                    <div className="font-bold text-stone-800 text-sm flex-1">{crisis.title.split('：')[1] || crisis.title}</div>
+                    <div className="font-bold text-stone-800 text-[17px] flex-1">{crisis.title.split('：')[1] || crisis.title}</div>
                     {isActive && <ChevronRight size={16} className="text-orange-500" />}
                   </button>
                 )
@@ -280,7 +280,7 @@ export default function RedOolongContent() {
                   <activeCrisis.icon size={100} className="text-stone-900" />
                 </div>
                 <div className="relative z-10">
-                  <div className="text-xs font-bold tracking-widest text-orange-600 mb-2">CRISIS HISTORY</div>
+                  <div className="text-base font-bold tracking-widest text-orange-600 mb-2">CRISIS HISTORY</div>
                   <h4 className="text-xl font-bold text-stone-900 mb-6 pb-4 border-b border-stone-100">
                     {activeCrisis.title}
                   </h4>
@@ -294,17 +294,17 @@ export default function RedOolongContent() {
         {/* Transition Period Details */}
         <section className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-            <h4 className="flex items-center gap-2 font-bold text-stone-900 text-lg mb-4">
+            <h4 className="flex items-center gap-2 font-bold text-stone-900 text-[19px] mb-4">
               <Sparkles className="text-orange-500" size={20} /> 轉型青茶：技術與人物
             </h4>
             <div className="space-y-4">
               <div className="p-4 bg-stone-50 rounded-xl">
                 <div className="font-bold text-stone-800 mb-1">關鍵技術：壓條法</div>
-                <p className="text-sm text-stone-600">黃石定先生引入。解決茶苗昂貴問題，租下初鹿牧場茶樹繁育，降低農民種植門檻。</p>
+                <p className="text-[17px] text-stone-600">黃石定先生引入。解決茶苗昂貴問題，租下初鹿牧場茶樹繁育，降低農民種植門檻。</p>
               </div>
               <div className="p-4 bg-stone-50 rounded-xl">
                 <div className="font-bold text-stone-800 mb-1">關鍵人物：陳德意</div>
-                <p className="text-sm text-stone-600">
+                <p className="text-[17px] text-stone-600">
                   經天仁李文川引薦來台東。最指標事件是以<span className="text-red-600 font-bold">每年 90 萬元承租一公頃茶園</span>（當時地價不到300萬），天價租約引發全區改種青茶浪潮。
                 </p>
               </div>
@@ -312,29 +312,29 @@ export default function RedOolongContent() {
           </div>
 
           <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-            <h4 className="flex items-center gap-2 font-bold text-stone-900 text-lg mb-4">
+            <h4 className="flex items-center gap-2 font-bold text-stone-900 text-[19px] mb-4">
               <BookOpen className="text-orange-500" size={20} /> 品牌確立：福鹿茶
             </h4>
             <ul className="space-y-4">
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-xs mt-0.5">1</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-base mt-0.5">1</span>
                 <div>
                   <span className="font-bold text-stone-800 block">命名</span>
-                  <span className="text-sm text-stone-600">民國71年4月，前總統李登輝任台灣省主席，在地方政要的陪同下，前來鹿野永安訪視，品嚐在地生產的茶葉，並應茶農之請，特將鹿野的茶葉命名為「福鹿茶」，從此鹿野永安的茶就以福鹿茶行銷，逐漸發展成為東台灣最大的茶鄉。</span>
+                  <span className="text-[17px] text-stone-600">民國71年4月，前總統李登輝任台灣省主席，在地方政要的陪同下，前來鹿野永安訪視，品嚐在地生產的茶葉，並應茶農之請，特將鹿野的茶葉命名為「福鹿茶」，從此鹿野永安的茶就以福鹿茶行銷，逐漸發展成為東台灣最大的茶鄉。</span>
                 </div>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-xs mt-0.5">2</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-base mt-0.5">2</span>
                 <div>
                   <span className="font-bold text-stone-800 block">法規開放 (1982)</span>
-                  <span className="text-sm text-stone-600">修法允許「家庭式小型工廠」，造就台東隨處可見「製茶所」的景象。</span>
+                  <span className="text-[17px] text-stone-600">修法允許「家庭式小型工廠」，造就台東隨處可見「製茶所」的景象。</span>
                 </div>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-xs mt-0.5">3</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center font-bold text-base mt-0.5">3</span>
                 <div>
                   <span className="font-bold text-stone-800 block">克難創業</span>
-                  <span className="text-sm text-stone-600">農民收購中南部淘汰舊機器自行修理，展現強韌生命力。</span>
+                  <span className="text-[17px] text-stone-600">農民收購中南部淘汰舊機器自行修理，展現強韌生命力。</span>
                 </div>
               </li>
             </ul>
@@ -353,18 +353,18 @@ export default function RedOolongContent() {
 
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-6">
-                <p className="text-stone-300 text-lg leading-relaxed">
+                <p className="text-stone-300 text-[19px] leading-relaxed">
                   在無路可走時，台東茶人將目光投向中國大陸的「武夷岩茶」。打破傳統框架，不再拘泥單一茶類，而是取長補短。
                 </p>
                 <div className="bg-stone-800/50 p-6 rounded-2xl border border-stone-700">
                   <div className="font-bold text-orange-400 mb-2">核心工藝突破</div>
-                  <p className="text-sm text-stone-300">
+                  <p className="text-[17px] text-stone-300">
                     結合<strong>紅茶的重發酵</strong>（重度揉捻）與<strong>烏龍茶的製程</strong>（重萎凋、重攪拌）。最後加上<strong>重焙火</strong>。
                   </p>
                 </div>
                 <div className="bg-stone-800/50 p-6 rounded-2xl border border-stone-700">
                   <div className="font-bold text-orange-400 mb-2">點石成金：解決夏秋茶劣勢</div>
-                  <p className="text-sm text-stone-300">
+                  <p className="text-[17px] text-stone-300">
                     台東夏季炎熱，茶菁苦澀。紅烏龍製程成功將苦澀轉化為甘醇與蜜香，讓原本低價的夏秋茶搖身變為黃金。
                   </p>
                 </div>
@@ -379,7 +379,7 @@ export default function RedOolongContent() {
                     </div>
                     <div>
                       <div className="font-bold text-white">茶湯色澤</div>
-                      <div className="text-sm text-stone-400">如琥珀般的橙紅色，明亮澄清。</div>
+                      <div className="text-[17px] text-stone-400">如琥珀般的橙紅色，明亮澄清。</div>
                     </div>
                   </li>
                   <li className="flex items-center gap-4">
@@ -388,7 +388,7 @@ export default function RedOolongContent() {
                     </div>
                     <div>
                       <div className="font-bold text-white">滋味口感</div>
-                      <div className="text-sm text-stone-400">具紅茶的醇厚甜潤，兼有烏龍的甘醇喉韻。</div>
+                      <div className="text-[17px] text-stone-400">具紅茶的醇厚甜潤，兼有烏龍的甘醇喉韻。</div>
                     </div>
                   </li>
                   <li className="flex items-center gap-4">
@@ -397,13 +397,13 @@ export default function RedOolongContent() {
                     </div>
                     <div>
                       <div className="font-bold text-white">香氣特徵</div>
-                      <div className="text-sm text-stone-400">帶有熟果香或蜜香（夏季製作尤為明顯）。</div>
+                      <div className="text-[17px] text-stone-400">帶有熟果香或蜜香（夏季製作尤為明顯）。</div>
                     </div>
                   </li>
                 </ul>
                 <div className="mt-8 pt-6 border-t border-stone-700">
-                  <div className="text-xs font-bold text-stone-500 uppercase tracking-widest mb-2">Strategic Value</div>
-                  <p className="text-sm text-stone-300 italic">
+                  <div className="text-base font-bold text-stone-500 uppercase tracking-widest mb-2">Strategic Value</div>
+                  <p className="text-[17px] text-stone-300 italic">
                     「半球型」外觀易存放。結合了「紅茶的色、凍頂的韻、青茶的蜜香」，終於建立不可取代的獨特性。
                   </p>
                 </div>
@@ -419,7 +419,7 @@ export default function RedOolongContent() {
             <h3 className="text-2xl font-bold text-stone-900">紅烏龍 vs 其他茶類</h3>
           </div>
           <div className="overflow-x-auto rounded-3xl border border-stone-200 shadow-sm bg-white">
-            <table className="min-w-[800px] w-full text-sm">
+            <table className="min-w-[800px] w-full text-[17px]">
               <thead className="bg-stone-50 border-b border-stone-200">
                 <tr>
                   <th className="px-6 py-5 text-left font-bold text-stone-500 w-32">特性比較</th>
@@ -464,15 +464,15 @@ export default function RedOolongContent() {
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 text-center">
               <div className="font-bold text-orange-900 mb-2">1. 兼容並蓄</div>
-              <p className="text-sm text-stone-700">融合紅、烏龍優點，創造獨一無二的市場區隔。</p>
+              <p className="text-[17px] text-stone-700">融合紅、烏龍優點，創造獨一無二的市場區隔。</p>
             </div>
             <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 text-center">
               <div className="font-bold text-orange-900 mb-2">2. 點石成金</div>
-              <p className="text-sm text-stone-700">轉化苦澀為香醇，大幅提升夏秋茶產值與農民收入。</p>
+              <p className="text-[17px] text-stone-700">轉化苦澀為香醇，大幅提升夏秋茶產值與農民收入。</p>
             </div>
             <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 text-center">
               <div className="font-bold text-orange-900 mb-2">3. 因地制宜</div>
-              <p className="text-sm text-stone-700">不再盲從，正視且善用台東炎熱風土，化劣勢為優勢。</p>
+              <p className="text-[17px] text-stone-700">不再盲從，正視且善用台東炎熱風土，化劣勢為優勢。</p>
             </div>
           </div>
         </section>
@@ -492,24 +492,24 @@ export default function RedOolongContent() {
               <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
                 <div className="flex justify-between items-center mb-2 border-b border-stone-200 pb-2">
                   <span className="font-bold text-stone-700">台東原產地</span>
-                  <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">品質導向</span>
+                  <span className="text-base bg-orange-100 text-orange-800 px-2 py-1 rounded">品質導向</span>
                 </div>
-                <div className="text-sm text-stone-600 mb-3">生產成本較高，需強調創始正統性與獨特風土價值。</div>
+                <div className="text-[17px] text-stone-600 mb-3">生產成本較高，需強調創始正統性與獨特風土價值。</div>
 
                 <div className="flex justify-between items-center mb-2 border-b border-stone-200 pb-2">
                   <span className="font-bold text-stone-700">其他仿製產區</span>
-                  <span className="text-xs bg-stone-200 text-stone-800 px-2 py-1 rounded">規模導向</span>
+                  <span className="text-base bg-stone-200 text-stone-800 px-2 py-1 rounded">規模導向</span>
                 </div>
-                <div className="text-sm text-stone-600">擁有大規模機械化茶園，利用規模經濟進行價格競爭。</div>
+                <div className="text-[17px] text-stone-600">擁有大規模機械化茶園，利用規模經濟進行價格競爭。</div>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-stone-900 to-stone-800 p-6 rounded-2xl text-white">
-              <h4 className="font-bold text-lg mb-4 text-orange-400">講者的回憶：人文底色</h4>
+              <h4 className="font-bold text-[19px] mb-4 text-orange-400">講者的回憶：人文底色</h4>
               <p className="text-stone-300 italic mb-4 leading-relaxed">
                 「過去載著茶葉北上，在台北茶行門口停下車，因為害怕被冷眼拒絕，竟在車裡坐了一個小時才有勇氣踏出車門...」
               </p>
-              <div className="text-sm text-stone-400 border-t border-stone-700 pt-3">
+              <div className="text-[17px] text-stone-400 border-t border-stone-700 pt-3">
                 這種「在路頭拜託」的艱辛行商歲月，是紅烏龍產業背後最溫暖也最堅韌的人文精神。我們必須守護這份價值。
               </div>
             </div>
@@ -522,7 +522,7 @@ export default function RedOolongContent() {
           <p className="max-w-3xl mx-auto text-stone-700 leading-relaxed mb-6">
             這段歷史告訴我們，紅烏龍的價值遠不止於其風味。它代表的是一個產業在逆境中如何自我反思、掙扎求生，並最終找到道路的奮鬥史。雖然面臨新的競爭，但這份源於在地的開創精神，是無法被複製的核心價值。
           </p>
-          <div className="inline-block px-8 py-3 bg-white rounded-full border border-orange-200 text-orange-800 font-bold shadow-sm text-lg">
+          <div className="inline-block px-8 py-3 bg-white rounded-full border border-orange-200 text-orange-800 font-bold shadow-sm text-[19px]">
             「這段從絕境重生的經驗，是我們最珍貴的資產。」
           </div>
         </section>

@@ -31,6 +31,8 @@ import TeaEncyclopediaOverview from './content/varieties/TeaEncyclopediaOverview
 import OolongRegions from './content/varieties/OolongRegions';
 import WhiteTeaRegions from './content/varieties/WhiteTeaRegions';
 import OolongTeaVerticalTimeline from './components/sections/OolongTeaVerticalTimeline';
+import RitualSection from './components/sections/RitualSection';
+import TeaSetupSection from './components/sections/TeaSetupSection';
 import TaiwanCultivarDiversity from './content/cultivars/TaiwanCultivarDiversity';
 import TaiwanTeaCultivars from './content/cultivars/TaiwanTeaCultivars';
 import CultivarMysterySection from './content/cultivars/CultivarMysterySection';
@@ -66,6 +68,7 @@ import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import AromaticsChapter from './content/scienceChapters/AromaticsChapter';
 import TeaProcessCraftChapter from './content/scienceChapters/TeaProcessCraftChapter';
 import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
+import RoastingChapter from './content/scienceChapters/RoastingChapter';
 import PuerhSection from './sections/PuerhSection';
 import SeasonsSection from './sections/SeasonsSection';
 import BrewingGuideSection from './sections/BrewingGuideSection';
@@ -122,7 +125,7 @@ const TeaWebsite = () => {
     window.requestAnimationFrame(() => {
       const contextBar = document.getElementById('varieties-context-bar');
       const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
-      const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+      const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 56);
       const targetId = normalized === '#cc-all' ? 'varieties-kind-header' : normalized.slice(1);
       const el = document.getElementById(targetId) ?? document.getElementById('varieties-kind-header');
       if (!el) return;
@@ -177,7 +180,7 @@ const TeaWebsite = () => {
       window.requestAnimationFrame(() => {
         const contextBar = document.getElementById('varieties-context-bar');
         const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
-        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 56);
         const targetId = normalized.slice(1);
         const el = document.getElementById(targetId);
         if (!el) return;
@@ -197,7 +200,7 @@ const TeaWebsite = () => {
       window.requestAnimationFrame(() => {
         const contextBar = document.getElementById('varieties-context-bar');
         const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
-        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 56);
         const targetId = normalized.slice(1);
         const el = document.getElementById(targetId);
         if (!el) return;
@@ -217,7 +220,7 @@ const TeaWebsite = () => {
       window.requestAnimationFrame(() => {
         const contextBar = document.getElementById('varieties-context-bar');
         const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
-        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 56);
         const targetId = normalized.slice(1);
         const el = document.getElementById(targetId);
         if (!el) return;
@@ -492,7 +495,7 @@ const TeaWebsite = () => {
       if (el) {
         const contextBar = document.getElementById('varieties-context-bar');
         const contextBarHeight = contextBar ? contextBar.getBoundingClientRect().height : 0;
-        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 16);
+        const offset = Math.ceil(siteNavHeightPx + 16 + contextBarHeight + 56);
         const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         setPendingOffsetScrollTarget(null);
@@ -803,7 +806,7 @@ const TeaWebsite = () => {
                         </div>
 
                         <div className="mt-6 grid md:grid-cols-2 gap-4">
-                          <details className="museum-card bg-white/80 p-5 group">
+                          <details className="museum-card bg-white/80 p-5 group" open>
                             <summary className="cursor-pointer list-none flex items-center justify-between font-extrabold text-stone-900">
                               <span>{i18n.lang === 'en' ? 'What changes chemically?' : '化學層面：發生了什麼？'}</span>
                               <span className="text-stone-500 group-open:rotate-90 transition-transform"><ChevronRight size={18} /></span>
@@ -814,11 +817,11 @@ const TeaWebsite = () => {
                                 : '烘焙以「熱」推動風味轉換：部分揮發物散出；也會產生梅納反應（胺基酸＋糖）、史崔克降解與聚合作用，讓香氣更成熟、口感更厚。'}</p>
                               <p>{i18n.lang === 'en'
                                 ? 'Pigment and “green” notes can be reduced; roast can also stabilize tea for storage by lowering moisture and deactivating remaining enzymes.'
-                                : '葉綠感與部分青味會下降；同時透過降低含水與抑制殘留酵素活性，提升保存穩定性。'}</p>
+                                : '葉綠感與部分青味會下降；同時透過降低含水與抑制殘留酵素活性，提升保存穩定性。'}</p>得內容不可刪減、不可簡化，排版精美、視覺質感升級
                             </div>
                           </details>
 
-                          <details className="museum-card bg-white/80 p-5 group">
+                          <details className="museum-card bg-white/80 p-5 group" open>
                             <summary className="cursor-pointer list-none flex items-center justify-between font-extrabold text-stone-900">
                               <span>{i18n.lang === 'en' ? 'Common roast issues (and how they taste)' : '常見烘焙問題（味覺辨識）'}</span>
                               <span className="text-stone-500 group-open:rotate-90 transition-transform"><ChevronRight size={18} /></span>
@@ -864,6 +867,7 @@ const TeaWebsite = () => {
                             </tbody>
                           </table>
                         </div>
+                        <RoastingChapter />
                       </div>
                     )}
 
@@ -1692,7 +1696,7 @@ const TeaWebsite = () => {
                           <div className={`transition-all duration-500 ease-in-out overflow-hidden ${expandedCardId === tea.id ? 'max-h-96 mt-4' : 'max-h-0'}`}>
                             <div className="bg-white p-4 rounded-lg border border-stone-200 shadow-inner">
                               <h4 className="font-bold text-sm text-stone-800 mb-2 flex items-center"><BookOpen size={16} className="mr-2 text-stone-500" /> 產地與歷史</h4>
-                              <p className="text-sm text-stone-600 leading-relaxed">{tea.details}</p>
+                              <p className="text-base text-stone-600 leading-relaxed">{tea.details}</p>
                             </div>
 
                             {tea.id === 4 && (
@@ -2454,6 +2458,7 @@ const TeaWebsite = () => {
     // selectedFeatured is now lifted to TeaWebsite level
     const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
     const [orientalBeautySection, setOrientalBeautySection] = useState('main');
+
     const [featuredSidebarWidth, setFeaturedSidebarWidth] = useState(() => {
       if (typeof window === 'undefined') return 260;
       const raw = window.localStorage?.getItem('tea.featuredSidebarWidth');
@@ -2620,9 +2625,6 @@ const TeaWebsite = () => {
                               type="button"
                               onClick={() => {
                                 setSelectedFeatured(item.id);
-                                if (item.id === 'orientalbeauty') {
-                                  setOrientalBeautySection('main');
-                                }
                                 scrollToFeaturedTop();
                               }}
                               className={`chapter-nav-item group w-full text-left px-3 py-2 rounded-xl transition-all border box-border focus-visible:outline-none focus:scale-[1.02] ${isActive
@@ -2668,17 +2670,12 @@ const TeaWebsite = () => {
                                     setOrientalBeautySection('main');
                                     scrollToFeaturedTop();
                                   }}
-                                  className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 text-base font-semibold transition-colors border ${orientalBeautySection === 'main'
-                                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
-                                    : 'border-transparent hover:bg-stone-50 text-stone-600 hover:text-stone-900'
+                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'main'
+                                    ? 'bg-amber-100 text-amber-900'
+                                    : 'text-stone-600 hover:bg-stone-50'
                                     }`}
                                 >
-                                  <span className="block chapter-label--flip">
-                                    <span className="chapter-label-inner">
-                                      <span className="chapter-label-front truncate">東方美人</span>
-                                      <span className="chapter-label-back truncate text-amber-600">東方美人</span>
-                                    </span>
-                                  </span>
+                                  東方美人茶
                                 </button>
                                 <button
                                   type="button"
@@ -2686,20 +2683,16 @@ const TeaWebsite = () => {
                                     setOrientalBeautySection('origins');
                                     scrollToFeaturedTop();
                                   }}
-                                  className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 text-base font-semibold transition-colors border ${orientalBeautySection === 'origins'
-                                    ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
-                                    : 'border-transparent hover:bg-stone-50 text-stone-600 hover:text-stone-900'
+                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'origins'
+                                    ? 'bg-amber-100 text-amber-900'
+                                    : 'text-stone-600 hover:bg-stone-50'
                                     }`}
                                 >
-                                  <span className="block chapter-label--flip">
-                                    <span className="chapter-label-inner">
-                                      <span className="chapter-label-front truncate">東方美人茶的前世</span>
-                                      <span className="chapter-label-back truncate text-amber-600">東方美人茶的前世</span>
-                                    </span>
-                                  </span>
+                                  東方美人茶的前世
                                 </button>
                               </div>
                             ) : null}
+
                           </React.Fragment>
                         );
                       })}
@@ -2726,9 +2719,7 @@ const TeaWebsite = () => {
                 {selectedFeatured === 'gaoshanoolong' && <GaoshanOolongContent />}
                 {selectedFeatured === 'redoolong' && <RedOolongContent />}
                 {selectedFeatured === 'honeyblack' && <HoneyAromaBlackTeaContent />}
-                {selectedFeatured === 'orientalbeauty' && (
-                  <OrientalBeautyContent activeSection={orientalBeautySection} />
-                )}
+                {selectedFeatured === 'orientalbeauty' && <OrientalBeautyContent activeSection={orientalBeautySection} />}
                 {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
                 {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
               </div>
@@ -2770,95 +2761,9 @@ const TeaWebsite = () => {
       if (!Number.isFinite(parsed)) return 300;
       return Math.min(Math.max(parsed, 200), 500);
     });
-    const [deskLayoutSeed, setDeskLayoutSeed] = useState(0);
 
-    const deskItems = useMemo(() => ([
-      {
-        id: 'stage',
-        label: '壺承',
-        className: 'w-32 h-32 rounded-full border-4 border-stone-600 bg-stone-800/80 shadow-2xl',
-        textClass: 'text-stone-100',
-        x: 360,
-        y: 40,
-      },
-      {
-        id: 'tray',
-        label: '席方',
-        className: 'w-72 h-20 rounded-[28px] border border-stone-600/40 bg-stone-700/40 shadow-lg',
-        textClass: 'text-stone-200',
-        x: 220,
-        y: 150,
-      },
-      {
-        id: 'fair',
-        label: '勻杯',
-        className: 'w-16 h-20 rounded-2xl bg-stone-100 border border-stone-200 shadow-md',
-        textClass: 'text-stone-800',
-        x: 250,
-        y: 80,
-      },
-      {
-        id: 'waste',
-        label: '水盂',
-        className: 'w-24 h-24 rounded-full border border-stone-600 bg-stone-900/40 shadow-md',
-        textClass: 'text-stone-200',
-        x: 80,
-        y: 60,
-      },
-      {
-        id: 'lid',
-        label: '蓋置',
-        className: 'w-16 h-16 rounded-full bg-stone-900/60 border border-stone-700 shadow-sm',
-        textClass: 'text-stone-300',
-        x: 520,
-        y: 80,
-      },
-      {
-        id: 'caddy',
-        label: '茶倉',
-        className: 'w-20 h-24 rounded-xl bg-stone-100/90 border border-stone-200 shadow-md',
-        textClass: 'text-stone-700',
-        x: 620,
-        y: 50,
-      },
-      {
-        id: 'cloth',
-        label: '茶巾',
-        className: 'w-16 h-16 rounded-lg bg-stone-200/80 border border-stone-300 shadow-sm',
-        textClass: 'text-stone-600',
-        x: 520,
-        y: 180,
-      },
-      {
-        id: 'tools',
-        label: '茶則/茶夾',
-        className: 'w-24 h-10 rounded-md bg-amber-900/80 border border-amber-950/40 shadow-sm',
-        textClass: 'text-amber-100',
-        x: 190,
-        y: 90,
-      },
-      {
-        id: 'vase',
-        label: '花器',
-        className: 'w-14 h-28 rounded-t-full rounded-b-md bg-stone-50 border border-stone-200 shadow-lg',
-        textClass: 'text-stone-600',
-        x: 720,
-        y: 50,
-      },
-    ]), []);
 
-    const guestCups = useMemo(() => (
-      Array.from({ length: 6 }, (_, index) => ({
-        id: `guest-${index + 1}`,
-        label: `杯 ${index + 1}`,
-        x: 140 + (index * 95),
-        y: 230,
-      }))
-    ), []);
 
-    const resetDeskLayout = () => {
-      setDeskLayoutSeed((prev) => prev + 1);
-    };
 
     const handleCeremonyTabChange = (tabId) => {
       setCeremonyTab(tabId);
@@ -2883,28 +2788,7 @@ const TeaWebsite = () => {
 
     return (
       <div className="museum-page" ref={ceremonySectionRef}>
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          .ceremony-desk-canvas {
-            background-color: #1a1817;
-            background-image: 
-              radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%),
-              linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
-          }
-          .draggable-item {
-            cursor: grab;
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          }
-          .draggable-item:active {
-            cursor: grabbing;
-            transform: scale(1.1) rotate(2deg);
-          }
-          .draggable-card {
-            transition: box-shadow 0.3s ease !important;
-          }
-        ` }} />
+
         <div className="museum-stage">
           <div className="mb-12 museum-panel p-8 md:p-12 text-center">
             <div className="museum-label mx-auto">EXHIBIT · CEREMONY</div>
@@ -3184,128 +3068,15 @@ const TeaWebsite = () => {
                 )}
 
                 {/* 3. Setup */}
+                {/* 3. Setup */}
                 {ceremonyTab === 'setup' && (
-                  <div className="animate-fadeIn space-y-12">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {/* Top Info Row */}
-                      <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                        <h4 className="font-bold text-lg text-stone-800 mb-4">設置茶席之步驟</h4>
-                        <ol className="space-y-4 text-sm text-stone-600 list-decimal list-inside">
-                          <li>
-                            <strong className="text-stone-800">選茶：</strong>決定今日主角。
-                          </li>
-                          <li>
-                            <strong className="text-stone-800">試茶：</strong>
-                            <p className="pl-4 mt-1 text-xs">使用鑑定杯，了解其發酵度、苦澀度、香氣、焙火情形，以決定沖泡策略。</p>
-                          </li>
-                          <li>
-                            <strong className="text-stone-800">主體部分 (因茶擇器)：</strong>
-                            <p className="pl-4 mt-1 text-xs">
-                              例：凍頂烏龍選圓形壺、燒結度不高、蓋子密。<br />
-                              決定席方(舞台)、壺承、飲杯、勻杯的搭配。
-                            </p>
-                          </li>
-                        </ol>
-                      </div>
-
-                      <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-                        <h4 className="font-bold text-lg text-stone-800 mb-4">茶席構成要素</h4>
-                        <ul className="space-y-3 text-sm text-stone-600">
-                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>席方：</strong>離桌緣一食指距離。</li>
-                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>壺承：</strong>直徑須大於壺，造型如舞台。</li>
-                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>勻杯：</strong>斷水須順暢，高度不低於杯。</li>
-                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>水盂：</strong>彈性最大，可依比例調整。</li>
-                          <li className="flex items-center"><span className="w-2 h-2 bg-stone-400 rounded-full mr-2"></span><strong>茶巾：</strong>置於事茶者右下壺承45度。</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <div className="bg-stone-900 text-stone-200 p-8 rounded-2xl relative overflow-hidden border border-stone-800 shadow-xl">
-                        <div className="absolute -top-12 -right-10 w-48 h-48 bg-stone-700/40 rounded-full blur-3xl"></div>
-
-                        <div className="text-center mb-6">
-                          <div className="text-xs uppercase tracking-[0.4em] text-stone-500">Tea Desk Lab</div>
-                          <h4 className="font-bold text-2xl text-white mt-2">自由茶席配置</h4>
-                          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-stone-500">
-                            <button
-                              type="button"
-                              onClick={resetDeskLayout}
-                              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-stone-200 hover:bg-white/20 transition-colors"
-                            >
-                              <RotateCcw size={14} />
-                              重置位置
-                            </button>
-                            <span>點住物件即可拖曳</span>
-                          </div>
-                        </div>
-
-                        <div className="relative h-[320px] ceremony-desk-canvas rounded-2xl border border-stone-700/70 shadow-inner overflow-hidden">
-                          <div className="absolute inset-6 border border-stone-700/40 rounded-xl pointer-events-none"></div>
-                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-20 bg-gradient-to-r from-white/10 via-white/0 to-white/10 pointer-events-none"></div>
-
-                          {deskItems.map((item) => (
-                            <DraggableWrapper key={`${deskLayoutSeed}-${item.id}`} initialPos={{ x: item.x, y: item.y }}>
-                              <div className={`draggable-item relative flex flex-col items-center justify-center text-center ${item.className}`}>
-                                <div className="drag-handle absolute inset-0"></div>
-                                {item.icon ? (
-                                  <item.icon size={16} className={`mb-1 ${item.iconClass || 'text-stone-300'}`} />
-                                ) : null}
-                                <div className={`pointer-events-none ${item.textClass || 'text-stone-200'}`}>
-                                  <div className="text-xs font-semibold">{item.label}</div>
-                                </div>
-                              </div>
-                            </DraggableWrapper>
-                          ))}
-
-                          {guestCups.map((cup) => (
-                            <DraggableWrapper key={`${deskLayoutSeed}-${cup.id}`} initialPos={{ x: cup.x, y: cup.y }}>
-                              <div className="draggable-item relative flex flex-col items-center gap-1">
-                                <div className="drag-handle absolute inset-0"></div>
-                                <div className="w-14 h-14 rounded-full bg-stone-100 border border-stone-200 shadow-sm flex items-center justify-center text-stone-500 text-[10px] font-semibold">
-                                  {cup.label}
-                                </div>
-                              </div>
-                            </DraggableWrapper>
-                          ))}
-                        </div>
-
-                        <div className="mt-3 text-center text-xs text-stone-500">
-                          物件與杯子皆可自由移動。
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <TeaSetupSection />
                 )}
 
                 {/* 4. Ritual */}
                 {ceremonyTab === 'ritual' && (
                   <div className="animate-fadeIn">
-                    <div className="relative border-l-2 border-stone-200 ml-4 md:ml-8 space-y-12 my-8">
-                      {[
-                        { title: "1. 備茶展席", desc: "未曾汲水，先備茶具。必潔必燥，開口以待。靜心備水，安全得宜，調整心情。" },
-                        { title: "2. 調息靜氣", desc: "主客行禮（飲水淨口）。溫壺：左手提煮水器，右手執主沖茶器，左右均衡操作。溫勻杯、溫杯：預測容量。" },
-                        { title: "3. 注水溫潤", desc: "備茶、賞茶、置茶（專注嚴謹）、聞香。注水溫潤：提壺靜沸，注水不急不緩。" },
-                        { title: "4. 靜候觀心", desc: "第一道茶：外在顯現為茶道美感與境界塑造之基礎。清杯：由內而外，井然有序。調息出湯。" },
-                        { title: "5. 出湯布茶", desc: "奉茶行禮：平穩謙和。第二道茶：專注細膩。勻杯奉茶：主客互動之藝術，客人連同杯托往前移動。" },
-                        { title: "6. 靜心品味", desc: "端茶：左手拇指餘指輕托杯托。持杯：右手拇指食指拿杯緣。聞香、品茶（分3小口）、聞杯底。" },
-                        { title: "7. 空白之美", desc: "品茶告一段落，品用白開水以顯現茶味（實品茶湯、虛品茶味），或供應茶食、聽樂、品香。" },
-                        { title: "8. 對話賞壺", desc: "清壺賞葉底：延續之情，不再續沖。賞壺：惜物之情，去葉底注水入壺清理，讓客人賞壺。" },
-                        { title: "9. 一期一會", desc: "歸位：時間掌控。理器：動態之美，如行雲流水。收杯：客人將杯送回。茶席之美：表現與分享。" }
-                      ].map((step, idx) => (
-                        <div key={idx} className="relative pl-8">
-                          <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-stone-400 border-2 border-white"></div>
-                          <h4 className="text-xl font-bold text-stone-800 mb-2">{step.title}</h4>
-                          <p className="text-stone-600 leading-relaxed">{step.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="bg-stone-50 p-6 rounded-xl text-center border border-stone-200">
-                      <p className="text-stone-700 italic font-medium">
-                        「形而上者謂之道，形而下者謂之器。」<br />
-                        道器並用，由藝入道，用功於生命本身。
-                      </p>
-                    </div>
+                    <RitualSection />
                   </div>
                 )}
               </div>
@@ -3801,13 +3572,13 @@ const TeaWebsite = () => {
                     <Leaf className="h-6 w-6 text-amber-300" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-extrabold tracking-widest text-stone-600">MUSEUM GUIDE</div>
+                    <div className="text-sm font-extrabold tracking-widest text-stone-600">MUSEUM GUIDE</div>
                     <div className="mt-1 text-2xl font-extrabold tracking-widest text-stone-900">{i18n.t('site.title')}</div>
-                    <div className="mt-1 text-xs font-bold tracking-widest text-stone-600">{i18n.t('site.tagline')}</div>
+                    <div className="mt-1 text-sm font-bold tracking-widest text-stone-600">{i18n.t('site.tagline')}</div>
                   </div>
                 </div>
-                <p className="mt-4 text-sm text-stone-700 leading-relaxed">{i18n.t('footer.aboutText')}</p>
-                <div className="mt-5 flex flex-wrap gap-2 text-xs">
+                <p className="mt-4 text-base text-stone-700 leading-relaxed">{i18n.t('footer.aboutText')}</p>
+                <div className="mt-5 flex flex-wrap gap-2 text-sm">
                   <span className="museum-label">For Teaching</span>
                   <span className="museum-label">For Research</span>
                   <span className="museum-label">For Students</span>
@@ -3817,8 +3588,8 @@ const TeaWebsite = () => {
 
             <div className="lg:col-span-4">
               <div className="museum-footer-card p-6">
-                <div className="text-xs font-extrabold tracking-widest text-stone-600 mb-4">{i18n.t('footer.quickLinks')}</div>
-                <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-sm font-extrabold tracking-widest text-stone-600 mb-4">{i18n.t('footer.quickLinks')}</div>
+                <div className="grid grid-cols-2 gap-2 text-base">
                   {[
                     ['varieties', i18n.t('nav.varieties')],
                     ['cultivars', i18n.t('nav.cultivars')],
@@ -3842,10 +3613,10 @@ const TeaWebsite = () => {
 
             <div className="lg:col-span-3">
               <div className="museum-footer-card p-6">
-                <div className="text-xs font-extrabold tracking-widest text-stone-600 mb-4">
+                <div className="text-sm font-extrabold tracking-widest text-stone-600 mb-4">
                   {i18n.lang === 'en' ? 'VISITOR INFO' : '參觀資訊'}
                 </div>
-                <ul className="space-y-3 text-sm text-stone-700 leading-relaxed">
+                <ul className="space-y-3 text-base text-stone-700 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <span className="mt-1 inline-block w-2 h-2 rounded-full bg-amber-400"></span>
                     {i18n.lang === 'en'
@@ -3869,7 +3640,7 @@ const TeaWebsite = () => {
             </div>
           </div>
 
-          <div className="mt-10 border-t border-stone-200/70 pt-8 text-center text-xs text-stone-600">
+          <div className="mt-10 border-t border-stone-200/70 pt-8 text-center text-sm text-stone-600">
             &copy; 2023 {i18n.t('footer.copyright')}. All rights reserved. {i18n.t('footer.designedFor')}
           </div>
         </div>

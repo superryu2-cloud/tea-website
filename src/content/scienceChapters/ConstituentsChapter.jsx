@@ -74,7 +74,7 @@ const TeaConstituentsChart = () => {
                     <div className="text-3xl md:text-5xl font-bold text-stone-800 transition-all duration-300">
                         {hoveredSegment ? data.find(d => d.id === hoveredSegment).percentage : '100%'}
                     </div>
-                    <div className="text-sm md:text-lg font-bold text-stone-500 mt-2 transition-all duration-300">
+                    <div className="text-base md:text-[19px] font-bold text-stone-500 mt-2 transition-all duration-300">
                         {hoveredSegment ? data.find(d => d.id === hoveredSegment).label : '內含物質'}
                     </div>
                 </div>
@@ -95,11 +95,11 @@ const TeaConstituentsChart = () => {
                     >
                         <div className="flex justify-between items-center mb-1">
                             <h4 className="font-bold text-stone-800">{item.label}</h4>
-                            <span className="font-bold px-2 py-0.5 rounded text-sm text-white" style={{ backgroundColor: item.color }}>
+                            <span className="font-bold px-2 py-0.5 rounded text-base text-white" style={{ backgroundColor: item.color }}>
                                 {item.percentage}
                             </span>
                         </div>
-                        <p className="text-xs text-stone-500">{item.desc}</p>
+                        <p className="text-sm text-stone-500">{item.desc}</p>
                     </div>
                 ))}
             </div>
@@ -301,11 +301,11 @@ export default function ConstituentsChapter() {
                 onClick={() => setSelectedCategory(id)}
                 className={`bg-gradient-to-br ${colorClasses[color]} ${size === 'large' ? 'p-5' : 'p-4'} rounded-xl border-2 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:scale-105`}
             >
-                <h4 className={`${size === 'large' ? 'text-xl' : 'text-lg'} font-bold ${textColorClasses[color]} mb-2 flex items-center ${size === 'large' ? 'justify-center' : ''}`}>
+                <h4 className={`${size === 'large' ? 'text-xl' : 'text-[19px]'} font-bold ${textColorClasses[color]} mb-2 flex items-center ${size === 'large' ? 'justify-center' : ''}`}>
                     {Icon && <Icon className="mr-2" size={18} />}
                     {title}
                 </h4>
-                <p className={`text-xs ${compoundColorClasses[color]} ${size === 'large' ? 'text-center text-sm' : ''}`}>{compounds}</p>
+                <p className={`text-sm ${compoundColorClasses[color]} ${size === 'large' ? 'text-center text-base' : ''}`}>{compounds}</p>
             </div>
         );
     };
@@ -317,7 +317,7 @@ export default function ConstituentsChapter() {
                     茶葉內含物質的角色扮演
                 </h2>
 
-                <p className="text-lg text-stone-700 leading-relaxed mb-6">
+                <p className="text-[19px] text-stone-700 leading-relaxed mb-6">
                     一杯茶的風味，是數百種化學物質共同作用的結果。從生青的葉醇、香氣的芳樟醇，到回甘的氨基酸，每一種成分都在茶湯中扮演著獨特的角色。理解這些內含物質，是深入品鑑茶葉的科學基礎。
                 </p>
 
@@ -343,14 +343,14 @@ export default function ConstituentsChapter() {
 
                         <TeaConstituentsChart />
 
-                        <p className="text-sm text-stone-500 text-center mt-8 italic">
+                        <p className="text-base text-stone-500 text-center mt-8 italic">
                             互動式圖表：將滑鼠懸停於圓環可查看詳細數據
                         </p>
                     </div>
                 </div>
 
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-r-lg">
-                    <p className="text-sm text-blue-900 flex items-center">
+                    <p className="text-base text-blue-900 flex items-center">
                         <Info className="mr-2 flex-shrink-0" size={18} />
                         <strong>互動提示：</strong>點擊任意類別卡片，查看詳細說明與茶類範例
                     </p>
@@ -389,7 +389,7 @@ export default function ConstituentsChapter() {
                         <ConstituentCard id="color" title="湯色" color="orange" icon={Flame} compounds="黃酮類 / 剝落葉綠素 / 茶多酚氧化物" />
                     </div>
 
-                    <p className="text-sm text-stone-500 text-center mt-6 italic">
+                    <p className="text-base text-stone-500 text-center mt-6 italic">
                         互動式圖表：點擊卡片查看詳細資訊
                     </p>
                 </div>
@@ -415,19 +415,19 @@ export default function ConstituentsChapter() {
                                     <div className="space-y-6">
                                         <div className="bg-stone-50/80 p-5 rounded-xl border border-stone-100">
                                             <h4 className="font-bold text-xl text-stone-900 mb-2">化合物</h4>
-                                            <p className="text-stone-700 font-medium text-lg">{categoryDetails[selectedCategory].compounds}</p>
+                                            <p className="text-stone-700 font-medium text-[19px]">{categoryDetails[selectedCategory].compounds}</p>
                                         </div>
 
                                         <div>
                                             <h4 className="font-bold text-xl text-stone-900 mb-2">詳細說明</h4>
-                                            <p className="text-stone-700 leading-relaxed text-lg">{categoryDetails[selectedCategory].description}</p>
+                                            <p className="text-stone-700 leading-relaxed text-[19px]">{categoryDetails[selectedCategory].description}</p>
                                         </div>
 
                                         <div>
                                             <h4 className="font-bold text-xl text-stone-900 mb-2">代表茶類</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {categoryDetails[selectedCategory].examples.map((example, idx) => (
-                                                    <span key={idx} className="px-4 py-1.5 bg-amber-100 text-amber-900 rounded-full text-base font-medium">
+                                                    <span key={idx} className="px-4 py-1.5 bg-amber-100 text-amber-900 rounded-full text-[17px] font-medium">
                                                         {example}
                                                     </span>
                                                 ))}
@@ -463,11 +463,11 @@ export default function ConstituentsChapter() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Leaf className="mr-2 text-emerald-600" size={22} />
                             生青與香氣
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-emerald-700">順式青葉醇</strong>
                                 <p className="text-stone-600 mt-1">帶來新鮮的青草香，是茶葉「生青」特徵的主要來源。在輕發酵茶中尤為明顯。</p>
@@ -480,11 +480,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Droplets className="mr-2 text-blue-600" size={22} />
                             甜與鮮甜
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-blue-700">可溶性糖、丙氨酸、絲氨酸</strong>
                                 <p className="text-stone-600 mt-1">提供直接的甜味感受。茶紅質在紅茶中尤為重要，帶來紅茶特有的甜潤口感。</p>
@@ -497,11 +497,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Wind className="mr-2 text-cyan-600" size={22} />
                             鹹與酸
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-cyan-700">鉀離子、鉀鹽子</strong>
                                 <p className="text-stone-600 mt-1">帶來礦物質感與微妙的鹹味，增加茶湯的複雜度與層次感。</p>
@@ -514,11 +514,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Coffee className="mr-2 text-amber-700" size={22} />
                             苦與澀
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-amber-800">花青素因、咖啡因、茶皂素</strong>
                                 <p className="text-stone-600 mt-1">苦味的主要來源。咖啡因帶來清爽的苦味，檸檬酸則增加酸苦平衡。</p>
@@ -535,11 +535,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Layers className="mr-2 text-purple-600" size={22} />
                             厚度與回甘
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-purple-700">可溶性果膠、可溶性蛋白</strong>
                                 <p className="text-stone-600 mt-1">增加茶湯的黏稠度與厚度，帶來飽滿的口感。茶多酚及氧化物也貢獻茶湯的「body」。</p>
@@ -552,11 +552,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Sparkles className="mr-2 text-yellow-600" size={22} />
                             茶氣與爽口
                         </h4>
-                        <div className="space-y-3 text-sm text-stone-700">
+                        <div className="space-y-3 text-base text-stone-700">
                             <div>
                                 <strong className="text-yellow-700">香氣精油、微量元素</strong>
                                 <p className="text-stone-600 mt-1">構成茶的「氣韻」，是品茗時感受到的整體活力與能量感。</p>
@@ -569,11 +569,11 @@ export default function ConstituentsChapter() {
                     </div>
 
                     <div className="p-6 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow md:col-span-2">
-                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-lg">
+                        <h4 className="font-bold text-stone-900 mb-3 flex items-center text-[19px]">
                             <Flame className="mr-2 text-orange-600" size={22} />
                             湯色
                         </h4>
-                        <div className="text-sm text-stone-700">
+                        <div className="text-base text-stone-700">
                             <strong className="text-orange-700">黃酮類、剝落葉綠素、茶多酚氧化物</strong>
                             <p className="text-stone-600 mt-1">
                                 決定茶湯的視覺呈現。黃酮類帶來金黃色澤，葉綠素降解產物影響綠茶的翠綠色，而茶多酚氧化物（茶黃素、茶紅素、茶褐素）則決定了紅茶從金黃到深紅的色譜。
@@ -610,7 +610,7 @@ export default function ConstituentsChapter() {
 
             <section className="mt-8 p-6 bg-stone-100 rounded-xl">
                 <h4 className="font-bold text-stone-900 mb-3">延伸閱讀</h4>
-                <p className="text-sm text-stone-600">
+                <p className="text-base text-stone-600">
                     想深入了解茶葉香氣的化學原理，請參閱「香氣化學」章節。
                     若要學習如何在品鑑中應用這些知識，可前往書院章節的品鑑實務課程。
                 </p>

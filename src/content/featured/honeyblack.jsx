@@ -29,7 +29,7 @@ function SectionTitle({ icon: Icon, title, subtitle, colorClass = "text-amber-80
       </div>
       <div className="pt-2">
         <h3 className={`text-3xl font-bold ${colorClass} font-serif tracking-wide`}>{title}</h3>
-        {subtitle && <p className="text-stone-500 text-base mt-2 font-medium">{subtitle}</p>}
+        {subtitle && <p className="text-stone-500 text-[17px] mt-2 font-medium">{subtitle}</p>}
       </div>
     </div>
   )
@@ -61,7 +61,7 @@ export default function HoneyAromaBlackTeaContent() {
 
         <div className="absolute bottom-0 left-0 p-10 md:p-16 w-full z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 backdrop-blur-md text-sm font-bold mb-6 shadow-xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 backdrop-blur-md text-base font-bold mb-6 shadow-xl">
               <Leaf size={16} className="text-amber-400" />
               <span className="tracking-[0.2em] uppercase">Formosa Honey Black Tea</span>
             </div>
@@ -69,7 +69,7 @@ export default function HoneyAromaBlackTeaContent() {
               蜜香紅茶：<br />
               <span className="text-amber-200">蟲吻</span>與<span className="text-amber-200">金牌</span>的傳奇旅程
             </h2>
-            <div className="flex flex-wrap gap-3 text-base font-medium text-stone-200">
+            <div className="flex flex-wrap gap-3 text-[17px] font-medium text-stone-200">
               <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🍃 花蓮舞鶴</span>
               <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🐛 小綠葉蟬</span>
               <span className="px-4 py-2 bg-black/40 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/10 transition-colors">🌿 自然農法</span>
@@ -106,7 +106,7 @@ export default function HoneyAromaBlackTeaContent() {
                 alt="Artistic Watercolor Leafhopper"
                 className="w-full h-auto rounded-xl"
               />
-              <div className="absolute bottom-6 right-6 font-serif text-stone-400 text-xs writing-vertical-rl tracking-widest opacity-80">
+              <div className="absolute bottom-6 right-6 font-serif text-stone-400 text-[17px] writing-vertical-rl tracking-widest opacity-80">
                 小綠葉蟬 · 著涎之美
               </div>
             </div>
@@ -121,27 +121,27 @@ export default function HoneyAromaBlackTeaContent() {
             <SectionTitle icon={Bug} title="1. 害蟲或功臣？" subtitle="重新認識小綠葉蟬" colorClass="text-emerald-800" />
 
             <div className="space-y-8">
-              <p className="text-lg text-stone-700 leading-relaxed font-medium">
+              <p className="text-[19px] text-stone-700 leading-relaxed font-medium">
                 在揭開蜜香的秘密之前，讓我們先認識故事中這位意想不到的主角——小綠葉蟬。在傳統茶農眼中，牠是帶來毀滅的惡客。
               </p>
 
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-emerald-100/50 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-emerald-400"></div>
-                <h4 className="flex items-center text-lg font-bold text-emerald-800 mb-4">
+                <h4 className="flex items-center text-[19px] font-bold text-emerald-800 mb-4">
                   <ShieldAlert size={18} className="mr-2" />
                   小綠葉蟬檔案
                 </h4>
                 <ul className="space-y-4">
                   <li className="flex flex-col sm:flex-row sm:gap-4">
-                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">別名</span>
+                    <span className="text-base font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">別名</span>
                     <span className="text-stone-700 font-medium">小綠浮塵子。</span>
                   </li>
                   <li className="flex flex-col sm:flex-row sm:gap-4">
-                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">習性</span>
+                    <span className="text-base font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">習性</span>
                     <span className="text-stone-700 font-medium leading-relaxed">以刺吸式口器吸食茶樹嫩芽汁液，導致茶葉捲曲萎縮、停止生長。</span>
                   </li>
                   <li className="flex flex-col sm:flex-row sm:gap-4">
-                    <span className="text-sm font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">活躍期</span>
+                    <span className="text-base font-bold text-emerald-600 uppercase tracking-wider shrink-0 w-20 pt-1">活躍期</span>
                     <span className="text-stone-700 font-medium">全年皆有，但以每年5至7月的夏季最為猖獗。</span>
                   </li>
                 </ul>
@@ -160,7 +160,7 @@ export default function HoneyAromaBlackTeaContent() {
                   ].map((item, idx) => (
                     <div key={idx} className="relative group">
                       <div className="absolute -left-[27px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-amber-400 shadow-sm z-10 group-hover:scale-125 transition-transform duration-300"></div>
-                      <h5 className="font-bold text-stone-800 text-lg mb-1">{item.title}</h5>
+                      <h5 className="font-bold text-stone-800 text-[19px] mb-1">{item.title}</h5>
                       <p className="text-stone-600 font-medium leading-relaxed">{item.content}</p>
                     </div>
                   ))}
@@ -174,7 +174,7 @@ export default function HoneyAromaBlackTeaContent() {
         <div className="mt-12 bg-amber-500/5 p-6 md:p-8 rounded-2xl border border-amber-200/50 flex flex-col md:flex-row gap-6 items-start">
           <div className="p-3 bg-amber-100 rounded-full text-amber-700 shrink-0 shadow-sm"><FlaskConical size={24} /></div>
           <div>
-            <h5 className="font-bold text-amber-900 mb-2 text-lg">解鎖蜜香的鑰匙</h5>
+            <h5 className="font-bold text-amber-900 mb-2 text-[19px]">解鎖蜜香的鑰匙</h5>
             <p className="text-stone-700 font-medium leading-relaxed">
               實驗證明，若單純用針刺傷茶芽，並無法產生蜜香；必須要沾上小綠葉蟬的口腔分泌物（唾液）再去刺激，茶樹才會生成這種特殊的蜜香成分。這證明了<span className="text-amber-700 underline decoration-amber-300 underline-offset-4 decoration-2">小綠葉蟬的唾液</span>是啟動這一切的關鍵鑰匙，一場大自然精妙的設計。
             </p>
@@ -188,10 +188,10 @@ export default function HoneyAromaBlackTeaContent() {
           <div className="bg-stone-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-stone-800 rounded-bl-full -mr-10 -mt-10 opacity-50"></div>
             <SectionTitle icon={FlaskConical} title="2. 技術革新" subtitle="從廢茶到名茶" colorClass="text-amber-400" />
-            <p className="text-stone-300 leading-relaxed text-lg mb-6 font-light">
+            <p className="text-stone-300 leading-relaxed text-[19px] mb-6 font-light">
               故事的轉捩點發生在1990年代末，已故的<strong>台東茶改場課長陳惠藏先生</strong>。
             </p>
-            <p className="text-stone-300 leading-relaxed text-lg font-light">
+            <p className="text-stone-300 leading-relaxed text-[19px] font-light">
               他受到「東方美人茶」同樣利用小綠葉蟬著涎原理的啟發，開始嘗試將這些被茶農視為廢料的受損茶菁，用於新的製茶實驗。經過不斷改良，成功製成了帶有天然蜜香的綠茶與紅茶。
             </p>
           </div>
@@ -211,7 +211,7 @@ export default function HoneyAromaBlackTeaContent() {
               </div>
             ))}
           </div>
-          <div className="mt-8 text-center text-stone-400 font-serif italic text-lg">
+          <div className="mt-8 text-center text-stone-400 font-serif italic text-[19px]">
             “當時，蜜香茶仍是一項潛力無窮的發明，靜靜等待著一個能讓它發光發熱的舞台。”
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function HoneyAromaBlackTeaContent() {
           <div className="bg-white p-10 rounded-[2.5rem] border border-stone-200 shadow-sm relative overflow-hidden group hover:shadow-xl transition-shadow duration-500">
             <div className="absolute top-0 right-0 w-40 h-40 bg-stone-50 rounded-bl-full -mr-12 -mt-12 opacity-80 group-hover:scale-110 transition-transform duration-700"></div>
             <h4 className="text-2xl font-bold text-stone-900 mb-6 relative z-10 font-serif">天鶴茶的輝煌與沒落</h4>
-            <p className="text-lg text-stone-600 leading-relaxed mb-8 relative z-10 font-medium">
+            <p className="text-[19px] text-stone-600 leading-relaxed mb-8 relative z-10 font-medium">
               讓蜜香紅茶大放異彩的舞台，在東台灣的另一端——花蓮瑞穗的舞鶴台地——悄然搭起。這裡位於紅葉溪與秀姑巒溪交會處，極宜茶樹生長。曾以「天鶴茶」聞名，但在90年代高山茶崛起後，銷量一落千丈，茶產業陷入困境。
             </p>
             <div className="p-6 bg-red-50/50 rounded-2xl border border-red-100 relative z-10">
@@ -240,7 +240,7 @@ export default function HoneyAromaBlackTeaContent() {
           <div className="bg-emerald-900 text-emerald-50 p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-800 rounded-bl-full -mr-12 -mt-12 opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
             <h4 className="text-2xl font-bold text-white mb-6 relative z-10 font-serif">無毒農業的挑戰</h4>
-            <p className="text-lg text-emerald-100/90 leading-relaxed mb-8 relative z-10 font-light">
+            <p className="text-[19px] text-emerald-100/90 leading-relaxed mb-8 relative z-10 font-light">
               2003年，花蓮推動「無毒農業」政策。舞鶴茶葉產銷班班長高肇煦率先響應，決心停止在茶園使用殺蟲劑。但這個決定，卻帶來了始料未及的生態反撲。
             </p>
             <div className="p-6 bg-emerald-800/50 backdrop-blur-md rounded-2xl border border-emerald-700/50 relative z-10">
@@ -294,7 +294,7 @@ export default function HoneyAromaBlackTeaContent() {
                     <p className="text-stone-700 font-medium mb-4">
                       高肇煦班長以蜜香紅茶參加<br />「第一屆天下名茶大賽」
                     </p>
-                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-bold shadow-md">
+                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-[17px] font-bold shadow-md">
                       紅茶組 金牌獎 🥇
                     </div>
                   </div>
@@ -308,7 +308,7 @@ export default function HoneyAromaBlackTeaContent() {
                     <p className="text-stone-700 font-medium mb-4">
                       其親戚年阿瑞女士參加<br />在台灣舉辦的國際名茶評比
                     </p>
-                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-bold shadow-md">
+                    <div className="inline-block px-4 py-1.5 bg-red-600 text-white rounded-lg text-[17px] font-bold shadow-md">
                       一舉奪得 四面金牌 🥇🥇🥇🥇
                     </div>
                   </div>

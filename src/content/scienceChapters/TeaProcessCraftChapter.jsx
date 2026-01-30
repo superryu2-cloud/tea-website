@@ -43,7 +43,7 @@ const ZoomableImage = ({ src, alt, caption }) => {
         />
         <div className="mt-6 text-center">
           <p className="text-3xl font-bold text-white mb-2">{alt}</p>
-          <p className="text-xl text-stone-300 font-light max-w-2xl mx-auto">{caption}</p>
+          <p className="text-[19px] text-stone-300 font-light max-w-2xl mx-auto">{caption}</p>
         </div>
       </div>
     </div>
@@ -69,7 +69,7 @@ const ZoomableImage = ({ src, alt, caption }) => {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-          <p className="text-white text-sm font-medium text-center drop-shadow-md">{caption}</p>
+          <p className="text-white text-base font-medium text-center drop-shadow-md">{caption}</p>
         </div>
       </div>
 
@@ -110,7 +110,7 @@ const BruisingWidget = () => {
           <Wind size={20} className="text-stone-400" />
           搖青模擬器
         </h5>
-        <div className="bg-stone-100 px-3 py-1 rounded-full text-xs font-bold text-stone-600">
+        <div className="bg-stone-100 px-3 py-1 rounded-full text-sm font-bold text-stone-600">
           發酵度: {oxidation}%
         </div>
       </div>
@@ -143,7 +143,7 @@ const BruisingWidget = () => {
           <div className="space-y-2">
             <div className="flex justify-between items-end">
               <span className="text-2xl font-black text-stone-800">{stage.label}</span>
-              <span className="text-xs font-bold text-stone-400 px-2 py-1 border border-stone-200 rounded">{stage.type}</span>
+              <span className="text-sm font-bold text-stone-400 px-2 py-1 border border-stone-200 rounded">{stage.type}</span>
             </div>
             <div className="h-3 w-full bg-stone-100 rounded-full overflow-hidden">
               <div
@@ -151,7 +151,7 @@ const BruisingWidget = () => {
                 style={{ width: `${oxidation}%` }}
               />
             </div>
-            <p className="text-stone-600 text-sm">{stage.note}</p>
+            <p className="text-stone-600 text-base">{stage.note}</p>
           </div>
 
           <div className="flex gap-3 mt-4">
@@ -197,9 +197,9 @@ const RoastingWidget = () => {
           <Flame size={20} className="text-orange-500" />
           焙火控制台
         </h5>
-        <div className="flex items-center gap-2 text-xs font-bold text-stone-500">
+        <div className="flex items-center gap-2 text-sm font-bold text-stone-500">
           <span>溫度/時間</span>
-          <div className="w-16 text-right font-mono text-base text-stone-900">{roast}%</div>
+          <div className="w-16 text-right font-mono text-[17px] text-stone-900">{roast}%</div>
         </div>
       </div>
 
@@ -237,7 +237,7 @@ const RoastingWidget = () => {
             className="w-full h-2 bg-gradient-to-r from-yellow-200 via-orange-400 to-stone-800 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500/50"
             style={{ accentColor: info.color }}
           />
-          <div className="flex justify-between text-xs text-stone-400 font-bold mt-2 font-mono">
+          <div className="flex justify-between text-sm text-stone-400 font-bold mt-2 font-mono">
             <span>LIGHT</span>
             <span>MEDIUM</span>
             <span>HEAVY</span>
@@ -246,9 +246,9 @@ const RoastingWidget = () => {
 
         {/* Info Card */}
         <div className="bg-stone-50 rounded-lg p-4 w-full border border-stone-100 text-center transition-colors duration-300">
-          <h4 className="text-xl font-black text-stone-800 mb-1" style={{ color: info.color }}>{info.title}</h4>
-          <div className="text-stone-500 text-xs font-bold uppercase tracking-wider mb-2">{info.flavor}</div>
-          <p className="text-stone-600 text-sm leading-relaxed">{info.desc}</p>
+          <h4 className="text-[19px] font-black text-stone-800 mb-1" style={{ color: info.color }}>{info.title}</h4>
+          <div className="text-stone-500 text-sm font-bold uppercase tracking-wider mb-2">{info.flavor}</div>
+          <p className="text-stone-600 text-base leading-relaxed">{info.desc}</p>
         </div>
       </div>
     </div>
@@ -312,7 +312,7 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <span
                   className={`
-                    text-xs font-bold whitespace-nowrap transition-colors duration-300
+                    text-sm font-bold whitespace-nowrap transition-colors duration-300
                     ${isActive ? 'text-stone-900' : 'text-stone-500'}
                   `}
                 >
@@ -339,10 +339,10 @@ export default function TeaProcessCraftChapter() {
         {activeStep === 0 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
             <SectionCard title="製茶工藝與風味之源" icon={Sparkles}>
-              <h4 className="text-xl md:text-2xl font-extrabold text-stone-900 mb-4">
+              <h4 className="text-[19px] md:text-2xl font-extrabold text-stone-900 mb-4">
                 導言：探尋茶葉香氣的真實起源
               </h4>
-              <div className="space-y-4 text-lg text-stone-700 leading-relaxed">
+              <div className="space-y-4 text-[17px] text-stone-700 leading-relaxed">
                 <p>
                   「茶葉那迷人的香氣，是不是添加了香精？」這個問題不僅困擾著品茶新手，甚至連身處生產第一線的茶農也曾有此疑惑。筆者就曾被一位綠茶茶農問道：「鳳凰單叢茶這麼香，是不是加了香精？」在此，我們首先給出一個明確的答案：沒有添加香精。茶葉在法規上屬於食用農產品，明令禁止添加任何香精，這也是茶葉與茶飲料最本質的區別。
                 </p>
@@ -356,19 +356,19 @@ export default function TeaProcessCraftChapter() {
             </SectionCard>
 
             <SectionCard title="茶香的四大維度：解構風味的組成要素" icon={Layers}>
-              <p className="text-lg text-stone-700 leading-relaxed mb-6">
+              <p className="text-[17px] text-stone-700 leading-relaxed mb-6">
                 為了系統性地理解茶葉複雜的香氣光譜，我們可以將其劃分為四個主要維度：地域香、品種香、工藝香與茶類香。這一分類法不僅能幫助我們鑑賞不同茶葉的獨特之處，更能揭示其風味形成的底層邏輯。
               </p>
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="rounded-2xl border border-purple-200 bg-purple-50/70 p-6 space-y-3 text-purple-900/90 hover:shadow-md transition-shadow">
-                  <h4 className="text-xl font-extrabold text-purple-900">地域香 (Regional Aroma)</h4>
-                  <p className="text-lg leading-relaxed">地域香，或稱「山場氣」，是特定產區的微氣候、土壤與生態環境賦予茶葉的風味基礎。它如同風土的印記，深植於茶葉的本質之中。</p>
-                  <ul className="list-disc list-inside space-y-2 text-lg leading-relaxed">
+                  <h4 className="text-[19px] font-extrabold text-purple-900">地域香 (Regional Aroma)</h4>
+                  <p className="text-[17px] leading-relaxed">地域香，或稱「山場氣」，是特定產區的微氣候、土壤與生態環境賦予茶葉的風味基礎。它如同風土的印記，深植於茶葉的本質之中。</p>
+                  <ul className="list-disc list-inside space-y-2 text-[17px] leading-relaxed">
                     <li><span className="font-semibold">產區範例：</span> 以雲南茶區為例，無論是勐庫大葉種還是易武綠芽茶，製成任何茶類後，茶湯中常帶有一絲微酸感。這便是源於該地區茶樹普遍具有較高的有機酸含量。</li>
                     <li>
                       <span className="font-semibold">山場對比：</span> 在武夷岩茶的世界裡，「山場氣」的影響尤為顯著。以「肉桂」這個品種為例：
-                      <ul className="mt-2 list-disc list-inside space-y-2 pl-4 text-base opacity-90">
+                      <ul className="mt-2 list-disc list-inside space-y-2 pl-4 text-[17px] opacity-90">
                         <li>岩上肉桂（如馬頭岩肉桂）：生長於向陽、溫度較高的岩石之上，充足的陽光促使茶樹積累大量茶多酚。其成品茶香氣馥郁、口感濃釅，帶有強烈的收斂性，俗稱「煞口」。</li>
                         <li>坑肉桂（如牛欄坑肉桂）：生長於濕潤、溫度較低、日照較短的坑澗之中，環境促使茶樹形成更多的氨基酸。其成品茶香氣清幽，茶湯甜潤度極高，甚至可能呈現水蜜桃般的風味。</li>
                       </ul>
@@ -377,38 +377,38 @@ export default function TeaProcessCraftChapter() {
                 </div>
 
                 <div className="rounded-2xl border border-rose-200 bg-rose-50/70 p-6 space-y-3 text-rose-900/90 hover:shadow-md transition-shadow">
-                  <h4 className="text-xl font-extrabold text-rose-900">品種香 (Varietal Aroma)</h4>
-                  <p className="text-lg leading-relaxed">品種香是茶樹品種自身獨有的個性化香氣，如同遺傳基因一般，穩定地在成品茶中展現。</p>
-                  <ul className="list-disc list-inside space-y-2 text-lg leading-relaxed">
+                  <h4 className="text-[19px] font-extrabold text-rose-900">品種香 (Varietal Aroma)</h4>
+                  <p className="text-[17px] leading-relaxed">品種香是茶樹品種自身獨有的個性化香氣，如同遺傳基因一般，穩定地在成品茶中展現。</p>
+                  <ul className="list-disc list-inside space-y-2 text-[17px] leading-relaxed">
                     <li><span className="font-semibold">品種範例：</span> 福建的「梅占」（又名高腳烏龍）便是一個極具個性的品種。無論將其製成紅茶（如金駿眉）、岩茶還是白茶，其成品始終帶有一種獨特的、類似臘梅花的香氣。</li>
                   </ul>
                 </div>
 
                 <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-6 space-y-3 text-amber-900/90 hover:shadow-md transition-shadow">
-                  <h4 className="text-xl font-extrabold text-amber-900">工藝香 (Process Aroma)</h4>
-                  <p className="text-lg leading-relaxed">工藝香是由特定製茶工藝賦予的標準化香氣，其特點是可複製性高，能應用於任何茶樹品種。</p>
-                  <ul className="list-disc list-inside space-y-2 text-lg leading-relaxed">
+                  <h4 className="text-[19px] font-extrabold text-amber-900">工藝香 (Process Aroma)</h4>
+                  <p className="text-[17px] leading-relaxed">工藝香是由特定製茶工藝賦予的標準化香氣，其特點是可複製性高，能應用於任何茶樹品種。</p>
+                  <ul className="list-disc list-inside space-y-2 text-[17px] leading-relaxed">
                     <li><span className="font-semibold">工藝範例：</span> 在大宗商品茶的生產中，為了確保產品風味的統一，常採用標準化製程。例如，大宗紅茶普遍帶有「蜜薯香」，而大宗綠茶則常有「豆香」。這種作法雖實現了標準化，卻常被視為一種以犧牲茶葉品質與個性為代價的行為。</li>
                   </ul>
                 </div>
 
                 <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-6 space-y-3 text-sky-900/90 hover:shadow-md transition-shadow">
-                  <h4 className="text-xl font-extrabold text-sky-900">茶類香 (Category Aroma)</h4>
-                  <p className="text-lg leading-relaxed">
+                  <h4 className="text-[19px] font-extrabold text-sky-900">茶類香 (Category Aroma)</h4>
+                  <p className="text-[17px] leading-relaxed">
                     茶類香是最高級的香氣形式，它是「品種香」與「工藝香」的完美結合。其精髓在於<strong>「因材施教，因地制宜」</strong>——製茶師根據茶樹品種的特性，選擇最適合的製茶工藝，從而最大化地激發其獨特潛力。鳳凰單叢與武夷岩茶的迷人香氣，便是茶類香的典範。
                   </p>
                 </div>
               </div>
 
               <div className="rounded-xl border border-emerald-100 border-l-4 border-l-emerald-400 bg-emerald-50/70 p-6 space-y-3 mt-4">
-                <div className="flex items-center gap-2 text-xl font-extrabold text-emerald-900">
+                <div className="flex items-center gap-2 text-[19px] font-extrabold text-emerald-900">
                   <span className="text-2xl">💡</span>
                   <span>核心觀點提煉</span>
                 </div>
-                <p className="text-lg text-emerald-900/90 leading-relaxed">
+                <p className="text-[17px] text-emerald-900/90 leading-relaxed">
                   儘管香氣來源可細分為多種類型，但必須強調一個核心事實：茶葉所有香氣與滋味的形成，100% 歸功於製茶工藝。山場和品種僅僅是提供了風味形成的「物質基礎」。如果直接咀嚼茶樹鮮葉，只會嚐到苦澀。沒有適當的工藝引導，這些潛在的物質便無法轉化為我們所品嚐到的萬千風味。
                 </p>
-                <div className="text-lg text-emerald-900/90 leading-relaxed mt-4 font-bold">
+                <div className="text-[17px] text-emerald-900/90 leading-relaxed mt-4 font-bold">
                   點擊上方按鈕，讓我們開始這趟風味轉化的旅程 →
                 </div>
               </div>
@@ -430,18 +430,18 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <div className="md:w-1/2 space-y-6">
                   <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-6 space-y-3 text-emerald-900/90">
-                    <h4 className="text-xl font-extrabold text-emerald-900">走水還陽</h4>
-                    <p className="text-lg leading-relaxed">
+                    <h4 className="text-[19px] font-extrabold text-emerald-900">走水還陽</h4>
+                    <p className="text-[17px] leading-relaxed">
                       萎凋包含「曬青」與「晾青」兩個環節，其目的是讓茶葉失水，為後續的化學變化做準備。當地人常用一個生動的詞彙——「走水還陽」——來描述這個反覆的過程：鮮葉在日光下攤晾失水變軟（走水），而後移入室內，葉梗中的水分會重新供給葉片，使其短暫恢復生機（還陽）。當葉梗水分耗盡，葉片再次變軟（退青），這個循環便告一段落，為下一步化學變化奠定基礎。
                     </p>
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-lg font-bold text-stone-900">關鍵化學變化：</h4>
+                    <h4 className="text-[17px] font-bold text-stone-900">關鍵化學變化：</h4>
                     <ul className="list-none space-y-3">
                       {['多糖水解為葡萄糖和果糖，增加了茶湯的甜感。', '游離氨基酸含量提高，貢獻了鮮爽度。', '代表青草氣的青葉醇、青葉醛等物質逐漸代謝，轉化為芳香類物質，初步形成花香。'].map((item, idx) => (
                         <li key={idx} className="flex gap-3 items-start p-3 bg-white rounded-lg border border-stone-100 shadow-sm">
-                          <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">{idx + 1}</div>
+                          <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-base flex-shrink-0 mt-0.5">{idx + 1}</div>
                           <span className="text-stone-700 leading-relaxed">{item}</span>
                         </li>
                       ))}
@@ -470,21 +470,21 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <div className="md:w-1/2 space-y-6">
                   <div className="rounded-2xl border border-sky-200 bg-sky-50/40 p-6 space-y-3 text-sky-900/90">
-                    <h4 className="text-xl font-extrabold text-sky-900">搖青：物理碰撞引發化學反應</h4>
-                    <p className="text-lg leading-relaxed">
+                    <h4 className="text-[19px] font-extrabold text-sky-900">搖青：物理碰撞引發化學反應</h4>
+                    <p className="text-[17px] leading-relaxed">
                       做青，也稱「搖青」，是透過晃動萎凋簾，使葉片互相摩擦、碰撞。這個動作會輕微破壞葉片邊緣的細胞組織，促進氧化發酵，形成烏龍茶標誌性的「綠葉紅鑲邊」特徵。其核心目標是進一步促進化學變化，徹底代謝殘餘的青草氣，並形成更豐富、更具層次感的芳香物質。
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-amber-200 bg-amber-50/40 p-6 space-y-3 text-amber-900/90">
-                    <h4 className="text-xl font-extrabold text-amber-900 flex items-center gap-2">
+                    <h4 className="text-[19px] font-extrabold text-amber-900 flex items-center gap-2">
                       <span className="text-2xl">⚠️</span>
                       萎凋與做青的核心地位
                     </h4>
-                    <p className="text-lg leading-relaxed">
+                    <p className="text-[17px] leading-relaxed">
                       萎凋與做青是形成烏龍茶香氣的絕對核心工藝。這兩個步驟極難被機器取代，完全依賴製茶師的經驗，需要「看天做青，看青做青」——根據當日的天氣狀況與鮮葉的狀態，靈活調整操作方式與時間。
                     </p>
-                    <p className="text-lg leading-relaxed border-t border-amber-200 pt-3">
+                    <p className="text-[17px] leading-relaxed border-t border-amber-200 pt-3">
                       若這兩步工藝不到位（即發酵不足），茶葉便會出現「返青」現象，即在存放過程中重新浮現出不悅的青草氣。這種茶的香氣多半依賴後期的重度焙火來掩蓋缺陷，而非來自工藝本身激發的天然芬芳。
                     </p>
                   </div>
@@ -508,8 +508,8 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <div className="md:w-1/2 space-y-6">
                   <div className="rounded-2xl border border-purple-200 bg-purple-50/40 p-6 space-y-3 text-purple-900/90">
-                    <h4 className="text-xl font-extrabold text-purple-900">高溫鎖定：如烹飪般的藝術</h4>
-                    <p className="text-lg leading-relaxed">
+                    <h4 className="text-[19px] font-extrabold text-purple-900">高溫鎖定：如烹飪般的藝術</h4>
+                    <p className="text-[17px] leading-relaxed">
                       殺青是利用高溫快速停止茶葉的發酵過程，將美好的香氣與滋味「鎖定」在葉片中。這個過程好比煎牛排：
                     </p>
 
@@ -544,8 +544,8 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <div className="md:w-1/2 space-y-6">
                   <div className="rounded-2xl border border-rose-200 bg-rose-50/40 p-6 space-y-3 text-rose-900/90">
-                    <h4 className="text-xl font-extrabold text-rose-900">揉捻：不僅是塑形</h4>
-                    <p className="text-lg leading-relaxed">
+                    <h4 className="text-[19px] font-extrabold text-rose-900">揉捻：不僅是塑形</h4>
+                    <p className="text-[17px] leading-relaxed">
                       揉捻的表面目的是塑造茶葉的外形（條形或球形），但其本質是透過物理擠壓，將茶葉內部的多糖類物質揉至葉片表面。這個動作如同烤肉時在表面刷上醬汁，是為了讓這些內含物質在後續的烘焙中能更充分地參與化學反應。許多濃香型烏龍茶（如堅果香、蜂蜜香、奶油香）的形成，都必須以充分的揉捻為前提。
                     </p>
                   </div>
@@ -572,8 +572,8 @@ export default function TeaProcessCraftChapter() {
                 </div>
                 <div className="md:w-1/2 space-y-6">
                   <div className="rounded-2xl border border-teal-200 bg-teal-50/40 p-6 space-y-3 text-teal-900/90">
-                    <h4 className="text-xl font-extrabold text-teal-900">乾燥：定香與風格分歧點</h4>
-                    <p className="text-lg leading-relaxed">
+                    <h4 className="text-[19px] font-extrabold text-teal-900">乾燥：定香與風格分歧點</h4>
+                    <p className="text-[17px] leading-relaxed">
                       乾燥的基礎目標是透過烘焙，將茶葉的含水量控制在5%以下，以便於長期保存。在此階段，不同香型的烏龍茶會走向不同的道路：
                     </p>
 
@@ -591,7 +591,7 @@ export default function TeaProcessCraftChapter() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-stone-200 bg-stone-50 p-6 text-stone-700 mt-8 text-lg font-medium text-center">
+              <div className="rounded-xl border border-stone-200 bg-stone-50 p-6 text-stone-700 mt-8 text-[17px] font-medium text-center">
                 至此，一片鮮葉完成了它的華麗轉身。茶葉的香氣，正是這趟旅程中，由製茶工藝精心引導的無數化學變化的結晶。
               </div>
             </SectionCard>
@@ -602,17 +602,17 @@ export default function TeaProcessCraftChapter() {
         {activeStep === 6 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
             <SectionCard title="品鑑的智慧：超越標籤，回歸感官" icon={Coffee}>
-              <p className="text-lg text-stone-700 leading-relaxed mb-6">
+              <p className="text-[17px] text-stone-700 leading-relaxed mb-6">
                 在理解了茶葉香氣複雜的形成過程後，我們需要建立一個正確的品鑑心態：擺脫對香氣標籤的執著，轉而專注於真實的感官體驗。
               </p>
 
               <div className="space-y-6">
                 <div className="rounded-2xl border border-stone-200 bg-white/80 p-6 space-y-3 shadow-sm">
-                  <h4 className="text-xl font-extrabold text-stone-900 flex items-center gap-2">
+                  <h4 className="text-[19px] font-extrabold text-stone-900 flex items-center gap-2">
                     <span className="w-2 h-8 bg-stone-800 rounded-full" />
                     香氣的複合性與香精茶的鑑別
                   </h4>
-                  <div className="space-y-3 text-lg leading-relaxed text-stone-700">
+                  <div className="space-y-3 text-[17px] leading-relaxed text-stone-700">
                     <p>
                       茶葉的天然香氣是極其複合的。以烏龍茶為例，其香氣由大約300至400種不同的芳香類物質共同構成。這種由數百種物質構成的複雜性，正是前述五道工序——從萎凋的酶促反應到乾燥的美拉德反應——環環相扣、協同作用的最終成果。正是這種複雜性，讓經驗豐富的茶客能輕易鑑別出「香精茶」。
                     </p>
@@ -623,11 +623,11 @@ export default function TeaProcessCraftChapter() {
                 </div>
 
                 <div className="rounded-2xl border border-stone-200 bg-white/80 p-6 space-y-3 shadow-sm">
-                  <h4 className="text-xl font-extrabold text-stone-900 flex items-center gap-2">
+                  <h4 className="text-[19px] font-extrabold text-stone-900 flex items-center gap-2">
                     <span className="w-2 h-8 bg-stone-400 rounded-full" />
                     香氣描述的「善意謊言」
                   </h4>
-                  <div className="space-y-3 text-lg leading-relaxed text-stone-700">
+                  <div className="space-y-3 text-[17px] leading-relaxed text-stone-700">
                     <p>
                       我們常聽到的「蘭花香」、「板栗香」或「蜜薯香」等描述，與其說是客觀分類，不如說是一種「善意的謊言」。這些詞彙並非精確的科學術語，而是人們為了方便溝通與理解，從日常生活中找到的近似形容。
                     </p>
@@ -639,20 +639,20 @@ export default function TeaProcessCraftChapter() {
 
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-8 space-y-4 text-center">
                   <h4 className="text-2xl font-extrabold text-emerald-900">品鑑的核心建議</h4>
-                  <p className="text-lg text-emerald-900/90 leading-relaxed">因此，學習品茶的本質是一場感官體驗，而非死記硬背術語。真正的進階之路在於：</p>
+                  <p className="text-[17px] text-emerald-900/90 leading-relaxed">因此，學習品茶的本質是一場感官體驗，而非死記硬背術語。真正的進階之路在於：</p>
                   <div className="py-6">
                     <span className="text-3xl md:text-4xl font-black text-emerald-700 bg-white/50 px-8 py-4 rounded-full border-2 border-emerald-200 inline-block shadow-sm">
                       多聞多喝，多感受多對比
                     </span>
                   </div>
-                  <p className="text-lg text-emerald-900/90 leading-relaxed">透過大量的實際品飲，逐步建立屬於您自己的嗅覺與味蕾記憶庫。這才是理解茶葉、鑑賞風味最可靠的路徑。</p>
+                  <p className="text-[17px] text-emerald-900/90 leading-relaxed">透過大量的實際品飲，逐步建立屬於您自己的嗅覺與味蕾記憶庫。這才是理解茶葉、鑑賞風味最可靠的路徑。</p>
                 </div>
               </div>
             </SectionCard>
 
             <SectionCard title="最終總結" icon={BookOpen}>
               <div className="rounded-xl border border-amber-100 border-l-4 border-l-amber-400 bg-amber-50/70 p-6">
-                <p className="text-xl text-amber-900/90 leading-relaxed font-medium">
+                <p className="text-[19px] text-amber-900/90 leading-relaxed font-medium">
                   掌握茶葉香氣的底層邏輯，您不僅能極大提升品鑑能力，更能看穿市場上的不實話術，做出真正明智的選擇，避免被「香精茶」或工藝拙劣的產品所蒙蔽。
                 </p>
               </div>

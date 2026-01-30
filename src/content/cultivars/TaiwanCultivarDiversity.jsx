@@ -106,7 +106,7 @@ export default function TaiwanCultivarDiversity() {
 
         <Callout title="快速記憶框架：先抓大方向">
           先記住核心口訣 <span className="text-sky-700 font-bold bg-sky-100 px-1 rounded">「大葉種 vs 小葉種」</span> 與 <span className="text-sky-700 font-bold bg-sky-100 px-1 rounded">「四大十一小」</span>。
-          <ul className="mt-3 space-y-1 text-sm pl-4 border-l-2 border-sky-200 text-stone-600">
+          <ul className="mt-3 space-y-1 text-base pl-4 border-l-2 border-sky-200 text-stone-600">
             <li>• <strong>大葉種：</strong> 多與紅茶系統相關（如阿薩姆、紅玉）。</li>
             <li>• <strong>小葉種：</strong> 廣泛應用於綠茶、包種與烏龍（如青心烏龍、金萱）。</li>
           </ul>
@@ -119,7 +119,7 @@ export default function TaiwanCultivarDiversity() {
                 茶樹屬多年生常綠作物，並非糧食作物，具有特殊的經濟用途。在生物學特性上，茶樹屬於<strong className="text-emerald-700">異交作物</strong>。
                 雖然雌雄同花，但因「自交不親和性」（常用「近水樓台不得月」形容），必須藉由其他雄蕊花粉授粉，才能完成繁殖。
               </p>
-              <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 text-sm text-stone-600 shadow-sm">
+              <div className="bg-stone-50 rounded-xl p-4 border border-stone-200 text-base text-stone-600 shadow-sm">
                 <div className="flex gap-3 mb-2">
                   <div className="p-2 bg-white rounded-lg shadow-sm shrink-0"><GitBranch size={16} className="text-stone-400" /></div>
                   <div>
@@ -140,7 +140,7 @@ export default function TaiwanCultivarDiversity() {
                   <div className="mt-1 p-2 bg-emerald-100 text-emerald-700 rounded-lg"><Wind size={16} /></div>
                   <div>
                     <div className="text-sm font-bold text-stone-900">1. 雜交育種 (Hybridization)</div>
-                    <ul className="text-sm text-stone-600 mt-1 space-y-1">
+                    <ul className="text-base text-stone-600 mt-1 space-y-1">
                       <li>• <strong className="text-emerald-700">天然雜交：</strong> 風力/昆蟲授粉，父本不詳。ex: 台茶 21, 23</li>
                       <li>• <strong className="text-emerald-700">人工雜交：</strong> 父母本已知，遠緣雜交優勢。ex: 台茶 12, 18, 22</li>
                     </ul>
@@ -150,7 +150,7 @@ export default function TaiwanCultivarDiversity() {
                   <div className="mt-1 p-2 bg-amber-100 text-amber-700 rounded-lg"><Search size={16} /></div>
                   <div>
                     <div className="text-sm font-bold text-stone-900">2. 單株選拔 (Selection)</div>
-                    <p className="text-sm text-stone-600 mt-1">
+                    <p className="text-base text-stone-600 mt-1">
                       從現有變異群體中挑選優異單株。
                       <br /><span className="text-xs text-stone-500">ex: 台茶 8 號 (阿薩姆選拔), 台茶 24 號 (原生山茶選拔)</span>
                     </p>
@@ -177,15 +177,15 @@ export default function TaiwanCultivarDiversity() {
                 <Leaf size={20} /> 大葉種 (Assamica)
               </h4>
               <ul className="space-y-3 relative z-10">
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-rose-500 font-bold text-xs">高</div>
                   <span>兒茶素高 (苦澀感強、茶體厚)</span>
                 </li>
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-rose-500"><Droplets size={14} /></div>
                   <span>適合 <strong className="text-rose-700">紅色系 (紅茶)</strong> 全發酵</span>
                 </li>
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-rose-500"><MapPin size={14} /></div>
                   <span>魚池、埔里 (日月潭產區)</span>
                 </li>
@@ -200,15 +200,15 @@ export default function TaiwanCultivarDiversity() {
                 <Sprout size={20} /> 小葉種 (Sinensis)
               </h4>
               <ul className="space-y-3 relative z-10">
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-emerald-500 font-bold text-xs">低</div>
                   <span>兒茶素較低 (風味細緻、優雅)</span>
                 </li>
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-emerald-500"><div className="w-2 h-2 rounded-full bg-emerald-400"></div></div>
                   <span>適合 <strong className="text-emerald-700">綠茶、包種、烏龍</strong></span>
                 </li>
-                <li className="flex items-center gap-3 text-sm text-stone-700">
+                <li className="flex items-center gap-3 text-base text-stone-700">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-emerald-500"><MapPin size={14} /></div>
                   <span>全台多數高山與丘陵茶區</span>
                 </li>
@@ -217,7 +217,7 @@ export default function TaiwanCultivarDiversity() {
           </div>
 
           <SimpleTable title="詳細快速對照">
-            <table className="min-w-full text-sm text-stone-700">
+            <table className="min-w-full text-base text-stone-700">
               <thead className="bg-stone-50">
                 <tr className="text-left">
                   <th className="px-6 py-3 font-extrabold text-stone-600">面向</th>
@@ -332,7 +332,7 @@ export default function TaiwanCultivarDiversity() {
                         <strong className="text-stone-900">{item.title}</strong>
                         <span className="text-xs font-bold px-2 py-0.5 bg-stone-100 text-stone-500 rounded">{item.pct}</span>
                       </div>
-                      <p className="text-sm text-stone-600 leading-snug">{item.desc}</p>
+                      <p className="text-base text-stone-600 leading-snug">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -347,13 +347,13 @@ export default function TaiwanCultivarDiversity() {
               <div className="space-y-4">
                 <div className="border-l-4 border-emerald-200 pl-4 py-1">
                   <strong className="text-lg text-emerald-900">台茶 12 號 (金萱)</strong>
-                  <p className="text-stone-700 text-sm mt-1">
+                  <p className="text-stone-700 text-base mt-1">
                     產量高、具獨特奶香，包種/烏龍/紅茶皆宜。新手入門首選。
                   </p>
                 </div>
                 <div className="border-l-4 border-rose-200 pl-4 py-1">
                   <strong className="text-lg text-rose-900">台茶 18 號 (紅玉)</strong>
-                  <p className="text-stone-700 text-sm mt-1">
+                  <p className="text-stone-700 text-base mt-1">
                     薄荷香＋肉桂香。具強烈收斂性與辨識度，台灣紅茶的國際名片。
                   </p>
                 </div>
@@ -361,7 +361,7 @@ export default function TaiwanCultivarDiversity() {
                   <div className="flex items-center gap-2 text-purple-900 font-bold mb-2">
                     <Sprout size={16} /> 未來新星：台茶 25 號 (紫芽)
                   </div>
-                  <p className="text-purple-800 text-sm leading-relaxed">
+                  <p className="text-purple-800 text-base leading-relaxed">
                     花青素極高，遇酸變色（手搖飲潛力）。觀賞與飲用兼具的明日之星。
                   </p>
                 </div>
@@ -379,7 +379,7 @@ export default function TaiwanCultivarDiversity() {
               <h4 className="font-bold text-rose-900 text-lg mb-4 flex items-center gap-2">
                 <Sun size={20} className="text-rose-500" /> 紅茶的多樣化
               </h4>
-              <div className="space-y-3 text-sm text-stone-700">
+              <div className="space-y-3 text-base text-stone-700">
                 <p className="leading-relaxed">
                   從早期日月潭的大葉種（阿薩姆、紅玉）為主，現已發展出百花齊放的局面。
                 </p>
@@ -397,7 +397,7 @@ export default function TaiwanCultivarDiversity() {
               <h4 className="font-bold text-white text-lg mb-4 flex items-center gap-2 relative z-10">
                 <Leaf size={20} className="text-emerald-400" /> 台灣原生山茶
               </h4>
-              <p className="leading-relaxed text-sm relative z-10">
+              <p className="leading-relaxed text-base relative z-10">
                 分布於中央山脈南段（六龜、永康山、鳳凰山等）。
                 <br /><br />
                 <strong>特點：</strong> 多為實生苗喬木，樹勢高大，芽葉無毛或少毛。風味獨特，帶有狂野的山林氣息。
@@ -442,12 +442,12 @@ export default function TaiwanCultivarDiversity() {
                 <div className="relative pl-10">
                   <div className="absolute left-1 top-1.5 w-5 h-5 rounded-full bg-stone-400 border-4 border-stone-100"></div>
                   <strong className="block text-stone-800">早期 (清領/日治)</strong>
-                  <span className="text-sm text-stone-600">以形態或產地俗名命名 (如軟枝、硬枝、大葉、青心...)</span>
+                  <span className="text-base text-stone-600">以形態或產地俗名命名 (如軟枝、硬枝、大葉、青心...)</span>
                 </div>
                 <div className="relative pl-10">
                   <div className="absolute left-1 top-1.5 w-5 h-5 rounded-full bg-stone-600 border-4 border-stone-100"></div>
                   <strong className="block text-stone-800">茶改場選育 (台茶 1–11 號)</strong>
-                  <span className="text-sm text-stone-600">前期多針對綠茶/紅茶選育，週期長 (約35年)。</span>
+                  <span className="text-base text-stone-600">前期多針對綠茶/紅茶選育，週期長 (約35年)。</span>
                 </div>
                 <div className="relative pl-10">
                   <div className="absolute left-1 top-1.5 w-5 h-5 rounded-full bg-emerald-600 border-4 border-stone-100"></div>
@@ -462,7 +462,7 @@ export default function TaiwanCultivarDiversity() {
         </Section>
 
         <footer className="mt-12 pt-8 border-t border-stone-200 text-center">
-          <p className="text-stone-500 text-sm italic">
+          <p className="text-stone-500 text-base italic">
             * 本章節不僅是知識，皆為台灣茶農與研究人員的心血結晶。飲水思源，品茶更香。
           </p>
         </footer>

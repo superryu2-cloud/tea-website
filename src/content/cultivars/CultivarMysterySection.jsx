@@ -68,7 +68,7 @@ export default function CultivarMysterySection() {
 
                         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
                             <div className="font-extrabold text-emerald-900 mb-3">品種與風味的對應關係</div>
-                            <div className="space-y-3 text-sm">
+                            <div className="space-y-3 text-base">
                                 <div className="bg-white rounded-lg p-4 border border-emerald-100">
                                     <div className="font-extrabold text-stone-900">青心烏龍</div>
                                     <div className="mt-2 text-stone-700">
@@ -110,7 +110,7 @@ export default function CultivarMysterySection() {
 
                         <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
                             <div className="font-extrabold text-blue-900 mb-3">海拔對品種的影響</div>
-                            <div className="space-y-3 text-sm">
+                            <div className="space-y-3 text-base">
                                 <div className="bg-white rounded-lg p-4 border border-blue-100">
                                     <div className="font-extrabold text-stone-900">高海拔（1000m以上）</div>
                                     <div className="mt-2 text-stone-700">
@@ -143,7 +143,7 @@ export default function CultivarMysterySection() {
 
                         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 mt-4">
                             <div className="font-extrabold text-amber-900 mb-2">土壤的影響</div>
-                            <p className="text-sm text-stone-700 leading-relaxed">
+                            <p className="text-base text-stone-700 leading-relaxed">
                                 茶樹喜歡酸性土壤（pH 4.5-5.5），不同的土壤礦物質組成會影響茶葉的風味。
                                 例如，岩石風化土壤（如武夷山）會帶來獨特的「岩韻」；紅土（如日月潭）則讓紅茶更加醇厚。
                             </p>
@@ -163,7 +163,7 @@ export default function CultivarMysterySection() {
 
                         <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
                             <div className="font-extrabold text-rose-900 mb-3">品種與工藝的最佳配對</div>
-                            <div className="space-y-3 text-sm">
+                            <div className="space-y-3 text-base">
                                 <div className="bg-white rounded-lg p-4 border border-rose-100">
                                     <div className="font-extrabold text-stone-900">青心烏龍 × 清香型工藝</div>
                                     <div className="mt-2 text-stone-700">
@@ -197,7 +197,7 @@ export default function CultivarMysterySection() {
 
                         <div className="rounded-2xl border border-stone-200 bg-white p-5 mt-4">
                             <div className="font-extrabold text-stone-900 mb-3">工藝選擇的原則</div>
-                            <ul className="space-y-2 text-sm text-stone-700 list-disc pl-5">
+                            <ul className="space-y-2 text-base text-stone-700 list-disc pl-5">
                                 <li><strong>順應品種特性：</strong>不要強迫品種做它不擅長的事</li>
                                 <li><strong>揚長避短：</strong>用工藝放大品種的優點，規避缺點</li>
                                 <li><strong>創新嘗試：</strong>在理解基礎上，可以嘗試非傳統配對（如金萱紅茶）</li>
@@ -228,7 +228,7 @@ export default function CultivarMysterySection() {
                                     <p>
                                         <strong>3. 工藝互動（製程）：</strong>發酵度、焙火度、揉捻方式影響最終風味
                                     </p>
-                                    <p className="mt-4 text-sm text-stone-600">
+                                    <p className="mt-4 text-base text-stone-600">
                                         理解這三者的關係，就能更深入地欣賞每一杯茶的獨特性，
                                         也能更準確地選擇適合自己口味的茶品。
                                     </p>

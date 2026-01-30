@@ -156,7 +156,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
                 <strong>酸鹼度：</strong>酸度適中，多屬多礫質壤土，極利於茶樹根系發育與礦物吸收。
               </li>
             </ul>
-            <p className="mt-3 leading-relaxed text-sm text-stone-600">
+            <p className="mt-3 leading-relaxed text-[17px] text-stone-600">
               這些土壤特質，尤其是鉀與錳的含量，直接轉化為茶葉的生化特徵，奠定了「岩韻」的品質基礎，並成為傳統地理分級的首要依據。
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
 
             <div className="mt-6 space-y-6">
               <div className="rounded-xl border-l-4 border-emerald-500 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">正岩產地（岩上茶/大岩茶）</h4>
+                <h4 className="text-[19px] font-extrabold text-stone-900">正岩產地（岩上茶/大岩茶）</h4>
                 <p className="mt-2 leading-relaxed">
                   此區域為武夷岩茶的核心保護區，範圍約 72 平方公里。
                 </p>
@@ -185,7 +185,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border-l-4 border-amber-500 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">半岩產地（岩下茶）</h4>
+                <h4 className="text-[19px] font-extrabold text-stone-900">半岩產地（岩下茶）</h4>
                 <p className="mt-2 leading-relaxed">
                   指生長在岩山底部、邊緣及周邊丘陵地帶的茶園，位於丹霞地貌與河谷地貌的過渡區。
                 </p>
@@ -200,7 +200,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border-l-4 border-blue-500 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">洲茶產區</h4>
+                <h4 className="text-[19px] font-extrabold text-stone-900">洲茶產區</h4>
                 <p className="mt-2 leading-relaxed">
                   分布於上述岩區之外的黃壤土茶地及河洲沖積土帶。
                 </p>
@@ -215,7 +215,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border-l-4 border-stone-400 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">外山茶</h4>
+                <h4 className="text-[19px] font-extrabold text-stone-900">外山茶</h4>
                 <p className="mt-2 leading-relaxed">
                   指武夷山市行政區範圍之外的產地（如建陽、政和、邵武）。
                 </p>
@@ -237,7 +237,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
-                <h4 className="text-lg font-extrabold text-emerald-900">名岩區</h4>
+                <h4 className="text-[19px] font-extrabold text-emerald-900">名岩區</h4>
                 <p className="mt-2 leading-relaxed text-stone-700">
                   涵蓋了傳統的正岩與半岩範圍。其邊界明確界定為：崇陽溪以西、黃柏溪以南、南星公路以北的武夷山風景名勝區內。
                 </p>
@@ -247,7 +247,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border border-stone-200 bg-stone-50 p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">丹岩區</h4>
+                <h4 className="text-[19px] font-extrabold text-stone-900">丹岩區</h4>
                 <p className="mt-2 leading-relaxed text-stone-700">
                   指武夷山市行政轄區內（2798 平方公里），除上述風景區（約 70 平方公里）以外的所有區域。
                 </p>
@@ -268,28 +268,28 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
             <div className="mt-6 space-y-4">
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">清代評價</div>
-                <p className="mt-2 leading-relaxed text-sm">
+                <p className="mt-2 leading-relaxed text-[17px]">
                   陸廷燦《續茶經·茶之出》提出：「武夷茶在山上者為岩茶，水邊者為洲茶。岩茶為上，洲茶次之。」並確立「北山者為上」的權威地位。
                 </p>
               </div>
 
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">民國 23 年（1934 年）</div>
-                <p className="mt-2 leading-relaxed text-sm">
+                <p className="mt-2 leading-relaxed text-[17px]">
                   《武夷岩茶之生產製造及運銷》將茶園分為「青獅系」（山之西）與「企山系」（東北麓）。此時期將山坑岩壑所產稱為「大岩茶」（如三坑）；而「中岩茶」則指廣靈岩、寶石岩、玉華岩、佛國岩等溪坑所產；山腳砂洲則為洲茶。
                 </p>
               </div>
 
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">1990 年代</div>
-                <p className="mt-2 leading-relaxed text-sm">
+                <p className="mt-2 leading-relaxed text-[17px]">
                   《福建烏龍》界定天心岩、慧苑岩為正岩；碧石、青獅為半岩；海拔低於 200 米的溪旁平地為洲茶。
                 </p>
               </div>
 
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">2008 年</div>
-                <p className="mt-2 leading-relaxed text-sm">
+                <p className="mt-2 leading-relaxed text-[17px]">
                   《武夷岩名山靈芽》重新定義風景區內分布：正岩指「三坑兩澗」；「中岩」則指三坑兩澗之外、九曲溪一帶的岩山；半岩指丘陵區；洲茶指沙地。
                 </p>
               </div>
@@ -302,7 +302,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
 
             <div className="mt-6 space-y-6">
               <div className="rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-5">
-                <h4 className="text-lg font-extrabold text-emerald-900">慧苑坑：名茶大觀園與基因庫</h4>
+                <h4 className="text-[19px] font-extrabold text-emerald-900">慧苑坑：名茶大觀園與基因庫</h4>
                 <p className="mt-3 leading-relaxed">
                   作為「三坑兩澗」中範圍最大的山場，慧苑坑位於九曲溪以北，其微氣候特徵為「夏短、秋長、冬短」，冬季溫暖濕潤且早春少霜，極利於茶芽在秋冬季的生長。
                 </p>
@@ -317,7 +317,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border border-amber-200 bg-gradient-to-br from-amber-50 to-white p-5">
-                <h4 className="text-lg font-extrabold text-amber-900">蓮花峰：佛教聖地與風化殘積土</h4>
+                <h4 className="text-[19px] font-extrabold text-amber-900">蓮花峰：佛教聖地與風化殘積土</h4>
                 <p className="mt-3 leading-relaxed">
                   海拔約 536 米（相對高度 314 米），屬武夷山三十六名峰之一。
                 </p>
@@ -332,7 +332,7 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
 
               <div className="rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-5">
-                <h4 className="text-lg font-extrabold text-blue-900">佛國岩：縱橫紋理與生態水源</h4>
+                <h4 className="text-[19px] font-extrabold text-blue-900">佛國岩：縱橫紋理與生態水源</h4>
                 <p className="mt-3 leading-relaxed">
                   位於武夷山北側，岩體南北延伸三百多米，北連「彌陀岩」。
                 </p>
@@ -347,14 +347,14 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
             </div>
 
-            <p className="mt-6 leading-relaxed text-sm text-stone-600">
+            <p className="mt-6 leading-relaxed text-[17px] text-stone-600">
               總結而言，武夷岩茶的產區劃分是基於地質構造、土壤成分與微氣候的嚴謹科學鑑定。從傳統的四級劃分到現代名岩標準，核心始終不脫離對「岩韻」真諦的保護。
             </p>
           </div>
 
           {/* 原有內容：品種香氣介紹 */}
           <div className="rounded-2xl border border-stone-200 bg-white p-6">
-            <div className="text-xs font-extrabold tracking-widest text-stone-500">武夷岩茶十大品種香</div>
+            <div className="text-sm font-extrabold tracking-widest text-stone-500">武夷岩茶十大品種香</div>
             <h3 className="mt-3 text-2xl font-extrabold text-stone-900">品種香氣特徵</h3>
           </div>
 
@@ -376,9 +376,9 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
           <div className="grid gap-6 md:grid-cols-2">
             {rockTeaAromas.map((item) => (
               <div key={item.number} className="rounded-2xl border border-stone-200 bg-white p-6">
-                <div className="text-sm font-extrabold text-stone-500">{item.number}</div>
+                <div className="text-base font-extrabold text-stone-500">{item.number}</div>
                 <h4 className="mt-2 text-xl font-extrabold text-stone-900">{item.name}</h4>
-                <div className="mt-2 inline-flex rounded-full bg-stone-100 px-3 py-1 text-xs font-bold text-stone-700">
+                <div className="mt-2 inline-flex rounded-full bg-stone-100 px-3 py-1 text-sm font-bold text-stone-700">
                   {item.subtitle}
                 </div>
                 <p className="mt-4 leading-relaxed">{item.content}</p>

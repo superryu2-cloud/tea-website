@@ -10,538 +10,445 @@ import {
   Thermometer,
   Users,
   Wind,
+  Flower,
+  BookOpen,
+  Sparkles,
+  Coffee,
+  Sprout,
+  Scale,
+  CloudRain
 } from 'lucide-react';
 import { Callout, DataTable } from '../references/ui';
 
 export default function OrientalBeautySupplement() {
   return (
-    <div className="museum-panel p-7 md:p-10">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div className="min-w-0 relative z-10">
-          <div className="museum-label">TEACHING · NOTES</div>
-          <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-stone-900">臺灣東方美人茶特色介紹</h3>
-          <p className="mt-3 text-stone-700 leading-relaxed max-w-3xl">
-            以下內容為東方美人茶的「產業 × 歷史 × 風味 × 產地 × 製程 × 評鑑 × 應用」完整整理，方便教學與對照。
-          </p>
-        </div>
-        <div className="hidden md:block absolute right-0 bottom-0 w-64 h-64 opacity-20 pointer-events-none">
-          <img src="/images/featured/orientalbeauty/landscape_painting.png" alt="" className="w-full h-full object-cover mask-image-gradient" style={{ maskImage: 'linear-gradient(to bottom, transparent, black)' }} />
-        </div>
+    <div className="max-w-5xl mx-auto space-y-24 pb-24">
+      {/* Header */}
+      <div className="relative py-16 px-8 md:px-0 text-center">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-amber-900/30" />
+        <span className="inline-block py-1 px-3 border border-amber-900/30 rounded-full text-amber-900 text-xs font-bold tracking-[0.2em] mb-4">TEACHING NOTES</span>
+        <h3 className="text-4xl md:text-5xl font-black text-stone-900 font-serif mb-6">臺灣東方美人茶<br /><span className="text-2xl md:text-3xl text-stone-500 font-light mt-2 block">深度教學與產業分析</span></h3>
+        <p className="text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">
+          本章節整合產業現況、生態機制、製程工藝與市場評鑑，提供最完整的東方美人茶教學資料庫。
+        </p>
       </div>
 
-      <div className="mt-10 space-y-4">
-        <details id="obt-unit-1" className="group rounded-2xl border border-stone-200 bg-white overflow-hidden" open>
-          <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-4 transistion-colors hover:bg-stone-50">
-            <span className="mt-0.5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0 shadow-sm">
-              <Users size={20} />
-            </span>
-            <div className="min-w-0 pt-1">
-              <div className="font-extrabold text-stone-900 text-xl">第一單元：產業現況與危機</div>
-              <div className="mt-2 text-base text-stone-600">茶山勞工、計價方式、產業壓力</div>
-            </div>
-          </summary>
-          <div className="px-8 pb-8">
-            <div className="mt-6 grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-2 font-extrabold text-stone-900 text-lg mb-4">
-                  <Users size={18} className="text-stone-500" /> 茶山勞工與計價方式
-                </div>
-                <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">人力結構：</span>目前茶山面臨勞工缺乏問題。現在幫忙採茶的工人，大部分不是外籍勞工。
-                  </li>
-                  <li>
-                    <span className="font-bold">薪資計價：</span>臺灣目前仍以<span className="font-bold">黃金（重量）計價</span>，而非日薪。
-                    <ul className="list-disc pl-5 mt-2 space-y-2 text-stone-600">
-                      <li>山區採茶工資約為一公斤 70 元。</li>
-                      <li>里山採茶工資約為一公斤 60 元。</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="font-bold">產業危機：</span>臺灣茶產業正逐漸面臨<span className="font-bold">國內市場的擠壓</span>，這是目前產業的危機。
-                  </li>
-                </ol>
+      {/* Section 01: Ecology & Nature's Alchemy (Renumbered from 02) */}
+      <section>
+        <div className="flex items-center gap-4 mb-8 justify-center">
+          <span className="text-5xl font-serif text-stone-200 font-bold">01</span>
+          <div className="text-center md:text-left">
+            <h4 className="text-2xl md:text-3xl font-bold text-stone-900">自然的煉金術：天時與地利</h4>
+            <p className="text-sm text-stone-500 mt-1">小綠葉蟬 × 友善農法 × 自然密碼</p>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-[2rem] border border-stone-200 shadow-xl overflow-hidden mb-12">
+          <div className="grid md:grid-cols-2">
+            <div className="p-8 md:p-12 space-y-8">
+              <div className="prose text-stone-700">
+                <strong className="text-amber-800 block text-lg mb-2">3.1 關鍵角色：蜜香的誕生與天時</strong>
+                <p className="text-sm">
+                  蜜香的誕生核心在於「著涎」。茶樹嫩芽經刺吸後，啟動防禦療癒機制。
+                  <br />但要吸引小綠葉蟬極難。牠們偏好「悶濕」氣候。若茶園通風涼爽（天時不對），即便友善農法也可能無蟲造訪，獨缺蜜香。這說明了天時的決定性。
+                </p>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 md:col-span-2 shadow-sm">
-                <div className="grid gap-4 md:grid-cols-2 h-full">
-                  <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 text-base font-extrabold text-stone-900 mb-2">
-                      <Coins size={18} className="text-amber-600" /> 計價方式重點
-                    </div>
-                    <div className="text-base text-stone-700 leading-relaxed">
-                      以重量計價會讓「採摘效率」直接影響收入，也會影響茶園對採摘標準與人力安排的策略。
-                    </div>
+              <div className="space-y-4 bg-amber-50/50 p-6 rounded-2xl border border-amber-100">
+                <h5 className="font-bold text-stone-900 mb-2">刺吸後的三大生化反應</h5>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold shrink-0 text-sm">1</div>
+                  <div>
+                    <h6 className="font-bold text-stone-800 text-sm">在欉發酵 (On-Plant)</h6>
+                    <p className="text-xs text-stone-600">傷口接觸空氣，樹上即開始氧化發酵。</p>
                   </div>
-                  <div className="rounded-2xl border border-stone-200 bg-rose-50 p-5 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 text-base font-extrabold text-stone-900 mb-2">
-                      <ShieldAlert size={18} className="text-rose-600" /> 產業危機提示
-                    </div>
-                    <div className="text-base text-stone-700 leading-relaxed">
-                      國內市場擠壓帶來的壓力，會反映在價格、通路、勞動成本與品質維持等面向。
-                    </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold shrink-0 text-sm">2</div>
+                  <div>
+                    <h6 className="font-bold text-stone-800 text-sm">防禦機制 (Defense)</h6>
+                    <p className="text-xs text-stone-600">釋放費洛蒙吸引天敵（白獵蛛、黃斑粗喙椿象）。「聯合次要敵人打擊主要敵人」。</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold shrink-0 text-sm">3</div>
+                  <div>
+                    <h6 className="font-bold text-stone-800 text-sm">自癒能力 (Healing)</h6>
+                    <p className="text-xs text-stone-600">分泌芳香醇與茶多酚修復傷口。「傷口令人脆弱，但也令人堅強。」</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative h-full min-h-[400px] group">
+              <img src="/images/featured/orientalbeauty/leafhopper.png" className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0" alt="Jacobiasca formosana Art" />
+              <img src="/images/featured/orientalbeauty/leafhopper_macro.png" className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" alt="Jacobiasca formosana Real" />
+
+              <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold border border-white/20">
+                HOVER TO SEE REAL
+              </div>
+
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 text-white pointer-events-none">
+                <h5 className="font-serif text-2xl font-bold mb-2">Jacobiasca formosana</h5>
+                <p className="opacity-90">小綠葉蟬・蜜香的靈魂繪師</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Friendly Farming */}
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-stone-50 p-8 rounded-[2rem] border border-stone-200">
+            <h5 className="font-bold text-stone-900 text-xl mb-4 flex items-center gap-2"><Sprout className="text-green-600" /> 3.2 友善農法：草與茶的共生</h5>
+            <p className="text-sm text-stone-700 mb-4 leading-relaxed">
+              不施肥、不除草。保留完整生態鏈：
+              <br /><span className="font-bold text-stone-800">蚯蚓 → 青蛙 → 蛇 → 老鷹</span>。
+            </p>
+            <div className="bg-white p-4 rounded-xl border border-stone-100 shadow-sm">
+              <strong className="block text-stone-900 mb-2 text-sm">草生栽培的智慧（草不是敵人，是對手）</strong>
+              <p className="text-xs text-stone-600">
+                乾旱時，地表的草能為茶樹根部保濕，將儲存水分輸送給茶樹。這是一種順應自然的生態智慧。
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-stone-50 p-8 rounded-[2rem] border border-stone-200">
+            <h5 className="font-bold text-stone-900 text-xl mb-4 flex items-center gap-2"><Leaf className="text-amber-700" /> 3.3 深根 vs 淺根</h5>
+            <ul className="space-y-4 text-sm text-stone-700">
+              <li>
+                <strong className="text-stone-900">茶樹本性：深根植物</strong>
+                <br />標準：根深達地面高度的三倍。能深入地底吸取微量元素與水分。
+              </li>
+              <li>
+                <strong className="text-stone-900">施肥的影響：誘導淺根化</strong>
+                <br />習慣表層獲取養分後，根系不再向下探索，退化為淺根。雖產量高，但抗旱力弱，風味層次較淺。
+              </li>
+              <li className="text-xs text-stone-500 italic">
+                *友善農法不施肥的堅持，正是為了逼茶樹回歸深根，孕育出更富生命力的茶菁。
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Honey Aroma Debate */}
+        <div className="mt-12 bg-white border border-stone-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-[100%] z-0" />
+          <h4 className="text-xl font-bold text-stone-900 mb-6 relative z-10">4. 「蜜香」的本質論辯</h4>
+          <div className="grid md:grid-cols-2 gap-12 relative z-10">
+            <div>
+              <h5 className="font-bold text-amber-700 mb-2">主流觀點：源於自然</h5>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                源於茶樹被刺吸後的生物本能（防禦力 + 治癒力）。<br />
+                <span className="italic">"茶樹跟人一樣，傷口會讓人脆弱，但也讓人堅強。" ——《茶金》</span>
+              </p>
+            </div>
+            <div>
+              <h5 className="font-bold text-stone-600 mb-2">另一種聲音：源於工藝（梅納反應）</h5>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                認為可透過烘焙產生之「梅納反應」（Maillard）製造糖香/焦糖香，並稱之為蜜香。
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 p-4 bg-stone-100 rounded-xl text-sm text-stone-600 relative z-10">
+            <strong className="block mb-2 text-stone-800">講者的反思邏輯：</strong>
+            如果烘焙產生的糖香可定義為蜜香，那以糖製作的產品是否也能自稱蜂蜜？
+            <br />即便接受此說法，也應註解：<span className="font-bold text-stone-900">「它是烘焙產生的，不能叫做天然蜜香」。</span>理解兩者本質差異，才能判斷真實價值。
+          </div>
+        </div>
+      </section>
+
+      {/* Section 02: Terroir (Renumbered from 03, Removed Latitude Deep Dive) */}
+      <section>
+        <div className="flex items-center gap-4 mb-8 justify-center">
+          <span className="text-5xl font-serif text-stone-200 font-bold">02</span>
+          <h4 className="text-2xl md:text-3xl font-bold text-stone-900">風土的印記：產區與品種</h4>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 relative group rounded-[2rem] overflow-hidden shadow-2xl border border-stone-900 h-[500px]">
+            <img
+              src="/images/featured/orientalbeauty/map_ghibli.png"
+              alt="Vintage Map"
+              className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+            />
+            <div className="absolute bottom-8 left-8 text-white p-6 backdrop-blur-sm bg-black/20 rounded-2xl border border-white/10 max-w-md">
+              <div className="font-bold text-xl mb-3 flex items-center gap-2"><MapPin className="text-amber-400" /> 主要產區 (桃竹苗 + 石碇)</div>
+              <ul className="text-sm opacity-95 space-y-1 list-disc pl-5">
+                <li>桃園市</li>
+                <li>新竹縣：北埔、峨眉（夏季濕熱，著涎高）</li>
+                <li>苗栗縣：頭份、頭屋、銅鑼</li>
+                <li>新北市：石碇</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-white p-6 rounded-3xl border border-stone-200 h-full flex flex-col justify-center">
+              <h5 className="font-bold text-stone-900 text-lg mb-4 text-center">品種與獨特風土</h5>
+
+              <ul className="space-y-4 text-sm text-stone-700">
+                <li className="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                  <strong className="block text-amber-800 mb-1">四大主流品種</strong>
+                  清心大冇（核心）、白毛猴、大葉烏龍、金萱（台茶17/白鷺）。
+                </li>
+                <li className="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                  <strong className="block text-amber-800 mb-1">石碇美人茶：獨特地域風格</strong>
+                  <span className="text-xs">
+                    相比桃竹苗，石碇更濕、溫較低。
+                    <br />表現：蜜香較不顯，以清雅<span className="font-bold">「花果香」與「梨子香」</span>為主。
+                  </span>
+                </li>
+                <li className="bg-amber-50 p-3 rounded-xl border border-amber-100">
+                  <strong className="block text-amber-800 mb-1">黃金季節：芒種 - 端午</strong>
+                  <span className="text-xs">茶芽最嫩 + 小綠葉蟬最旺盛 = 頂級品質。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 03: Industry (Renumbered from 04) */}
+      <section className="group">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="md:w-5/12 relative">
+            <div className="absolute top-4 -left-4 w-full h-full border-2 border-stone-900/10 rounded-[2rem] transform -rotate-2 group-hover:rotate-0 transition-transform" />
+            <img src="/images/featured/orientalbeauty/picking_ghibli.png" className="rounded-[2rem] shadow-xl w-full relative z-10" />
+          </div>
+          <div className="md:w-7/12">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-5xl font-serif text-stone-200 font-bold">03</span>
+              <h4 className="text-2xl font-bold text-stone-900">產業現況與危機</h4>
+            </div>
+            <div className="space-y-6 text-base text-stone-700 leading-relaxed">
+              <p>目前茶山面臨嚴峻勞工缺乏問題。大部分已非外籍勞工。</p>
+
+              <div className="bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                <h5 className="font-bold text-stone-900 flex items-center gap-2 mb-4">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" /> 黃金計價 (Weight-based)
+                </h5>
+                <p className="text-sm text-stone-600 mb-4">臺灣目前採茶仍以<span className="font-bold">「黃金（重量）」計價</span>，而非日薪。這影響採摘效率。</p>
+                <div className="flex gap-4">
+                  <div className="flex-1 bg-white p-3 rounded-xl border border-stone-100 text-center">
+                    <span className="block text-xs text-stone-400">山區工資</span>
+                    <span className="block text-xl font-bold text-stone-800">$70<small className="text-xs text-stone-400">/kg</small></span>
+                  </div>
+                  <div className="flex-1 bg-white p-3 rounded-xl border border-stone-100 text-center">
+                    <span className="block text-xs text-stone-400">里山工資</span>
+                    <span className="block text-xl font-bold text-stone-800">$60<small className="text-xs text-stone-400">/kg</small></span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </details>
+        </div>
+      </section>
 
-        <details id="obt-unit-2" className="group rounded-2xl border border-stone-200 bg-white overflow-hidden" open>
-          <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-4 transition-colors hover:bg-stone-50">
-            <span className="mt-0.5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0 shadow-sm">
-              <History size={20} />
-            </span>
-            <div className="min-w-0 pt-1">
-              <div className="font-extrabold text-stone-900 text-xl">第二單元：東方美人茶（OBT）概論</div>
-              <div className="mt-2 text-base text-stone-600">名稱由來與別名、歷史定位、特色</div>
-            </div>
-          </summary>
-          <div className="px-8 pb-8">
-            <div className="mt-6 grid gap-8 md:grid-cols-2">
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">一、名稱由來與別名</div>
-                <div className="text-base text-stone-700 leading-relaxed mb-4">
-                  東方美人茶擁有多個名稱，多數是為了行銷與增加農民收入而取。
-                </div>
-                <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">最常聽到的名稱：</span>
-                    <span className="font-bold">椪風茶</span>（或稱膨風茶）。
-                    <div className="mt-3 rounded-xl border border-stone-200 bg-stone-50 p-4">
-                      <div className="text-sm font-extrabold text-stone-600 tracking-wide uppercase mb-1">Legend</div>
-                      <div>
-                        客家人因茶園被蟲咬後仍拿來做茶，沒想到外銷價格比當時鎮長一個月收入（200 元）高出十倍，當地人難以置信，故稱其為「椪風」（吹牛）。
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <span className="font-bold">學名：</span>
-                    <span className="font-bold">白毫烏龍茶</span>。
-                  </li>
-                  <li>
-                    <span className="font-bold">行銷名稱：</span>
-                    <span className="font-bold">東方美人茶</span>。
-                    <div className="mt-3 rounded-xl border border-stone-200 bg-stone-50 p-4">
-                      <div className="text-sm font-extrabold text-stone-600 tracking-wide uppercase mb-1">Legend</div>
-                      <div>英國女王認為來自福爾摩沙（東方）的茶很美很好喝，故命名。</div>
-                    </div>
-                  </li>
-                  <li>
-                    <span className="font-bold">其他名稱：</span>香檳烏龍茶、冰風茶。
-                  </li>
-                </ol>
-                <div className="mt-6 rounded-2xl overflow-hidden border border-stone-100 shadow-sm relative group h-48">
-                  <img src="/images/featured/orientalbeauty/landscape_painting.png" alt="Tea Landscape" className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors" />
-                  <div className="absolute bottom-3 right-3 text-[10px] text-white/90 bg-black/30 px-2 py-1 rounded backdrop-blur-sm">東方美人茶園意象</div>
-                </div>
-              </div>
+      {/* Section 04: Process (Renumbered from 05) */}
+      <section className="bg-stone-900 text-stone-300 rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none">
+          <img src="/images/featured/orientalbeauty/process_ghibli.png" className="w-full h-full object-cover blur-sm" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-900 via-stone-900/95 to-stone-900/60" />
 
-              <div className="space-y-6">
-                <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                  <div className="font-extrabold text-stone-900 text-lg mb-4">二、歷史定位</div>
-                  <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                    <li>
-                      <span className="font-bold">時間座標：</span>
-                      東方美人茶的歷史比包種茶和高山茶更早，可追溯至清朝時期（約 1860 年代），是台灣烏龍茶早期的代表。
-                    </li>
-                    <li>
-                      <span className="font-bold">關鍵推手：</span>
-                      <span className="font-bold">約翰·杜德 (John Dodd)</span> 與 <span className="font-bold">李春生</span>。
-                      <ul className="list-disc pl-5 mt-2 space-y-2 text-stone-600">
-                        <li>
-                          1869 年，英商約翰·杜德將帶有蜜香的烏龍茶銷往紐約，掛上 <span className="font-bold">"Formosa Oolong Tea"</span> 品牌。
-                        </li>
-                        <li>
-                          這批茶大受歡迎，讓台灣茶躍上國際舞台，也奠定了「Formosa Tea」的世界名聲。
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <span className="font-bold">產業轉型：</span>
-                      早期台灣茶以外銷為主（主力是紅茶與東方美人等級的烏龍）。但在國際市場逐漸被印度、斯里蘭卡取代後，台灣茶農展現韌性，
-                      轉向更精緻的「內銷市場」，發展出如高山茶等強調「清香」的新路線。東方美人則作為傳統工藝的珍寶被保留了下來。
-                    </li>
-                  </ol>
-                </div>
-
-                <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                  <div className="font-extrabold text-stone-900 text-lg mb-4">三、東方美人茶的特色</div>
-                  <ol className="list-decimal pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-                    <li>
-                      <span className="font-bold">價格：</span>在臺灣特色茶中，<span className="font-bold">東方美人茶的價格最高</span>。特等獎價格可達 60 萬到 70 萬。
-                    </li>
-                    <li>
-                      <span className="font-bold">風味：</span>具有<span className="font-bold">特殊蜜香和果香</span>，口感<span className="font-bold">非常足透</span>，且滋味單純、有蜜糖味，入口生津復活性高。
-                    </li>
-                    <li>
-                      <span className="font-bold">外觀與白毫：</span>具有「三色一花」的視覺效果。
-                      <div className="mt-1 text-stone-600">
-                        <span className="font-bold">白毫越多越高級、越貴</span>。
-                      </div>
-                    </li>
-                    <li>
-                      <span className="font-bold">茶湯水色（潤）：</span>顏色變化大，有深有淺。可見類似清茶（高山茶）的顏色，也有接近紅茶的顏色。
-                    </li>
-                    <li>
-                      <span className="font-bold">五色茶與三色茶之辨：</span>
-                      <ul className="list-disc pl-5 mt-2 space-y-1 text-stone-600">
-                        <li>
-                          <span className="font-bold">比賽標準：</span>綠色（發酵不完全）與黃色（表示出老葉）會被挑掉。因此，<span className="font-bold">三色茶較好</span>。
-                        </li>
-                      </ul>
-                    </li>
-                  </ol>
-                  <div className="mt-6 rounded-2xl overflow-hidden border border-stone-100 shadow-sm relative group">
-                    <div className="flex bg-stone-100 border-b border-stone-200">
-                      <div className="w-1/2 p-4 flex items-center justify-center border-r border-stone-200">
-                        <img src="/images/featured/orientalbeauty/five_colors_leaves.png" alt="五色茶乾" className="w-24 h-24 object-cover rounded-full shadow-md border-2 border-white" />
-                      </div>
-                      <div className="w-1/2 p-4 flex items-center justify-center bg-amber-50/50">
-                        <img src="/images/featured/orientalbeauty/amber_soup.png" alt="琥珀茶湯" className="w-24 h-24 object-cover rounded-full shadow-md border-2 border-white" />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 text-center text-xs font-bold text-stone-500 py-2 bg-stone-50">
-                      <div>五色斑斕・白毫顯著</div>
-                      <div>琥珀水色・明澈油亮</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <div className="flex items-center gap-4 mb-10 border-b border-white/10 pb-6">
+            <span className="text-5xl font-serif text-amber-500/50 font-bold">04</span>
+            <div>
+              <h4 className="text-2xl md:text-3xl font-bold text-white">人為的藝術：獨特製茶工藝</h4>
+              <p className="text-stone-400 mt-1 text-sm">應對細嫩蟲咬原料，發展出的精細工序。</p>
             </div>
           </div>
-        </details>
 
-        <details id="obt-unit-3" className="group rounded-2xl border border-stone-200 bg-white overflow-hidden" open>
-          <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-4 transition-colors hover:bg-stone-50">
-            <span className="mt-0.5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0 shadow-sm">
-              <MapPin size={20} />
-            </span>
-            <div className="min-w-0 pt-1">
-              <div className="font-extrabold text-stone-900 text-xl">第三單元：產地、環境與品種</div>
-              <div className="mt-2 text-base text-stone-600">主要產區、適宜環境、茶樹品種、小綠葉蟬與蜜香形成</div>
+          <div className="grid md:grid-cols-2 gap-6 text-sm mb-12">
+            {/* Step 1 */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+              <h5 className="font-bold text-amber-400 text-base mb-2">1. 日光萎凋（薄攤）</h5>
+              <p className="leading-relaxed">須採「薄攤」。若太厚底層無法散熱會「悶傷」產生異味。</p>
             </div>
-          </summary>
-          <div className="px-8 pb-8">
-            <div className="mt-6 grid gap-8 md:grid-cols-2">
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">一、主要產區</div>
-                <div className="text-base text-stone-700 leading-relaxed mb-4">
-                  東方美人茶的產區主要分布在臺灣西部臺山縣，多為客家人居住地區。
-                </div>
-                <ol className="list-decimal pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">新竹縣：</span>峨眉、北埔（最常被想到）。
-                  </li>
-                  <li>
-                    <span className="font-bold">苗栗縣：</span>頭份、頭屋、銅鑼、少部分苗栗市。
-                  </li>
-                  <li>
-                    <span className="font-bold">桃園：</span>龍潭（舉辦全國東方美人比賽）。
-                  </li>
-                  <li>
-                    <span className="font-bold">新北市：</span>石門。
-                  </li>
-                </ol>
+
+            {/* Step 2: Men Dui (Deep Dive) */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors md:col-span-2">
+              <strong className="text-amber-400 text-lg block mb-3">2. 靜置回潤（悶堆）- 轉化藝術</strong>
+              <p className="mb-4 text-stone-300">
+                操作：將殺青完仍高溫的茶葉用濕布包裹，在<span className="text-white font-bold">「高溫高濕」</span>下靜置。
+                風險：過度會酸臭，不足則留青味（無青味是品質指標）。
+              </p>
+
+              <div className="mb-4">
+                <span className="block text-white font-bold mb-2">四大目的：</span>
+                <ul className="grid md:grid-cols-2 gap-2 text-xs text-stone-400">
+                  <li className="flex gap-2">1. <span className="text-white">補足發酵</span>：氧化更完整。</li>
+                  <li className="flex gap-2">2. <span className="text-white">熟果香</span>：形成酯類物質。</li>
+                  <li className="flex gap-2">3. <span className="text-white">降苦澀</span>：茶素水解，口感水軟。</li>
+                  <li className="flex gap-2">4. <span className="text-white">增韌性</span>：利於揉捻不碎。</li>
+                </ul>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">二、適宜環境</div>
-                <ol className="list-decimal pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">地點：</span>最適合種植的地區位於臺山線上，從北埔到頭份這一段。
-                  </li>
-                  <li>
-                    <span className="font-bold">條件：</span>溫濕度高、多霧、日夜溫差大。
-                  </li>
-                  <li>
-                    <span className="font-bold">海拔：</span>約在 300 到 800 公尺。
-                  </li>
-                </ol>
-                <div className="mt-6 grid grid-cols-3 gap-4">
-                  <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 text-center">
-                    <Thermometer size={20} className="mx-auto text-rose-600 mb-2" />
-                    <div className="text-sm font-extrabold text-stone-800">溫濕度</div>
-                    <div className="text-xs text-stone-600 mt-1">高</div>
-                  </div>
-                  <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 text-center">
-                    <Wind size={20} className="mx-auto text-sky-700 mb-2" />
-                    <div className="text-sm font-extrabold text-stone-800">多霧</div>
-                    <div className="text-xs text-stone-600 mt-1">環境條件</div>
-                  </div>
-                  <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 text-center">
-                    <MapPin size={20} className="mx-auto text-stone-700 mb-2" />
-                    <div className="text-sm font-extrabold text-stone-800">海拔</div>
-                    <div className="text-xs text-stone-600 mt-1">300–800m</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-              <div className="font-extrabold text-stone-900 text-lg mb-4">三、主要茶樹品種</div>
-              <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                <li>
-                  <span className="font-bold">當家品種：</span>
-                  <span className="font-bold">青心大冇</span>（青心大胖、青心大某）。
-                  <ul className="list-disc pl-5 mt-2 space-y-1 text-stone-600">
-                    <li>特色：香氣、滋味、外觀都好。</li>
-                    <li>壽命：因不斷嫩採，青心大冇的平均壽命只有八年左右。</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold">其他品種：</span>
-                  <ul className="list-disc pl-5 mt-2 space-y-1 text-stone-600">
-                    <li>白露。</li>
-                    <li>台茶 17 號：是早生種，白毫肥壯顯。適合機採，因其長得很齊。常與青心大冇進行拼配。</li>
-                    <li>北部：另有使用青心柑仔和白毛品種。</li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-              <div className="font-extrabold text-stone-900 text-lg mb-4">四、小綠葉蟬與蜜香的形成</div>
-              <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                <li>
-                  <span className="font-bold">採摘時節：</span>通常是<span className="font-bold">夏茶</span>，端午節到 7 月 22 日左右製作的 OBT 品質最好。
-                </li>
-                <li>
-                  <span className="font-bold">機制：</span>小綠葉蟬（先驅害蟲）刺吸茶樹嫩芽後，茶樹會分泌出特殊的化學物質（酵素）。
-                </li>
-                <li>
-                  <span className="font-bold">目的：</span>這種化學物質是一種防衛機制，會吸引小綠葉蟬的天敵（白列豬）來吃掉它。
-                </li>
-                <li>
-                  <span className="font-bold">成果：</span>這些化學物質轉化後就會形成東方美人茶特有的<span className="font-bold">蜜香</span>。
-                  <div className="mt-2 text-stone-600 text-sm bg-stone-50 p-3 rounded-lg">
-                    <span className="font-bold">注意：</span>蜜香並非東方美人茶獨有，其他被小綠葉蟬刺吸的茶品（如蜜香紅茶、貴妃烏龍）也會有。
-                  </div>
-                </li>
-                <li>
-                  <span className="font-bold">農藥殘留：</span>雖然小綠葉蟬怕農藥，但無農藥殘留（ND值）不代表茶園在無農藥環境下種植。
-                </li>
-              </ol>
-              <div className="mt-6">
-                <div className="rounded-2xl overflow-hidden border border-emerald-100 shadow-lg relative group h-64">
-                  <img src="/images/featured/orientalbeauty/leafhopper.png" alt="小綠葉蟬" className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6 text-white">
-                    <div className="font-serif text-2xl font-bold mb-1">Jacobiasca formosana</div>
-                    <div className="text-sm opacity-90">小綠葉蟬・蜜香的靈魂繪師</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details id="obt-unit-4" className="group rounded-2xl border border-stone-200 bg-white overflow-hidden" open>
-          <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-4 transition-colors hover:bg-stone-50">
-            <span className="mt-0.5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0 shadow-sm">
-              <Leaf size={20} />
-            </span>
-            <div className="min-w-0 pt-1">
-              <div className="font-extrabold text-stone-900 text-xl">第四單元：東方美人茶的製程（清茶類）</div>
-              <div className="mt-2 text-base text-stone-600">重萎凋、重發酵、重攪拌，且需要悶</div>
-            </div>
-          </summary>
-          <div className="px-8 pb-8">
-            <div className="mt-6 text-base text-stone-700 leading-relaxed">
-              東方美人茶屬於<span className="font-bold">清茶類</span>（烏龍茶），但因其重發酵的特性，在北部地區常被稱作紅茶。其製程的特色是
-              <span className="font-bold">重萎凋、重發酵、重攪拌，且需要悶</span>。
-            </div>
-            <div className="mt-8">
-              <DataTable title="製程步驟：說明與標準 × 特色與注意事項">
-                <table className="min-w-full divide-y divide-stone-200 text-base">
-                  <thead className="bg-stone-100">
+              {/* Comparison Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs text-left text-stone-400 border border-white/10 rounded-lg">
+                  <thead className="text-white bg-white/10 uppercase font-bold">
                     <tr>
-                      <th className="px-6 py-4 text-left font-bold text-stone-600">步驟</th>
-                      <th className="px-6 py-4 text-left font-bold text-stone-600">說明與標準</th>
-                      <th className="px-6 py-4 text-left font-bold text-stone-600">特色與注意事項</th>
+                      <th className="px-3 py-2">比較</th>
+                      <th className="px-3 py-2">東方美人 (靜置回潤)</th>
+                      <th className="px-3 py-2">紅茶 (補足發酵)</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-stone-200">
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">採摘標準</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        嫩採，<span className="font-bold">一心二葉</span>，非常嫩。
-                      </td>
-                      <td className="px-6 py-5 text-stone-700">需細心呵護，美人難照顧。</td>
+                  <tbody className="divide-y divide-white/5">
+                    <tr>
+                      <td className="px-3 py-2 font-bold">溫度</td>
+                      <td className="px-3 py-2">高溫 (殺青餘溫)</td>
+                      <td className="px-3 py-2">常溫 (約24-25°C)</td>
                     </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">日光萎凋</td>
-                      <td className="px-6 py-5 text-stone-700">在夏天採摘後立即進行。</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        需加<span className="font-bold">兩層黑網</span>防曬，避免曬壞。
-                      </td>
+                    <tr>
+                      <td className="px-3 py-2 font-bold">濕度</td>
+                      <td className="px-3 py-2">高濕 (濕布包裹)</td>
+                      <td className="px-3 py-2">極高濕 (&gt;90%)</td>
                     </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">室內萎凋</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        進行<span className="font-bold">攪拌（浪青）</span>制。
-                      </td>
-                      <td className="px-6 py-5 text-stone-700">—</td>
-                    </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">攪拌</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        反覆進行 4 到 5 次。攪拌過程中要有「<span className="font-bold">彈乾水</span>」。
-                      </td>
-                      <td className="px-6 py-5 text-stone-700">
-                        需透過攪拌破壞葉組織，才能產生蜜香與花香。重攪拌的時間很長。可用機器代替人工攪拌。
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">炒青</td>
-                      <td className="px-6 py-5 text-stone-700">時間約 12 到 15 分鐘。</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        溫度較低，約 <span className="font-bold">100°C 到 220°C</span>。
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">炒後悶</td>
-                      <td className="px-6 py-5 text-stone-700">也稱「回潤」。</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        嫩茶葉約 15 分鐘，老葉約 15 到 25 分鐘。此時茶葉會持續發酵。
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">揉捻</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        採用<span className="font-bold">包揉</span>。需反覆 2 到 3 次。
-                      </td>
-                      <td className="px-6 py-5 text-stone-700">
-                        揉捻後需靜置（<span className="font-bold">縮靜</span>）約 30 分鐘，使其產生花朵形。
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap font-extrabold text-stone-900">乾燥</td>
-                      <td className="px-6 py-5 text-stone-700">—</td>
-                      <td className="px-6 py-5 text-stone-700">
-                        <span className="font-bold">不能使用甲種乾燥機</span>，因白毫會陷進去。只能用履帶式或箱式乾燥機。
-                      </td>
+                    <tr>
+                      <td className="px-3 py-2 font-bold">本質</td>
+                      <td className="px-3 py-2 text-amber-200">烏龍茶製程 (有殺青)</td>
+                      <td className="px-3 py-2 text-amber-200">全發酵製程 (無殺青)</td>
                     </tr>
                   </tbody>
                 </table>
-              </DataTable>
+              </div>
+              <div className="mt-4 p-3 bg-white/5 rounded-xl border border-white/5 text-xs">
+                <strong className="text-amber-200">觀念：「濃」vs「濃郁」</strong>
+                <br />濃：客觀物質豐富。濃郁：正面評價，風味協調。好茶是濃郁而非僅是濃。
+              </div>
+            </div>
+
+            {/* Step 3 & 4 & 5 */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+              <h5 className="font-bold text-amber-400 text-base mb-2">3. 重攪拌</h5>
+              <p>「彈乾水」。長時間重攪拌破壞葉組織，啟動酵素氧化。</p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+              <h5 className="font-bold text-amber-400 text-base mb-2">4. 炒青 & 揉捻</h5>
+              <p>低溫炒青 (100-220°C)。包揉後<span className="text-white font-bold">縮靜</span> 30分鐘。</p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors md:col-span-2">
+              <h5 className="font-bold text-amber-400 text-base mb-2">5. 乾燥</h5>
+              <p>絕不使用甲種乾燥機（風大吹散白毫）。僅用履帶/箱式。</p>
             </div>
           </div>
-        </details>
+        </div>
+      </section>
 
-        <details id="obt-unit-5" className="group rounded-2xl border border-stone-200 bg-white overflow-hidden" open>
-          <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start gap-4 transition-colors hover:bg-stone-50">
-            <span className="mt-0.5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 shrink-0 shadow-sm">
-              <Award size={20} />
-            </span>
-            <div className="min-w-0 pt-1">
-              <div className="font-extrabold text-stone-900 text-xl">第五單元：評鑑與創新應用</div>
-              <div className="mt-2 text-base text-stone-600">評審標準、比賽等級、沖泡、康普茶</div>
+      {/* Section 05: Market & Grading (Renumbered from 06) */}
+      <section>
+        <div className="flex items-center gap-4 mb-8 justify-center">
+          <span className="text-5xl font-serif text-stone-200 font-bold">05</span>
+          <h4 className="text-2xl md:text-3xl font-bold text-stone-900">品鑑之道與市場洞察</h4>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm space-y-6">
+            <div className="flex justify-between items-start">
+              <h5 className="font-bold text-xl text-stone-900 flex items-center gap-2"><Award size={20} className="text-amber-500" /> 評鑑標準</h5>
+              <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2 py-1 rounded-lg">Dry Leaf</span>
             </div>
-          </summary>
-          <div className="px-8 pb-8">
-            <div className="mt-6 grid gap-8 md:grid-cols-2">
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">一、評審標準</div>
-                <div className="text-base text-stone-700 leading-relaxed mb-4">評鑑會從外觀、水色、香氣、滋味四方面進行評比。</div>
-                <ol className="list-decimal pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">外觀：</span>白毫越多越好，形狀均勻，似花朵形。
-                  </li>
-                  <li>
-                    <span className="font-bold">水色：</span>顏色深淺變化廣，不渾濁，不焦或暗。
-                  </li>
-                  <li>
-                    <span className="font-bold">香氣：</span>蜜香、果香、飄香，<span className="font-bold">不膩</span>（讓人想一口接一口）。
-                  </li>
-                  <li>
-                    <span className="font-bold">滋味：</span>單純、有蜜糖味、入口生津復活性。
-                  </li>
-                </ol>
-              </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">二、比賽與等級</div>
-                <div className="text-base text-stone-700 leading-relaxed mb-4">
-                  <div className="font-bold mb-2">比賽種類：</div>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>
-                      <span className="font-bold">製茶比賽：</span>當場發茶青，從茶青開始製作到成品。
-                    </li>
-                    <li>
-                      <span className="font-bold">優良茶比賽：</span>直接提交已做好的成品。
-                    </li>
-                  </ul>
-                </div>
-                <div className="text-base text-stone-700 leading-relaxed">
-                  <div className="font-bold mb-2">獎項排序：</div>
-                  <ul className="list-disc pl-5 mt-2 space-y-1">
-                    <li>特等獎（只有一名，最稀有）。</li>
-                    <li>頭等獎（頭一到頭十）。</li>
-                    <li>二等獎。</li>
-                    <li>三等獎。</li>
-                    <li>三花、二花、一花。</li>
-                  </ul>
-                </div>
+            <div className="relative rounded-xl overflow-hidden h-48 group">
+              <img src="/images/featured/orientalbeauty/dry_leaves.png" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Oriental Beauty Dry Leaves" />
+              <div className="absolute bottom-0 left-0 w-full bg-black/50 p-2 text-white text-xs text-center backdrop-blur-sm">
+                五色呈現：紅、白、黃、褐、綠
               </div>
             </div>
 
-            <div className="mt-8 grid gap-8 md:grid-cols-2">
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="font-extrabold text-stone-900 text-lg mb-4">三、沖泡技巧</div>
-                <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">水溫：</span>
-                    <ul className="list-disc pl-5 mt-2 space-y-2 text-stone-600">
-                      <li>
-                        較嫩的茶葉：約 <span className="font-bold">80°C</span>。
-                      </li>
-                      <li>
-                        較粗老葉：約可到 <span className="font-bold">90°C</span>。
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="font-bold">茶量：</span>份量比高山茶少一點（例如 150cc 茶壺）。
-                  </li>
-                </ol>
+            <div className="space-y-4 text-sm text-stone-700">
+              <div>
+                <strong className="block text-amber-800 mb-1">外觀觀察：</strong>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong className="text-stone-900">白毫顯露</strong>：絨毛清晰。</li>
+                  <li><strong className="text-stone-900">捲曲如花</strong>：條索優美。</li>
+                  <li><strong className="text-stone-900">色澤五色</strong>：紅白黃褐綠。紅色佔比高者佳。避免綠色（菜青味）。</li>
+                </ul>
               </div>
 
-              <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-2 font-extrabold text-stone-900 text-lg mb-4">
-                  <Beaker size={20} className="text-emerald-700" /> 四、創新應用：康普茶（Kombucha）
-                </div>
-                <div className="text-base text-stone-700 leading-relaxed mb-4">東方美人茶可以作為基底製作康普茶。</div>
-                <ol className="list-decimal pl-5 space-y-4 text-base text-stone-700 leading-relaxed">
-                  <li>
-                    <span className="font-bold">康普茶的益處：</span>它不只是醋酸菌（與醋不同），還含有<span className="font-bold">乳酸菌、酵母菌</span>等多種益菌。除了抗氧化，還可以幫助消化。
-                  </li>
-                  <li>
-                    <span className="font-bold">製作方法：</span>康普茶的製作需要<span className="font-bold">巨魔菌（或稱紅茶菌）</span>。
-                    <ul className="list-disc pl-5 mt-2 space-y-2 text-stone-600">
-                      <li>保留 20% 到 25% 的巨母。</li>
-                      <li>加入 75% 到 80% 的茶湯（OBT、紅茶、綠茶或白茶皆可）。</li>
-                      <li>茶湯放涼後，加入紅糖或二砂（例如 1000 cc 茶湯加 100 克糖）。</li>
-                      <li>發酵一個禮拜即可。</li>
-                    </ul>
-                  </li>
-                </ol>
+              <div className="border-t border-stone-200 pt-4">
+                <strong className="block text-amber-800 mb-1">內質感受：</strong>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong className="text-stone-900">水色</strong>：顏色深淺變化廣，重點在「潤」，不渾濁。</li>
+                  <li><strong className="text-stone-900">香氣</strong>：具蜜香果香。<span className="font-bold text-amber-600">「不膩」</span>（讓人想一口接一口）是關鍵。</li>
+                  <li><strong className="text-stone-900">滋味</strong>：單純、有蜜糖味、入口生津復活性高。</li>
+                </ul>
               </div>
             </div>
 
-            <div className="mt-8">
-              <Callout title="【比喻】">
-                <div className="text-base leading-relaxed">
-                  如果將臺灣的茶葉比作一個家族，那麼東方美人茶就像是家族中
-                  <span className="font-bold">身披華服、珍貴嬌嫩的公主</span>。她需要特定的環境（客家山區）才能生長，被特定的小蟲（小綠葉蟬）輕吻後，
-                  才能產生她獨特的蜜糖氣質，並且在製作過程中，需要茶師傅以最溫和、細膩（防曬、低溫炒青、不能用甲種乾燥機）的方式來呵護，
-                  才能展現出她最頂級的風采與最高的價值。
-                </div>
-              </Callout>
+            <div className="bg-stone-50 p-4 rounded-xl text-xs text-stone-600 border border-stone-200 mt-4">
+              <strong className="block mb-1 text-stone-800">重要區別：貴妃 vs 東方美人</strong>
+              皆著涎，但製法不同。<br />
+              貴妃茶：凍頂式（半球形、有烘焙）。<br />
+              東方美人：傳統式（條索狀、不烘焙）。
             </div>
           </div>
-        </details>
+
+          <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm space-y-6">
+            <h5 className="font-bold text-xl text-stone-900 flex items-center gap-2"><Beaker size={20} className="text-emerald-500" /> 競賽與評鑑</h5>
+            <ul className="space-y-4 text-sm text-stone-700">
+              <li>
+                <strong className="block text-stone-900">四大競賽系統：</strong>桃園全國組、新北石碇、新竹、苗栗。
+              </li>
+              <li>
+                <strong className="block text-stone-900">比賽茶 vs 分級包裝：</strong>
+                比賽茶採淘汰制（特等/頭等...）。分級包裝則非淘汰（如依「蟲的數量」1-6隻標示等級）。
+              </li>
+            </ul>
+            <div className="bg-stone-50 p-4 rounded-xl text-xs text-stone-600 border border-stone-200 mt-4">
+              <strong className="block mb-1 text-stone-800">沖泡指南 (Gaiwan)</strong>
+              90°C水溫。細水長流。出湯後<span className="font-bold text-rose-500">務必掀蓋散熱</span>。
+            </div>
+          </div>
+        </div>
+
+        {/* Innovation Kombucha (Restored Full Detail) */}
+        <div className="mt-8 grid md:grid-cols-2 gap-8 items-center bg-stone-50 rounded-[2rem] p-8">
+          <div className="order-2 md:order-1">
+            <h5 className="font-bold text-lg text-stone-900 mb-2 mt-2">創新應用：康普茶 (Kombucha)</h5>
+            <p className="text-sm text-stone-600 mb-3">最佳基底。含乳酸菌、酵母菌等多種益菌，抗氧化助消化。</p>
+
+            <div className="bg-white p-4 rounded-xl border border-stone-200">
+              <strong className="block mb-2 text-amber-800 text-sm">黃金製作方法 (Recipe)：</strong>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="font-bold text-stone-400 w-12 text-xs uppercase tracking-wider mt-1">Culture</span>
+                  <span>保留 <span className="font-bold text-stone-800">20% - 25%</span> 巨魔菌（紅茶菌種、Scoby）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="font-bold text-stone-400 w-12 text-xs uppercase tracking-wider mt-1">Tea</span>
+                  <span>加入 <span className="font-bold text-stone-800">75% - 80%</span> 東方美人茶湯（需放涼）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="font-bold text-stone-400 w-12 text-xs uppercase tracking-wider mt-1">Sugar</span>
+                  <span>每 1000cc 茶湯加 <span className="font-bold text-stone-800">100g</span> 糖（紅糖或二砂）</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="font-bold text-stone-400 w-12 text-xs uppercase tracking-wider mt-1">Time</span>
+                  <span>靜置發酵<span className="font-bold text-stone-800">一個禮拜</span>即可</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex justify-center order-1 md:order-2">
+            <img src="/images/featured/orientalbeauty/kombucha_ghibli.png" className="w-48 rounded-2xl shadow-md rotate-2" />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Quote */}
+      <div className="text-center py-16 px-8 max-w-3xl mx-auto border-t border-stone-100 mt-12">
+        <Flower size={32} className="mx-auto text-rose-300 mb-6" />
+        <p className="font-serif text-2xl md:text-3xl text-stone-800 leading-normal italic mb-6">
+          "這不僅僅是一杯茶，更是品茗者在完成了「認識茶」的完整旅程後，方能深刻體會的液體藝術品。"
+        </p>
+        <p className="text-stone-500 text-base">
+          — 東方美人茶：自然的煉金術 × 人為的藝術 × 風土的印記。
+        </p>
       </div>
     </div>
   );

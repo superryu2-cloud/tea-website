@@ -29,7 +29,7 @@ export default function GaoshanOolongContent() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-400/20 to-amber-200/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sky-200 text-sm font-bold shadow-lg backdrop-blur-md mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sky-200 text-[17px] font-bold shadow-lg backdrop-blur-md mb-8">
             <Mountain size={16} className="text-sky-300" />
             <span className="tracking-widest uppercase">Taiwan High Mountain Tea</span>
           </div>
@@ -53,7 +53,7 @@ export default function GaoshanOolongContent() {
                 <Map size={32} />
               </div>
               <div>
-                <div className="text-xs font-bold text-emerald-600 uppercase tracking-widest">DEFINITION</div>
+                <div className="text-base font-bold text-emerald-600 uppercase tracking-widest">DEFINITION</div>
                 <div className="text-2xl font-black text-stone-800">1,000 公尺</div>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function GaoshanOolongContent() {
             <span className="text-emerald-700">01.</span>
             定義臺灣高山茶的戰略價值
           </h3>
-          <p className="text-lg text-stone-700 leading-loose">
+          <p className="text-[19px] text-stone-700 leading-loose">
             在臺灣精品茶葉的全球版圖中，「高山茶」不僅是一項基於地理高度的分類，更是臺灣茶產業具備高度競爭力與品牌溢價的<span className="font-bold underline decoration-emerald-300 decoration-2 underline-offset-4">戰略核心</span>。
           </p>
           <div className="bg-stone-50 p-6 rounded-2xl border-l-4 border-emerald-600">
@@ -87,7 +87,7 @@ export default function GaoshanOolongContent() {
               <span className="text-emerald-400">02.</span>
               高山風土：自然環境的轉化機制
             </h3>
-            <p className="text-stone-400 max-w-2xl mx-auto text-lg">
+            <p className="text-stone-400 max-w-2xl mx-auto text-[19px]">
               環境應力是決定茶葉品質的物理基礎。茶樹為適應極端氣候而產生的生物學轉化，造就了無法複製的風味。
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function GaoshanOolongContent() {
               <p className="text-stone-300 leading-relaxed mb-4">
                 每上升 100 公尺溫度約下降 0.6 度。從嘉義到福壽山，氣溫驟降減緩了茶樹代謝。
               </p>
-              <div className="bg-stone-900/50 p-4 rounded-xl text-sm text-emerald-100 border border-stone-800">
+              <div className="bg-stone-900/50 p-4 rounded-xl text-[17px] text-emerald-100 border border-stone-800">
                 <span className="font-bold text-emerald-400">轉化結果：</span> 葉片組織肥厚，累積胺基酸與可溶性成分，奠定飽滿的物質基礎。
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function GaoshanOolongContent() {
               <p className="text-stone-300 leading-relaxed mb-4">
                 高山雲霧過濾強烈紫外線，將直射光轉化為能量溫和的漫射光。
               </p>
-              <div className="bg-stone-900/50 p-4 rounded-xl text-sm text-sky-100 border border-stone-800">
+              <div className="bg-stone-900/50 p-4 rounded-xl text-[17px] text-sky-100 border border-stone-800">
                 <span className="font-bold text-sky-400">轉化結果：</span> 減少苦澀物質（咖啡因/兒茶素）合成，大幅提升具滑潤感的「果膠質」。
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function GaoshanOolongContent() {
               <p className="text-stone-300 leading-relaxed mb-4">
                 為了抵禦寒冷，茶樹啟動自我保護機制，分泌「抵抗素」（醇類芳香油）。
               </p>
-              <div className="bg-stone-900/50 p-4 rounded-xl text-sm text-amber-100 border border-stone-800">
+              <div className="bg-stone-900/50 p-4 rounded-xl text-[17px] text-amber-100 border border-stone-800">
                 <span className="font-bold text-amber-400">轉化結果：</span> 形塑出人類感官中神往的「高山氣」與清雅幽香。
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function GaoshanOolongContent() {
               <p className="text-stone-300 leading-relaxed mb-4">
                 海拔 2,600 公尺產區氣溫比平地低 13 度以上，促使葉片形態與內含物產生本質演化。
               </p>
-              <div className="bg-stone-900/50 p-4 rounded-xl text-sm text-purple-100 border border-stone-800">
+              <div className="bg-stone-900/50 p-4 rounded-xl text-[17px] text-purple-100 border border-stone-800">
                 <span className="font-bold text-purple-400">轉化結果：</span> 創造出平地茶無法模仿的「厚實感」競爭力與高溢價基礎。
               </div>
             </div>
@@ -158,24 +158,24 @@ export default function GaoshanOolongContent() {
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
             <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-700 font-black text-xl mb-4">A</div>
             <h4 className="text-xl font-bold text-stone-900 mb-2">產業領頭羊</h4>
-            <div className="text-sm font-bold text-emerald-600 mb-3 uppercase tracking-wide">嘉義阿里山</div>
-            <p className="text-stone-600 leading-relaxed text-sm">
+            <div className="text-base font-bold text-emerald-600 mb-3 uppercase tracking-wide">嘉義阿里山</div>
+            <p className="text-stone-600 leading-relaxed text-[17px]">
               高山茶發源地，至今仍是產量之冠。是定義高山茶風味基準的戰略重鎮。
             </p>
           </div>
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
             <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-black text-xl mb-4">N</div>
             <h4 className="text-xl font-bold text-stone-900 mb-2">核心產量重鎮</h4>
-            <div className="text-sm font-bold text-emerald-600 mb-3 uppercase tracking-wide">南投地區</div>
-            <p className="text-stone-600 leading-relaxed text-sm">
+            <div className="text-base font-bold text-emerald-600 mb-3 uppercase tracking-wide">南投地區</div>
+            <p className="text-stone-600 leading-relaxed text-[17px]">
               佔全臺 65% 產量。涵蓋杉林溪（如 12 彎）、大禹嶺、仁愛鄉。是支撐市場穩定供給的基石。
             </p>
           </div>
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
             <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-sky-700 font-black text-xl mb-4">L</div>
             <h4 className="text-xl font-bold text-stone-900 mb-2">高端產區代表</h4>
-            <div className="text-sm font-bold text-emerald-600 mb-3 uppercase tracking-wide">梨山 / 福壽山</div>
-            <p className="text-stone-600 leading-relaxed text-sm">
+            <div className="text-base font-bold text-emerald-600 mb-3 uppercase tracking-wide">梨山 / 福壽山</div>
+            <p className="text-stone-600 leading-relaxed text-[17px]">
               極高海拔產區。其稀缺的產量與極致的品質表現，具備強烈的品牌指標意義。
             </p>
           </div>
@@ -213,11 +213,11 @@ export default function GaoshanOolongContent() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
-                  <span>光是基礎採茶人工成本即高達 <span className="font-bold text-red-600 text-lg">320 元</span>（未含製程與管銷）。</span>
+                  <span>光是基礎採茶人工成本即高達 <span className="font-bold text-red-600 text-[19px]">320 元</span>（未含製程與管銷）。</span>
                 </li>
               </ul>
             </div>
-            <div className="text-stone-600 text-sm leading-relaxed">
+            <div className="text-stone-600 text-[17px] leading-relaxed">
               <span className="font-bold text-amber-800">避險屬性：</span> 茶葉具備優異儲藏性，價格波動比易腐農作物更穩定，是具備高度避險特性的商品。
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function GaoshanOolongContent() {
                 <DollarSign size={20} className="text-amber-600" />
                 價格決定三大要素
               </h4>
-              <ul className="space-y-3 text-stone-700 text-sm">
+              <ul className="space-y-3 text-stone-700 text-[17px]">
                 <li className="flex items-center justify-between border-b border-stone-100 pb-2">
                   <span>海拔高度</span>
                   <span className="font-bold text-stone-900">越高越貴</span>
@@ -250,14 +250,14 @@ export default function GaoshanOolongContent() {
                 <div className="text-2xl">🚨</div>
                 <div>
                   <div className="font-bold text-red-800">價格不合理</div>
-                  <div className="text-red-700 text-sm">標註「梨山」但售價「三斤 2,000 元」？這連基礎採工成本（320元/斤）都不夠。</div>
+                  <div className="text-red-700 text-[17px]">標註「梨山」但售價「三斤 2,000 元」？這連基礎採工成本（320元/斤）都不夠。</div>
                 </div>
               </div>
               <div className="flex gap-4 p-4 bg-stone-100 rounded-xl border border-stone-200">
                 <div className="text-2xl">🏔️</div>
                 <div>
                   <div className="font-bold text-stone-800">諧音詭計</div>
-                  <div className="text-stone-600 text-sm">業界存在以諧音<span className="font-bold">「離山」</span>（遠離產地的茶）混淆「梨山」的欺騙手段。</div>
+                  <div className="text-stone-600 text-[17px]">業界存在以諧音<span className="font-bold">「離山」</span>（遠離產地的茶）混淆「梨山」的欺騙手段。</div>
                 </div>
               </div>
             </div>
@@ -302,14 +302,14 @@ export default function GaoshanOolongContent() {
                 <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">🐸</div>
                 <div>
                   <div className="font-bold text-stone-900">慈心有機茶</div>
-                  <div className="text-sm text-stone-600">以翠蛙、金蛙作為分級指標 (生態完整度)</div>
+                  <div className="text-[17px] text-stone-600">以翠蛙、金蛙作為分級指標 (生態完整度)</div>
                 </div>
               </div>
               <div className="bg-white p-4 rounded-xl flex items-center gap-4 shadow-sm">
                 <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">🦗</div>
                 <div>
                   <div className="font-bold text-stone-900">東方美人茶</div>
-                  <div className="text-sm text-stone-600">以「小綠葉蟬」的數量定義等級 (生態關聯)</div>
+                  <div className="text-[17px] text-stone-600">以「小綠葉蟬」的數量定義等級 (生態關聯)</div>
                 </div>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function GaoshanOolongContent() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h4 className="text-emerald-300 font-bold text-lg mb-2 uppercase tracking-widest">Brewing Tech</h4>
+                <h4 className="text-emerald-300 font-bold text-[19px] mb-2 uppercase tracking-widest">Brewing Tech</h4>
                 <div className="text-3xl font-bold mb-4">目測心度</div>
                 <p className="text-stone-300 leading-loose">
                   投葉比例是風味關鍵。核心技藝在於觀察茶葉入壺後<span className="text-white font-bold border-b border-stone-500">「鋪平壺底」</span>的份量（約佔壺底 1/6 面積），以此基準度量，確保茶湯平衡。

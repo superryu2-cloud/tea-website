@@ -237,7 +237,7 @@ export default function TaiwanTeaCultivars() {
                         <Info className="text-amber-700 flex-shrink-0 mt-1" size={20} />
                         <div>
                             <h3 className="font-bold text-amber-900 mb-2">關於本表格</h3>
-                            <p className="text-sm text-amber-800 leading-relaxed">
+                            <p className="text-base text-amber-800 leading-relaxed">
                                 本表格收錄由茶業改良場育成之台茶1號至台茶26號。
                                 上方表格提供快速數據比較，下方卡片提供詳細品種故事與介紹。
                             </p>
@@ -250,7 +250,7 @@ export default function TaiwanTeaCultivars() {
                         <Info size={18} className="text-stone-600" />
                         表格欄位說明
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div className="grid md:grid-cols-2 gap-4 text-base">
                         <div>
                             <strong className="text-stone-800">樹勢：</strong>
                             <span className="text-stone-600">極強、強、中</span>
@@ -330,7 +330,7 @@ export default function TaiwanTeaCultivars() {
 
                 <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden shadow-sm">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-sm">
+                        <table className="w-full text-base">
                             <thead className="bg-gradient-to-r from-stone-800 to-stone-700 text-white">
                                 <tr>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('number')}>
@@ -397,10 +397,10 @@ export default function TaiwanTeaCultivars() {
                                         <td className="px-4 py-3 font-semibold text-stone-900 whitespace-nowrap">
                                             {cultivar.name !== '—' ? cultivar.name : <span className="text-stone-300">—</span>}
                                         </td>
-                                        <td className="px-4 py-3 text-stone-600 text-sm">
+                                        <td className="px-4 py-3 text-stone-600 text-base">
                                             {cultivar.alias}
                                         </td>
-                                        <td className="px-4 py-3 text-stone-600 text-sm max-w-[200px]" title={cultivar.parent}>
+                                        <td className="px-4 py-3 text-stone-600 text-base max-w-[200px]" title={cultivar.parent}>
                                             {(() => {
                                                 const parentStr = cultivar.parent;
                                                 // Only process if distinct parent markers exist and duplicate strings from greedy regex are avoided by splitting
@@ -432,7 +432,7 @@ export default function TaiwanTeaCultivars() {
                                                 return parentStr;
                                             })()}
                                         </td>
-                                        <td className="px-4 py-3 text-center text-stone-600 font-mono text-sm">
+                                        <td className="px-4 py-3 text-center text-stone-600 font-mono text-base">
                                             {cultivar.breedYear}
                                         </td>
                                         <td className="px-4 py-3 text-center">
@@ -440,7 +440,7 @@ export default function TaiwanTeaCultivars() {
                                                 {cultivar.releaseYear}
                                             </span>
                                         </td>
-                                        <td className="px-4 py-3 text-stone-600 text-sm">
+                                        <td className="px-4 py-3 text-stone-600 text-base">
                                             {cultivar.type}
                                         </td>
                                         <td className="px-4 py-3">
@@ -540,7 +540,7 @@ export default function TaiwanTeaCultivars() {
                                 </div>
 
                                 {/* Description Text */}
-                                <div className="text-sm text-stone-700 leading-7 text-justify pt-2 border-t border-stone-100">
+                                <div className="text-base text-stone-700 leading-7 text-justify pt-2 border-t border-stone-100">
                                     {cultivar.description && cultivar.description.split('：').length > 1 ? (
                                         <>
                                             <span className="font-bold text-stone-900 mb-1 block">
@@ -587,7 +587,7 @@ export default function TaiwanTeaCultivars() {
 
                 {/* Footer Note */}
                 <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
-                    <p className="text-sm text-stone-600 leading-relaxed">
+                    <p className="text-base text-stone-600 leading-relaxed">
                         <strong className="text-stone-800">註：</strong>
                         眉茶及龍井均屬於綠茶，包種花胚屬於包種茶，壽眉屬於白茶。
                         <br />

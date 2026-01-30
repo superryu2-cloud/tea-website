@@ -12,12 +12,12 @@ export default function FudingHistory() {
                     className="absolute inset-0 w-full h-full object-cover filter sepia-[0.3]"
                 />
                 <div className="absolute inset-0 bg-stone-900/60 flex flex-col justify-end p-8 md:p-10">
-                    <div className="flex items-center gap-2 text-stone-300 text-xs font-bold tracking-widest uppercase mb-2">
+                    <div className="flex items-center gap-2 text-stone-300 text-sm font-bold tracking-widest uppercase mb-2">
                         <History size={16} />
                         Historical Archive
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">福鼎白茶史</h2>
-                    <div className="text-stone-300 text-sm font-mono flex items-center gap-2">
+                    <div className="text-stone-300 text-[17px] font-mono flex items-center gap-2">
                         <ScrollText size={14} /> 來源：神州茶韻
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export default function FudingHistory() {
                     <div className="flex gap-4 items-start bg-stone-50 p-6 rounded-2xl border border-stone-100">
                         <User className="shrink-0 text-stone-400 mt-1" size={32} />
                         <div>
-                            <h3 className="text-lg font-bold text-stone-900 mt-0">王奕森：新工藝白茶的奠基者</h3>
+                            <h3 className="text-[19px] font-bold text-stone-900 mt-0">王奕森：新工藝白茶的奠基者</h3>
                             <p className="text-stone-700 leading-relaxed mb-0">
                                 王奕森，福州人，1952年響應號召自願去邊遠山區支援經濟建設，由福州市勞動局介紹省貿易公司分配至分配到福鼎茶廠。1953年由福鼎茶廠安排到白琳茶葉初製廠，從事茶葉初制技術研究，邊生產，邊實驗，邊研究機械化生產“白琳工夫”紅茶。1955年，參加福建省茶葉公司茶葉幹部技術培訓班學習一年。
                             </p>
@@ -55,7 +55,7 @@ export default function FudingHistory() {
                             <p>
                                 王奕森思考著用粗老鮮葉直接揉成捲曲形應當更好，從此，他就致力於鑽研粗老青葉輕揉製成白茶，作為白茶的拼配原料，當時，時尚的口語叫“產業革命”。經多次反複試驗研製，粗老青葉輕揉制的白茶香味、質量有明顯提高。王奕森特意製造一些茶樣到省外貿公司白茶審評室，請專家審評提出意見，專家的意見是作為茶葉，香氣滋味尚可，作為白茶，還有一定的差距，不能冒充使用。
                             </p>
-                            <div className="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-300 text-stone-800 italic text-sm">
+                            <div className="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-300 text-stone-800 italic text-[17px]">
                                 <Quote size={16} className="inline mr-2 text-amber-500" />
                                 他隨口說，低檔白茶產品也要革命嘛。茶葉公司加工科長高章煥嚴厲指責說：“白茶是我省四大茶類中獨特的茶類，有傳統的製造工藝和自然的風格，在銷區享有盛譽，你們七搞八造的產品冒充白茶，你說革命，我說是破壞……”
                             </div>
@@ -66,7 +66,7 @@ export default function FudingHistory() {
                                 alt="Innovation in Kneading"
                                 className="w-full rounded-2xl shadow-md border border-stone-100"
                             />
-                            <div className="bg-stone-50 p-4 rounded-xl text-xs text-stone-500 leading-relaxed border border-stone-100">
+                            <div className="bg-stone-50 p-4 rounded-xl text-[17px] text-stone-500 leading-relaxed border border-stone-100">
                                 <strong>歷史註腳：</strong> 1960 年代港澳市場的實際消費選擇，曾迫使福建外貿系統以台灣白茶樣茶作為研製對照，並以「仿台」試製商品。這反映當時台灣白茶在外銷競爭上具備顯著優勢。
                             </div>
                         </div>

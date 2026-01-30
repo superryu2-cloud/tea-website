@@ -204,7 +204,7 @@ export default function SiteNavigation({
       const resolvedNavHeight = Number.isFinite(navHeight) ? navHeight : 0;
       const barHeight = document.getElementById('varieties-context-bar')?.getBoundingClientRect().height;
       const resolvedBarHeight = Number.isFinite(barHeight) ? barHeight : 0;
-      return Math.max(0, Math.round(resolvedNavHeight + resolvedBarHeight + 20));
+      return Math.max(0, Math.round(resolvedNavHeight + resolvedBarHeight + 60));
     };
 
     let attempts = 0;

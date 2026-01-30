@@ -137,7 +137,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <div key={idx} className="bg-stone-50 p-6 rounded-2xl border border-stone-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300">
                                     <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-serif font-bold text-lg mb-4 shadow-sm">{item.name[0]}</div>
                                     <h5 className="font-bold text-lg text-stone-900 mb-3">{item.name}</h5>
-                                    <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+                                    <p className="text-base text-stone-600 leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -260,7 +260,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         「舊誌稱：嘉慶年時有<strong>柯朝</strong>者歸自福建，始于武夷茶，植於<strong>桀魚坑</strong>（今臺北縣平溪、深坑地區）發育甚佳，即以茶子二鬥播之，收成亦豐，隨互相傳，蓋臺北多雨，一年可收四季，春夏為盛。人工播種之經過記載」。
                                     </p>
                                 </div>
-                                <p className="text-stone-600 leading-relaxed text-sm">
+                                <p className="text-stone-600 leading-relaxed text-base">
                                     臺灣茶樹的人工栽培，始於我國大陸早期移民來台，產製方法來自福建武夷，開始製造烏龍茶供應島內消費。
                                 </p>
                             </div>
@@ -277,7 +277,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     英法聯軍攻擊中國，迫令締結<strong>天津條約</strong>，規定臺灣府（今台南市）為國際通商口岸。香港英商<strong>怡和洋行</strong>（Jardine.Matheson & co）曾派人到臺灣來收購烏龍茶的粗製品，開始了臺灣茶葉外銷年代。
                                 </p>
                                 <div className="mt-auto">
-                                    <p className="text-stone-700 leading-relaxed text-sm mb-4">
+                                    <p className="text-stone-700 leading-relaxed text-base mb-4">
                                         隔年，增闢<strong>淡水港</strong>為國際通商口岸，臺灣茶葉運往福州從事加工精製，再包裝運銷外國更為方便，從此臺灣茶葉運往福州加工的數量逐年增加。
                                     </p>
                                     <div className="bg-white p-4 rounded-xl shadow-sm border border-stone-200 flex items-center justify-between">
@@ -301,11 +301,11 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     <div className="mb-auto">
                                         <span className="inline-block px-3 py-1 rounded bg-amber-500 text-white text-xs font-bold mb-3 shadow-sm">1865年 · 關鍵轉折</span>
                                         <h4 className="text-2xl font-bold mb-3 text-stone-900">杜特氏與<br /><span className="text-amber-600">東方美人</span></h4>
-                                        <p className="text-stone-600 text-sm leading-relaxed mb-4">
+                                        <p className="text-stone-600 text-base leading-relaxed mb-4">
                                             <strong>杜特氏</strong>再度來台，採購臺灣茶葉運銷歐洲英國等地，品質獨特獲得消費者好評，<strong>白毫烏龍茶</strong>更贏得英女王美譽（<strong className="text-amber-700">東方美人</strong>），烏龍茶也有（<strong className="text-amber-700">臺灣香檳</strong>）的美譽。
                                         </p>
                                     </div>
-                                    <p className="text-stone-500 text-xs leading-relaxed border-t border-stone-100 pt-3 mt-4">
+                                    <p className="text-stone-500 text-base leading-relaxed border-t border-stone-100 pt-3 mt-4">
                                         杜特氏鑒於精製烏龍茶在臺灣試製成功，於是進一步計畫在<strong>臺北萬華</strong>地方創設精製烏龍茶廠，臺灣開始走進了烏龍茶精製期。
                                     </p>
                                 </div>
@@ -329,16 +329,16 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     <ul className="space-y-3">
                                         <li className="flex items-start">
                                             <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 mr-2 shrink-0"></span>
-                                            <span className="text-stone-600 text-sm">以傳統武夷茶方式製造烏龍素茶為主</span>
+                                            <span className="text-stone-600 text-base">以傳統武夷茶方式製造烏龍素茶為主</span>
                                         </li>
                                         <li className="flex items-start">
                                             <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 mr-2 shrink-0"></span>
-                                            <span className="text-stone-600 text-sm">以傳統烏龍素茶再加工薰花為臺灣包花茶為主</span>
+                                            <span className="text-stone-600 text-base">以傳統烏龍素茶再加工薰花為臺灣包花茶為主</span>
                                         </li>
                                     </ul>
                                     <div className="mt-6 pt-4 border-t border-stone-200">
                                         <div className="text-xs font-bold text-stone-500 mb-1">1874年（清光緒元年）</div>
-                                        <p className="text-xs text-stone-600 leading-relaxed">
+                                        <p className="text-base text-stone-600 leading-relaxed">
                                             臺灣最早製造包花茶的廠家成立。使用<strong>黃枝花</strong>與<strong>茉莉花</strong>薰製，開啟了與福州茶的競爭。
                                         </p>
                                     </div>
@@ -359,7 +359,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             </div>
                         </div>
 
-                            <div className="bg-stone-900 rounded-3xl overflow-hidden shadow-xl">
+                        <div className="bg-stone-900 rounded-3xl overflow-hidden shadow-xl">
                             <div className="grid md:grid-cols-2">
                                 <ZoomableImage
                                     src="/images/history/baozhong_masters.png"
@@ -387,7 +387,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                                     <div className="text-xs text-amber-500">受日本昭和天皇頒「白櫻花狀」褒揚</div>
                                                 </div>
                                             </div>
-                                            <p className="text-stone-300 text-sm leading-relaxed">
+                                            <p className="text-stone-300 text-base leading-relaxed">
                                                 發明<strong>「南港種籽」</strong>（包種茶），不需薰花即有天然清香，震驚業界。
                                             </p>
                                         </div>
@@ -400,14 +400,14 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                                     <h4 className="text-lg font-bold text-white">王水錦 <span className="text-xs text-stone-400 font-normal ml-2">文山式製造法改良人</span></h4>
                                                 </div>
                                             </div>
-                                            <p className="text-stone-300 text-sm leading-relaxed">
+                                            <p className="text-stone-300 text-base leading-relaxed">
                                                 以傳統武夷茶製法改良，特色<strong>水紅、甘而熟香</strong>，與南港式並列兩大製造法。
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="mt-8 border-t border-stone-700 pt-6">
-                                        <p className="text-stone-400 leading-relaxed text-sm">
+                                        <p className="text-stone-400 leading-relaxed text-base">
                                             從此臺灣茶業走入新紀元，臺灣烏龍茶處理加工「包花茶」年代在臺灣茶業界結束，茶農依照自已的地理環境、天氣變化、土質、採茶季節及茶葉採收靜置脫水處理時間掌握，開始製造自己茶葉。
                                         </p>
                                     </div>
@@ -441,11 +441,11 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <div className="space-y-4">
                                     <div className="bg-red-50 p-4 rounded-xl">
                                         <h5 className="font-bold text-red-900 mb-1">平鎮茶業試驗所</h5>
-                                        <p className="text-sm text-stone-700">成立於楊梅埔心（今茶改場前身），致力於品種改良與技術標準化。</p>
+                                        <p className="text-base text-stone-700">成立於楊梅埔心（今茶改場前身），致力於品種改良與技術標準化。</p>
                                     </div>
                                     <div className="bg-stone-50 p-4 rounded-xl">
                                         <h5 className="font-bold text-stone-900 mb-1">選定四大品種</h5>
-                                        <p className="text-sm text-stone-700">青心烏龍、大葉烏龍、青心大冇、硬枝紅心。</p>
+                                        <p className="text-base text-stone-700">青心烏龍、大葉烏龍、青心大冇、硬枝紅心。</p>
                                     </div>
                                 </div>
                             </div>
@@ -459,7 +459,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     1916年 · 技術標準化
                                 </h4>
                                 <div className="space-y-6">
-                                    <p className="text-stone-700 leading-relaxed text-sm">
+                                    <p className="text-stone-700 leading-relaxed text-base">
                                         茶業試驗所選定<strong>魏靜時</strong>（南港式）及<strong>王水錦</strong>（文山式）之製法為標準，全台推廣。日本政府更確立「南港式製造法」為台灣製茶技術的母法。
                                     </p>
                                     <div className="bg-red-50 p-5 rounded-2xl border border-red-100">
@@ -488,7 +488,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 </div>
                                 <div className="bg-white p-6 rounded-2xl shadow-inner border border-stone-100 text-center">
                                     <div className="text-sky-700 font-bold mb-2">包種茶的逆勢崛起</div>
-                                    <p className="text-stone-600 text-sm leading-relaxed">
+                                    <p className="text-stone-600 text-base leading-relaxed">
                                         在烏龍茶滯銷時，<strong>南港包種茶</strong>卻不受打擊。日本官方委託<strong>魏靜時</strong>擔任教師巡迴全台傳授技法，確立了「南港式製造法」為台灣製茶技術的母法。
                                     </p>
                                 </div>
@@ -508,7 +508,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     <div className="mt-1"><Wheat size={18} className="text-amber-600" /></div>
                                     <div>
                                         <div className="text-sm font-bold text-stone-800 mb-1">糧食管制</div>
-                                        <p className="text-sm text-stone-600 leading-relaxed">
+                                        <p className="text-base text-stone-600 leading-relaxed">
                                             日本政府劃定臺灣為雜糧供應區，強制廢茶園改種蕃薯、馬鈴薯。製茶機器被徵收熔化製成兵器。
                                         </p>
                                     </div>
@@ -517,7 +517,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                     <div className="mt-1"><User size={18} className="text-stone-500" /></div>
                                     <div>
                                         <div className="text-sm font-bold text-stone-800 mb-1">勞力缺乏</div>
-                                        <p className="text-sm text-stone-600 leading-relaxed">
+                                        <p className="text-base text-stone-600 leading-relaxed">
                                             太平洋戰爭爆發，壯丁被徵調充軍，茶園荒蕪。外銷海運中斷，臺灣茶業陷入黑暗期。
                                         </p>
                                     </div>
@@ -555,7 +555,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <ShieldAlert size={20} className="text-red-500 mt-1 shrink-0" />
                                         <div>
                                             <div className="text-sm font-bold text-red-800 mb-1">1947 二二八事件衝擊</div>
-                                            <p className="text-sm text-stone-600 leading-relaxed">
+                                            <p className="text-base text-stone-600 leading-relaxed">
                                                 舊台幣四萬換新台幣一元，加上出口結匯政策，使剛要復甦的茶業再次元氣大傷。
                                             </p>
                                         </div>
@@ -566,7 +566,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <h5 className="font-bold text-blue-800 mb-4 flex items-center">
                                             <Hammer className="mr-2" size={18} /> 復興關鍵
                                         </h5>
-                                        <ul className="space-y-3 text-sm text-stone-700">
+                                        <ul className="space-y-3 text-base text-stone-700">
                                             <li className="flex items-center p-2 rounded-lg bg-blue-50/50">
                                                 <CheckCircle size={16} className="text-blue-500 mr-3 shrink-0" />
                                                 國際對手（印度、錫蘭）尚未復原
@@ -631,7 +631,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">公</div>
                                             <div className="font-bold text-stone-800">1973年11月</div>
                                         </div>
-                                        <p className="text-sm text-stone-600 pl-11">
+                                        <p className="text-base text-stone-600 pl-11">
                                             政府正式核准<strong>「茶藝館」</strong>設立，承認其為正當行業，促成了後來八十年代茶藝館如雨後春筍般的榮景。
                                         </p>
                                     </div>
@@ -683,21 +683,21 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-4"><RotateCcw size={20} /></div>
                                 <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">產銷轉型</h5>
-                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
+                                <p className="text-stone-700 text-base leading-relaxed font-medium">
                                     從外銷轉為內銷為主。雖然北部茶園減少，但中部高山茶區興起，維持年產22,000公噸的高產量。
                                 </p>
                             </div>
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center mb-4"><Sprout size={20} /></div>
                                 <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">有機與環保</h5>
-                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
+                                <p className="text-stone-700 text-base leading-relaxed font-medium">
                                     90年代後，養生與環保成為主流。有機茶年成長率高達30%以上，遠高於全球平均。
                                 </p>
                             </div>
                             <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
                                 <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center mb-4"><Bot size={20} /></div>
                                 <h5 className="font-bold text-stone-900 text-xl mb-2 font-calligraphy">茶藝與文化</h5>
-                                <p className="text-stone-700 text-sm leading-relaxed font-medium">
+                                <p className="text-stone-700 text-base leading-relaxed font-medium">
                                     「茶藝」一名確立，古色古香的茶館興起。茶葉更成為優質高價的「舶來品」返銷大陸。
                                 </p>
                             </div>

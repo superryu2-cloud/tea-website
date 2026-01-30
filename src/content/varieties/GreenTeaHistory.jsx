@@ -10,11 +10,11 @@ export default function GreenTeaHistory() {
             {/* Introduction */}
             <div className="bg-green-50 p-8 rounded-xl border border-green-100">
                 <h3 className="text-3xl font-bold text-green-900 mb-6">綠茶：中國茶文化的起源</h3>
-                <p className="text-lg leading-relaxed mb-4">
+                <p className="text-[19px] leading-relaxed mb-4">
                     綠茶是中國最古老的茶類，也是產量最大、品種最多的茶類。從神農嘗百草的傳說，到唐代陸羽《茶經》的系統總結，
                     綠茶見證了中國茶文化數千年的發展歷程。
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-[19px] leading-relaxed">
                     綠茶的核心工藝是「殺青」——通過高溫迅速破壞酶的活性，保持茶葉的綠色和鮮爽口感。
                     這一工藝的演變，從最早的蒸青，到明代的炒青，造就了今天豐富多彩的綠茶世界。
                 </p>
@@ -36,7 +36,7 @@ export default function GreenTeaHistory() {
                     </p>
                     <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-400 my-6">
                         <h5 className="font-bold text-green-900 mb-2">蒸青 vs 炒青</h5>
-                        <p className="text-sm">
+                        <p className="text-[17px]">
                             <strong>蒸青：</strong>唐宋時期的主流工藝，用蒸汽殺青，茶葉顏色深綠，滋味較濃。日本綠茶至今仍用此法。<br />
                             <strong>炒青：</strong>明代開始流行，用鍋炒殺青，茶葉顏色翠綠，香氣更高揚。中國綠茶多用此法。
                         </p>
@@ -57,27 +57,27 @@ export default function GreenTeaHistory() {
                     <div className="grid md:grid-cols-2 gap-6 mt-6">
                         <div className="bg-green-50 p-4 rounded-lg">
                             <span className="font-bold text-green-900 block mb-2">西湖龍井</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於杭州西湖，明代已負盛名。清乾隆六下江南，四訪龍井，御封「十八棵御茶」。
                                 以「色綠、香郁、味甘、形美」著稱。
                             </p>
                         </div>
                         <div className="bg-green-50 p-4 rounded-lg">
                             <span className="font-bold text-green-900 block mb-2">碧螺春</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於江蘇蘇州洞庭山，清康熙年間得名。原名「嚇煞人香」，因香氣濃郁而得名。
                                 康熙品嘗後賜名「碧螺春」。
                             </p>
                         </div>
                         <div className="bg-green-50 p-4 rounded-lg">
                             <span className="font-bold text-green-900 block mb-2">黃山毛峰</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於安徽黃山，清光緒年間創製。茶葉形似雀舌，白毫顯露，有「黃山毛峰，天下第一」之譽。
                             </p>
                         </div>
                         <div className="bg-green-50 p-4 rounded-lg">
                             <span className="font-bold text-green-900 block mb-2">太平猴魁</span>
-                            <p className="text-sm">
+                            <p className="text-[17px]">
                                 產於安徽太平，清末創製。葉片扁平，兩葉抱一芽，有「猴魁兩頭尖，不散不翹不卷邊」的特點。
                             </p>
                         </div>
@@ -118,7 +118,7 @@ export default function GreenTeaHistory() {
                 <div className="border-t border-stone-600 pt-6 grid md:grid-cols-2 gap-6">
                     <div>
                         <span className="block text-green-400 font-bold mb-2">代表品種</span>
-                        <ul className="text-sm space-y-1 text-stone-400">
+                        <ul className="text-[17px] space-y-1 text-stone-400">
                             <li>西湖龍井、碧螺春、黃山毛峰</li>
                             <li>太平猴魁、六安瓜片、信陽毛尖</li>
                             <li>廬山雲霧、安吉白茶（實為綠茶）</li>
@@ -126,7 +126,7 @@ export default function GreenTeaHistory() {
                     </div>
                     <div>
                         <span className="block text-green-400 font-bold mb-2">沖泡建議</span>
-                        <ul className="text-sm space-y-1 text-stone-400">
+                        <ul className="text-[17px] space-y-1 text-stone-400">
                             <li>比例：1 : 50（3g茶配150ml水）</li>
                             <li>水溫：75-85°C（嫩芽茶溫度更低）</li>
                             <li>器具：玻璃杯或白瓷蓋碗</li>

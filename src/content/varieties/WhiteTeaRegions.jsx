@@ -72,7 +72,7 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
               </li>
             </ul>
 
-            <p className="mt-4 rounded-lg bg-emerald-50 p-4 text-sm leading-relaxed">
+            <p className="mt-4 rounded-lg bg-emerald-50 p-4 text-[17px] leading-relaxed">
               在此天然沃土之上，福鼎培育出了<strong>華茶1號（福鼎大白茶）及華茶2號（福鼎大毫茶）</strong>兩大核心品種。正是這些自然賦予的條件，推動了福鼎白茶在歷史貿易中的輝煌成就。
             </p>
           </div>
@@ -133,19 +133,19 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
             </p>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               <div className="rounded-xl border-l-4 border-emerald-500 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">福鼎特色</h4>
-                <p className="mt-2 text-sm leading-relaxed">
+                <h4 className="text-[19px] font-extrabold text-stone-900">福鼎特色</h4>
+                <p className="mt-2 text-[17px] leading-relaxed">
                   以起源地的文化底蘊與山海交匯的生命力見長，華茶1號與華茶2號品種優異，白毫銀針享譽全球。
                 </p>
               </div>
               <div className="rounded-xl border-l-4 border-amber-500 bg-white p-5">
-                <h4 className="text-lg font-extrabold text-stone-900">政和特色</h4>
-                <p className="mt-2 text-sm leading-relaxed">
+                <h4 className="text-[19px] font-extrabold text-stone-900">政和特色</h4>
+                <p className="mt-2 text-[17px] leading-relaxed">
                   以北苑貢茶的皇權榮耀與高山特質傲視產業界，政和大白茶品種卓越，高山風土獨特。
                 </p>
               </div>
             </div>
-            <p className="mt-4 leading-relaxed text-sm text-stone-600">
+            <p className="mt-4 leading-relaxed text-[17px] text-stone-600">
               兩大產區並立，共同構築了福建白茶高品質的產業脊樑，成為全球愛茶人追尋清甜本味的終極原鄉。
             </p>
           </div>
@@ -199,7 +199,7 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
             <p className="mt-3 leading-relaxed">
               在雨季，由於缺乏陽光曝曬，茶農不得不將鮮葉移入室內，在無光環境下緩慢陰乾。這種長時間、低溫的乾燥過程，使葉面部分發生緩慢氧化呈現深黑色，而芽頭則因白毫覆蓋保持銀白，形成了視覺上的「陰陽兩面」。
             </p>
-            <p className="mt-3 rounded-lg bg-blue-50 p-4 text-sm leading-relaxed">
+            <p className="mt-3 rounded-lg bg-blue-50 p-4 text-[17px] leading-relaxed">
               儘管行銷故事帶有濾鏡，但其風味確實迷人：它不苦不澀、飽滿醇厚，兼具普洱的根底與烏龍的清香。其最引人入勝之處在於那種「四花四果四密」的豐富香氣，既溫潤又深具層次感。
             </p>
           </div>
@@ -213,14 +213,14 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
 
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               <div className="rounded-xl border-l-4 border-emerald-500 bg-emerald-50 p-5">
-                <h4 className="text-lg font-extrabold text-emerald-900">福建白茶</h4>
-                <p className="mt-2 text-sm leading-relaxed">
+                <h4 className="text-[19px] font-extrabold text-emerald-900">福建白茶</h4>
+                <p className="mt-2 text-[17px] leading-relaxed">
                   如「江南美人」，水路細柔、香氣高揚清順，小葉種精緻，等級分明。
                 </p>
               </div>
               <div className="rounded-xl border-l-4 border-blue-500 bg-blue-50 p-5">
-                <h4 className="text-lg font-extrabold text-blue-900">雲南古樹白茶</h4>
-                <p className="mt-2 text-sm leading-relaxed">
+                <h4 className="text-[19px] font-extrabold text-blue-900">雲南古樹白茶</h4>
+                <p className="mt-2 text-[17px] leading-relaxed">
                   如「北方豪放美人」，海拔高、內涵強，雖微帶苦澀但回甘迅猛，大葉種壯碩。
                 </p>
               </div>
@@ -256,19 +256,19 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
             <div className="mt-3 space-y-3">
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">乾潤法</div>
-                <p className="mt-2 text-sm leading-relaxed">
+                <p className="mt-2 text-[17px] leading-relaxed">
                   利用溫燙蓋碗後的餘熱，投入乾茶並蓋上蓋子，藉溫熱喚醒茶葉的沈睡。
                 </p>
               </div>
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">蒸潤法</div>
-                <p className="mt-2 text-sm leading-relaxed">
+                <p className="mt-2 text-[17px] leading-relaxed">
                   在五點鐘方向定點注水 1/5，隨即蓋上蓋子，讓水蒸氣由下而上慢慢散發，將茶葉「蒸軟」，此過程約需 15 秒。
                 </p>
               </div>
               <div className="rounded-lg bg-white p-4">
                 <div className="font-extrabold text-stone-900">濕潤法</div>
-                <p className="mt-2 text-sm leading-relaxed">
+                <p className="mt-2 text-[17px] leading-relaxed">
                   再次注水至 3/4 處，確保葉片徹底潤透後迅速出湯，確保後續湯感乾甜。
                 </p>
               </div>
@@ -306,7 +306,7 @@ export default function WhiteTeaRegions({ topOffsetPx, activeHref = null }) {
             <p className="mt-4 leading-relaxed">
               雲南古樹白茶是跨越時間的遺贈。從《蠻書》中的「五彩造法」到清代神祕的「白龍鬚」，從民間傳說的「成六」到現代工藝的細膩追求，它承載了雲南大地的厚重與頑強。這不僅是一杯茶湯，更是生機勃勃的活化石。
             </p>
-            <p className="mt-3 leading-relaxed text-sm text-stone-600">
+            <p className="mt-3 leading-relaxed text-[17px] text-stone-600">
               當我們坐在茶桌前，唯有抱持對自然的敬畏，透過正確的沖泡節奏，才能真正讀懂那份源自原始森林深處的生命律動。這份深沉的回甘與迷人的蜜韻，值得每一位愛茶人虔誠對待，細細品讀。
             </p>
           </div>

@@ -77,7 +77,7 @@ export default function OolongRegionDiagram() {
                                     <Leaf size={14} /> 台灣烏龍茶
                                 </div>
 
-                                <ul className="space-y-2 text-stone-700 text-sm font-medium">
+                                <ul className="space-y-2 text-stone-700 text-base font-medium">
                                     {[
                                         { name: '包種茶', desc: '清新幽雅' },
                                         { name: '高山烏龍', desc: '山頭氣韻' },
@@ -104,7 +104,7 @@ export default function OolongRegionDiagram() {
                                     <Feather size={14} /> 閩南烏龍茶
                                 </div>
 
-                                <ul className="space-y-2 text-stone-700 text-sm font-medium">
+                                <ul className="space-y-2 text-stone-700 text-base font-medium">
                                     <li className="font-bold text-teal-900 border-b border-stone-50 pb-1 mb-2">鐵觀音 (Tie Guan Yin)</li>
                                     {[
                                         '本山', '黃旦 (黃金桂)', '毛蟹', '白芽奇蘭'
@@ -135,7 +135,7 @@ export default function OolongRegionDiagram() {
 
                                     <div>
                                         <div className="text-xs font-bold text-red-800 bg-red-50 px-2 py-1 rounded inline-block mb-2">四大名叢</div>
-                                        <div className="text-xs text-stone-600 leading-relaxed">
+                                        <div className="text-base text-stone-600 leading-relaxed">
                                             鐵羅漢、水金龜、白雞冠、半天腰
                                             <span className="text-stone-400 block mt-1">(以及 肉桂、水仙、奇種/菜茶)</span>
                                         </div>

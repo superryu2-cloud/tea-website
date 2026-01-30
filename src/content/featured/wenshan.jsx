@@ -10,7 +10,7 @@ export default function WenshanPouchongContent() {
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyan-100/30 to-emerald-50/30 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-emerald-100 text-emerald-800 text-base font-bold shadow-sm backdrop-blur-sm mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-emerald-100 text-emerald-800 text-[17px] font-bold shadow-sm backdrop-blur-sm mb-6">
                         <Leaf size={16} className="text-emerald-600" />
                         <span className="tracking-widest">輕發酵｜清香</span>
                     </div>
@@ -19,7 +19,7 @@ export default function WenshanPouchongContent() {
                     </h2>
                     <p className="text-xl md:text-2xl text-stone-600 leading-relaxed font-light tracking-wide max-w-2xl mx-auto">
                         「北包種，南烏龍」。<br className="md:hidden" />台灣最講究「香氣」的茶類。<br />
-                        <span className="text-base md:text-lg mt-2 block opacity-80">
+                        <span className="text-[17px] md:text-[19px] mt-2 block opacity-80">
                             外觀呈條索狀，色澤翠綠，湯色蜜綠金黃，香氣清揚幽雅，宛如置身蘭花谷。
                         </span>
                     </p>
@@ -57,7 +57,7 @@ export default function WenshanPouchongContent() {
                                 <span className="p-1.5 bg-emerald-100 rounded-lg text-emerald-700"><Wind size={18} /></span>
                                 香氣特色
                             </h4>
-                            <p className="text-stone-600 leading-relaxed text-lg">
+                            <p className="text-stone-600 leading-relaxed text-[19px]">
                                 帶有明顯的天然花香，依品種不同可能呈現<span className="font-bold text-emerald-700">蘭花、桂花或野薑花香</span>。香氣越清揚、越持久，品質越佳。
                             </p>
                         </div>
@@ -66,7 +66,7 @@ export default function WenshanPouchongContent() {
                                 <span className="p-1.5 bg-teal-100 rounded-lg text-teal-700"><Droplets size={18} /></span>
                                 茶湯滋味
                             </h4>
-                            <p className="text-stone-600 leading-relaxed text-lg">
+                            <p className="text-stone-600 leading-relaxed text-[19px]">
                                 <span className="font-bold text-teal-700">蜜綠顯黃，清澈明亮</span>。入口滋味甘潤、不苦不澀，活性強，講究「香、濃、醇、韻、美」。
                             </p>
                         </div>
@@ -87,7 +87,7 @@ export default function WenshanPouchongContent() {
                                 <div className="p-2 bg-stone-100 rounded-full text-stone-500"><Map size={20} /></div>
                             </div>
                             <div>
-                                <span className="font-bold text-lg text-stone-900 block mb-1">核心產區</span>
+                                <span className="font-bold text-[19px] text-stone-900 block mb-1">核心產區</span>
                                 <span className="text-stone-600 leading-relaxed">新北市坪林區（最大產區）、石碇區、深坑區、南港區。</span>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ export default function WenshanPouchongContent() {
                                 <div className="p-2 bg-stone-100 rounded-full text-stone-500"><Sprout size={20} /></div>
                             </div>
                             <div>
-                                <span className="font-bold text-lg text-stone-900 block mb-1">主要品種</span>
+                                <span className="font-bold text-[19px] text-stone-900 block mb-1">主要品種</span>
                                 <span className="text-stone-600 leading-relaxed">青心烏龍（品質最佳）、台茶12號（金萱）、台茶13號（翠玉）。</span>
                             </div>
                         </div>
@@ -109,16 +109,16 @@ export default function WenshanPouchongContent() {
                         <h3 className="text-2xl font-bold text-stone-800 mb-4 flex items-center">
                             <BookOpen className="mr-3 text-amber-600" /> 為什麼叫「包種」？
                         </h3>
-                        <p className="text-stone-700 leading-relaxed mb-6 text-lg">
+                        <p className="text-stone-700 leading-relaxed mb-6 text-[19px]">
                             包種茶起源於福建安溪。清道光年間，為了保存茶葉香氣與方便運輸，茶商將製好的茶葉用<strong>方形毛邊紙</strong>包裹，內外各兩層，每包四兩，四包一斤。
                         </p>
                         <div className="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm flex items-start gap-4">
                             <BadgeCheck className="text-amber-500 flex-shrink-0 mt-1" size={24} />
                             <div>
-                                <p className="text-amber-900 font-bold text-lg mb-1">
+                                <p className="text-amber-900 font-bold text-[19px] mb-1">
                                     「包」裝起來的「種」茶
                                 </p>
-                                <p className="text-stone-600 text-base">
+                                <p className="text-stone-600 text-[17px]">
                                     這就是包種茶名稱的由來。雖然現在多用真空包裝，但這個充滿歷史感的名字被保留了下來。
                                 </p>
                             </div>
@@ -131,21 +131,21 @@ export default function WenshanPouchongContent() {
                         </h3>
                         <div className="space-y-8 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-0.5 before:bg-stone-200">
                             <div className="pl-12 relative">
-                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm z-10">1</div>
+                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-base z-10">1</div>
                                 <h4 className="font-bold text-xl text-emerald-900 mb-2">包種茶始祖：魏靜時</h4>
                                 <p className="text-stone-700 leading-relaxed">
                                     要聊到包種茶，就一定會提到魏靜時，他是台灣於日治時期的重要茶人，對台灣茶貢獻良多，過世後日本昭和天皇頒「白櫻花狀」並稱其為包製種茶元祖及台灣茶業大恩人，後人尊稱其為「包種茶始祖」。
                                 </p>
                             </div>
                             <div className="pl-12 relative">
-                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm z-10">2</div>
+                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-base z-10">2</div>
                                 <h4 className="font-bold text-xl text-emerald-900 mb-2">研發動機：不加花的自然花香</h4>
                                 <p className="text-stone-700 leading-relaxed">
                                     為何魏靜時會開始研製包種茶呢？在白毫茉莉的故事中，我們知道帶有花香的茶葉深受消費者喜愛，固然茶葉加花是一種做法，但在悉心照料茶樹時還要分神去照顧鮮花，且自然窨製的製茶工法曠日費時，故在花茶成功之餘，茶商茶農們也不斷在思考如何進一步突破，甚至開始思考茶葉能不能夠不加花，但又能夠自帶花香的可能性。
                                 </p>
                             </div>
                             <div className="pl-12 relative">
-                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm z-10">3</div>
+                                <div className="absolute left-0 top-1 w-10 h-10 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-700 font-bold text-base z-10">3</div>
                                 <h4 className="font-bold text-xl text-emerald-900 mb-2">南港式製法的勝利與傳承</h4>
                                 <p className="text-stone-700 leading-relaxed mb-4">
                                     當時魏靜時的南港式製茶法，除了相對簡單外，成品的花香也絲毫不遜色於花茶，再加上日本人本身較偏好類似綠茶的口感，所以在日本佔領臺灣後，日本人除了積極拓展茶園面積外，在外銷上也持續加強力道，以數據來看，包種茶的銷售量年年升高，足見當時包種茶的熱銷程度。
@@ -175,7 +175,7 @@ export default function WenshanPouchongContent() {
                                     不同於高山茶或凍頂烏龍的「球型」外觀，包種茶呈現自然的<strong className="text-white font-bold mx-1">長條狀（條索狀）</strong>。
                                 </p>
                                 <div className="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
-                                    <h4 className="text-emerald-300 font-bold mb-3 text-lg flex items-center gap-2">
+                                    <h4 className="text-emerald-300 font-bold mb-3 text-[19px] flex items-center gap-2">
                                         <Info size={18} /> 為什麼不揉成球？
                                     </h4>
                                     <p className="text-stone-300 leading-relaxed">
@@ -198,7 +198,7 @@ export default function WenshanPouchongContent() {
                                 <p className="text-stone-700 leading-relaxed">用傳統武夷茶的製法加以改良，茶湯泡出來顏色偏深紅，香氣口感較厚重。</p>
                             </div>
                             <div className="p-6 bg-emerald-50/50 rounded-2xl border border-emerald-100 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-2 bg-emerald-600 text-white text-xs font-bold rounded-bl-lg">主流</div>
+                                <div className="absolute top-0 right-0 p-2 bg-emerald-600 text-white text-sm font-bold rounded-bl-lg">主流</div>
                                 <span className="block font-bold text-xl text-emerald-800 mb-3">南港式製法 (魏靜時)</span>
                                 <p className="text-stone-700 leading-relaxed">自創方法，茶湯泡出來顏色為綠黃色，香氣自然清香怡人，滋味圓滑甘潤。</p>
                             </div>
@@ -212,7 +212,7 @@ export default function WenshanPouchongContent() {
                         <Info className="mr-3 text-emerald-600" /> 名稱大解密：是同一種茶嗎？
                     </h3>
                     <div className="bg-stone-50 p-4 rounded-xl mb-8 text-center border-l-4 border-emerald-500">
-                        <p className="text-lg font-bold text-emerald-800">
+                        <p className="text-[19px] font-bold text-emerald-800">
                             是的，文山包種、南港包種、桂香包種，以上這些稱呼都是包種茶的別稱喔！
                         </p>
                     </div>
@@ -221,7 +221,7 @@ export default function WenshanPouchongContent() {
                         <div className="flex items-start gap-4 p-4 hover:bg-stone-50 rounded-xl transition-colors">
                             <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0 text-xl">A</div>
                             <div>
-                                <h4 className="font-bold text-lg text-stone-900 mb-1">文山包種</h4>
+                                <h4 className="font-bold text-[19px] text-stone-900 mb-1">文山包種</h4>
                                 <p className="text-stone-600 leading-relaxed">
                                     稱呼是來自於北部文山地區（現在的大臺北的景美、木柵、深坑、新店、石碇、坪林及烏來一帶），文山地區的茶農認為製造包種茶最好的品種是「青心烏龍」種，當地俗稱「種仔」，而用「種仔」製成的茶，通常適用宣紙包起來販售，故得名文山包種。
                                 </p>
@@ -230,7 +230,7 @@ export default function WenshanPouchongContent() {
                         <div className="flex items-start gap-4 p-4 hover:bg-stone-50 rounded-xl transition-colors">
                             <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0 text-xl">B</div>
                             <div>
-                                <h4 className="font-bold text-lg text-stone-900 mb-1">南港包種</h4>
+                                <h4 className="font-bold text-[19px] text-stone-900 mb-1">南港包種</h4>
                                 <p className="text-stone-600 leading-relaxed">
                                     稱呼是因為當時魏靜時的製茶法是叫做南港式製法，且後來的推廣中心也設定在南港大坑，故得名南港包種。
                                 </p>
@@ -239,7 +239,7 @@ export default function WenshanPouchongContent() {
                         <div className="flex items-start gap-4 p-4 hover:bg-stone-50 rounded-xl transition-colors">
                             <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center flex-shrink-0 text-xl">C</div>
                             <div>
-                                <h4 className="font-bold text-lg text-stone-900 mb-1">桂香包種</h4>
+                                <h4 className="font-bold text-[19px] text-stone-900 mb-1">桂香包種</h4>
                                 <p className="text-stone-600 leading-relaxed">
                                     稱呼是因為包種茶如果有達到一定品質，其成品會帶有類似桂花的香氣，故得名桂香包種。
                                 </p>
@@ -264,19 +264,19 @@ export default function WenshanPouchongContent() {
                             <h4 className="font-bold text-xl text-emerald-900 mb-4">掌握「快沖快倒」的秘訣</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                                 <div className="bg-white/60 p-4 rounded-xl">
-                                    <span className="block text-emerald-600 font-bold text-sm mb-1 uppercase tracking-wider">Temperature</span>
+                                    <span className="block text-emerald-600 font-bold text-base mb-1 uppercase tracking-wider">Temperature</span>
                                     <span className="block text-2xl font-black text-stone-800">90-95°C</span>
-                                    <span className="text-xs text-stone-500">水溫不宜過低</span>
+                                    <span className="text-[17px] text-stone-500">水溫不宜過低</span>
                                 </div>
                                 <div className="bg-white/60 p-4 rounded-xl">
-                                    <span className="block text-emerald-600 font-bold text-sm mb-1 uppercase tracking-wider">Vessel</span>
+                                    <span className="block text-emerald-600 font-bold text-base mb-1 uppercase tracking-wider">Vessel</span>
                                     <span className="block text-2xl font-black text-stone-800">瓷器 / 玻璃</span>
-                                    <span className="text-xs text-stone-500">不吸香材質最佳</span>
+                                    <span className="text-[17px] text-stone-500">不吸香材質最佳</span>
                                 </div>
                                 <div className="bg-white/60 p-4 rounded-xl">
-                                    <span className="block text-emerald-600 font-bold text-sm mb-1 uppercase tracking-wider">Technique</span>
+                                    <span className="block text-emerald-600 font-bold text-base mb-1 uppercase tracking-wider">Technique</span>
                                     <span className="block text-2xl font-black text-stone-800">快沖快倒</span>
-                                    <span className="text-xs text-stone-500">避免悶熟影響香氣</span>
+                                    <span className="text-[17px] text-stone-500">避免悶熟影響香氣</span>
                                 </div>
                             </div>
                         </div>
