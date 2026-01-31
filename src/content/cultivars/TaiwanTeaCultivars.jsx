@@ -8,7 +8,7 @@ export default function TaiwanTeaCultivars() {
 
     // 歷史引種介紹內容
     const historyContent = (
-        <div className="space-y-4 text-stone-700 leading-relaxed font-serif">
+        <div className="space-y-4 text-stone-700 leading-relaxed font-sans text-[17px]">
             <p>台灣初期茶樹品種均為引入種。</p>
             <p>最初引入者為小葉種種子，繁殖後稱為蒔茶。</p>
             <p>因蒔茶生育不整齊，隨後引入大陸地方品種之壓條苗，並進行無性繁殖(硬枝紅心、大葉烏龍、青心大冇、青心柑仔‧‧等)。</p>

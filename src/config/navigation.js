@@ -131,6 +131,7 @@ export const SCIENCE_TOC = [
   { href: '#science-aroma', key: 'aroma', label: '香氣' },
   { href: '#science-process', key: 'process', label: '製茶工藝' },
   { href: '#science-teaching', key: 'teaching', label: '台灣青茶製程整理' },
+  { href: '#science-slurping', key: 'slurping', label: '啜吸的科學與藝術' },
 ];
 
 export const FEATURED_TOC = [

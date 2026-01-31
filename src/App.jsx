@@ -39,6 +39,7 @@ import CultivarMysterySection from './content/cultivars/CultivarMysterySection';
 import TeaReferenceNotes from './content/references/TeaReferenceNotes';
 import SensoryQuestionBank from './content/sensory/SensoryQuestionBank';
 import TeaTalkColorSection from './content/teaTalk/TeaTalkColorSection';
+import OolongNameStory from './content/teaTalk/OolongNameStory';
 import TeaArtSpirit from './content/ceremony/TeaArtSpirit';
 import SolarTermsPrimer from './content/seasons/SolarTermsPrimer';
 import FourSeasonsSection from './content/seasons/FourSeasonsSection';
@@ -65,16 +66,19 @@ import AcademyChapter from './components/academy/AcademyChapter';
 import HeroSection from './components/sections/HeroSection';
 import JourneySection from './components/sections/JourneySection';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
+import ScienceSection from './components/sections/ScienceSection';
 import AromaticsChapter from './content/scienceChapters/AromaticsChapter';
 import TeaProcessCraftChapter from './content/scienceChapters/TeaProcessCraftChapter';
 import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
 import RoastingChapter from './content/scienceChapters/RoastingChapter';
+import SlurpingChapter from './content/scienceChapters/SlurpingChapter';
 import PuerhSection from './sections/PuerhSection';
 import SeasonsSection from './sections/SeasonsSection';
 import BrewingGuideSection from './sections/BrewingGuideSection';
 import DraggableWrapper from './components/DraggableWrapper';
 import SteepedSereneHome from './components/sections/SteepedSereneHome';
 import ResizableDivider from './components/ResizableDivider';
+import FeaturedTeaSection from './components/sections/FeaturedTeaSection';
 
 const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
 const WHITE_TOC_EXTENDED = [
@@ -102,7 +106,16 @@ const TeaWebsite = () => {
   const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
   const [pendingOffsetScrollTarget, setPendingOffsetScrollTarget] = useState(null);
   const [siteNavHeightPx, setSiteNavHeightPx] = useState(88);
-  const [selectedFeatured, setSelectedFeatured] = useState(() => featuredTeaMenu?.[0]?.id ?? 'tieguanyin');
+  const [selectedFeatured, setSelectedFeatured] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlTea = params.get('tea');
+      if (urlTea && featuredTeaMenu?.some((t) => t.id === urlTea)) {
+        return urlTea;
+      }
+    }
+    return featuredTeaMenu?.[0]?.id ?? 'tieguanyin';
+  });
   const chenChuanScrollOffsetPx = siteNavHeightPx + 20;
 
   const cultivarsSubnav = useAnchoredSubnav({
@@ -537,522 +550,7 @@ const TeaWebsite = () => {
 
 
 
-  const ScienceSection = () => {
-    const notesMode = UI_FLAGS.notesMode;
-    const [showScienceAtlas, setShowScienceAtlas] = useState(!notesMode);
-    const scienceSidebarItems = SCIENCE_TOC.map((item) => ({ key: item.key, label: item.label }));
-    const scienceSubItemsByKey = useMemo(
-      () => ({
-        oxidation: [
-          { href: '#chapter1', label: '1.0 核心定義' },
-          { href: '#chapter2', label: '2.0 微生物發酵' },
-          { href: '#chapter3', label: '3.0 酶促氧化' },
-          { href: '#chapter4', label: '4.0 化學轉化' },
-          { href: '#chapter5', label: '5.0 關鍵控制點' },
-          { href: '#chapter6', label: '6.0 實例分析' },
-          { href: '#chapter7', label: '7.0 結論' },
-        ],
-        teaching: [{ href: '#ref-all', label: '全部章節' }, ...TEA_REFERENCE_TOC],
-      }),
-      [],
-    );
-    const isScienceTeachingRoom = scienceRoom === 'teaching' || scienceRoom.startsWith('teaching-');
-    const scienceTeachingActiveHref = scienceRoom.startsWith('teaching-')
-      ? `#ref-${scienceRoom.replace('teaching-', '')}`
-      : teachingChapterHref;
 
-    // Oxidation chapter navigation
-    const [oxidationChapterHref, setOxidationChapterHref] = useState('#chapter1');
-    const isScienceOxidationRoom = scienceRoom === 'oxidation';
-
-    return (
-      <div className="museum-page">
-        <div className="w-full">
-          {notesMode && (
-            <div className="mb-10 museum-panel p-7 md:p-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                <div className="min-w-0">
-                  <div className="museum-label">
-                    <Microscope size={14} className="opacity-80" />
-                    TEA HOUSE · NOTES
-                  </div>
-                  <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">茶葉科學｜筆記卡</h2>
-                  <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
-                    科學不是背名詞，而是把「製程控制」連回「杯中風味」。先用筆記卡建立三大核心：氧化／烘焙／內含物；需要完整細節時再展開百科。
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
-                  <button
-                    type="button"
-                    onClick={() => setShowScienceAtlas(true)}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
-                  >
-                    展開百科
-                    <ChevronRight size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowScienceAtlas(true);
-                      setScienceRoom('oxidation');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
-                  >
-                    直接看氧化
-                    <ChevronRight size={16} className="text-emerald-700" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 1</div>
-                  <div className="mt-1 font-bold text-stone-900">氧化（發酵）</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">決定茶湯色澤、花果蜜香與回甘走向。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 2</div>
-                  <div className="mt-1 font-bold text-stone-900">烘焙（火功）</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">以熱重排香氣與口感：熟香、厚度、耐泡與耐放。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">CORE 3</div>
-                  <div className="mt-1 font-bold text-stone-900">內含物</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">茶多酚、胺基酸、咖啡因是「反應原料」，也就是風味底盤。</div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {!notesMode || showScienceAtlas ? (
-            <>
-              <AtlasDockLayout
-                topOffsetPx={siteNavHeightPx + 48}
-                sidebar={
-                  <ChapterSidebar
-                    title="科學實驗室"
-                    items={scienceSidebarItems}
-                    activeKey={scienceRoom}
-                    onSelectKey={(key) => {
-                      setScienceRoom(key);
-                      if (key === 'teaching') return selectScienceTeachingChapter('#ref-all');
-                      if (key.startsWith('teaching-')) return selectScienceTeachingChapter(`#ref-${key.replace('teaching-', '')}`);
-                      if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    subItemsByKey={scienceSubItemsByKey}
-                    activeSubHref={
-                      scienceRoom === 'teaching' ? teachingChapterHref :
-                        scienceRoom === 'oxidation' ? oxidationChapterHref :
-                          null
-                    }
-                    onSelectSubHref={(href) => {
-                      if (scienceRoom === 'teaching') {
-                        selectScienceTeachingChapter(href);
-                      } else if (scienceRoom === 'oxidation') {
-                        setOxidationChapterHref(href);
-                      }
-                    }}
-                    topOffsetPx={siteNavHeightPx + 16}
-                    pinMode="static"
-                  />
-                }
-              >
-                <div className="space-y-8 min-w-0">
-                  <main className="space-y-8">
-                    {isScienceTeachingRoom && (
-                      <div id="science-teaching" className="scroll-mt-28">
-                        <TeaReferenceNotes activeHref={scienceTeachingActiveHref === '#ref-all' ? null : scienceTeachingActiveHref} />
-                      </div>
-                    )}
-                    {scienceRoom === 'oxidation' && (
-                      <div className="museum-frame museum-paper overflow-hidden">
-                        <div className="px-6 py-6 md:px-8 md:py-7 border-b border-stone-200/70">
-                          <div className="museum-label">
-                            <RefreshCw size={14} className="opacity-80" />
-                            EXHIBIT ROOM
-                          </div>
-                          <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Oxidation' : '氧化'}</h3>
-                          <p className="mt-2 text-stone-700 leading-relaxed">
-                            {i18n.lang === 'en'
-                              ? '“Flavor chemistry” in tea is largely oxidation chemistry. This room explains enzymes, substrates, process control, and why different tea types taste so different.'
-                              : '茶的「風味化學」核心多與氧化作用相關。本展廳以製程控制視角，說明酵素、底物、環境與風味差異。'}
-                          </p>
-                        </div>
-                        <div className="px-2 py-2 md:px-4 md:py-4">
-                          <TeaChemistryDeepDive embedded activeHref={oxidationChapterHref} />
-                        </div>
-                      </div>
-                    )}
-
-                    {scienceRoom === 'roasting' && (
-                      <div className="museum-frame museum-paper p-6 md:p-8">
-                        <div className="museum-label">
-                          <Flame size={14} className="opacity-80" />
-                          EXHIBIT ROOM
-                        </div>
-                        <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Roasting' : '烘焙'}</h3>
-                        <p className="mt-3 text-stone-700 leading-relaxed">
-                          {i18n.lang === 'en'
-                            ? 'Roasting is a heat-driven reorganization of aroma and texture. The goal is not “burning”, but controlled transformation and stabilization.'
-                            : '烘焙不是「烤焦」，而是以熱為主導的風味重排與穩定化：香氣更深、口感更圓、保存更耐放。'}
-                        </p>
-
-                        <div className="mt-6 grid md:grid-cols-3 gap-4">
-                          <div className="museum-card p-5 bg-white/80">
-                            <div className="text-xs font-extrabold tracking-widest text-stone-500">HEAT</div>
-                            <div className="mt-1 font-bold text-stone-900">{i18n.lang === 'en' ? 'Heat Reactions' : '熱驅動反應'}</div>
-                            <div className="mt-2 text-sm text-stone-600 leading-relaxed">
-                              {i18n.lang === 'en'
-                                ? 'Moisture removal, aroma volatilization, Maillard reactions, and polymerization reshape flavor.'
-                                : '脫水、揮發、梅納反應與聚合作用共同推動「熟香」與口感厚度。'}
-                            </div>
-                          </div>
-                          <div className="museum-card p-5 bg-white/80">
-                            <div className="text-xs font-extrabold tracking-widest text-stone-500">CONTROL</div>
-                            <div className="mt-1 font-bold text-stone-900">{i18n.lang === 'en' ? 'Craft Controls' : '火功控制'}</div>
-                            <div className="mt-2 text-sm text-stone-600 leading-relaxed">
-                              {i18n.lang === 'en'
-                                ? 'Temperature, duration, airflow, and thickness are the main levers craftsmen tune.'
-                                : '溫度、時間、氣流、茶層厚度是師傅調整的四個主要旋鈕。'}
-                            </div>
-                          </div>
-                          <div className="museum-card p-5 bg-white/80">
-                            <div className="text-xs font-extrabold tracking-widest text-stone-500">OUTCOME</div>
-                            <div className="mt-1 font-bold text-stone-900">{i18n.lang === 'en' ? 'Flavor Outcome' : '風味結果'}</div>
-                            <div className="mt-2 text-sm text-stone-600 leading-relaxed">
-                              {i18n.lang === 'en'
-                                ? 'From floral to nutty/toasty; sharpness softens, sweetness and body become rounder.'
-                                : '香氣從花香走向果乾、堅果、焙火；苦澀趨緩，甜感與稠度更圓。'}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="mt-6 grid lg:grid-cols-12 gap-4">
-                          <div className="lg:col-span-7 museum-card p-6 bg-white/80">
-                            <div className="text-xs font-extrabold tracking-widest text-stone-500">{i18n.lang === 'en' ? 'PROCESS WALKTHROUGH' : '工序導覽'}</div>
-                            <h4 className="mt-2 text-lg font-extrabold text-stone-900">{i18n.lang === 'en' ? 'A museum-style timeline of roasting' : '烘焙流程（展場時間軸）'}</h4>
-                            <ol className="mt-4 space-y-3 text-sm text-stone-700">
-                              <li className="flex gap-3">
-                                <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-200/60 text-stone-900 font-extrabold">1</span>
-                                <div>
-                                  <div className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Warm-up & moisture balancing' : '預熱與回潤水分平衡'}</div>
-                                  <div className="text-stone-600 leading-relaxed">
-                                    {i18n.lang === 'en'
-                                      ? 'Gentle heat brings leaves to a stable state before stronger roasting. Helps avoid “outside dry, inside raw”.'
-                                      : '先用溫和熱量讓茶葉進入穩定狀態，避免「外乾內生」；也讓後續香氣釋放更一致。'}
-                                  </div>
-                                </div>
-                              </li>
-                              <li className="flex gap-3">
-                                <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-200/60 text-stone-900 font-extrabold">2</span>
-                                <div>
-                                  <div className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Primary roast (set the style)' : '主焙（定風格）'}</div>
-                                  <div className="text-stone-600 leading-relaxed">
-                                    {i18n.lang === 'en'
-                                      ? 'Roast level is decided here: light/medium/heavy. Airflow and batch thickness matter as much as temperature.'
-                                      : '在這一步決定輕/中/重焙路線；氣流與茶層厚度常常比「溫度數字」更關鍵。'}
-                                  </div>
-                                </div>
-                              </li>
-                              <li className="flex gap-3">
-                                <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-200/60 text-stone-900 font-extrabold">3</span>
-                                <div>
-                                  <div className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Resting (aroma integration)' : '退火靜置（香氣融合）'}</div>
-                                  <div className="text-stone-600 leading-relaxed">
-                                    {i18n.lang === 'en'
-                                      ? 'After heat, aroma can feel “sharp”. Resting lets volatile notes settle and the cup become rounder.'
-                                      : '剛烘完的茶香可能偏尖、火氣重；靜置能讓揮發性物質回落，茶湯更圓。'}
-                                  </div>
-                                </div>
-                              </li>
-                              <li className="flex gap-3">
-                                <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-200/60 text-stone-900 font-extrabold">4</span>
-                                <div>
-                                  <div className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Re-roast (optional, layer building)' : '回焙（選配：堆層次）'}</div>
-                                  <div className="text-stone-600 leading-relaxed">
-                                    {i18n.lang === 'en'
-                                      ? 'Some styles use multiple gentle passes. The goal is depth without smoke or bitterness spikes.'
-                                      : '部分風格採多次溫柔回焙；目標是「更深」而不是「更焦」，避免煙味與苦感突刺。'}
-                                  </div>
-                                </div>
-                              </li>
-                            </ol>
-                          </div>
-
-                          <div className="lg:col-span-5 museum-card p-6 bg-white/80">
-                            <div className="text-xs font-extrabold tracking-widest text-stone-500">{i18n.lang === 'en' ? 'OBSERVATION POINTS' : '觀察要點'}</div>
-                            <h4 className="mt-2 text-lg font-extrabold text-stone-900">{i18n.lang === 'en' ? 'What to look for in the cup' : '用茶湯判斷烘焙'}</h4>
-                            <ul className="mt-4 space-y-3 text-sm text-stone-700">
-                              <li className="flex items-start gap-2">
-                                <ChevronRight size={16} className="mt-0.5 text-amber-700" />
-                                <span><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Aroma trajectory:' : '香氣走向：'}</span> {i18n.lang === 'en' ? 'floral → ripe fruit/nutty → cocoa/wood' : '花香 → 熟果/堅果 → 可可/木質'}</span>
-                              </li>
-                              <li className="flex items-start gap-2">
-                                <ChevronRight size={16} className="mt-0.5 text-amber-700" />
-                                <span><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Texture:' : '口感：'}</span> {i18n.lang === 'en' ? 'rounder body, softer edges, longer finish' : '稠度更圓、邊緣更柔、尾韻更長'}</span>
-                              </li>
-                              <li className="flex items-start gap-2">
-                                <ChevronRight size={16} className="mt-0.5 text-amber-700" />
-                                <span><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Fire notes:' : '火氣：'}</span> {i18n.lang === 'en' ? 'freshly roasted tea can feel “hot”; resting reduces harshness' : '新焙茶常有「火氣」，靜置可讓刺激感下降'}</span>
-                              </li>
-                              <li className="flex items-start gap-2">
-                                <ChevronRight size={16} className="mt-0.5 text-amber-700" />
-                                <span><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Cleanliness:' : '乾淨度：'}</span> {i18n.lang === 'en' ? 'avoid smoke, burnt, or dusty flavors' : '避免煙味、焦苦、粉塵味'}</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div className="mt-6 grid md:grid-cols-2 gap-4">
-                          <details className="museum-card bg-white/80 p-5 group" open>
-                            <summary className="cursor-pointer list-none flex items-center justify-between font-extrabold text-stone-900">
-                              <span>{i18n.lang === 'en' ? 'What changes chemically?' : '化學層面：發生了什麼？'}</span>
-                              <span className="text-stone-500 group-open:rotate-90 transition-transform"><ChevronRight size={18} /></span>
-                            </summary>
-                            <div className="mt-3 text-sm text-stone-700 leading-relaxed space-y-3">
-                              <p>{i18n.lang === 'en'
-                                ? 'Roasting shifts aroma by heat: some volatiles evaporate, others form via Maillard reactions (amino acids + sugars), Strecker degradation, and gradual polymerization.'
-                                : '烘焙以「熱」推動風味轉換：部分揮發物散出；也會產生梅納反應（胺基酸＋糖）、史崔克降解與聚合作用，讓香氣更成熟、口感更厚。'}</p>
-                              <p>{i18n.lang === 'en'
-                                ? 'Pigment and “green” notes can be reduced; roast can also stabilize tea for storage by lowering moisture and deactivating remaining enzymes.'
-                                : '葉綠感與部分青味會下降；同時透過降低含水與抑制殘留酵素活性，提升保存穩定性。'}</p>得內容不可刪減、不可簡化，排版精美、視覺質感升級
-                            </div>
-                          </details>
-
-                          <details className="museum-card bg-white/80 p-5 group" open>
-                            <summary className="cursor-pointer list-none flex items-center justify-between font-extrabold text-stone-900">
-                              <span>{i18n.lang === 'en' ? 'Common roast issues (and how they taste)' : '常見烘焙問題（味覺辨識）'}</span>
-                              <span className="text-stone-500 group-open:rotate-90 transition-transform"><ChevronRight size={18} /></span>
-                            </summary>
-                            <div className="mt-3 text-sm text-stone-700 leading-relaxed space-y-3">
-                              <p><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Burnt/char:' : '焦苦/炭味：'}</span> {i18n.lang === 'en' ? 'sharp bitterness, ashy finish, aroma feels flat' : '苦感尖銳、尾段像灰；香氣扁平。'}</p>
-                              <p><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Smoke:' : '煙味：'}</span> {i18n.lang === 'en' ? 'smoky nose that covers the tea’s origin character' : '煙味蓋過茶本身的產區/品種特色。'}</p>
-                              <p><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Outside dry, inside raw:' : '外乾內生：'}</span> {i18n.lang === 'en' ? 'hollow cup, rough edges, unstable aftertaste' : '茶湯空、邊緣粗、尾韻不穩。'}</p>
-                              <p><span className="font-bold text-stone-900">{i18n.lang === 'en' ? 'Over-resting/stale:' : '陳放走味：'}</span> {i18n.lang === 'en' ? 'aroma dulls, sweetness fades, paper/closet notes appear' : '香氣鈍、甜感退，出現紙味/櫥味。'}</p>
-                            </div>
-                          </details>
-                        </div>
-
-                        <div className="mt-6 overflow-x-auto rounded-xl border border-stone-200 shadow-sm bg-white/70">
-                          <table className="min-w-full divide-y divide-stone-200 text-sm">
-                            <thead>
-                              <tr className="bg-stone-100">
-                                <th className="px-5 py-4 text-left font-extrabold tracking-widest text-stone-600">LEVEL</th>
-                                <th className="px-5 py-4 text-left font-extrabold tracking-widest text-stone-600">AROMA</th>
-                                <th className="px-5 py-4 text-left font-extrabold tracking-widest text-stone-600">MOUTHFEEL</th>
-                                <th className="px-5 py-4 text-left font-extrabold tracking-widest text-stone-600">COMMON IN</th>
-                              </tr>
-                            </thead>
-                            <tbody className="divide-y divide-stone-200 text-stone-700">
-                              <tr className="hover:bg-stone-50/60">
-                                <td className="px-5 py-4 font-bold text-stone-900">{i18n.lang === 'en' ? 'Light' : '輕焙'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Floral, fresh, honeyed' : '花香、清甜、蜜香'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Bright, crisp' : '明亮、爽口'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'High mountain oolong, lightly oxidized teas' : '高山烏龍、偏清香系'}</td>
-                              </tr>
-                              <tr className="hover:bg-stone-50/60">
-                                <td className="px-5 py-4 font-bold text-stone-900">{i18n.lang === 'en' ? 'Medium' : '中焙'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Roasted nuts, caramel, ripe fruit' : '堅果、焦糖、熟果'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Rounder, thicker body' : '更圓、更厚'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Dong Ding styles, traditional oolong' : '凍頂系、傳統烏龍'}</td>
-                              </tr>
-                              <tr className="hover:bg-stone-50/60">
-                                <td className="px-5 py-4 font-bold text-stone-900">{i18n.lang === 'en' ? 'Heavy' : '重焙'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Toasty, cocoa, wood, long finish' : '焙火、可可、木質、尾韻長'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Very smooth; lower sharpness' : '更順、更沉'}</td>
-                                <td className="px-5 py-4">{i18n.lang === 'en' ? 'Some aged oolong & re-roasted teas' : '部分陳年烏龍、回焙茶'}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <RoastingChapter />
-                      </div>
-                    )}
-
-                    {scienceRoom === 'constituents' && (
-                      <div className="museum-frame museum-paper p-6 md:p-8">
-                        <ConstituentsChapter />
-                      </div>
-                    )}
-
-                    {scienceRoom === 'aroma' && (
-                      <div className="museum-frame museum-paper p-6 md:p-8">
-                        <div className="museum-label">
-                          <Sparkles size={14} className="opacity-80" />
-                          EXHIBIT ROOM
-                        </div>
-                        <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Aromatics' : '香氣'}</h3>
-                        <p className="mt-3 text-stone-700 leading-relaxed">
-                          {i18n.lang === 'en'
-                            ? 'Tea aroma comes from hundreds of volatile organic compounds. Understanding their chemistry, formation, and classification helps you appreciate the complexity of tea fragrance.'
-                            : '茶葉香氣來自數百種揮發性芳香物質。從化學基礎到形成機制、分類方式，系統性地解析茶葉香氣的科學原理。'}
-                        </p>
-                        <div className="mt-6">
-                          <AromaticsChapter />
-                        </div>
-                      </div>
-                    )}
-
-                    {scienceRoom === 'process' && (
-                      <div className="museum-frame museum-paper p-6 md:p-8">
-                        <div className="museum-label">
-                          <FlaskConical size={14} className="opacity-80" />
-                          EXHIBIT ROOM
-                        </div>
-                        <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Tea Process Craft' : '製茶工藝'}</h3>
-                        <p className="mt-3 text-stone-700 leading-relaxed">
-                          {i18n.lang === 'en'
-                            ? 'A guided tour of how processing turns fresh leaf chemistry into aroma and flavor, using oolong tea as the main case.'
-                            : '以烏龍茶為例，梳理製程如何驅動香氣與滋味的生成，從萎凋到烘焙全程解析。'}
-                        </p>
-                        <div className="mt-6">
-                          <TeaProcessCraftChapter />
-                        </div>
-                      </div>
-                    )}
-
-
-                  </main>
-                </div>
-              </AtlasDockLayout>
-            </>
-          ) : notesMode ? (
-            <div className="museum-panel p-7 md:p-10 text-center">
-              <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
-              <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開完整科學百科</div>
-              <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
-                百科包含：氧化/烘焙/內含物三大展廳、圖解與白皮書內容，適合教學引用與快速查閱。
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
-                <button
-                  type="button"
-                  onClick={() => setShowScienceAtlas(true)}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
-                >
-                  展開百科內容
-                  <ChevronRight size={16} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowScienceAtlas(true);
-                    setScienceRoom('roasting');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
-                >
-                  直接看烘焙
-                  <ChevronRight size={16} className="text-emerald-700" />
-                </button>
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </div>
-    );
-  };
-
-  const TeaChemistryDeepDive = ({ embedded = false, activeHref = null }) => {
-    const [activeChapter, setActiveChapter] = useState('chapter1');
-
-    // Sync activeChapter with activeHref from sidebar
-    useEffect(() => {
-      if (activeHref && activeHref.startsWith('#chapter')) {
-        const chapterKey = activeHref.substring(1); // Remove '#'
-        setActiveChapter(chapterKey);
-      }
-    }, [activeHref]);
-
-    const EnzymeAnimation = () => (
-      <div className="not-prose my-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-        {/* PPO Animation */}
-        <div className="museum-card museum-paper p-6">
-          <h5 className="font-bold text-stone-800 mb-4">PPO 作用示意 (溫和氧化)</h5>
-          <div className="relative w-32 h-32 mx-auto">
-            {/* Cell */}
-            <div className="absolute inset-0 border-2 border-green-500 rounded-full animate-pulse"></div>
-            {/* Polyphenols slowly leaking */}
-            <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-yellow-500 rounded-full animate-ppo-leak-1"></div>
-            <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-yellow-500 rounded-full animate-ppo-leak-2"></div>
-            {/* Enzyme */}
-            <div className="absolute top-1/4 left-1/4 text-green-600">
-              <FlaskConical size={20} />
-            </div>
-          </div>
-          <p className="text-xs text-stone-500 mt-4">失水導致細胞膜通透性增加，茶多酚緩慢滲出與PPO酶接觸，產生金黃色茶湯。</p>
-        </div>
-
-        {/* POD Animation */}
-        <div className="museum-card museum-paper p-6">
-          <h5 className="font-bold text-stone-800 mb-4">POD 作用示意 (劇烈氧化)</h5>
-          <div className="relative w-32 h-32 mx-auto">
-            {/* Broken Cell */}
-            <div className="absolute inset-0 border-2 border-dashed border-red-500 rounded-full"></div>
-            {/* Oxygen rushing in */}
-            <div className="absolute top-1/4 right-1/4 text-blue-400 animate-ping">
-              <Wind size={16} />
-            </div>
-            {/* Rapid browning */}
-            <div className="absolute inset-2 bg-red-800/30 rounded-full animate-pod-flash"></div>
-            {/* Enzyme */}
-            <div className="absolute bottom-1/4 left-1/4 text-red-700">
-              <FlaskConical size={20} />
-            </div>
-          </div>
-          <p className="text-xs text-stone-500 mt-4">細胞結構破損，氧氣大量介入，POD酶劇烈作用，茶葉快速變紅褐。</p>
-        </div>
-      </div>
-    );
-
-    const chapters = scienceChapters;
-
-    return (
-      <div className={embedded ? "" : "py-12 animate-fadeIn"}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {!embedded && (
-            <div className="mb-10">
-              <div className="museum-frame museum-paper ">
-                <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-200/35 blur-3xl"></div>
-                <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amber-200/25 blur-3xl"></div>
-                <div className="relative px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <div className="museum-label">
-                      <FlaskConical size={14} className="opacity-80" />
-                      EXHIBIT · WHITEPAPER
-                    </div>
-                    <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">茶葉氧化與發酵機制技術白皮書</h2>
-                    <p className="mt-3 text-stone-600 leading-relaxed max-w-3xl">
-                      從生物化學角度，深入剖析茶葉風味形成的底層邏輯；可搭配章節導覽逐段閱讀。
-                    </p>
-                  </div>
-                  <div className="md:flex md:justify-end">
-                    <button
-                      type="button"
-                      onClick={() => { setActiveTab('science'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                      className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-extrabold border border-stone-300 bg-white hover:bg-stone-50 text-stone-700"
-                    >
-                      返回科學頁
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <div className="flex flex-col gap-8">
-            {/* Main Content */}
-            <div className="w-full">
-              <div className="museum-frame bg-white p-8 md:p-12 min-h-[600px]">
-                {chapters[activeChapter].content}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   const CultivarSection = () => {
     const notesMode = UI_FLAGS.notesMode;
@@ -1183,6 +681,7 @@ const TeaWebsite = () => {
 
           {showCultivarsAtlas ? (
             <AtlasDockLayout
+              topOffsetPx={siteNavHeightPx + 32}
               sidebar={
                 <CollapsibleSidebar
                   sections={CULTIVARS_SECTIONS}
@@ -1190,7 +689,8 @@ const TeaWebsite = () => {
                   activeSectionHref={activeCultivarHref}
                   onSelectSection={setActiveCultivarSection}
                   onSelectHref={scrollToCultivarSection}
-                  topOffsetPx={siteNavHeightPx + 48}
+                  topOffsetPx={siteNavHeightPx + 16}
+                  pinMode="static"
                 />
               }
             >
@@ -2453,300 +1953,7 @@ const TeaWebsite = () => {
 
   // SeasonsSection extracted to src/sections/SeasonsSection.jsx
 
-  const FeaturedTeaSection = () => {
-    const notesMode = UI_FLAGS.notesMode;
-    // selectedFeatured is now lifted to TeaWebsite level
-    const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
-    const [orientalBeautySection, setOrientalBeautySection] = useState('main');
-
-    const [featuredSidebarWidth, setFeaturedSidebarWidth] = useState(() => {
-      if (typeof window === 'undefined') return 260;
-      const raw = window.localStorage?.getItem('tea.featuredSidebarWidth');
-      const parsed = raw ? Number(raw) : NaN;
-      if (!Number.isFinite(parsed)) return 260;
-      return Math.min(Math.max(parsed, 220), 420);
-    });
-    const featuredTopRef = React.useRef(null);
-    const featuredDidMountRef = React.useRef(false);
-    const featuredSidebarOffsetPx = siteNavHeightPx + 48;
-    const scrollToFeaturedTop = () => {
-      if (typeof window === 'undefined') return;
-      featuredTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    const getReadableTextClass = (hexColor) => {
-      if (typeof hexColor !== 'string' || !hexColor.startsWith('#')) return 'text-white';
-      const hex = hexColor.replace('#', '').trim();
-      const normalized = hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex;
-      if (normalized.length !== 6) return 'text-white';
-      const r = parseInt(normalized.slice(0, 2), 16);
-      const g = parseInt(normalized.slice(2, 4), 16);
-      const b = parseInt(normalized.slice(4, 6), 16);
-      if (![r, g, b].every((n) => Number.isFinite(n))) return 'text-white';
-      const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-      return luminance > 0.72 ? 'text-[color:rgba(15,23,42,0.95)]' : 'text-white';
-    };
-
-    useEffect(() => {
-      const applyFromUrl = () => {
-        const params = new URLSearchParams(window.location.search);
-        const tea = params.get('tea');
-        if (tea && featuredTeaMenu.some((item) => item.id === tea)) {
-          setSelectedFeatured(tea);
-        }
-      };
-
-      applyFromUrl();
-      window.addEventListener('popstate', applyFromUrl);
-      return () => window.removeEventListener('popstate', applyFromUrl);
-    }, []);
-
-    useEffect(() => {
-      const url = new URL(window.location.href);
-      const params = new URLSearchParams(url.search);
-      if (params.get('tea') !== selectedFeatured) {
-        params.set('tea', selectedFeatured);
-        window.history.replaceState(null, '', `${url.pathname}?${params.toString()}${url.hash}`);
-      }
-
-      // Removed auto-scroll on mount to prevent page from jumping down
-      // if (featuredDidMountRef.current) {
-      //   featuredTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // } else {
-      //   featuredDidMountRef.current = true;
-      // }
-    }, [selectedFeatured]);
-
-    useEffect(() => {
-      if (typeof window === 'undefined') return;
-      try {
-        window.localStorage?.setItem('tea.featuredSidebarWidth', String(featuredSidebarWidth));
-      } catch {
-        // ignore
-      }
-    }, [featuredSidebarWidth]);
-
-    const handleFeaturedResize = (newWidth) => {
-      const clamped = Math.min(Math.max(newWidth, 220), 420);
-      setFeaturedSidebarWidth(clamped);
-    };
-
-
-    return (
-      <div className="museum-page min-h-screen">
-        <div className="museum-stage">
-          {notesMode && (
-            <div className="mb-10 museum-panel p-7 md:p-10">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                <div className="min-w-0">
-                  <div className="museum-label">
-                    <Leaf size={14} className="opacity-80" />
-                    TEA HOUSE · NOTES
-                  </div>
-                  <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">台灣特色茶｜筆記卡</h2>
-                  <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
-                    先用筆記卡建立台灣特色茶的「風味與代表性」直覺；需要查細節時再展開百科（每一款茶都有完整內容與章節）。
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
-                  <button
-                    type="button"
-                    onClick={() => setShowFeaturedAtlas(true)}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
-                  >
-                    展開百科
-                    <ChevronRight size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowFeaturedAtlas(true);
-                      setSelectedFeatured('tieguanyin');
-                      featuredTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
-                  >
-                    直接看鐵觀音
-                    <ChevronRight size={16} className="text-emerald-700" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">FOCUS</div>
-                  <div className="mt-1 font-bold text-stone-900">代表性風味</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">每款茶用一句話抓住「香氣／口感／茶性」。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">TEACHING</div>
-                  <div className="mt-1 font-bold text-stone-900">適合教學引用</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">章節化內容方便老師挑選段落做講義。</div>
-                </div>
-                <div className="museum-card px-5 py-4">
-                  <div className="text-xs font-extrabold tracking-widest text-stone-500">FLOW</div>
-                  <div className="mt-1 font-bold text-stone-900">回到沖泡</div>
-                  <div className="mt-2 text-sm text-stone-600 leading-relaxed">特色茶最後都回到「怎麼泡更好喝」。</div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {!notesMode || showFeaturedAtlas ? (
-            <div
-              className="flex flex-col md:flex-row md:items-start gap-8 md:gap-0"
-              style={{ '--featured-sidebar-width': `${featuredSidebarWidth}px` }}
-            >
-              {/* Sidebar Navigation for Featured Teas */}
-              <div className="featured-sidebar w-full md:w-auto mb-8 md:mb-0 self-start">
-                <PinnedChapterSidebar
-                  topOffsetPx={featuredSidebarOffsetPx}
-                  pinFrom="md"
-                  wrapperClassName="w-full"
-                >
-                  <div
-                    className="rounded-2xl backdrop-blur shadow-sm p-3 pb-4 tool-surface tool-surface--strong overflow-y-auto"
-                    style={{
-                      maxHeight: `calc(100vh - ${featuredSidebarOffsetPx}px - 24px)`,
-                      scrollPaddingBottom: '24px',
-                    }}
-                  >
-                    <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
-                      台灣特色茶
-                    </h3>
-                    <div className="space-y-2 pb-2">
-                      {featuredTeaMenu.map((item) => {
-                        const isActive = selectedFeatured === item.id;
-                        const activeTextClass = getReadableTextClass(item.swatch);
-                        return (
-                          <React.Fragment key={item.id}>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setSelectedFeatured(item.id);
-                                scrollToFeaturedTop();
-                              }}
-                              className={`chapter-nav-item group w-full text-left px-3 py-2 rounded-xl transition-all border box-border focus-visible:outline-none focus:scale-[1.02] ${isActive
-                                ? `${activeTextClass} border-amber-300/50 ring-1 ring-black/5 shadow-md`
-                                : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md tool-muted hover:text-stone-900'
-                                }`}
-                              style={
-                                isActive
-                                  ? {
-                                    backgroundColor: item.swatch,
-                                    backgroundImage:
-                                      'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))',
-                                  }
-                                  : undefined
-                              }
-                            >
-                              <div className="flex items-start gap-2">
-                                <span
-                                  className="mt-1 inline-block w-3 h-3 rounded-sm border border-stone-200 bg-white/60"
-                                  style={{ backgroundColor: item.swatch }}
-                                  aria-hidden="true"
-                                />
-                                <div className="min-w-0">
-                                  <span className="block font-bold text-lg leading-snug truncate chapter-label--flip">
-                                    <span className="chapter-label-inner">
-                                      <span className="chapter-label-front truncate">{item.label}</span>
-                                      <span className={`chapter-label-back truncate ${isActive ? activeTextClass : 'text-amber-600'}`}>{item.label}</span>
-                                    </span>
-                                  </span>
-                                  <span
-                                    className={`block text-sm mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
-                                  >
-                                    {item.subtitle}
-                                  </span>
-                                </div>
-                              </div>
-                            </button>
-                            {isActive && item.id === 'orientalbeauty' ? (
-                              <div className="mt-2 ml-4 space-y-1">
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    setOrientalBeautySection('main');
-                                    scrollToFeaturedTop();
-                                  }}
-                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'main'
-                                    ? 'bg-amber-100 text-amber-900'
-                                    : 'text-stone-600 hover:bg-stone-50'
-                                    }`}
-                                >
-                                  東方美人茶
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    setOrientalBeautySection('origins');
-                                    scrollToFeaturedTop();
-                                  }}
-                                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${orientalBeautySection === 'origins'
-                                    ? 'bg-amber-100 text-amber-900'
-                                    : 'text-stone-600 hover:bg-stone-50'
-                                    }`}
-                                >
-                                  東方美人茶的前世
-                                </button>
-                              </div>
-                            ) : null}
-
-                          </React.Fragment>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </PinnedChapterSidebar>
-              </div>
-
-              <ResizableDivider
-                onResize={handleFeaturedResize}
-                minWidth={220}
-                maxWidth={420}
-                className="hidden md:flex"
-              />
-
-              {/* Content Area */}
-              <div className="flex-1 min-w-0 md:pl-8">
-                <div ref={featuredTopRef} className="scroll-mt-28" />
-                {selectedFeatured === 'overview' && <FeaturedTeaOverview />}
-                {selectedFeatured === 'longjing' && <LongjingTeaArticle />}
-                {selectedFeatured === 'biluochun' && <BiluochunGreenTeaContent />}
-                {selectedFeatured === 'tieguanyin' && <TieGuanyinContent />}
-                {selectedFeatured === 'dongding' && <DongDingContent />}
-                {selectedFeatured === 'gaoshanoolong' && <GaoshanOolongContent />}
-                {selectedFeatured === 'redoolong' && <RedOolongContent />}
-                {selectedFeatured === 'honeyblack' && <HoneyAromaBlackTeaContent />}
-                {selectedFeatured === 'orientalbeauty' && <OrientalBeautyContent activeSection={orientalBeautySection} />}
-                {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
-                {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
-              </div>
-            </div>
-          ) : notesMode ? (
-            <div className="museum-panel p-7 md:p-10 text-center">
-              <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
-              <div className="mt-4 text-lg font-extrabold text-stone-900">需要時再展開台灣特色茶百科</div>
-              <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
-                百科包含：碧螺春綠茶、文山包種茶、高山烏龍茶、凍頂烏龍茶、鐵觀音茶、東方美人茶、紅烏龍茶、蜜香紅茶、小葉種紅茶、大葉種紅茶。
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
-                <button
-                  type="button"
-                  onClick={() => setShowFeaturedAtlas(true)}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
-                >
-                  展開百科內容
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </div>
-    );
-  };
+  // FeaturedTeaSection extracted to src/components/sections/FeaturedTeaSection.jsx
 
   // BrewingGuide extracted to src/sections/BrewingGuideSection.jsx
 
@@ -3802,19 +3009,33 @@ const TeaWebsite = () => {
           </div>
         )}
 
-        {activeTab === 'tea_talk' && <TeaTalkColorSection topOffsetPx={siteNavHeightPx + 16} />}
+        {activeTab === 'tea_talk' && <TeaTalkColorSection siteNavHeightPx={siteNavHeightPx} />}
 
         {activeTab === 'cultivars' && <CultivarSection />}
 
         {activeTab === 'varieties' && <VarietiesSection />}
 
-        {activeTab === 'featured' && <FeaturedTeaSection />}
+        {activeTab === 'featured' && (
+          <FeaturedTeaSection
+            selectedFeatured={selectedFeatured}
+            setSelectedFeatured={setSelectedFeatured}
+            siteNavHeightPx={siteNavHeightPx}
+          />
+        )}
 
         {activeTab === 'seasons' && <SeasonsSection siteNavHeightPx={siteNavHeightPx} />}
 
         {activeTab === 'zisha' && <ZishaExhibit siteNavHeightPx={siteNavHeightPx} />}
 
-        {activeTab === 'science' && <ScienceSection />}
+        {activeTab === 'science' && (
+          <ScienceSection
+            scienceRoom={scienceRoom}
+            setScienceRoom={setScienceRoom}
+            teachingChapterHref={teachingChapterHref}
+            onSelectTeachingChapter={selectScienceTeachingChapter}
+            siteNavHeightPx={siteNavHeightPx}
+          />
+        )}
 
         {activeTab === 'brewing' && <BrewingGuideSection selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}
 

@@ -42,12 +42,11 @@ export default function ChapterSidebar({
           overflowAnchor: 'none',
           scrollPaddingBottom: '40px',
           overscrollBehavior: 'auto',
-          scrollbarGutter: 'stable',
         }}
-        className="rounded-3xl border border-stone-200 bg-white shadow-lg shadow-stone-200/50 p-6 overflow-y-auto"
+        className="rounded-3xl border border-stone-200 bg-white shadow-lg shadow-stone-200/50 p-5 overflow-y-auto"
       >
         {Icon ? (
-          <div className="flex items-center gap-3 mb-6 px-1">
+          <div className="flex items-center gap-3 mb-4 px-1">
             <div className="w-10 h-10 rounded-2xl border border-stone-200 bg-white shadow-sm flex items-center justify-center text-emerald-600">
               <Icon size={20} strokeWidth={2.5} />
             </div>
@@ -93,7 +92,7 @@ export default function ChapterSidebar({
                     }`}
                 >
                   <span className="inline-flex items-center justify-between w-full gap-3">
-                    <span className="min-w-0 font-bold text-lg chapter-label--flip leading-snug">
+                    <span className="min-w-0 font-bold text-[18px] chapter-label--flip leading-snug">
                       <span className="chapter-label-inner">
                         <span className="chapter-label-front truncate">{item.label}</span>
                         <span className="chapter-label-back truncate text-amber-600">{item.label}</span>
@@ -135,7 +134,7 @@ export default function ChapterSidebar({
                             : 'hover:bg-stone-50 text-stone-600 hover:text-stone-900'
                             }`}
                         >
-                          <span className="block text-lg font-semibold chapter-label--flip">
+                          <span className="block text-[18px] font-semibold chapter-label--flip">
                             <span className="chapter-label-inner">
                               <span className="chapter-label-front truncate">{sub.label}</span>
                               <span className="chapter-label-back truncate text-amber-600">{sub.label}</span>

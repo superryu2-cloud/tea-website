@@ -24,13 +24,25 @@ export default function OrientalBeautySupplement() {
   return (
     <div className="max-w-5xl mx-auto space-y-24 pb-24">
       {/* Header */}
-      <div className="relative py-16 px-8 md:px-0 text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-amber-900/30" />
-        <span className="inline-block py-1 px-3 border border-amber-900/30 rounded-full text-amber-900 text-xs font-bold tracking-[0.2em] mb-4">TEACHING NOTES</span>
-        <h3 className="text-4xl md:text-5xl font-black text-stone-900 font-serif mb-6">臺灣東方美人茶<br /><span className="text-2xl md:text-3xl text-stone-500 font-light mt-2 block">深度教學與產業分析</span></h3>
-        <p className="text-lg text-stone-700 max-w-3xl mx-auto leading-relaxed">
-          本章節整合產業現況、生態機制、製程工藝與市場評鑑，提供最完整的東方美人茶教學資料庫。
-        </p>
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-amber-950 via-stone-900 to-stone-800 text-white rounded-3xl overflow-hidden p-8 md:p-20 border border-stone-800 shadow-2xl">
+        <div className="absolute inset-0 bg-[url('/images/featured/orientalbeauty/hero_bg.png')] bg-cover bg-center opacity-50 mix-blend-overlay" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-amber-400/20 to-rose-400/10 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-rose-400/20 to-amber-200/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-200 text-[17px] font-bold shadow-lg backdrop-blur-md mb-8">
+            <Sparkles size={16} className="text-amber-300" />
+            <span className="tracking-widest uppercase">Taiwan Oriental Beauty Tea</span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black text-white leading-tight mb-8 drop-shadow-2xl font-serif">
+            臺灣東方美人茶<br />
+            <span className="text-3xl md:text-5xl font-light text-amber-200 mt-2 block">深度教學與產業分析</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-stone-200 leading-relaxed font-light tracking-wide max-w-3xl mx-auto drop-shadow-md">
+            本章節整合產業現況、生態機制、製程工藝與市場評鑑，提供最完整的東方美人茶教學資料庫。
+          </p>
+        </div>
       </div>
 
       {/* Section 01: Ecology & Nature's Alchemy (Renumbered from 02) */}

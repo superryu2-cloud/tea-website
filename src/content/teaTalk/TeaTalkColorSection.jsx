@@ -23,7 +23,7 @@ function ComingSoon({ title }) {
   );
 }
 
-export default function TeaTalkColorSection({ topOffsetPx = 0 }) {
+export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx = 80 }) {
   const [activeChapter, setActiveChapter] = useState('overview');
 
   const chapters = useMemo(
@@ -45,7 +45,7 @@ export default function TeaTalkColorSection({ topOffsetPx = 0 }) {
     <div className="museum-page">
       <div className="museum-stage">
         <AtlasDockLayout
-          topOffsetPx={topOffsetPx}
+          topOffsetPx={siteNavHeightPx + 32}
           sidebar={
             <ChapterSidebar
               title="茶韻之旅"
@@ -59,7 +59,7 @@ export default function TeaTalkColorSection({ topOffsetPx = 0 }) {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              topOffsetPx={topOffsetPx}
+              topOffsetPx={siteNavHeightPx + 16}
               pinMode="static"
             />
           }

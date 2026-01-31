@@ -370,13 +370,12 @@
       left: 5px;
       width: 1px;
       height: 100%;
-      background: var(--tool-border);
-      opacity: 0.75;
-      transition: opacity 120ms ease-out;
+      background-color: #cbd5e1; /* Stone 300 for visibility */
+      opacity: 1;
     }
 
     .atlas-dock__resizer:hover::after {
-      opacity: 1;
+      background-color: #94a3b8; /* Stone 400 on hover */
     }
   }
 

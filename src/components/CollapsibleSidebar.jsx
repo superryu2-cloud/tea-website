@@ -107,11 +107,11 @@ export default function CollapsibleSidebar({
         <aside className={asideClassName} style={asideStyle}>
             <div
                 ref={scrollContainerRef}
-                className="museum-panel px-4 py-4 pr-2 overflow-y-auto tool-surface"
-                style={{ maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 24px)`, overflowAnchor: 'none' }}
+                className="rounded-3xl border border-stone-200 bg-white shadow-lg shadow-stone-200/50 p-5 overflow-y-auto"
+                style={{ maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 12px)`, overflowAnchor: 'none' }}
             >
-                <div className="px-1 pb-2 text-xs font-extrabold tracking-widest tool-muted">{title}</div>
-                <div className="space-y-1">
+                <h3 className="text-stone-500 font-bold mb-4 pl-1">{title}</h3>
+                <div className="space-y-2">
                     {sections.map((section) => {
                         const isExpanded = expandedSections.has(section.key);
                         const hasChildren = section.children && section.children.length > 0;
@@ -124,7 +124,9 @@ export default function CollapsibleSidebar({
                                     type="button"
                                     onMouseDown={(event) => event.preventDefault()}
                                     onClick={() => handleSectionClick(section)}
-                                    className={`w-full text-left rounded-xl px-3 py-2.5 transition-colors tool-item chapter-nav-item text-base font-semibold ${isActive ? 'tool-item--active' : ''
+                                    className={`chapter-nav-item group w-full text-left rounded-2xl px-4 py-3 transition-all duration-300 border focus-visible:outline-none text-[18px] font-bold ${isActive
+                                        ? 'bg-amber-50 border-amber-300 text-stone-900 shadow-sm'
+                                        : 'bg-white border-stone-200 text-stone-600 hover:border-amber-200 hover:bg-amber-50/50 hover:text-stone-900'
                                         }`}
                                 >
                                     <span className="inline-flex items-center justify-between w-full gap-3">
@@ -161,9 +163,9 @@ export default function CollapsibleSidebar({
                                                         type="button"
                                                         onMouseDown={(event) => event.preventDefault()}
                                                         onClick={() => handleHrefClick(child.href, section.key)}
-                                                        className={`w-full text-left rounded-lg px-3 py-2.5 transition-colors chapter-subitem text-base font-semibold ${isChildActive
-                                                            ? 'tool-subitem--active'
-                                                            : 'hover:bg-[var(--tool-hover-bg)]'
+                                                        className={`chapter-subitem w-full text-left rounded-lg px-3 py-2 transition-colors relative group/sub text-[18px] font-semibold ${isChildActive
+                                                            ? 'bg-stone-100/80 text-stone-900 font-bold shadow-sm ring-1 ring-stone-200/50'
+                                                            : 'hover:bg-stone-50 text-stone-600 hover:text-stone-900'
                                                             }`}
                                                     >
                                                         <span className="block chapter-label--flip">

@@ -68,5 +68,12 @@
     "subtitle": "全發酵｜雙重奏",
     "swatch": "#b91c1c",
     "activeClass": "bg-red-900 text-white"
+  },
+  {
+    "id": "oolong_name_story",
+    "label": "烏龍茶的身世",
+    "subtitle": "名稱故事｜三個時代",
+    "swatch": "#d6d3d1",
+    "activeClass": "bg-stone-600 text-white"
   }
 ]
