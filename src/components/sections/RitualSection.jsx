@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Leaf, Wind, Droplets, Coffee, Sparkles, Feather, ZoomIn } from 'lucide-react';
+import { Leaf, Wind, Droplets, Coffee, Sparkles, Feather, ZoomIn, Flower } from 'lucide-react';
 import ImageModal from '../ImageModal';
+import FlowerArrangementGenerator from '../../content/ceremony/FlowerArrangementGenerator';
 
 const RitualSection = () => {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [showFlowerAI, setShowFlowerAI] = useState(false);
 
     const steps = [
         { id: 1, title: "備茶展席", desc: "未曾汲水，先備茶具。必潔必燥，開口以待。靜心備水，安全得宜，調整心情。" },
@@ -46,22 +48,35 @@ const RitualSection = () => {
 
     return (
         <div className="w-full relative overflow-hidden rounded-[2rem] border border-stone-200 shadow-2xl bg-[#FCFAF7]">
+            {showFlowerAI && <FlowerArrangementGenerator onClose={() => setShowFlowerAI(false)} />}
+
             {/* Background Texture Overlay */}
             <div className="absolute inset-0 z-0 opacity-40 pointer-events-none" style={{ backgroundImage: "url('/images/texture-paper.png')" }}></div>
 
             {/* Main Header */}
             <div className="relative z-10 pt-16 pb-12 px-6 text-center">
-                <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-stone-800 text-stone-100 text-base tracking-[0.2em] font-medium shadow-lg mb-6">
-                    <Sparkles size={14} className="text-amber-400" />
-                    <span>RITUAL FLOW</span>
-                    <Sparkles size={14} className="text-amber-400" />
+                <div className="flex justify-center gap-4 mb-6">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-stone-800 text-stone-100 text-base tracking-[0.2em] font-medium shadow-lg">
+                        <Sparkles size={14} className="text-amber-400" />
+                        <span>RITUAL FLOW</span>
+                        <Sparkles size={14} className="text-amber-400" />
+                    </div>
                 </div>
                 <h4 className="text-4xl md:text-5xl font-bold text-stone-800 font-serif mb-4">
                     事茶儀軌 · 九式
                 </h4>
-                <p className="text-[19px] text-stone-600 font-medium max-w-2xl mx-auto">
+                <p className="text-[19px] text-stone-600 font-medium max-w-2xl mx-auto mb-8">
                     以步驟承載心境，讓每一道動作都帶著安定的節奏
                 </p>
+
+                <button
+                    onClick={() => setShowFlowerAI(true)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors font-bold text-sm"
+                >
+                    <Flower size={16} />
+                    <span>茶席插花 AI 助手</span>
+                </button>
+
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mt-8"></div>
             </div>
 

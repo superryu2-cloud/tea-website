@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { RotateCcw, Layout, Move, HelpCircle, Info, ArrowDown, ArrowUp, ArrowLeft, ArrowRight } from 'lucide-react';
+import { RotateCcw, Layout, Move, HelpCircle, Info, ArrowDown, ArrowUp, ArrowLeft, ArrowRight, X, ZoomIn } from 'lucide-react';
 import DraggableWrapper from '../DraggableWrapper';
+import ImageModal from '../ImageModal';
 
 const TeaSetupDiagram = () => {
     return (
@@ -158,6 +159,7 @@ const TeaSetupDiagram = () => {
 
 const TeaSetupSection = () => {
     const [deskLayoutSeed, setDeskLayoutSeed] = useState(0);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const resetDeskLayout = () => {
         setDeskLayoutSeed((prev) => prev + 1);
@@ -346,7 +348,7 @@ const TeaSetupSection = () => {
             </div>
 
             {/* Steps Guide */}
-            <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+            <div className="space-y-8 md:space-y-12">
                 {/* Visual Step Guide */}
                 <div className="bg-white rounded-3xl p-8 border border-stone-100 shadow-xl relative overflow-hidden group">
                     {/* ... (Existing Step Content kept same but simplified for brevity in this tool call, assumed preserved in actual file) ... */}
@@ -357,7 +359,7 @@ const TeaSetupSection = () => {
                     </h4>
                     <div className="relative z-10">
                         <div className="mb-8 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-                            <img src="/images/ceremony/tea_selection.png" alt="Tea Selection Detail" className="w-full h-48 object-cover transform transition-transform duration-700 group-hover:scale-105" />
+                            <img src="/images/ceremony/tea_setup_diagram.png" alt="茶席佈局示意圖" className="w-full h-48 object-cover transform transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <ol className="space-y-6 relative border-l-2 border-stone-100 ml-3 pl-8">
                             <li className="relative">
@@ -379,33 +381,94 @@ const TeaSetupSection = () => {
                     </div>
                 </div>
 
-                {/* Elements Guide */}
-                <div className="bg-stone-50 rounded-3xl p-8 border border-stone-200 shadow-lg relative overflow-hidden">
-                    <h4 className="text-2xl font-bold text-stone-800 mb-8 flex items-center relative z-10">
-                        <span className="w-8 h-8 rounded-lg bg-stone-200 text-stone-700 flex items-center justify-center mr-3 text-base font-bold">02</span>
-                        茶席構成要素
-                    </h4>
-                    <div className="grid gap-4 relative z-10">
-                        {[{ title: "席方", desc: "離桌緣一食指距離。", color: "border-stone-400" },
-                        { title: "壺承", desc: "直徑須大於壺，造型如舞台。", color: "border-amber-400" },
-                        { title: "勻杯", desc: "斷水須順暢，高度不低於杯。", color: "border-emerald-400" },
-                        { title: "水盂", desc: "彈性最大，可依比例調整。", color: "border-blue-400" },
-                        { title: "茶巾", desc: "置於事茶者右下壺承45度。", color: "border-purple-400" }
+                {/* Tea Ware Beauty Section - Upgraded */}
+                <div className="bg-[#F7F5F0] rounded-[2.5rem] p-8 md:p-10 border border-[#E6E2D8] shadow-lg relative overflow-hidden">
+                    {/* Header */}
+                    <div className="relative z-10 mb-8">
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="w-10 h-10 rounded-xl bg-stone-800 text-amber-50 flex items-center justify-center text-lg font-bold shadow-lg">02</span>
+                            <h4 className="text-[24px] font-black text-stone-900 font-serif tracking-wide">
+                                器物之美 · 茶席構成
+                            </h4>
+                        </div>
+                        <p className="text-stone-600 text-[17px] font-sans font-medium max-w-2xl leading-relaxed">
+                            茶席上的每一件器物，都有其獨特的「性格」與「任務」。<br />
+                            適當的器物選擇與陳列，能無聲地傳遞出司茶者的心境與美學修養。
+                        </p>
+                    </div>
+
+                    {/* Ware Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+                        {[
+                            { title: "席方", sub: "The Stage", image: "/images/ceremony/ware_runner.png", desc: "確立空間的邊界。離桌緣需留一食指距離，營造「敬」的緩衝空間。", color: "text-stone-600" },
+                            { title: "壺承", sub: "The Throne", image: "/images/ceremony/ware_boat.png", desc: "壺的舞台。直徑須大於壺，承載灑落的茶湯與司茶這的從容。", color: "text-amber-800" },
+                            { title: "勻杯", sub: "Fairness", image: "/images/ceremony/ware_faircup.png", desc: "象徵「公道」。斷水須順暢俐落，高度不應低於品杯，體現尊卑有序。", color: "text-emerald-800" },
+                            { title: "水盂", sub: "Acceptance", image: "/images/ceremony/ware_waterbowl.png", desc: "包容萬物。收納茶渣與餘水，造型與材質的選擇彈性最大，可點綴茶席。", color: "text-blue-800" },
+                            { title: "茶巾", sub: "Purity", image: "/images/ceremony/ware_cloth.png", desc: "潔淨的象徵。隨時保持案上清爽，置於壺承右下方45度角，便於取用。", color: "text-purple-800" }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white p-4 rounded-xl shadow-sm border border-stone-100 flex items-center hover:translate-x-2 transition-transform duration-300">
-                                <div className={`w-2 h-10 rounded-full mr-4 bg-stone-100 ${item.color.replace('border', 'bg').replace('400', '200')}`}></div>
-                                <div><strong className="text-stone-800 text-[19px] block">{item.title}</strong><span className="text-stone-600 text-base">{item.desc}</span></div>
+                            <div
+                                key={idx}
+                                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 cursor-zoom-in flex flex-col md:flex-row"
+                                onClick={() => setSelectedImage({ src: item.image, alt: item.title })}
+                            >
+                                {/* Image - 左側 */}
+                                <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0 overflow-hidden bg-stone-100 relative">
+                                    <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                        <div className="bg-white/20 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
+                                            <Layout size={20} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Content - 右側 */}
+                                <div className="flex-1 p-6 space-y-3 flex flex-col justify-center min-h-[200px]">
+                                    {/* 副標題標籤 */}
+                                    <div className="inline-block">
+                                        <span className="text-xs font-sans font-bold tracking-[0.15em] text-stone-400 uppercase px-2 py-1 bg-stone-50 rounded whitespace-nowrap">
+                                            {item.sub}
+                                        </span>
+                                    </div>
+
+                                    {/* 主標題 */}
+                                    <h5 className="text-[22px] font-bold text-stone-900 font-serif leading-tight">
+                                        {item.title}
+                                    </h5>
+
+                                    {/* 分隔線 */}
+                                    <div className="w-12 h-0.5 bg-stone-300 group-hover:w-full transition-all duration-500"></div>
+
+                                    {/* 描述文字 */}
+                                    <p className="text-[17px] font-sans font-medium text-stone-600 leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
+
+                    {/* Decorative Background Elements */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-stone-100 rounded-full blur-3xl -mr-20 -mt-20 opacity-60 pointer-events-none mix-blend-multiply"></div>
+                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-50 rounded-full blur-3xl -ml-16 -mb-16 opacity-40 pointer-events-none mix-blend-multiply"></div>
+
+                    {/* Decorative Pattern Overlay */}
+                    <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30m-20 0a20 20 0 1 0 40 0a20 20 0 1 0 -40 0' stroke='%23000' fill='none' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E")`,
+                        backgroundSize: '60px 60px'
+                    }}></div>
                 </div>
             </div>
 
             {/* NEW DIAGRAM SECTION */}
             <TeaSetupDiagram />
 
-            {/* Interactive Lab */}
+
             <div className="bg-[#2c241b] text-stone-200 p-6 md:p-10 rounded-[2.5rem] relative overflow-hidden ring-1 ring-white/10 shadow-2xl">
+                {/* ... (Lab content) ... */}
+
+                {/* ... existing lab content ... */}
+                {/* (I will match the end of the lab content in TargetContent to append the modal after it) */}
+
                 {/* Wood Texture */}
                 <div className="absolute inset-0 opacity-40 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E")` }}></div>
 
@@ -458,6 +521,14 @@ const TeaSetupSection = () => {
                 }
             `}</style>
             </div>
+
+            {/* Image Modal */}
+            <ImageModal
+                isOpen={!!selectedImage}
+                onClose={() => setSelectedImage(null)}
+                src={selectedImage?.src}
+                alt={selectedImage?.alt}
+            />
         </div>
     );
 };

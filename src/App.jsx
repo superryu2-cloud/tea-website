@@ -48,10 +48,10 @@ import { UI_FLAGS } from './config/uiFlags';
 import { CHEN_CHUAN_TOC, CULTIVARS_SECTIONS, CULTIVARS_TOC, NAV_ITEMS, OOLONG_TOC, PUERH_TOC, RED_TOC, SCIENCE_TOC, SEASONS_SECTIONS, TEA_REFERENCE_TOC, VARIETIES_KINDS } from './config/navigation';
 import useI18n from './i18n/useI18n';
 import SectionCard from './components/SectionCard';
+import ImageModal from './components/ImageModal';
 import PasswordModal from './components/PasswordModal';
 import SiteNavigation from './components/SiteNavigation';
 import TaiwanTeaMap from './components/TaiwanTeaMap';
-import ImageModal from './components/ImageModal';
 import ChapterSidebar from './components/ChapterSidebar';
 import CollapsibleSidebar from './components/CollapsibleSidebar';
 import HorizontalNavigation from './components/HorizontalNavigation';
@@ -2210,23 +2210,53 @@ const TeaWebsite = () => {
                       </div>
                     </div>
 
-                    {/* Full Utensil List */}
-                    <div className="border-t border-stone-200 pt-8">
-                      <div className="flex justify-between items-center mb-6">
-                        <h4 className="font-bold text-xl text-stone-800">常用茶器介紹</h4>
-                        <button
-                          onClick={() => setShowAllUtensils(!showAllUtensils)}
-                          className="text-sm text-green-700 font-bold hover:underline"
-                        >
-                          {showAllUtensils ? "收起列表" : "展開完整列表 (32項)"}
-                        </button>
+                    {/* Full Utensil List - Upgraded */}
+                    <div className="border-t border-stone-200 pt-8 relative">
+                      {/* Header */}
+                      <div className="flex justify-between items-center mb-8">
+                        <h4 className="font-bold text-[22px] text-stone-800 font-serif">常用茶器介紹</h4>
+                        <span className="text-sm text-stone-500 font-medium">展開完整列表 (32項)</span>
                       </div>
 
-                      <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-all duration-500 ${showAllUtensils ? 'max-h-[2000px] opacity-100' : 'max-h-64 overflow-hidden opacity-80'}`}>
+                      {/* Featured Utensils with Images */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                         {[
-                          { name: "茶壺", desc: "中華茶文化博大精深部分。" },
-                          { name: "茶盤", desc: "放茶具，下層盛水。" },
-                          { name: "茶杯", desc: "聞香杯(高)、就口杯(矮)。" },
+                          { name: "茶壺", desc: "中華茶文化博大精深部分。", image: "/images/utensils/teapot.png", hasImage: true },
+                          { name: "茶盤", desc: "放茶具，下層盛水。", image: "/images/utensils/tea_tray.png", hasImage: true },
+                          { name: "茶杯", desc: "聞香杯(高)、就口杯(矮)。", image: "/images/utensils/tea_cups.png", hasImage: true },
+                        ].map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 flex flex-col md:flex-row"
+                          >
+                            {/* Image - 左側 */}
+                            <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0 overflow-hidden bg-stone-100 relative">
+                              <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                            </div>
+
+                            {/* Content - 右側 */}
+                            <div className="flex-1 p-6 space-y-3 flex flex-col justify-center min-h-[160px]">
+                              {/* 主標題 */}
+                              <h5 className="text-[20px] font-bold text-stone-900 font-serif leading-tight">
+                                {item.name}
+                              </h5>
+
+                              {/* 分隔線 */}
+                              <div className="w-12 h-0.5 bg-stone-300 group-hover:w-full transition-all duration-500"></div>
+
+                              {/* 描述文字 */}
+                              <p className="text-[17px] font-sans font-medium text-stone-600 leading-relaxed">
+                                {item.desc}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Other Utensils - Grid Layout */}
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {[
                           { name: "茶船/茶池", desc: "承接沖泡溢出之水。" },
                           { name: "壺盛/壺承", desc: "承接溢水，乾式泡法常用。" },
                           { name: "壺墊", desc: "保護壺底，避免摩擦。" },
@@ -2242,13 +2272,6 @@ const TeaWebsite = () => {
                           { name: "茶倉", desc: "存放茶葉之罐。" },
                           { name: "蓋置", desc: "放置壺蓋處。" },
                           { name: "鑑定杯", desc: "比賽評茶用(150cc)。" },
-                        ].map((item, idx) => (
-                          <div key={idx} className="bg-white p-3 rounded border border-stone-200 shadow-sm">
-                            <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
-                            <span className="text-xs text-stone-500">{item.desc}</span>
-                          </div>
-                        ))}
-                        {showAllUtensils && [
                           { name: "則置", desc: "放茶夾、茶撥之處。" },
                           { name: "茶掏", desc: "清壺用，竹製為佳。" },
                           { name: "杯托", desc: "放杯子，防沾濕桌面。" },
@@ -2264,12 +2287,15 @@ const TeaWebsite = () => {
                           { name: "茶末濾網", desc: "過濾茶屑。" },
                           { name: "同心杯", desc: "個人獨飲含濾心。" },
                         ].map((item, idx) => (
-                          <div key={`extra-${idx}`} className="bg-white p-3 rounded border border-stone-200 shadow-sm animate-fadeIn">
-                            <span className="font-bold text-stone-800 block text-sm">{item.name}</span>
-                            <span className="text-xs text-stone-500">{item.desc}</span>
+                          <div key={idx} className="bg-white p-4 rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <span className="font-bold text-[17px] text-stone-800 block mb-1 font-sans">{item.name}</span>
+                            <span className="text-[15px] text-stone-500 font-sans">{item.desc}</span>
                           </div>
                         ))}
                       </div>
+
+                      {/* Decorative Background Elements */}
+                      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-40 pointer-events-none mix-blend-multiply"></div>
                     </div>
                   </div>
                 )}
