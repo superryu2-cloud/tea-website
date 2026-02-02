@@ -1,0 +1,907 @@
+﻿[
+  {
+    "id": "SIXTEA01-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶的製作核心在於？",
+    "choices": ["抑制多酚氧化", "促進長時間發酵", "進行渥堆", "長期陳化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶常見的殺青方式為？",
+    "choices": ["炒青或蒸青", "渥堆或陳化", "日曬或堆悶", "做青或搖青"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶殺青的目的主要是？",
+    "choices": ["破壞酵素以防氧化", "增加後發酵", "形成堆味", "降低含水量到最低"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶製程中通常不包含哪一項？",
+    "choices": ["殺青", "揉捻", "發酵", "乾燥"],
+    "answerIndex": 2
+  },
+  {
+    "id": "SIXTEA01-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶常見風味取向為？",
+    "choices": ["清鮮爽口", "厚重焙火", "陳香藥韻", "松煙香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶的湯色多呈現？",
+    "choices": ["清澈偏綠", "深紅濃亮", "褐紅濃稠", "金黃透亮"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "窨花綠茶的作法是？",
+    "choices": ["讓綠茶吸附花香", "加入香精調味", "渥堆發酵後熏香", "高溫炭焙"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "下列哪一種形態較非綠茶常見外形？",
+    "choices": ["條形", "扁形", "針形", "緊壓成磚"],
+    "answerIndex": 3
+  },
+  {
+    "id": "SIXTEA01-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶與紅茶的主要差異為？",
+    "choices": ["發酵程度", "是否為茶樹製作", "是否可沖泡", "是否含水"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶在六大茶類中屬於？",
+    "choices": ["不發酵茶", "輕發酵茶", "全發酵茶", "後發酵茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶工藝中，抑制氧化的主要手段是？",
+    "choices": ["高溫殺青", "低溫渥堆", "長時間日曬", "深度焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶葉底顏色多為？",
+    "choices": ["綠", "紅褐", "黑褐", "金黃"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "下列哪一項最符合綠茶的製作節奏？",
+    "choices": ["快速高溫處理以保鮮", "長時間堆積發酵", "以霉菌後發酵為主", "必經濕堆與蒸壓"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶風味清爽的主要原因是？",
+    "choices": ["氧化被抑制", "焙火極重", "後發酵陳化", "加入香精"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA01-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_green",
+    "topicLabel": "六大茶類：綠茶",
+    "stem": "綠茶與黃茶相比，綠茶缺少哪一道特色工序？",
+    "choices": ["悶黃", "殺青", "揉捻", "乾燥"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": "SIXTEA02-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶最具代表性的特色工序是？",
+    "choices": ["悶黃", "渥堆", "做青", "重焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶屬於哪一種發酵程度？",
+    "choices": ["不發酵", "輕發酵", "全發酵", "後發酵"],
+    "answerIndex": 1
+  },
+  {
+    "id": "SIXTEA02-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶常見的湯色與葉底為？",
+    "choices": ["黃湯黃葉", "紅湯紅葉", "清湯綠葉", "褐湯褐葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的風味定位常被形容為？",
+    "choices": ["介於綠茶與紅茶之間", "接近黑茶的陳香", "近似松煙風格", "等同全發酵紅茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的悶黃多在什麼步驟之後進行？",
+    "choices": ["殺青", "揉捻", "乾燥", "採摘"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的悶黃主要目的在於？",
+    "choices": ["促進微氧化與黃變", "形成後發酵堆味", "增加松煙香", "強化重焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶製程通常包含下列哪一組？",
+    "choices": ["殺青→悶黃→乾燥", "萎凋→做青→焙火", "渥堆→蒸壓→陳化", "揉捻→發酵→乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶相較綠茶最大的不同是？",
+    "choices": ["多了一道悶黃", "一定要重焙火", "必須渥堆", "完全不殺青"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶在六大茶類中屬於？",
+    "choices": ["輕發酵茶", "不發酵茶", "全發酵茶", "後發酵茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的葉底顏色常見為？",
+    "choices": ["黃", "綠", "紅褐", "黑褐"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的氧化程度相較紅茶為？",
+    "choices": ["較低", "相同", "更高", "無法比較"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶製程中不需要哪一項？",
+    "choices": ["渥堆", "殺青", "悶黃", "乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶最符合的描述為？",
+    "choices": ["黃湯黃葉、輕發酵", "紅湯紅葉、全發酵", "褐湯褐葉、後發酵", "清湯綠葉、不發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶的悶黃屬於哪種工序特性？",
+    "choices": ["堆悶促轉化", "高溫強焙火", "蒸壓定型", "長期陳化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA02-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_yellow",
+    "topicLabel": "六大茶類：黃茶",
+    "stem": "黃茶與綠茶共同擁有的工序是？",
+    "choices": ["殺青", "渥堆", "後發酵", "蒸壓成餅"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": "SIXTEA03-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶製作的核心工序為？",
+    "choices": ["萎凋與乾燥", "殺青與揉捻", "渥堆與蒸壓", "做青與焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶屬於哪一種發酵程度？",
+    "choices": ["輕微發酵", "全發酵", "後發酵", "不發酵且必殺青"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶製程中通常不進行哪一項？",
+    "choices": ["殺青", "萎凋", "乾燥", "自然氧化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的湯色多呈現？",
+    "choices": ["淡黃清透", "深紅濃亮", "褐黑濃稠", "翠綠鮮明"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的製程特性可概括為？",
+    "choices": ["工序精簡、自然氧化", "高溫殺青、快速定色", "渥堆陳化、重度轉化", "全程重焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶製作中通常不強調哪一項？",
+    "choices": ["重度揉捻", "萎凋", "乾燥", "緩慢氧化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶與綠茶最大的工藝差異為？",
+    "choices": ["是否經殺青", "是否可沖泡", "是否來自茶樹", "是否含水"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的葉底色澤多為？",
+    "choices": ["偏淡黃", "深紅", "黑褐", "青綠鮮明"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的氧化主要屬於？",
+    "choices": ["自然緩慢氧化", "快速高溫氧化", "後發酵微生物氧化", "完全阻斷氧化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的香氣走向常被形容為？",
+    "choices": ["清雅淡柔", "濃烈焙火", "松煙辛烈", "堆味厚重"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶在六大茶類中的分類為？",
+    "choices": ["輕微發酵茶", "不發酵茶", "全發酵茶", "後發酵茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶製作的萎凋主要目的為？",
+    "choices": ["讓水分緩慢散失", "增加後發酵", "產生松煙香", "直接定型成餅"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶最符合的製程描述為？",
+    "choices": ["萎凋→乾燥", "殺青→揉捻→乾燥", "渥堆→蒸壓→陳化", "做青→焙火"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "白茶的乾燥主要目的為？",
+    "choices": ["降低含水以利保存", "促進重發酵", "形成堆味", "增加松煙香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA03-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_white",
+    "topicLabel": "六大茶類：白茶",
+    "stem": "下列哪一項較符合白茶的工藝風格？",
+    "choices": ["自然氧化、工序簡化", "重焙火、濃厚香", "後發酵、陳年轉化", "強力揉捻、深度發酵"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": "SIXTEA04-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶最具代表性的特色工序是？",
+    "choices": ["做青（搖青）", "渥堆", "悶黃", "長期陳化"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "做青/搖青的主要作用是？",
+    "choices": ["促使葉緣氧化", "停止氧化", "形成堆味", "增加松煙香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶常見的葉底特徵為？",
+    "choices": ["綠葉紅鑲邊", "黃湯黃葉", "紅湯紅葉", "褐湯褐葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶在發酵上常被描述為？",
+    "choices": ["部分發酵", "不發酵", "全發酵", "後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶的風格多樣主要來自？",
+    "choices": ["發酵與焙火程度的調整", "只有產地差異", "只靠加香", "只靠後發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶香氣形成的關鍵階段通常是？",
+    "choices": ["萎凋與做青", "渥堆與陳化", "蒸壓成餅", "重焙火後置放"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶製程中的殺青作用是？",
+    "choices": ["停止氧化發酵", "促進後發酵", "增加堆味", "形成松煙香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶常見湯色為？",
+    "choices": ["橙黃或金黃", "深紅濃亮", "褐黑濃稠", "清澈偏綠"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "下列哪一項不是烏龍茶的製程？",
+    "choices": ["渥堆", "萎凋", "做青", "揉捻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶在六大茶類中常被視為？",
+    "choices": ["介於綠茶與紅茶之間", "完全等同紅茶", "完全等同綠茶", "與黑茶相同"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶的發酵程度可細分為？",
+    "choices": ["輕、中、重發酵", "零與全發酵", "只有後發酵", "只分黑與白"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶常見香氣類型為？",
+    "choices": ["花果香", "松煙香", "霉香", "藥香陳韻"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "做青又常被稱為？",
+    "choices": ["搖青", "渥堆", "悶黃", "蒸壓"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶製作中「萎凋」主要是為了？",
+    "choices": ["散失水分並促進香氣轉化", "直接停止氧化", "形成堆味", "讓茶葉長期陳放"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA04-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_oolong",
+    "topicLabel": "六大茶類：青茶",
+    "stem": "烏龍茶的風格差異常與哪一項密切相關？",
+    "choices": ["焙火程度", "是否為茶樹製作", "是否可沖泡", "是否含水"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": "SIXTEA05-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶在國際上常被稱為？",
+    "choices": ["Black Tea", "Green Tea", "White Tea", "Oolong Tea"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶的核心製程順序為？",
+    "choices": ["萎凋→揉捻→發酵→乾燥", "殺青→揉捻→乾燥", "渥堆→蒸壓→陳化", "做青→焙火→乾燥"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶製作中通常不包含哪一項？",
+    "choices": ["殺青", "萎凋", "揉捻", "發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶湯色與葉底常呈現？",
+    "choices": ["紅湯紅葉", "清湯綠葉", "黃湯黃葉", "褐湯褐葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "小種紅茶常見的香氣特徵為？",
+    "choices": ["松煙香", "草青味", "霉香", "堆味"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "工夫紅茶的製作特性為？",
+    "choices": ["工序細緻、分級講究", "全程渥堆", "不經揉捻", "以蒸壓為主"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶的發酵階段通常位於哪一工序之後？",
+    "choices": ["揉捻後", "殺青後", "乾燥後", "蒸壓後"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶在六大茶類中的分類為？",
+    "choices": ["全發酵茶", "不發酵茶", "輕發酵茶", "後發酵茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "下列哪一項屬於紅茶類型？",
+    "choices": ["工夫紅茶", "白茶", "黃茶", "黑茶"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶常見的乾茶色澤取向為？",
+    "choices": ["紅褐或烏黑", "鮮綠明亮", "金黃透明", "灰白霧色"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶的氧化程度與綠茶相比為？",
+    "choices": ["較高", "較低", "相同", "無法比較"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶主要以哪種色系作為品質特徵？",
+    "choices": ["紅湯紅葉", "清湯綠葉", "黃湯黃葉", "褐湯褐葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶製程的關鍵轉化主要發生於？",
+    "choices": ["發酵", "殺青", "渥堆", "蒸壓"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶中「小種」與「工夫」的共同點是？",
+    "choices": ["皆屬紅茶類型", "皆為後發酵", "皆為不發酵", "皆需渥堆"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA05-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_red",
+    "topicLabel": "六大茶類：紅茶",
+    "stem": "紅茶在六大茶類中對應的英文分類為？",
+    "choices": ["Black Tea", "Green Tea", "White Tea", "Dark Tea"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": "SIXTEA06-0006",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶屬於哪一種發酵類型？",
+    "choices": ["後發酵", "不發酵", "輕發酵", "全發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0007",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶最具代表性的工序為？",
+    "choices": ["渥堆", "悶黃", "做青", "殺青後直乾"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0008",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶常見的成形方式為？",
+    "choices": ["緊壓成磚或餅", "全程散茶不壓制", "只做球形", "只做條形"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0009",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶湯色多呈現？",
+    "choices": ["褐紅或深褐", "清澈偏綠", "淡黃清透", "鮮紅明亮"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0010",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶在存放上的特性為？",
+    "choices": ["可長期陳化轉化", "放久必失香", "越放越青", "必須冷凍保存"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0011",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶與其他茶類的最大差異之一是？",
+    "choices": ["後發酵轉化", "必須蒸青殺青", "完全不揉捻", "只靠花香窨製"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0012",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶的渥堆屬於哪一類發酵？",
+    "choices": ["後發酵", "全發酵", "不發酵", "輕發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0013",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶製程中常見的「蒸壓」作用是？",
+    "choices": ["定型成磚餅", "促進殺青", "增加清香", "去除花香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0014",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶的葉底顏色多為？",
+    "choices": ["褐色", "鮮綠", "亮黃", "雪白"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0015",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶製程的主要特徵為？",
+    "choices": ["堆積發酵與後續轉化", "單一殺青後即完成", "完全不乾燥", "只靠花香窨製"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0016",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶相較綠茶的發酵程度為？",
+    "choices": ["較高", "較低", "相同", "沒有發酵"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0017",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶最常見的風味特徵為？",
+    "choices": ["醇厚陳韻", "清鮮花香", "強烈青草味", "松煙辛香"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0018",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "下列哪一項最符合黑茶的定位？",
+    "choices": ["後發酵、可陳放", "不發酵、清香型", "輕發酵、花香型", "全發酵、紅湯紅葉"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0019",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶製程中「渥堆」的作用是？",
+    "choices": ["促進後發酵轉化", "立即終止氧化", "形成窨花香", "增加青草味"],
+    "answerIndex": 0
+  },
+  {
+    "id": "SIXTEA06-0020",
+    "bank": "six_tea_types",
+    "bankLabel": "六大茶類",
+    "topic": "six_tea_dark",
+    "topicLabel": "六大茶類：黑茶",
+    "stem": "黑茶的加工結果常見為？",
+    "choices": ["磚茶、餅茶等緊壓型", "純條形散茶", "只做顆粒茶", "只做針形茶"],
+    "answerIndex": 0
+  }
+]
