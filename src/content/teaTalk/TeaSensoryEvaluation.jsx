@@ -1,18 +1,19 @@
 import React from 'react';
 import { Beaker, Eye, Flame, Sparkles, Timer } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
+import ClickableImage from '../../components/ClickableImage';
 
 function Bullet({ children }) {
   return <li className="leading-relaxed">{children}</li>;
 }
 
 function Bullets({ children }) {
-  return <ul className="mt-3 list-disc pl-5 space-y-2 text-stone-700">{children}</ul>;
+  return <ul className="mt-3 list-disc pl-5 space-y-2 text-[17px] text-stone-700">{children}</ul>;
 }
 
 function SubTitle({ id, children }) {
   return (
-    <h3 id={id} className="scroll-mt-28 text-lg md:text-xl font-extrabold text-stone-900">
+    <h3 id={id} className="scroll-mt-28 text-[19px] md:text-[22px] font-extrabold text-stone-900">
       {children}
     </h3>
   );
@@ -30,7 +31,7 @@ export default function TeaSensoryEvaluation() {
             CHAPTER 08 · SENSORY
           </div>
           <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">茶葉色香味品質官能評鑑</h2>
-          <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 leading-relaxed">
+          <p className="mt-4 max-w-3xl text-[17px] md:text-[19px] text-stone-700 leading-relaxed">
             官能評鑑不是「憑感覺」：它是一套可重複、可訓練、可比較的專業方法。從秤茶、注水、計時到觀水色、聞香氣、評滋味與觀葉底，
             每一步都有節奏與規範，目的在於把「色、香、味」轉成可溝通的品質語言。[1]
           </p>
@@ -42,6 +43,13 @@ export default function TeaSensoryEvaluation() {
           <p>
             感官評鑑是一門嚴謹學問：流程必須一致、節奏不可混亂，才能讓不同樣品之間具可比性。[1]
           </p>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch08-sensory-setup.png"
+              alt="標準感官評鑑環境"
+              caption="標準感官評鑑環境：黑色檯面、標準審茶杯碗、均勻光源"
+            />
+          </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-sense-1-1">主要應用領域</SubTitle>
             <Bullets>
@@ -70,10 +78,17 @@ export default function TeaSensoryEvaluation() {
               <Bullet>觀察指標：彩度、鮮度、明亮度；水色觀察主要依視覺判定。[1][3]</Bullet>
             </Bullets>
           </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch08-color-spectrum.png"
+              alt="茶湯色澤光譜"
+              caption="茶湯色澤光譜：從綠茶的碧綠到紅茶的艷紅"
+            />
+          </div>
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-sense-2-2">2) 香：層層關卡的堆疊</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               優質香氣追求清香、花香等，需避免異香、火焦味與濁氣。判斷香氣可掌握三個向度：香氣高低、香氣清濁、香氣種類。[3]
             </div>
             <Bullets>
@@ -86,8 +101,15 @@ export default function TeaSensoryEvaluation() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-sense-2-3">3) 味：多酚、氨基酸與咖啡因的拉鋸</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               滋味追求鮮爽、活性、甘醇、厚實與韻味；其化學基礎可用三大群組理解：
+            </div>
+            <div className="mt-6 mb-6">
+              <ClickableImage
+                src="/images/tea-talk/ch08-taste-chemistry.png"
+                alt="滋味化學平衡"
+                caption="滋味化學平衡：多酚（澀）、氨基酸（鮮甜）、咖啡因（苦）的黃金三角"
+              />
             </div>
             <div className="mt-4 overflow-x-auto rounded-2xl border border-stone-200 bg-white">
               <table className="min-w-full text-sm">
@@ -142,7 +164,7 @@ export default function TeaSensoryEvaluation() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-sense-3-2">認證制度概念</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               例如茶改場推動之五級認證（初級→特級），初級常先以味覺閾值測試確認感官敏銳度，再進行術科（風味標準）與時數訓練。[7][8]
             </div>
           </div>
@@ -215,11 +237,18 @@ export default function TeaSensoryEvaluation() {
               外觀（形狀與色澤）、水色、香氣、滋味、葉底等，以視覺、味覺與觸覺綜合評定。[2]
             </div>
           </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch08-brewing-guide.png"
+              alt="評鑑沖泡指南"
+              caption="評鑑沖泡指南：3公克、100°C沸水、依外型決定時間"
+            />
+          </div>
         </div>
       </SectionCard>
 
       <SectionCard title="五、缺陷分析：評鑑不只打分，更要能診斷" icon={Flame}>
-        <div className="space-y-4 text-stone-700 leading-relaxed">
+        <div className="space-y-4 text-[17px] text-stone-700 leading-relaxed">
           <p>缺點（如陳味、澀味、青味、焦味等）需能回推原因，常從四個層面分析：[11][12]</p>
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <Bullets>
@@ -239,12 +268,12 @@ export default function TeaSensoryEvaluation() {
       </SectionCard>
 
       <SectionCard title="結語" icon={Sparkles}>
-        <div className="text-stone-700 leading-relaxed">
+        <div className="text-[17px] text-stone-700 leading-relaxed">
           官能評鑑的價值在於「把主觀變得可比」。你越理解色、香、味背後的物理與化學密碼，越能把評鑑結果回推到原料、製程、
           烘焙與儲藏，進而做出可複製的好茶與可教學的判準。[13][14]
         </div>
       </SectionCard>
-    </div>
+    </div >
   );
 }
 

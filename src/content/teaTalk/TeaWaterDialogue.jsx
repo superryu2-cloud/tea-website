@@ -1,18 +1,19 @@
 import React from 'react';
 import { Droplets, Sparkles, Thermometer, Waves } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
+import ClickableImage from '../../components/ClickableImage';
 
 function Bullet({ children }) {
   return <li className="leading-relaxed">{children}</li>;
 }
 
 function Bullets({ children }) {
-  return <ul className="mt-3 list-disc pl-5 space-y-2 text-stone-700">{children}</ul>;
+  return <ul className="mt-3 list-disc pl-5 space-y-2 text-[17px] text-stone-700">{children}</ul>;
 }
 
 function SubTitle({ id, children }) {
   return (
-    <h3 id={id} className="scroll-mt-28 text-lg md:text-xl font-extrabold text-stone-900">
+    <h3 id={id} className="scroll-mt-28 text-[19px] md:text-[22px] font-extrabold text-stone-900">
       {children}
     </h3>
   );
@@ -30,7 +31,7 @@ export default function TeaWaterDialogue() {
             CHAPTER 07 · WATER
           </div>
           <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">茶與水的對話</h2>
-          <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 leading-relaxed">
+          <p className="mt-4 max-w-3xl text-[17px] md:text-[19px] text-stone-700 leading-relaxed">
             水是茶樹的生命之源，也是茶湯的最後一把鑰匙：田間的含水量決定新梢品質；製程的「走水」決定發酵與香氣；
             儲藏的含水量決定能放多久；沖泡的水質與水溫，決定你喝到的色、香、味。
           </p>
@@ -59,10 +60,17 @@ export default function TeaWaterDialogue() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-water-1-3">田間含水量與品質</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               茶菁原料含水量通常約 70%～80%（受天氣與嫩度影響）。若田間達到凋萎點（缺水），生長遲緩、品質下降。[3][4]
               生育期維持約 70% 含水量，是「養樹」的邏輯；而製茶是「把水走掉」的邏輯，兩者方向相反。[2][5]
             </div>
+          </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch07-roots-water.png"
+              alt="茶樹根系吸水示意圖"
+              caption="茶樹根系吸水示意圖：主根固定、側根儲存、鬚根吸收"
+            />
           </div>
         </div>
       </SectionCard>
@@ -71,7 +79,7 @@ export default function TeaWaterDialogue() {
         <div className="space-y-5">
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-water-2-1">走水是什麼？</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               製茶的核心之一是水分遞減（走水）：水分沿葉脈（主脈→側脈→細脈）傳輸，最後由下表皮氣孔散失。[1][2]
               適度失水使細胞產生萎縮與一定程度破壞，才有利於後續氧化反應（發酵）啟動。[1][3][6]
             </div>
@@ -112,9 +120,16 @@ export default function TeaWaterDialogue() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-water-2-2">趕青要趕得透</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               製程中「趕青」的目的，是把青味（常見屬醇類與醛類）去除，讓發酵有機會轉化出花香、甜香或花果香等更高層次的香氣。[2]
             </div>
+          </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch07-withering.png"
+              alt="茶葉萎凋走水過程"
+              caption="茶葉萎凋走水過程：從鮮綠飽滿逐漸轉為柔軟暗綠"
+            />
           </div>
         </div>
       </SectionCard>
@@ -148,8 +163,15 @@ export default function TeaWaterDialogue() {
             </tbody>
           </table>
         </div>
-        <div className="mt-4 text-stone-700 leading-relaxed">
+        <div className="mt-4 text-[17px] text-stone-700 leading-relaxed">
           建議使用具防潮阻氣的包材（如鋁箔積層真空袋），可搭配乾燥劑；精製包裝作業最好在低相對濕度環境進行。[10]
+        </div>
+        <div className="mt-6">
+          <ClickableImage
+            src="/images/tea-talk/ch07-moisture.png"
+            alt="茶葉儲藏含水量控制"
+            caption="茶葉儲藏含水量控制：3-5%安全區、6-10%警告區、>10%危險區"
+          />
         </div>
       </SectionCard>
 
@@ -180,10 +202,17 @@ export default function TeaWaterDialogue() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-water-4-3">選水小提醒</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               若使用市售礦泉水沖泡，可留意 pH 與礦物質含量是否符合你想呈現的風味：想要更鮮爽明亮，通常偏向較低硬度；
               想要口感更厚，則可試試不同硬度的水，找出自己喜歡的平衡點。[18]
             </div>
+          </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch07-brewing.png"
+              alt="茶與水的對話：沖泡科學"
+              caption="茶與水的對話：水質（pH、硬度）與水溫決定色香味"
+            />
           </div>
         </div>
       </SectionCard>

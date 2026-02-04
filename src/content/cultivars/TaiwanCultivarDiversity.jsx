@@ -17,6 +17,7 @@ import {
   Thermometer,
   Search
 } from 'lucide-react';
+import ClickableImage from '../../components/ClickableImage';
 
 function Section({ id, title, icon: Icon, children }) {
   return (
@@ -66,7 +67,7 @@ function SimpleTable({ title, children }) {
 }
 
 function BulletList({ children }) {
-  return <ul className="space-y-3 text-stone-700">{children}</ul>;
+  return <ul className="space-y-3 text-[17px] text-stone-700">{children}</ul>;
 }
 
 export default function TaiwanCultivarDiversity() {
@@ -113,9 +114,16 @@ export default function TaiwanCultivarDiversity() {
         </Callout>
 
         <Section id="cultivar-01" title="一、茶樹的生物特性與育種基礎" icon={Sprout}>
+          <div className="mb-6">
+            <ClickableImage
+              src="/images/tea-talk/ch01-breeding-methods.png"
+              alt="茶樹育種之美"
+              caption="茶樹育種之美：左為「雜交」授粉，右為農人「選育」優良單株"
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <p className="text-stone-700 leading-relaxed">
+              <p className="text-[17px] text-stone-700 leading-relaxed">
                 茶樹屬多年生常綠作物，並非糧食作物，具有特殊的經濟用途。在生物學特性上，茶樹屬於<strong className="text-emerald-700">異交作物</strong>。
                 雖然雌雄同花，但因「自交不親和性」（常用「近水樓台不得月」形容），必須藉由其他雄蕊花粉授粉，才能完成繁殖。
               </p>
@@ -162,10 +170,17 @@ export default function TaiwanCultivarDiversity() {
         </Section>
 
         <Section id="cultivar-02" title="二、台灣茶樹品種分類：兩大類與「四大十一小」" icon={Leaf}>
-          <p className="text-stone-700 leading-relaxed mb-6">
+          <p className="text-[17px] text-stone-700 leading-relaxed mb-6">
             依據植物學分類，茶樹可分為大葉種（<em>Camellia sinensis var. assamica</em>）與小葉種（<em>Camellia sinensis var. sinensis</em>）。
             這是理解茶葉適製性最基礎的分類。
           </p>
+          <div className="mb-8">
+            <ClickableImage
+              src="/images/tea-talk/ch01-leaf-comparison.png"
+              alt="大葉種與小葉種比較"
+              caption="大葉種（左/紅韻）與小葉種（右/清雅）的葉形特徵對比"
+            />
+          </div>
 
           {/* Big Leaf vs Small Leaf Comparison */}
           <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -247,6 +262,13 @@ export default function TaiwanCultivarDiversity() {
 
           {/* 4 Major & 11 Minor Grid */}
           <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+            <div className="mb-8">
+              <ClickableImage
+                src="/images/tea-talk/ch01-cultivar-tree.png"
+                alt="台灣茶樹品種系譜"
+                caption="台灣茶樹品種系譜：左支紅色系（大葉種）、右支綠色系（小葉種）"
+              />
+            </div>
             <h4 className="text-xl font-black text-stone-900 mb-6 text-center">
               品種口訣：<span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-emerald-600">「四大十一小」</span>
             </h4>
@@ -410,6 +432,13 @@ export default function TaiwanCultivarDiversity() {
         <Section id="cultivar-05" title="五、茶樹栽培環境與命名歷史" icon={CloudRain}>
           <div className="space-y-8">
             {/* Environment Table */}
+            <div className="mb-8">
+              <ClickableImage
+                src="/images/tea-talk/ch01-ideal-environment.png"
+                alt="理想的高山茶園環境"
+                caption="理想的高山茶園環境：雲霧繚繞、漫射光充足、排水良好的坡地"
+              />
+            </div>
             <SimpleTable title="理想栽培環境">
               <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-stone-100 bg-white">
                 <div className="p-4 text-center">

@@ -30,6 +30,7 @@
       "year": "1796-1820",
       "title": "柯朝引種",
       "content": "柯朝在嘉慶年間（1796-1820），由福建武夷引進茶，以茶籽插種的方式，種植在𫙮魚坑（今瑞芳附近），是北部淡水河流域人工種植茶樹的起源。",
+      "image": "/images/history/timeline/1796_ke_chao.png",
       "world": ""
     },
     {
@@ -78,12 +79,14 @@
       "year": "1867",
       "title": "試銷澳門",
       "content": "英商杜德將臺灣龍茶茶試銷澳門，成績不錯，我國輸美茶達194,153擔。",
+      "image": "/images/history/timeline/1867_macau.png",
       "world": "錫蘭（今斯里蘭卡）政府派人住阿薩姆調查茶葉。"
     },
     {
       "year": "1869",
       "title": "FORMOSA TEA",
       "content": "英商杜德以兩艘帆船載運著12萬公斤的烏龍茶，打著FORMOSA TEA的標誌，由淡水直銷紐約、福爾摩沙及烏龍茶自此一「泡」而紅，開啟臺茶直銷歐美市場。此時，淡水港出口茶多在大稻埕集散。",
+      "image": "/images/history/timeline/1869_formosa.png",
       "world": ""
     },
     {
@@ -182,6 +185,7 @@
       "year": "1898",
       "title": "臺北茶商公會",
       "content": "茶郊永和興改組成立「臺北茶商公會」，選出第一屆會長鄭春秧。臺灣總督府公布「臺灣茶葉取締規則」，確保臺灣茶的品質。",
+      "image": "/images/history/timeline/processing_art.png",
       "world": ""
     },
     {
@@ -308,6 +312,7 @@
       "year": "1926",
       "title": "魚池紅茶試驗所",
       "content": "在臺中魚池鄉試作阿薩姆紅茶，設立「魚池紅茶試驗所」。包種茶外銷量首度越高烏龍茶，輸出量達最高記錄5,388.5公噸。",
+      "image": "/images/history/timeline/1926_station.png",
       "world": ""
     },
     {
@@ -412,6 +417,7 @@
       "year": "1981",
       "title": "外銷轉內需",
       "content": "臺幣升值，工資高漲，臺茶逐漸失去外銷競爭力，但因國內景氣繁榮，外銷轉為內需，茶藝館林立，醞釀出臺灣茶藝的新面貌。",
+      "image": "/images/history/timeline/1980_tea_house.png",
       "world": ""
     },
     {

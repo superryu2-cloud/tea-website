@@ -12,36 +12,44 @@ const TYPE_SECTIONS = [
     items: [
       {
         term: '立春（2月4或5日）',
+        image: '/images/seasons/solar_terms/01_start_of_spring.png',
         content:
           '「立」是開始的意思，代表「春季正式開始」，天氣回暖、萬物開始有了生氣。',
       },
       {
         term: '春分（3月20或21日）',
+        image: '/images/seasons/solar_terms/02_spring_equinox_fixed.png',
         content: '這天有兩個意思，一是這天晝夜等長、二是這天是春季的一半。',
       },
       {
         term: '立夏（5月5或6日）',
+        image: '/images/seasons/solar_terms/03_start_of_summer.png',
         content: '「立」是開始的意思，代表「夏季正式開始」，氣溫逐漸升高。',
       },
       {
         term: '夏至（6月21或22日）',
+        image: '/images/seasons/solar_terms/04_summer_solstice.png',
         content:
           '這天白晝最長，因太陽位置最高的關係，「立竿不會見影」影子看起來最短。',
       },
       {
         term: '立秋（8月7或8日）',
+        image: '/images/seasons/solar_terms/05_start_of_autumn.png',
         content: '「立」是開始的意思，代表「秋季正式開始」，天氣轉涼。',
       },
       {
         term: '秋分（9月23或24日）',
+        image: '/images/seasons/solar_terms/06_autumn_equinox.png',
         content: '這天有兩個意思，一是這天晝夜等長、二是這天是秋季的一半。',
       },
       {
         term: '立冬（11月7或8日）',
+        image: '/images/seasons/solar_terms/07_start_of_winter.png',
         content: '「立」是開始的意思，代表「冬季正式開始」，氣溫明顯下降。',
       },
       {
         term: '冬至（12月21或22日）',
+        image: '/images/seasons/solar_terms/08_winter_solstice.png',
         content: '這天夜晚最長，因太陽位置最低的關係，冬至影子最長。',
       },
     ],
@@ -336,7 +344,7 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
 
           <div className="museum-plaque p-8 md:p-10">
             <h4 className="text-2xl font-extrabold text-stone-900 mb-4">由來與原理</h4>
-            <div className="space-y-4 max-w-prose text-lg">
+            <div className="space-y-4 max-w-prose text-[17px]">
               <p className="text-stone-700 leading-relaxed">
                 二十四節氣，是古代人根據太陽在黃道上的位置所制定的時間系統。地球環繞太陽公轉一圈約 360 度，
                 每前進 15 度，就形成一個節氣，因此一年共劃分為 24 個節氣。由於受到時差影響，每年度的節氣日期，
@@ -354,7 +362,7 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
       {showMeaning ? (
         <div id="meaning" className="scroll-mt-28 space-y-6">
           <Section id="meaning-intro" title="1. 4 種節氣類型" icon={BookOpen}>
-            <p className="max-w-prose">
+            <p className="max-w-prose text-[17px] leading-relaxed">
               二十四節氣是中國古代農耕社會為適應自然變化而制定的時間劃分，指導農事與日常生活。這些節氣可依據
               「季節變換、氣溫變化、降水量、天氣現象與農作狀態」四大類型來劃分。二十四節氣不僅是農業生產的指標，
               也反映了自然變化的節奏，影響著人們的日常生活。理解這四種類型的節氣，有助於更好地適應氣候變遷、
@@ -450,8 +458,8 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                         <block.icon size={24} />
                       </span>
                       <div className="min-w-0 pt-0.5">
-                        <div className="font-black text-stone-900 text-xl md:text-2xl">{block.title}</div>
-                        <div className="mt-1 text-base text-stone-600 font-medium">{block.lead}</div>
+                        <div className="font-black text-stone-900 text-2xl md:text-3xl">{block.title}</div>
+                        <div className="mt-1 text-[19px] text-stone-600 font-medium">{block.lead}</div>
                       </div>
                     </div>
 
@@ -466,6 +474,22 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                               key={item.term}
                               className={`rounded-2xl border border-stone-100 bg-stone-50/50 p-5 hover:bg-white hover:shadow-md transition-all duration-300 ${isLong ? 'md:col-span-2' : ''}`}
                             >
+                              {item.image && (
+                                <div
+                                  className="relative h-48 mb-4 rounded-xl overflow-hidden cursor-zoom-in group/img"
+                                  onClick={() => openLightbox(item.image, item.term)}
+                                >
+                                  <img
+                                    src={item.image}
+                                    alt={item.term}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                                  />
+                                  <div className="absolute inset-0 bg-stone-900/0 group-hover/img:bg-stone-900/10 transition-colors" />
+                                  <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover/img:opacity-100 transition-opacity">
+                                    點擊放大
+                                  </div>
+                                </div>
+                              )}
                               <div className="font-extrabold text-stone-900 text-lg flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
                                 {item.term}
@@ -473,7 +497,7 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                               <div className="mt-2 text-base text-stone-700 whitespace-pre-line leading-relaxed pl-3.5 border-l-2 border-stone-200">{first}</div>
                               {extra ? (
                                 <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 ml-3.5">
-                                  <div className="text-xs font-extrabold text-amber-800 tracking-wide mb-1 flex items-center gap-1">
+                                  <div className="text-sm font-extrabold text-amber-800 tracking-wide mb-1 flex items-center gap-1">
                                     <BookOpen size={14} /> 有此一說
                                   </div>
                                   <div className="text-sm text-amber-900/80 whitespace-pre-line leading-relaxed font-medium">{extra}</div>
@@ -538,8 +562,8 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
                   </div>
 
                   <div className={`px-6 py-4 bg-gradient-to-r ${headerGradient} flex items-center justify-between gap-4 border-b border-stone-100`}>
-                    <div className="font-bold text-stone-700">詳細節氣數據</div>
-                    <div className="text-xs text-stone-500 bg-white/50 px-2 py-1 rounded-md border border-stone-200/50">節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置</div>
+                    <div className="font-bold text-stone-700 text-xl">詳細節氣數據</div>
+                    <div className="text-sm text-stone-500 bg-white/50 px-2 py-1 rounded-md border border-stone-200/50">節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置</div>
                   </div>
                   <div className="p-0">
                     <DataTable title={`${season.seasonLabel}：節氣名稱 × 農曆節氣 × 陽曆日期 × 太陽位置`}>
@@ -575,7 +599,7 @@ export default function SolarTermsPrimer({ activeSectionHref = null }) {
       {showZhongqi ? (
         <div id="zhongqi" className="scroll-mt-28 space-y-6">
           <Section id="zhongqi-intro" title="3. 什麼是中氣" icon={BookOpen}>
-            <div className="space-y-4 max-w-prose">
+            <div className="space-y-4 max-w-prose text-[17px] leading-relaxed">
               <p>
                 為何 24 節氣日期表會出現中氣？「節」與「中」其實是二十四節氣的兩個重要部分。每個農曆月份都包含兩個節氣：
               </p>

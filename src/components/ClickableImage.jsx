@@ -6,7 +6,7 @@ import ImageLightbox from './ImageLightbox';
  * ClickableImage - 可點擊放大的圖片元件
  * 整合 ImageLightbox 的狀態管理
  */
-const ClickableImage = ({ src, alt, caption, className = '' }) => {
+const ClickableImage = ({ src, alt, caption, className = '', captionClassName = 'text-stone-600' }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -29,7 +29,7 @@ const ClickableImage = ({ src, alt, caption, className = '' }) => {
             </div>
             {/* 圖片說明 */}
             {caption && (
-                <div className="mt-3 text-center text-[17px] text-stone-600 leading-relaxed font-sans">
+                <div className={`mt-3 text-center text-[17px] leading-relaxed font-sans ${captionClassName}`}>
                     {caption}
                 </div>
             )}

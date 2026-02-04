@@ -1,18 +1,19 @@
 import React from 'react';
 import { Archive, Leaf, Lock, Snowflake, Sparkles, Sun, Thermometer, Wind } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
+import ClickableImage from '../../components/ClickableImage';
 
 function Bullet({ children }) {
   return <li className="leading-relaxed">{children}</li>;
 }
 
 function Bullets({ children }) {
-  return <ul className="mt-3 list-disc pl-5 space-y-2 text-stone-700">{children}</ul>;
+  return <ul className="mt-3 list-disc pl-5 space-y-2 text-[17px] text-stone-700">{children}</ul>;
 }
 
 function SubTitle({ id, children }) {
   return (
-    <h3 id={id} className="scroll-mt-28 text-lg md:text-xl font-extrabold text-stone-900">
+    <h3 id={id} className="scroll-mt-28 text-[19px] md:text-[22px] font-extrabold text-stone-900">
       {children}
     </h3>
   );
@@ -26,8 +27,8 @@ function Badge({ icon: Icon, title, desc }) {
           <Icon size={18} />
         </div>
         <div className="min-w-0">
-          <div className="font-extrabold text-stone-900">{title}</div>
-          <div className="mt-1 text-stone-600 leading-relaxed">{desc}</div>
+          <div className="font-extrabold text-[17px] text-stone-900">{title}</div>
+          <div className="mt-1 text-[17px] text-stone-600 leading-relaxed">{desc}</div>
         </div>
       </div>
     </div>
@@ -46,7 +47,7 @@ export default function TeaPackagingStorage() {
             CHAPTER 06 · STORAGE
           </div>
           <h2 className="mt-5 text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900">茶葉包裝與儲藏</h2>
-          <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 leading-relaxed">
+          <p className="mt-4 max-w-3xl text-[17px] md:text-[19px] text-stone-700 leading-relaxed">
             茶葉買回家後，往往不會立即喝完；「包裝」與「儲藏」決定了香氣能留多久、茶湯能亮多久，以及是否會走向油耗味與陳味。
             這一章把要點整理成可直接套用的家庭保存策略：五忌、六招、壽命排序，以及老茶與新茶的差別思維。
           </p>
@@ -66,14 +67,23 @@ export default function TeaPackagingStorage() {
       </SectionCard>
 
       <SectionCard title="一、儲藏期的劣變：五個層次" icon={Wind}>
-        <div className="text-stone-700 leading-relaxed">茶葉劣變通常是緩慢、漸進的，常見可用五個層次描述：</div>
-        <Bullets>
-          <Bullet>香味消退：原本清揚或花香變淡。</Bullet>
-          <Bullet>活性降低：茶湯變平、少了「鮮活」感。</Bullet>
-          <Bullet>水色暗濁：失去明亮度，偏暗褐或混濁。</Bullet>
-          <Bullet>外觀失光：乾茶光澤感下降。</Bullet>
-          <Bullet>產生異味：陳味、油耗味，甚至吸附外來雜味。</Bullet>
-        </Bullets>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          <div>
+            <div className="text-[17px] text-stone-700 leading-relaxed">茶葉劣變通常是緩慢、漸進的，常見可用五個層次描述：</div>
+            <Bullets>
+              <Bullet>香味消退：原本清揚或花香變淡。</Bullet>
+              <Bullet>活性降低：茶湯變平、少了「鮮活」感。</Bullet>
+              <Bullet>水色暗濁：失去明亮度，偏暗褐或混濁。</Bullet>
+              <Bullet>外觀失光：乾茶光澤感下降。</Bullet>
+              <Bullet>產生異味：陳味、油耗味，甚至吸附外來雜味。</Bullet>
+            </Bullets>
+          </div>
+          <ClickableImage
+            src="/images/tea-talk/ch06-storage-ideal.png"
+            alt="理想的茶葉儲藏環境"
+            caption="理想的茶葉儲藏環境：避光、低溫、密封"
+          />
+        </div>
       </SectionCard>
 
       <SectionCard title="二、五忌：劣變的主要元兇與成分變化" icon={Thermometer}>
@@ -115,13 +125,20 @@ export default function TeaPackagingStorage() {
             </tbody>
           </table>
         </div>
+        <div className="mt-6">
+          <ClickableImage
+            src="/images/tea-talk/ch06-five-enemies.png"
+            alt="茶葉儲藏的五大敵人"
+            caption="茶葉儲藏的五大敵人：水分、氧氣、光照、高溫、異味"
+          />
+        </div>
       </SectionCard>
 
       <SectionCard title="三、六大保鮮條件：家庭可直接照做" icon={Lock}>
         <div className="space-y-5">
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-store-3-1">1) 控制含水量（3–5%）</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               家用判斷：摸茶梗，若「一折即斷」通常代表乾燥度足夠；若軟韌、折不斷，建議優先改善保存條件。
             </div>
           </div>
@@ -129,13 +146,13 @@ export default function TeaPackagingStorage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-stone-200 bg-white p-5">
               <SubTitle id="tt-store-3-2">2) 避光</SubTitle>
-              <div className="mt-2 text-stone-700 leading-relaxed">
+              <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
                 以鋁箔積層袋等阻光材質為佳；透明罐再漂亮，也應「外加遮光」或改用不透光容器。
               </div>
             </div>
             <div className="rounded-2xl border border-stone-200 bg-white p-5">
               <SubTitle id="tt-store-3-3">3) 低溫</SubTitle>
-              <div className="mt-2 text-stone-700 leading-relaxed">
+              <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
                 能冷藏就冷藏（約 5°C）。若室溫保存，建議放在 25°C 以下、遠離熱源與日照處。
               </div>
             </div>
@@ -144,13 +161,13 @@ export default function TeaPackagingStorage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-stone-200 bg-white p-5">
               <SubTitle id="tt-store-3-4">4) 脫氧</SubTitle>
-              <div className="mt-2 text-stone-700 leading-relaxed">
+              <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
                 真空、脫氧劑或充氮皆可；核心目標是降低包裝內的氧氣，減緩後氧化。
               </div>
             </div>
             <div className="rounded-2xl border border-stone-200 bg-white p-5">
               <SubTitle id="tt-store-3-5">5) 密封防異味</SubTitle>
-              <div className="mt-2 text-stone-700 leading-relaxed">
+              <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
                 茶葉非常會吸味：香水、樟腦、油煙、香料、餅乾都要隔開；同冰箱更要分層密封。
               </div>
             </div>
@@ -158,15 +175,22 @@ export default function TeaPackagingStorage() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-store-3-6">6) 趁鮮喝完</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               任何包裝都只能「延緩」劣變，不能停止。打開後建議小包分裝，縮短開封時間與接觸空氣的機會。
             </div>
+          </div>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch06-tea-canisters.png"
+              alt="傳統茶葉儲藏容器"
+              caption="傳統茶葉儲藏容器：青花瓷罐、錫罐、竹盒"
+            />
           </div>
         </div>
       </SectionCard>
 
       <SectionCard title="四、不同茶類：儲藏壽命（由短到長）" icon={Snowflake}>
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 text-stone-700 leading-relaxed">
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 text-[17px] text-stone-700 leading-relaxed">
           一般而言，發酵程度越高、可再氧化的活性物質越少，儲藏越穩定。常見排序如下：
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             {[
@@ -186,11 +210,18 @@ export default function TeaPackagingStorage() {
       </SectionCard>
 
       <SectionCard title="五、老茶不是「保鮮」：而是「轉化」" icon={Sun}>
-        <div className="space-y-4 text-stone-700 leading-relaxed">
+        <div className="space-y-4 text-[17px] text-stone-700 leading-relaxed">
           <p>
             老茶的核心不是把新鮮凍住，而是讓風味在可控條件下慢慢轉化。差異點：新茶要盡量隔絕氧氣；老茶需要「適當的氧氣」，
             但含水量仍不可超過 6%。
           </p>
+          <div className="mt-6">
+            <ClickableImage
+              src="/images/tea-talk/ch06-aged-tea.png"
+              alt="老茶轉化時間軸"
+              caption="老茶轉化時間軸：從新茶的鮮綠逐步轉化為老茶的深閃"
+            />
+          </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-store-5-1">老茶轉化的六個階段（比喻）</SubTitle>
             <Bullets>
@@ -204,7 +235,7 @@ export default function TeaPackagingStorage() {
           </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-5">
             <SubTitle id="tt-store-5-2">去蕪轉韻（輕烘焙）</SubTitle>
-            <div className="mt-2 text-stone-700 leading-relaxed">
+            <div className="mt-2 text-[17px] text-stone-700 leading-relaxed">
               若儲藏過程出現退香或雜味，常用「輕烘焙」修飾：去除多餘水分與雜味，保留好的韻味繼續轉化。
             </div>
           </div>
@@ -277,7 +308,7 @@ export default function TeaPackagingStorage() {
       </SectionCard>
 
       <SectionCard title="結語" icon={Sparkles}>
-        <div className="text-stone-700 leading-relaxed">
+        <div className="text-[17px] text-stone-700 leading-relaxed">
           保存不是「越密越好」而已：乾燥與阻光是地基、低溫與脫氧是加速器、密封防味是護城河。先把五忌避開，再把六招做滿，
           多數茶就能在家穩穩保持香氣與水色。
         </div>

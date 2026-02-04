@@ -232,6 +232,7 @@ export default function SiteNavigation({
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
+      chonghua: ['03'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -536,11 +537,15 @@ export default function SiteNavigation({
                   <div className="grid grid-cols-6 gap-3">
                     {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
                       const num = chapter.id;
+                      const active = isAcademyImplemented('chonghua', num);
                       return (
                         <a
                           key={num}
                           href={`?tab=academy_chonghua_${num}`}
-                          className="nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors bg-sky-50 text-sky-950 hover:bg-sky-100 shadow-sm"
+                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors ${active
+                            ? 'bg-sky-50 text-sky-950 hover:bg-sky-100 shadow-sm'
+                            : 'bg-white/60 hover:bg-white text-stone-800 hover:text-stone-900'
+                            }`}
                           onClick={(e) => {
                             e.preventDefault();
                             if (!chonghuaUnlocked) {
@@ -898,26 +903,32 @@ export default function SiteNavigation({
 
                   <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
                     <div className="grid grid-cols-3 gap-2 p-2">
-                      {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => (
-                        <a
-                          key={chapter.id}
-                          href={`?tab=academy_chonghua_${chapter.id}`}
-                          className="nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all bg-sky-50 text-sky-800 shadow-sm"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (!chonghuaUnlocked) {
-                              onUnlockRequest?.('chonghua');
-                              return;
-                            }
-                            goToTab(`academy_chonghua_${chapter.id}`);
-                            setMobileMenuOpen(false);
-                          }}
-                        >
-                          <div className="w-full text-center">
-                            <span className="font-bold text-[18px]">{renderFlipLabel(chapter.id)}</span>
-                          </div>
-                        </a>
-                      ))}
+                      {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
+                        const active = isAcademyImplemented('chonghua', chapter.id);
+                        return (
+                          <a
+                            key={chapter.id}
+                            href={`?tab=academy_chonghua_${chapter.id}`}
+                            className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
+                              ? 'bg-sky-50 text-sky-800 shadow-sm'
+                              : 'bg-white text-stone-600 shadow-sm'
+                              }`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              if (!chonghuaUnlocked) {
+                                onUnlockRequest?.('chonghua');
+                                return;
+                              }
+                              goToTab(`academy_chonghua_${chapter.id}`);
+                              setMobileMenuOpen(false);
+                            }}
+                          >
+                            <div className="w-full text-center">
+                              <span className="font-bold text-[18px]">{renderFlipLabel(chapter.id)}</span>
+                            </div>
+                          </a>
+                        );
+                      })}
                     </div>
                   </AccordionPanel>
                 </div>

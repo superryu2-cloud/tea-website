@@ -735,7 +735,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <div>
                                             <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">荷蘭時期 (1624-1662)</h3>
                                             <div className="relative space-y-10">
-                                                {filteredTimelineData.holland.map((item, idx) => React.createElement(TimelineRow, { key: `h-${idx}`, ...item }))}
+                                                {filteredTimelineData.holland.map((item, idx) => React.createElement(TimelineRow, { key: `h-${idx}`, ...item, themeKey: 'holland' }))}
                                             </div>
                                         </div>
                                     )}
@@ -743,7 +743,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <div>
                                             <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">滿清時期 (1683-1895)</h3>
                                             <div className="relative space-y-10">
-                                                {filteredTimelineData.qing.map((item, idx) => React.createElement(TimelineRow, { key: `q-${idx}`, ...item }))}
+                                                {filteredTimelineData.qing.map((item, idx) => React.createElement(TimelineRow, { key: `q-${idx}`, ...item, themeKey: 'qing' }))}
                                             </div>
                                         </div>
                                     )}
@@ -751,7 +751,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <div>
                                             <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">日治時期 (1895-1945)</h3>
                                             <div className="relative space-y-10">
-                                                {filteredTimelineData.japan.map((item, idx) => React.createElement(TimelineRow, { key: `j-${idx}`, ...item }))}
+                                                {filteredTimelineData.japan.map((item, idx) => React.createElement(TimelineRow, { key: `j-${idx}`, ...item, themeKey: 'japan' }))}
                                             </div>
                                         </div>
                                     )}
@@ -759,7 +759,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                         <div>
                                             <h3 className="text-2xl font-bold text-stone-800 mb-6 pb-2 border-b-2 border-stone-200 text-center no-underline">國民政府時期 (1945-1990)</h3>
                                             <div className="relative space-y-10">
-                                                {filteredTimelineData.roc.map((item, idx) => React.createElement(TimelineRow, { key: `r-${idx}`, ...item }))}
+                                                {filteredTimelineData.roc.map((item, idx) => React.createElement(TimelineRow, { key: `r-${idx}`, ...item, themeKey: 'roc' }))}
                                             </div>
                                         </div>
                                     )}

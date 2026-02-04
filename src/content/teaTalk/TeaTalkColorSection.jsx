@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { BookOpen, Palette, Sparkles, Leaf } from 'lucide-react';
+import ClickableImage from '../../components/ClickableImage';
 import AtlasDockLayout from '../../components/AtlasDockLayout';
 import ChapterSidebar from '../../components/ChapterSidebar';
 import SectionCard from '../../components/SectionCard';
@@ -69,8 +70,11 @@ export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx =
             {activeChapter === 'overview' ? (
               <div className="space-y-6">
                 <div className="museum-frame museum-paper relative overflow-hidden">
-                  <div className="absolute -top-20 -right-24 w-96 h-96 rounded-full bg-sky-200/30 blur-3xl" />
-                  <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-emerald-200/25 blur-3xl" />
+                  {/* Hero Image Background */}
+                  <div className="absolute inset-0 opacity-20">
+                    <img src="/images/tea-talk/overview-hero.png" alt="Tea Palette Landscape" className="w-full h-full object-cover" />
+                  </div>
+
                   <div className="relative px-8 py-10 md:px-12 md:py-12">
                     <div className="museum-label">
                       <Palette size={14} className="opacity-80" />
@@ -80,9 +84,23 @@ export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx =
                     <p className="mt-4 max-w-3xl text-lg md:text-xl text-stone-700 leading-relaxed">
                       以「可教、可查、可對照」為原則整理長文專題：把栽培、採摘、製程與風味，拆成能快速閱讀與回看的一章一主題。
                     </p>
+                    <div className="mt-8">
+                      <ClickableImage
+                        src="/images/tea-talk/overview-hero.png"
+                        alt="茶言觀色：茶湯色譜與山林意象"
+                        caption="茶言觀色：茶湯色譜與山林意象（點擊放大欣賞全景）"
+                      />
+                    </div>
                   </div>
                 </div>
                 <SectionCard title="怎麼使用" icon={BookOpen}>
+                  <div className="mb-6">
+                    <ClickableImage
+                      src="/images/tea-talk/overview-map.png"
+                      alt="茶韻之旅地圖"
+                      caption="茶韻之旅地圖：沿著蜿蜒山徑探索八大主題章節"
+                    />
+                  </div>
                   <ul className="list-disc pl-5 space-y-2 text-stone-700">
                     <li>左側選章節，右側顯示對應主題的完整內容。</li>
                     <li>先看「導讀」快速掌握 8 章主題與閱讀順序。</li>

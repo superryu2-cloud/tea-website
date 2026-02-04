@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import ClickableImage from '../../components/ClickableImage';
 import {
   MapPin,
   Sun,
@@ -958,6 +959,14 @@ const CHAPTERS = {
             <p className="text-stone-400 text-[19px] leading-relaxed">
               以「時、外形、香氣、湯色、滋味、活性、葉底、茶韻」八大維度，建立可重複、可比較的專業品鑑框架。
             </p>
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-800/50">
+              <ClickableImage
+                src="/images/varieties/puer-ch04-hero.png"
+                alt="品鑑八法：靜心品茗"
+                caption="品鑑八法：於靜謐中覺察茶湯的色香味韻（點擊放大）"
+                captionClassName="text-stone-400"
+              />
+            </div>
           </div>
         </div>
 
@@ -1056,7 +1065,15 @@ const CHAPTERS = {
                 </p>
               </div>
             </div>
+            <div className="mt-6">
+              <ClickableImage
+                src="/images/varieties/puer-ch04-aroma.png"
+                alt="香氣的具象化：蘭、玫、木"
+                caption="香氣的具象化：如蘭似蜜，歲月更添沉穩木韻"
+              />
+            </div>
           </div>
+
 
           {/* 04. Color */}
           <div className="bg-white rounded-2xl p-6 border border-stone-200">
@@ -1075,6 +1092,14 @@ const CHAPTERS = {
               <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0" /> 清澈透亮，有「金圈」(優)</li>
               <li className="flex gap-2"><XCircle size={16} className="text-stone-400 shrink-0" /> 渾濁灰暗，無光澤 (劣/受潮)</li>
             </ul>
+
+            <div className="mt-6">
+              <ClickableImage
+                src="/images/varieties/puer-ch04-color.png"
+                alt="茶湯色澤標準：晶瑩透亮與金圈"
+                caption="茶湯色澤標準：左為渾濁劣質，右為晶瑩透亮具金圈"
+              />
+            </div>
           </div>
 
           {/* 05. Taste */}
@@ -1164,8 +1189,15 @@ const CHAPTERS = {
                 </div>
               </div>
             </div>
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-stone-700">
+              <ClickableImage
+                src="/images/varieties/puer-ch04-rhyme.png"
+                alt="茶韻體感：氣感流動與身心安頓"
+                caption="茶韻體感：氣感流動於與身心安頓的冥想境界"
+              />
+            </div>
           </div>
-        </div>
+        </div >
 
         <div className="bg-stone-900 rounded-3xl p-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10 text-white"><Eye size={120} /></div>
@@ -1196,7 +1228,7 @@ const CHAPTERS = {
                     <item.icon size={16} />
                     <span className="font-bold text-base">{item.label}</span>
                   </div>
-                  <p className="text-sm text-stone-500 leading-relaxed pl-7">
+                  <p className="text-sm text-stone-300 leading-relaxed pl-7">
                     {item.desc}
                   </p>
                 </div>
@@ -1204,7 +1236,7 @@ const CHAPTERS = {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
     ),
   },
@@ -1215,9 +1247,9 @@ const CHAPTERS = {
         {/* Intro Hero */}
         <div className="rounded-3xl bg-stone-100 p-8 md:p-12 text-center relative overflow-hidden group">
           <img
-            src="/images/puerh_production_process.png"
+            src="/images/varieties/puer-ch05-hero.png"
             alt="Pu-erh Production Sun Drying"
-            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-100 transition-opacity duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 to-stone-100/90 group-hover:from-stone-900/80 group-hover:to-stone-800/80 transition-colors duration-1000"></div>
 
@@ -1231,6 +1263,13 @@ const CHAPTERS = {
             <p className="text-stone-600 text-[19px] leading-relaxed group-hover:text-stone-300 transition-colors">
               理解每一個環節背後的目的與智慧，從風味中解讀出工藝的印記。
             </p>
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-100/20 max-w-2xl mx-auto">
+              <ClickableImage
+                src="/images/varieties/puer-ch05-hero.png"
+                alt="從茶樹到茶湯的旅程"
+                caption="雲南古茶山：採茶人行於蜿蜒山徑，開啟茶葉的旅程"
+              />
+            </div>
           </div>
         </div>
 
@@ -1334,6 +1373,13 @@ const CHAPTERS = {
                         <span><strong>經驗之談：</strong>老師傅憑「鐵砂掌」徒手翻炒感知溫度，機器難以取代。</span>
                       </li>
                     </ul>
+                    <div className="mt-6">
+                      <ClickableImage
+                        src="/images/varieties/puer-ch05-shaqing.png"
+                        alt="工藝核心：高溫殺青"
+                        caption="殺青：老師傅憑經驗控制鍋溫與葉溫，保留活性"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1395,6 +1441,13 @@ const CHAPTERS = {
                     <div className="text-sm text-stone-400 italic text-right mt-1">
                       → 至此完成「曬青毛茶」(生/熟茶的分岔口)。
                     </div>
+                    <div className="mt-6 md:ml-20">
+                      <ClickableImage
+                        src="/images/varieties/puer-ch05-sundrying.png"
+                        alt="靈魂工序：日光曬青"
+                        caption="曬青：於自然陽光下乾燥，保留酶的活性與山野氣息"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1406,6 +1459,14 @@ const CHAPTERS = {
         <div className="rounded-3xl bg-stone-800 p-8 text-stone-300">
           <Subheading className="text-white">緊壓與成型工序</Subheading>
           <p className="text-base mb-8 opacity-80">曬青毛茶可直接飲用，但壓製成餅更利於運輸與陳化。</p>
+
+          <div className="mb-10 max-w-xl mx-auto rounded-xl overflow-hidden shadow-lg border border-stone-600/50">
+            <ClickableImage
+              src="/images/varieties/puer-ch05-pressing.png"
+              alt="傳統工藝：石磨壓餅"
+              caption="成型：傳統石磨壓製，鬆緊適度利於後期轉化"
+            />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
@@ -1506,6 +1567,14 @@ const CHAPTERS = {
             <p className="text-emerald-200/80 text-[19px] leading-relaxed">
               精準的沖泡是將「體」（原料工藝）轉化為「用」（風味體驗）的關鍵。從水開始，尋找一切美好的源頭。
             </p>
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-800/20 max-w-2xl mx-auto">
+              <ClickableImage
+                src="/images/varieties/puer-ch06-hero.png"
+                alt="喚醒茶葉靈魂的藝術"
+                caption="沖泡藝術：以專注之心，喚醒沉睡的茶葉靈魂"
+                captionClassName="text-emerald-100/80"
+              />
+            </div>
           </div>
         </div>
 
@@ -1579,6 +1648,14 @@ const CHAPTERS = {
             <div>
               <Subheading>器為茶之父：茶具選擇</Subheading>
               <p className="text-base text-stone-600 mt-2">材質直接作用於茶湯風味。</p>
+            </div>
+            <div className="w-full md:w-1/3">
+              <ClickableImage
+                src="/images/varieties/puer-ch06-teaware.png"
+                alt="茶具選擇：蓋碗與紫砂"
+                caption="器為茶之父：白瓷蓋碗與紫砂壺的材質之選"
+                className="rounded-lg shadow-sm"
+              />
             </div>
           </div>
 
@@ -1710,9 +1787,9 @@ const CHAPTERS = {
         {/* Intro Hero */}
         <div className="rounded-3xl bg-amber-950 p-8 md:p-12 text-center text-amber-50 relative overflow-hidden group">
           <img
-            src="/images/puerh_ripe_soup.png"
+            src="/images/varieties/puer-ch07-hero.png"
             alt="Ripe Pu-erh Tea Soup"
-            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-1000 mix-blend-overlay"
+            className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
@@ -1726,6 +1803,14 @@ const CHAPTERS = {
             <p className="text-amber-100/90 text-[19px] leading-relaxed drop-shadow-md">
               渥堆發酵 (Wo Dui)：在短短數十天內，模擬出自然陳化數十年的醇厚口感。這是一場微生物與時間的精密舞蹈。
             </p>
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-900/30 max-w-2xl mx-auto">
+              <ClickableImage
+                src="/images/varieties/puer-ch07-hero.png"
+                alt="渥堆發酵：時間的魔法"
+                caption="1973的革命：在溫暖濕潤的茶堆中，微生物正在重塑茶葉的靈魂"
+                captionClassName="text-amber-100/80"
+              />
+            </div>
           </div>
         </div>
 
@@ -1747,6 +1832,14 @@ const CHAPTERS = {
                 <div className="flex-1 text-stone-700 text-base leading-relaxed">
                   強調 <strong>「滑、厚、甜、醇、柔」</strong>。如媽媽慢煲的濃湯，入口絲滑，無水之硬度。
                   <br /><span className="inline-block mt-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-sm font-bold">最高境界：米湯感</span>
+                </div>
+                <div className="w-full md:w-1/3">
+                  <ClickableImage
+                    src="/images/varieties/puer-ch07-soup.png"
+                    alt="熟茶審美：極致湯感"
+                    caption="米湯感：紅濃明亮，入口如絲緞般滑順"
+                    className="rounded-lg shadow-sm"
+                  />
                 </div>
               </div>
             </div>
@@ -1841,6 +1934,13 @@ const CHAPTERS = {
               </p>
             </div>
           </div>
+          <div className="mt-8 rounded-xl overflow-hidden shadow-md max-w-3xl mx-auto border border-stone-200">
+            <ClickableImage
+              src="/images/varieties/puer-ch07-process.png"
+              alt="核心工藝：人工翻堆"
+              caption="翻堆：如炒菜般控制溫度與通氣，確保發酵均勻"
+            />
+          </div>
         </div>
 
         {/* Section 4: Post-Process */}
@@ -1901,7 +2001,13 @@ const CHAPTERS = {
     content: (
       <div className="space-y-12">
         {/* Intro Hero */}
-        <div className="rounded-3xl bg-orange-950 p-8 md:p-12 text-center text-orange-50 relative overflow-hidden">
+        <div className="rounded-3xl bg-orange-950 p-8 md:p-12 text-center text-orange-50 relative overflow-hidden group">
+          <img
+            src="/images/varieties/puer-ch08-hero.png"
+            alt="Ripe Pu-erh Tea Brewing"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40"></div>
           <div className="absolute top-0 right-0 p-12 opacity-5"><Coffee size={200} /></div>
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-800 bg-orange-900/50 backdrop-blur text-orange-300 text-sm font-bold tracking-widest uppercase">
@@ -1913,6 +2019,14 @@ const CHAPTERS = {
             <p className="text-orange-200/80 text-[19px] leading-relaxed">
               熟茶之美在於「湯感」。沖泡的核心是「低、緩、輕、柔」，如對待一位溫和的長者，引導出其米湯般的醇滑。
             </p>
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-orange-900/30 max-w-2xl mx-auto">
+              <ClickableImage
+                src="/images/varieties/puer-ch08-hero.png"
+                alt="釋放醇厚溫潤之美"
+                caption="溫潤之美：在溫暖的氤氳中，感受歲月沉澱的醇厚"
+                captionClassName="text-orange-100/80"
+              />
+            </div>
           </div>
         </div>
 
@@ -1956,6 +2070,13 @@ const CHAPTERS = {
           <p className="text-base text-stone-700 leading-relaxed max-w-4xl">
             熟茶沖泡成敗的關鍵往往在注水之前。解除緊壓與渥堆氣，讓茶葉「呼吸」。
           </p>
+          <div className="mb-8 rounded-xl overflow-hidden shadow-md max-w-2xl border border-stone-200">
+            <ClickableImage
+              src="/images/varieties/puer-ch08-waking.png"
+              alt="關鍵準備：醒茶"
+              caption="醒茶：讓茶葉在紫砂罐中呼吸，退去火氣，喚醒活性"
+            />
+          </div>
 
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden group hover:border-amber-300 transition-colors">
@@ -2026,26 +2147,34 @@ const CHAPTERS = {
                 </div>
               </div>
             </div>
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-white/10">
+              <ClickableImage
+                src="/images/varieties/puer-ch08-brewing.png"
+                alt="核心手法：低斟緩注"
+                caption="低斟緩注：水流如涓涓細流貼壁而入，溫柔引導出茶湯的膠質"
+                captionClassName="text-stone-400"
+              />
+            </div>
+          </div>
 
-            <div className="bg-stone-800/50 rounded-2xl p-6 border border-stone-700">
-              <h5 className="font-bold text-white mb-4 flex items-center gap-2"><Zap size={18} className="text-amber-500" /> 參數速查</h5>
-              <div className="space-y-4 text-base">
-                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
-                  <span className="text-stone-400">器具</span>
-                  <span className="font-bold text-amber-200">紫砂壺 (首選)</span>
-                </div>
-                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
-                  <span className="text-stone-400">水溫</span>
-                  <span className="font-bold text-amber-200">100°C (沸水)</span>
-                </div>
-                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
-                  <span className="text-stone-400">茶水比</span>
-                  <span className="font-bold text-amber-200">1:15 - 1:20 (更濃)</span>
-                </div>
-                <div className="flex justify-between items-center border-b border-stone-700 pb-2">
-                  <span className="text-stone-400">潤茶</span>
-                  <span className="font-bold text-amber-200">20秒 (稍長)</span>
-                </div>
+          <div className="bg-stone-800/50 rounded-2xl p-6 border border-stone-700">
+            <h5 className="font-bold text-white mb-4 flex items-center gap-2"><Zap size={18} className="text-amber-500" /> 參數速查</h5>
+            <div className="space-y-4 text-base">
+              <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                <span className="text-stone-400">器具</span>
+                <span className="font-bold text-amber-200">紫砂壺 (首選)</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                <span className="text-stone-400">水溫</span>
+                <span className="font-bold text-amber-200">100°C (沸水)</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                <span className="text-stone-400">茶水比</span>
+                <span className="font-bold text-amber-200">1:15 - 1:20 (更濃)</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-stone-700 pb-2">
+                <span className="text-stone-400">潤茶</span>
+                <span className="font-bold text-amber-200">20秒 (稍長)</span>
               </div>
             </div>
           </div>
@@ -2087,7 +2216,7 @@ const CHAPTERS = {
             閉上眼，想像茶湯如兒時記憶中的<strong>米湯</strong>般滑過喉嚨。溫暖、飽滿、甜潤。這就是熟茶的極致——一份不被打擾的溫柔。
           </div>
         </div>
-      </div>
+      </div >
     ),
   },
   '#puerh-9': {
