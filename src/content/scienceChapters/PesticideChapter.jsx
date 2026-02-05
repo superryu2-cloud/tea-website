@@ -232,20 +232,31 @@ export default function PesticideChapter() {
                         <span className="w-10 h-10 rounded-full bg-stone-700 flex items-center justify-center text-stone-400 text-lg font-bold">4</span>
                         為何「檢出」不等於「攝入」？
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-12">
-                        <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-emerald-400">強迫萃取 vs 自然溶出</h4>
-                            <p className="text-lg leading-relaxed text-stone-400">
-                                實驗室檢驗是「人口普查式」的。為了追求極限精確，使用有機溶劑<strong className="text-white mx-1">強制萃取</strong>出所有分子。
-                                <br /><br />
-                                這與民眾日常以溫水沖泡的<strong className="text-white mx-1">自然溶出</strong>，是完全不同的物理過程。
-                            </p>
+
+                    <div className="grid md:grid-cols-2 gap-10 items-center">
+                        <div className="h-64 md:h-80 rounded-2xl overflow-hidden border-2 border-stone-700 shadow-2xl">
+                            <ImageCard
+                                src="/images/science/pesticide_detection_vs_intake.png"
+                                alt="Detection vs Intake - 強制萃取與自然溶出的對比"
+                                caption="實驗室極限萃取 vs 生活自然沖泡"
+                                className="h-full w-full"
+                            />
                         </div>
-                        <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-emerald-400">機率性隨機分配</h4>
-                            <p className="text-lg leading-relaxed text-stone-400">
-                                對於高 log P 的農藥，儀器測得的殘留量，往往反映的是極低機率下的分子隨機逸散（機率可能僅百萬分之一），而非普遍性的遷移風險。
-                            </p>
+
+                        <div className="space-y-8">
+                            <div className="space-y-2">
+                                <h4 className="text-xl font-bold text-emerald-400">強迫萃取 vs 自然溶出</h4>
+                                <p className="text-lg leading-relaxed text-stone-400">
+                                    實驗室檢驗是「人口普查式」的。為了追求極限精確，使用有機溶劑<strong className="text-white mx-1">強制萃取</strong>出所有分子。
+                                    這與民眾日常以溫水沖泡的<strong className="text-white mx-1">自然溶出</strong>，是完全不同的物理過程。
+                                </p>
+                            </div>
+                            <div className="space-y-2">
+                                <h4 className="text-xl font-bold text-emerald-400">機率性隨機分配</h4>
+                                <p className="text-lg leading-relaxed text-stone-400">
+                                    對於高 log P 的農藥，儀器測得的殘留量，往往反映的是極低機率下的分子隨機逸散（機率可能僅百萬分之一），而非普遍性的遷移風險。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
