@@ -54,22 +54,22 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                                 <div className="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 font-bold text-sm mb-6 shadow-sm border border-amber-200">
                                     茶的起源 · 上古傳說
                                 </div>
-                                <h3 className="text-4xl font-black text-amber-950 mb-6 font-calligraphy tracking-tight drop-shadow-sm">神農氏：茶的發現者</h3>
+                                <h3 className="text-3xl font-black text-amber-950 mb-6 font-calligraphy tracking-tight drop-shadow-sm">神農氏：茶的發現者</h3>
                                 <div className="prose prose-lg prose-stone max-w-none font-medium text-stone-800">
-                                    <p className="mb-6 leading-relaxed">
+                                    <p className="mb-6 leading-relaxed text-[17px]">
                                         相傳神農氏「嘗百草」。有一天，他翻山越嶺，口渴得很，忽然有一片樹葉飄落眼前，撿起細看，青嫩可愛；用手一餒，汁液潤滑；以鼻一嗅，氣味芬芳；用舌一舐，苦澀非常。於是，憑著神農氏豐富的經驗，便斷定是一種止渴、提神的藥。
                                     </p>
-                                    <p className="text-stone-700 text-base border-l-4 border-amber-400 pl-4 py-3 italic bg-amber-50 rounded-r-lg shadow-inner">
+                                    <p className="text-stone-700 text-[17px] border-l-4 border-amber-400 pl-4 py-3 italic bg-amber-50 rounded-r-lg shadow-inner">
                                         以當時來說，神農氏發現茶樹，只是鑑別、斷定茶有藥效而已；真正使茶成為「國飲」的地位，是數千年來難以數計的無名氏不斷的栽培、更新、繁衍，由嚼青葉，而發明為採葉焙製；由採葉焙製，而改良為煎烹飲啜。如此的發明再發明，改良再改良，使得此一深具民族性的飲料，能流傳千古而為世人所飲用。
                                     </p>
                                 </div>
                             </div>
                             <ZoomableImage
-                                src={shennongImage}
-                                alt="Shennong Tasting Herbs"
+                                src="/images/history/shennong_discovery_fantasy.png"
+                                alt="神農嘗百草 - 仙俠寫實風格"
                                 containerClassName="order-1 md:order-2 relative h-full min-h-[300px] md:min-h-[400px] rounded-2xl overflow-hidden shadow-xl border-4 border-white transform hover:rotate-1 transition-transform duration-500"
                                 imgClassName="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2s]"
-                                overlayClassName="absolute inset-0 bg-gradient-to-t from-amber-950/30 to-transparent mix-blend-multiply"
+                                overlayClassName="absolute inset-0 bg-gradient-to-t from-stone-900/20 to-transparent mix-blend-overlay"
                             />
                         </div>
                     </div>
@@ -94,19 +94,19 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             {/* Top Content: Intro & Fun Fact */}
                             <div className="grid md:grid-cols-2 gap-8 mb-12">
                                 <div className="bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm">
-                                    <p className="text-xl leading-loose text-stone-200 font-calligraphy">
+                                    <p className="text-[19px] leading-loose text-stone-200 font-calligraphy">
                                         茶古作<span className="text-3xl text-amber-300 mx-1 font-bold">「荼」</span>或<span className="text-3xl text-amber-300 mx-1 font-bold">「 」</span>。
                                     </p>
-                                    <p className="mt-4 text-stone-300 leading-relaxed text-base font-light tracking-wide">
+                                    <p className="mt-4 text-stone-300 leading-relaxed text-[17px] font-light tracking-wide">
                                         唐陸羽茶經會說；「其字或從草，或從木，或草木並。其名一曰茶，二日檟，三日蔎，四日茗，五曰荈。」
                                     </p>
-                                    <p className="mt-4 text-stone-300 leading-relaxed text-base font-light tracking-wide">
+                                    <p className="mt-4 text-stone-300 leading-relaxed text-[17px] font-light tracking-wide">
                                         又據神農本草：「苦荼，一名茶，一名選，一名游，冬生益州川谷山陵道旁，凌冬不死，三月三日採乾。」
                                     </p>
                                 </div>
                                 <div className="bg-amber-900/40 p-6 rounded-xl border border-amber-500/30 shadow-inner flex flex-col justify-center">
-                                    <h5 className="text-amber-400 font-bold mb-3 flex items-center text-lg"><Sparkles size={18} className="mr-2" /> 演變小知識</h5>
-                                    <p className="text-stone-200 leading-relaxed">
+                                    <h5 className="text-amber-400 font-bold mb-3 flex items-center text-[19px]"><Sparkles size={18} className="mr-2" /> 演變小知識</h5>
+                                    <p className="text-stone-200 leading-relaxed text-[17px]">
                                         到了唐陸羽茶經問世，將數種不同意義的「荼」減去一劃，成為含一種意義的「茶」字；所以自中唐以後，一般學者因受陸羽的影響，逐漸將「荼」改寫為「茶」了。
                                     </p>
                                 </div>
@@ -116,11 +116,11 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {teaNameEtymology.map((item, idx) => (
                                     <div key={idx} className="bg-white/5 p-5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
-                                        <div className="text-xs text-amber-500/80 mb-2 group-hover:text-amber-400 transition-colors font-medium tracking-widest">
+                                        <div className="text-[14px] text-amber-500/80 mb-2 group-hover:text-amber-400 transition-colors font-medium tracking-widest">
                                             {["一", "二", "三", "四", "五", "六", "七", "八"][idx]}
                                         </div>
-                                        <h5 className="font-bold text-amber-50 text-xl mb-2 font-calligraphy tracking-wide">{item.name}</h5>
-                                        <p className="text-sm text-stone-300 leading-relaxed font-light">{item.desc}</p>
+                                        <h5 className="font-bold text-amber-50 text-[20px] mb-2 font-calligraphy tracking-wide">{item.name}</h5>
+                                        <p className="text-[16px] text-stone-300 leading-relaxed font-light">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -136,8 +136,8 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
                             {teaNicknames.map((item, idx) => (
                                 <div key={idx} className="bg-stone-50 p-6 rounded-2xl border border-stone-100 hover:shadow-md hover:scale-[1.02] transition-all duration-300">
                                     <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-serif font-bold text-lg mb-4 shadow-sm">{item.name[0]}</div>
-                                    <h5 className="font-bold text-lg text-stone-900 mb-3">{item.name}</h5>
-                                    <p className="text-base text-stone-600 leading-relaxed">{item.desc}</p>
+                                    <h5 className="font-bold text-[20px] text-stone-900 mb-3">{item.name}</h5>
+                                    <p className="text-[16px] text-stone-600 leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -184,7 +184,7 @@ export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineD
 
                                             <div className="space-y-4">
                                                 {item.content.map((p, i) => (
-                                                    <p key={i} className="text-stone-700 leading-relaxed text-base border-l-2 border-stone-300/30 pl-4">{p}</p>
+                                                    <p key={i} className="text-stone-700 leading-relaxed text-[17px] border-l-2 border-stone-300/30 pl-4">{p}</p>
                                                 ))}
                                             </div>
                                         </div>

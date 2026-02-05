@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Microscope, ChevronRight, RefreshCw, Flame, Sparkles, FlaskConical } from 'lucide-react';
+import { Microscope, ChevronRight, RefreshCw, Flame, Sparkles, FlaskConical, ShieldAlert } from 'lucide-react';
 import { UI_FLAGS } from '../../config/uiFlags';
 import { SCIENCE_TOC, TEA_REFERENCE_TOC } from '../../config/navigation';
 import useI18n from '../../i18n/useI18n';
@@ -12,6 +12,7 @@ import SlurpingChapter from '../../content/scienceChapters/SlurpingChapter';
 import ConstituentsChapter from '../../content/scienceChapters/ConstituentsChapter';
 import AromaticsChapter from '../../content/scienceChapters/AromaticsChapter';
 import TeaProcessCraftChapter from '../../content/scienceChapters/TeaProcessCraftChapter';
+import PesticideChapter from '../../content/scienceChapters/PesticideChapter';
 
 export default function ScienceSection({
     scienceRoom,
@@ -401,6 +402,24 @@ export default function ScienceSection({
                                             </p>
                                             <div className="mt-6">
                                                 <TeaProcessCraftChapter />
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {scienceRoom === 'pesticide' && (
+                                        <div className="museum-frame museum-paper p-6 md:p-8">
+                                            <div className="museum-label">
+                                                <ShieldAlert size={14} className="opacity-80" />
+                                                EXHIBIT ROOM
+                                            </div>
+                                            <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-stone-900">{i18n.lang === 'en' ? 'Pesticide Truths' : '農藥殘留真相'}</h3>
+                                            <p className="mt-3 text-stone-700 leading-relaxed">
+                                                {i18n.lang === 'en'
+                                                    ? 'Understanding the physics of pesticide residue: solubility, distribution coefficients, and why "detected" does not always mean "ingested".'
+                                                    : '從物理化學指標（溶解度、分配係數）解析農藥殘留風險，釐清「檢出」與「攝入」的科學差異。'}
+                                            </p>
+                                            <div className="mt-6">
+                                                <PesticideChapter />
                                             </div>
                                         </div>
                                     )}

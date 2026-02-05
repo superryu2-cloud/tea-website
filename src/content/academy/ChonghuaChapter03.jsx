@@ -2,9 +2,30 @@
 import { Trophy, PenTool, Coffee, Flower, Leaf, Sun, Droplet, Mountain, Thermometer, Sprout, Tag, Bug, Globe, ShieldCheck, BookOpen, Ship, TrendingUp, MapPin, Heart, Clock, Scale, Users, Beaker, Hammer, AlertCircle, TrendingDown, Shield, Map as MapIcon } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
+import ImageLightbox from '../../components/ImageLightbox';
 export default function ChonghuaChapter03() {
+    const [lightboxOpen, setLightboxOpen] = React.useState(false);
+    const [lightboxImage, setLightboxImage] = React.useState({ src: '', alt: '' });
+
+    const openLightbox = (src, alt) => {
+        setLightboxImage({ src, alt });
+        setLightboxOpen(true);
+    };
+
+    const handleImageKeyDown = (event, src, alt) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openLightbox(src, alt);
+    };
+
     return (
         <div className="space-y-12">
+            <ImageLightbox
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+                imageSrc={lightboxImage.src}
+                altText={lightboxImage.alt}
+            />
             <AcademySection
                 id="chonghua-03"
                 title="世界與台灣紅茶史"
@@ -147,6 +168,24 @@ export default function ChonghuaChapter03() {
 
                 {/* 紅茶在中國茶史中的出現背景 */}
                 <AcademyContentBlock title="紅茶在中國茶史中的出現背景" icon={Sprout}>
+                    <div className="mb-10 rounded-3xl overflow-hidden shadow-xl relative group cursor-zoom-in"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => openLightbox('/images/academy/chapter03/wuyi_origins_fantasy.png', '武夷仙境')}
+                        onKeyDown={(e) => handleImageKeyDown(e, '/images/academy/chapter03/wuyi_origins_fantasy.png', '武夷仙境')}
+                        aria-label="放大查看 武夷仙境"
+                    >
+                        <img
+                            src="/images/academy/chapter03/wuyi_origins_fantasy.png"
+                            alt="武夷仙境 - 紅茶的發源地"
+                            className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent p-8">
+                            <p className="text-2xl font-bold text-white mb-2 text-shadow-lg drop-shadow-md">武夷仙境</p>
+                            <p className="text-white/90 text-shadow drop-shadow-md text-lg">雲霧繚繞的丹霞奇峰，孕育了世界上最早的紅茶 — 正山小種</p>
+                        </div>
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="flex items-center justify-center">
                             <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg group relative aspect-[4/3] md:aspect-auto">
@@ -309,6 +348,24 @@ export default function ChonghuaChapter03() {
                             </blockquote>
                         </div>
 
+                        <div className="my-8 rounded-2xl overflow-hidden shadow-lg relative group cursor-zoom-in border border-stone-200"
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => openLightbox('/images/academy/chapter03/lapsang_souchong_smoke.png', '松煙初起')}
+                            onKeyDown={(e) => handleImageKeyDown(e, '/images/academy/chapter03/lapsang_souchong_smoke.png', '松煙初起')}
+                        >
+                            <img
+                                src="/images/academy/chapter03/lapsang_souchong_smoke.png"
+                                alt="松煙初起 - 古法燻製"
+                                className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 via-transparent to-transparent opacity-90"></div>
+                            <div className="absolute bottom-6 left-8 right-8">
+                                <h4 className="text-2xl font-bold text-white mb-2 text-shadow-md">松煙初起</h4>
+                                <p className="text-white/90 text-shadow text-lg">山中木屋升起的裊裊炊煙，見證了全發酵工藝的偶然誕生</p>
+                            </div>
+                        </div>
+
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-amber-500">
                                 <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors duration-300">
@@ -350,6 +407,23 @@ export default function ChonghuaChapter03() {
                 <AcademyContentBlock title="正山小種：世界紅茶的鼻祖" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="space-y-6">
+                            <div className="rounded-2xl overflow-hidden shadow-md mb-6 relative group cursor-zoom-in"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => openLightbox('/images/academy/chapter03/tea_pavilion_zen.png', '雲深茶寮')}
+                                onKeyDown={(e) => handleImageKeyDown(e, '/images/academy/chapter03/tea_pavilion_zen.png', '雲深茶寮')}
+                            >
+                                <img
+                                    src="/images/academy/chapter03/tea_pavilion_zen.png"
+                                    alt="雲深茶寮"
+                                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                                <div className="absolute bottom-4 left-6">
+                                    <p className="text-white font-bold text-shadow text-lg">雲深茶寮 · 境界</p>
+                                </div>
+                            </div>
+
                             <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100">
                                 <h4 className="text-[20px] font-bold text-stone-900 mb-3 flex items-center gap-3">
                                     <span className="w-8 h-8 flex items-center justify-center bg-amber-100 rounded-lg text-lg">📍</span>
