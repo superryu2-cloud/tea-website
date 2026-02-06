@@ -58,9 +58,11 @@ import {
   Scroll,
   Layers,
   Palette,
+  Cloud,
+  Eye,
+  Filter,
   Microscope,
   Hand,
-  Eye,
   Gift,
   Droplets,
   AlertCircle,
@@ -668,909 +670,810 @@ export default function PuerhEncyclopedia({ topOffsetPx, activeHref = '#puerh-1'
     '#puerh-3': {
       title: '三：普洱茶的分類',
       content: (
-        <div className="space-y-12">
-          {/* Intro */}
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="flex-1 space-y-4">
-              <Subheading>按加工方式分類：生茶 vs. 熟茶</Subheading>
-              <p className="text-[19px] text-stone-800 leading-relaxed">
-                這是普洱茶<strong>最基本、也是最重要</strong>的分類方式。
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                它們的核心區別在於是否經過 <strong>「渥堆發酵」</strong> 這道人工干預工藝。這決定了茶葉的顏色、香氣、口感以及後期的轉化路徑。
-              </p>
+        <div className="space-y-16 font-sans">
+          {/* Header */}
+          {/* Header */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] group">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/images/varieties/puer-ch03-misty-mountains.png" alt="" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-100" />
+              {/* Gradient for text readability - darker on left, lighter on right */}
+              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-900/60 to-stone-900/20" />
+            </div>
+
+            <div className="absolute top-0 right-0 p-8 opacity-10 text-white z-0"><Layers size={180} /></div>
+
+            <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12 space-y-4">
+              <span className="inline-block self-start px-4 py-1.5 bg-amber-500/20 backdrop-blur border border-amber-500/30 text-amber-300 text-sm font-bold tracking-[0.2em] rounded-full uppercase">
+                Classification System
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                普洱茶分類全解析<br />
+                <span className="text-xl md:text-2xl opacity-70 font-normal">從工藝、原料到倉儲的專業修煉指南</span>
+              </h2>
             </div>
           </div>
 
-          {/* Visual Comparison Section */}
-          <div className="rounded-3xl border border-stone-200 bg-white overflow-hidden shadow-xl">
-            {/* Visual Hero Split */}
-            <div className="relative aspect-[2/1] md:aspect-[3/1] group">
+          {/* 1. Processing (Raw vs Ripe) */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-l-4 border-emerald-600 pl-4">
+              一、 加工工藝：生茶與熟茶的本質差異
+            </h3>
+            <p className="text-[17px] text-stone-700 leading-relaxed">
+              加工工藝是決定普洱茶風味特徵與陳化潛力的核心基礎。在普洱茶的專業領域中，工藝的選擇不僅決定了茶葉初期的口感表現，更界定了市場上兩大核心需求：追求自然演變與時間轉化層次的「生茶」，以及追求即時溫潤與醇厚適飲性的「熟茶」。
+            </p>
+
+            {/* Preserved Image: Yin Yang Art (moved to be the visual anchor for this section) */}
+            <div className="relative aspect-[2/1] md:aspect-[3/1] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puerh/puerh_yin_yang_art.png', alt: '生茶與熟茶的藝術對比' })}>
               <img
                 src="/images/varieties/puerh/puerh_yin_yang_art.png"
-                alt="Artistic Raw vs Ripe Pu-erh Tea Contrast"
-                className="absolute inset-0 w-full h-full object-cover"
+                alt="生茶與熟茶的藝術對比"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/40 via-transparent to-amber-900/60"></div>
-
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/40 via-transparent to-amber-900/60 pointer-events-none"></div>
               {/* Labels Overlay */}
-              <div className="absolute inset-0 flex">
+              <div className="absolute inset-0 flex pointer-events-none">
                 <div className="flex-1 flex items-center justify-center p-6">
-                  <div className="bg-white/90 backdrop-blur-md px-6 py-3 rounded-full text-emerald-800 font-black tracking-widest shadow-lg border border-emerald-100 transform -translate-x-4 md:-translate-x-0">
+                  <div className="bg-white/90 backdrop-blur-md px-6 py-3 rounded-full text-emerald-800 font-black tracking-widest shadow-lg border border-emerald-100">
                     RAW (SHENG) <span className="hidden md:inline">· 生茶</span>
                   </div>
                 </div>
                 <div className="w-px bg-white/50 backdrop-blur"></div>
                 <div className="flex-1 flex items-center justify-center p-6">
-                  <div className="bg-stone-900/90 backdrop-blur-md px-6 py-3 rounded-full text-amber-500 font-black tracking-widest shadow-lg border border-amber-900/50 transform translate-x-4 md:translate-x-0">
+                  <div className="bg-stone-900/90 backdrop-blur-md px-6 py-3 rounded-full text-amber-500 font-black tracking-widest shadow-lg border border-amber-900/50">
                     RIPE (SHOU) <span className="hidden md:inline">· 熟茶</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Comparison Cards Grid */}
-            <div className="p-2 bg-stone-50 grid grid-cols-1 md:grid-cols-2 gap-2">
-              {/* Raw Side */}
-              <div className="bg-white rounded-2xl p-6 border border-stone-100 space-y-6">
-                <div className="flex items-center gap-3 text-emerald-700 mb-2">
-                  <Leaf size={24} /> <h4 className="font-bold text-[19px]">生茶特徵</h4>
-                </div>
-
-                <div className="space-y-5">
-                  {[
-                    { label: "工藝", val: "殺青→揉捻→曬乾→蒸壓。自然發酵。" },
-                    { label: "茶餅顏色", val: "墨綠色，條索清晰。" },
-                    { label: "茶湯顏色", val: "橙黃明亮。", colorDot: "bg-amber-400" },
-                    { label: "香氣", val: "高揚，花香/蜜香/果香為主。" },
-                    { label: "口感", val: "苦澀明顯但化開快，回甘生津強烈。" },
-                    { label: "茶性", val: "茶氣濃郁猛烈 (較寒)。" }
-                  ].map((row, i) => (
-                    <div key={i} className="flex gap-3 text-base">
-                      <span className="font-bold text-emerald-800 w-20 shrink-0 text-right">{row.label}</span>
-                      <span className="text-stone-600 flex-1 flex items-center gap-2">
-                        {row.colorDot && <span className={`w-3 h-3 rounded-full ${row.colorDot} shadow-sm border border-black/5`}></span>}
-                        {row.val}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Ripe Side */}
-              <div className="bg-stone-800 rounded-2xl p-6 border border-stone-700 space-y-6 text-stone-300">
-                <div className="flex items-center gap-3 text-amber-500 mb-2">
-                  <Coffee size={24} /> <h4 className="font-bold text-[19px] text-white">熟茶特徵</h4>
-                </div>
-
-                <div className="space-y-5">
-                  {[
-                    { label: "工藝", val: "經「渥堆發酵」(人工加速陳化)。" },
-                    { label: "茶餅顏色", val: "棕褐色 或 黑褐色。" },
-                    { label: "茶湯顏色", val: "紅濃透亮 (棗紅/酒紅)。", colorDot: "bg-red-900" },
-                    { label: "香氣", val: "溫厚，陳香/木香/棗香為主。" },
-                    { label: "口感", val: "溫潤甜滑，幾乎無苦澀。" },
-                    { label: "茶性", val: "溫暖柔和，不礙睡眠 (溫性)。" }
-                  ].map((row, i) => (
-                    <div key={i} className="flex gap-3 text-base">
-                      <span className="font-bold text-amber-500/80 w-20 shrink-0 text-right">{row.label}</span>
-                      <span className="text-stone-300 flex-1 flex items-center gap-2">
-                        {row.colorDot && <span className={`w-3 h-3 rounded-full ${row.colorDot} shadow-sm border border-white/20`}></span>}
-                        {row.val}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-4 p-3 bg-stone-700/50 rounded-xl border border-stone-600 text-sm leading-relaxed flex gap-2">
-                  <CheckCircle2 size={16} className="text-amber-500 shrink-0" />
-                  <div>
-                    <strong className="text-white">健康益處：</strong>
-                    渥堆富含益生菌，降脂護胃。小分子易吸收，適合人群廣。
-                  </div>
-                </div>
+            {/* NEW IMAGE: Tea Pavilion */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in mb-8" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-tea-pavilion.png', alt: '深山古剎：茶葉的靈性轉化之地' })}>
+              <img
+                src="/images/varieties/puer-ch03-tea-pavilion.png"
+                alt="深山古剎：茶葉的靈性轉化之地"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent p-6 flex flex-col justify-end">
+                <p className="text-white font-bold text-lg drop-shadow-md">深山古剎：茶葉的靈性轉化之地</p>
               </div>
             </div>
-          </div>
 
-          {/* Classification 2: Blending / Single Origin / Single Tree */}
-          <div className="space-y-6">
-            <Subheading>按用料工藝分類：拼配、純料與單株</Subheading>
-
-            <div className="grid md:grid-cols-3 gap-4">
-              {/* Card 1: Blended */}
-              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-amber-300 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 mb-4">
-                  <Disc size={20} />
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Raw Tea */}
+              <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-4 mb-6 text-emerald-800">
+                  <Leaf size={32} />
+                  <h4 className="text-[22px] font-bold">生茶（自然發酵）</h4>
                 </div>
-                <h4 className="text-[19px] font-black text-stone-900 mb-2">拼配</h4>
-                <div className="text-sm font-bold text-stone-400 uppercase tracking-wider mb-4">Blended Tea</div>
-                <p className="text-base text-stone-600 leading-relaxed mb-4">
-                  將不同產區、年份、等級的毛茶按比例混合。
-                </p>
-                <div className="text-sm text-stone-500 bg-stone-50 p-3 rounded-lg border border-stone-100">
-                  <strong className="text-stone-700 block mb-1">目的：</strong>
-                  揚長避短，創造協調穩定的口感。大廠標準化產品的基石。
-                </div>
-              </div>
-
-              {/* Card 2: Single Origin */}
-              <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-300 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4">
-                  <Mountain size={20} />
-                </div>
-                <h4 className="text-[19px] font-black text-stone-900 mb-2">純料 (山頭茶)</h4>
-                <div className="text-sm font-bold text-stone-400 uppercase tracking-wider mb-4">Single Origin</div>
-                <p className="text-base text-stone-600 leading-relaxed mb-4">
-                  同一產區、季節、樹種。「相對概念」。
-                </p>
-                <div className="text-sm text-stone-500 bg-stone-50 p-3 rounded-lg border border-stone-100">
-                  <strong className="text-stone-700 block mb-1">目的：</strong>
-                  體現特定山頭的風土特徵（如老班章的霸氣）。
-                </div>
-              </div>
-
-              {/* Card 3: Single Tree */}
-              <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-200 shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mb-4">
-                  <Gem size={20} />
-                </div>
-                <h4 className="text-[19px] font-black text-stone-900 mb-2">單株</h4>
-                <div className="text-sm font-bold text-amber-500 uppercase tracking-wider mb-4">Single Tree</div>
-                <p className="text-base text-stone-600 leading-relaxed mb-4">
-                  極致追求。僅用一棵古樹採摘製作。
-                </p>
-                <div className="text-sm text-stone-500 bg-white/50 p-3 rounded-lg border border-amber-100">
-                  <strong className="text-stone-700 block mb-1">特點：</strong>
-                  口感最純粹直接，但個體差異大。價格昂貴，發燒友之選。
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 md:p-8">
-            <Subheading>按茶樹生長方式分類</Subheading>
-
-            <div className="grid gap-8 mt-6">
-              {/* Wild Tea */}
-              <div className="flex gap-4 group">
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                    <AlertTriangle size={20} />
-                  </div>
-                  <div className="w-px h-full bg-stone-200 border-l border-dashed border-stone-300"></div>
-                </div>
-                <div className="pb-6">
-                  <h4 className="text-[19px] font-bold text-stone-900">野生茶 (Wild Tea)</h4>
-                  <p className="text-base text-stone-600 mt-1 mb-2">原始森林中非人工栽培（如千家寨2700年茶王）。</p>
-                  <div className="text-sm bg-red-50 text-red-800 p-2 rounded border border-red-100 inline-block font-medium">
-                    <strong>注意：</strong> 未馴化可能含微毒，腸胃弱者慎飲。
-                  </div>
-                </div>
-              </div>
-
-              {/* Cultivated Ancient Tree */}
-              <div className="flex gap-4 group">
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                    <Award size={20} />
-                  </div>
-                  <div className="w-px h-full bg-stone-200 border-l border-dashed border-stone-300"></div>
-                </div>
-                <div className="pb-6">
-                  <h4 className="text-[19px] font-bold text-stone-900">栽培型古樹茶 (Cultivated Ancient Tree)</h4>
-                  <div className="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-2">Mainstream Choice</div>
-                  <p className="text-base text-stone-600 leading-relaxed mb-3">
-                    由古代先民選育馴化而來（如鳳慶3200年茶王）。是市面上古樹茶的主力。
+                <div className="space-y-4 text-[17px] text-emerald-900/80">
+                  <p>
+                    <strong>核心：</strong>自然發酵。採摘後的鮮葉經殺青、揉捻與曬乾，製成毛茶後進入漫長的自我演化期。
                   </p>
-                  <ul className="text-base text-stone-700 space-y-1">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 size={14} className="text-emerald-500" /> 安全性高
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 size={14} className="text-emerald-500" /> 口感協調、內質豐富
-                    </li>
-                  </ul>
+                  <p>
+                    <strong>特徵：</strong>新製生茶呈現墨綠色，湯色金黃明亮，香氣以高亢花香與蜜香為主。雖帶苦澀，但具備極強的<strong>「生回甘」 (Sheng Hui Gan)</strong>，韻味快速持久。
+                  </p>
+                  <p>
+                    <strong>價值：</strong>隨著陳放時間增加，茶性被馴服，呈現「沉香中蘊含飄逸」的魅力。活力隨年份增長，具極高收藏與增值價值。
+                  </p>
                 </div>
               </div>
 
-              {/* Plantation Tea */}
-              <div className="flex gap-4 group">
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 group-hover:bg-stone-500 group-hover:text-white transition-colors">
-                    <Box size={20} />
+              {/* Ripe Tea */}
+              <div className="bg-amber-50 rounded-2xl p-8 border border-amber-100 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-4 mb-6 text-amber-800">
+                  <Coffee size={32} />
+                  <h4 className="text-[22px] font-bold">熟茶（渥堆發酵）</h4>
+                </div>
+                <div className="space-y-4 text-[17px] text-amber-900/80">
+                  <p>
+                    <strong>核心：</strong>1973年發明之「渥堆發酵」。透過人工控制溫濕度與微生物活動，加速茶葉轉化。
+                  </p>
+                  <p>
+                    <strong>特徵：</strong>湯色紅濃透亮如琥珀，香氣溫厚飽滿。微生物酵素將大分子分解為小分子，富含益生菌。
+                  </p>
+                  <p>
+                    <strong>價值：</strong>性質溫和，不影響睡眠。具卓越的降脂、護胃功效，適合女性、長者或腸胃敏感者長期飲用。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="text-[17px] text-stone-500 italic">工藝賦予了普洱茶最基礎的生命底色，而原料的挑選與拼配邏輯，則進一步決定了產品的市場定位與穩定性。</p>
+          </div>
+
+          {/* 2. Raw Material */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-l-4 border-blue-600 pl-4">
+              二、 原料用料：拼配、純料與單株的價值評估
+            </h3>
+            <p className="text-[17px] text-stone-700 leading-relaxed">
+              原料的選擇具備高度的戰略意義。不同的用料邏輯直接影響了茶品的口感平衡、市場穩定性以及其背後的文化稀缺價值。
+            </p>
+
+            {/* NEW IMAGE: Ancient Tree */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in my-6" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-ancient-tree.png', alt: '單株古樹：大地的孤獨守望者' })}>
+              <img
+                src="/images/varieties/puer-ch03-ancient-tree.png"
+                alt="單株古樹：大地的孤獨守望者"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent p-6 flex flex-col justify-end">
+                <p className="text-white font-bold text-lg drop-shadow-md">單株古樹：大地的孤獨守望者</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4"><Disc size={24} /></div>
+                <h4 className="text-[19px] font-bold text-stone-900 mb-2">拼配技術</h4>
+                <div className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">The Art of Blending</div>
+                <p className="text-[17px] text-stone-600">
+                  追求「優點互補」的藝術。將不同產區、年份原料融合（如以香氣補回甘），確保大宗產量標準化與品質穩定性（早期「數字茶」與「七子餅」的基石）。
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm border-t-4 border-t-emerald-500">
+                <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-4"><Mountain size={24} /></div>
+                <h4 className="text-[19px] font-bold text-stone-900 mb-2">純料 (山頭茶)</h4>
+                <div className="text-xs font-bold text-emerald-500 uppercase tracking-wider mb-3">Single Origin</div>
+                <p className="text-[17px] text-stone-600">
+                  追求風土極致的相對概念。強調同一產區（如老班章、冰島）、季節或樹齡的純粹性，展現特定土地的原始能量與「一山一味」。
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-b from-amber-50 to-white p-6 rounded-2xl border border-amber-200 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-4"><Gem size={24} /></div>
+                <h4 className="text-[19px] font-bold text-stone-900 mb-2">單株</h4>
+                <div className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-3">Single Tree</div>
+                <p className="text-[17px] text-stone-600">
+                  發燒友級的極致純粹。「一棵樹、一泡茶」，選自樹齡最老個體。內含物質極豐，膠質強烈，具獨特「孤獨感」與強大個體能量，價格不菲。
+                </p>
+              </div>
+            </div>
+            <p className="text-[17px] text-stone-500 italic">原料的用料方式決定了風味的廣度，而茶樹的生長方式則從根本上決定了這些原料的品質上限。</p>
+          </div>
+
+          {/* 3. Growth Method */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-l-4 border-purple-600 pl-4">
+              三、 生長方式：野生、栽培與台地茶的品質層次
+            </h3>
+
+            {/* NEW IMAGE: Misty Mountains */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in my-6" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-misty-mountains.png', alt: '雲霧繚繞的茶山仙境' })}>
+              <img
+                src="/images/varieties/puer-ch03-misty-mountains.png"
+                alt="雲霧繚繞的茶山仙境"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent p-6 flex flex-col justify-end">
+                <p className="text-white font-bold text-lg drop-shadow-md">高山雲霧出好茶：生長環境決定品質上限</p>
+              </div>
+            </div>
+            <div className="grid gap-6">
+              <div className="flex gap-6 group items-start">
+                <div className="w-14 h-14 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 shrink-0 mt-1"><TreePine size={28} /></div>
+                <div>
+                  <h4 className="text-[20px] font-bold text-stone-900 mb-2">野生茶：原始森林的饋贈</h4>
+                  <p className="text-[17px] text-stone-700 leading-relaxed mb-2">
+                    生長於高海拔原始森林（如哀牢山千家寨，樹齡2700年）。茶氣強、果膠質豐。需注意<strong>必須經過「馴化」</strong>，原始野生茶可能含微毒，需經年採摘管理趨於穩定後方可飲用。
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 group items-start">
+                <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 mt-1"><Award size={28} /></div>
+                <div>
+                  <h4 className="text-[20px] font-bold text-stone-900 mb-2">栽培型古樹茶：人類智慧與自然的融合</h4>
+                  <p className="text-[17px] text-stone-700 leading-relaxed mb-2">
+                    市場推崇的「家茶」，源於先民馴化。兼具安全性與極佳口感（如鳳慶3200年茶王）。
+                  </p>
+                  <p className="text-[17px] text-emerald-700 font-medium">
+                    * 價值指標：2021年曾創下10公斤鮮葉10.68萬人民幣的拍賣紀錄。
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 group items-start">
+                <div className="w-14 h-14 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 shrink-0 mt-1"><TrendingUp size={28} /></div>
+                <div>
+                  <h4 className="text-[20px] font-bold text-stone-900 mb-2">台地茶：現代農業的產物</h4>
+                  <p className="text-[17px] text-stone-700 leading-relaxed mb-3">
+                    1949年後推廣的密植型茶園，高產但需人工干預。
+                  </p>
+                  <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
+                    <strong className="block text-stone-900 mb-1">曲線差異：古樹 vs 台地</strong>
+                    <ul className="text-[17px] text-stone-600 space-y-1">
+                      <li>• <strong>古樹茶：</strong>如「深交好友」。拋物線狀，第4-7泡達頂峰，耐泡回甘。</li>
+                      <li>• <strong>台地茶：</strong>如「初見驚艷的過客」。直線下墜，前兩泡香高，隨後迅速掉水，缺乏喉韻。</li>
+                    </ul>
                   </div>
                 </div>
-                <div className="pb-2">
-                  <h4 className="text-[19px] font-bold text-stone-900">台地茶 (Plantation Tea)</h4>
-                  <p className="text-base text-stone-600 mt-1 mb-3">
-                    現代密植高產茶園，多為1949年後種植。需人為干預（施肥等）。
-                  </p>
-                  <div className="bg-white p-3 rounded-xl border border-stone-200 text-base leading-relaxed">
-                    <div className="flex items-center gap-2 mb-2 font-bold text-stone-800">
-                      <TrendingUp size={16} className="text-amber-500" />
-                      口感對比：拋物線 vs 直線
-                    </div>
-                    <p className="text-stone-600 text-sm">
-                      <strong>台地茶：</strong>高開低走。前兩泡香氣強烈，隨後迅速淡薄（直線下降）。<br />
-                      <strong>古樹茶：</strong>循序漸進。由淺入深，層次豐富，耐泡度高（優美拋物線）。
-                    </p>
-                    <div className="mt-2 text-sm text-stone-400 italic">
-                      * 這如同做人，古樹茶更似東方處世之道，深交後方顯醇厚。
-                    </div>
+              </div>
+            </div>
+            <p className="text-[17px] text-stone-500 italic">釐清了茶樹的血統與背景後，這些原料最終被賦予的物理形態，同樣承載了歷史運輸與微環境轉化的功能。</p>
+          </div>
+
+          {/* 4. Shape */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-l-4 border-amber-600 pl-4">
+              四、 外形形態：適應運輸與保存的多樣包裝
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Forms */}
+              {[
+                { title: "餅茶", icon: Disc, desc: "標準357g。源於茶馬古道運力計算：七餅一筒(2.5kg)，馬馱雙邊30kg。" },
+                { title: "沱茶", icon: Circle, desc: "碗狀，100g/250g。多採細嫩芽葉壓製，毫香細膩，活性強。" },
+                { title: "磚茶", icon: Box, desc: "250g長方磚。銷往邊境，高壓緊實。內部微環境穩定，陳放20-30年易出藥香。" },
+                { title: "龍珠 / 散茶", icon: Droplet, desc: "龍珠精確一泡，高端單株首選。散茶便於觀料，但易跑氣串味，需嚴密保存。" },
+              ].map((item, i) => (
+                <div key={i} className="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <item.icon className="text-amber-600" size={24} />
+                    <strong className="text-[19px] text-stone-900">{item.title}</strong>
                   </div>
+                  <p className="text-[17px] text-stone-600 leading-snug">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 5. Storage */}
+          <div className="bg-stone-100 rounded-3xl p-8 border border-stone-200">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 mb-6">
+              <Box className="text-stone-700" size={28} />
+              五、 倉儲環境：乾倉與濕倉的價值轉向
+            </h3>
+            <p className="text-[17px] text-stone-700 mb-6">「普洱茶是活的」，倉儲作為「第二次發酵」，是品質的決勝點。</p>
+
+            {/* NEW IMAGE: Storage Chamber included in layout */}
+            <div className="grid md:grid-cols-2 gap-8 items-stretch">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200 group cursor-zoom-in h-64 md:h-auto order-last md:order-first" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-storage-chamber.png', alt: '乾倉儲存：時間的宮殿' })}>
+                <img
+                  src="/images/varieties/puer-ch03-storage-chamber.png"
+                  alt="乾倉儲存：時間的宮殿"
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-900/80 to-transparent p-4">
+                  <p className="text-white text-sm font-bold">乾倉環境：通風、陰涼、無雜味</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-6">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-l-emerald-500 flex-1">
+                  <h4 className="text-[20px] font-bold text-stone-900 mb-2">乾倉普洱：時間的純淨禮讚</h4>
+                  <p className="text-[17px] text-stone-600">
+                    濕度 &lt;70%，通風潔淨。茶葉緩慢自然轉化，無雜味。隨時間演化出花蜜→棗香→藥香，市場增值空間穩定。
+                  </p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-l-red-500 flex-1">
+                  <h4 className="text-[20px] font-bold text-stone-900 mb-2">濕倉普洱：商業加速與風險</h4>
+                  <p className="text-[17px] text-stone-600">
+                    早期商業行為，利用高溫高濕（地窖等）強迫加速。極易滋生黴菌，常用於製作低價快銷茶。<strong>養生原則：如有雜味或鎖喉，應避免飲用。</strong>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-            <Subheading>按外形分類：餅、沱、磚、散茶與龍珠</Subheading>
-            <ul className="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-              <li>
-                <strong>餅茶：</strong>最經典的形態。標準七子餅重量為357克，七餅一提（一筒）約2500克。此規格源於古代茶馬古道運輸的便利性計算。
-              </li>
-              <li>
-                <strong>沱茶：</strong>外形如碗，常見重量為100克或250克。選料通常較為細嫩，口感鮮活。
-              </li>
-              <li>
-                <strong>磚茶：</strong>常見重量為250克至1000克不等，主要為了便於運輸至西藏、蒙古等地。其優點是壓制緊實，轉化雖慢但極為穩定，且不易串味。
-              </li>
-              <li>
-                <strong>龍珠茶：</strong>屬於團茶的一種，近年來因其一粒一泡、沖泡方便而廣受歡迎。
-              </li>
-              <li>
-                <strong>散茶：</strong>保留了茶葉的原始形態。優點是便於觀察用料，可防止「內外不一」；缺點是轉化相對較弱，且佔用空間大，保存不當極易跑氣和串味。
-              </li>
-            </ul>
+          {/* Conclusion */}
+          <div className="bg-gradient-to-r from-stone-900 to-stone-800 text-stone-300 rounded-3xl p-8 shadow-xl">
+            <h4 className="text-xl font-bold text-white mb-4">結語：建構個人化的普洱修煉體系</h4>
+            <p className="text-[17px] leading-relaxed opacity-90">
+              理解普洱茶在工藝、原料、生長、外形與倉儲五大維度的分類，是建構專業評鑑架構的第一步。
+              這套體系不僅是知識的累積，更是為了讓愛茶者能根據自身體質（如寒性體質者宜選熟茶）與季節場景做出最科學的選擇。
+              建議讀者在實踐中反覆體會，從茶湯的弧線起伏到「生回甘」的持久度，在杯盞之間領略這片葉子在時光洗禮下的非凡生命力。
+            </p>
           </div>
-
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 space-y-4">
-            <Subheading>按存放方式分類：乾倉 vs. 濕倉</Subheading>
-            <ul className="list-disc pl-5 space-y-3 text-base text-stone-700 leading-relaxed">
-              <li>
-                <strong>乾倉普洱 (Dry-Stored Pu&apos;er)</strong>
-                <div className="mt-2 space-y-2">
-                  <div>
-                    <strong>◦ 定義：</strong>指在乾燥、通風、陰涼、無雜味、相對濕度小於70%的標準環境中，讓茶葉進行自然緩慢的發酵陳化。
-                  </div>
-                  <div>
-                    <strong>◦ 優點：</strong>乾倉存放能最大程度地保存普洱茶的本質，使其在歲月中「越陳越香」，轉化出乾淨、純正、富有層次的風味，品飲價值和收藏價值極高。
-                  </div>
-                </div>
-              </li>
-              <li>
-                <strong>濕倉普洱 (Wet-Stored Pu&apos;er)</strong>
-                <div className="mt-2 space-y-2">
-                  <div>
-                    <strong>◦ 定義：</strong>這是一種商業行為，指人為地將茶葉置於高溫高濕的環境中（如地下室、地窖），以求在短時間內加速其陳化。
-                  </div>
-                  <div>
-                    <strong>◦ 風險：</strong>濕倉雖然轉化快，但極易滋生黴菌等有害物質。許多早期港倉茶帶有的「倉味」或「黴味」，便源於此。在此，我想分享我的個人原則：我從不碰任何有雜味、異味，或喝了會導致「鎖喉」（喉嚨不適）的茶。飲茶本為養生，若有損健康，則本末倒置。
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl p-5 space-y-3 glass-panel">
-            <div className="text-sm font-extrabold tracking-widest glass-panel__kicker">課程總結與分類知識應用</div>
-            <div className="text-base leading-relaxed">從五個核心維度系統地學習了普洱茶的分類方法：</div>
-            <ol className="list-decimal pl-5 space-y-2 text-base leading-relaxed">
-              <li>按加工方式：分為生茶與熟茶。</li>
-              <li>按用料工藝：分為拼配、純料與單株。</li>
-              <li>按生長方式：分為野生茶、栽培型古樹茶與台地茶。</li>
-              <li>按外形：分為餅、沱、磚、散茶與龍珠等。</li>
-              <li>按存放方式：分為乾倉與濕倉。</li>
-            </ol>
-          </div>
-        </div >
+        </div>
       ),
     },
     '#puerh-4': {
       title: '四：普洱茶的品鑑方式',
       content: (
-        <div className="space-y-12">
-          {/* Intro */}
-          <div className="rounded-3xl bg-stone-900 p-8 md:p-12 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-            <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-700 bg-stone-800/50 backdrop-blur text-amber-400 text-sm font-bold tracking-widest uppercase">
-                <Gem size={14} /> The Art of Tasting
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black leading-tight">
-                品鑑八法：系統化感知普洱茶
+        <div className="space-y-16 font-sans text-stone-700">
+          {/* Hero Section (Chapter 10 Style) */}
+          <div
+            className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] group cursor-zoom-in"
+            onClick={() => setLightboxData({ src: '/images/varieties/puer-ch04-rhyme.png', alt: '普洱品鑑：身心對話的藝術' })}
+          >
+            <img
+              src="/images/varieties/puer-ch04-rhyme.png"
+              alt="普洱品鑑"
+              className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+              <span className="inline-block self-start px-4 py-1.5 bg-emerald-100/20 backdrop-blur border border-emerald-200/30 text-emerald-100 text-sm font-bold tracking-[0.2em] rounded-full mb-4 uppercase">
+                Art of Tasting
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 leading-tight shadow-sm">
+                普洱茶高手修煉秘籍<br />
+                <span className="text-2xl md:text-3xl opacity-80 font-normal">普洱茶品鑑八法全解析</span>
               </h2>
-              <p className="text-stone-400 text-[19px] leading-relaxed">
-                以「時、外形、香氣、湯色、滋味、活性、葉底、茶韻」八大維度，建立可重複、可比較的專業品鑑框架。
-              </p>
-              <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-800/50">
-                <ClickableImage
-                  src="/images/varieties/puer-ch04-hero.png"
-                  alt="品鑑八法：靜心品茗"
-                  caption="品鑑八法：於靜謐中覺察茶湯的色香味韻（點擊放大）"
-                  captionClassName="text-stone-400"
-                />
-              </div>
             </div>
           </div>
 
-          {/* The 8 Dimensions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Intro Text */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-stone-900 border-l-4 border-emerald-600 pl-4">1. 普洱茶品鑑的審美概論與綜合維度</h3>
+            <p className="text-[17px] leading-relaxed">
+              品鑑普洱茶並非單純的口舌之慾，而是一場橫跨視覺、嗅覺、味覺、體感乃至精神層次的綜合感官藝術。在進入普洱茶的殿堂前，我們首先要建立正確的審美坐標。正如世間美人有「北方之雄健」與「南方之婉約」的差異，六大茶類的審美標準亦各具靈魂：白茶賞其「毫香」與清甜，綠茶重其「鮮爽」與春意，黑茶品其「醇厚」與飽滿，黃茶則取其醇和與獨特香氣。
+            </p>
+            <p className="text-[17px] leading-relaxed">
+              普洱茶的特殊之處，在於它是一個動態的生命體。其審美不僅限於當下的滋味，更在於透過茶湯感知茶樹的生命能量。透過對「茶氣」與「茶韻」的捕捉，品鑑者能達成深度的身心對話。要真正讀懂一杯茶，必須系統化地運用「品鑑八法」，從外在環境的變量開始，一步步深入茶魂。
+            </p>
+          </div>
 
-            {/* 01. Timing */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">01</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">時（茶時）</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">Timing & Environment</div>
-                </div>
+          <div className="space-y-12">
+            {/* Method 1: Timing */}
+            <div className="grid md:grid-cols-2 gap-10 bg-stone-50 rounded-2xl p-8 border border-stone-200">
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 mb-6">
+                  <Cloud className="text-sky-500" size={28} />
+                  2. 品鑑第一法：茶時——環境因素對感官的系統影響
+                </h3>
+                <p className="text-[17px] mb-4">高手品茶，必先感知「天時」。自然環境不僅決定了茶湯的即時表現，更修正了品鑑者的審美偏差。</p>
+                <ul className="space-y-4 text-[17px]">
+                  <li><strong className="text-stone-900">天氣與香氣：</strong> 晴空萬里時，空氣乾燥，茶葉中的芳香物質易於隨水分釋放，香氣高揚奪人。反之，雨天低氣壓、高濕度，會使香氣受困於湯中，產生「悶感」。</li>
+                  <li><strong className="text-stone-900">溫度與心理審美：</strong> 飲茶者的感官會隨地理座標遷移。在哈爾濱的冰天雪地中，人本能追求熟茶的「厚度」與暖意；而在西雙版納、三亞等溫潤地區，生茶的層次感與清潤則能發揮到極致。</li>
+                  <li><strong className="text-stone-900">海拔與物理萃取：</strong> 海拔決定沸點。在高原水溫難達 100 度，影響內含物質提取深度。低海拔（如台灣）沸水可達 101 度，能將茶葉物質萃取得更為徹底。</li>
+                </ul>
               </div>
-              <p className="text-base text-stone-600 mb-4">品飲的環境與時機顯著影響感受。</p>
-              <div className="space-y-3 bg-stone-50 rounded-xl p-4">
-                <div className="flex gap-3 text-base">
-                  <CloudSun size={18} className="text-amber-500 shrink-0" />
-                  <span className="text-stone-700"><strong>天氣：</strong>晴天香氣高揚；雨天香氣沈悶。</span>
-                </div>
-                <div className="flex gap-3 text-base">
-                  <Thermometer size={18} className="text-rose-500 shrink-0" />
-                  <span className="text-stone-700"><strong>溫度：</strong>天冷宜熟茶（暖）；天熱宜生茶（解渴）。</span>
-                </div>
-                <div className="flex gap-3 text-base">
-                  <Mountain size={18} className="text-stone-500 shrink-0" />
-                  <span className="text-stone-700"><strong>海拔：</strong>高海拔沸點低，影響物質浸出與滋味。</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 02. Appearance */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">02</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">外形（乾茶）</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">Appearance</div>
-                </div>
-              </div>
-              <p className="text-base text-stone-600 mb-4">沖泡前對品質的初步判斷。</p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: "餅形", desc: "周正圓潤，邊緣勻稱。" },
-                  { label: "條索", desc: "緊結清晰，油潤有光澤。" },
-                  { label: "淨度", desc: "無雜質(茶果/粗梗/泥土)。" },
-                  { label: "嫩度", desc: "芽頭 vs 粗老 (易武粗老亦佳)。" }
-                ].map((item, i) => (
-                  <div key={i} className="bg-stone-50 p-3 rounded-lg text-sm">
-                    <strong className="block text-stone-900 mb-1">{item.label}</strong>
-                    <span className="text-stone-500">{item.desc}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 03. Aroma (Full Width) */}
-            <div className="md:col-span-2 bg-gradient-to-br from-white to-amber-50 rounded-2xl p-6 border border-amber-100 shadow-sm">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 font-bold text-xl">03</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">香氣</h4>
-                  <div className="text-sm font-bold text-amber-400 uppercase tracking-widest">Aroma</div>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <h5 className="font-bold text-stone-900 flex items-center gap-2"><Wind size={16} /> 香氣維度</h5>
-                  <ul className="space-y-3">
-                    <li className="flex gap-3 text-base text-stone-700">
-                      <span className="font-bold text-amber-600 w-12 shrink-0">高低</span>
-                      <span>擴散度。好茶一泡滿室生香。</span>
-                    </li>
-                    <li className="flex gap-3 text-base text-stone-700">
-                      <span className="font-bold text-amber-600 w-12 shrink-0">長短</span>
-                      <span>持久度。「水含香」，飲後齒頰留香。</span>
-                    </li>
-                    <li className="flex gap-3 text-base text-stone-700">
-                      <span className="font-bold text-amber-600 w-12 shrink-0">濃淡</span>
-                      <span>馥郁程度。</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-4">
-                  <h5 className="font-bold text-stone-900 flex items-center gap-2"><Flower size={16} /> 常見類型</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {["蘭花香", "玫瑰香", "水蜜桃香", "龍眼香", "木質香(陳)", "藥香(陳)", "蔘香(陳)"].map((t, i) => (
-                      <span key={i} className="px-3 py-1 bg-white border border-amber-200 rounded-full text-sm text-amber-800 font-medium">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-sm text-stone-500 italic mt-2">
-                    * 有年份的陳茶會轉出沈穩木質、藥香，帶給人平靜感。
-                  </p>
-                </div>
-              </div>
-              <div className="mt-6">
-                <ClickableImage
-                  src="/images/varieties/puer-ch04-aroma.png"
-                  alt="香氣的具象化：蘭、玫、木"
-                  caption="香氣的具象化：如蘭似蜜，歲月更添沉穩木韻"
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch04-timing-xianxia.png', alt: '天時與地利：高山雲霧出好茶' })}>
+                <img
+                  src="/images/varieties/puer-ch04-timing-xianxia.png"
+                  alt="天時與地利：高山雲霧出好茶"
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-3 text-center text-white text-sm">
+                  高海拔雲霧繚繞的仙俠意境
+                </div>
               </div>
             </div>
 
-
-            {/* 04. Color */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">04</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">湯色</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">Liquor Color</div>
+            {/* Method 2 & 3: Appearance & Aroma */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+                  <Eye className="text-stone-600" size={28} />
+                  3. 品鑑第二法：外形
+                </h3>
+                <p className="text-[17px]">茶餅是歷史的切片，其外形直接揭露工藝與倉儲。</p>
+                <div className="space-y-3 text-[17px]">
+                  <p><strong>視覺觀察：</strong> 條索應緊結、油潤發亮。灰暗無光則品質存疑。</p>
+                  <p><strong>乾倉指標：</strong> 條索清晰油亮。早期工藝偶見異物（茶果、雞毛），現代工藝追求極致潔淨。</p>
+                  <div className="p-4 bg-stone-100 rounded-xl mt-4">
+                    <strong className="block text-stone-800 mb-2">大師實操：乾聞技巧</strong>
+                    <span className="text-base text-stone-600">注水前深嗅茶餅。優質茶應帶有淡淡的「梅子香」或木質香，且伴隨清涼感。酸味、黴味代表存放失當。</span>
+                  </div>
                 </div>
               </div>
-              <div className="bg-stone-50 rounded-xl p-4 text-center mb-4">
-                <div className="text-base font-bold text-stone-800 mb-2">黃金標準</div>
-                <div className="text-2xl font-black text-amber-500 tracking-wider">晶瑩透亮</div>
-              </div>
-              <ul className="space-y-2 text-base text-stone-600">
-                <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0" /> 清澈透亮，有「金圈」(優)</li>
-                <li className="flex gap-2"><XCircle size={16} className="text-stone-400 shrink-0" /> 渾濁灰暗，無光澤 (劣/受潮)</li>
-              </ul>
-
-              <div className="mt-6">
-                <ClickableImage
-                  src="/images/varieties/puer-ch04-color.png"
-                  alt="茶湯色澤標準：晶瑩透亮與金圈"
-                  caption="茶湯色澤標準：左為渾濁劣質，右為晶瑩透亮具金圈"
-                />
-              </div>
-            </div>
-
-            {/* 05. Taste */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">05</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">滋味</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">Taste</div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="text-base text-stone-700 border-l-2 border-stone-300 pl-3 italic">
-                  「苦能回甘，澀能生津。」
-                </div>
-                <p className="text-sm text-stone-500">
-                  苦澀是骨架。關鍵在於是否能<strong>迅速化開</strong>並轉化為甜潤。
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+                  <Wind className="text-purple-600" size={28} />
+                  4. 品鑑第三法：香氣
+                </h3>
+                <p className="text-[17px]">嗅覺維度的三維評估法：</p>
+                <ul className="list-decimal pl-5 space-y-3 text-[17px]">
+                  <li><strong>高低（擴散度）：</strong> 是撲面而來，還是隱於杯底。</li>
+                  <li><strong>長短（持久度）：</strong> 香氣應沈入湯中形成「水含香」，吞嚥後依然縈繞。</li>
+                  <li><strong>濃淡（豐富度）：</strong> 單一香氣單薄，花果蜜交織則迷人。</li>
+                </ul>
+                <p className="text-[17px] mt-4">
+                  <strong>年份感：</strong> 老茶追求安定。木質香、藥香能讓人神安氣定（如高僧打坐前飲用）。
                 </p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <span className="p-2 bg-stone-50 rounded text-center text-stone-700">飽滿度 (厚薄)</span>
-                  <span className="p-2 bg-stone-50 rounded text-center text-stone-700">壓舌感 (重量)</span>
-                  <span className="p-2 bg-stone-50 rounded text-center text-stone-700">果膠感 (黏稠)</span>
-                  <span className="p-2 bg-stone-50 rounded text-center text-stone-700">水路 (寬/細)</span>
-                </div>
               </div>
             </div>
 
-            {/* 06. Activity */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 border-l-4 border-l-emerald-500">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold text-xl">06</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">活性 (核心)</h4>
-                  <div className="text-sm font-bold text-emerald-500 uppercase tracking-widest">Activity</div>
-                </div>
+            {/* Method 4: Color (1:1 Ratio) */}
+            <div className="grid md:grid-cols-2 gap-10 bg-stone-50 rounded-3xl p-8 border border-stone-200">
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900">
+                  <Droplet className="text-amber-500" size={28} />
+                  5. 品鑑第四法：湯色——流動的品質檢驗標準
+                </h3>
+                <p className="text-[17px] leading-relaxed">
+                  湯色是反映發酵工藝與倉儲健康的「鏡子」。
+                </p>
+                <ul className="space-y-4 text-[17px]">
+                  <li><strong className="text-stone-900">唯一標準：晶瑩透亮。</strong> 不論生熟，透光度是高品質的唯一共性。</li>
+                  <li><strong className="text-stone-900">瑕疵辨識：</strong> 渾濁、灰暗或「醬油色」，通常源於工藝瑕疵（炒焦）或受潮變質。</li>
+                  <li><strong className="text-stone-900">光學美感：</strong> 優質熟茶在強光下會展現迷人的「金圈」效應。</li>
+                </ul>
               </div>
-              <p className="text-base text-stone-600 mb-3">
-                「越陳越香」的物質基礎 (糖苷類)。資深茶客最看重的維度。
-              </p>
-              <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl text-emerald-800 text-base font-bold">
-                <Zap size={16} /> 強烈回甘生津 + 喉韻清涼
-              </div>
-            </div>
-
-            {/* 07. Leaf Bottom */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-stone-100 flex items-center justify-center text-stone-600 font-bold text-xl">07</div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">葉底</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">Wet Leaf</div>
-                </div>
-              </div>
-              <div className="space-y-2 text-base text-stone-600">
-                <div className="flex justify-between border-b border-stone-100 pb-1">
-                  <span>嗅覺</span> <span className="text-stone-900 font-medium">無雜味/焦味</span>
-                </div>
-                <div className="flex justify-between border-b border-stone-100 pb-1">
-                  <span>視覺</span> <span className="text-stone-900 font-medium">勻整/鮮活</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>觸覺</span> <span className="text-stone-900 font-medium">有彈性 (忌一揉即爛)</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 08. Rhyme (Conclusion) */}
-            <div className="md:col-span-2 bg-stone-900 rounded-2xl p-8 text-center text-stone-300 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5"><Gem size={120} /></div>
-              <div className="relative z-10 max-w-2xl mx-auto">
-                <div className="w-12 h-12 mx-auto rounded-full bg-stone-800 flex items-center justify-center text-amber-500 font-bold text-xl mb-4 border border-stone-700">08</div>
-                <h4 className="text-2xl font-black text-white mb-2">茶韻 (最高層次)</h4>
-                <div className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">Tea Rhyme</div>
-
-                <div className="grid md:grid-cols-3 gap-6 text-left">
-                  <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
-                    <strong className="block text-white mb-2">體感</strong>
-                    <span className="text-base opacity-80">微汗、打嗝、暖腹 (vs 脹氣不適)。</span>
-                  </div>
-                  <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
-                    <strong className="block text-white mb-2">茶氣</strong>
-                    <span className="text-base opacity-80">身體的直接能量反饋。</span>
-                  </div>
-                  <div className="p-4 bg-stone-800 rounded-xl border border-stone-700">
-                    <strong className="block text-white mb-2">陳韻</strong>
-                    <span className="text-base opacity-80">歲月帶來的安穩感與層次。</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-stone-700">
-                <ClickableImage
-                  src="/images/varieties/puer-ch04-rhyme.png"
-                  alt="茶韻體感：氣感流動與身心安頓"
-                  caption="茶韻體感：氣感流動於與身心安頓的冥想境界"
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch04-color.png', alt: '茶湯色澤標準' })}>
+                <img
+                  src="/images/varieties/puer-ch04-color.png"
+                  alt="茶湯色澤標準"
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-center text-white text-sm">
+                  左：渾濁劣質 vs 右：晶瑩透亮(金圈)
+                </div>
               </div>
             </div>
-          </div >
 
-          <div className="bg-stone-900 rounded-3xl p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10 text-white"><Eye size={120} /></div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-white/10 rounded-xl backdrop-blur text-white border border-white/20">
-                  <Palette size={24} />
+            {/* Method 5 & 6: Taste & Activity */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+                  <Coffee className="text-amber-700" size={28} />
+                  6. 品鑑第五法：滋味
+                </h3>
+                <p className="text-[17px]">普洱茶內含物質豐富，必須具備「骨架」。</p>
+                <ul className="space-y-3 text-[17px]">
+                  <li><strong>苦澀與回甘：</strong>「苦能回甘，澀能生津」。若僅有苦澀無轉化，多為台地茶。</li>
+                  <li><strong>水路特質：</strong>
+                    <ul className="pl-4 mt-2 space-y-2 text-base text-stone-600">
+                      <li>• <strong>細膩如絲（曼鬆）：</strong> 入口即滑，直達丹田。</li>
+                      <li>• <strong>寬廣如海（老班章）：</strong> 宏大有力，衝擊力強。</li>
+                    </ul>
+                  </li>
+                  <li><strong>質感評鑑：</strong> 壓舌感、果膠感（黏稠度）。</li>
+                </ul>
+              </div>
+              <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-emerald-900 border-b pb-4 border-emerald-200">
+                  <Zap className="text-emerald-600" size={28} />
+                  7. 品鑑第六法：活性 (核心魅力)
+                </h3>
+                <p className="text-[17px] text-emerald-900">
+                  「活性」是區分普洱茶與一般飲品的界碑，也是「越陳越香」的動力。
+                </p>
+                <div className="space-y-4 text-[17px] text-emerald-800">
+                  <p><strong>微生物的養分：</strong> 物質基礎是「糖苷類」。養分充足，轉化才到位。</p>
+                  <p><strong>感官特徵：</strong> 喉部極為明顯的「清涼感」，伴隨強烈回甘。</p>
+                  <div className="p-3 bg-white/60 rounded-lg italic">
+                    「資深茶客有時不聞香氣，只看活性。滋味飽滿活性足，未來必有驚人潛力。」
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Method 7: Leaf Bottom */}
+            <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200">
+              <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 mb-4">
+                <Leaf className="text-green-600" size={28} />
+                8. 品鑑第七法：葉底——最後的實體品質複核
+              </h3>
+              <p className="text-[17px] mb-4">葉底是真相的終點，它不會說謊。</p>
+              <div className="grid md:grid-cols-2 gap-6 text-[17px]">
+                <div>
+                  <strong className="block text-stone-900 mb-2">物理測試（揉搓法）</strong>
+                  <span>用手輕輕揉搓。優質葉底應具彈性與柔韌度。若一揉即爛如「稀泥」，代表發酵過度或工藝受損。</span>
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white">課程總結：品鑑八法</h4>
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-widest">The 8 Dimensions</div>
+                  <strong className="block text-stone-900 mb-2">實體辨認</strong>
+                  <span>觀察老嫩度、勻度及色澤。檢查有無焦味、紅梗。現代工藝葉底應鮮活潔淨。</span>
                 </div>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {[
-                  { label: "時 (Timing)", desc: "天時地利，身心狀態。", icon: Clock },
-                  { label: "外形 (Look)", desc: "條索緊結，色澤潤澤。", icon: Eye },
-                  { label: "香氣 (Smell)", desc: "熱聞、冷聞、杯底香。", icon: Wind },
-                  { label: "湯色 (Color)", desc: "晶瑩透亮，無渾濁。", icon: Droplet },
-                  { label: "滋味 (Taste)", desc: "苦澀轉化，回甘生津。", icon: Coffee },
-                  { label: "活性 (Life)", desc: "越陳越香的物質基礎。", icon: Zap },
-                  { label: "葉底 (Leaf)", desc: "肥嫩勻整，鮮活柔韌。", icon: Leaf },
-                  { label: "茶韻 (Rhyme)", desc: "體感、喉韻、愉悅感。", icon: Smile }
-                ].map((item, i) => (
-                  <div key={i} className="bg-white/5 border border-white/10 p-4 rounded-xl hover:bg-white/10 transition-colors group">
-                    <div className="flex items-center gap-3 mb-2 text-stone-300 group-hover:text-amber-400 transition-colors">
-                      <item.icon size={16} />
-                      <span className="font-bold text-base">{item.label}</span>
-                    </div>
-                    <p className="text-sm text-stone-300 leading-relaxed pl-7">
-                      {item.desc}
-                    </p>
+            {/* Method 8: Rhyme (1:1 Ratio) */}
+            <div className="grid md:grid-cols-2 gap-10 bg-stone-900 text-stone-300 rounded-3xl p-8 shadow-2xl">
+              <div className="space-y-6">
+                <h3 className="flex items-center gap-3 text-2xl font-bold text-white mb-2">
+                  <Smile className="text-amber-400" size={28} />
+                  9. 品鑑第八法：茶韻——體感、氣韻與靈魂
+                </h3>
+                <p className="text-[17px] opacity-90">
+                  這是品鑑的最高境界，是從感官享受向生命能量感知的昇華。
+                </p>
+                <div className="space-y-4 text-[17px]">
+                  <div>
+                    <strong className="text-white">體感與茶氣：</strong>
+                    <ul className="pl-4 mt-2 space-y-1 opacity-80">
+                      <li>• <strong>出汗：</strong> 多自後背或額頭滲出。</li>
+                      <li>• <strong>排氣：</strong> 打嗝，氣體通暢表現。</li>
+                      <li>• <strong>聚氣：</strong> 腹部「暖的一團」，溫熱舒適。</li>
+                    </ul>
                   </div>
-                ))}
+                  <div>
+                    <strong className="text-white">三韻結構：</strong>
+                    <span className="opacity-80">陳韻 (歲月厚度)、喉韻 (深邃持久)、神韻 (心靈共鳴)。</span>
+                  </div>
+                  <div className="p-4 bg-white/10 rounded-xl border border-white/10">
+                    <strong className="block text-amber-400 mb-2">品鑑百科：人格化體系</strong>
+                    <ul className="space-y-1 text-sm md:text-base">
+                      <li><strong>老班章：</strong> 霸道總裁。氣場強大，尾湯極甜。</li>
+                      <li><strong>老曼峨：</strong> 剛烈英雄。苦盡甘來，性格鮮明。</li>
+                      <li><strong>曼鬆：</strong> 仙界仙子。氣質高雅，水路極細。</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-700 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch04-rhyme.png', alt: '茶韻體感' })}>
+                <img
+                  src="/images/varieties/puer-ch04-rhyme.png"
+                  alt="茶韻體感"
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-3 text-center text-stone-300 text-sm">
+                  氣感流動與身心安頓的冥想境界
+                </div>
+              </div>
+            </div>
+
+            {/* Conclusion */}
+            <div className="bg-emerald-900 text-emerald-100 rounded-3xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-10"><Filter size={120} /></div>
+              <h4 className="text-xl font-bold text-white mb-4 relative z-10">10. 結語：建立個人的品鑑體系</h4>
+              <p className="text-[17px] leading-relaxed relative z-10 opacity-90">
+                普洱茶品鑑八法是一個環環相扣的閉環系統。從觀察天時海拔，到剖析物理外形，再到感知體感茶氣，每一層次都是在深化我們對這一片葉子的理解。
+                真正的普洱高手，能將這套系統內化為一種生活美學。在日常實踐中，試著將手中的每一杯茶想像成身邊的一個人，感受其性格是霸氣還是溫婉。當你能在盞茶之間讀懂生活的韻律，喝茶便不再只是消遣，而是一場修行。讓我們在普洱的芬芳中，觀照自我，通達四肢，領悟生命的真意。
+              </p>
             </div>
           </div>
-        </div >
-
+        </div>
       ),
     },
     '#puerh-5': {
       title: '五：普洱生茶的製作工藝',
       content: (
-        <div className="space-y-12">
-          {/* Intro Hero */}
-          <div className="rounded-3xl bg-stone-100 p-8 md:p-12 text-center relative overflow-hidden group">
+        <div className="space-y-16 font-sans text-stone-700">
+          {/* Hero Section (Chapter 10 Style) */}
+          <div
+            className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] group cursor-zoom-in"
+            onClick={() => setLightboxData({ src: '/images/varieties/puer-ch05-sundrying.png', alt: '日光曬青：普洱茶的靈魂工序' })}
+          >
             <img
-              src="/images/varieties/puer-ch05-hero.png"
-              alt="Pu-erh Production Sun Drying"
-              className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-100 transition-opacity duration-1000"
+              src="/images/varieties/puer-ch05-sundrying.png"
+              alt="日光曬青"
+              className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 to-stone-100/90 group-hover:from-stone-900/80 group-hover:to-stone-800/80 transition-colors duration-1000"></div>
-
-            <div className="relative z-10 max-w-3xl mx-auto space-y-6 group-hover:text-white transition-colors duration-1000">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 bg-white/50 backdrop-blur text-stone-600 text-sm font-bold tracking-widest uppercase group-hover:bg-stone-800/50 group-hover:text-amber-400 group-hover:border-stone-600 transition-all">
-                <Hammer size={14} /> Craftsmanship
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black leading-tight text-stone-900 group-hover:text-white transition-colors">
-                從茶樹到茶湯的旅程
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+              <span className="inline-block self-start px-4 py-1.5 bg-amber-100/20 backdrop-blur border border-amber-200/30 text-amber-100 text-sm font-bold tracking-[0.2em] rounded-full mb-4 uppercase">
+                Art of Processing
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 leading-tight shadow-sm">
+                普洱生茶製作工藝全解析<br />
+                <span className="text-2xl md:text-3xl opacity-80 font-normal">從茶園鮮葉到歲月陳化的修煉細節</span>
               </h2>
-              <p className="text-stone-600 text-[19px] leading-relaxed group-hover:text-stone-300 transition-colors">
-                理解每一個環節背後的目的與智慧，從風味中解讀出工藝的印記。
-              </p>
-              <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-100/20 max-w-2xl mx-auto">
-                <ClickableImage
-                  src="/images/varieties/puer-ch05-hero.png"
-                  alt="從茶樹到茶湯的旅程"
-                  caption="雲南古茶山：採茶人行於蜿蜒山徑，開啟茶葉的旅程"
-                />
-              </div>
             </div>
           </div>
 
-          {/* Section 1: 5 Core Steps */}
-          <div className="space-y-8">
-            <Subheading>生茶初製五大核心步驟</Subheading>
-            <p className="text-base text-stone-700 leading-relaxed max-w-4xl">
-              共同目標：去除青草氣、塑造條索、<strong>保留內在活性</strong> (為陳化打基礎)。
+          {/* Intro Text */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-stone-900 border-l-4 border-amber-600 pl-4">普洱生茶工藝總論：從葉片到茶湯的蛻變旅程</h3>
+            <p className="text-[17px] leading-relaxed">
+              普洱生茶的魅力，不僅在於其跨越時空的文化底蘊，更在於其作為「活的有機體」所展現的生命韌性。掌握普洱生茶的製作工藝，是洞察其品質真諦與預判後續陳化價值的戰略基石。這是一場從原始森林的翠綠葉片，經歷水火交融與物理塑形，最終昇華為杯中金黃透亮茶湯的生命修煉。
             </p>
-
-            <div className="grid gap-6">
-              {/* Step 1: Picking */}
-              <div className="relative pl-8 md:pl-0">
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-5"><Sprout size={80} /></div>
-                  <div className="flex flex-col md:flex-row gap-6 relative z-10">
-                    <div className="shrink-0 flex md:flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-[19px] shadow-sm border border-emerald-200">01</div>
-                      <div className="text-sm font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Picking</div>
-                    </div>
-                    <div className="space-y-3 flex-1">
-                      <h4 className="text-xl font-bold text-stone-900">鮮葉採摘</h4>
-                      <p className="text-[17px] text-stone-600 leading-relaxed">
-                        雲南大葉種樹型高大，至今仍以<strong>人工採摘</strong>為主。標準為「一心二葉」。
-                      </p>
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-800 text-sm font-bold rounded-lg border border-emerald-100">
-                        <Scale size={14} /> 轉換率：4-5kg 鮮葉 ≈ 1kg 毛茶
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 2: Withering */}
-              <div className="relative pl-8 md:pl-0">
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-5"><Wind size={80} /></div>
-                  <div className="flex flex-col md:flex-row gap-6 relative z-10">
-                    <div className="shrink-0 flex md:flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-[19px] shadow-sm border border-amber-200">02</div>
-                      <div className="text-sm font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Withering</div>
-                    </div>
-                    <div className="space-y-4 flex-1">
-                      <div>
-                        <h4 className="text-xl font-bold text-stone-900">攤晾（萎凋）</h4>
-                        <p className="text-base text-stone-600 mt-2">讓鮮葉適度失水，引發化學轉變。</p>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div className="p-3 bg-stone-50 rounded-lg text-sm border border-stone-100">
-                          <strong className="block text-stone-800 mb-1">降低苦澀</strong>
-                          <span className="text-stone-500">轉化兒茶素。</span>
-                        </div>
-                        <div className="p-3 bg-stone-50 rounded-lg text-sm border border-stone-100">
-                          <strong className="block text-stone-800 mb-1">發展香氣</strong>
-                          <span className="text-stone-500">揮發青草氣。</span>
-                        </div>
-                        <div className="p-3 bg-stone-50 rounded-lg text-sm border border-stone-100">
-                          <strong className="block text-stone-800 mb-1">增加鮮爽</strong>
-                          <span className="text-stone-500">產生氨基酸。</span>
-                        </div>
-                      </div>
-
-                      {/* Field Note */}
-                      <div className="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-100 text-base md:flex gap-4">
-                        <div className="shrink-0 font-bold text-amber-800 mb-2 md:mb-0 w-32 uppercase tracking-wide text-sm">Field Note</div>
-                        <div className="text-stone-700 leading-relaxed text-sm">
-                          <strong>為何是「短時攤晾」？</strong><br />
-                          為了鎖住內含物質作為轉化骨架。通常分兩段：茶山竹棚初步攤晾 → 運回後二次攤晾。標準：茶梗拗折不斷。
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 3: Shaqing */}
-              <div className="relative pl-8 md:pl-0">
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-colors">
-                  <div className="absolute top-0 right-0 p-4 opacity-5"><Flame size={80} /></div>
-                  <div className="flex flex-col md:flex-row gap-6 relative z-10">
-                    <div className="shrink-0 flex md:flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-black text-[19px] shadow-sm border border-rose-200 group-hover:bg-rose-500 group-hover:text-white transition-colors">03</div>
-                      <div className="text-sm font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Kill-Green</div>
-                    </div>
-                    <div className="space-y-4 flex-1">
-                      <h4 className="text-xl font-bold text-stone-900">殺青 (關鍵差異)</h4>
-                      <div className="text-[17px] text-stone-700 leading-relaxed border-l-2 border-rose-300 pl-4 py-1">
-                        講求 <strong>「悶抖結合」</strong> 與 <strong>「保留一定活性」</strong>。<br />
-                        與綠茶徹底鈍化酶活性有根本區別。
-                      </div>
-                      <ul className="space-y-2 text-base text-stone-600">
-                        <li className="flex gap-2 items-start">
-                          <Thermometer size={16} className="text-rose-500 mt-0.5 shrink-0" />
-                          <span><strong>溫度控制：</strong>鍋溫雖高 (250°C)，但葉溫控制在 <strong>70-90°C</strong>。既殺青又不完全殺死酶。</span>
-                        </li>
-                        <li className="flex gap-2 items-start">
-                          <Hand size={16} className="text-stone-400 mt-0.5 shrink-0" />
-                          <span><strong>經驗之談：</strong>老師傅憑「鐵砂掌」徒手翻炒感知溫度，機器難以取代。</span>
-                        </li>
-                      </ul>
-                      <div className="mt-6">
-                        <ClickableImage
-                          src="/images/varieties/puer-ch05-shaqing.png"
-                          alt="工藝核心：高溫殺青"
-                          caption="殺青：老師傅憑經驗控制鍋溫與葉溫，保留活性"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 4: Rolling */}
-              <div className="relative pl-8 md:pl-0">
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-5"><Wind size={80} /></div>
-                  <div className="flex flex-col md:flex-row gap-6 relative z-10">
-                    <div className="shrink-0 flex md:flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-stone-100 text-stone-700 flex items-center justify-center font-black text-[19px] shadow-sm border border-stone-200">04</div>
-                      <div className="text-sm font-bold text-stone-400 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Rolling</div>
-                    </div>
-                    <div className="space-y-3 flex-1">
-                      <h4 className="text-xl font-bold text-stone-900">揉捻</h4>
-                      <p className="text-base text-stone-600 leading-relaxed">
-                        破壞細胞組織，讓茶汁顯露表面。
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-3 text-sm">
-                        <span className="px-3 py-2 bg-stone-50 rounded border border-stone-100">
-                          <strong>目的：</strong>增加茶湯滋味與厚度。
-                        </span>
-                        <span className="px-3 py-2 bg-stone-50 rounded border border-stone-100">
-                          <strong>原則：</strong>嫩葉輕揉，老葉重揉。手工揉捻可避免過度產生澀感。
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 5: Sun Drying */}
-              <div className="relative pl-8 md:pl-0">
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-px bg-stone-200"></div>
-                <div className="bg-white rounded-2xl p-6 border border-amber-200 border-l-4 border-l-amber-500 shadow-md relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-10"><Sun size={80} className="text-amber-500" /></div>
-                  <div className="flex flex-col md:flex-row gap-6 relative z-10">
-                    <div className="shrink-0 flex md:flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-[19px] shadow-sm">05</div>
-                      <div className="text-sm font-bold text-amber-500 uppercase tracking-widest hidden md:block rotate-90 mt-4 origin-center">Sun Dry</div>
-                    </div>
-                    <div className="space-y-4 flex-1">
-                      <h4 className="text-xl font-bold text-stone-900 flex items-center gap-2">曬青 <span className="text-sm text-amber-600 font-normal px-2 py-0.5 bg-amber-100 rounded-full">核心靈魂</span></h4>
-                      <p className="text-base text-stone-700 leading-relaxed">
-                        普洱茶區別於綠茶(烘/炒)的關鍵。日光自然乾燥。
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-sm">
-                          <strong className="text-emerald-800 flex items-center gap-1 mb-1"><CheckCircle2 size={12} /> 優勢</strong>
-                          保留活性物質與有機質。細胞孔隙大，利於後期散熱轉化。
-                        </div>
-                        <div className="p-3 bg-red-50 rounded-xl border border-red-100 text-sm text-stone-600">
-                          <strong className="text-red-800 flex items-center gap-1 mb-1"><AlertTriangle size={12} /> 核心禁忌</strong>
-                          <strong>絕不可進烘房！</strong>高溫烘焙會殺死活性，淪為「曬乾的綠茶」，失去陳化潛力。
-                        </div>
-                      </div>
-                      <div className="text-sm text-stone-400 italic text-right mt-1">
-                        → 至此完成「曬青毛茶」(生/熟茶的分岔口)。
-                      </div>
-                      <div className="mt-6 md:ml-20">
-                        <ClickableImage
-                          src="/images/varieties/puer-ch05-sundrying.png"
-                          alt="靈魂工序：日光曬青"
-                          caption="曬青：於自然陽光下乾燥，保留酶的活性與山野氣息"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="text-[17px] leading-relaxed">
+              普洱生茶的誕生，是一個由鮮葉採摘、攤青、殺青、揉捻、曬乾、壓制、晾乾到最終包裝構成的嚴謹工藝鏈條。每一個細微的火候拿捏與力道掌控，都精準決定了內含物質的留存比例及其在未來數十年間轉化的可能性。一切的歲月驚喜，皆始於對雲南高山森林中那抹綠意的最初致敬。
+            </p>
           </div>
 
-          {/* Section 2: Shape & Package */}
-          <div className="rounded-3xl bg-stone-800 p-8 text-stone-300">
-            <Subheading className="text-white">緊壓與成型工序</Subheading>
-            <p className="text-base mb-8 opacity-80">曬青毛茶可直接飲用，但壓製成餅更利於運輸與陳化。</p>
-
-            <div className="mb-10 max-w-xl mx-auto rounded-xl overflow-hidden shadow-lg border border-stone-600/50">
-              <ClickableImage
-                src="/images/varieties/puer-ch05-pressing.png"
-                alt="傳統工藝：石磨壓餅"
-                caption="成型：傳統石磨壓製，鬆緊適度利於後期轉化"
+          {/* Section 1: Picking */}
+          <div className="grid md:grid-cols-2 gap-10 bg-stone-50 rounded-2xl p-8 border border-stone-200">
+            <div className="space-y-6">
+              <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 mb-6">
+                <Leaf className="text-emerald-600" size={28} />
+                鮮葉採摘：工藝源頭的標準與勞務分工
+              </h3>
+              <p className="text-[17px] mb-6">
+                普洱茶的工藝起源於對自然資源的精準獲取。在雲南，優質的古樹茶往往生長於山勢險峻、樹體高大的原始環境，這決定了其採摘必須摒棄機械，完全依賴人工。
+              </p>
+              <div className="space-y-4">
+                <div className="bg-white p-5 rounded-xl shadow-sm">
+                  <strong className="block text-lg text-stone-800 mb-2">手工採摘的必然</strong>
+                  <p className="text-[17px]">古樹長勢參差不齊，採茶人必須親自攀爬、穿梭於枝幹間，這種勞動強度與對葉片完整性的保護，是機械化作業無法企及的。</p>
+                </div>
+                <div className="bg-white p-5 rounded-xl shadow-sm">
+                  <strong className="block text-lg text-stone-800 mb-2">「一芽二葉」的技術標準</strong>
+                  <p className="text-[17px]">目前公認的標準為「一芽二葉」。採摘時，茶人以食指與拇指輕巧夾住芽尖，順著生長方向精準發力掐下，確保葉底完整。</p>
+                </div>
+                <div className="bg-white p-5 rounded-xl shadow-sm">
+                  <strong className="block text-lg text-stone-800 mb-2">產出轉化比</strong>
+                  <p className="text-[17px]">每一公斤乾毛茶的背後，都需要 4 至 5 公斤鮮葉的奉獻，這也奠定了高端普洱茶的價值基礎。</p>
+                </div>
+              </div>
+              <p className="mt-6 text-[17px] italic text-stone-500">
+                當鮮葉離開母樹，內部的化學鐘已開始滴答作響，隨即進入初步轉化的關鍵階段——攤青。
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch05-picking-xianxia.png', alt: '險峰古樹：採茶人的極限挑戰' })}>
+              <img
+                src="/images/varieties/puer-ch05-picking-xianxia.png"
+                alt="險峰古樹：採茶人的極限挑戰"
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
-                <Scale size={20} className="text-amber-400 mb-3" />
-                <h5 className="font-bold text-white mb-2">稱重</h5>
-                <p className="text-sm leading-relaxed opacity-90">
-                  經典 <strong>357g</strong> (七餅=2.5kg，便於馬幫計算)。現亦有200g、龍珠等。
-                </p>
-              </div>
-              <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
-                <Disc size={20} className="text-amber-400 mb-3" />
-                <h5 className="font-bold text-white mb-2">壓製</h5>
-                <p className="text-sm leading-relaxed opacity-90">
-                  蒸汽蒸軟 → 入模具 → 石磨(傳統)或機器壓製。鬆緊適度為佳。
-                </p>
-              </div>
-              <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
-                <Wind size={20} className="text-amber-400 mb-3" />
-                <h5 className="font-bold text-white mb-2">晾乾</h5>
-                <p className="text-sm leading-relaxed opacity-90">
-                  自然陰乾。國標含水量 <strong>&lt;13%</strong> 防霉。不可過低(&lt;5%)否則失活性。
-                </p>
-              </div>
-              <div className="bg-stone-700/50 p-4 rounded-xl border border-stone-600/50">
-                <Gift size={20} className="text-amber-400 mb-3" />
-                <h5 className="font-bold text-white mb-2">包裝</h5>
-                <p className="text-sm leading-relaxed opacity-90">
-                  白棉紙 + <strong>天然筍殼</strong>。防潮、透過性好，營造微環境 (雖易蟲蛀但仍為首選)。
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* Section 3: Aging Potential (Color Path) */}
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 space-y-6">
-            <Subheading>生茶的陳化潛力與轉變 (後發酵)</Subheading>
-            <p className="text-[17px] text-stone-700 leading-relaxed">
-              普洱生茶的魅力在於時間賦予的變化。以廣東倉儲為例，湯色演變路徑清晰可見：
-            </p>
-
-            <div className="relative pt-6 pb-2">
-              {/* Timeline Gradient Bar */}
-              <div className="h-4 w-full rounded-full bg-gradient-to-r from-yellow-200 via-amber-500 to-rose-900 shadow-inner mb-8"></div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  { age: "1-2年", color: "bg-yellow-200 text-yellow-900", title: "鮮活期", desc: "淺黃/黃綠，清亮鮮活。" },
-                  { age: "3-5年", color: "bg-orange-300 text-orange-900", title: "轉化期", desc: "橙紅，苦澀減弱，甜醇顯現。" },
-                  { age: "5-8年", color: "bg-amber-500 text-amber-900", title: "醇和期", desc: "琥珀紅，飽滿順滑。" },
-                  { age: "8-15年", color: "bg-rose-600 text-white", title: "陳香期", desc: "石榴紅，陳香初顯。" },
-                  { age: "15-30年", color: "bg-rose-800 text-white", title: "陳韻期", desc: "寶石紅，晶瑩剔透，韻味悠長。" },
-                  { age: "30年+", color: "bg-rose-950 text-white", title: "巔峰期", desc: "酒紅深邃，化境之美。" }
-                ].map((stage, i) => (
-                  <div key={i} className="relative p-4 rounded-xl border border-stone-100 shadow-sm bg-white hover:border-amber-200 transition-colors">
-                    <div className={`absolute top-0 left-0 w-full h-1.5 ${stage.color.split(' ')[0]}`}></div>
-                    <div className="font-black text-[19px] text-stone-900 mb-1">{stage.age}</div>
-                    <div className="text-sm font-bold text-stone-400 uppercase tracking-widest mb-2">{stage.title}</div>
-                    <p className="text-base text-stone-600 leading-snug">{stage.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 text-sm text-stone-500 italic text-center">
-                * 變化速度因倉儲環境（溫濕度、通風）而異。
+              <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-3 text-center text-white text-sm">
+                古茶樹多生長於雲霧繚繞的險峰之上
               </div>
             </div>
           </div>
 
-          {/* Chapter Summary */}
-          <div className="rounded-2xl p-6 bg-stone-900 text-stone-300 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-6 opacity-5"><Hammer size={100} /></div>
-            <div className="relative z-10 space-y-4">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-stone-800 rounded-lg border border-stone-700"><CheckCircle2 className="text-emerald-500" size={20} /></div>
-                <h5 className="font-bold text-white text-[19px]">總結：原始工藝的智慧</h5>
-              </div>
-              <p className="text-base leading-relaxed opacity-90">
-                普洱茶被譽為<strong>「可以喝的古董」</strong>。其製作工藝（採摘→攤晾→殺青→揉捻→曬青）人為干預極少，旨在保留活性。
-                這呼應了樸素的哲學：「頂級的食材，烹飪方式都是最簡單的。」將風味的塑造權交給了<strong>時間</strong>與<strong>微生物</strong>。
+          {/* Section 2: Withering */}
+          <div className="space-y-6">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+              <Wind className="text-blue-500" size={28} />
+              攤青與萎凋：內含物質的初步轉化機制
+            </h3>
+            <div className="text-[17px] space-y-4">
+              <p>攤青（實務中亦常與萎凋並論）是調節普洱生茶「骨架」與提升香氣的靈魂步驟。</p>
+              <ul className="list-disc pl-6 space-y-3">
+                <li>
+                  <strong className="text-stone-900">化學與風味的重塑：</strong> 透過水分的適度流失，促使酯型兒茶素轉化為非酯型兒茶素，這對於降低普洱茶初期的苦澀感至關重要。同時，蛋白質水解產生的氨基酸會大幅提升茶湯的鮮爽度。
+                </li>
+                <li>
+                  <strong className="text-stone-900">「苦澀為骨」的邏輯：</strong> 與追求香氣高亢的烏龍茶不同，普洱生茶的攤青時間相對較短，目的是為了「鎖住」更多的內含物質。雖然新茶初期會顯得苦澀度較高，但這正是支撐未來數十年轉化的「骨架」，確保茶湯在歲月中愈發甘醇。
+                </li>
+                <li>
+                  <strong className="text-stone-900">兩階段攤青的匠心：</strong> 在原始森林深處，茶人會在採摘現場的竹片小屋進行初步攤放，避免鮮葉堆疊因「悶熟」而產生紅變。待黃昏運回家中後，再進行二次攤青，直到茶梗「折而不斷」，方為殺青的最佳時機。
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Section 3: Kill Green (Shaqing) */}
+          <div className="grid md:grid-cols-2 gap-10 bg-stone-900 text-stone-100 rounded-3xl p-8 shadow-xl">
+            <div className="space-y-6">
+              <h3 className="flex items-center gap-3 text-2xl font-bold text-white mb-4">
+                <Flame className="text-red-500" size={28} />
+                殺青工藝：高溫下的生命活性保衛戰
+              </h3>
+              <p className="text-[17px] opacity-90">
+                殺青是普洱生茶工藝中最具技術含量、也最能展現大師功底的環節。這不僅是去水，更是對酶活性的精確鈍化。
               </p>
+              <ul className="space-y-4 text-[17px] opacity-90">
+                <li className="flex gap-3">
+                  <span className="text-red-400 font-bold">•</span>
+                  <span><strong>悶抖結合的火候：</strong> 針對大葉種含水量高的特性，師傅需採取「悶」與「抖」交替的手法，讓葉片在翻炒中均勻失水。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-red-400 font-bold">•</span>
+                  <span><strong>溫度的精密動態：</strong> 鍋溫需維持在約 250 度，但葉片受熱溫度必須精控在 80 至 90 度之間。這與綠茶追求「徹底終止活性」的理念完全不同。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-red-400 font-bold">•</span>
+                  <span><strong>「鐵沙掌」的專業堅持：</strong> 資深師傅往往拒絕佩戴手套。長年累月在鐵鍋中翻炒，讓他們的手掌佈滿厚繭，練就了傳說中的「鐵沙掌」。唯有皮膚直接與茶青接觸，才能最精準地感應葉片的柔軟度與溫度變化。</span>
+                </li>
+              </ul>
             </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-600 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch05-shaqing.png', alt: '工藝核心：高溫殺青' })}>
+              <img
+                src="/images/varieties/puer-ch05-shaqing.png"
+                alt="工藝核心：高溫殺青"
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-4 text-center">
+                <p className="text-sm text-stone-300">大師手感：與溫度共舞的鐵沙掌</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Rolling */}
+          <div className="space-y-6">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+              <Disc className="text-purple-600" size={28} />
+              揉捻與條索成型：風味物質的釋放與塑形
+            </h3>
+            <p className="text-[17px] leading-relaxed">
+              完成殺青後，茶葉已呈半熟且柔軟的狀態，隨即進入透過物理力量破壞細胞的「揉捻」階段。
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                <strong className="block text-xl text-purple-900 mb-3">內含物質的定格</strong>
+                <p className="text-[17px] text-purple-900/80">
+                  揉捻的核心目的是適度破壞細胞組織，使茶汁與果膠滲出並依附在葉片表面。這不僅讓茶葉更容易定型為緊實的條索，更確保了沖泡時茶味的迅速釋放。
+                </p>
+              </div>
+              <div className="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                <strong className="block text-xl text-purple-900 mb-3">因葉制宜</strong>
+                <p className="text-[17px] text-purple-900/80">
+                  嫩葉需「輕揉、短時」，老葉則需「重揉、長時」。古樹茶堅持手工揉捻，因為雙手能即時回饋果膠滲出的黏稠狀態，確保每一根條索都得到最溫柔且恰到好處的物理對待。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 5: Sun Drying */}
+          <div className="bg-amber-50 rounded-2xl p-8 border border-amber-100">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-amber-900 mb-6">
+              <Sun className="text-amber-500" size={28} />
+              日光曬青：吸收大自然能量的關鍵步驟
+            </h3>
+            <div className="space-y-4 text-[17px] text-stone-700">
+              <p>在乾燥環節，普洱茶與其他茶類最大的分水嶺在於對「日光」的堅持。</p>
+              <div className="flex flex-col gap-4">
+                <div className="bg-white/60 p-4 rounded-lg">
+                  <strong className="text-amber-800">自然能量的注入：</strong>
+                  <span> 日光曬青被茶人視為「陽氣」的灌注。在日照下，茶葉一邊褪去多餘水分，一邊最大程度地保留了有機質與活性。</span>
+                </div>
+                <div className="bg-white/60 p-4 rounded-lg border-l-4 border-red-500">
+                  <strong className="text-red-700">嚴禁烘乾的紅線：</strong>
+                  <span> 普洱生茶絕不能使用烘乾房。烘乾會徹底殺滅活性物質，導致茶葉失去未來轉化的潛力。最理想的曬青毛茶，應在「一日之內完全曬乾」，如此產出的毛茶香氣最為濃郁且具有鮮活的穿透力。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 6 & 7: Pressing & Drying */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+              <Hammer className="text-stone-600" size={28} />
+              稱重、壓制與晾乾：標準與傳統的結合
+            </h3>
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="space-y-6 text-[17px]">
+                <p>當前述步驟完成，產出的即為「曬青毛茶」。隨後，這些茶葉將根據市場需求進行標準化壓制。</p>
+                <div className="space-y-4">
+                  <div>
+                    <strong className="block text-lg font-bold text-stone-800">1. 經典與現代規格</strong>
+                    <p>傳統上以單餅 357 克、七餅一筒（2.5公斤）的「七子餅」為核心標準。現代則演化出 200g、100g 甚至 7g 龍珠等多元規格。</p>
+                  </div>
+                  <div>
+                    <strong className="block text-lg font-bold text-stone-800">2. 壓制流程</strong>
+                    <p>將毛茶精確稱重後，透過蒸汽蒸濕使其回軟，再放入模具成型。傳統石磨壓制能賦予茶餅適度的緊實度與透氣性，對於長期的均勻轉化極為有利。</p>
+                  </div>
+                  <div>
+                    <strong className="block text-lg font-bold text-stone-800">3. 晾乾與含水量控制 (13% vs 5%)</strong>
+                    <p>茶餅需陰乾，含水量必須低於 13% (防霉天花板)，但不可低於 5% (生命地板)，否則將失去轉化活性。</p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200 group cursor-zoom-in h-full" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch05-pressing.png', alt: '傳統工藝：石磨壓餅' })}>
+                <img
+                  src="/images/varieties/puer-ch05-pressing.png"
+                  alt="傳統工藝：石磨壓餅"
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-900/80 to-transparent p-4 text-center">
+                  <p className="text-sm text-stone-100">傳統石磨壓制：鬆緊適度的藝術</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 8: Packaging */}
+          <div className="bg-emerald-50/50 rounded-2xl p-8 border border-emerald-100 space-y-4">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900">
+              <Gift className="text-emerald-600" size={28} />
+              包裝與防護藝術：棉紙與筍殼
+            </h3>
+            <p className="text-[17px] text-stone-700 leading-relaxed">
+              最後的包裝環節是普洱生茶「微型存儲環境」的第一道防線。內層以食品級白棉紙包裹；外層則使用<strong>天然竹筍殼</strong>進行扎筒。筍殼防潮、避光且透氣，是普洱茶的最佳搭檔。
+              <br /><br />
+              <strong className="text-stone-900">職人細節：</strong>筍殼在包裝前需經過嚴謹處理。先經日曬與陰乾，包裝前必須進行<strong>「炒水」</strong>（適度噴水滋潤），使原本乾脆的筍殼變韌，否則「會脆、會爛掉」。
+              扎筒後，師傅會使用瓦斯火槍進行「火烤」，既能去除刺手的毛邊，更能透過高溫殺滅蟲卵。傳統筍殼所賦予的「古早味」與獨特的存儲微氣候，依然是藏家的至高追求。
+            </p>
+          </div>
+
+          {/* Aging Table */}
+          <div className="space-y-6">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900 border-b pb-4 border-stone-200">
+              <Clock className="text-amber-700" size={28} />
+              歲月轉化：生茶湯色的動態演變觀察
+            </h3>
+            <p className="text-[17px] text-stone-700">普洱生茶之所以被稱為「可以喝的古董」，在於其湯色隨時間流轉的動態美感。以下為廣東存撥（南方倉儲）環境下的典型演變路徑：</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { age: "1 - 2 年", title: "淺黃綠色", desc: "清澈剔透，充滿森林新茶的活力", color: "bg-[#e8f5e9] border-[#c8e6c9] text-emerald-900" },
+                { age: "3 - 5 年", title: "金黃轉橙", desc: "青味褪去，湯色開始顯現紅潤調性", color: "bg-[#fff8e1] border-[#ffecb3] text-amber-900" },
+                { age: "5 - 8 年", title: "琥珀紅色", desc: "轉化加速，呈現飽滿的琥珀光澤", color: "bg-[#fff3e0] border-[#ffe0b2] text-orange-900" },
+                { age: "8 - 15 年", title: "朱紅色", desc: "色澤轉趨溫潤，苦澀轉化為甘醇", color: "bg-[#fbe9e7] border-[#ffccbc] text-red-900" },
+                { age: "15 - 30 年", title: "寶石紅", desc: "質地晶瑩，展現陳年茶的穩重感", color: "bg-[#ffebee] border-[#ffcdd2] text-rose-900" },
+                { age: "30 年以上", title: "酒紅色", desc: "紅濃透亮，展現極致純和的藥香或陳香", color: "bg-[#f3e5f5] border-[#e1bee7] text-purple-900" },
+              ].map((item, idx) => (
+                <div key={idx} className={`p-5 rounded-xl border-2 ${item.color} transition-transform hover:scale-105 shadow-sm`}>
+                  <div className="font-black text-xl mb-1">{item.age}</div>
+                  <div className="font-bold opacity-80 mb-2 border-b border-black/10 pb-2">{item.title}</div>
+                  <p className="text-[16px] leading-snug opacity-90">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-stone-500 italic text-center">* 以上轉化速度受環境濕度影響顯著，乾倉環境下的轉化節奏會相對延後。</p>
+          </div>
+
+          {/* Conclusion */}
+          <div className="bg-stone-900 text-stone-300 rounded-3xl p-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10"><Check size={120} /></div>
+            <h4 className="text-xl font-bold text-white mb-4 relative z-10">結語：人與自然的極簡協奏</h4>
+            <p className="text-[17px] leading-relaxed relative z-10">
+              普洱生茶的工藝，完美詮釋了「頂級食材僅需簡單烹飪」的藝術。這是一種極低人為干預的修煉，工藝師的角色並非改變大自然，而是透過精準的技術，將大自然的能量與山頭的韻味「鎖」在葉片中，隨後將主導權交還給時間與微生物。
+              每一餅普洱生茶都像是一個在時間中不斷成長的孩子，每一年都能帶給茶人意想不到的驚喜。當您理解了這套嚴密的工藝修煉，方能讀懂那杯苦盡甘來中，所蘊含的人心厚度與歲月真味。
+            </p>
           </div>
         </div>
       ),
