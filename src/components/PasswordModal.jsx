@@ -2,7 +2,7 @@
 
 const PASSWORDS = {
   daguan: '\u5927\u89c0',
-  chonghua: '\u5d07\u83ef',
+  chonghua: '184179',
 };
 
 export default function PasswordModal({ isOpen, onClose, onSuccess, target }) {
@@ -46,6 +46,11 @@ export default function PasswordModal({ isOpen, onClose, onSuccess, target }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
+          {target === 'chonghua' && (
+            <div className="text-stone-500 font-bold text-lg mb-2 tracking-widest">
+              崇華密碼
+            </div>
+          )}
         </div>
 
         {/* Form */}
@@ -56,9 +61,9 @@ export default function PasswordModal({ isOpen, onClose, onSuccess, target }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoFocus
-              className="w-full px-4 py-3 text-base border-2 border-stone-200 rounded-xl focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all"
+              placeholder={target === 'chonghua' ? "崇華密碼" : ""}
+              className="w-full px-4 py-3 text-base border-2 border-stone-200 rounded-xl focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all text-center tracking-[0.5em] font-mono"
             />
-            
           </div>
 
           {/* Actions */}

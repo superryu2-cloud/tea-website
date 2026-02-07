@@ -607,6 +607,12 @@ const TeaWebsite = () => {
       } catch {
         // ignore
       }
+      setAcademyMenuHidden(false);
+      try {
+        window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
+      } catch {
+        // ignore
+      }
     }
     if (targetKey === 'chonghua') {
       setChonghuaUnlocked(true);
@@ -615,12 +621,6 @@ const TeaWebsite = () => {
       } catch {
         // ignore
       }
-    }
-    setAcademyMenuHidden(false);
-    try {
-      window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
-    } catch {
-      // ignore
     }
     try {
       window.localStorage?.removeItem('museumUnlocked');

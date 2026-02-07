@@ -154,7 +154,7 @@ export default function SiteNavigation({
     setSecretClickCount((prev) => {
       const next = prev + 1;
       if (next >= 5) {
-        onUnlockRequest?.('any');
+        onUnlockRequest?.('daguan');
         return 0; // 重置計數器
       }
       return next;
@@ -275,7 +275,7 @@ export default function SiteNavigation({
               <div className="nav-main-grid">
                 {navRows.map((row, rowIndex) =>
                   row.map((item, colIndex) => {
-                    if (academyMenuHidden && (item === 'academy' || item === 'chonghua')) {
+                    if (item === 'academy' && academyMenuHidden) {
                       return null;
                     }
                     let content = null;
@@ -880,59 +880,57 @@ export default function SiteNavigation({
               )}
 
               {/* Chonghua (Mobile) */}
-              {chonghuaUnlocked && !academyMenuHidden ? (
-                <div className="mt-2 px-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (!chonghuaUnlocked) {
-                        onUnlockRequest?.('chonghua');
-                        return;
-                      }
-                      setChonghuaMobileOpen((v) => !v);
-                    }}
-                    className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                    aria-expanded={chonghuaMobileOpen}
-                  >
-                    {renderFlipLabel(chonghuaLabel)}
-                    <ChevronRight
-                      size={16}
-                      className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
-                    />
-                  </button>
+              <div className="mt-2 px-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!chonghuaUnlocked) {
+                      onUnlockRequest?.('chonghua');
+                      return;
+                    }
+                    setChonghuaMobileOpen((v) => !v);
+                  }}
+                  className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
+                  aria-expanded={chonghuaMobileOpen}
+                >
+                  {renderFlipLabel(chonghuaLabel)}
+                  <ChevronRight
+                    size={16}
+                    className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
+                  />
+                </button>
 
-                  <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
-                    <div className="grid grid-cols-3 gap-2 p-2">
-                      {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
-                        const active = isAcademyImplemented('chonghua', chapter.id);
-                        return (
-                          <a
-                            key={chapter.id}
-                            href={`?tab=academy_chonghua_${chapter.id}`}
-                            className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
-                              ? 'bg-sky-50 text-sky-800 shadow-sm'
-                              : 'bg-white text-stone-600 shadow-sm'
-                              }`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              if (!chonghuaUnlocked) {
-                                onUnlockRequest?.('chonghua');
-                                return;
-                              }
-                              goToTab(`academy_chonghua_${chapter.id}`);
-                              setMobileMenuOpen(false);
-                            }}
-                          >
-                            <div className="w-full text-center">
-                              <span className="font-bold text-[18px]">{renderFlipLabel(chapter.id)}</span>
-                            </div>
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </AccordionPanel>
-                </div>
-              ) : null}
+                <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
+                  <div className="grid grid-cols-3 gap-2 p-2">
+                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
+                      const active = isAcademyImplemented('chonghua', chapter.id);
+                      return (
+                        <a
+                          key={chapter.id}
+                          href={`?tab=academy_chonghua_${chapter.id}`}
+                          className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
+                            ? 'bg-sky-50 text-sky-800 shadow-sm'
+                            : 'bg-white text-stone-600 shadow-sm'
+                            }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (!chonghuaUnlocked) {
+                              onUnlockRequest?.('chonghua');
+                              return;
+                            }
+                            goToTab(`academy_chonghua_${chapter.id}`);
+                            setMobileMenuOpen(false);
+                          }}
+                        >
+                          <div className="w-full text-center">
+                            <span className="font-bold text-[18px]">{renderFlipLabel(chapter.id)}</span>
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </AccordionPanel>
+              </div>
 
               {(daguanUnlocked || chonghuaUnlocked) && !academyMenuHidden ? (
                 <div className="mt-3 px-2">
