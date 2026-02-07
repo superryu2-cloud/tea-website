@@ -8,6 +8,7 @@ import AccordionPanel from './AccordionPanel';
  */
 export default function CollapsibleSidebar({
     title = '章節',
+    icon: Icon,
     sections = [],
     activeSection,
     activeSectionHref,
@@ -110,7 +111,18 @@ export default function CollapsibleSidebar({
                 className="rounded-3xl border border-stone-200 bg-white shadow-lg shadow-stone-200/50 p-5 overflow-y-auto"
                 style={{ maxHeight: `calc(100vh - ${resolvedTopOffsetPx}px - 12px)`, overflowAnchor: 'none' }}
             >
-                <h3 className="text-stone-500 font-bold mb-4 pl-1">{title}</h3>
+                {Icon ? (
+                    <div className="flex items-center gap-3 mb-4 px-1">
+                        <div className="w-10 h-10 rounded-2xl border border-stone-200 bg-white shadow-sm flex items-center justify-center text-emerald-600">
+                            <Icon size={20} strokeWidth={2.5} />
+                        </div>
+                        <h3 className="text-xl font-extrabold text-stone-900 tracking-tight">
+                            {title}
+                        </h3>
+                    </div>
+                ) : (
+                    <h3 className="text-stone-500 font-bold mb-4 pl-1">{title}</h3>
+                )}
                 <div className="space-y-2">
                     {sections.map((section) => {
                         const isExpanded = expandedSections.has(section.key);

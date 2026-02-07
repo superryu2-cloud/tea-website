@@ -46,10 +46,10 @@ export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx =
     <div className="museum-page">
       <div className="museum-stage">
         <AtlasDockLayout
-          topOffsetPx={siteNavHeightPx + 32}
+          topOffsetPx={siteNavHeightPx + 36}
           sidebar={
             <ChapterSidebar
-              title="茶韻之旅"
+              title="茶言觀色"
               icon={Leaf}
               items={chapters}
               activeKey={activeChapter}
@@ -97,8 +97,8 @@ export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx =
                   <div className="mb-6">
                     <ClickableImage
                       src="/images/tea-talk/overview-map.png"
-                      alt="茶韻之旅地圖"
-                      caption="茶韻之旅地圖：沿著蜿蜒山徑探索八大主題章節"
+                      alt="茶言觀色地圖"
+                      caption="茶言觀色地圖：沿著蜿蜒山徑探索八大主題章節"
                     />
                   </div>
                   <ul className="list-disc pl-5 space-y-2 text-stone-700">

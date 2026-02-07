@@ -75,12 +75,12 @@ export default function TaiwanTeaCultivars() {
             image: '/images/cultivars/bg_leaves.png', imageAlt: '台茶11號'
         },
         {
-            number: 12, name: '金萱', alias: '2027 / 二十七仔', parent: '臺農8號 (母) x 硬枝紅心 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '強/橫張', use: '烏龍茶、包種茶',
+            number: 12, name: '金萱', alias: '2027 / 27仔', parent: '臺農8號 (母) x 硬枝紅心 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '強/橫張', use: '烏龍茶、包種茶',
             description: '#台茶12號：（金萱、二十七仔）。母本台農8號+父本硬枝紅心之雜交後裔，試驗代號為2027，茶改場成功育種的排列順序第十二號。於民國70年命名',
             image: '/images/cultivars/jinxuan12.png', imageAlt: '金萱 (台茶12號) - 奶香韻味'
         },
         {
-            number: 13, name: '翠玉', alias: '2029 / 十三號仔', parent: '硬枝紅心 (母) x 臺農80號 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '中/直立', use: '烏龍茶、包種茶',
+            number: 13, name: '翠玉', alias: '2029 / 29仔', parent: '硬枝紅心 (母) x 臺農80號 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '中/直立', use: '烏龍茶、包種茶',
             description: '#台茶13號：(翠玉、十三號仔、二十九仔)。母本硬枝紅心+父本台農80號之雜交後裔，試驗代號為2029，茶改場成功育種的排列順序第十三號。於民國70年命名。',
             image: '/images/cultivars/bg_plantation.png', imageAlt: '翠玉 (台茶13號)'
         },
@@ -110,12 +110,12 @@ export default function TaiwanTeaCultivars() {
             image: '/images/cultivars/ruby18.png', imageAlt: '紅玉 (台茶18號) - 薄荷肉桂香'
         },
         {
-            number: 19, name: '碧玉', alias: '51-14 品系', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶',
+            number: 19, name: '碧玉', alias: '51-14 品系', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶19號：(碧玉)。原品系為51～14，親本： 台茶12號× 青心烏龍，1962年雜交，2004年1月通過命名， 2004（民國93）年9月22日在農業委員會辦理優質烏龍茶品賞會公開票選俗名為「碧玉」。',
             image: '/images/cultivars/bg_plantation.png', imageAlt: '碧玉 (台茶19號)'
         },
         {
-            number: 20, name: '迎香', alias: '51-67 品系', parent: '2022品系 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶',
+            number: 20, name: '迎香', alias: '51-67 品系', parent: '2022品系 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶20號：(迎香)。原品系為51～67，親本： 2022× 青心烏龍，1962年雜交，2004年1月通過命名，2004（民國93）年9月22日在農業委員會辦理優質烏龍茶品賞會公開票選俗名為「迎香」。',
             image: '/images/cultivars/bg_leaves.png', imageAlt: '迎香 (台茶20號)'
         },
@@ -125,7 +125,7 @@ export default function TaiwanTeaCultivars() {
             image: '/images/cultivars/bg_teaset.png', imageAlt: '紅韻 (台茶21號)'
         },
         {
-            number: 22, name: '沁玉', alias: 'TC6', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1996, releaseYear: 2014, type: '強/橫張', use: '包種茶、烏龍茶',
+            number: 22, name: '沁玉', alias: 'TC6', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1996, releaseYear: 2014, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶22號：(沁玉)。茶業改良場於民國85年，進行適於中、低海拔栽培高香氣高品質之茶樹育種，選定適當之組合人工雜交。次年 (86年) 播種，88年3月定植單株，經過6年個體試驗後，於民國97年選育成績優異的22個品系進入品系比較試驗。 101年完成品系比較試驗，選出台茶22號，並於103年通過品種命名與取得品種權。',
             image: '/images/cultivars/bg_plantation.png', imageAlt: '沁玉 (台茶22號)'
         },
@@ -140,12 +140,12 @@ export default function TaiwanTeaCultivars() {
             image: '/images/cultivars/mountain24.png', imageAlt: '山蘊 (台茶24號)'
         },
         {
-            number: 25, name: '紫韻', alias: '84-91-3-2', parent: '緬甸 Burma (母) x 臺茶 13 號 (父)', location: '—', breedYear: 1992, releaseYear: 2021, type: '強/中間', use: '綠茶、紅茶',
+            number: 25, name: '紫韻', alias: '84-91-3-2', parent: '緬甸 Burma (母) x 臺茶 13 號 (父)', location: '—', breedYear: 1992, releaseYear: 2021, type: '強/中間', use: '綠茶、紅茶', hasRights: true,
             description: '#台茶25號：(紫韻)。是天然雜交而成，源自從茶改場園區找出2000多顆種子，定植出400多棵茶樹，再從中選育出，母本是緬甸Burma大葉種，父本台茶13號，2021年4月26日通過命名為「台茶25號」。',
             image: '/images/cultivars/bg_plantation.png', imageAlt: '紫韻 (台茶25號)'
         },
         {
-            number: 26, name: '豐鶴', alias: '5313品系', parent: '祁門系之天然雜交', location: '—', breedYear: 2008, releaseYear: 2024, type: '—', use: '綠茶、紅茶',
+            number: 26, name: '豐鶴', alias: '5313品系', parent: '祁門系單株選拔', location: '—', breedYear: 2008, releaseYear: 2024, type: '強/茶芽直立', use: '綠茶、紅茶', hasRights: true,
             description: '#台茶26號：(豐鶴) 。自97年起由一系列育種試驗程序的品系圃中，最終選出適合製造綠茶與紅茶的5313品系(祁門茶樹選拔)，並於113年6月11日正式通過審查命名為「台茶26號」。',
             image: '/images/cultivars/bg_leaves.png', imageAlt: '豐鶴 (台茶26號)'
         }
@@ -185,6 +185,32 @@ export default function TaiwanTeaCultivars() {
         return sortConfig.direction === 'asc' ?
             <ChevronUp className="inline ml-1" size={14} /> :
             <ChevronDown className="inline ml-1" size={14} />;
+    };
+
+    // 品種分類顏色邏輯
+    const getVarietyStyle = (number) => {
+        // 大葉種: 7, 8, 18, 21, 25
+        if ([7, 8, 18, 21, 25].includes(number)) {
+            return {
+                bg: 'bg-[#008d00]', // 深綠色
+                text: 'text-white',
+                label: '大葉種'
+            };
+        }
+        // 臺灣原生山茶: 24
+        if (number === 24) {
+            return {
+                bg: 'bg-[#ffe4e1]', // 粉紅色
+                text: 'text-[#d64545]',
+                label: '原生山茶'
+            };
+        }
+        // 小葉種: 其他
+        return {
+            bg: 'bg-[#e6f4ea]', // 淺綠色
+            text: 'text-[#1e7e34]',
+            label: '小葉種'
+        };
     };
 
     return (
@@ -345,11 +371,11 @@ export default function TaiwanTeaCultivars() {
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('parent')}>
                                         親本 (母 x 父) <SortIcon columnKey="parent" />
                                     </th>
-                                    <th className="px-4 py-4 text-center font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('breedYear')}>
-                                        雜交 <SortIcon columnKey="breedYear" />
-                                    </th>
-                                    <th className="px-4 py-4 text-center font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('releaseYear')}>
-                                        命名 <SortIcon columnKey="releaseYear" />
+                                    <th
+                                        className="px-4 py-3 text-center cursor-pointer hover:bg-stone-800 transition-colors"
+                                        onClick={() => handleSort('breedYear')}
+                                    >
+                                        雜交 / 命名年 <SortIcon columnKey="breedYear" />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('type')}>
                                         樹勢/樹型 <SortIcon columnKey="type" />
@@ -370,7 +396,7 @@ export default function TaiwanTeaCultivars() {
                                         `}
                                     >
                                         <td
-                                            className="px-4 py-3 font-bold text-green-800 whitespace-nowrap cursor-pointer"
+                                            className={`px-4 py-3 font-bold whitespace-nowrap cursor-pointer transition-colors group/row`}
                                             onClick={() => {
                                                 const el = document.getElementById(`cultivar-${cultivar.number}`);
                                                 if (el) {
@@ -385,13 +411,15 @@ export default function TaiwanTeaCultivars() {
                                             }}
                                             title="點擊跳轉至詳細介紹"
                                         >
-                                            <div className="chapter-nav-item inline-block">
-                                                <span className="chapter-label--flip">
-                                                    <span className="chapter-label-inner">
-                                                        <span className="chapter-label-front">臺茶 {cultivar.number} 號</span>
-                                                        <span className="chapter-label-back">查看介紹</span>
+                                            <div className="flex items-center gap-3">
+                                                <div className={`flex items-center justify-center min-w-[100px] py-1.5 px-3 rounded-lg shadow-sm font-sans ${getVarietyStyle(cultivar.number).bg} ${getVarietyStyle(cultivar.number).text}`}>
+                                                    <span>臺茶 {cultivar.number} 號</span>
+                                                </div>
+                                                {cultivar.hasRights && (
+                                                    <span className="text-4xl text-amber-500 drop-shadow-sm select-none animate-pulse" title="具備品種權">
+                                                        ®
                                                     </span>
-                                                </span>
+                                                )}
                                             </div>
                                         </td>
                                         <td className="px-4 py-3 font-semibold text-stone-900 whitespace-nowrap">
@@ -432,13 +460,13 @@ export default function TaiwanTeaCultivars() {
                                                 return parentStr;
                                             })()}
                                         </td>
-                                        <td className="px-4 py-3 text-center text-stone-600 font-mono text-base">
-                                            {cultivar.breedYear}
-                                        </td>
                                         <td className="px-4 py-3 text-center">
-                                            <span className="inline-block px-1.5 py-0.5 bg-green-100 text-green-800 rounded text-sm font-bold">
-                                                {cultivar.releaseYear}
-                                            </span>
+                                            <div className="flex flex-col items-center gap-1.5">
+                                                <span className="text-stone-500 text-sm font-medium">{cultivar.breedYear}</span>
+                                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-sm">
+                                                    {cultivar.releaseYear}
+                                                </span>
+                                            </div>
                                         </td>
                                         <td className="px-4 py-3 text-stone-600 text-base">
                                             {cultivar.type}
@@ -458,7 +486,150 @@ export default function TaiwanTeaCultivars() {
                         </table>
                     </div>
                 </div>
+
+                {/* Table Footer / Source Card */}
+                <div className="mt-4 bg-stone-50/50 rounded-xl p-4 border border-stone-200 shadow-sm">
+                    <div className="space-y-2">
+                        <p className="text-sm text-stone-700 font-sans leading-relaxed">
+                            <span className="font-bold">註：</span>眉茶及龍井均屬於綠茶，包種花胚屬於包種茶，壽眉屬於白茶。
+                        </p>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-stone-200/60">
+                            <p className="text-xs text-stone-500 font-serif">
+                                作物改良科遺傳育種及生物技術研究室
+                            </p>
+                            <p className="text-xs text-stone-400 font-mono">
+                                修正製表日期：115.02.07
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Legend and Detailed Notes */}
+                <div className="mt-8 space-y-8">
+                    <div className="grid md:grid-cols-2 gap-8 items-start">
+                        {/* Variety Classification Card */}
+                        <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 h-full">
+                            <h4 className="font-bold text-stone-900 flex items-center gap-2 mb-4">
+                                <Info size={18} className="text-stone-600" />
+                                分類圖例與形態特徵
+                            </h4>
+                            <div className="flex flex-wrap gap-4 mb-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded bg-[#e6f4ea] border border-[#d1e7dd]" />
+                                    <span className="text-sm font-medium text-stone-700">小葉種</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded bg-[#008d00]" />
+                                    <span className="text-sm font-medium text-stone-700">大葉種</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded bg-[#ffe4e1] border border-[#f5c6cb]" />
+                                    <span className="text-sm font-medium text-stone-700">臺灣原生山茶</span>
+                                </div>
+                            </div>
+                            <p className="text-[17px] text-stone-600 leading-relaxed">
+                                這些品種的大部分形態特徵與母本較為相像（因為在繁殖的時候，母本提供細胞質、葉綠體等細胞主要成分，而父本的花粉僅提供<span className="text-emerald-700 font-bold">精核</span>）。
+                                <br /><br />
+                                表中以<span className="px-1.5 py-0.5 rounded bg-[#e6f4ea] text-[#1e7e34] font-bold mx-0.5 border border-[#d1e7dd]">淺綠色</span>代表小葉種、
+                                <span className="px-1.5 py-0.5 rounded bg-[#008d00] text-white font-bold mx-0.5">深綠色</span>代表大葉種，
+                                <span className="px-1.5 py-0.5 rounded bg-[#ffe4e1] text-[#d64545] font-bold mx-0.5 border border-[#f5c6cb]">粉紅色</span>代表臺灣原生山茶。
+                            </p>
+                        </div>
+
+                        {/* Lineage Notes Card */}
+                        <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 h-full">
+                            <h4 className="font-bold text-stone-900 flex items-center gap-2 mb-4">
+                                <Award size={18} className="text-stone-600" />
+                                親本註解 (Lineage Notes)
+                            </h4>
+                            <ul className="text-[17px] text-stone-600 space-y-2 list-none font-sans">
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>臺農 8 號：青心烏龍 x 黃柑</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>臺農 80 號：漢口系 x 不詳</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>臺農 983 號：黃柑 x Kyang</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>臺農 335 號：大葉烏龍 x Kyang</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>臺農 1958 號：台農 20 號 (漢口系) x 白毛猴</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>2022 品系：大葉烏龍 x 台農 80 號</span></li>
+                                <li className="flex gap-2"><span className="text-stone-400">*</span> <span>FKK-1：Kyang x 祁門 Kimen</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Prominent ® Symbol Explanation Banner */}
+                    <div className="bg-white/80 p-6 rounded-2xl border border-emerald-200 shadow-sm flex flex-col md:flex-row items-center justify-center gap-6">
+                        <div className="flex items-center gap-4">
+                            <span className="text-4xl text-amber-500 animate-pulse select-none">®</span>
+                            <p className="text-[17px] text-stone-700 font-medium leading-relaxed">
+                                表格中有部分品種名稱後面有個「<span className="text-3xl text-amber-500 animate-pulse align-middle mx-1">®</span>」符號，即代表其受到法規保護。
+                            </p>
+                        </div>
+                        <div className="h-px w-12 bg-emerald-100 md:h-8 md:w-px" />
+                        <p className="text-[17px] text-stone-500 italic">
+                            ( 其中 臺茶 26 號 品種權申請中 )
+                        </p>
+                    </div>
+
+                    {/* Variety Rights Protection Card (Detailed) */}
+                    <div className="bg-emerald-50/40 rounded-2xl p-8 border border-emerald-100 shadow-sm">
+                        <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="flex-1 space-y-4">
+                                <h4 className="font-bold text-emerald-900 flex items-center gap-2 text-lg">
+                                    <span className="text-3xl text-amber-500 animate-pulse select-none">®</span>
+                                    植物品種權與法律保護
+                                </h4>
+                                <div className="text-[17px] text-stone-700 leading-relaxed space-y-4">
+                                    <p>
+                                        一個品種的育成，從雜交開始算起約需要 <span className="font-bold text-emerald-800">20 年</span>，途中要針對所有品系在不同種植環境的性狀進行複雜的分析與統計，可以說是相當不容易。
+                                    </p>
+                                    <p className="bg-white/60 p-4 rounded-lg border border-emerald-200/50 italic text-[17px] text-stone-600">
+                                        為保護品種所有者的權利，國家訂有<span className="font-semibold text-emerald-800">《植物品種及種苗法》</span>，明確定義品種為：
+                                        「指最低植物分類群內之植物群體，其性狀由單一基因型或若干基因型組合所表現，能以至少一個性狀與任何其他植物群體區別，經指定繁殖方法下其主要性狀維持不變者。」
+                                    </p>
+                                    <p>
+                                        如同智慧財產權，品種權保障所有權人（通常是育種家）的心血結晶，進而促進育種事業發展。
+                                        目前茶改場育成的茶樹品種中，有 <span className="font-bold text-emerald-800 underline decoration-amber-400 decoration-2 underline-offset-4">5 個品種</span> 已取得品種權或正在申請中。
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Certificate Gallery */}
+                            <div className="w-full md:w-80 space-y-4">
+                                <p className="text-sm font-bold text-emerald-900 flex items-center gap-2 mb-2">
+                                    <Leaf size={16} /> 實體證書存檔 (點擊放大)
+                                </p>
+                                <div className="grid grid-cols-1 gap-4">
+                                    {[
+                                        { id: '19', name: '臺茶 19 號 (碧玉)', file: 'cert_ttes19.jpg' },
+                                        { id: '20', name: '臺茶 20 號 (迎香)', file: 'cert_ttes20.jpg' },
+                                        { id: '22', name: '臺茶 22 號 (沁玉)', file: 'cert_ttes22.jpg' }
+                                    ].map((cert) => (
+                                        <div
+                                            key={cert.id}
+                                            className="group cursor-zoom-in relative rounded-lg overflow-hidden border border-emerald-200/50 shadow-sm transition-all hover:shadow-md hover:border-emerald-300"
+                                            onClick={() => setPreviewImage({
+                                                src: `/images/cultivars/${cert.file}`,
+                                                alt: `${cert.name} 植物品種權證書`
+                                            })}
+                                        >
+                                            <img
+                                                src={`/images/cultivars/${cert.file}`}
+                                                alt={cert.name}
+                                                className="w-full h-24 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2">
+                                                <span className="text-white text-[10px] font-medium">{cert.name} 證書</span>
+                                            </div>
+                                            <div className="bg-white/90 p-1.5 text-center border-t border-emerald-50">
+                                                <span className="text-[11px] font-bold text-emerald-800">{cert.name}</span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             {/* SECTION 2: DETAILED PROFILES */}
             <div className="space-y-4">
@@ -585,17 +756,7 @@ export default function TaiwanTeaCultivars() {
                     ))}
                 </div>
 
-                {/* Footer Note */}
-                <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
-                    <p className="text-base text-stone-600 leading-relaxed">
-                        <strong className="text-stone-800">註：</strong>
-                        眉茶及龍井均屬於綠茶，包種花胚屬於包種茶，壽眉屬於白茶。
-                        <br />
-                        <span className="text-xs text-stone-500 mt-2 block">
-                            作物改良科遺傳育種及生物技術研究室。　修正製表日期：113.06.11
-                        </span>
-                    </p>
-                </div>
+
 
                 {/* Lightbox Modal */}
                 {previewImage && (

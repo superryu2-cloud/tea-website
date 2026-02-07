@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Calendar } from 'lucide-react';
 import AtlasDockLayout from '../components/AtlasDockLayout';
 import CollapsibleSidebar from '../components/CollapsibleSidebar';
 import FourSeasonsSection from '../content/seasons/FourSeasonsSection';
@@ -67,6 +68,8 @@ export default function SeasonsSection({ siteNavHeightPx }) {
             <AtlasDockLayout
                 sidebar={
                     <CollapsibleSidebar
+                        title="採茶季節"
+                        icon={Calendar}
                         sections={SEASONS_SECTIONS}
                         activeSection={activeSeasonSection}
                         activeSectionHref={activeSeasonHref}

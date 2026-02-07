@@ -729,9 +729,7 @@ const TeaWebsite = () => {
         )}
 
         {activeTab === 'tea_talk' && <TeaTalkColorSection siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'cultivars' && <CultivarSection />}
-
+        {activeTab === 'cultivars' && <CultivarSection siteNavHeightPx={siteNavHeightPx} />}
         {activeTab === 'varieties' && (
           <VarietiesSection
             activeTab={activeTab}
@@ -785,11 +783,11 @@ const TeaWebsite = () => {
 
         {activeTab === 'brewing' && <BrewingGuideSection selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}
 
-        {activeTab === 'ceremony' && <TeaCeremonySection />}
+        {activeTab === 'ceremony' && <TeaCeremonySection siteNavHeightPx={siteNavHeightPx} />}
 
-        {activeTab === 'regions' && <RegionsSection />}
+        {activeTab === 'regions' && <RegionsSection siteNavHeightPx={siteNavHeightPx} />}
 
-        {activeTab === 'history' && <HistorySection historyTab={historyTab} setHistoryTab={setHistoryTab} />}
+        {activeTab === 'history' && <HistorySection historyTab={historyTab} setHistoryTab={setHistoryTab} siteNavHeightPx={siteNavHeightPx} />}
 
         {/* Academy Section - Centralized routing through AcademyRouter */}
         <AcademyRouter

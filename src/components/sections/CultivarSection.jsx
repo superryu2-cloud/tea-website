@@ -145,9 +145,11 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
 
                 {showCultivarsAtlas ? (
                     <AtlasDockLayout
-                        topOffsetPx={siteNavHeightPx + 32}
+                        topOffsetPx={siteNavHeightPx + 36}
                         sidebar={
                             <CollapsibleSidebar
+                                title="茶樹品種"
+                                icon={Leaf}
                                 sections={CULTIVARS_SECTIONS}
                                 activeSection={activeCultivarSection}
                                 activeSectionHref={activeCultivarHref}
