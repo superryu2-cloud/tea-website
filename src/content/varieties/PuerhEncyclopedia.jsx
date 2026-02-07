@@ -139,530 +139,462 @@ export default function PuerhEncyclopedia({ topOffsetPx, activeHref = '#puerh-1'
     '#puerh-1': {
       title: '一：什麼是普洱茶',
       content: (
-        <div className="space-y-8">
-          {/* Visual Hero */}
-          <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[2/1] group">
+        <div className="space-y-16 font-sans">
+          {/* Hero Section */}
+          <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[2/1] group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puerh/puerh_mountain_art.png', alt: '普洱茶定義與產區全解析' })}>
             <img
               src="/images/varieties/puerh/puerh_mountain_art.png"
               alt="Majestic Ancient Tea Mountain"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent flex flex-col justify-end p-8">
-              <div className="max-w-xl text-white">
-                <span className="inline-block px-3 py-1 bg-amber-600/90 text-amber-50 rounded-full text-sm font-bold tracking-widest mb-3 backdrop-blur-sm">
-                  AGED TEA
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent flex flex-col justify-end p-8 md:p-12">
+              <div className="max-w-3xl text-white">
+                <span className="inline-block px-3 py-1 bg-amber-600/90 text-amber-50 rounded-full text-sm font-bold tracking-widest mb-4 backdrop-blur-sm shadow-lg border border-amber-500/30">
+                  EXPERT GUIDE
                 </span>
-                <h2 className="text-3xl md:text-4xl font-black mb-2 leading-tight">
-                  越陳越香的<br />時光藝術
+                <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight drop-shadow-lg">
+                  普洱茶定義與產區全解析<br />
+                  <span className="text-xl md:text-2xl font-light opacity-90">高手修煉秘籍：從生物學基礎到資產價值的終極指南</span>
                 </h2>
-                <p className="text-stone-200 text-[19px] font-light border-l-4 border-amber-600 pl-4">
-                  普洱茶的核心價值，在於其獨特的「後發酵」能力，使其具備隨時間轉化出更佳風味的生命力。
-                </p>
+                <div className="h-1 w-24 bg-amber-500 rounded-full mb-6"></div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6 shadow-sm">
-            <div className="flex items-start gap-4">
-              <div className="hidden md:flex flex-col items-center gap-2 text-stone-300">
-                <div className="w-px h-12 bg-stone-200"></div>
-                <Info size={24} />
-                <div className="w-px h-full bg-stone-200"></div>
-              </div>
-              <div className="flex-1 space-y-4">
-                <Subheading>普洱茶的價值與迷思</Subheading>
-                <p className="text-[19px] text-stone-800 font-medium leading-relaxed">
-                  許多人手中或許都藏有幾片普洱，如何能確定，所擁有的就是真正意義上的普洱茶？
-                </p>
-                <p className="text-stone-600 leading-relaxed">
-                  真正的普洱茶，具備「越陳越香、越放越值錢」的核心價值。那麼，究竟什麼樣的茶才能被稱為真正的普洱茶，並擁有如此獨特的轉化魅力呢？
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Shapes Visual Section */}
-          <div className="bg-stone-50 rounded-3xl border border-stone-200 p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-stone-200 rounded-lg text-stone-600"><Box size={20} /></div>
-              <h4 className="text-xl font-bold text-stone-900">普洱茶的形態多樣性</h4>
+          {/* 1. Core Definition & Value System */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-stone-900 text-white rounded-lg"><Award size={24} /></div>
+              <h3 className="text-2xl font-bold text-stone-900">核心定義與價值體系</h3>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative rounded-2xl overflow-hidden shadow-md border border-stone-200 group">
-                <img
-                  src="/images/puerh_shapes.png"
-                  alt="Pu-erh Tea Shapes: Cake, Brick, Tuo, Dragon Ball"
-                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md p-3 text-center">
-                  <span className="text-stone-200 text-sm font-bold tracking-widest uppercase">Classic Shapes</span>
+            <div className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm mb-8">
+              {/* Context Image - Misty Mountains */}
+              <div className="relative h-48 md:h-64 overflow-hidden group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-misty-mountains.png', alt: '雲南雲霧奇峰：普洱茶的靈性家園' })}>
+                <img src="/images/varieties/puer-ch03-misty-mountains.png" alt="Misty Peaks" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-stone-900/20" />
+                <div className="absolute bottom-4 right-6 text-white text-xs font-bold tracking-widest opacity-80 uppercase bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
+                  Ethereal Terrain
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  { icon: Disc, name: "七子餅 (Cake)", desc: "357g 經典圓餅，最常見的收藏規格。" },
-                  { icon: Box, name: "茶磚 (Brick)", desc: "長方或正方磚狀，早期便於馬幫運輸。" },
-                  { icon: Circle, name: "沱茶 (Tuo)", desc: "如碗狀或蘑菇狀，透氣性佳。" },
-                  { icon: Gem, name: "龍珠 (Pearl)", desc: "精緻球形，一粒一泡，現代便攜之選。" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-3 bg-white rounded-xl border border-stone-200 hover:border-amber-300 transition-colors">
-                    <div className="p-2.5 bg-stone-100 text-stone-600 rounded-full shrink-0">
-                      <item.icon size={18} />
-                    </div>
-                    <div>
-                      <div className="font-bold text-stone-800 text-base">{item.name}</div>
-                      <div className="text-sm text-stone-500">{item.desc}</div>
-                    </div>
+              <div className="p-8 space-y-6">
+                <p className="text-[17px] text-stone-700 leading-relaxed font-sans">
+                  在茶葉貿易與資產收藏領域，明確的「定義」不僅是行政法律的邊界，更是確保茶品具備<strong>「越陳越香」</strong>生物學基礎與<strong>「資產增值」</strong>屬性的基石。
+                  普洱茶之所以能具備「越放越值錢」的金融特性，本質上取決於其內含物質在時間維度下的生化轉化潛力。
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-8 mt-4">
+                  <div className="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                    <h4 className="flex items-center gap-2 font-bold text-stone-900 text-[19px] mb-3 font-sans">
+                      <AlertCircle size={20} className="text-red-500" /> 歷史教訓：2007 市場崩盤
+                    </h4>
+                    <p className="text-stone-600 leading-relaxed text-[17px] font-sans">
+                      定義模糊曾導致市場失序。大量來自四川、貴州等外省原料冒充雲南普洱，雖形態相似，但因缺乏特定<strong>「微生態環境」</strong>，無法持續後發酵，存放數年後風味轉淡，導致資產泡沫破裂。
+                    </p>
                   </div>
-                ))}
-                <div className="mt-2 p-3 bg-amber-50 border border-amber-100 rounded-xl text-sm text-amber-800 leading-relaxed flex gap-2">
-                  <Info size={14} className="shrink-0 mt-0.5" />
-                  儘管外形千變萬化，其本質皆源自同一原料——「曬青毛茶」。
-                </div>
-                <div className="text-sm text-stone-500 mt-2 space-y-1">
-                  <div className="font-bold">其他常見形態：</div>
-                  <ul className="list-disc pl-4 space-y-1">
-                    <li><strong>筒裝 (Tong)：</strong>將七片餅茶用竹筍殼包裝，利於轉化與運輸。</li>
-                    <li><strong>茶頭 (Tea Head)：</strong>熟茶發酵自然結塊，果膠豐富，耐泡度極高。</li>
-                    <li><strong>小餅 (Small Cake)：</strong>如 100g/200g 規格，適合嘗鮮與送禮。</li>
-                  </ul>
+
+                  <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
+                    <h4 className="flex items-center gap-2 font-bold text-emerald-900 text-[19px] mb-3 font-sans">
+                      <CheckCircle2 size={20} className="text-emerald-600" /> 戰略意義：2008 國家標準
+                    </h4>
+                    <p className="text-emerald-800/80 leading-relaxed text-[17px] font-sans">
+                      GB/T 22111 標準不僅界定了地理產區，更是對雲南特定環境的技術壟斷。確保了普洱茶作為<strong>「具備持續酶促反應能力的生物基質」</strong>的正統性，確立了從半成品向高端藏品的演變路徑。
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <Callout title="權威定義：國家標準 (2008)">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-1 text-base text-stone-700 leading-relaxed space-y-3">
-                <p>
-                  在2008年國標確立前，大量非雲南產（如川、黔）或非曬青工藝（烘青、炒青）的茶葉冒充普洱。這些茶因高溫殺死了「活性酶」，存放多年後非但不會變香，反而味寡如水。
-                </p>
-                <div className="flex items-center gap-2 font-bold text-amber-700 bg-amber-50 p-2 rounded-lg inline-block">
-                  <CheckCircle2 size={16} /> 核心保障：越陳越香的基礎
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
-                <div className="text-center space-y-3">
-                  <Award size={40} className="mx-auto text-amber-500" />
-                  <div className="text-sm text-stone-500 font-bold uppercase tracking-widest">Official Standard</div>
-                  <div className="text-stone-900 font-bold text-base">地理標誌保護產品</div>
-                  <div className="h-px bg-stone-100 w-1/2 mx-auto"></div>
-                  <div className="text-sm text-stone-400">GB/T 22111-2008</div>
-                </div>
-              </div>
-            </div>
-          </Callout>
+          {/* 2. Three Core Keywords */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-stone-900 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-stone-900 text-white flex items-center justify-center text-lg font-serif">2</span>
+              定義的三大核心關鍵詞
+            </h3>
+            <p className="text-[17px] text-stone-600">這是辨識正宗普洱茶並進行決策評估的終極基準：</p>
 
-          {/* 3 Keywords Cards */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h4 className="text-xl font-bold text-stone-900 flex items-center gap-2">
-                <div className="w-2 h-6 bg-stone-800 rounded-full"></div>
-                定義的三大關鍵詞
-              </h4>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  id: 1,
                   title: "地理標誌保護範圍",
-                  sub: "Geography",
+                  sub: "Geography (Terroir)",
                   icon: MapPin,
                   color: "text-emerald-600",
                   bg: "bg-emerald-50",
                   border: "border-emerald-100",
-                  desc: "必須是雲南省內指定產區（11個州市，639個鄉鎮）。"
+                  highlight: "不可複製的風土",
+                  desc: "嚴格限定在雲南省內（約90%產區）。任何採自川、黔、粵、閩的原料，即便工藝相同，因缺失特定光熱條件與微生物群落，無法獲得「普洱茶」冠名權。"
                 },
                 {
-                  id: 2,
                   title: "雲南大葉種曬青",
-                  sub: "Species & Process",
+                  sub: "Genetic Superiority",
                   icon: Leaf,
                   color: "text-amber-600",
                   bg: "bg-amber-50",
                   border: "border-amber-100",
-                  desc: "特定優良品種（內含物質豐富）+ 日光乾燥（保留活性）。"
+                  highlight: "內含物質極豐富",
+                  desc: "擁有最完整的茶樹基因體系。即便將武夷大紅袍或台灣青心烏龍移種至雲南，亦因基因差異不具備法定資格。正宗普洱必須源自雲南本土原生種。"
                 },
                 {
-                  id: 3,
                   title: "特定加工工藝",
-                  sub: "Technique",
+                  sub: "Enzymatic Activity",
                   icon: Coffee,
                   color: "text-rose-600",
                   bg: "bg-rose-50",
                   border: "border-rose-100",
-                  desc: "曬青毛茶 → 蒸壓成型 (生茶) 或 渥堆發酵 (熟茶)。"
+                  highlight: "活性保留的關鍵",
+                  desc: "生茶需特定溫度殺青與蒸壓；熟茶需「渥堆發酵」（濕熱與微生物協同）。這是一套賦予茶葉溫潤感官特徵並保留轉化能力的精密技術鏈。"
                 }
-              ].map(card => (
-                <div key={card.id} className={`p-5 rounded-2xl border ${card.border} ${card.bg} hover:shadow-md transition-shadow`}>
-                  <card.icon className={`mb-3 ${card.color}`} size={28} />
-                  <div className="text-sm font-bold text-stone-400 uppercase tracking-wider mb-1">{card.sub}</div>
-                  <div className="font-bold text-stone-900 text-[19px] mb-2">{card.title}</div>
-                  <div className="text-[17px] text-stone-600 leading-snug">{card.desc}</div>
+              ].map((card, idx) => (
+                <div key={idx} className={`p-6 rounded-2xl border ${card.border} ${card.bg} hover:shadow-lg transition-all duration-300 group`}>
+                  <div className="flex justify-between items-start mb-4">
+                    <card.icon className={`p-3 bg-white rounded-xl shadow-sm ${card.color} w-14 h-14`} />
+                    <span className="text-xs font-bold text-stone-400 uppercase tracking-widest">{card.sub}</span>
+                  </div>
+                  <h4 className="font-bold text-stone-900 text-xl mb-2 group-hover:text-amber-700 transition-colors">{card.title}</h4>
+                  <div className={`text-xs font-bold px-2 py-1 rounded w-fit mb-3 ${card.color} bg-white/60`}>{card.highlight}</div>
+                  <p className="text-[17px] text-stone-700 leading-snug">{card.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Region Map Concept */}
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 space-y-6">
-            <Subheading>關鍵詞一：地理標誌保護範圍</Subheading>
-            <p className="text-stone-700 text-[17px]">
-              主要指雲南省內約 90% 的產茶區。離開此範圍（如四川、貴州），即便工藝相同，亦不可稱為普洱。
+          {/* 3. Four Core Regions */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-stone-900 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-stone-900 text-white flex items-center justify-center text-lg font-serif">3</span>
+              四大核心產區深度導讀
+            </h3>
+            <p className="text-[17px] text-stone-700">
+              地理環境 (Terroir) 是塑造風味靈魂的決定因素。沿瀾滄江流域分布的四大產區，因海拔、土壤與微氣候差異，構建了宏大的風味版圖。
             </p>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              {/* Region Cards */}
+            {/* Sacred Ancient Tree Landing Image */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-ancient-tree.png', alt: '千年茶王樹：雲南產區的實物圖騰' })}>
+              <img src="/images/varieties/puer-ch03-ancient-tree.png" alt="Ancient Tree" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent" />
+              <div className="absolute bottom-6 left-8">
+                <span className="px-4 py-1.5 bg-amber-500 text-white text-xs font-black tracking-widest rounded-full shadow-lg">SACRED ANCESTOR</span>
+                <h4 className="text-white text-2xl font-black mt-2 drop-shadow-lg">實物圖騰：千年古茶樹</h4>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  name: "保山茶區",
-                  desc: "滇紅名產地，普洱原料較少但品質不俗。",
-                  mountains: ["黃家寨 (兼具柔/香/甜)", "昔歸 (強回甘)"],
-                  color: "from-amber-500 to-orange-600"
+                  name: "保山產區 (Baoshan)",
+                  tags: ["高海拔", "皇家寨", "昔歸風味"],
+                  desc: "呈現顯著垂直氣候特徵（海拔500-3700米）。曾是鳳慶滇紅出口基地。「皇家寨」兼具易武之柔與冰島之香；「楠木渡」以八小時強回甘著稱。",
+                  color: "from-amber-600 to-orange-700"
                 },
                 {
-                  name: "臨滄茶區",
-                  desc: "生態優良，香甜柔和，台灣市場受歡迎。",
-                  mountains: ["冰島", "壩糯", "懂過", "大雪山"],
-                  extra: "香竹箐 3200年茶王樹",
-                  color: "from-emerald-500 to-teal-600"
+                  name: "臨滄產區 (Lincang)",
+                  tags: ["冰島", "昔歸", "天價古樹"],
+                  desc: "貢獻全省50%外匯收入。擁有冰島、懂過、大雪山等明星產地。香竹箐3200年古樹是活化石。2021年冰島鮮葉拍出千萬天價，創下稀缺性紀錄。",
+                  color: "from-emerald-600 to-teal-700"
                 },
                 {
-                  name: "普洱茶區",
-                  desc: "茶馬古道重鎮，天然氧吧，台地茶多。",
-                  mountains: ["邦崴 (過渡型茶樹)", "景邁山", "困鹿山"],
-                  color: "from-stone-500 to-stone-700"
+                  name: "普洱產區 (Simao)",
+                  tags: ["茶馬古道", "景邁山", "邦崴"],
+                  desc: "原思茅，被譽為「天然氧吧」。擁有1800年「邦崴過渡型古茶樹」與世界遺產「景邁山古茶林」。政府正推動有機種植與轉型升級。",
+                  color: "from-stone-600 to-stone-800"
                 },
                 {
-                  name: "西雙版納茶區",
-                  desc: "世界茶源中心，古六大茶山所在地。",
-                  mountains: ["古六大：易武、倚邦...", "新六大：老班章、南糯..."],
-                  color: "from-rose-500 to-pink-600"
+                  name: "西雙版納 (Xishuangbanna)",
+                  tags: ["古六大", "班章為王", "易武為後"],
+                  desc: "國際茶樹原產地中心，核心中的核心。區分古六大（易武、倚邦...）與新六大（班章、南糯...）。易武產區是老茶市場（同慶號）的統治級標杆。",
+                  color: "from-rose-600 to-pink-800"
                 }
               ].map((region, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-xl border border-stone-100 shadow-sm group hover:border-stone-300 transition-colors">
-                  <div className={`absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b ${region.color}`}></div>
-                  <div className="p-4 pl-6">
-                    <h5 className="font-bold text-stone-900 text-[19px] mb-1">{region.name}</h5>
-                    <p className="text-base text-stone-600 mb-3">{region.desc}</p>
-
-                    <div className="space-y-1">
-                      {region.mountains.map((m, i) => (
-                        <div key={i} className="flex items-center gap-1.5 text-base font-medium text-stone-700 bg-stone-50 px-2 py-1 rounded w-fit">
-                          <Mountain size={12} className="text-stone-400" /> {m}
-                        </div>
+                <div key={idx} className="relative overflow-hidden rounded-2xl shadow-md border border-stone-100 group hover:-translate-y-1 transition-transform duration-300">
+                  <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${region.color}`}></div>
+                  <div className="p-6 pl-8 bg-white">
+                    <div className="flex items-center gap-3 mb-3">
+                      <h4 className={`text-xl font-black bg-clip-text text-transparent bg-gradient-to-r ${region.color}`}>
+                        {region.name}
+                      </h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {region.tags.map((tag, i) => (
+                        <span key={i} className="px-2 py-0.5 bg-stone-100 text-stone-600 text-xs font-bold rounded shadow-sm">
+                          {tag}
+                        </span>
                       ))}
                     </div>
+                    <p className="text-[17px] text-stone-600 leading-snug">
+                      {region.desc}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Process & Species */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-stone-200 bg-white p-6">
-              <Subheading>關鍵詞二：雲南大葉種</Subheading>
-              <div className="mt-4 space-y-4">
-                <div className="flex items-start gap-3">
-                  <Leaf size={24} className="text-emerald-600 shrink-0 mt-1" />
-                  <div>
-                    <strong className="block text-stone-900 text-base">基因庫完整</strong>
-                    <span className="text-sm text-stone-600">葉大、樹齡長、樹型高大。</span>
+          {/* 4. Species & Process Detail */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-emerald-100 rounded-full text-emerald-700"><Leaf size={32} /></div>
+                <h4 className="text-2xl font-bold text-stone-900">植物學特徵：雲南大葉種</h4>
+              </div>
+              <ul className="space-y-6">
+                <li>
+                  <div className="font-bold text-lg text-stone-800 mb-1">群體種（古樹原生）</div>
+                  <p className="text-[17px] text-stone-600">
+                    喬木型，為獲取陽光向上生長（如薄荷塘高杆），內含物質積累獨特。具備強烈的風土識別性。
+                  </p>
+                </li>
+                <li>
+                  <div className="font-bold text-lg text-stone-800 mb-1">無性系（台地茶）</div>
+                  <p className="text-[17px] text-stone-600">
+                    如雲抗系列，扦插繁殖，灌木形態。優點是品質穩定，適合規模化生產。
+                  </p>
+                </li>
+                <li className="p-4 bg-red-50 rounded-xl border border-red-100 text-red-800/80 text-sm">
+                  <strong>⚠️ 安全提示：</strong> 需區分「栽培型古樹」與「原生野生茶」。未經馴化的野生茶具輕微毒性，腸胃脆弱者慎飲。
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm relative overflow-hidden group">
+              {/* Inset Image - Tea Pavilion */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 -mr-8 -mt-8 rotate-12 transition-all group-hover:opacity-40 group-hover:scale-110 cursor-pointer" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-tea-pavilion.png', alt: '深山茶亭：工藝轉化的神聖空間' })}>
+                <img src="/images/varieties/puer-ch03-tea-pavilion.png" alt="" className="w-full h-full object-cover rounded-full" />
+              </div>
+
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className="p-3 bg-amber-100 rounded-full text-amber-700"><Sun size={32} /></div>
+                <h4 className="text-2xl font-bold text-stone-900">工藝靈魂：曬青 (Sun-Dried)</h4>
+              </div>
+              <div className="space-y-6 relative z-10">
+                <p className="text-[17px] text-stone-700">
+                  普洱茶毛茶必須採用日光乾燥，<strong>嚴禁高溫烘乾</strong>（如綠茶的烘青/炒青）。
+                </p>
+                <div className="p-5 bg-stone-50 rounded-xl space-y-3">
+                  {/* Full Width Image - Sundrying Process */}
+                  <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-4 shadow-md cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch05-sundrying.png', alt: '日光之恩：曬青工藝的活性保留' })}>
+                    <img src="/images/varieties/puer-ch05-sundrying.png" alt="Sundrying" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-stone-900/10" />
                   </div>
-                </div>
-                <div className="pl-9 space-y-2">
-                  <div className="text-sm p-2 bg-emerald-50 rounded text-emerald-800 border border-emerald-100">
-                    <strong>群體種 (原生)：</strong> 有性繁殖，風味複雜多變 (古樹茶主力)。
-                  </div>
-                  <div className="text-sm p-2 bg-stone-50 rounded text-stone-600 border border-stone-100">
-                    <strong>無性系 (改良)：</strong> 扦插繁殖，品質穩定 (台地茶主力)。
+                  <h5 className="font-bold text-stone-900 text-[18px]">機制對比：</h5>
+                  <p className="text-[17px] text-stone-600">
+                    高溫提香會切斷茶葉內部活性物質的生命力。唯有曬青保留了<strong>「活性酶」</strong>，使其能與空氣水分持續作用。
+                  </p>
+                  <div className="flex items-center gap-2 text-amber-700 font-bold mt-2">
+                    <CheckCircle2 size={18} />
+                    越陳越香的生物學基礎
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-6">
-              <Subheading>關鍵詞三：特定工藝</Subheading>
-              <div className="mt-4 space-y-4">
-                <div className="flex items-start gap-3">
-                  <Sun size={24} className="text-amber-500 shrink-0 mt-1" />
-                  <div>
-                    <strong className="block text-stone-900 text-base">曬青 (Sun-Dried)</strong>
-                    <span className="text-sm text-stone-600">靈魂所在。日光溫和乾燥，保留「活性酶」。</span>
-                  </div>
+          {/* 5. Morphology & Aging */}
+          <div className="bg-stone-50 rounded-3xl border border-stone-200 p-8 space-y-8">
+            <h3 className="text-2xl font-bold text-stone-900">成品形態與生化轉化</h3>
+            <p className="text-[17px] text-stone-700">
+              普洱茶的生命歷程在壓製成型的那一刻才真正「萌發」。
+              根據雲南省農科所數據：<strong>散茶轉化香氣約40餘種，而緊壓餅茶可達90餘種。</strong>
+              壓製不僅為了運輸，更是創造微環境促進香氣倍增的戰略。
+            </p>
+
+            {/* Atmosphere Visual - Timing/Aroma */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in mb-8" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch04-timing-xianxia.png', alt: '時間的恩澤：普洱茶在陳化中綻放的九十種香氣' })}>
+              <img src="/images/varieties/puer-ch04-timing-xianxia.png" alt="Aroma Atmosphere" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-stone-900/30" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center space-y-2">
+                  <span className="text-amber-400 text-xs font-bold tracking-[0.3em] uppercase opacity-80">Evolution of Scent</span>
+                  <h4 className="text-white text-3xl font-black transition-transform group-hover:scale-110 duration-700">九十種香氣的綻放</h4>
                 </div>
-                <div className="pl-9 mt-2">
-                  <div className="flex items-center gap-2 text-sm font-bold text-stone-400 mb-1">
-                    <span>PROCESS FLOW</span>
-                    <div className="h-px bg-stone-200 flex-1"></div>
-                  </div>
-                  <div className="flex items-center gap-2 text-base text-stone-800">
-                    <span className="px-2 py-1 bg-amber-100 rounded">曬青毛茶</span>
-                    <span>→</span>
-                    <div className="flex flex-col gap-1">
-                      <span className="px-2 py-1 border border-stone-200 rounded">蒸壓 (生茶)</span>
-                      <span className="px-2 py-1 border border-stone-200 rounded">渥堆 (熟茶)</span>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-12 gap-8 items-stretch">
+              <div className="md:col-span-5 h-full relative rounded-2xl overflow-hidden shadow-lg group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/puerh_shapes.png', alt: '普洱茶經典形態' })}>
+                <img
+                  src="/images/puerh_shapes.png"
+                  alt="Pu-erh Tea Shapes"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white text-center font-bold">
+                  點擊放大：經典緊壓形態
+                </div>
+              </div>
+
+              <div className="md:col-span-7 grid grid-cols-1 gap-4">
+                {[
+                  { icon: Disc, name: "七子餅 (357g)", desc: "主流收藏規格。模擬微環境最佳。" },
+                  { icon: Box, name: "茶磚 (Brick)", desc: "早期便於馬幫運輸，發酵度通常較高。" },
+                  { icon: Circle, name: "沱茶 (Tuo)", desc: "碗狀透氣性佳，適合特定轉化需求。" },
+                  { icon: Gem, name: "龍珠 (Dragon Ball)", desc: "現代便攜一粒一泡，精緻化趨勢。" }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-5 p-5 bg-white rounded-xl border border-stone-200 shadow-sm hover:border-amber-300 transition-colors">
+                    <div className="p-3 bg-stone-100 text-stone-600 rounded-full shrink-0">
+                      <item.icon size={22} />
+                    </div>
+                    <div>
+                      <div className="font-bold text-stone-900 text-[18px] mb-1">{item.name}</div>
+                      <div className="text-base text-stone-600">{item.desc}</div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Summary Footer */}
-          <div className="rounded-2xl p-6 bg-stone-800 text-stone-300 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-6 opacity-10">
-              <Award size={100} />
-            </div>
-            <div className="relative z-10">
-              <h5 className="text-white font-bold text-[19px] mb-2 flex items-center gap-2">
-                <CheckCircle2 className="text-emerald-400" /> 核心總結
-              </h5>
-              <p className="text-base leading-relaxed opacity-90 mb-4">
-                普洱茶的權威定義 = <strong>雲南產區</strong> + <strong>大葉種原料</strong> + <strong>曬青工藝</strong>。
-              </p>
-              <div className="p-3 bg-white/10 rounded-xl text-sm border border-white/10">
-                <strong className="text-amber-400">專家的話：</strong>
-                存茶建議選擇「餅茶」優於「散茶」。緊壓形式創造的微環境，能帶來更豐富（90種 vs 40種香氣）的轉化驚喜。
-              </div>
-            </div>
-          </div>
         </div>
       ),
     },
     '#puerh-2': {
       title: '二：普洱茶的前世今生',
       content: (
-        <div className="space-y-12">
-          {/* Hero Section */}
-          <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[21/9] group">
-            <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-transparent transition-colors duration-700"></div>
-            <img
-              src="/images/varieties/puerh/puerh_caravan_art.png"
-              alt="Ancient Tea Horse Road Caravan Illustration"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-              <div className="max-w-2xl">
-                <span className="inline-flex items-center gap-2 px-3 py-1 bg-stone-800/80 backdrop-blur border border-stone-700 text-stone-300 rounded-full text-sm font-bold tracking-widest uppercase mb-4">
-                  <Mountain size={14} /> History & Legacy
-                </span>
-                <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
-                  茶馬古道的<br />千年回響
-                </h2>
-                <p className="text-stone-300 text-[19px] md:text-xl font-light leading-relaxed">
-                  從三國的一葉藥草，到清朝的瑞貢天朝，普洱茶的歷史就是一部雲南各民族的文化史。
+        <div className="space-y-16 font-sans">
+          {/* Header */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] group">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img src="/images/varieties/puerh/puerh_caravan_art.png" alt="Ancient Tea Horse Road Caravan" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-900/40 to-stone-900/20" />
+            </div>
+
+            <div className="absolute top-0 right-0 p-8 opacity-10 text-white z-0"><Clock size={180} /></div>
+
+            <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12 space-y-4">
+              <span className="inline-block self-start px-4 py-1.5 bg-amber-500/20 backdrop-blur border border-amber-500/30 text-amber-300 text-sm font-bold tracking-[0.2em] rounded-full uppercase">
+                Historical Evolution
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                普洱茶的前世今生<br />
+                <span className="text-xl md:text-2xl opacity-70 font-normal">從邊疆野菜到全球文化資產</span>
+              </h2>
+            </div>
+          </div>
+
+          {/* Intro */}
+          <div className="space-y-6 text-[17px] text-stone-700 leading-relaxed">
+            <h3 className="text-2xl font-bold text-stone-900 border-l-4 border-amber-600 pl-4">前言：穿透時光的茶湯底蘊與戰略視野</h3>
+            <p>
+              了解普洱茶，不僅是學習一種飲品的沖泡與品鑑，更是一場橫跨數千年的文化溯源。它從荒野中的原始植被，演化為王公貴族的進貢珍品，乃至今日全球市場競逐的文化資產。
+            </p>
+            <p>
+              本報告將深度解析普洱茶的發展脈絡，結構分為<strong>「1733年以前的前世」</strong>與<strong>「1733年至今的今生」</strong>。唯有洞悉其過去，方能掌握當代普洱茶的價值關鍵。
+            </p>
+          </div>
+
+          {/* 1. The Past (Pre-1733) */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900">
+              <span className="w-8 h-8 rounded-full bg-stone-900 text-white flex items-center justify-center text-sm">壹</span>
+              普洱茶的前世：從文獻記錄到茶祖傳說
+            </h3>
+
+            {/* Image: Ancient Tree / Ancestor */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-ancient-tree.png', alt: '茶王樹：千年的實物見證' })}>
+              <img
+                src="/images/varieties/puer-ch03-ancient-tree.png"
+                alt="茶王樹：千年的實物見證"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+                <p className="text-white font-bold text-lg drop-shadow-md">千年的實物見證：茶樹王</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="text-[19px] font-bold text-stone-900">文獻溯源與貢茶傳統</h4>
+                <p className="text-[17px] text-stone-600 leading-relaxed">
+                  早於商周，《華陽國志·巴志》即載雲南進貢「茶與蜜」。現存3200年「茶王樹」更是直觀震撼的實物見證。
+                </p>
+                <h4 className="text-[19px] font-bold text-stone-900 mt-6">茶祖諸葛亮與神話</h4>
+                <p className="text-[17px] text-stone-600 leading-relaxed">
+                  古六大茶山尊孔明為「茶祖」。傳說其以茶治軍中瘟疫，並教導夷民種茶。地名如「攸樂(丟落)」、「革登(馬鐙)」皆與其南征傳說相關。
                 </p>
               </div>
-            </div>
-          </div>
 
-          {/* Section 1: The Past (Timeline Style) */}
-          <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-3 bg-stone-100 rounded-xl text-stone-800">
-                <Leaf size={24} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-stone-900">前世：從起源到清代盛世</h3>
-                <p className="text-stone-500">1733年之前：主要依靠文獻記載的漫長歲月</p>
-              </div>
-            </div>
-
-            <div className="relative border-l-2 border-stone-200 ml-4 space-y-10 pb-4">
-              {/* Timeline Item 1 */}
-              <div className="relative pl-8 group">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
-                <div className="mb-2">
-                  <span className="text-sm font-black tracking-widest text-stone-400 uppercase">BEGINNINGS</span>
-                  <h4 className="text-xl font-bold text-stone-900">起源與傳說（商周至三國）</h4>
+              <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <Box className="text-amber-700" size={24} />
+                  <h4 className="text-[19px] font-bold text-stone-900">古代產區與形制</h4>
                 </div>
-                <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 group-hover:border-amber-100 transition-colors">
-                  <ul className="space-y-4">
-                    <li className="flex gap-4 items-start">
-                      <div className="p-2 bg-white rounded-lg border border-stone-200 shrink-0"><CheckCircle2 size={16} className="text-emerald-600" /></div>
-                      <div className="text-base text-stone-700 leading-relaxed">
-                        <strong className="block text-stone-900 mb-1">最早文獻記載</strong>
-                        據《華陽國志·巴志》：「周武王伐紂，實巴蜀之產……其茶蜜皆納貢之。」表明商周時期雲南已將茶作為貢品。
-                      </div>
-                    </li>
-                    <li className="flex gap-4 items-start">
-                      <div className="p-2 bg-white rounded-lg border border-stone-200 shrink-0"><CheckCircle2 size={16} className="text-emerald-600" /></div>
-                      <div className="text-base text-stone-700 leading-relaxed">
-                        <strong className="block text-stone-900 mb-1">茶祖諸葛亮（武侯）傳說</strong>
-                        三國時諸葛亮南征，夢得仙人指點，以當地茶葉煮水治癒士兵瘟疫。後被尊為「茶祖」，留下攸樂、革登等地名傳說。至今茶王節仍祭拜這位「茶神」。
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Timeline Item 2 */}
-              <div className="relative pl-8 group">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
-                <div className="mb-2">
-                  <span className="text-sm font-black tracking-widest text-stone-400 uppercase">DEVELOPMENT</span>
-                  <h4 className="text-xl font-bold text-stone-900">興盛與發展（唐、宋、元、明）</h4>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
-                    <div className="text-amber-800 font-bold mb-2 flex items-center gap-2 text-base">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> 唐代：興起與外傳
-                    </div>
-                    <p className="text-base text-stone-600 leading-relaxed">
-                      「普洱茶興於唐，盛於宋」。唐代《蠻書》記載加工為「散收，無採造法」，飲法則加「椒薑桂」。此時茶葉已傳入西藏，開啟「茶馬互市」與茶馬古道。
-                    </p>
-                  </div>
-                  <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
-                    <div className="text-amber-800 font-bold mb-2 flex items-center gap-2 text-base">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div> 元明：定名與傳承
-                    </div>
-                    <p className="text-base text-stone-600 leading-relaxed">
-                      由元代「步日部」演變為「普洱」。明代《滇略》載：「士庶所用，皆普茶也，蒸而團之。」證明緊壓茶工藝（並未隨朱元璋廢團茶而消失）在雲南得以完整保留。
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Timeline Item 3 */}
-              <div className="relative pl-8 group">
-                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-stone-200 rounded-full border-4 border-white group-hover:bg-amber-500 transition-colors"></div>
-                <div className="mb-2">
-                  <span className="text-sm font-black tracking-widest text-amber-500 uppercase">GOLDEN AGE</span>
-                  <h4 className="text-xl font-bold text-stone-900">巔峰時期（清代）</h4>
-                </div>
-                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-10"><Award size={80} className="text-amber-600" /></div>
-                  <div className="relative z-10 space-y-3">
-                    <p className="text-amber-900 font-medium italic text-[19px] opacity-80">
-                      「普洱茶名重天下，出普洱府所屬六大茶山，周八百里，入山做茶者數十萬人...」
-                    </p>
-                    <div className="h-px bg-amber-200 w-24"></div>
-                    <p className="text-base text-amber-900/80 leading-relaxed">
-                      清朝是極盛期，普洱茶列為皇家貢茶。道光皇帝御賜 <strong>「瑞貢天朝」</strong> 牌匾，懸掛於易武，確立了其至高無上的地位。這不僅是美味，更是千年的文脈傳承。
-                    </p>
-                  </div>
-                </div>
+                <ul className="space-y-3 text-[17px] text-stone-700">
+                  <li className="flex gap-2"><span className="text-amber-500">•</span> <strong>唐代：</strong>樊綽《蠻書》界定「銀生城界諸山」產區。飲法加椒薑桂煮飲，以應對高濕寒冷。</li>
+                  <li className="flex gap-2"><span className="text-amber-500">•</span> <strong>茶馬古道：</strong>唐代起入藏，「以茶易馬」。茶葉成為藏區補充維生素、消化酥油的戰略物資。</li>
+                  <li className="flex gap-2"><span className="text-amber-500">•</span> <strong>清代盛世：</strong>道光帝御賜「瑞貢天朝」。雖明代曾廢團茶，雲南因地處邊疆保留了「緊壓」形制，成為標誌性特徵。</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          {/* Section 2: The Present (Era Cards) */}
-          <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-3 bg-stone-100 rounded-xl text-stone-800">
-                <Box size={24} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-stone-900">今生：從號級茶到百家爭鳴</h3>
-                <p className="text-stone-500">1733年至今：五大時代的演變</p>
+          {/* 2. The Present (Post-1733) */}
+          <div className="space-y-8">
+            <h3 className="flex items-center gap-3 text-2xl font-bold text-stone-900">
+              <span className="w-8 h-8 rounded-full bg-stone-900 text-white flex items-center justify-center text-sm">貳</span>
+              普洱茶的今生：實物見證與品牌化
+            </h3>
+            <p className="text-[17px] text-stone-700">1733年是一個關鍵分水嶺，普洱茶從書面記錄進入「實物見證」時代。三大階段定義了當代市場格局。</p>
+
+            {/* Image: Storage/Aging/History */}
+            <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl group cursor-zoom-in" onClick={() => setLightboxData({ src: '/images/varieties/puer-ch03-storage-chamber.png', alt: '時間的宮殿：號級與印級茶的陳化空間' })}>
+              <img
+                src="/images/varieties/puer-ch03-storage-chamber.png"
+                alt="時間的宮殿"
+                className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+                <p className="text-white font-bold text-lg drop-shadow-md">時間的價值：號級茶與印級茶的傳奇</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  period: "1733 起",
-                  name: "號級茶時代",
-                  icon: Award,
-                  color: "text-amber-700",
-                  bg: "bg-amber-50",
-                  border: "border-amber-200",
-                  bullets: [
-                    "標誌：清代首個茶莊「同興號」成立。",
-                    "主導：私人老字號（同慶號、宋聘號）。",
-                    "特點：傳統石磨壓製，有品牌意識（內飛、大票）。"
-                  ]
-                },
-                {
-                  period: "1950 - 1972",
-                  name: "印級茶時代",
-                  icon: Disc,
-                  color: "text-rose-700",
-                  bg: "bg-rose-50",
-                  border: "border-rose-200",
-                  bullets: [
-                    "背景：國營三大廠統一管理（昆明、勐海、下關）。",
-                    "標誌：「八中」商標，紅印圓茶為代表。",
-                    "價值：如今市場價值極高的骨灰級老茶。"
-                  ]
-                },
-                {
-                  period: "1972 - 1992",
-                  name: "七子餅茶時代",
-                  icon: CheckCircle2,
-                  color: "text-emerald-700",
-                  bg: "bg-emerald-50",
-                  border: "border-emerald-200",
-                  bullets: [
-                    "標誌：1973年昆明茶廠試製「熟茶渥堆發酵」成功。",
-                    "意義：人工加速陳化，開啟普洱茶新篇章（月餘即達陳韻）。"
-                  ]
-                },
-                {
-                  period: "1992 - 2007",
-                  name: "中期茶時代",
-                  icon: Mountain,
-                  color: "text-stone-700",
-                  bg: "bg-stone-50",
-                  border: "border-stone-200",
-                  bullets: [
-                    "背景：市場經濟開啟，私營茶廠崛起。",
-                    "名品：大益改制前的經典（紅大益、紫大益、大白菜、綠大樹）。"
-                  ]
-                },
-                {
-                  period: "2007 至今",
-                  name: "新代茶時代",
-                  icon: Sun,
-                  color: "text-sky-700",
-                  bg: "bg-sky-50",
-                  border: "border-sky-200 md:col-span-2 lg:col-span-2",
-                  bullets: [
-                    "背景：2007崩盤後回歸理性，追求原料極致。",
-                    "特點：山頭茶、古樹茶崛起。百花齊放，百家爭鳴。"
-                  ]
-                }
-              ].map((era, idx) => (
-                <div key={idx} className={`rounded-2xl border ${era.border} bg-white p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden ${era.border.includes('col-span') ? era.border : ''}`}>
-                  <div className={`absolute top-0 right-0 p-4 opacity-5 ${era.color}`}><era.icon size={100} /></div>
-                  <div className="relative z-10">
-                    <span className={`inline-block px-2 py-1 rounded text-sm font-bold tracking-widest uppercase mb-2 ${era.bg} ${era.color}`}>
-                      {era.period}
-                    </span>
-                    <h4 className="text-xl font-black text-stone-900 mb-4">{era.name}</h4>
-                    <ul className="space-y-3">
-                      {era.bullets.map((txt, i) => (
-                        <li key={i} className="flex gap-3 text-base text-stone-600 leading-snug">
-                          <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${era.color.replace('text-', 'bg-')}`}></div>
-                          <span>{txt.split('：').map((part, k) => k === 0 ? <strong className="text-stone-800" key={k}>{part}：</strong> : part)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Conclusion Footer */}
-          <div className="rounded-2xl p-6 bg-stone-900 text-stone-300">
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="p-4 bg-stone-800 rounded-full shrink-0">
-                <Gem size={32} className="text-amber-400" />
+              {/* Cards for Eras */}
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                <div className="text-xs font-bold text-stone-400 mb-2">1733 - 1950</div>
+                <h4 className="text-[19px] font-bold text-amber-700 mb-3">號級茶時代</h4>
+                <p className="text-[17px] text-stone-600 leading-snug">
+                  品牌意識萌芽。同心號、同慶號、宋聘號崛起。採用石磨壓製，設有內飛、大票防偽。如今為拍賣市場文物級珍品。
+                </p>
               </div>
-              <div className="space-y-2 text-center md:text-left">
-                <h5 className="text-white font-bold text-[19px]">品飲審美的變遷</h5>
-                <p className="text-base leading-relaxed opacity-80">
-                  從唐宋的古樸，到國營廠的拼配標準，再到今日山頭古樹的百家爭鳴。
-                  現代茶客不再盲目追求傳說中的號級老茶，轉而探索 <strong>老班章的霸氣、冰島的甜潤、易武的柔美</strong>，這是一種更透明、更具風土質感的品飲進階。
+
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                <div className="text-xs font-bold text-stone-400 mb-2">1950 - 1972</div>
+                <h4 className="text-[19px] font-bold text-red-700 mb-3">印級茶時代</h4>
+                <p className="text-[17px] text-stone-600 leading-snug">
+                  國營統一管理。昆明、勐海、下關三大廠。「八中」商標，紅印、藍印為代表。骨灰級老茶的代名詞。
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
+                <div className="text-xs font-bold text-stone-400 mb-2">1972 - 1992</div>
+                <h4 className="text-[19px] font-bold text-emerald-700 mb-3">七子餅與熟茶革命</h4>
+                <p className="text-[17px] text-stone-600 leading-snug">
+                  1973年「渥堆發酵」技術成功。人工加速陳化，月餘即達陳韻，推動普洱大眾化。「雲南七子餅」成為時代標誌。
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all md:col-span-2 lg:col-span-3">
+                <div className="text-xs font-bold text-stone-400 mb-2">1992 至今</div>
+                <h4 className="text-[19px] font-bold text-sky-700 mb-3">現代：山頭主義與古樹審美</h4>
+                <p className="text-[17px] text-stone-600 leading-snug">
+                  市場經濟與民營化重生(2005-2007)。崩盤後回歸理性，轉向追求極致產區風土。
+                  <br />
+                  <strong>當代審美：</strong>老班章(霸氣)、冰島(冰糖甜)、易武(柔美細分)。
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Conclusion */}
+          <div className="bg-stone-900 rounded-3xl p-8 text-stone-300">
+            <h4 className="text-xl font-bold text-white mb-4">結語：從歷史共感走向當代養生與審美</h4>
+            <p className="text-[17px] leading-relaxed opacity-90">
+              普洱茶從神話靈藥演變為當代工藝精品。每一杯茶湯背後，都凝結了茶馬古道的塵埃與百年老字號的堅持。
+              希望讀者在品飲之際，能因這份歷史的共感，對這片來自雲南大山的葉子產生更深層次的感悟。
+            </p>
           </div>
         </div>
       ),
@@ -671,7 +603,6 @@ export default function PuerhEncyclopedia({ topOffsetPx, activeHref = '#puerh-1'
       title: '三：普洱茶的分類',
       content: (
         <div className="space-y-16 font-sans">
-          {/* Header */}
           {/* Header */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] group">
             {/* Background Image */}
