@@ -4,10 +4,10 @@ import ImageLightbox from '../components/ImageLightbox';
 import sunImage from '../assets/images/brewing_sun_terroir.png';
 import windImage from '../assets/images/xueya-ch4-vessels.png';
 import mountainImage from '../assets/images/brewing_mountain_factors.png';
-import waterHeroImage from '../assets/images/brewing_water_hero.png';
-import historyHighMountain from '../assets/images/history_high_mountain_ghibli.png';
-import xueyaMist from '../assets/images/xueya-ch4-mist.png';
-import historyTeaHouse from '../assets/images/history_tea_house_ghibli.png';
+import xianxiaPeaks from '../assets/images/xianxia_peaks_mist.png';
+import xianxiaSpring from '../assets/images/xianxia_mountain_spring.png';
+import xianxiaTeaCliff from '../assets/images/xianxia_tea_cliff.png';
+import xianxiaBrewing from '../assets/images/xianxia_brewing_closeup.png';
 import teaData from '../data/teaData';
 import { UI_FLAGS } from '../config/uiFlags';
 
@@ -217,7 +217,7 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                             {/* Hero Image Header */}
                             <div
                                 className="h-64 md:h-80 relative w-full overflow-hidden cursor-zoom-in group"
-                                onClick={() => openLightbox(waterHeroImage, '水質科學研究')}
+                                onClick={() => openLightbox(xianxiaBrewing, '水質科學研究')}
                             >
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                                 <div className="absolute bottom-6 left-6 md:left-10 z-20 text-white">
@@ -230,7 +230,7 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                                     <h3 className="text-2xl md:text-3xl font-bold font-sans mb-2 text-shadow-lg">為什麼不能用久煮的水泡茶？</h3>
                                     <p className="text-stone-200 text-lg font-medium opacity-90">科學與文化的雙重解析：從「水」看茶湯的靈魂</p>
                                 </div>
-                                <img src={waterHeroImage} alt="Science vs Tradition Water" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <img src={xianxiaBrewing} alt="Science vs Tradition Water" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                             </div>
 
                             <div className="p-8 md:p-12">
@@ -323,10 +323,10 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                             <div className="grid md:grid-cols-2 gap-4 mb-10">
                                 <div
                                     className="h-64 rounded-2xl overflow-hidden relative group cursor-zoom-in"
-                                    onClick={() => openLightbox(historyHighMountain, '高山雲霧 - 氣壓與沸點')}
+                                    onClick={() => openLightbox(xianxiaPeaks, '仙境奇峰 - 雲霧與氣壓')}
                                 >
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                                    <img src={historyHighMountain} alt="Misty High Mountain" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                    <img src={xianxiaPeaks} alt="Misty High Mountain" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                                     <div className="absolute bottom-4 left-4 z-20 text-white text-shadow-md">
                                         <p className="font-bold text-lg font-sans">高山氣韻</p>
                                     </div>
@@ -334,15 +334,15 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                                 <div className="grid grid-rows-2 gap-4 h-64">
                                     <div
                                         className="rounded-2xl overflow-hidden relative group cursor-zoom-in"
-                                        onClick={() => openLightbox(xueyaMist, '幽谷清泉 - 水質之源')}
+                                        onClick={() => openLightbox(xianxiaSpring, '幽谷清泉 - 純淨水質')}
                                     >
-                                        <img src={xueyaMist} alt="Ethereal Mist" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        <img src={xianxiaSpring} alt="Ethereal Mist" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                                     </div>
                                     <div
                                         className="rounded-2xl overflow-hidden relative group cursor-zoom-in"
-                                        onClick={() => openLightbox(historyTeaHouse, '山中茶屋 - 汲泉烹茶')}
+                                        onClick={() => openLightbox(xianxiaTeaCliff, '雲海茶席 - 天地對話')}
                                     >
-                                        <img src={historyTeaHouse} alt="Mountain Tea House" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        <img src={xianxiaTeaCliff} alt="Mountain Tea House" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                                     </div>
                                 </div>
                             </div>

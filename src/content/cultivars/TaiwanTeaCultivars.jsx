@@ -22,57 +22,57 @@ export default function TaiwanTeaCultivars() {
         {
             number: 1, name: '—', alias: '臺農 705 號', parent: 'Kyang (父) x 青心大冇 (母)', location: '—', breedYear: 1916, releaseYear: 1969, type: '極強/橫張', use: '紅茶、眉茶、烏龍茶',
             description: '#台茶1號：父本Kyang，母本青心大冇，民國 58 年命名。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '台茶1號茶園意象'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶1號茶園意象'
         },
         {
             number: 2, name: '—', alias: '臺農 478 號', parent: '大葉烏龍 (母) x Jaipuri (父)', location: '—', breedYear: 1916, releaseYear: 1969, type: '強/橫張', use: '紅茶、眉茶、烏龍茶',
             description: '#台茶2號：源自於民國41年（1952年）參加高級試驗的46個品系（含天然雜交14品系，人工雜交32品系），選出20品系於民國50年（1961年）參與區域試驗，至民國57年（1968年）完成選拔。民國58年（1969年）申請命名。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '台茶2號茶葉特寫'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶2號茶葉特寫'
         },
         {
             number: 3, name: '—', alias: '臺農 609 號', parent: '紅心大冇 (母) x Manipuri (父)', location: '—', breedYear: 1916, releaseYear: 1969, type: '強/稍直立', use: '紅茶、眉茶',
             description: '#台茶3號：源自於民國41年（1952年）參加高級試驗的46個品系（含天然雜交14品系，人工雜交32品系），選出20品系於民國50年（1961年）參與區域試驗，至民國57年（1968年）完成選拔。民國58年申請命名。',
-            image: '/images/cultivars/bg_teaset.png', imageAlt: '台茶3號品茗情境'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶3號品茗情境'
         },
         {
             number: 4, name: '—', alias: '臺農 684 號', parent: '紅心大冇 (母) x Manipuri (父)', location: '—', breedYear: 1916, releaseYear: 1969, type: '中/稍直立', use: '紅茶、眉茶',
             description: '#台茶4號：利用母本紅心大冇與父本Manipuri經人工雜交而來，原品系代號為684號，在1969年命名為台茶4號。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '台茶4號茶園'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶4號茶園'
         },
         {
             number: 5, name: '—', alias: '臺農 105 號', parent: '福州系天然雜交', location: '—', breedYear: 1928, releaseYear: 1973, type: '中/橫張', use: '烏龍茶、綠茶、包種茶',
             description: '#台茶5號：源自福州母系之天然雜交後裔篩選得到，雜交年代介於1931至1940年間，原品系代號為台農105號，在1974年(民國63年)命名為台茶5號。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '台茶5號茶葉'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶5號茶葉'
         },
         {
             number: 6, name: '—', alias: '臺農 121 號', parent: '青心烏龍系天然雜交', location: '—', breedYear: 1928, releaseYear: 1973, type: '強/稍直立', use: '綠茶、紅茶、烏龍茶',
             description: '#台茶6號：源自青心烏龍母系之天然雜交後裔篩選得到，雜交年代介於1931至1940年間，原品系代號為台農121號，在1974年命名為台茶6號。',
-            image: '/images/cultivars/bg_teaset.png', imageAlt: '台茶6號'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶6號'
         },
         {
             number: 7, name: '—', alias: '5118 號', parent: 'Shan 系統單株選拔', location: '—', breedYear: 1941, releaseYear: 1973, type: '極強/橫張', use: '紅茶',
             description: '#台茶7號：60年在泰國引進之Shan系統中選出(此品種母本Shan為郭少三先生自泰國引進茶樹種子繁殖而成，現仍種植於南投縣埔里鎮東邦茶園，Shan屬於大葉變種)，原為5118號品系，民國63年命名。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '台茶7號'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶7號'
         },
         {
             number: 8, name: '—', alias: '184 號', parent: 'Jaipuri 系統單株選拔', location: '—', breedYear: 1941, releaseYear: 1973, type: '強/直立', use: '紅茶',
             description: '#台茶8號：從印度引進阿蕯姆Jaipuri系統的改良品種，原為184品系，是1974年命名。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '台茶8號'
+            image: '/images/cultivars/assam_8.png', imageAlt: '台茶8號'
         },
         {
             number: 9, name: '—', alias: '臺農 435 號', parent: '紅心大冇 (母) x Kyang (父)', location: '—', breedYear: 1947, releaseYear: 1975, type: '極強/橫張', use: '綠茶、紅茶',
             description: '#台茶9號：利用母本紅心大冇與父本Kyang經人工雜交而來，原品系代號為435號，在1975年命名為台茶9號。',
-            image: '/images/cultivars/bg_teaset.png', imageAlt: '台茶9號'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶9號'
         },
         {
             number: 10, name: '—', alias: '臺農 358 號', parent: '黃柑 (母) x Jaipuri (父)', location: '—', breedYear: 1947, releaseYear: 1975, type: '強/橫張', use: '綠茶、紅茶',
             description: '#台茶10號：利用母本黃柑與父本Jaipuri經人工雜交而來，原品系代號為358號，在1975年(民國64年)命名為台茶10號。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '台茶10號'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶10號'
         },
         {
             number: 11, name: '—', alias: '311 號', parent: '大葉烏龍 (母) x Jaipuri (父)', location: '—', breedYear: 1947, releaseYear: 1975, type: '強/稍直立', use: '綠茶、紅茶',
             description: '#台茶11號：利用母本大葉烏龍與父本Jaipuri經人工雜交而來，原品系代號為311號，在1975年命名為台茶11號。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '台茶11號'
+            image: '/images/cultivars/historical_hybrid.png', imageAlt: '台茶11號'
         },
         {
             number: 12, name: '金萱', alias: '2027 / 27仔', parent: '臺農8號 (母) x 硬枝紅心 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '強/橫張', use: '烏龍茶、包種茶',
@@ -82,72 +82,72 @@ export default function TaiwanTeaCultivars() {
         {
             number: 13, name: '翠玉', alias: '2029 / 29仔', parent: '硬枝紅心 (母) x 臺農80號 (父)', location: '—', breedYear: 1938, releaseYear: 1981, type: '中/直立', use: '烏龍茶、包種茶',
             description: '#台茶13號：(翠玉、十三號仔、二十九仔)。母本硬枝紅心+父本台農80號之雜交後裔，試驗代號為2029，茶改場成功育種的排列順序第十三號。於民國70年命名。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '翠玉 (台茶13號)'
+            image: '/images/cultivars/tsuiyu_13.png', imageAlt: '翠玉 (台茶13號)'
         },
         {
             number: 14, name: '白文', alias: '72-145', parent: '臺農983號 (母) x 白毛猴 (父)', location: '—', breedYear: 1960, releaseYear: 1983, type: '中上/橫張', use: '烏龍茶、包種茶',
             description: '#台茶14號：(白文)。利用母本台農983號與父本白毛猴經人工雜交而來，原品系代號為72-145號，在1983年命名為台茶14號。其母本台農983號為利用母本黃柑與父本Kyang雜交而來',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '白文 (台茶14號)'
+            image: '/images/cultivars/white_pekoe.png', imageAlt: '白文 (台茶14號)'
         },
         {
             number: 15, name: '白燕', alias: '72-215', parent: '臺農983號 (母) x 白毛猴 (父)', location: '—', breedYear: 1960, releaseYear: 1983, type: '中上/橫張', use: '烏龍茶、白茶',
             description: '#台茶15號：(白燕)。源自於民國49年（1960年）10月起，以白毛猴品種為父本，與優良品系進行人工雜交，經各項育種篩選，至民國70年（1981年）區域試驗完成，開始申請品種命名，同期共有5個品系申請命名，其中4個品系獲得品種名。是利用母本台農983號與父本白毛猴經人工雜交而來，原品系代號為72-215號，在1983年命名為台茶15號。其母本台農983號為利用母本黃柑與父本Kyang雜交而來。',
-            image: '/images/cultivars/bg_teaset.png', imageAlt: '白燕 (台茶15號)'
+            image: '/images/cultivars/white_pekoe.png', imageAlt: '白燕 (台茶15號)'
         },
         {
             number: 16, name: '白鶴', alias: '72-283', parent: '臺農335號 (母) x 臺農1958號 (父)', location: '—', breedYear: 1960, releaseYear: 1983, type: '強/直立', use: '龍井、包種花胚',
             description: '#台茶16號：(白鶴)。源自於民國49年（1960年）10月起，以白毛猴品種為父本，與優良品系進行人工雜交，經各項育種篩選，至民國70年（1981年）區域試驗完成，開始申請品種命名，同期共有5個品系申請命名，其中4個品系獲得品種名。利用母本台農335號與父本台農1958號經人工雜交而來，原品系代號為72-283號，在1983年命名為台茶16號。其母本台農335號為利用母本大葉烏龍與父本Kyang雜交而來。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '白鶴 (台茶16號)'
+            image: '/images/cultivars/white_pekoe.png', imageAlt: '白鶴 (台茶16號)'
         },
         {
             number: 17, name: '白鷺', alias: '72-322', parent: '臺農335號 (母) x 臺農1958號 (父)', location: '—', breedYear: 1960, releaseYear: 1983, type: '強/直立', use: '烏龍茶、壽眉',
             description: '#台茶17號：(白鷺)。選自1960年(民國49年)之人工雜交後裔，父本為台農1958號（台農20號（漢口系） X白毛猴），母本為台農335號（大葉烏龍 X Kyang），原品系代號為72-322號，在1983年(民國72年)命名為台茶17號。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '白鷺 (台茶17號)'
+            image: '/images/cultivars/white_pekoe.png', imageAlt: '白鷺 (台茶17號)'
         },
         {
             number: 18, name: '紅玉', alias: 'B-10-58', parent: '緬甸大葉種 (母) x 台灣野生山茶 (父)', location: '—', breedYear: 1946, releaseYear: 1999, type: '強/直立', use: '紅茶',
             description: '#台茶18號：(紅玉)。其母本為（緬甸大葉種B-729）+父本（台灣野生山茶B-607）之雜交後裔，歷經50餘年的試驗研究選出適製優良紅茶品種（品系代號：B-40-58），並於民國88年6月經前台灣省農林廳審查通過，正式登記命名為－台茶18號；且於92年茶業改良場百周年慶票選俗名為『紅玉』。',
-            image: '/images/cultivars/ruby18.png', imageAlt: '紅玉 (台茶18號) - 薄荷肉桂香'
+            image: '/images/cultivars/ruby_18.png', imageAlt: '紅玉 (台茶18號) - 薄荷肉桂香'
         },
         {
             number: 19, name: '碧玉', alias: '51-14 品系', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶19號：(碧玉)。原品系為51～14，親本： 台茶12號× 青心烏龍，1962年雜交，2004年1月通過命名， 2004（民國93）年9月22日在農業委員會辦理優質烏龍茶品賞會公開票選俗名為「碧玉」。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '碧玉 (台茶19號)'
+            image: '/images/cultivars/biyu_19.png', imageAlt: '碧玉 (台茶19號)'
         },
         {
             number: 20, name: '迎香', alias: '51-67 品系', parent: '2022品系 (母) x 青心烏龍 (父)', location: '—', breedYear: 1962, releaseYear: 2004, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶20號：(迎香)。原品系為51～67，親本： 2022× 青心烏龍，1962年雜交，2004年1月通過命名，2004（民國93）年9月22日在農業委員會辦理優質烏龍茶品賞會公開票選俗名為「迎香」。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '迎香 (台茶20號)'
+            image: '/images/cultivars/modern_oolong.png', imageAlt: '迎香 (台茶20號)'
         },
         {
             number: 21, name: '紅韻', alias: 'FKK-22', parent: '祈門 Kymun (母) x Kyang (父)', location: '—', breedYear: 1953, releaseYear: 2008, type: '強/直立', use: '紅茶',
             description: '#台茶21號：(紅韻)。此品種於2008年10月17日 經審查通過，正式命名為「台茶21號」；且於2008年10月24日 為故新井耕吉郎支所長塑像揭幕式後，另取別名為「紅韻」。',
-            image: '/images/cultivars/bg_teaset.png', imageAlt: '紅韻 (台茶21號)'
+            image: '/images/cultivars/hongyun_21.png', imageAlt: '紅韻 (台茶21號)'
         },
         {
             number: 22, name: '沁玉', alias: 'TC6', parent: '臺茶12號 (母) x 青心烏龍 (父)', location: '—', breedYear: 1996, releaseYear: 2014, type: '強/橫張', use: '包種茶、烏龍茶', hasRights: true,
             description: '#台茶22號：(沁玉)。茶業改良場於民國85年，進行適於中、低海拔栽培高香氣高品質之茶樹育種，選定適當之組合人工雜交。次年 (86年) 播種，88年3月定植單株，經過6年個體試驗後，於民國97年選育成績優異的22個品系進入品系比較試驗。 101年完成品系比較試驗，選出台茶22號，並於103年通過品種命名與取得品種權。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '沁玉 (台茶22號)'
+            image: '/images/cultivars/modern_oolong.png', imageAlt: '沁玉 (台茶22號)'
         },
         {
             number: 23, name: '祁韻', alias: '祁辦 1', parent: '祁門系之天然雜交', location: '—', breedYear: 1938, releaseYear: 2017, type: '強/中間', use: '紅茶',
             description: '#台茶23號：(祁韻)。魚池分場自台北帝國大學山本亮教授27年於安徽省祁門茶區採集之茶樹種子，由台灣總督府中央研究所魚池紅茶試驗支所（即茶業改良場魚池分場前身）經多年觀察試驗研究，於90年挑選品系「祁辦1」於 106 年命名。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '祁韻 (台茶23號)'
+            image: '/images/cultivars/qiyun_23.png', imageAlt: '祁韻 (台茶23號)'
         },
         {
             number: 24, name: '山蘊', alias: '臺東永康 1 號', parent: '臺灣原生山茶永康變種', location: '—', breedYear: 2001, releaseYear: 2019, type: '強/硬張', use: '綠茶、紅茶',
             description: '#台茶24號：(山蘊)。民國 89 年開始，台東分場即深入台東縣延平鄉泰平山區進行原生山茶調查與標記。經過扦插繁殖種植，並在台東分場茶樹育種母本區進行馴化栽培試驗，育種期間研究人員不斷探究山區原生茶樹種植於平地的可行性。19 年時光，通過種種試驗程序、歷經單株選拔與一系列優良品系的比較試驗，終於成功育種，以「台茶24號」的嶄新身份登場。',
-            image: '/images/cultivars/mountain24.png', imageAlt: '山蘊 (台茶24號)'
+            image: '/images/cultivars/native_24.png', imageAlt: '山蘊 (台茶24號)'
         },
         {
             number: 25, name: '紫韻', alias: '84-91-3-2', parent: '緬甸 Burma (母) x 臺茶 13 號 (父)', location: '—', breedYear: 1992, releaseYear: 2021, type: '強/中間', use: '綠茶、紅茶', hasRights: true,
             description: '#台茶25號：(紫韻)。是天然雜交而成，源自從茶改場園區找出2000多顆種子，定植出400多棵茶樹，再從中選育出，母本是緬甸Burma大葉種，父本台茶13號，2021年4月26日通過命名為「台茶25號」。',
-            image: '/images/cultivars/bg_plantation.png', imageAlt: '紫韻 (台茶25號)'
+            image: '/images/cultivars/purple_25.png', imageAlt: '紫韻 (台茶25號)'
         },
         {
             number: 26, name: '豐鶴', alias: '5313品系', parent: '祁門系單株選拔', location: '—', breedYear: 2008, releaseYear: 2024, type: '強/茶芽直立', use: '綠茶、紅茶', hasRights: true,
             description: '#台茶26號：(豐鶴) 。自97年起由一系列育種試驗程序的品系圃中，最終選出適合製造綠茶與紅茶的5313品系(祁門茶樹選拔)，並於113年6月11日正式通過審查命名為「台茶26號」。',
-            image: '/images/cultivars/bg_leaves.png', imageAlt: '豐鶴 (台茶26號)'
+            image: '/images/cultivars/modern_oolong.png', imageAlt: '豐鶴 (台茶26號)'
         }
     ];
 

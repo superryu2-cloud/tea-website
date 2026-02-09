@@ -1,6 +1,9 @@
 ﻿import React, { useState } from 'react';
 import { Lightbulb, Plus, ArrowDown, Leaf, Coffee } from 'lucide-react';
 import TaiwanTeaMap from '../../components/TaiwanTeaMap';
+import SpecialtyTeaCard from '../../components/SpecialtyTeaCard';
+import SpecialtyTeaModal from '../../components/SpecialtyTeaModal';
+import { TAIWAN_SPECIALTY_TEAS } from '../../data/specialtyTeaData';
 
 
 // 茶名組合數據
@@ -90,6 +93,7 @@ const FeaturedTeaOverview = () => {
     const [selectedOrigin, setSelectedOrigin] = useState(null);
     const [selectedCultivar, setSelectedCultivar] = useState(null);
     const [selectedMethod, setSelectedMethod] = useState(null);
+    const [selectedTea, setSelectedTea] = useState(null);
 
     const generateTeaName = () => {
         const parts = [];
@@ -394,6 +398,38 @@ const FeaturedTeaOverview = () => {
                 <div className="max-w-6xl mx-auto">
                     <TaiwanTeaMap />
                 </div>
+
+                {/* Section 6: 臺灣特色茶深度導覽 Cards */}
+                <div className="mt-16">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-3 mb-4">
+                            <div className="p-2 bg-emerald-100 rounded-full text-emerald-700">
+                                <Leaf size={24} />
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-stone-900">臺灣特色茶深度導覽</h3>
+                        </div>
+                        <p className="text-stone-600 max-w-2xl mx-auto">
+                            點擊卡片展開詳細內容，每種茶皆包含歷史沿革、產地風土、製程工藝、風味特色、沖泡指南等完整資訊。
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {TAIWAN_SPECIALTY_TEAS.map((tea) => (
+                            <SpecialtyTeaCard
+                                key={tea.id}
+                                tea={tea}
+                                onClick={setSelectedTea}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Tea Detail Modal */}
+                <SpecialtyTeaModal
+                    tea={selectedTea}
+                    isOpen={!!selectedTea}
+                    onClose={() => setSelectedTea(null)}
+                />
             </section>
         </div>
     );

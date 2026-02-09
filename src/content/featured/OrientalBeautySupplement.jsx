@@ -79,7 +79,7 @@ export default function OrientalBeautySupplement() {
                   <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold shrink-0 text-sm">2</div>
                   <div>
                     <h6 className="font-bold text-stone-800 text-sm">防禦機制 (Defense)</h6>
-                    <p className="text-xs text-stone-600">釋放費洛蒙吸引天敵（白獵蛛、黃斑粗喙椿象）。「聯合次要敵人打擊主要敵人」。</p>
+                    <p className="text-xs text-stone-600">釋放新洛蒙吸引天敵（白獵蛛、黃斑粗喙椿象）。「聯合次要敵人打擊主要敵人」。</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
