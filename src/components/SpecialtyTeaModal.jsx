@@ -14,6 +14,7 @@ import {
     Scale,
     Info
 } from 'lucide-react';
+import TeaProcessFlowchart from './TeaProcessFlowchart';
 
 /**
  * 臺灣特色茶詳細內容 Modal
@@ -101,24 +102,6 @@ const SpecialtyTeaModal = ({ tea, isOpen, onClose }) => {
     if (!isOpen || !tea) return null;
 
     const colors = TEA_COLORS[tea.color] || TEA_COLORS['emerald'];
-
-    // Parse process steps
-    const parseProcessSteps = (processText) => {
-        const lines = processText.split('\n').filter(line => line.trim());
-        const intro = lines[0];
-        const steps = lines.slice(1).filter(line => /^\d+\./.test(line.trim())).map(step => {
-            const match = step.match(/^(\d+)\.\s*\*\*([^*]+)\*\*[：:]\s*(.+)$/);
-            return {
-                num: match ? match[1] : '',
-                title: match ? match[2] : '',
-                content: match ? match[3] : step.replace(/^\d+\.\s*/, '').replace(/\*\*/g, '')
-            };
-        });
-        const conclusion = lines.find((line, idx) => idx > 0 && !/^\d+\./.test(line.trim()));
-        return { intro, steps, conclusion };
-    };
-
-    const { intro: processIntro, steps: processSteps, conclusion: processConclusion } = parseProcessSteps(tea.process);
 
     const modalContent = (
         <div
@@ -221,48 +204,16 @@ const SpecialtyTeaModal = ({ tea, isOpen, onClose }) => {
                                     </p>
                                 </section>
 
-                                {/* Process - Timeline Style */}
+                                {/* Process - Flowchart Style */}
                                 <section>
                                     <h3 className={`font-bold text-[21px] font-sans mb-4 flex items-center gap-3 ${colors.accent}`}>
                                         <Flame size={24} />
                                         製程工藝
                                     </h3>
-                                    <p className="text-stone-600 text-[17px] font-sans leading-[1.8] mb-5">
-                                        {processIntro}
-                                    </p>
-
-                                    {/* Steps */}
-                                    <div className="relative pl-8 border-l-3 border-stone-200 space-y-5">
-                                        {processSteps.map((step, index) => (
-                                            <div key={index} className="relative">
-                                                {/* Timeline dot */}
-                                                <div className={`absolute -left-[26px] w-5 h-5 rounded-full ${colors.dot} border-3 border-white shadow-md`} />
-
-                                                {/* Step content */}
-                                                <div className="bg-stone-50 rounded-xl p-5 border border-stone-100">
-                                                    <div className="flex items-baseline gap-3 mb-2">
-                                                        <span className={`text-[15px] font-bold ${colors.accent} bg-white px-3 py-1 rounded-full border ${colors.border}`}>
-                                                            步驟 {step.num || index + 1}
-                                                        </span>
-                                                        {step.title && (
-                                                            <span className="font-bold text-[19px] text-stone-800 font-sans">
-                                                                {step.title}
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    <p className="text-stone-600 text-[17px] font-sans leading-[1.7]">
-                                                        {step.content}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    {processConclusion && (
-                                        <p className="text-stone-500 text-[17px] font-sans italic mt-5 bg-stone-50 p-4 rounded-xl border-l-4 border-stone-300">
-                                            {processConclusion}
-                                        </p>
-                                    )}
+                                    <TeaProcessFlowchart
+                                        teaId={tea.id}
+                                        processDescription={tea.process}
+                                    />
                                 </section>
                             </div>
 
