@@ -64,6 +64,7 @@ import AcademyContentBlock from './components/academy/AcademyContentBlock';
 import AcademyHighlightBox from './components/academy/AcademyHighlightBox';
 import AcademyChapter from './components/academy/AcademyChapter';
 import HeroSection from './components/sections/HeroSection';
+import CNYHero from './components/hero/CNYHero';
 import JourneySection from './components/sections/JourneySection';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import ScienceSection from './components/sections/ScienceSection';
@@ -675,9 +676,16 @@ const TeaWebsite = () => {
         }}
       />
 
+
+
       <main>
         {activeTab === 'journey' && <JourneySection goToTab={goToTab} setScienceRoom={setScienceRoom} />}
-        {activeTab === 'home' && <HeroSection goToTab={goToTab} goToTeaExhibit={goToTeaExhibit} teaData={teaData} />}
+        {activeTab === 'home' && (
+          <>
+            <CNYHero />
+            <HeroSection goToTab={goToTab} goToTeaExhibit={goToTeaExhibit} teaData={teaData} />
+          </>
+        )}
         {activeTab === 'home' && (
           <VarietiesSection
             activeTab={activeTab}
