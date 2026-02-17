@@ -6,6 +6,7 @@ const CNY_DATA = [
         day: '除夕',
         title: '除夕圍爐',
         desc: '金馬迎春，圍爐團圓。以一壺好茶，溫暖相聚時刻。',
+        blessing: '去歲千般皆如願，今年萬事定稱心。',
         image: '/images/cny_chuxi_greeting.png',
         theme: 'from-red-900 to-red-950'
     },
@@ -13,6 +14,7 @@ const CNY_DATA = [
         day: '初一',
         title: '初一走春',
         desc: '馬年行大運，春暖花開。品茗迎新，茶香滿乾坤。',
+        blessing: '韶華常在，明年依舊，相與笑春風。',
         image: '/images/cny_chuyi_greeting.png',
         theme: 'from-amber-800 to-amber-950'
     },
@@ -20,6 +22,7 @@ const CNY_DATA = [
         day: '初二',
         title: '初二回娘家',
         desc: '茶禮寄情，溫馨重逢。帶著上好的臺灣茶，分享回家的喜悅。',
+        blessing: '年年約，常相見，但無事，身強健。',
         image: '/images/cny_chuer_greeting.png',
         theme: 'from-rose-900 to-rose-950'
     },
@@ -27,6 +30,7 @@ const CNY_DATA = [
         day: '初三',
         title: '初三赤狗日',
         desc: '赤口日忌外出，在家喫茶養生。靜心品茗，為新的一年蓄積能量。',
+        blessing: '願得長如此，年年物候新。',
         image: '/images/cny_chusan_greeting.png',
         theme: 'from-emerald-900 to-emerald-950'
     },
@@ -34,6 +38,7 @@ const CNY_DATA = [
         day: '初四',
         title: '初四接神',
         desc: '恭迎灶神，茶香敬天地。祈求風調雨順，茶運昌隆。',
+        blessing: '共祝明朝屬日好，梅花滿眼踏新年。',
         image: '/images/cny_chusi_greeting.png',
         theme: 'from-orange-800 to-orange-950'
     },
@@ -41,6 +46,7 @@ const CNY_DATA = [
         day: '初五',
         title: '初五開工',
         desc: '五路財神到，開工大吉。以茶代酒，祝事業如茶樹般枝繁葉茂。',
+        blessing: '去歲千般皆如願，今年萬事定稱心。',
         image: '/images/cny_chuwu_greeting.png',
         theme: 'from-yellow-800 to-yellow-950'
     }
@@ -125,6 +131,15 @@ const CNYHero = () => {
                     <p className="max-w-2xl text-xl md:text-2xl text-white/90 font-sans leading-relaxed drop-shadow-md">
                         {currentData.desc}
                     </p>
+
+                    {currentData.blessing && (
+                        <div className="mt-2 flex flex-col items-center gap-2">
+                            <div className="w-12 h-px bg-amber-400/50" />
+                            <p className="max-w-lg text-lg md:text-xl text-amber-100/80 italic font-sans leading-loose drop-shadow-md tracking-[0.15em]">
+                                「{currentData.blessing}」
+                            </p>
+                        </div>
+                    )}
 
                     {/* Day Indicator */}
                     <div className="flex gap-3 mt-8 pointer-events-auto">
