@@ -65,6 +65,7 @@ import AcademyHighlightBox from './components/academy/AcademyHighlightBox';
 import AcademyChapter from './components/academy/AcademyChapter';
 import HeroSection from './components/sections/HeroSection';
 import CNYHero from './components/hero/CNYHero';
+import TeaPoetrySection from './components/sections/TeaPoetrySection';
 import JourneySection from './components/sections/JourneySection';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import ScienceSection from './components/sections/ScienceSection';
@@ -714,6 +715,7 @@ const TeaWebsite = () => {
             selectScienceTeachingChapter={selectScienceTeachingChapter}
           />
         )}
+        {activeTab === 'home' && <TeaPoetrySection />}
 
         {activeTab === 'puerh' && (
           <PuerhSection
