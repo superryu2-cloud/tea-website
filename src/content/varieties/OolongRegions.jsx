@@ -30,6 +30,15 @@ const GUANGDONG_IMAGES = [
   { src: '/images/dancong_aroma_flowers.png', alt: '單叢香型花卉' },
 ];
 
+const DONGPIAN_IMAGES = [
+  { src: '/images/dongpian/hero.png', alt: '冬片茶山茶園雲海' },
+  { src: '/images/dongpian/buds.png', alt: '冬季新芽嫩葉帶霜' },
+  { src: '/images/dongpian/harvest.png', alt: '冬片採收夕照茶園' },
+  { src: '/images/dongpian/teacup.png', alt: '冬片茶湯品茗' },
+  { src: '/images/dongpian/winter_season.png', alt: '台灣低海拔冬季茶園鳥瞰' },
+  { src: '/images/dongpian/infographic.png', alt: '四季採茶週期圖示' },
+];
+
 const TAIWAN_IMAGES = [
   { src: '/images/taiwan_mountain_tea.png', alt: '臺灣高山茶園雲海' },
   { src: '/images/dongding_oolong_1771259430131.png', alt: '凍頂烏龍茶與炭焙' },
@@ -1183,6 +1192,117 @@ export default function OolongRegions({ topOffsetPx, activeHref = null }) {
               </div>
             </div>
           </div>
+
+          {/* ═══ 冬片茶 ═══ */}
+          <div className="rounded-2xl border-2 border-sky-200 bg-gradient-to-br from-sky-50 via-white to-teal-50 overflow-hidden">
+            {/* 標題 banner */}
+            <div className="relative h-[340px] md:h-[420px]">
+              <ClickableImage
+                src={DONGPIAN_IMAGES[0].src}
+                alt={DONGPIAN_IMAGES[0].alt}
+                className="h-[340px] md:h-[420px] w-full"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-sky-900/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-3">
+                  <span className="text-[13px] font-bold tracking-widest text-white/90 uppercase">台灣特色茶</span>
+                </div>
+                <h3 className="text-[32px] md:text-[40px] font-extrabold text-white drop-shadow-xl leading-tight">冬片仔茶</h3>
+                <p className="mt-2 text-[17px] text-white/80 drop-shadow-md">暖冬催生的台灣本土地方特色茶</p>
+              </div>
+            </div>
+
+            <div className="p-6 md:p-8 space-y-8">
+              {/* 認識冬片茶 — 第一段 */}
+              <div className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
+                <h4 className="text-[22px] font-extrabold text-stone-900 mb-4">認識冬片仔茶</h4>
+                <div className="grid md:grid-cols-5 gap-6 items-start">
+                  <div className="md:col-span-3 space-y-4">
+                    <p className="text-[17px] leading-[1.9] text-stone-700">
+                      一般茶園正常一年可依四季採收 4、5 次茶葉，茶葉在冬茶採收後，因為氣溫下降，茶葉生理代謝及機能亦逐漸緩慢，幾乎呈休眠狀態。
+                    </p>
+                    <p className="text-[17px] leading-[1.9] text-stone-700">
+                      但因為全球暖化的關係造成了冬季氣溫不冷，暖暖的冬天讓茶樹誤以為「春天來了」而讓茶樹又再吐出新芽，這時採收的茶就稱為
+                      <span className="font-bold text-sky-800">「冬片仔」</span>或
+                      <span className="font-bold text-sky-800">「冬片茶」</span>。
+                    </p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <ClickableImage
+                      src={DONGPIAN_IMAGES[5].src}
+                      alt={DONGPIAN_IMAGES[5].alt}
+                      className="rounded-2xl w-full h-[200px]"
+                    />
+                    <p className="text-center text-[14px] text-stone-500 mt-2">四季採茶週期</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 特色說明 — 第二段 */}
+              <div className="grid md:grid-cols-5 gap-6 items-start">
+                <div className="md:col-span-2">
+                  <ClickableImage
+                    src={DONGPIAN_IMAGES[1].src}
+                    alt={DONGPIAN_IMAGES[1].alt}
+                    className="rounded-2xl w-full h-[280px]"
+                  />
+                  <p className="text-center text-[14px] text-stone-500 mt-2">冬季新芽 · 帶霜嫩葉</p>
+                </div>
+                <div className="md:col-span-3 space-y-4">
+                  <div className="inline-flex items-center gap-2 bg-sky-100 rounded-full px-4 py-1.5">
+                    <span className="text-[13px] font-bold tracking-widest text-sky-700">「六水或七水仔茶」</span>
+                  </div>
+                  <p className="text-[17px] leading-[1.9] text-stone-700">
+                    「冬片仔」又稱為「六水或七水仔茶」，主要產地在<span className="font-semibold text-stone-900">中低海拔地區</span>。
+                  </p>
+                  <p className="text-[17px] leading-[1.9] text-stone-700">
+                    冬片茶由於生長於冬季，<span className="font-semibold text-stone-900">日照少、茶芽生長緩慢</span>，茶葉品質優異，具<span className="font-semibold text-sky-800">茶湯清揚、甘甜醇厚、不易苦澀</span>的特色，有別於其他季節所生產的茶。
+                  </p>
+                  <p className="text-[17px] leading-[1.9] text-stone-700">
+                    「冬片仔」亦為高海拔茶區或進口茶所無法生產及媲美，有別於一般春、夏、秋及冬茶，為
+                    <span className="font-bold text-sky-800">台灣具本土地方特色茶之一</span>。
+                  </p>
+                </div>
+              </div>
+
+              {/* 三大特色卡片 */}
+              <div className="grid md:grid-cols-3 gap-5">
+                {[
+                  { icon: '☀️', title: '日照少', sub: '緩慢生長的秘密', desc: '冬季日照時數短，茶芽生長放緩，有機物質緩慢積累，造就茶葉細膩風味。' },
+                  { icon: '🍃', title: '茶湯清揚', sub: '甘甜醇厚不苦澀', desc: '低苦澀、高甘甜的滋味特色，茶湯清揚細膩，入口滑順，深受品茗人士喜愛。' },
+                  { icon: '🗺️', title: '中低海拔獨產', sub: '台灣本土地方特色', desc: '高海拔茶區或進口茶無法生產，為台灣中低海拔獨有的季節性特色茶。' },
+                ].map(({ icon, title, sub, desc }) => (
+                  <div key={title} className="bg-white rounded-2xl border border-sky-100 shadow-sm hover:shadow-md transition-shadow p-6">
+                    <div className="text-3xl mb-3">{icon}</div>
+                    <h5 className="text-[19px] font-extrabold text-stone-900">{title}</h5>
+                    <div className="text-[13px] font-semibold text-sky-600 mb-3">{sub}</div>
+                    <p className="text-[17px] text-stone-600 leading-relaxed">{desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* 圖片畫廊 */}
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-px flex-1 bg-sky-100" />
+                  <span className="text-[13px] font-bold tracking-widest text-sky-600 uppercase">冬片茶影像</span>
+                  <div className="h-px flex-1 bg-sky-100" />
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {[DONGPIAN_IMAGES[2], DONGPIAN_IMAGES[3], DONGPIAN_IMAGES[4]].map((img) => (
+                    <div key={img.src}>
+                      <ClickableImage
+                        src={img.src}
+                        alt={img.alt}
+                        className="rounded-xl h-[160px] md:h-[200px] w-full"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       ) : (
         <p className="leading-relaxed text-stone-700">內容建置中。</p>

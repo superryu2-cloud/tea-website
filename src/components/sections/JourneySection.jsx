@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { ChevronRight, Layout, Map, Layers, Leaf, FlaskConical, PenTool, Mountain, Coffee, Search } from 'lucide-react';
+import AiGuideSection from './AiGuideSection';
 
 /**
  * JourneySection - 茶館筆記學習旅程區塊
@@ -238,6 +239,8 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                     </div>
                 </div>
             </div>
+
+            <AiGuideSection goToTab={goToTab} />
         </div>
     );
 }

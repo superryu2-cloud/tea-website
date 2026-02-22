@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette } from 'lucide-react';
+import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
 import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
@@ -145,6 +145,13 @@ export default function SiteNavigation({
   const [chonghuaNavOpen, setChonghuaNavOpen] = useState(false);
   const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
   const [chonghuaMobileOpen, setChonghuaMobileOpen] = useState(false);
+  const [adminUnlocked, setAdminUnlocked] = useState(false);
+
+  const handleAdminClick = () => {
+    if (adminUnlocked) { goToTab('admin'); setAcademyNavOpen(false); return; }
+    const pw = prompt('請輸入管理密碼：');
+    if (pw === '690214') { setAdminUnlocked(true); goToTab('admin'); setAcademyNavOpen(false); }
+  };
 
 
   // Secret Trigger Logic - Open password modal after 5 clicks
@@ -239,7 +246,7 @@ export default function SiteNavigation({
 
   const navRows = [
     ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured'],
-    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'paper_switcher', 'lang_switcher'],
+    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'admin', 'paper_switcher', 'lang_switcher'],
   ];
 
   return (
@@ -428,6 +435,18 @@ export default function SiteNavigation({
                           title={paperThemeLabel}
                         >
                           <Palette size={16} className="text-stone-600" />
+                        </button>
+                      );
+                    } else if (item === 'admin') {
+                      content = (
+                        <button
+                          type="button"
+                          onClick={handleAdminClick}
+                          className={`nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30 ${activeTab === 'admin' ? 'nav-pill--active' : ''}`}
+                          aria-label="商品管理"
+                          title="商品管理"
+                        >
+                          <Settings size={16} className="text-stone-600" />
                         </button>
                       );
                     } else if (item === 'lang_switcher') {

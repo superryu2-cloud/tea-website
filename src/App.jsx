@@ -67,6 +67,10 @@ import HeroSection from './components/sections/HeroSection';
 import CNYHero from './components/hero/CNYHero';
 import TeaPoetrySection from './components/sections/TeaPoetrySection';
 import JourneySection from './components/sections/JourneySection';
+import AiChatButton from './components/ai/AiChatButton';
+import ProductAdmin from './components/shop/ProductAdmin';
+import RelatedProducts from './components/shop/RelatedProducts';
+import { isPageEnabled } from './data/productData';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import ScienceSection from './components/sections/ScienceSection';
 import AromaticsChapter from './content/scienceChapters/AromaticsChapter';
@@ -680,6 +684,8 @@ const TeaWebsite = () => {
 
 
       <main>
+        <AiChatButton />
+        {activeTab === 'admin' && <ProductAdmin />}
         {activeTab === 'journey' && <JourneySection goToTab={goToTab} setScienceRoom={setScienceRoom} />}
         {activeTab === 'home' && (
           <>
@@ -805,6 +811,13 @@ const TeaWebsite = () => {
           daguanUnlocked={daguanUnlocked}
           chonghuaUnlocked={chonghuaUnlocked}
         />
+
+        {/* 全域商品推薦（根據後台展示設定） */}
+        {activeTab !== 'admin' && isPageEnabled(activeTab) && (
+          <div className="max-w-5xl mx-auto px-4 pb-12">
+            <RelatedProducts showAll title="推薦商品" />
+          </div>
+        )}
       </main>
 
       {/* AI Components are now correctly defined and called */}
