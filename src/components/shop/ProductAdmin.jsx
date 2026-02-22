@@ -349,33 +349,48 @@ export default function ProductAdmin() {
                 儲存於瀏覽器 · 清除快取會回到預設商品
             </p>
 
-            {/* ── 匯出程式碼 ── */}
+            {/* ── 一鍵同步 ── */}
             <div className="mt-6 bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <Code size={22} className="text-orange-500" />
                         <div>
-                            <h2 className="text-[20px] font-extrabold text-stone-900" style={ff}>匯出程式碼</h2>
-                            <p className="text-[14px] text-stone-400" style={ff}>複製後貼到 productData.js 的 DEFAULT_PRODUCTS，部署即生效</p>
+                            <h2 className="text-[20px] font-extrabold text-stone-900" style={ff}>同步至程式碼</h2>
+                            <p className="text-[14px] text-stone-400" style={ff}>將商品與展示設定寫入 productData.js，推 GitHub 即部署</p>
                         </div>
                     </div>
-                    <button
-                        type="button"
-                        onClick={() => {
-                            const all = getAllProducts().map(({ _source, ...p }) => p);
-                            const code = `const DEFAULT_PRODUCTS = ${JSON.stringify(all, null, 4)};`;
-                            navigator.clipboard.writeText(code).then(() => {
-                                alert('✅ 已複製到剪貼簿！\n\n請打開 src/data/productData.js，\n找到 const DEFAULT_PRODUCTS = [...];\n全選替換貼上即可。');
-                            }).catch(() => {
-                                prompt('請手動複製以下內容：', code);
-                            });
-                        }}
-                        className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-[17px] px-6 py-3 rounded-full transition-colors shadow-md"
-                        style={ff}
-                    >
-                        <Copy size={17} />
-                        複製程式碼
-                    </button>
+                    <div className="flex gap-3">
+                        <button
+                            type="button"
+                            onClick={async () => {
+                                const all = getAllProducts().map(({ _source, ...p }) => p);
+                                try {
+                                    const res = await fetch('/__sync-products', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ products: all, displayPages: enabledPages }),
+                                    });
+                                    const data = await res.json();
+                                    if (data.ok) {
+                                        alert('✅ 已同步！\n\nproductData.js 已更新，\n推到 GitHub 即可部署。');
+                                    } else {
+                                        alert('❌ 同步失敗：' + (data.error || '未知錯誤'));
+                                    }
+                                } catch {
+                                    // 如果非開發模式，fallback 到複製
+                                    const code = `const DEFAULT_PRODUCTS = ${JSON.stringify(all, null, 4)};`;
+                                    navigator.clipboard.writeText(code).then(() => {
+                                        alert('⚠️ 一鍵同步僅限開發模式（npm run dev）\n\n已改為複製程式碼到剪貼簿，\n請手動貼到 productData.js。');
+                                    });
+                                }
+                            }}
+                            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-[17px] px-6 py-3 rounded-full transition-colors shadow-md"
+                            style={ff}
+                        >
+                            <Save size={17} />
+                            一鍵同步
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

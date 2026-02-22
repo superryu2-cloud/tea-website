@@ -189,10 +189,15 @@ export const PAGE_OPTIONS = [
     { id: 'academy_zhiya', label: '質雅（所有課程）' },
 ];
 
+// 預設展示頁面（部署後即生效，後台修改會覆蓋）
+const DEFAULT_DISPLAY_PAGES = ["academy_chonghua","journey"];
+
 export function getDisplayConfig() {
     try {
-        return JSON.parse(localStorage.getItem(DISPLAY_KEY)) || [];
-    } catch { return []; }
+        const stored = JSON.parse(localStorage.getItem(DISPLAY_KEY));
+        if (stored && stored.length > 0) return stored;
+        return DEFAULT_DISPLAY_PAGES;
+    } catch { return DEFAULT_DISPLAY_PAGES; }
 }
 
 export function saveDisplayConfig(enabledPages) {
