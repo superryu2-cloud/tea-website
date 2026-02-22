@@ -3,7 +3,7 @@ import {
     getAllProducts, addProduct, updateProduct, deleteProduct,
     DEFAULT_ORDER_URL, PAGE_OPTIONS, getDisplayConfig, saveDisplayConfig,
 } from '../../data/productData';
-import { Plus, Trash2, Edit3, Save, X, Package, ShoppingBag, Tag, DollarSign, Image, Link, FileText, Settings, Eye, EyeOff, Monitor } from 'lucide-react';
+import { Plus, Trash2, Edit3, Save, X, Package, ShoppingBag, Tag, DollarSign, Image, Link, FileText, Settings, Eye, EyeOff, Monitor, Copy, Code } from 'lucide-react';
 
 const CATEGORIES = [
     { value: 'teaware', label: '茶具' },
@@ -348,6 +348,36 @@ export default function ProductAdmin() {
             <p className="mt-6 text-center text-[14px] text-stone-400" style={ff}>
                 儲存於瀏覽器 · 清除快取會回到預設商品
             </p>
+
+            {/* ── 匯出程式碼 ── */}
+            <div className="mt-6 bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <Code size={22} className="text-orange-500" />
+                        <div>
+                            <h2 className="text-[20px] font-extrabold text-stone-900" style={ff}>匯出程式碼</h2>
+                            <p className="text-[14px] text-stone-400" style={ff}>複製後貼到 productData.js 的 DEFAULT_PRODUCTS，部署即生效</p>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const all = getAllProducts().map(({ _source, ...p }) => p);
+                            const code = `const DEFAULT_PRODUCTS = ${JSON.stringify(all, null, 4)};`;
+                            navigator.clipboard.writeText(code).then(() => {
+                                alert('✅ 已複製到剪貼簿！\n\n請打開 src/data/productData.js，\n找到 const DEFAULT_PRODUCTS = [...];\n全選替換貼上即可。');
+                            }).catch(() => {
+                                prompt('請手動複製以下內容：', code);
+                            });
+                        }}
+                        className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-[17px] px-6 py-3 rounded-full transition-colors shadow-md"
+                        style={ff}
+                    >
+                        <Copy size={17} />
+                        複製程式碼
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

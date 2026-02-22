@@ -8,89 +8,63 @@ const DEFAULT_ORDER_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewfo
 // ── 預設商品（範例，可直接刪改） ──
 const DEFAULT_PRODUCTS = [
     {
-        id: 'hu-cheng-round',
-        name: '手工圓形壺承',
-        subtitle: '柴燒質感，穩固四平',
-        price: 780,
-        image: '/images/shop/placeholder_teaware.png',
-        tags: ['茶具', '壺承', '茶席'],
-        category: 'teaware',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '手工柴燒壺承，圓形略帶揚角設計，與各式壺型不衝突。',
-        specs: ['直徑 15cm', '高 2.5cm', '陶製'],
+        "id": "cha-li-set",
+        "name": "茶則組",
+        "subtitle": "",
+        "price": 550,
+        "image": "/images/shop/20210928013106142.jpg",
+        "tags": [
+            "茶具",
+            "茶理",
+            "茶撥",
+            "茶掏"
+        ],
+        "category": "accessory",
+        "orderUrl": "請洽茶香園",
+        "description": "竹製茶撥與茶掏，精神象徵，理茶之用。",
+        "specs": [
+            "長 18.5cm",
+            "竹製",
+            "茶則+茶理+則置"
+        ]
     },
     {
-        id: 'yun-bei-celadon',
-        name: '青瓷勻杯',
-        subtitle: '斷水俐落，容量 180ml',
-        price: 560,
-        image: '/images/shop/placeholder_teaware.png',
-        tags: ['茶具', '勻杯', '茶席'],
-        category: 'teaware',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '手工青瓷勻杯，釉色溫潤，斷水乾淨。',
-        specs: ['容量 180ml', '高 8cm', '瓷製'],
+        "id": "hu-cheng-round",
+        "name": "茶具組",
+        "subtitle": "青白系列 旅行組",
+        "price": 3600,
+        "image": "/images/shop/LINE_NOTE_260223_1.jpg",
+        "tags": [
+            "茶具",
+            "壺承",
+            "勻杯",
+            "茶則"
+        ],
+        "category": "teaware",
+        "orderUrl": "請洽茶香園",
+        "description": "茶則組（刻）：550\n茶則（黑）380\n茶則（原色）400\n則置100\n茶理100\n水盂（青白）650\n茶具組3600",
+        "specs": [
+            "瓷器"
+        ]
     },
     {
-        id: 'xi-fang-bamboo',
-        name: '竹席方',
-        subtitle: '天然竹編，穩定耐用',
-        price: 420,
-        image: '/images/shop/placeholder_teaware.png',
-        tags: ['茶具', '席方', '茶席'],
-        category: 'teaware',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '天然竹編席方，柔軟不傷器具，承載一切凸顯一切。',
-        specs: ['30×20cm', '天然竹'],
-    },
-    {
-        id: 'cha-li-set',
-        name: '茶理組（茶撥+茶掏）',
-        subtitle: '竹製一對，上下有節',
-        price: 350,
-        image: '/images/shop/placeholder_teaware.png',
-        tags: ['茶具', '茶理', '茶撥', '茶掏'],
-        category: 'accessory',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '竹製茶撥與茶掏，精神象徵，理茶之用。',
-        specs: ['長 18cm', '竹製', '一組兩支'],
-    },
-    {
-        id: 'dongding-oolong',
-        name: '凍頂烏龍（傳統炭焙）',
-        subtitle: '南投鹿谷，焦糖花韻',
-        price: 600,
-        image: '/images/shop/placeholder_tea.png',
-        tags: ['茶葉', '烏龍', '凍頂', '台灣烏龍'],
-        category: 'tea',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '南投鹿谷傳統炭焙凍頂烏龍，帶花果香與焦糖甜韻。',
-        specs: ['75g / 罐', '半球型', '炭焙'],
-    },
-    {
-        id: 'oriental-beauty',
-        name: '東方美人（膨風茶）',
-        subtitle: '新竹北埔，天然蜜香',
-        price: 900,
-        image: '/images/shop/placeholder_tea.png',
-        tags: ['茶葉', '東方美人', '台灣烏龍', '蜜香'],
-        category: 'tea',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '小綠葉蟬叮咬後的天然蜜香，發酵度 60-85%。',
-        specs: ['50g / 罐', '條型', '重發酵'],
-    },
-    {
-        id: 'dongpian-tea',
-        name: '冬片仔茶',
-        subtitle: '暖冬限定，清揚甘甜',
-        price: 550,
-        image: '/images/shop/placeholder_tea.png',
-        tags: ['茶葉', '冬片', '台灣烏龍', '冬片仔'],
-        category: 'tea',
-        orderUrl: DEFAULT_ORDER_URL,
-        description: '暖冬催生的台灣本土地方特色茶，茶湯清揚、甘甜醇厚、不易苦澀。',
-        specs: ['75g / 罐', '半球型', '季節限定'],
-    },
+        "id": "dongpian-tea",
+        "name": "騰王暖茶",
+        "subtitle": "騰王暖茶來自「永福鎮文星村」，位於福建省龍岩市漳平市。",
+        "price": 500,
+        "image": "/images/shop/68376555_749739878819278_753155127040278528_n.jpg",
+        "tags": [
+            "茶葉",
+            "冬片仔",
+            "紅茶"
+        ],
+        "category": "tea",
+        "orderUrl": "https://shopee.tw/-%E5%84%AA%E9%81%B8-%E5%8A%A9%E7%9C%A0%E6%9A%96%E8%83%83%E9%A6%96%E9%81%B8%E8%8C%B6%E8%91%89%E3%80%8A%E9%A8%B0%E7%8E%8B%E6%9A%96%E8%8C%B6%E3%80%8B%E7%84%A1%E8%BE%B2%E8%97%A5SOD%E6%B0%B8%E7%A6%8F%E9%AB%98%E5%B1%B1%E7%B4%85%E8%8C%B6-85%E5%BA%A6C%E6%B2%96%E6%B3%A1-i.40329816.2652815932",
+        "description": "優良品種(軟枝烏龍)  \n茶葉生長環境好  \n不灑農藥，使用奈米有機肥  \n有噴SOD(超氧化物歧化酶)  \n茶性為溫姓",
+        "specs": [
+            "75g / 包"
+        ]
+    }
 ];
 
 // ── 讀寫 localStorage ──
