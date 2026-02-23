@@ -246,7 +246,7 @@ export default function SiteNavigation({
 
   const navRows = [
     ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured'],
-    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'admin', 'paper_switcher', 'lang_switcher'],
+    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'toolbar'],
   ];
 
   return (
@@ -419,53 +419,44 @@ export default function SiteNavigation({
                           </span>
                         </button>
                       );
-                    } else if (item === 'paper_switcher') {
+                    } else if (item === 'toolbar') {
                       const cyclePaperTheme = () => {
                         const currentIndex = PAPER_THEMES.findIndex(t => t.key === paperTheme);
                         const nextIndex = (currentIndex + 1) % PAPER_THEMES.length;
                         setPaperTheme(PAPER_THEMES[nextIndex].key);
                       };
-
                       content = (
-                        <button
-                          type="button"
-                          onClick={cyclePaperTheme}
-                          className="nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30 hover:bg-emerald-50 transition-colors"
-                          aria-label="紙張風格"
-                          title={paperThemeLabel}
-                        >
-                          <Palette size={16} className="text-stone-600" />
-                        </button>
-                      );
-                    } else if (item === 'admin') {
-                      content = (
-                        <button
-                          type="button"
-                          onClick={handleAdminClick}
-                          className={`nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30 ${activeTab === 'admin' ? 'nav-pill--active' : ''}`}
-                          aria-label="商品管理"
-                          title="商品管理"
-                        >
-                          <Settings size={16} className="text-stone-600" />
-                        </button>
-                      );
-                    } else if (item === 'lang_switcher') {
-                      content = (
-                        <button
-                          type="button"
-                          onClick={i18n.toggleLang}
-                          className="nav-pill nav-pill--tier1 group relative flex items-center justify-center gap-1.5 px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600/30"
-                          aria-label={i18n.t('ui.language')}
-                          title={i18n.t('ui.language')}
-                        >
-                          <span className={`text-sm font-bold transition-all ${i18n.lang === 'zh-Hant' ? 'text-emerald-700' : 'text-stone-400'}`}>
-                            中
-                          </span>
-                          <span className="text-stone-300 text-sm font-light">/</span>
-                          <span className={`text-sm font-bold transition-all ${i18n.lang === 'en' ? 'text-emerald-700' : 'text-stone-400'}`}>
-                            EN
-                          </span>
-                        </button>
+                        <div className="flex items-center gap-1 bg-stone-100/60 rounded-full px-1.5 py-1">
+                          <button
+                            type="button"
+                            onClick={handleAdminClick}
+                            className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors ${activeTab === 'admin' ? 'bg-white shadow-sm' : ''}`}
+                            aria-label="商品管理"
+                            title="商品管理"
+                          >
+                            <Settings size={15} className="text-stone-600" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={cyclePaperTheme}
+                            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors"
+                            aria-label="紙張風格"
+                            title={paperThemeLabel}
+                          >
+                            <Palette size={15} className="text-stone-600" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={i18n.toggleLang}
+                            className="flex items-center justify-center h-8 rounded-full hover:bg-white transition-colors px-2 gap-0.5"
+                            aria-label={i18n.t('ui.language')}
+                            title={i18n.t('ui.language')}
+                          >
+                            <span className={`text-xs font-bold ${i18n.lang === 'zh-Hant' ? 'text-emerald-700' : 'text-stone-400'}`}>中</span>
+                            <span className="text-stone-300 text-xs">/</span>
+                            <span className={`text-xs font-bold ${i18n.lang === 'en' ? 'text-emerald-700' : 'text-stone-400'}`}>EN</span>
+                          </button>
+                        </div>
                       );
                     } else {
                       const label = splitNavLabel(String(i18n.t(`nav.${item}`)).replace(/\s*\n\s*/g, ''));
