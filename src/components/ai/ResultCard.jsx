@@ -68,16 +68,21 @@ export default function ResultCard({ result, onRestart, onNavigate }) {
                     <h4 className="font-sans text-[17px] font-extrabold text-stone-900 mb-4">你的學習路線</h4>
                     <ol className="space-y-2.5">
                         {info.path.map((key, idx) => (
-                            <li key={key} className="flex items-center gap-3">
+                            <li
+                                key={key}
+                                className="flex items-center gap-3 cursor-pointer hover:bg-stone-50 rounded-xl px-2 py-1.5 -mx-2 transition-colors"
+                                onClick={() => onNavigate && onNavigate(key)}
+                            >
                                 <span className={`w-7 h-7 rounded-full ${idx === 0 ? colors.badge + ' text-white' : 'bg-stone-100 text-stone-500'} flex items-center justify-center text-[13px] font-bold shrink-0`}>
                                     {idx + 1}
                                 </span>
-                                <span className={`font-sans text-[17px] ${idx === 0 ? 'font-bold text-stone-900' : 'text-stone-600'}`}>
+                                <span className={`font-sans text-[17px] ${idx === 0 ? 'font-bold text-stone-900' : 'text-stone-600 hover:text-emerald-700'}`}>
                                     {STEP_LABELS[key]}
                                 </span>
                                 {idx === 0 && (
                                     <span className="ml-auto text-[12px] font-bold text-teal-600 bg-teal-50 rounded-full px-2 py-0.5">從這裡開始</span>
                                 )}
+                                <ChevronRight size={14} className="ml-auto text-stone-300" />
                             </li>
                         ))}
                     </ol>

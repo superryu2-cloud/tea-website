@@ -51,8 +51,8 @@ export default function AiChatPanel({ isOpen, onClose }) {
                     <Leaf size={16} className="text-white" />
                 </div>
                 <div className="flex-1">
-                    <p className="font-sans text-[15px] font-extrabold text-white">茶識 AI</p>
-                    <p className="font-sans text-[12px] text-white/70">問我任何茶的問題</p>
+                    <p className="font-sans text-[18px] font-extrabold text-white">茶識 AI</p>
+                    <p className="font-sans text-[14px] text-white/70">問我任何茶的問題</p>
                 </div>
                 <button onClick={onClose} className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors">
                     <X size={14} className="text-white" />
@@ -65,7 +65,7 @@ export default function AiChatPanel({ isOpen, onClose }) {
                     <button
                         key={c}
                         onClick={() => send(c)}
-                        className="shrink-0 text-[12px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 rounded-full px-3 py-1 hover:bg-teal-100 transition-colors whitespace-nowrap"
+                        className="shrink-0 text-[14px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 rounded-full px-3 py-1.5 hover:bg-teal-100 transition-colors whitespace-nowrap"
                     >
                         {c}
                     </button>
@@ -82,9 +82,9 @@ export default function AiChatPanel({ isOpen, onClose }) {
                             </div>
                         )}
                         <div
-                            className={`max-w-[78%] rounded-2xl px-4 py-3 text-[14px] leading-relaxed font-sans ${m.role === 'user'
-                                    ? 'bg-emerald-600 text-white rounded-br-md'
-                                    : 'bg-stone-100 text-stone-800 rounded-bl-md'
+                            className={`max-w-[78%] rounded-2xl px-4 py-3 text-[16px] leading-relaxed font-sans ${m.role === 'user'
+                                ? 'bg-emerald-600 text-white rounded-br-md'
+                                : 'bg-stone-100 text-stone-800 rounded-bl-md'
                                 }`}
                             dangerouslySetInnerHTML={{
                                 __html: m.text
@@ -116,7 +116,7 @@ export default function AiChatPanel({ isOpen, onClose }) {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
                     placeholder="輸入你的問題..."
-                    className="flex-1 bg-stone-100 rounded-full px-4 py-2.5 text-[14px] font-sans text-stone-800 placeholder-stone-400 outline-none focus:ring-2 focus:ring-teal-400 transition"
+                    className="flex-1 bg-stone-100 rounded-full px-4 py-2.5 text-[16px] font-sans text-stone-800 placeholder-stone-400 outline-none focus:ring-2 focus:ring-teal-400 transition"
                 />
                 <button
                     onClick={() => send()}

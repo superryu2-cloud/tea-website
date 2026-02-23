@@ -112,7 +112,7 @@ const Footer = ({ goToTab, i18n }) => {
             {showScrollTop && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 bg-amber-300 text-stone-900 p-3 rounded-full hover:bg-amber-200 transition-all z-50 animate-fadeIn border border-amber-200"
+                    className="fixed bottom-24 right-8 bg-amber-300 text-stone-900 p-3 rounded-full hover:bg-amber-200 transition-all z-50 animate-fadeIn border border-amber-200"
                     aria-label={i18n.t('ui.backToTop')}
                 >
                     <ArrowUp size={24} />

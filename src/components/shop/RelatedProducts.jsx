@@ -27,8 +27,8 @@ export default function RelatedProducts({ tags = [], title = '相關推薦商品
                     <ShoppingBag size={20} className="text-white" />
                 </div>
                 <div>
-                    <h3 className="font-sans text-[22px] font-extrabold text-stone-900">{title}</h3>
-                    <p className="font-sans text-[14px] text-stone-400">學完就帶走，讓知識活在生活裡</p>
+                    <h3 className="font-sans text-[26px] font-extrabold text-stone-900">{title}</h3>
+                    <p className="font-sans text-[17px] text-emerald-600 mt-0.5">學完就帶走，讓知識活在生活裡</p>
                 </div>
             </div>
 

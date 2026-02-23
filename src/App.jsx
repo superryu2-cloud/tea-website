@@ -70,6 +70,7 @@ import JourneySection from './components/sections/JourneySection';
 import AiChatButton from './components/ai/AiChatButton';
 import ProductAdmin from './components/shop/ProductAdmin';
 import RelatedProducts from './components/shop/RelatedProducts';
+import StationNav from './components/ai/StationNav';
 import { isPageEnabled } from './data/productData';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import ScienceSection from './components/sections/ScienceSection';
@@ -811,6 +812,9 @@ const TeaWebsite = () => {
           daguanUnlocked={daguanUnlocked}
           chonghuaUnlocked={chonghuaUnlocked}
         />
+
+        {/* 個人化學習導航（根據測驗路線） */}
+        <StationNav activeTab={activeTab} goToTab={goToTab} />
 
         {/* 全域商品推薦（根據後台展示設定） */}
         {activeTab !== 'admin' && isPageEnabled(activeTab) && (

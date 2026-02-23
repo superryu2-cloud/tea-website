@@ -37,9 +37,11 @@ export default function ProductCard({ product }) {
                 {/* 內容 */}
                 <div className="p-5 flex-1 flex flex-col">
                     <h4 className="font-sans text-[19px] font-extrabold text-stone-900 leading-snug">{name}</h4>
-                    <p className="font-sans text-[17px] text-stone-500 mt-1.5 leading-relaxed">{subtitle}</p>
+                    <p className="font-sans text-[17px] text-amber-600 mt-1.5 leading-relaxed">{subtitle}</p>
                     {description && (
-                        <p className="font-sans text-[15px] text-stone-600 mt-2 leading-relaxed" style={{ whiteSpace: 'pre-line' }}>{description}</p>
+                        <div className="mt-3 pl-3 py-2 border-l-[3px] border-emerald-400 bg-stone-50 rounded-r-lg">
+                            <p className="font-sans text-[16px] text-stone-600 leading-relaxed" style={{ whiteSpace: 'pre-line' }}>{description}</p>
+                        </div>
                     )}
 
                     {/* 規格 */}
