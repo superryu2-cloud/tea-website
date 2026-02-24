@@ -119,13 +119,13 @@ export default function AiGuideSection({ goToTab }) {
                     <div className="text-center">
                         <button
                             onClick={() => setPhase('quiz')}
-                            className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white font-extrabold font-sans text-[18px] px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                            className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-700 hover:via-teal-700 hover:to-emerald-800 text-white font-extrabold font-sans text-[22px] px-12 py-5 rounded-full shadow-[0_8px_30px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 ring-2 ring-amber-300/40 hover:ring-amber-300/70"
                         >
-                            <Brain size={22} />
+                            <Brain size={24} />
                             開始我的茶道診斷
-                            <ChevronRight size={20} />
+                            <ChevronRight size={22} />
                         </button>
-                        <p className="mt-3 font-sans text-[14px] text-stone-400">約 2 分鐘完成 · 結果儲存於本機</p>
+                        <p className="mt-4 font-sans text-[18px] font-bold text-stone-500 tracking-wider">約 2 分鐘完成 · 結果儲存於本機</p>
                     </div>
                 </div>
             )}

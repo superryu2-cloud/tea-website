@@ -239,7 +239,7 @@ export default function SiteNavigation({
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
-      chonghua: ['03'],
+      chonghua: ['01', '03', '04'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -548,13 +548,16 @@ export default function SiteNavigation({
                     {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
                       const num = chapter.id;
                       const active = isAcademyImplemented('chonghua', num);
+                      const isCurrentTab = activeTab === `academy_chonghua_${num}`;
                       return (
                         <a
                           key={num}
                           href={`?tab=academy_chonghua_${num}`}
-                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors ${active
-                            ? 'bg-sky-50 text-sky-950 hover:bg-sky-100 shadow-sm'
-                            : 'bg-white/60 hover:bg-white text-stone-800 hover:text-stone-900'
+                          className={`nav-pill nav-pill--tier2 ${isCurrentTab ? 'nav-pill--active' : ''} justify-start items-center rounded-xl px-3.5 py-2.5 text-base transition-all duration-200 ${isCurrentTab
+                            ? 'bg-emerald-50 text-emerald-900 font-extrabold ring-1 ring-emerald-300/60 shadow-md'
+                            : active
+                              ? 'bg-emerald-50/60 text-emerald-800 font-bold hover:bg-emerald-100 shadow-sm border-l-[3px] border-emerald-400'
+                              : 'bg-white/50 hover:bg-white/80 text-stone-500 hover:text-stone-700'
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -567,7 +570,7 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-bold text-[18px] block shrink-0">{renderFlipLabel(num)}</span>
+                            <span className="font-bold text-[18px] block shrink-0 nav-pill--no-line">{renderFlipLabel(num)}</span>
                             {chapter.title && (<span className="block text-[16px] font-medium leading-snug truncate">{renderFlipLabel(chapter.title)}</span>)}
                           </div>
                         </a>
@@ -587,13 +590,16 @@ export default function SiteNavigation({
                     {cat.chapters.map((chapter) => {
                       const num = chapter.id;
                       const active = isAcademyImplemented(cat.key, num);
+                      const isCurrentTab = activeTab === `academy_${cat.key}_${num}`;
                       return (
                         <a
                           key={num}
                           href={`${cat.prefix}${num}`}
-                          className={`nav-pill nav-pill--tier2 justify-start items-center rounded-lg px-3 py-2.5 text-base font-base transition-colors ${active
-                            ? 'bg-amber-50 text-amber-950 hover:bg-amber-100 shadow-sm'
-                            : 'bg-white/60 hover:bg-white text-stone-800 hover:text-stone-900'
+                          className={`nav-pill nav-pill--tier2 ${isCurrentTab ? 'nav-pill--active' : ''} justify-start items-center rounded-xl px-3.5 py-2.5 text-base transition-all duration-200 ${isCurrentTab
+                            ? 'bg-amber-50 text-amber-900 font-extrabold ring-1 ring-amber-300/60 shadow-md'
+                            : active
+                              ? 'bg-amber-50/60 text-amber-800 font-bold hover:bg-amber-100 shadow-sm border-l-[3px] border-amber-400'
+                              : 'bg-white/50 hover:bg-white/80 text-stone-500 hover:text-stone-700'
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -630,7 +636,7 @@ export default function SiteNavigation({
                           }}
                         >
                           <div className="w-full text-left flex items-baseline gap-3">
-                            <span className="font-bold text-[18px] block shrink-0">{renderFlipLabel(num)}</span>
+                            <span className="font-bold text-[18px] block shrink-0 nav-pill--no-line">{renderFlipLabel(num)}</span>
                             {chapter.title && (<span className="block text-[16px] font-medium leading-snug truncate">{renderFlipLabel(chapter.title)}</span>)}
                           </div>
                         </a>

@@ -167,10 +167,10 @@ const ACADEMY_CHAPTERS = {
         title: '第十一堂：紅茶的世界版圖',
         intro: '從茶盜羅伯特·福鈞的傳奇，到小葉種與大葉種的科學差異。本章帶您走遍紅茶的全球版圖，理解品種、分級與沖泡的核心知識。'
     },
-    academy_chonghua_01: { component: ChonghuaChapter01, category: '崇華書院', title: '第01堂', intro: '規劃中' },
+    academy_chonghua_01: { component: ChonghuaChapter01, category: '崇華書院', title: '第01堂：茶具的佈置與搭配', intro: '從桌巾、席方到壺承、飲杯，系統化解構茶席中每一件器具的功能與搭配心法。' },
     academy_chonghua_02: { component: ChonghuaChapter02, category: '崇華書院', title: '第02堂', intro: '規劃中' },
-    academy_chonghua_03: { component: ChonghuaChapter03, category: '崇華書院', title: '第03堂', intro: '規劃中' },
-    academy_chonghua_04: { component: ChonghuaChapter04, category: '崇華書院', title: '第04堂', intro: '規劃中' },
+    academy_chonghua_03: { component: ChonghuaChapter03, category: '崇華書院', title: '第03堂：世界與台灣紅茶史', intro: '從中國武夷山走向世界的全球貿易脈絡，到日月潭紅玉的在地風味轉型。' },
+    academy_chonghua_04: { component: ChonghuaChapter04, category: '崇華書院', title: '第04堂：開啟你的風味冒險地圖 (1-2-6 體系指南)', intro: '掌握「1-2-6」三個數字，從萬茶歸宗的植物學起點、小葉種與大葉種的血統之別，到六大茶類的工藝光譜，建立一套風味預測系統。' },
     academy_chonghua_05: { component: ChonghuaChapter05, category: '崇華書院', title: '第05堂', intro: '規劃中' },
     academy_chonghua_06: { component: ChonghuaChapter06, category: '崇華書院', title: '第06堂', intro: '規劃中' },
     academy_chonghua_07: { component: ChonghuaChapter07, category: '崇華書院', title: '第07堂', intro: '規劃中' },

@@ -42,7 +42,7 @@ const DEFAULT_PRODUCTS = [
         ],
         "category": "teaware",
         "orderUrl": "請洽茶香園",
-        "description": "茶則組（刻）：550\n茶則（黑）380\n茶則（原色）400\n則置100\n茶理100\n水盂（青白）650\n茶具組3600",
+        "description": "青白旅行組\nR123茶壺、R73勻杯、\nR94茶荷、176飲杯*6、\nR72茶倉、829AB壺承、\nV68蓋置、旅行空袋、\n茶則組",
         "specs": [
             "瓷器"
         ]
@@ -190,7 +190,7 @@ export const PAGE_OPTIONS = [
 ];
 
 // 預設展示頁面（部署後即生效，後台修改會覆蓋）
-const DEFAULT_DISPLAY_PAGES = ["academy_chonghua","journey"];
+const DEFAULT_DISPLAY_PAGES = ["academy_chonghua"];
 
 export function getDisplayConfig() {
     try {

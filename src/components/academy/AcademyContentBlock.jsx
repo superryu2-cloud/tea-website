@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function AcademyContentBlock({ title, icon: Icon, children }) {
+export default function AcademyContentBlock({ title, icon: Icon, children, id }) {
     return (
-        <div className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
+        <div id={id} className="rounded-2xl border border-stone-200 bg-white p-6 md:p-8 scroll-mt-28">
             {title && (
                 <div className="flex items-center gap-3 mb-6 border-b border-stone-100 pb-4">
                     {Icon && <Icon className="text-emerald-700" size={20} />}

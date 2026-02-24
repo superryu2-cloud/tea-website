@@ -225,16 +225,55 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                             </div>
                         </div>
 
-                        <div className="museum-panel p-6 md:p-8">
+                        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-800 via-emerald-900 to-stone-900 p-6 md:p-8 text-white shadow-2xl">
+                            {/* 裝飾光暈 */}
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl" />
+                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-3xl" />
+                            {/* 浮動茶葉裝飾 */}
+                            <div className="absolute top-3 right-6 text-2xl opacity-15 decoration-float-slow select-none pointer-events-none">🍃</div>
+                            <div className="absolute bottom-4 right-12 text-lg opacity-10 decoration-float select-none pointer-events-none">🍵</div>
+                            <div className="absolute top-1/2 left-3 text-xl opacity-10 decoration-sway select-none pointer-events-none">🌿</div>
+                            {/* 紙張紋理 */}
+                            <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
+                                backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+                                mixBlendMode: 'overlay'
+                            }} />
 
-
-                            <div className="flex items-center gap-3">
-                                <Search className="text-emerald-700" />
-                                <div className="text-lg font-extrabold text-stone-900">百科入口</div>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400/30 to-amber-600/20 border border-amber-400/30 flex items-center justify-center shadow-lg shadow-amber-900/20">
+                                        <Search size={20} className="text-amber-300" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-[22px] font-extrabold tracking-tight">百科入口</h3>
+                                        <p className="text-[12px] font-semibold text-emerald-300/60 tracking-widest uppercase">Quick Access</p>
+                                    </div>
+                                </div>
+                                {/* 金色分隔線 */}
+                                <div className="h-px bg-gradient-to-r from-amber-400/40 via-amber-300/20 to-transparent my-4" />
+                                <p className="text-[17px] font-medium text-emerald-100/80 leading-relaxed mb-5">
+                                    想直接查資料？點選下方主題快速跳轉：
+                                </p>
+                                <div className="flex flex-wrap gap-2.5">
+                                    {[
+                                        { label: '六大茶類', icon: Layers, action: () => goToTab('varieties') },
+                                        { label: '品種', icon: Leaf, action: () => goToTab('cultivars') },
+                                        { label: '科學', icon: FlaskConical, action: () => { setScienceRoom('oxidation'); goToTab('science'); } },
+                                        { label: '特色茶', icon: Mountain, action: () => goToTab('featured') },
+                                        { label: '茶道', icon: Coffee, action: () => goToTab('ceremony') },
+                                    ].map((it) => (
+                                        <button
+                                            key={it.label}
+                                            type="button"
+                                            onClick={it.action}
+                                            className="group/chip rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-[15px] font-bold text-white hover:bg-white/25 hover:border-amber-300/50 hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 flex items-center gap-2"
+                                        >
+                                            <it.icon size={14} className="text-amber-300/70 group-hover/chip:text-amber-300 transition-colors" />
+                                            {it.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
-                            <p className="mt-3 text-stone-600 leading-relaxed">
-                                想直接查資料：請到上方功能列切換到對應主題（六大茶類／品種／科學／特色茶…）。
-                            </p>
                         </div>
                     </div>
                 </div>

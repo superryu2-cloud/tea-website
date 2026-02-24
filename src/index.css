@@ -1026,9 +1026,9 @@
   }
 
   .nav-drawer .cement-strip {
-    background-color: rgba(255, 255, 255, 0.78);
+    background-color: rgba(255, 255, 255, 0.94);
     background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(243, 244, 246, 0.78)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 244, 246, 0.95)),
       radial-gradient(rgba(15, 23, 42, 0.03) 0.7px, transparent 0.7px),
       radial-gradient(rgba(15, 23, 42, 0.02) 0.6px, transparent 0.6px);
     backdrop-filter: blur(10px);
@@ -1061,6 +1061,11 @@
   .nav-pill--active .nav-pill__label::after {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Suppress underline on number spans */
+  .nav-pill--no-line .nav-pill__label::after {
+    display: none;
   }
 
   /* Label flip (text) ??iWare-like */
@@ -1314,6 +1319,7 @@
       opacity: 0;
       transform: scale(0.85);
     }
+
     100% {
       opacity: 1;
       transform: scale(1);
