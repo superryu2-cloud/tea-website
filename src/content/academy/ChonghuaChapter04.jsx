@@ -14,6 +14,7 @@ export default function ChonghuaChapter04() {
         { id: 'ch04-naming', label: '命名學' },
         { id: 'ch04-number-6', label: '數字「6」六大茶類' },
         { id: 'ch04-modern', label: '現代啟示錄' },
+        { id: 'ch04-practice', label: '評鑑實作與風味輪' },
         { id: 'ch04-conclusion', label: '結語' },
     ];
 
@@ -42,9 +43,9 @@ export default function ChonghuaChapter04() {
     return (
         <div className="flex gap-8">
             {/* Left Sidebar TOC */}
-            <nav className="hidden lg:block w-60 shrink-0">
-                <div className="sticky top-28 museum-panel p-4 md:p-5 tool-surface shadow-sm" style={{ maxHeight: 'calc(100vh - 160px)', overflowY: 'auto' }}>
-                    <h3 className="text-lg font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-emerald-600">
+            <nav className="hidden lg:block w-60 shrink-0 sticky top-28 self-start" style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
+                <div className="museum-panel p-4 md:p-5 tool-surface shadow-sm rounded-2xl">
+                    <h3 className="text-[18px] font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-emerald-600">
                         章節導覽
                     </h3>
                     <div className="space-y-1">
@@ -54,7 +55,7 @@ export default function ChonghuaChapter04() {
                                 <button
                                     key={id}
                                     onClick={() => scrollTo(id)}
-                                    className={`block w-full text-left rounded-xl px-4 py-3 transition-all duration-300 border box-border text-lg font-bold ${isActive
+                                    className={`block w-full text-left rounded-xl px-4 py-3 transition-all duration-300 border box-border text-[16px] font-bold ${isActive
                                         ? 'bg-gradient-to-br from-emerald-100/80 to-teal-50 border-emerald-300 text-emerald-900 shadow-md ring-1 ring-emerald-200'
                                         : 'bg-white/40 border-stone-200/60 hover:border-emerald-300 hover:bg-gradient-to-r hover:from-emerald-50/50 hover:to-white hover:shadow-md text-stone-500 hover:text-stone-900'
                                         }`}
@@ -80,14 +81,11 @@ export default function ChonghuaChapter04() {
                         {/* 仙俠風格 Hero Banner */}
                         <div className="mb-10 rounded-3xl overflow-hidden shadow-xl relative group">
                             <ImageLightbox
-                                src={`${IMG}/hero_banner.png`}
-                                alt="仙俠茶山 — 雲霧繚繞的奇峰與古茶樹"
+                                src={`${IMG}/hero_banner_realistic.png`}
+                                alt="晨霧繚繞的寫實高山茶園"
                                 className="block w-full h-[320px] md:h-[420px] overflow-hidden"
                                 imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-900/70 via-stone-900/30 to-transparent p-6 md:p-8 pointer-events-none">
-                                <p className="text-[14px] font-bold tracking-widest uppercase text-white/60">Cinematic Xianxia Realism</p>
-                            </div>
                         </div>
 
                         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 p-8 border border-emerald-100 shadow-md">
@@ -95,7 +93,7 @@ export default function ChonghuaChapter04() {
                                 <Compass size={120} className="text-emerald-500" />
                             </div>
                             <div className="relative z-10 prose prose-stone max-w-none">
-                                <p className="text-[17px] leading-relaxed text-stone-800 font-medium font-sans">
+                                <p className="text-[19px] leading-relaxed text-stone-800 font-medium font-sans">
                                     當你走在街頭，望向那些充滿木質裝潢、煙霧繚繞的傳統茶行，心中是否曾有過一絲遲疑？「裡面的茶到底標價合不合理？」、「進去會不會被玄學洗腦？」這種資訊不對稱帶來的「不確定性」，往往是現代人進入茶世界最大的心理障礙。傳統茶業常將簡單的感官體驗包裹在複雜的社交辭令中，讓人覺得門檻極高。
                                 </p>
                                 <p className="text-[17px] leading-relaxed text-stone-800 font-medium font-sans mt-4">
@@ -126,7 +124,7 @@ export default function ChonghuaChapter04() {
                                         <span className="text-teal-700 text-[32px] font-extrabold group-hover:text-white transition-colors duration-300">2</span>
                                     </div>
                                     <h3 className="text-[22px] font-bold text-stone-900 mb-3">血統之別</h3>
-                                    <p className="text-[17px] text-stone-700 leading-relaxed">
+                                    <p className="text-[16px] text-stone-700 leading-relaxed">
                                         小葉種與大葉種——兩大核心血統決定茶湯底色
                                     </p>
                                 </div>
@@ -282,29 +280,188 @@ export default function ChonghuaChapter04() {
                                 </tbody>
                             </table>
                         </div>
+                        {/* END of the comparing table block, one div closes correctly */}
 
-                        <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-2xl border-l-4 border-amber-500">
-                            <h4 className="text-[19px] font-bold text-amber-900 mb-3 flex items-center gap-2 font-sans">
-                                <Trophy size={18} className="text-amber-700" />
-                                專業洞察
+                        {/* 大小葉種分類與組織學 */}
+                        <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-100 mb-8 mt-10">
+                            <h4 className="text-[22px] font-bold text-stone-900 mb-6 flex items-center gap-2">
+                                <span className="w-2 h-6 bg-teal-500 rounded-full"></span>
+                                大葉種與小葉種的進階分類法
                             </h4>
-                            <p className="text-[17px] text-stone-700 leading-relaxed">
-                                以紅茶為例，小葉種製作的「祁門紅茶」以高昂的花果香聞名；而雲南大葉種製作的「滇紅」，其香氣或許內斂，但滋味極其厚實。在茶葉貿易中，滇紅被譽為<strong className="text-amber-900">「紅茶味精」</strong>，這並非貶義，而是指在調配茶（Blended Tea）時，只需加入少量滇紅，就能顯著提升整杯茶的濃度與骨架感。
-                            </p>
+
+                            <div className="mb-8 rounded-2xl overflow-hidden shadow-md border border-stone-100 bg-stone-50 p-2">
+                                <ImageLightbox
+                                    src={`${IMG}/tea_garden_evolution.png`}
+                                    alt="茶樹多樣性的演化：寫實高山與平地茶園"
+                                    className="block w-full h-auto overflow-hidden rounded-xl"
+                                    imgClassName="w-full h-auto object-cover max-h-[400px] mx-auto"
+                                />
+                                <p className="text-center text-[14px] text-stone-500 mt-2 font-medium">茶樹多樣性的演化：從高山雲霧間到平地茶園</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-8 mb-8">
+                                <div className="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100/50">
+                                    <h5 className="font-bold text-[19px] text-emerald-800 mb-3 border-b border-emerald-200/60 pb-3 flex items-center gap-2">
+                                        <div className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm">1</div>
+                                        以「葉面積係數」來分
+                                    </h5>
+                                    <p className="text-[16px] text-stone-700 leading-relaxed mb-3">
+                                        以秋天的成熟芽葉為主（冬芽較小不準確），計算面積公式為：<strong className="text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded ml-1">葉長 × 葉寬 × 0.7</strong>
+                                    </p>
+                                    <ul className="text-[16px] text-stone-700 space-y-3 mt-1">
+                                        <li className="flex items-start gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-emerald-100/50">
+                                            <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+                                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                                <strong className="whitespace-nowrap text-stone-900">台灣標準</strong>
+                                                <span className="text-stone-600 whitespace-nowrap">：面積 ≥ 40</span>
+                                                <span className="text-emerald-700 font-bold whitespace-nowrap">→ 歸類為大葉種</span>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-emerald-100/50">
+                                            <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+                                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                                <strong className="whitespace-nowrap text-stone-900">國際標準</strong>
+                                                <span className="text-stone-600 whitespace-nowrap">：面積 ≥ 60</span>
+                                                <span className="text-emerald-700 font-bold whitespace-nowrap">→ 歸類為大葉種</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="bg-teal-50/50 p-5 rounded-2xl border border-teal-100/50">
+                                    <h5 className="font-bold text-[19px] text-teal-800 mb-3 border-b border-teal-200/60 pb-3 flex items-center gap-2">
+                                        <div className="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm">2</div>
+                                        用「葉肉組織」來分
+                                    </h5>
+                                    <p className="text-[16px] text-stone-700 leading-relaxed mb-3">
+                                        單看葉形有時不準確，近年更精確的做法是透過顯微鏡觀察葉肉切片中的「柵狀組織」與「海綿組織」：
+                                    </p>
+                                    <ul className="text-[16px] text-stone-700 space-y-3 mt-1">
+                                        <li className="flex items-start gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-teal-100/50">
+                                            <span className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+                                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                                <strong className="whitespace-nowrap text-stone-900">柵狀組織 ＝ 1 層</strong>
+                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 大葉種</span>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-start gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-teal-100/50">
+                                            <span className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+                                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                                <strong className="whitespace-nowrap text-stone-900">柵狀組織 ＝ 2-3 層</strong>
+                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 小葉種</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="mb-8 rounded-2xl overflow-hidden shadow-md border border-stone-100 bg-stone-50 p-2">
+                                <ImageLightbox
+                                    src={`${IMG}/tissue_microscope.jpg`}
+                                    alt="茶葉切片顯微圖 — 柵狀組織與海綿組織"
+                                    className="block w-full h-auto overflow-hidden rounded-xl"
+                                    imgClassName="w-full h-auto object-contain max-h-[400px] mx-auto"
+                                />
+                                <p className="text-center text-sm text-stone-500 mt-2 font-medium">茶葉切片顯微圖展示了靠近上表皮的柵狀組織與靠近下表皮的海綿組織</p>
+                            </div>
+
+                            <div className="mb-8 bg-stone-50 p-6 md:p-8 rounded-3xl border border-stone-100">
+                                <div className="mb-8 rounded-2xl overflow-hidden shadow-md border border-stone-100 bg-white p-2">
+                                    <ImageLightbox
+                                        src={`${IMG}/tissue_cross_section.jpg`}
+                                        alt="大葉種與小葉種茶葉切面比較圖"
+                                        className="block w-full h-auto overflow-hidden"
+                                        imgClassName="w-full h-auto object-contain max-h-[500px] mx-auto"
+                                    />
+                                </div>
+                                <div className="bg-white p-6 md:p-8 rounded-3xl border border-stone-100 shadow-sm mb-6">
+                                    <h4 className="text-[24px] font-bold text-stone-900 mb-4 flex items-center gap-2">
+                                        <Sprout size={24} className="text-emerald-600" />
+                                        山茶科山茶屬茶系
+                                    </h4>
+                                    <p className="text-[17px] text-stone-700 leading-relaxed mb-6">
+                                        下層的<strong>海綿組織</strong>是圓形的，它的厚薄程度與茶葉內質物的蓄積量息息相關。海綿組織越飽滿，內質物含量越多。
+                                    </p>
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <div className="flex gap-4 items-start bg-white p-5 rounded-2xl border border-stone-100 shadow-sm transition-shadow hover:shadow-md h-full">
+                                            <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center shrink-0 mt-1">
+                                                <Leaf className="text-green-600" size={20} />
+                                            </div>
+                                            <div>
+                                                <h6 className="font-bold text-[17px] text-stone-900 mb-1.5">小葉種：以香氣見長</h6>
+                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">海綿組織較薄，內質物相對較少，因此喝起來比較<strong>溫和、口感圓潤</strong>。</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 items-start bg-white p-5 rounded-2xl border border-stone-100 shadow-sm transition-shadow hover:shadow-md h-full">
+                                            <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-1">
+                                                <Leaf className="text-red-600" size={20} />
+                                            </div>
+                                            <div>
+                                                <h6 className="font-bold text-[17px] text-stone-900 mb-1.5">大葉種：滋味更豐厚</h6>
+                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">海綿組織豐厚，儲存轉化了大量的養分。喝起來比較<strong>飽滿、更具刺激與收斂感</strong>。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-8 border-t border-stone-200">
+                                <h5 className="font-bold text-[22px] text-stone-900 mb-5">品種間的區別與特色探究</h5>
+                                <div className="prose prose-stone prose-p:text-[16px] prose-p:leading-relaxed max-w-none text-stone-700">
+                                    <p className="text-[17px]">
+                                        目前的國產茶品種都源於三大變種：屬於茶樹的<strong>大葉種</strong>與<strong>小葉種</strong>，以及屬於特有種的原生<strong>臺灣山茶</strong>。
+                                    </p>
+                                    <p className="text-[17px]">
+                                        茶樹 <i>Camellia sinensis</i> 與臺灣山茶 <i>C. formosensis</i> 兩個物種，形態上的區別在於臺灣山茶的側脈對數較多（8–14 對，且常大於 10 對，而茶樹僅 5–7對），且頂芽光滑無毛。依據植物學分類，茶樹現在有 5 個變種，而在臺灣栽種的主要有小葉種（原變種）與大葉種（阿薩姆種）2 個變種。
+                                    </p>
+
+                                    <div className="my-6 bg-emerald-50/50 p-6 rounded-2xl border-l-4 border-emerald-400">
+                                        <h6 className="font-bold text-emerald-900 text-[17px] mb-2 flex items-center gap-2">
+                                            <Sprout size={18} className="text-emerald-600" />
+                                            光合作用的分工：柵狀與海綿組織
+                                        </h6>
+                                        <p className="text-[16px] text-stone-700 mb-0">
+                                            柵狀組織位於茶樹的上表皮下方，由柱狀、排列緊密且富含葉綠體的柵狀細胞組成；與下表皮上方形狀不規則、排列疏鬆且葉綠體較少的海綿組織相互配合。雖然兩者都能進行光合作用，但因柵狀組織靠近上表皮，能吸收較多光能，個別細胞葉綠體較密集，是<strong>養分初步合成</strong>的主要場所；海綿組織則有更多空間，負責<strong>養分的轉化與儲存</strong>。
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-8 bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                                        <h6 className="font-bold text-stone-800 text-[17px] mb-3 flex items-center gap-2">
+                                            <BookOpen size={18} className="text-stone-500" />
+                                            學術探討：柵狀組織真的能精準切分大小葉種嗎？
+                                        </h6>
+                                        <p className="text-[15.5px] text-stone-600 mb-3">
+                                            根據陳柏儒等人（2018）的研究（結果獲納入茶改場品評教材），大葉種茶樹的葉肉柵狀組織僅 1 層、小葉種有 2–3 層。但若細究該文，大葉種僅取臺茶 8 號、小葉種僅取青心烏龍各 3 片葉片進行切片，樣本數稍嫌單薄；同一文章中分析了 11 個原生山茶收集系，就發現柵狀組織有 1–3 層的變異。
+                                        </p>
+                                        <p className="text-[15.5px] text-stone-600 mb-0">
+                                            事實上，柵狀組織的層數很可能受個體生長環境（尤其是水分供給）的影響。單純用層數作為絕對判斷標準可能仍有疑慮。未來或許改以<strong className="text-stone-800 bg-stone-200/50 px-1 rounded">「柵狀細胞佔葉肉的比例」</strong>來區分，會是更嚴謹的學術指標，這部分仍有待後續實證研究。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-2xl border-l-4 border-amber-500">
+                                <h4 className="text-[19px] font-bold text-amber-900 mb-3 flex items-center gap-2 font-sans">
+                                    <Trophy size={18} className="text-amber-700" />
+                                    專業洞察
+                                </h4>
+                                <p className="text-[17px] text-stone-700 leading-relaxed">
+                                    以紅茶為例，小葉種製作的「祁門紅茶」以高昂的花果香聞名；而雲南大葉種製作的「滇紅」，其香氣或許內斂，但滋味極其厚實。在茶葉貿易中，滇紅被譽為<strong className="text-amber-900">「紅茶味精」</strong>，這並非貶義，而是指在調配茶（Blended Tea）時，只需加入少量滇紅，就能顯著提升整杯茶的濃度與骨架感。
+                                </p>
+                            </div>
                         </div>
                     </AcademyContentBlock>
 
                     {/* 4. 命名學 */}
-                    <AcademyContentBlock title="命名學：破譯茶葉標籤的四種規律" icon={Tag} id="ch04-naming">
+                    < AcademyContentBlock title="命名學：破譯茶葉標籤的四種規律" icon={Tag} id="ch04-naming" >
                         {/* 茶行古卷圖 */}
-                        <div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group">
+                        < div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group" >
                             <ImageLightbox
-                                src={`${IMG}/naming_scroll.png`}
-                                alt="命名學 — 古代茶行標籤與卷軸"
+                                src={`${IMG}/naming_scroll_realistic.png`}
+                                alt="命名學 — 傳統與現代結合的寫實茶葉包裝"
                                 className="block w-full h-[220px] md:h-[280px] overflow-hidden"
                                 imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                        </div>
+                        </div >
 
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 mb-8">
                             <p className="text-[17px] text-stone-700 leading-relaxed">
@@ -352,12 +509,12 @@ export default function ChonghuaChapter04() {
                                 <strong>安吉白茶</strong>是一個經典的文字陷阱。它名字帶「白」，但因工藝屬於不發酵，且其「白化」源於茶樹品種在低溫下的生化表現，因此它在分類上是<strong className="text-red-800">綠茶</strong>而非白茶。這提醒我們：判斷茶類應關注「加工工藝」而非標籤文字。
                             </p>
                         </div>
-                    </AcademyContentBlock>
+                    </AcademyContentBlock >
 
                     {/* 5. 數字「6」 */}
-                    <AcademyContentBlock title="數字「6」：工藝之巔——六大茶類的風味光譜" icon={Layers} id="ch04-number-6">
+                    < AcademyContentBlock title="數字「6」：工藝之巔——六大茶類的風味光譜" icon={Layers} id="ch04-number-6" >
                         {/* 六大茶類光譜圖 */}
-                        <div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group">
+                        < div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group" >
                             <ImageLightbox
                                 src={`${IMG}/six_tea_spectrum.png`}
                                 alt="工藝之巔 — 六大茶類的風味光譜"
@@ -368,7 +525,7 @@ export default function ChonghuaChapter04() {
                                 <p className="text-white font-bold text-lg drop-shadow-md">工藝之巔</p>
                                 <p className="text-white/80 text-sm drop-shadow">六種感官宇宙</p>
                             </div>
-                        </div>
+                        </div >
 
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 mb-8">
                             <p className="text-[17px] text-stone-700 leading-relaxed">
@@ -512,15 +669,15 @@ export default function ChonghuaChapter04() {
                             </p>
                             <p className="mt-3 text-[16px] text-emerald-100/80">一杯茶的風味，由這四個變數共同決定</p>
                         </div>
-                    </AcademyContentBlock>
+                    </AcademyContentBlock >
 
                     {/* 6. 現代啟示錄 */}
-                    <AcademyContentBlock title="現代啟示錄：從玄學包圍到感官的勝利" icon={Globe} id="ch04-modern">
+                    < AcademyContentBlock title="現代啟示錄：從玄學包圍到感官的勝利" icon={Globe} id="ch04-modern" >
                         {/* 雲南古茶山圖 */}
-                        <div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group">
+                        < div className="mb-8 rounded-3xl overflow-hidden shadow-xl relative group" >
                             <ImageLightbox
-                                src={`${IMG}/ancient_tea_mountain.png`}
-                                alt="雲南古茶山 — 跨越百年的古樹茶"
+                                src={`${IMG}/ancient_tea_mountain_realistic.png`}
+                                alt="雲南寫實古茶樹 — 跨越百年的古樹茶"
                                 className="block w-full h-[260px] md:h-[340px] overflow-hidden"
                                 imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
@@ -528,7 +685,7 @@ export default function ChonghuaChapter04() {
                                 <p className="text-white font-bold text-lg drop-shadow-md">古茶山的奇蹟</p>
                                 <p className="text-white/80 text-sm drop-shadow">跨越時空的基因</p>
                             </div>
-                        </div>
+                        </div >
 
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 mb-8">
                             <p className="text-[17px] text-stone-700 leading-relaxed">
@@ -573,10 +730,135 @@ export default function ChonghuaChapter04() {
                                 在這個要求高度統一、效率至上的時代，選擇停下來，不聽忽悠，用邏輯與感官挑選一杯自己真心喜歡的風味。這不僅是品味，更是一次重新與土地、與自我對話的儀式。
                             </p>
                         </div>
-                    </AcademyContentBlock>
+                    </AcademyContentBlock >
+
+                    {/* 評鑑實作與風味輪 */}
+                    < AcademyContentBlock title="評鑑實作與風味輪" icon={Coffee} id="ch04-practice" >
+                        <div className="prose prose-stone prose-p:text-[19px] prose-p:leading-relaxed max-w-none text-stone-700 mb-8">
+                            <p>
+                                了解了前面的製茶工藝與六大茶類之後，最重要的是實地品飲與體會。透過標準的<strong>「評鑑杯」</strong>沖泡法，我們能夠將茶葉的內含物最大程度地釋放，並透過「對比」找出各茶款間的微妙差異，這也是專業品評師每天都在做的事。
+                            </p>
+                        </div>
+
+
+                        <div className="bg-stone-50 md:p-8 p-6 rounded-3xl border border-stone-200 mb-10">
+                            <h4 className="text-[22px] font-bold text-stone-900 mb-6 flex items-center gap-2">
+                                <span className="w-2 h-6 bg-teal-500 rounded-full"></span>
+                                評鑑杯品評練習流程
+                            </h4>
+                            {/* 操作圖解滿版放上面 */}
+                            <div className="rounded-2xl overflow-hidden shadow-md border border-stone-200 mb-8">
+                                <ImageLightbox
+                                    src={`${IMG}/tasting_process_2.png`}
+                                    alt="評鑑杯操作圖解流程"
+                                    className="w-full h-auto bg-white"
+                                />
+                            </div>
+
+                            {/* 文字操作步驟 */}
+                            <div className="grid md:grid-cols-2 gap-6 mb-8 items-start">
+                                <div className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm relative overflow-hidden h-full">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                    <div className="flex gap-4">
+                                        <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center shrink-0">1</div>
+                                        <div>
+                                            <h5 className="font-bold text-[19px] text-stone-900 mb-1">取茶</h5>
+                                            <p className="text-stone-600 text-[16px] m-0">以電子秤精準秤取 <strong>3 公克</strong> 的茶葉，並置入標準的白瓷審茶杯中。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm relative overflow-hidden h-full">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                    <div className="flex gap-4">
+                                        <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center shrink-0">2</div>
+                                        <div>
+                                            <h5 className="font-bold text-[19px] text-stone-900 mb-1">注沸水</h5>
+                                            <p className="text-stone-600 text-[16px] mb-2">沖入沸水（水溫：<strong>100°C</strong>）至滿杯，覆上杯蓋，以計時器為準開始計時。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm relative overflow-hidden h-full">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                    <div className="flex gap-4">
+                                        <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center shrink-0">3</div>
+                                        <div>
+                                            <h5 className="font-bold text-[19px] text-stone-900 mb-1">浸泡與倒湯 (<span className="text-teal-600">靜置 5～6 分鐘</span>)</h5>
+                                            <p className="text-stone-600 text-[16px] leading-relaxed m-0">
+                                                依茶型決定浸泡時間：<br />
+                                                <span className="inline-block bg-stone-100 px-2 rounded mt-1 mb-1 mr-2">條型茶：5 分鐘</span>
+                                                <span className="inline-block bg-stone-100 px-2 rounded mb-1 mr-2">白毫烏龍茶：5.5 分鐘</span>
+                                                <span className="inline-block bg-stone-100 px-2 rounded">球型茶：6 分鐘</span><br />
+                                                時間到後，將審茶杯橫扣於審茶碗上，使茶湯流入審茶碗中。茶渣留於杯中作香氣審查，之後放下審茶杯。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm relative overflow-hidden h-full">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                    <div className="flex gap-4">
+                                        <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center shrink-0">4</div>
+                                        <div>
+                                            <h5 className="font-bold text-[19px] text-stone-900 mb-1">整理茶湯</h5>
+                                            <p className="text-stone-600 text-[16px] m-0">
+                                                以乾淨之湯匙於審茶碗內<span className="bg-yellow-200/60 font-medium px-1">劃 1/4 至 1/2 圓</span>，使碗裡茶渣集中，俾利水色之審查。等待約 6 分鐘直到冷卻至約 40°C。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm relative overflow-hidden h-full md:col-span-2">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                                    <div className="flex gap-4 items-center">
+                                        <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center shrink-0">5</div>
+                                        <div>
+                                            <h5 className="font-bold text-[19px] text-stone-900 mb-1 inline-block mr-4">品評觀察順序</h5>
+                                            <span className="text-teal-800 text-[17px] font-bold tracking-wide break-words">
+                                                外觀 → 水色 → 香氣 → 滋味 → 葉底
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* 完成照片滿版放下面 */}
+                            <div className="rounded-2xl overflow-hidden shadow-md border border-stone-200 mb-8 max-w-2xl mx-auto">
+                                <ImageLightbox
+                                    src={`${IMG}/tasting_process_4.png`}
+                                    alt="評鑑杯品評練習照片示範"
+                                    className="w-full h-auto bg-white"
+                                />
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl border-l-4 border-amber-400">
+                                <h5 className="font-bold text-[19px] text-stone-900 mb-4 flex items-center gap-2">
+                                    <Compass className="text-amber-600" size={20} />
+                                    臺灣特色茶風味輪的運用
+                                </h5>
+                                <div className="grid md:grid-cols-2 gap-8 items-center">
+                                    <div>
+                                        <p className="text-[16px] text-stone-700 leading-relaxed mb-4">
+                                            在進行「滋味」與「香氣」的品評時，單純描述「好喝」或「很香」通常不夠具體。我們建議初學者搭配由茶改場發布的<strong>「臺灣特色茶風味輪」</strong>來進行感官比對。
+                                        </p>
+                                        <p className="text-[16px] text-stone-700 leading-relaxed mb-4">
+                                            風味輪從中心向外，將風味語言由廣義（例如：花香、果香、青香）往外擴展到具體的香氣（例如：茉莉花、水蜜桃、青草等），提供了一套客觀且系統性的詞彙，幫助你把飄渺的感官轉譯為通用的語言。
+                                        </p>
+                                        <a href="https://www.tbrs.gov.tw/ws.php?id=3727" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-600 font-bold hover:text-teal-800 transition-colors">
+                                            <Globe size={16} /> 前往茶改場參考風味輪資訊
+                                        </a>
+                                    </div>
+                                    <div className="rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                                        <ImageLightbox
+                                            src={`${IMG}/tasting_process_3.png`}
+                                            alt="臺灣特色茶風味輪2.0參考圖"
+                                            className="w-full h-auto bg-white"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </AcademyContentBlock >
 
                     {/* 結語 */}
-                    <AcademyContentBlock title="結語" icon={BookOpen} id="ch04-conclusion">
+                    < AcademyContentBlock title="結語" icon={BookOpen} id="ch04-conclusion" >
                         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-800 via-emerald-900 to-stone-900 p-8 md:p-10 text-white shadow-2xl">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl" />
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-3xl" />
@@ -591,10 +873,10 @@ export default function ChonghuaChapter04() {
                                 </p>
                             </div>
                         </div>
-                    </AcademyContentBlock>
+                    </AcademyContentBlock >
 
-                </AcademySection>
-            </div>
-        </div>
+                </AcademySection >
+            </div >
+        </div >
     );
 }

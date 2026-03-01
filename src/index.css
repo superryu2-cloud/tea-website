@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -120,6 +120,76 @@
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
+  }
+
+  /* Large Wallpaper Theme: Landscape (茶山風景) */
+  :root[data-paper-theme='landscape'] body {
+    background-color: #f5f3ed;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/tea_landscape_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Premium Wallpaper Theme: Morning Tea Hills (晨光茶丘) */
+  :root[data-paper-theme='premium-landscape'] body {
+    background-color: #fbf9f4;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/premium_tea_landscape.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Dramatic Art Theme: Tea Vortex (東方藝術) */
+  :root[data-paper-theme='dramatic'] body {
+    background-color: #1a1510;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/dramatic_tea_art_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Tech Dark Theme: CyberTea */
+  :root[data-paper-theme='cybertea'] body {
+    background-color: #0a1628;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/tech_tea_dark_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Ink Wash Theme (水墨山亭) */
+  :root[data-paper-theme='inkwash'] body {
+    background-color: #f0ebe0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/ink_wash_tea_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Zen Botanical Theme (禪意茶石) */
+  :root[data-paper-theme='zen'] body {
+    background-color: #f5f2eb;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/zen_botanical_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Full HD Tea Table Theme (茶席靜物) */
+  :root[data-paper-theme='teatable'] body {
+    background-color: #f3ede4;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/fullhd_tea_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
   }
 
   /* Paper Texture Theme: Blue (瘛箄?蝝撐) */

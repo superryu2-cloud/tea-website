@@ -285,20 +285,53 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                                             </div>
                                         )}
 
-                                        {/* Cultivar Cards - Large Leaf */}
+                                        {/* Cultivar Cards - Large Leaf / Taiwan Mountain Tea */}
                                         {filteredLargeLeaf.length > 0 && (
                                             <div className="mb-12">
-                                                <h4 className="flex items-center text-xl font-bold text-red-800 mb-6 border-l-4 border-red-600 pl-3">
-                                                    <Leaf className="mr-2" size={24} /> 大葉種：台灣紅茶的主力
+                                                <h4 className="flex items-center text-2xl font-bold text-red-800 mb-8 border-l-4 border-red-600 pl-3">
+                                                    <Leaf className="mr-2" size={28} /> 台灣紅茶的主力：大葉種與台灣山茶
                                                 </h4>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                                    {filteredLargeLeaf.map((item, idx) => (
-                                                        <div key={idx} className="bg-white p-5 rounded-xl border border-red-100 shadow-sm hover:shadow-md transition-shadow">
-                                                            <h5 className="font-bold text-lg text-stone-800 mb-2">{item.name}</h5>
-                                                            <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+
+                                                {/* Taiwan Mountain Tea Group */}
+                                                {filteredLargeLeaf.filter(item => item.name === '台灣山茶').length > 0 && (
+                                                    <div className="mb-10">
+                                                        <h5 className="text-lg font-bold text-amber-800 mb-4 flex items-center gap-2">
+                                                            <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                                                            台灣山茶（原生特有種）
+                                                        </h5>
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                            {filteredLargeLeaf.filter(item => item.name === '台灣山茶').map((item, idx) => (
+                                                                <div key={idx} className="bg-amber-50/40 p-6 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+                                                                    <h6 className="font-bold text-xl text-stone-800 mb-3">{item.name}</h6>
+                                                                    <p className="text-[15px] text-stone-700 leading-relaxed flex-grow">{item.desc}</p>
+                                                                    {item.note && (
+                                                                        <p className="text-sm text-amber-700 font-bold mt-4 pt-4 border-t border-amber-200/60 leading-relaxed">
+                                                                            {item.note}
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            ))}
                                                         </div>
-                                                    ))}
-                                                </div>
+                                                    </div>
+                                                )}
+
+                                                {/* Large Leaf Cultivars Group */}
+                                                {filteredLargeLeaf.filter(item => item.name !== '台灣山茶').length > 0 && (
+                                                    <div>
+                                                        <h5 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
+                                                            <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                                                            大葉種（主要由阿薩姆引進改良）
+                                                        </h5>
+                                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                            {filteredLargeLeaf.filter(item => item.name !== '台灣山茶').map((item, idx) => (
+                                                                <div key={idx} className="bg-white p-5 rounded-xl border border-red-100 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+                                                                    <h6 className="font-bold text-lg text-stone-800 mb-2">{item.name}</h6>
+                                                                    <p className="text-sm text-stone-600 leading-relaxed flex-grow">{item.desc}</p>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         )}
 
@@ -310,9 +343,14 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                                                 </h4>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                                     {filteredOtherSmallLeaf.map((item, idx) => (
-                                                        <div key={idx} className="bg-white p-5 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+                                                        <div key={idx} className="bg-white p-5 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
                                                             <h5 className="font-bold text-lg text-stone-800 mb-2">{item.name}</h5>
-                                                            <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+                                                            <p className="text-sm text-stone-600 leading-relaxed flex-grow">{item.desc}</p>
+                                                            {item.note && (
+                                                                <p className="text-sm text-amber-600 font-bold mt-4 pt-4 border-t border-green-50 leading-relaxed">
+                                                                    {item.note}
+                                                                </p>
+                                                            )}
                                                         </div>
                                                     ))}
                                                 </div>

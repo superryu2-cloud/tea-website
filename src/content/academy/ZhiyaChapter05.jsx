@@ -160,7 +160,7 @@ export default function ZhiyaChapter05() {
                         <div className="bg-stone-50 p-4 rounded-lg">
                             <Layout className="text-stone-600 mb-2" size={24} />
                             <h6 className="font-bold text-stone-900 mb-1">2. 比例 (Proportion)</h6>
-                            <p className="text-stone-700 text-sm">壺承>壺；杯托>杯；最關鍵是「茶壺出湯量 : 勻杯容量」應為 1 : 1.1。</p>
+                            <p className="text-stone-700 text-sm">壺承&gt;壺；杯托&gt;杯；最關鍵是「茶壺出湯量 : 勻杯容量」應為 1 : 1.1。</p>
                         </div>
                         <div className="bg-stone-50 p-4 rounded-lg">
                             <Box className="text-stone-600 mb-2" size={24} />

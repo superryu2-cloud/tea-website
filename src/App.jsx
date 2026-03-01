@@ -71,6 +71,7 @@ import AiChatButton from './components/ai/AiChatButton';
 import ProductAdmin from './components/shop/ProductAdmin';
 import RelatedProducts from './components/shop/RelatedProducts';
 import StationNav from './components/ai/StationNav';
+import FloatingSearch from './components/FloatingSearch';
 import { isPageEnabled } from './data/productData';
 import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
 import ScienceSection from './components/sections/ScienceSection';
@@ -318,6 +319,35 @@ const TeaWebsite = () => {
       setTeachingChapterHref('#ref-all');
     }
     scrollToTop();
+  };
+
+  /** 搜尋導航：根據 detail 精確定位子頁面 */
+  const navigateToSearch = (tab, detail) => {
+    if (detail?.featured) {
+      setSelectedFeatured(detail.featured);
+      setActiveTab('featured');
+      setMobileMenuOpen(false);
+      setAtlasNavOpen(true);
+      scrollToTop();
+      return;
+    }
+    if (detail?.kind) {
+      goToVarietiesKind(detail.kind);
+      if (detail.kind === 'oolong') {
+        setOolongRegionHref(detail.oolongHref || null);
+      }
+      return;
+    }
+    if (detail?.room) {
+      // 不能用 goToTab('science')，因為它會重設 scienceRoom 為 'constituents'
+      setActiveTab('science');
+      setScienceRoom(detail.room);
+      setMobileMenuOpen(false);
+      setAtlasNavOpen(true);
+      scrollToTop();
+      return;
+    }
+    goToTab(tab);
   };
 
   useEffect(() => {
@@ -686,8 +716,9 @@ const TeaWebsite = () => {
 
       <main>
         <AiChatButton />
+        <FloatingSearch navigateToSearch={navigateToSearch} goToTab={goToTab} />
         {activeTab === 'admin' && <ProductAdmin />}
-        {activeTab === 'journey' && <JourneySection goToTab={goToTab} setScienceRoom={setScienceRoom} />}
+        {activeTab === 'journey' && <JourneySection goToTab={goToTab} setScienceRoom={setScienceRoom} navigateToSearch={navigateToSearch} />}
         {activeTab === 'home' && (
           <>
             <CNYHero />

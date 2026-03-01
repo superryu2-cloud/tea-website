@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings } from 'lucide-react';
+import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings, Search } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
 import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
@@ -20,6 +20,13 @@ const NAV_THEMES = [
 const PAPER_THEME_STORAGE_KEY = 'tea.paperTheme';
 const PAPER_THEMES = [
   { key: 'ivory', label: '牙白紙張' },
+  { key: 'landscape', label: '茶山風景' },
+  { key: 'premium-landscape', label: '晨光茶丘' },
+  { key: 'dramatic', label: '東方藝術' },
+  { key: 'cybertea', label: '科技深藍' },
+  { key: 'inkwash', label: '水墨山亭' },
+  { key: 'zen', label: '禪意茶石' },
+  { key: 'teatable', label: '茶席靜物' },
   { key: 'light', label: '淺色紙張' },
   { key: 'blue', label: '淺藍紙張' },
   { key: 'dotted', label: '點點紙張' },

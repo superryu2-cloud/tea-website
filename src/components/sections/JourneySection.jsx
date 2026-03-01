@@ -1,6 +1,160 @@
-﻿import React from 'react';
-import { ChevronRight, Layout, Map, Layers, Leaf, FlaskConical, PenTool, Mountain, Coffee, Search } from 'lucide-react';
+﻿import React, { useState, useMemo, useRef, useEffect } from 'react';
+import { ChevronRight, Layout, Map, Layers, Leaf, FlaskConical, PenTool, Mountain, Coffee, Search, X } from 'lucide-react';
 import AiGuideSection from './AiGuideSection';
+import SEARCH_INDEX from '../../data/searchIndex';
+
+/**
+ * QuickSearchCard – 百科入口搜尋元件
+ * 即時搜尋 SEARCH_INDEX，顯示匹配結果連結
+ */
+function QuickSearchCard({ goToTab, setScienceRoom, navigateToSearch }) {
+    const [query, setQuery] = useState('');
+    const inputRef = useRef(null);
+
+    const results = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        if (!q) return [];
+        return SEARCH_INDEX.filter(item =>
+            item.keywords.toLowerCase().includes(q) || item.label.toLowerCase().includes(q)
+        ).slice(0, 8);
+    }, [query]);
+
+    const navigate = (item) => {
+        if (navigateToSearch && item.detail) {
+            navigateToSearch(item.tab, item.detail);
+        } else {
+            goToTab(item.tab);
+        }
+        setQuery('');
+    };
+
+    const CATEGORY_COLORS = {
+        '六大茶類': 'bg-emerald-400/20 text-emerald-200',
+        '青茶': 'bg-emerald-400/20 text-emerald-200',
+        '特色茶': 'bg-amber-400/20 text-amber-200',
+        '品種': 'bg-teal-400/20 text-teal-200',
+        '科學': 'bg-blue-400/20 text-blue-200',
+        '沖泡': 'bg-orange-400/20 text-orange-200',
+        '製程': 'bg-orange-400/20 text-orange-200',
+        '茶道': 'bg-rose-400/20 text-rose-200',
+        '產區': 'bg-lime-400/20 text-lime-200',
+        '普洱': 'bg-yellow-400/20 text-yellow-200',
+        '紫砂': 'bg-red-400/20 text-red-200',
+        '歷史': 'bg-violet-400/20 text-violet-200',
+        '季節': 'bg-cyan-400/20 text-cyan-200',
+        '品評': 'bg-pink-400/20 text-pink-200',
+    };
+
+    return (
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-800 via-emerald-900 to-stone-900 p-6 md:p-8 text-white shadow-2xl">
+            {/* 裝飾光暈 */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-3xl" />
+            {/* 浮動茶葉裝飾 */}
+            <div className="absolute top-3 right-6 text-2xl opacity-15 decoration-float-slow select-none pointer-events-none">🍃</div>
+            <div className="absolute bottom-4 right-12 text-lg opacity-10 decoration-float select-none pointer-events-none">🍵</div>
+            <div className="absolute top-1/2 left-3 text-xl opacity-10 decoration-sway select-none pointer-events-none">🌿</div>
+            {/* 紙張紋理 */}
+            <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
+                backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+                mixBlendMode: 'overlay'
+            }} />
+
+            <div className="relative z-10">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400/30 to-amber-600/20 border border-amber-400/30 flex items-center justify-center shadow-lg shadow-amber-900/20">
+                        <Search size={20} className="text-amber-300" />
+                    </div>
+                    <div>
+                        <h3 className="text-[22px] font-extrabold tracking-tight">百科入口</h3>
+                        <p className="text-[12px] font-semibold text-emerald-300/60 tracking-widest uppercase">Quick Search</p>
+                    </div>
+                </div>
+
+                {/* 金色分隔線 */}
+                <div className="h-px bg-gradient-to-r from-amber-400/40 via-amber-300/20 to-transparent my-4" />
+
+                {/* 搜尋輸入框 */}
+                <div className="relative mb-4">
+                    <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-300/50 pointer-events-none" />
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="搜尋茶類、品種、工藝、產區..."
+                        className="w-full pl-10 pr-10 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-emerald-200/40 text-[15px] font-medium focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400/40 transition-all backdrop-blur-sm"
+                    />
+                    {query && (
+                        <button
+                            onClick={() => { setQuery(''); inputRef.current?.focus(); }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-emerald-300/50 hover:text-white transition-colors"
+                        >
+                            <X size={16} />
+                        </button>
+                    )}
+                </div>
+
+                {/* 搜尋結果 */}
+                {results.length > 0 && (
+                    <div className="mb-4 space-y-1.5 max-h-[280px] overflow-y-auto scrollbar-thin">
+                        {results.map((item, i) => (
+                            <button
+                                type="button"
+                                key={`${item.tab}-${i}`}
+                                onClick={() => navigate(item)}
+                                className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 hover:border-amber-300/30 transition-all duration-200 text-left group"
+                            >
+                                <span className={`shrink-0 px-2 py-0.5 rounded-md text-[11px] font-bold tracking-wide ${CATEGORY_COLORS[item.category] || 'bg-white/10 text-white/70'}`}>
+                                    {item.category}
+                                </span>
+                                <span className="text-[14px] font-semibold text-white/90 group-hover:text-white truncate flex-1">
+                                    {item.label}
+                                </span>
+                                <ChevronRight size={14} className="shrink-0 text-white/30 group-hover:text-amber-300 transition-colors" />
+                            </button>
+                        ))}
+                    </div>
+                )}
+
+                {query && results.length === 0 && (
+                    <div className="mb-4 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-center text-emerald-200/60 text-[14px]">
+                        找不到「{query}」的相關內容
+                    </div>
+                )}
+
+                {/* 熱門主題 快速連結 */}
+                {!query && (
+                    <>
+                        <p className="text-[15px] font-medium text-emerald-100/60 mb-3">
+                            熱門主題：
+                        </p>
+                        <div className="flex flex-wrap gap-2.5">
+                            {[
+                                { label: '六大茶類', icon: Layers, action: () => goToTab('varieties') },
+                                { label: '品種', icon: Leaf, action: () => goToTab('cultivars') },
+                                { label: '科學', icon: FlaskConical, action: () => { setScienceRoom('oxidation'); goToTab('science'); } },
+                                { label: '特色茶', icon: Mountain, action: () => goToTab('featured') },
+                                { label: '茶道', icon: Coffee, action: () => goToTab('ceremony') },
+                            ].map((it) => (
+                                <button
+                                    key={it.label}
+                                    type="button"
+                                    onClick={it.action}
+                                    className="group/chip rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-[15px] font-bold text-white hover:bg-white/25 hover:border-amber-300/50 hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 flex items-center gap-2"
+                                >
+                                    <it.icon size={14} className="text-amber-300/70 group-hover/chip:text-amber-300 transition-colors" />
+                                    {it.label}
+                                </button>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+        </div>
+    );
+}
 
 /**
  * JourneySection - 茶館筆記學習旅程區塊
@@ -9,7 +163,7 @@ import AiGuideSection from './AiGuideSection';
  * @param {Function} goToTab - 切換主要分頁的函數
  * @param {Function} setScienceRoom - 設置科學室的函數
  */
-export default function JourneySection({ goToTab, setScienceRoom }) {
+export default function JourneySection({ goToTab, setScienceRoom, navigateToSearch }) {
     const steps = [
         {
             id: 'six',
@@ -225,56 +379,7 @@ export default function JourneySection({ goToTab, setScienceRoom }) {
                             </div>
                         </div>
 
-                        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-800 via-emerald-900 to-stone-900 p-6 md:p-8 text-white shadow-2xl">
-                            {/* 裝飾光暈 */}
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl" />
-                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-3xl" />
-                            {/* 浮動茶葉裝飾 */}
-                            <div className="absolute top-3 right-6 text-2xl opacity-15 decoration-float-slow select-none pointer-events-none">🍃</div>
-                            <div className="absolute bottom-4 right-12 text-lg opacity-10 decoration-float select-none pointer-events-none">🍵</div>
-                            <div className="absolute top-1/2 left-3 text-xl opacity-10 decoration-sway select-none pointer-events-none">🌿</div>
-                            {/* 紙張紋理 */}
-                            <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
-                                backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
-                                mixBlendMode: 'overlay'
-                            }} />
-
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400/30 to-amber-600/20 border border-amber-400/30 flex items-center justify-center shadow-lg shadow-amber-900/20">
-                                        <Search size={20} className="text-amber-300" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-[22px] font-extrabold tracking-tight">百科入口</h3>
-                                        <p className="text-[12px] font-semibold text-emerald-300/60 tracking-widest uppercase">Quick Access</p>
-                                    </div>
-                                </div>
-                                {/* 金色分隔線 */}
-                                <div className="h-px bg-gradient-to-r from-amber-400/40 via-amber-300/20 to-transparent my-4" />
-                                <p className="text-[17px] font-medium text-emerald-100/80 leading-relaxed mb-5">
-                                    想直接查資料？點選下方主題快速跳轉：
-                                </p>
-                                <div className="flex flex-wrap gap-2.5">
-                                    {[
-                                        { label: '六大茶類', icon: Layers, action: () => goToTab('varieties') },
-                                        { label: '品種', icon: Leaf, action: () => goToTab('cultivars') },
-                                        { label: '科學', icon: FlaskConical, action: () => { setScienceRoom('oxidation'); goToTab('science'); } },
-                                        { label: '特色茶', icon: Mountain, action: () => goToTab('featured') },
-                                        { label: '茶道', icon: Coffee, action: () => goToTab('ceremony') },
-                                    ].map((it) => (
-                                        <button
-                                            key={it.label}
-                                            type="button"
-                                            onClick={it.action}
-                                            className="group/chip rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2.5 text-[15px] font-bold text-white hover:bg-white/25 hover:border-amber-300/50 hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 flex items-center gap-2"
-                                        >
-                                            <it.icon size={14} className="text-amber-300/70 group-hover/chip:text-amber-300 transition-colors" />
-                                            {it.label}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                        <QuickSearchCard goToTab={goToTab} setScienceRoom={setScienceRoom} navigateToSearch={navigateToSearch} />
                     </div>
                 </div>
             </div>

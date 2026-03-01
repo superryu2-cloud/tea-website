@@ -10,9 +10,9 @@ const ClickableImage = ({ src, alt, caption, className = '', captionClassName = 
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
+        <div className="flex flex-col w-full h-full">
             <div
-                className={`relative group cursor-pointer ${className}`}
+                className={`relative group cursor-pointer flex-1 ${className}`}
                 onClick={() => setIsOpen(true)}
             >
                 <img
@@ -29,7 +29,7 @@ const ClickableImage = ({ src, alt, caption, className = '', captionClassName = 
             </div>
             {/* 圖片說明 */}
             {caption && (
-                <div className={`mt-3 text-center text-[17px] leading-relaxed font-sans ${captionClassName}`}>
+                <div className={`mt-3 text-center text-[15px] md:text-[17px] font-medium leading-relaxed font-sans px-4 ${captionClassName}`}>
                     {caption}
                 </div>
             )}
@@ -40,7 +40,7 @@ const ClickableImage = ({ src, alt, caption, className = '', captionClassName = 
                 imageSrc={src}
                 altText={alt}
             />
-        </>
+        </div>
     );
 };
 

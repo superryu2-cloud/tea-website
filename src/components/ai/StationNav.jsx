@@ -50,7 +50,10 @@ export default function StationNav({ activeTab, goToTab }) {
     const next = idx < info.path.length - 1 ? info.path[idx + 1] : null;
 
     return (
-        <div className="max-w-5xl mx-auto px-4 py-6 pb-24">
+        <div
+            className="max-w-[80rem] mx-auto px-4 py-6 pb-24"
+            style={{ paddingLeft: 'calc(var(--atlas-dock-sidebar-width, 0px) + 48px)' }}
+        >
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-stone-200 shadow-sm p-4 flex items-center justify-between gap-4">
                 {/* 上一站 */}
                 <div className="flex-1">
