@@ -24,6 +24,7 @@ export const translations = {
       zisha: '紫砂',
       regions: '產區導覽',
       history: '歷史文化',
+      video: '茶學放映室',
     },
     ui: {
       menuOpen: '開啟選單',
@@ -65,6 +66,7 @@ export const translations = {
       zisha: 'Zisha',
       regions: 'Regions',
       history: 'History & Culture',
+      video: 'Video Gallery',
     },
     ui: {
       menuOpen: 'Open menu',

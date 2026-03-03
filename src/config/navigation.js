@@ -13,6 +13,7 @@ export const ATLAS_ITEMS = [
   'zisha',
   'regions',
   'history',
+  'video',
 ];
 
 export const NAV_ITEMS = ['journey', ...ATLAS_ITEMS];

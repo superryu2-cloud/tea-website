@@ -96,6 +96,7 @@ import TeaSearchFilter from './components/sections/TeaSearchFilter';
 import ChenChuanEssaySection from './components/sections/ChenChuanEssaySection';
 import VarietiesSection from './components/sections/VarietiesSection';
 import HistorySection from './components/sections/HistorySection';
+import VideoGallerySection from './components/sections/VideoGallerySection';
 import Footer from './components/Footer';
 import { NavigationProvider } from './contexts/NavigationContext';
 import useScrollToSection from './hooks/useScrollToSection';
@@ -836,6 +837,8 @@ const TeaWebsite = () => {
         {activeTab === 'regions' && <RegionsSection siteNavHeightPx={siteNavHeightPx} />}
 
         {activeTab === 'history' && <HistorySection historyTab={historyTab} setHistoryTab={setHistoryTab} siteNavHeightPx={siteNavHeightPx} />}
+
+        {activeTab === 'video' && <VideoGallerySection siteNavHeightPx={siteNavHeightPx} />}
 
         {/* Academy Section - Centralized routing through AcademyRouter */}
         <AcademyRouter

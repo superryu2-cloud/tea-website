@@ -252,7 +252,7 @@ export default function SiteNavigation({
   };
 
   const navRows = [
-    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured'],
+    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured', 'video'],
     ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'toolbar'],
   ];
 
