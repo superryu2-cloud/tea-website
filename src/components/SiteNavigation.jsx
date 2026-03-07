@@ -84,8 +84,8 @@ const ACADEMY_STRUCTURE = [
     key: 'chonghua',
     label: '崇華',
     chapters: [
-      { id: '01', title: '第01堂' }, { id: '02', title: '第02堂' }, { id: '03', title: '第03堂' },
-      { id: '04', title: '第04堂' }, { id: '05', title: '第05堂' }, { id: '06', title: '第06堂' },
+      { id: '01', title: '茶具的佈置與搭配' }, { id: '02', title: '茶席儀軌' }, { id: '03', title: '世界與台灣紅茶史' },
+      { id: '04', title: '開啟你的風味冒險地圖' }, { id: '05', title: '認識氧化' }, { id: '06', title: '認識茶樹品種' },
       { id: '07', title: '第07堂' }, { id: '08', title: '第08堂' }, { id: '09', title: '第09堂' },
       { id: '10', title: '第10堂' }, { id: '11', title: '第11堂' }, { id: '12', title: '第12堂' },
       { id: '13', title: '第13堂' }, { id: '14', title: '第14堂' }, { id: '15', title: '第15堂' },
@@ -246,7 +246,7 @@ export default function SiteNavigation({
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
-      chonghua: ['01', '03', '04'],
+      chonghua: ['01', '02', '03', '04', '05', '06'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -459,9 +459,9 @@ export default function SiteNavigation({
                             aria-label={i18n.t('ui.language')}
                             title={i18n.t('ui.language')}
                           >
-                            <span className={`text-xs font-bold ${i18n.lang === 'zh-Hant' ? 'text-emerald-700' : 'text-stone-400'}`}>中</span>
+                            <span className={`text-xs font-bold ${i18n.lang === 'zh-Hant' ? 'text-amber-700' : 'text-stone-400'}`}>中</span>
                             <span className="text-stone-300 text-xs">/</span>
-                            <span className={`text-xs font-bold ${i18n.lang === 'en' ? 'text-emerald-700' : 'text-stone-400'}`}>EN</span>
+                            <span className={`text-xs font-bold ${i18n.lang === 'en' ? 'text-amber-700' : 'text-stone-400'}`}>EN</span>
                           </button>
                         </div>
                       );
@@ -538,9 +538,9 @@ export default function SiteNavigation({
         <div
           className="cement-strip backdrop-blur-md"
           style={{
-            '--nav-underline': chonghuaNavOpen ? 'rgba(14, 165, 233, 0.55)' : 'rgba(16, 185, 129, 0.55)',
-            '--nav-hover-ink': chonghuaNavOpen ? 'rgba(7, 89, 133, 0.95)' : 'rgba(6, 95, 70, 0.95)',
-            '--nav-active-ink': chonghuaNavOpen ? 'rgba(7, 89, 133, 1)' : 'rgba(6, 95, 70, 1)',
+            '--nav-underline': chonghuaNavOpen ? 'rgba(234, 88, 12, 0.55)' : 'rgba(217, 119, 6, 0.55)',
+            '--nav-hover-ink': chonghuaNavOpen ? 'rgba(154, 52, 18, 0.95)' : 'rgba(146, 64, 14, 0.95)',
+            '--nav-active-ink': chonghuaNavOpen ? 'rgba(154, 52, 18, 1)' : 'rgba(146, 64, 14, 1)',
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -551,7 +551,7 @@ export default function SiteNavigation({
                   <div className="text-lg font-bold text-stone-500 mb-3 px-2 border-l-4 border-sky-400">
                     崇華書院
                   </div>
-                  <div className="grid grid-cols-6 gap-3">
+                  <div className="grid grid-cols-4 gap-3">
                     {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
                       const num = chapter.id;
                       const active = isAcademyImplemented('chonghua', num);
@@ -561,10 +561,10 @@ export default function SiteNavigation({
                           key={num}
                           href={`?tab=academy_chonghua_${num}`}
                           className={`nav-pill nav-pill--tier2 ${isCurrentTab ? 'nav-pill--active' : ''} justify-start items-center rounded-xl px-3.5 py-2.5 text-base transition-all duration-200 ${isCurrentTab
-                            ? 'bg-emerald-50 text-emerald-900 font-extrabold ring-1 ring-emerald-300/60 shadow-md'
+                            ? 'bg-orange-50 text-orange-900 font-extrabold ring-1 ring-orange-300/60 shadow-md'
                             : active
-                              ? 'bg-emerald-50/60 text-emerald-800 font-bold hover:bg-emerald-100 shadow-sm border-l-[3px] border-emerald-400'
-                              : 'bg-white/50 hover:bg-white/80 text-stone-500 hover:text-stone-700'
+                              ? 'bg-orange-50/60 text-orange-800 font-bold hover:bg-orange-100 shadow-sm border-l-[3px] border-orange-400'
+                              : 'bg-transparent text-stone-400 opacity-60 hover:opacity-100 hover:bg-white/50 hover:text-stone-600 border border-transparent hover:border-stone-200 cursor-not-allowed'
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -606,7 +606,7 @@ export default function SiteNavigation({
                             ? 'bg-amber-50 text-amber-900 font-extrabold ring-1 ring-amber-300/60 shadow-md'
                             : active
                               ? 'bg-amber-50/60 text-amber-800 font-bold hover:bg-amber-100 shadow-sm border-l-[3px] border-amber-400'
-                              : 'bg-white/50 hover:bg-white/80 text-stone-500 hover:text-stone-700'
+                              : 'bg-transparent text-stone-400 opacity-60 hover:opacity-100 hover:bg-white/50 hover:text-stone-600 border border-transparent hover:border-stone-200 cursor-not-allowed'
                             }`}
                           onClick={(e) => {
                             e.preventDefault();
@@ -817,7 +817,7 @@ export default function SiteNavigation({
                     {renderFlipLabel(academyLabel)}
                     <ChevronRight
                       size={16}
-                      className={`text-emerald-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
+                      className={`text-amber-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
                     />
                   </button>
 
@@ -919,7 +919,7 @@ export default function SiteNavigation({
                   {renderFlipLabel(chonghuaLabel)}
                   <ChevronRight
                     size={16}
-                    className={`text-sky-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
+                    className={`text-orange-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaMobileOpen ? 'rotate-90' : '-rotate-90'}`}
                   />
                 </button>
 
@@ -932,7 +932,7 @@ export default function SiteNavigation({
                           key={chapter.id}
                           href={`?tab=academy_chonghua_${chapter.id}`}
                           className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
-                            ? 'bg-sky-50 text-sky-800 shadow-sm'
+                            ? 'bg-orange-50 text-orange-800 shadow-sm'
                             : 'bg-white text-stone-600 shadow-sm'
                             }`}
                           onClick={(e) => {
