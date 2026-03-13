@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Play, X, Compass, Filter, ChevronRight } from 'lucide-react';
-import { videos, VIDEO_SERIES, WENYI_SUBCATEGORIES, COURSE1_SUBCATEGORIES, ZISHA_SUBCATEGORIES } from '../../data/videoData';
+import { videos, VIDEO_SERIES, WENYI_SUBCATEGORIES, WENYI_S1_SUBCATEGORIES, COURSE1_SUBCATEGORIES, ZISHA_SUBCATEGORIES } from '../../data/videoData';
 import heroBg from '../../assets/video_gallery_hero.png';
 
 // YouTube 縮圖備用策略
@@ -46,6 +46,7 @@ export default function VideoGallerySection({ siteNavHeightPx }) {
     // 取得當前大分類所擁有的子分類清單
     const currentSubcategories = useMemo(() => {
         if (activeSeries === 'wenyi') return WENYI_SUBCATEGORIES;
+        if (activeSeries === 'wenyi_s1') return WENYI_S1_SUBCATEGORIES;
         if (activeSeries === 'course1') return COURSE1_SUBCATEGORIES;
         if (activeSeries === 'zisha') return ZISHA_SUBCATEGORIES;
         return [];

@@ -616,18 +616,7 @@ const TeaWebsite = () => {
   });
   const [chonghuaUnlocked, setChonghuaUnlocked] = useState(() => {
     if (typeof window === 'undefined') return false;
-    const stored = window.localStorage?.getItem(CHONGHUA_UNLOCK_KEY) === 'true';
-    if (stored) return true;
-    const legacy = window.localStorage?.getItem('museumUnlocked') === 'true';
-    if (legacy) {
-      try {
-        window.localStorage?.setItem(CHONGHUA_UNLOCK_KEY, 'true');
-      } catch {
-        // ignore
-      }
-      return true;
-    }
-    return false;
+    return window.localStorage?.getItem(CHONGHUA_UNLOCK_KEY) === 'true';
   });
   const [passwordModalTarget, setPasswordModalTarget] = useState(null);
   const [academyMenuHidden, setAcademyMenuHidden] = useState(() => {
