@@ -15,6 +15,7 @@ import OrientalBeautyContent from '../../content/featured/orientalbeauty';
 import WenshanPouchongContent from '../../content/featured/wenshan';
 import BlackTeaVarietiesContent from '../../content/featured/BlackTeaVarieties';
 import OolongNameStory from '../../content/teaTalk/OolongNameStory';
+import TeaProcessIntro from '../../content/featured/TeaProcessIntro';
 
 export default function FeaturedTeaSection({
     selectedFeatured,
@@ -278,6 +279,7 @@ export default function FeaturedTeaSection({
                             {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
                             {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
                             {selectedFeatured === 'oolong_name_story' && <OolongNameStory />}
+                            {selectedFeatured === 'tea_process' && <TeaProcessIntro />}
                         </div>
                     </AtlasDockLayout>
                 ) : notesMode ? (

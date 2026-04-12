@@ -16970,5 +16970,3005 @@
       "80-100°C"
     ],
     "answerIndex": 0
+  },
+  {
+    "id": "ccira-001",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶樹是屬於 ＿＿ 。",
+    "choices": [
+      "草本",
+      "木本",
+      "草本木",
+      "藤本"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-002",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶樹是屬於 ＿＿ 。",
+    "choices": [
+      "短年生",
+      "二年生",
+      "一年生",
+      "多年生"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-003",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "小葉種茶樹是屬於 ＿＿ 。",
+    "choices": [
+      "一年生落葉",
+      "多年生落葉",
+      "二年生常綠",
+      "多年生常綠"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-004",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "大葉種茶樹是屬於 ＿＿ 。",
+    "choices": [
+      "一年生落葉",
+      "多年生落葉",
+      "二年生常綠",
+      "多年生常綠"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-005",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "青心烏龍的茶樹為 ＿＿ 。",
+    "choices": [
+      "一年生灌木",
+      "一年生小喬木",
+      "多年生灌木",
+      "二年生小喬木"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-006",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺茶12號的茶樹為 ＿＿ 。",
+    "choices": [
+      "一年生灌木",
+      "一年生小喬木",
+      "多年生灌木",
+      "多年生小喬木"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-007",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "一般栽培之大葉種茶樹為 ＿＿ 。",
+    "choices": [
+      "一年生灌木",
+      "一年生小喬木",
+      "多年生灌木",
+      "多年生小喬木"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-008",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣山茶的茶樹為 ＿＿ 。",
+    "choices": [
+      "一年生灌木",
+      "一年生小喬木",
+      "多年生灌木",
+      "多年生小喬木或喬木"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-009",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列那一茶樹品種為小葉種? ＿＿ 。",
+    "choices": [
+      "青心烏龍",
+      "臺灣山茶",
+      "臺茶18號",
+      "阿薩姆"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-010",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列那一茶樹品種為大葉種? ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "臺茶12號",
+      "臺茶19號",
+      "臺茶8號"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-011",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺茶13號的茶樹為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-012",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺茶20號的茶樹為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-013",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "四季春的茶樹為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-014",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市三峽茶區常用於製造綠茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "臺茶12號",
+      "臺茶8號",
+      "臺灣山茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-015",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市文山茶區適製包種茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "青心烏龍",
+      "臺茶8號",
+      "臺灣山茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-016",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "嘉義、南投等高海拔茶區普遍種植之茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "青心烏龍",
+      "臺茶8號",
+      "臺灣山茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-017",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "南投鹿谷茶區適製凍頂烏龍茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "青心烏龍",
+      "臺茶8號",
+      "臺灣山茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-018",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造正欉鐵觀音茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "青心烏龍",
+      "臺茶8號",
+      "鐵觀音"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-019",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "桃竹苗茶區常用來製造東方美人茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "臺茶18號",
+      "青心大冇",
+      "大葉烏龍"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-020",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "日月潭茶區傳統製造紅茶的茶樹為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-021",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "南投魚池茶區常用來製造紅茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "臺茶8號",
+      "臺茶12號",
+      "大葉烏龍"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-022",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列茶樹品種何者較適合製造成大葉種紅茶? ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "臺茶18號",
+      "臺茶12號",
+      "四季春"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-023",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "欲製作低苦澀綠茶時，在現行栽培品種中可以儘量選擇兒茶素類成分含量 ＿＿ 。",
+    "choices": [
+      "低",
+      "中",
+      "無",
+      "高 的品種較佳"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-024",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列敘述何者正確？ ＿＿ 。",
+    "choices": [
+      "茶菁採摘後，可以先堆放在田間曬太陽沒關係",
+      "茶菁採摘後，一定要先泡水洗灰塵曬乾後再進行製茶",
+      "茶菁採摘後應該小心避免壓傷或悶熱造成傷害",
+      "茶菁採摘後怕被風吹走可先以石頭或其他重物壓一下"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-025",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較不適合製造綠茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "阿薩姆",
+      "青心柑仔",
+      "青心大冇",
+      "臺茶12號"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-026",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較不適合製造包種茶的茶樹品種是 ＿＿ 。",
+    "choices": [
+      "青心烏龍",
+      "臺茶12號",
+      "四季春",
+      "阿薩姆"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-027",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何者不是製造大葉種紅茶的茶樹品種？ ＿＿ 。",
+    "choices": [
+      "阿薩姆",
+      "青心烏龍",
+      "臺茶8號",
+      "臺茶18號"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-028",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較不適合製造椪(膨)風茶的茶樹品種是 ＿＿ 。",
+    "choices": [
+      "青心大冇",
+      "白毛猴",
+      "青心烏龍",
+      "阿薩姆"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-029",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺北市木柵茶區常用來製造鐵觀音茶所用的茶樹品種主要為 ＿＿ 。",
+    "choices": [
+      "硬枝紅心",
+      "鐵觀音",
+      "臺茶18號",
+      "青心柑仔"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-030",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣常用來製造碧螺春茶所用的茶樹品種主要為 ＿＿ 。",
+    "choices": [
+      "硬枝紅心",
+      "鐵觀音",
+      "青心柑仔",
+      "阿薩姆"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-031",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前臺灣地區種植面積最廣的茶樹品種是 ＿＿ 。",
+    "choices": [
+      "青心大冇",
+      "青心烏龍",
+      "臺茶12號",
+      "臺茶18號"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-032",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種所製成之包種茶常具有奶香味? ＿＿ 。",
+    "choices": [
+      "臺茶12號",
+      "臺茶13號",
+      "四季春",
+      "臺茶18號"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-033",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種所製成之紅茶常具有薄荷、肉桂味？ ＿＿ 。",
+    "choices": [
+      "臺茶12號",
+      "臺茶13號",
+      "臺茶18號",
+      "青心烏龍"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-034",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "阿里山茶區普遍種植的茶樹品種屬於 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-035",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市三峽茶區適合製造碧螺春茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-036",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "桃竹苗茶區適合製造東方美人茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-037",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣常用來製造鐵觀音茶的茶樹品種為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-038",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "南投魚池茶區適合製造紅茶的主要茶樹品種為 ＿＿ 。",
+    "choices": [
+      "細葉種",
+      "小葉種",
+      "中葉種",
+      "大葉種"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-039",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶樹是屬於 ＿＿ 。",
+    "choices": [
+      "雜糧作物",
+      "特用作物",
+      "綠肥作物",
+      "糧食作物"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-040",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "於新北市文山茶區主要種植俗稱『種仔』為茶樹何種品種？ ＿＿ 。",
+    "choices": [
+      "臺茶12號",
+      "四季春",
+      "青心烏龍",
+      "大蔓種"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-041",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣目前種植俗稱『二七』為茶樹何種品種？ ＿＿ 。",
+    "choices": [
+      "臺茶1號",
+      "臺茶12號",
+      "青心烏龍",
+      "四季春"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-042",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣目前種植俗稱『二九』為何種茶樹品種？ ＿＿ 。",
+    "choices": [
+      "臺茶13號",
+      "四季春",
+      "黃柑",
+      "青心烏龍"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-043",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前市面上，俗稱『金萱茶』為何種茶樹品種？ ＿＿ 。",
+    "choices": [
+      "臺茶14號",
+      "青心大冇",
+      "臺茶12號",
+      "四季春"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-044",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前茶葉販售上，商品名俗稱『翠玉茶』為何種茶樹品種？ ＿＿ 。",
+    "choices": [
+      "臺茶13號",
+      "青心柑仔",
+      "臺茶18號",
+      "四季春"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-045",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前茶葉販售上，商品名俗稱『紅玉』為茶樹何種品種？ ＿＿ 。",
+    "choices": [
+      "臺茶14號",
+      "四季春",
+      "臺茶18號",
+      "青心烏龍"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-046",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前茶葉販售上，商品名俗稱『紅韻』為茶樹何種品種？ ＿＿ 。",
+    "choices": [
+      "臺茶1號",
+      "山茶",
+      "臺茶8號",
+      "臺茶21號"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-047",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種具有植物品種權？ ＿＿ 。",
+    "choices": [
+      "臺茶1號",
+      "臺茶12號",
+      "臺茶18號",
+      "臺茶19號"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-048",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前市面所種植茶樹品種，商品名俗稱『迎香』為茶樹何種品種？ ＿＿ 。",
+    "choices": [
+      "臺茶14號",
+      "臺茶16號",
+      "臺茶20號",
+      "臺茶21號"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-049",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前市面所種植茶樹品種，商品名俗稱『碧玉』為何種茶樹品種？ ＿＿ 。",
+    "choices": [
+      "臺茶17號",
+      "臺茶18號",
+      "臺茶19號",
+      "臺茶21號"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-050",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種葉片，葉脈之主脈與側脈角度最小？ ＿＿ 。",
+    "choices": [
+      "臺茶8號",
+      "四季春",
+      "臺茶18號",
+      "青心烏龍"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-051",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "一般而言臺灣目前主要種植之大葉種茶樹的嫩芽葉色較小葉種偏 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "深綠色",
+      "黃色",
+      "白色"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-052",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種之嫩芽顏色略帶紫色？ ＿＿ 。",
+    "choices": [
+      "臺茶8號",
+      "四季春",
+      "黃柑",
+      "臺茶18號"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-053",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹品種，其產期為晚生種？ ＿＿ 。",
+    "choices": [
+      "臺茶8號",
+      "青心大冇",
+      "青心烏龍",
+      "臺茶18號"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-054",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "四季春產期為 ＿＿ 。",
+    "choices": [
+      "早生種",
+      "中生種",
+      "不知春",
+      "晚生種"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-055",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹屬於地方品種？ ＿＿ 。",
+    "choices": [
+      "臺農8號",
+      "臺茶8號",
+      "青心烏龍",
+      "臺農351號"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-056",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹屬人工雜交品種？ ＿＿ 。",
+    "choices": [
+      "四季春",
+      "青心大冇",
+      "青心烏龍",
+      "臺茶18號"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-057",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺茶12號屬於 ＿＿ 。",
+    "choices": [
+      "自然雜交",
+      "人工雜交",
+      "頂交",
+      "誘變 品種"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-058",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "民國57年以後由茶業改良場所育成之茶樹品種統一冠以 ＿＿ 。",
+    "choices": [
+      "臺茶",
+      "臺農",
+      "農林",
+      "茶育 之系列編號進行命名"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-059",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶樹葉片內折角度最大？ ＿＿ 。",
+    "choices": [
+      "四季春",
+      "臺茶8號",
+      "青心柑仔",
+      "臺茶18號"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-060",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "一般稱為『紅心歪尾桃』的茶樹品種係指 ＿＿ 。",
+    "choices": [
+      "青心柑仔",
+      "鐵觀音",
+      "青心大冇",
+      "大葉烏龍"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-061",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣主要栽種的茶樹屬於 ＿＿ 。",
+    "choices": [
+      "自交",
+      "異交",
+      "回交",
+      "突變 作物"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-062",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶樹的那一個部位可以製茶？ ＿＿ 。",
+    "choices": [
+      "種子",
+      "根",
+      "葉",
+      "花"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-063",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣製造大葉種紅茶之主要產區為 ＿＿ 。",
+    "choices": [
+      "新北市文山茶區",
+      "桃竹苗茶區",
+      "南投魚池茶區",
+      "嘉義阿里山茶區"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-064",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣製造綠茶之主要產區為 ＿＿ 。",
+    "choices": [
+      "新北市三峽茶區",
+      "臺中梨山茶區",
+      "南投魚池茶區",
+      "嘉義阿里山茶區"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-065",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前臺灣年產最多的茶類為 ＿＿ 。",
+    "choices": [
+      "綠茶",
+      "紅茶",
+      "白茶",
+      "半球形及球形包種茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-066",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "目前臺灣茶葉年產約 ＿＿ 。",
+    "choices": [
+      "1~1.5萬公噸",
+      "2~2.5萬公噸",
+      "3~3.5萬公噸",
+      "4~4.5萬公噸"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-067",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市石門鐵觀音茶所用的茶樹品種主要是 ＿＿ 。",
+    "choices": [
+      "硬枝紅心",
+      "鐵觀音",
+      "四季春",
+      "青心烏龍"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-068",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市三峽茶區龍井茶所用的茶樹品種主要是 ＿＿ 。",
+    "choices": [
+      "硬枝紅心",
+      "鐵觀音",
+      "青心柑仔",
+      "阿薩姆"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-069",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣春季適合製造 ＿＿ 。",
+    "choices": [
+      "紅茶",
+      "椪(膨)風茶",
+      "包種茶及綠茶",
+      "普洱茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-070",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣夏季適合製造 ＿＿ 。",
+    "choices": [
+      "紅茶",
+      "包種茶",
+      "綠茶",
+      "煎茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-071",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "傳統適合製造椪(膨)風茶的節氣為 ＿＿ 。",
+    "choices": [
+      "清明",
+      "芒種",
+      "白露",
+      "立冬"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-072",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "清明節前所採製的茶稱為 ＿＿ 。",
+    "choices": [
+      "清明茶",
+      "掃墓茶",
+      "祭祖茶",
+      "明前茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-073",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "明前茶以下列何者最為著名? ＿＿ 。",
+    "choices": [
+      "龍井茶",
+      "包種茶",
+      "椪風茶",
+      "紅茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-074",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「白露茶」是指幾月採製的茶? ＿＿ 。",
+    "choices": [
+      "七月",
+      "八月",
+      "九月",
+      "十月"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-075",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "所謂「六月白」是屬於 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "第一次夏茶",
+      "第二次夏茶",
+      "秋茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-076",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "何種茶類以芽尖白毫為特色? ＿＿ 。",
+    "choices": [
+      "椪(膨)風茶",
+      "包種茶",
+      "鐵觀音",
+      "煎茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-077",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "俗稱東方美人茶係指 ＿＿ 。",
+    "choices": [
+      "文山包種茶",
+      "鐵觀音",
+      "凍頂烏龍茶",
+      "白毫烏龍茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-078",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市坪林茶區所產製之特色茶類為 ＿＿ 。",
+    "choices": [
+      "文山包種茶",
+      "白茶",
+      "鐵觀音",
+      "綠茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-079",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "桃竹苗茶區主要產製之特色茶類為 ＿＿ 。",
+    "choices": [
+      "條形包種茶",
+      "半球形包種茶",
+      "白茶類",
+      "椪(膨)風茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-080",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "南投縣鹿谷鄉主要產 ＿＿ 。",
+    "choices": [
+      "金萱茶",
+      "四季春",
+      "凍頂烏龍茶",
+      "松柏長青茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-081",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "四季春的種植面積最多的地區為 ＿＿ 。",
+    "choices": [
+      "石門茶區",
+      "坪林茶區",
+      "阿里山茶區",
+      "名間茶區"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-082",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "高山茶一般是指種植在海拔 ＿＿ 。",
+    "choices": [
+      "1000公尺",
+      "500公尺",
+      "2000公尺",
+      "3000公尺 以上即稱之"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-083",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列那一茶區是鐵觀音的產地？ ＿＿ 。",
+    "choices": [
+      "坪林",
+      "嘉義",
+      "木柵",
+      "霧社"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-084",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列哪一種不是椪(膨)風茶的別名？ ＿＿ 。",
+    "choices": [
+      "東方美人",
+      "白毫烏龍",
+      "五色茶",
+      "翠玉"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-085",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "以焙火香為主要特色的茶是 ＿＿ 。",
+    "choices": [
+      "凍頂烏龍茶",
+      "碧螺春",
+      "高山茶",
+      "紅茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-086",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣碧螺春主要產地在 ＿＿ 。",
+    "choices": [
+      "三峽",
+      "石門",
+      "阿里山",
+      "梅山"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-087",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種特色茶製造時需將布球茶包以『文火』慢慢烘焙? ＿＿ 。",
+    "choices": [
+      "凍頂茶",
+      "白毫烏龍",
+      "鐵觀音",
+      "龍井"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-088",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "阿薩姆品種較適合製造 ＿＿ 。",
+    "choices": [
+      "綠茶",
+      "紅茶",
+      "包種茶",
+      "烏龍茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-089",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣茶產量最多的鄉鎮為 ＿＿ 。",
+    "choices": [
+      "南投名間",
+      "臺東鹿野",
+      "屏東滿州",
+      "花蓮瑞穗"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-090",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列那一縣市尚無茶產業之經濟栽培？ ＿＿ 。",
+    "choices": [
+      "新竹縣",
+      "新北市",
+      "雲林縣",
+      "澎湖縣"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-091",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「福鹿茶」產於 ＿＿ 。",
+    "choices": [
+      "鹿谷鄉",
+      "鹿港鎮",
+      "鹿野鄉",
+      "福岡縣"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-092",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「港口茶」產於 ＿＿ 。",
+    "choices": [
+      "滿州鄉",
+      "臺中港",
+      "高雄港",
+      "湖口鄉"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-093",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「珠露茶」產於 ＿＿ 。",
+    "choices": [
+      "鹿谷茶區",
+      "阿里山茶區",
+      "六龜茶區",
+      "名間茶區"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-094",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「松柏長青茶」是指 ＿＿  ＿＿ 所產的茶。",
+    "choices": [
+      "名間鄉",
+      "鹿谷鄉",
+      "仁愛鄉",
+      "峨眉鄉"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-095",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「天鶴茶」產於 ＿＿ 。",
+    "choices": [
+      "六龜區",
+      "瑞穗鄉",
+      "木柵區",
+      "竹山鎮"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-096",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「南港包種茶」產於 ＿＿ 。",
+    "choices": [
+      "臺北市",
+      "高雄市",
+      "臺南市",
+      "宜蘭縣"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-097",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列新北市哪一區不是「文山包種茶」的主要產區？ ＿＿ 。",
+    "choices": [
+      "新店區",
+      "石門區",
+      "石碇區",
+      "深坑區"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-098",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列哪一鄉鎮市區不是「椪(膨)風茶」的主要產區？ ＿＿ 。",
+    "choices": [
+      "頭份市",
+      "石碇區",
+      "北埔鄉",
+      "古坑鄉"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-099",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新竹縣峨眉鄉之特色茶為 ＿＿ 。",
+    "choices": [
+      "包種茶",
+      "碧螺春",
+      "椪(膨)風茶",
+      "鐵觀音"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-100",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「松柏長青茶」原名為 ＿＿ 。",
+    "choices": [
+      "埔中茶",
+      "青山茶",
+      "霧社茶",
+      "日月茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-101",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "南投市茶區所生產的茶一般稱為 ＿＿ 。",
+    "choices": [
+      "高山茶",
+      "文山茶",
+      "青山茶",
+      "仙葉茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-102",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「玉蘭茶」產於 ＿＿ 。",
+    "choices": [
+      "大同鄉",
+      "三灣鄉",
+      "礁溪鄉",
+      "古坑鄉"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-103",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「上將茶」產於 ＿＿ 。",
+    "choices": [
+      "礁溪鄉",
+      "三星鄉",
+      "瑞穗鄉",
+      "石碇區"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-104",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「素馨茶」產於 ＿＿ 。",
+    "choices": [
+      "高雄市",
+      "花蓮縣",
+      "宜蘭縣",
+      "臺東縣"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-105",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "臺灣以擂茶為發展觀光特色的鄉鎮為 ＿＿ 。",
+    "choices": [
+      "阿里山鄉",
+      "鹿谷鄉",
+      "北埔鄉",
+      "鹿野鄉"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-106",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "三峽茶區所產的主要特色茶為 ＿＿ 。",
+    "choices": [
+      "碧螺春",
+      "包種茶",
+      "烏龍茶",
+      "高山茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-107",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何者為高雄市所產的茶？ ＿＿ 。",
+    "choices": [
+      "海山茶",
+      "港口茶",
+      "青山茶",
+      "六龜茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-108",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "「港口茶」的發源係 ＿＿ 。",
+    "choices": [
+      "自大陸福建引進",
+      "由臺灣野生山茶繁殖",
+      "由研究機關育成",
+      "自印度引進"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-109",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "新北市文山包種茶具有特殊之 ＿＿ 。",
+    "choices": [
+      "花香",
+      "熟果香",
+      "焙火香",
+      "蜜香"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-110",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "椪（膨）風茶具有特殊之 ＿＿ 。",
+    "choices": [
+      "花香",
+      "蜜香",
+      "焙火香",
+      "肉桂香"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-111",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "文山包種茶的外觀形狀是 ＿＿ 。",
+    "choices": [
+      "球形",
+      "半球形",
+      "條形",
+      "碎形"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-112",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "龍井茶之外觀為 ＿＿ 。",
+    "choices": [
+      "條形",
+      "碎形",
+      "球形",
+      "扁平形"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-113",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "文山包種茶是屬於 ＿＿ 。",
+    "choices": [
+      "部分發酵茶",
+      "全發酵茶",
+      "不發酵茶",
+      "後發酵茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-114",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列哪一種茶非屬不發酵茶？ ＿＿ 。",
+    "choices": [
+      "碧螺春",
+      "龍井",
+      "煎茶",
+      "烏龍茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-115",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何者不屬於發酵茶類為 ＿＿ 。",
+    "choices": [
+      "綠茶",
+      "包種茶",
+      "烏龍茶",
+      "紅茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-116",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "龍井茶屬 ＿＿ 。",
+    "choices": [
+      "不發酵茶",
+      "部分發酵茶",
+      "半發酵茶",
+      "全發酵茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-117",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "碧螺春茶屬 ＿＿ 。",
+    "choices": [
+      "不發酵茶",
+      "部分發酵茶",
+      "後發酵茶",
+      "全發酵茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-118",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類發酵程度較重？ ＿＿ 。",
+    "choices": [
+      "紅茶",
+      "烏龍茶",
+      "綠茶",
+      "包種茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-119",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何者屬部分發酵茶？ ＿＿ 。",
+    "choices": [
+      "紅茶",
+      "煎茶",
+      "包種茶",
+      "龍井茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-120",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "碧螺春茶外觀形狀屬 ＿＿ 。",
+    "choices": [
+      "碎形",
+      "條形",
+      "半球形",
+      "球形"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-121",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "碧螺春茶外觀色澤屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "黃綠色",
+      "褐色",
+      "黑色"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-122",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "碧螺春茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "黃色",
+      "褐色",
+      "黑色"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-123",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "碧螺春茶香氣屬 ＿＿ 。",
+    "choices": [
+      "蔬果香",
+      "花香",
+      "熟香",
+      "蜜香"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-124",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "文山包種茶外觀形狀屬 ＿＿ 。",
+    "choices": [
+      "碎形",
+      "條形",
+      "半球形",
+      "球形"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-125",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "文山包種茶外觀色澤屬 ＿＿ 。",
+    "choices": [
+      "灰綠",
+      "墨綠",
+      "淡綠",
+      "黃綠"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-126",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "文山包種茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "蜜綠色",
+      "黃色",
+      "褐色",
+      "琥珀色"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-127",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "高山茶外觀形狀屬 ＿＿ 。",
+    "choices": [
+      "碎形",
+      "條形",
+      "半球形或球形",
+      "方形"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-128",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "高山茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "蜜黃色",
+      "褐色",
+      "琥珀色"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-129",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "凍頂烏龍茶外觀形狀屬 ＿＿ 。",
+    "choices": [
+      "碎形",
+      "條形",
+      "半球形或球形",
+      "方形"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-130",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "凍頂烏龍茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "金黃色",
+      "褐色",
+      "琥珀色"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-131",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "凍頂烏龍茶主要特色香氣為 ＿＿ 。",
+    "choices": [
+      "青草香",
+      "花香",
+      "焙火香",
+      "蜜香"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-132",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "木柵鐵觀音茶外觀形狀屬 ＿＿ 。",
+    "choices": [
+      "碎形",
+      "條形",
+      "半球形或球形",
+      "方形"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-133",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "木柵鐵觀音茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "金黃色",
+      "琥珀色",
+      "黑色"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-134",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "木柵鐵觀音茶香氣屬 ＿＿ 。",
+    "choices": [
+      "青草香",
+      "花果香",
+      "焙火香",
+      "蜜香"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-135",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "東方美人茶之茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "金黃色",
+      "橙黃~橙紅色",
+      "黑色"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-136",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "東方美人茶之香氣屬 ＿＿ 。",
+    "choices": [
+      "青草香",
+      "花香",
+      "焙火香",
+      "蜜香"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-137",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "紅茶屬 ＿＿ 。",
+    "choices": [
+      "不發酵茶",
+      "部分發酵茶",
+      "半發酵茶",
+      "全發酵茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-138",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "紅茶外觀色澤屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "黃綠色",
+      "褐色",
+      "烏黑色"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-139",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "紅茶茶湯顏色屬 ＿＿ 。",
+    "choices": [
+      "綠色",
+      "金黃色",
+      "琥珀色",
+      "紅色"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-140",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "輕發酵茶之香氣特性為 ＿＿ 。",
+    "choices": [
+      "清香",
+      "陳香",
+      "火香",
+      "熟香"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-141",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較適合製造優質綠茶的茶菁採摘是採 ＿＿ 。",
+    "choices": [
+      "一心一葉",
+      "一心三葉",
+      "一心四葉",
+      "一心五葉"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-142",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較適合製造優質紅茶的茶菁採摘是採 ＿＿ 。",
+    "choices": [
+      "一心",
+      "一心二葉",
+      "一心四葉",
+      "一心六葉"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-143",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "較適合製造優質高山烏龍茶的茶菁採摘是採 ＿＿ 。",
+    "choices": [
+      "一心一葉",
+      "一心",
+      "一心三葉",
+      "一心六葉"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-144",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造高級椪(膨)風茶的茶菁需經過何種昆蟲危害？ ＿＿ 。",
+    "choices": [
+      "小綠葉蟬",
+      "紅蜘蛛",
+      "薊馬",
+      "盲椿象"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-145",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶菁機採最適合的時刻是 ＿＿ 。",
+    "choices": [
+      "凌晨",
+      "清晨露水未乾前",
+      "午時前後",
+      "傍晚"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-146",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "台灣一般平地茶區於「清明」至「穀雨」期間所採製的茶為 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-147",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "台灣一般平地茶區於「立夏」至「立秋」期間所採製的茶為 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-148",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "台灣一般平地茶區於「立秋」至「立冬」期間所採製的茶為 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-149",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "台灣一般平地茶區於「立冬」至「冬至」期間所採製的茶為 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-150",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "俗稱「白露茶」是指 ＿＿ 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-151",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "欲製高品質紅茶宜採用哪一季茶菁？ ＿＿ 。",
+    "choices": [
+      "春季",
+      "夏季",
+      "秋季",
+      "冬季"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-152",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "欲製高品質綠茶宜採用哪一季茶菁？ ＿＿ 。",
+    "choices": [
+      "春季",
+      "夏季",
+      "秋季",
+      "冬季"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-153",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "欲製高品質包種茶宜採用哪一季茶菁？ ＿＿ 。",
+    "choices": [
+      "春季",
+      "夏季",
+      "秋季",
+      "冬季"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-154",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "欲製高品質白毫烏龍茶宜採用哪一季茶菁？ ＿＿ 。",
+    "choices": [
+      "春季",
+      "夏季",
+      "秋季",
+      "冬季"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-155",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列項目何者與茶菁品質無關？ ＿＿ 。",
+    "choices": [
+      "茶園管理",
+      "茶園土壤肥力",
+      "種植環境",
+      "製茶技術"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-156",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "那一種肥料施用過多時易形成茶葉色澤暗綠，香氣不揚的缺點？ ＿＿ 。",
+    "choices": [
+      "氮肥",
+      "磷肥",
+      "鉀肥",
+      "鈣肥"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-157",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶菁堆積過高，會使葉溫升高，對茶菁顏色有何影響？ ＿＿ 。",
+    "choices": [
+      "不變",
+      "紅變",
+      "灰變",
+      "黑變"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-158",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "堆積的茶菁會放出大量熱能是那一種作用的結果？ ＿＿ 。",
+    "choices": [
+      "呼吸作用",
+      "蒸散作用",
+      "光合作用",
+      "合成作用"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-159",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造優質包種茶的茶菁不須具備下列何種條件？ ＿＿ 。",
+    "choices": [
+      "葉質柔軟",
+      "葉肉肥厚",
+      "遭小綠葉蟬叮咬",
+      "頂芽開面"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-160",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉之發酵主要為 ＿＿ 。",
+    "choices": [
+      "氧化作用",
+      "還元作用",
+      "分解作用",
+      "取代作用"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-161",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製作部分發酵茶時，日光萎凋之適宜溫度為 ＿＿ 。",
+    "choices": [
+      "10～15",
+      "15～20",
+      "30～35",
+      "45～50℃"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-162",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "不同發酵程度之茶類是由於下列何種因素所致？ ＿＿ 。",
+    "choices": [
+      "品種不同",
+      "季節不同",
+      "製法不同",
+      "產區不同"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-163",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "半球形包種茶團揉（布球揉）過程中若不解塊，易造成茶葉外觀色澤 ＿＿ 。",
+    "choices": [
+      "變黑",
+      "變黃",
+      "變青",
+      "變綠"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-164",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製作部分發酵茶適宜之室內萎凋溫度條件為 ＿＿ 。",
+    "choices": [
+      "10～15",
+      "20～25",
+      "35～40",
+      "40～45℃"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-165",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造部分發酵茶時，室內萎凋及靜置攪拌處理不當致使茶菁呈現「積水」現象時，所產製包種茶之外觀色澤呈 ＿＿ 。",
+    "choices": [
+      "黃綠",
+      "褐黃",
+      "暗綠",
+      "淡綠"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-166",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "若茶菁原料較「粗老」，揉捻宜採用甚麼方式？ ＿＿ 。",
+    "choices": [
+      "縮短時間、減輕壓力",
+      "縮短時間、加重壓力",
+      "延長時間、減輕壓力",
+      "延長時間、加重壓力"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-167",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉發酵之相關酵素為 ＿＿ 。",
+    "choices": [
+      "多元酚類氧化酵素",
+      "酒精氧化酵素",
+      "醋酸氧化酵素",
+      "乳酸氧化酵素"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-168",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類不需經過團揉（布球揉）步驟？ ＿＿ 。",
+    "choices": [
+      "凍頂烏龍茶",
+      "鐵觀音",
+      "文山包種茶",
+      "松柏長青茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-169",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "所謂茶葉發酵，主要係指那一種化學成分被氧化？ ＿＿ 。",
+    "choices": [
+      "葉綠素",
+      "兒茶素類",
+      "咖啡因",
+      "可溶性醣類"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-170",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類在炒菁後須以濕布包覆回潤？ ＿＿ 。",
+    "choices": [
+      "包種茶",
+      "東方美人茶",
+      "鐵觀音",
+      "紅茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-171",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造部分發酵茶時，炒菁程度不足時，易產生 ＿＿ 。",
+    "choices": [
+      "菁味",
+      "熟味",
+      "火味",
+      "澀味"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-172",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "何種茶類須經團揉（布球揉）之過程？ ＿＿ 。",
+    "choices": [
+      "文山包種茶",
+      "鐵觀音",
+      "椪(膨)風茶",
+      "白茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-173",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "何種茶類不經日光萎凋處理？ ＿＿ 。",
+    "choices": [
+      "包種茶",
+      "烏龍茶",
+      "鐵觀音",
+      "碎形紅茶"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-174",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列部分發酵茶類在製造過程中，何者兒茶素類被氧化最多？ ＿＿ 。",
+    "choices": [
+      "凍頂烏龍茶",
+      "文山包種茶",
+      "椪(膨)風茶",
+      "鐵觀音"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-175",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類之製造一開始必須經過日光萎凋過程？ ＿＿ 。",
+    "choices": [
+      "紅茶",
+      "包種茶",
+      "綠茶",
+      "白茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-176",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類發酵程度較重？ ＿＿ 。",
+    "choices": [
+      "文山包種茶",
+      "白茶",
+      "鐵觀音",
+      "凍頂烏龍茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-177",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "包種茶成茶應乾燥至含水量多少為適當？ ＿＿ 。",
+    "choices": [
+      "0-1%",
+      "7-8%",
+      "3-5%",
+      "10-11%"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-178",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "望月式揉捻機不用於 ＿＿  ＿＿ 之製作。",
+    "choices": [
+      "包種茶",
+      "紅茶",
+      "烏龍茶",
+      "碧螺春"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-179",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "有萎凋製程之茶類為 ＿＿ 。",
+    "choices": [
+      "綠茶、紅茶、黃茶",
+      "白茶、青茶、紅茶",
+      "白茶、青茶、綠茶",
+      "黃茶、白茶、青茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-180",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種茶類以「室內萎凋」為製造之第一步驟？ ＿＿ 。",
+    "choices": [
+      "綠茶",
+      "包種茶",
+      "白茶",
+      "黃茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-181",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "室內萎凋及靜置攪拌處理不當，致使茶菁水分散失過快呈現「消水」現象時，所產製包種茶之水色 ＿＿ 。",
+    "choices": [
+      "鮮綠",
+      "偏黃",
+      "暗綠",
+      "偏淡"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-182",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "室內萎凋及靜置攪拌處理不當，致使茶菁呈現「積水」現象時，所產製包種茶之香氣 ＿＿ 。",
+    "choices": [
+      "清揚",
+      "不揚",
+      "濃郁",
+      "花香"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-183",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列部分發酵茶類中，烘焙程度最重之茶類為 ＿＿ 。",
+    "choices": [
+      "凍頂烏龍茶",
+      "鐵觀音茶",
+      "高山茶",
+      "松柏長青茶"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-184",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "台灣特色茶中其發酵程度輕重為 ＿＿ 。",
+    "choices": [
+      "凍頂烏龍茶＞東方美人茶＞高山茶",
+      "凍頂烏龍茶＞文山包種茶＞高山茶",
+      "東方美人茶＞凍頂烏龍茶＞文山包種茶",
+      "高山茶＞凍頂烏龍茶＞文山包種茶"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-185",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "使用層積式萎凋設施製作包種茶時，該設施可控制其 ＿＿  ＿＿ 以利茶菁萎凋及發酵之進行。",
+    "choices": [
+      "壓力、溫度",
+      "濕度、壓力",
+      "溫度、光度",
+      "溫度、濕度"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-186",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "部分發酵茶的烘焙技術是藉由 ＿＿  ＿＿ 的控制來提高其品質。",
+    "choices": [
+      "溫度及壓力",
+      "壓力及風速",
+      "溫度及時間",
+      "時間及壓力"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-187",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "以下茶類何者在製造過程中茶葉成分變化最少？ ＿＿ 。",
+    "choices": [
+      "不發酵茶",
+      "部分發酵茶",
+      "全發酵茶",
+      "後發酵茶"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": "ccira-188",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "不發酵茶製造過程中炒菁的目的主要在於 ＿＿ 。",
+    "choices": [
+      "增加香氣",
+      "抑制酵素活性",
+      "除去意味",
+      "增加美觀"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-189",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "下列何種成分，綠茶較其他茶類含量較低？ ＿＿ 。",
+    "choices": [
+      "兒茶素類",
+      "游離胺基酸",
+      "咖啡因",
+      "茶黃質"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-190",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶湯中刺激中樞神經之主要成分為 ＿＿ 。",
+    "choices": [
+      "兒茶素",
+      "胺基酸",
+      "咖啡因",
+      "礦物質"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-191",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉中之咖啡因含量約為 ＿＿ 。",
+    "choices": [
+      "0～1%",
+      "2～4%",
+      "6～8%",
+      "9%以上"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-192",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "製造傳統碧螺春之基本流程為 ＿＿ 。",
+    "choices": [
+      "萎凋→揉捻→發酵→殺菁→乾燥",
+      "殺菁→揉捻→乾燥",
+      "萎凋→攪拌→殺菁→揉捻→乾燥",
+      "萎凋→殺菁→發酵→乾燥"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-193",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "紅茶製造的基本流程為 ＿＿ 。",
+    "choices": [
+      "萎凋→殺菁→揉捻→發酵→乾燥",
+      "萎凋→揉捻→發酵→乾燥",
+      "揉捻→發酵→乾燥",
+      "萎凋→殺菁→揉捻→發酵"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-194",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "紅茶製程中，補足發酵時之室溫宜採 ＿＿ 。",
+    "choices": [
+      "10～15℃",
+      "22～27℃",
+      "32～37℃",
+      "40℃以上"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-195",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉品質感官評鑑時，條形茶沖泡時間為 ＿＿  ＿＿ 分鐘。",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "6"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": "ccira-196",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉品質感官評鑑時，凍頂烏龍茶沖泡時間為 ＿＿  ＿＿ 分鐘。",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "6"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-197",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "進行茶湯品質感官評鑑時，其茶湯溫度約 ＿＿  ＿＿ ℃左右為宜。",
+    "choices": [
+      "20",
+      "40",
+      "60",
+      "80"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-198",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉品質感官評鑑時，煮水器皿以 ＿＿  ＿＿ 材質較適宜。",
+    "choices": [
+      "生鐵",
+      "木",
+      "塑膠",
+      "不鏽鋼"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": "ccira-199",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉品質感官評鑑時，每次(趟)不宜超過 ＿＿  ＿＿ 個茶樣。",
+    "choices": [
+      "50",
+      "30",
+      "70",
+      "60"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": "ccira-200",
+    "topic": "ccira_basic",
+    "topicLabel": "茶葉基本知識",
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會",
+    "stem": "茶葉品質感官評鑑時，茶葉品質鑑定標準作業流程的最後一個步驟為 ＿＿ 。",
+    "choices": [
+      "觀水色",
+      "審外觀",
+      "觀葉底",
+      "聞香氣"
+    ],
+    "answerIndex": 2
   }
 ]

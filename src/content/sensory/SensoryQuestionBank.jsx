@@ -16,6 +16,7 @@ import {
 import AccordionPanel from '../../components/AccordionPanel';
 import ResizableDivider from '../../components/ResizableDivider';
 import ModeTabMenu from '../../components/ModeTabMenu';
+import CciraEssayCards from './CciraEssayCards';
 
 const STORAGE_KEY = 'tea.sensory.practiceAnswers.v1';
 const REVEAL_KEY = 'tea.sensory.practiceRevealAnswers.v1';
@@ -24,6 +25,7 @@ const SIDEBAR_WIDTH_KEY = 'tea.sensorySidebarWidth';
 const BANK_PRESETS = [
   { key: 'tea_tech_c', label: '製茶技術丙級' },
   { key: 'tea_artisan', label: '茶藝師' },
+  { key: 'ccira', label: '中華茶產業文化研究學會' },
 ];
 
 const safeJsonParse = (value) => {
@@ -48,6 +50,16 @@ const getMenuTone = (key) => {
         activeBorder: 'border-sky-300',
         activeBg: 'bg-sky-50/70',
         activeText: 'text-sky-950',
+      };
+    case 'ccira':
+      return {
+        accent: 'bg-orange-500',
+        iconBg: 'bg-orange-50',
+        iconText: 'text-orange-700',
+        Icon: BookOpen,
+        activeBorder: 'border-orange-300',
+        activeBg: 'bg-orange-50/70',
+        activeText: 'text-orange-950',
       };
     case 'processing_02':
       return { accent: 'bg-amber-500', iconBg: 'bg-amber-50', iconText: 'text-amber-700', Icon: FlaskConical };
@@ -229,7 +241,7 @@ const QuestionImage = ({ question }) => {
 
 export default function SensoryQuestionBank({ questions, activeTopic, onSelectTopic, topOffsetPx = 0 }) {
   const [introMode, setIntroMode] = useState(true);
-  const [activeMode, setActiveMode] = useState('quick'); // 'quick' | 'custom' | 'list' | 'cards'
+  const [activeMode, setActiveMode] = useState('list'); // 'list' | 'quick' | 'custom' | 'cards'
   const [practiceMode, setPracticeMode] = useState('list');
   const [query, setQuery] = useState('');
   const [activeBank, setActiveBank] = useState(null);
@@ -795,6 +807,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                               setQuery('');
                               setSelectedTopic(null);
                               onSelectTopic?.(null);
+                              if (activeMode === 'essay') setActiveMode('list');
                             })
                           }
                         />
@@ -816,6 +829,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                                   setQuery('');
                                   setSelectedTopic(t.topic);
                                   onSelectTopic?.(t.topic);
+                                  if (activeMode === 'essay') setActiveMode('list');
                                 })
                               }
                             />
@@ -824,6 +838,26 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                           <div className="rounded-xl border border-stone-200 bg-white/60 px-4 py-2 text-sm font-semibold text-stone-500">
                             尚無單元
                           </div>
+                        )}
+                        {(stateKey === 'ccira' || stateKey === 'all') && (
+                          <TopicButton
+                            toneKey={stateKey === 'all' ? 'ccira' : nodeToneKey}
+                            isActive={activeMode === 'essay' && (stateKey !== 'all' || !activeBank || activeBank === 'ccira')}
+                            label="演講問答精華"
+                            count={10}
+                            onClick={() =>
+                              preserveSidebarScroll(() => {
+                                setIntroMode(false);
+                                const nextBankKey = stateKey === 'all' ? null : stateKey;
+                                setActiveBank(nextBankKey);
+                                if (nextBankKey) ensureExpanded(nextBankKey);
+                                setQuery('');
+                                setSelectedTopic(null);
+                                onSelectTopic?.(null);
+                                setActiveMode('essay');
+                              })
+                            }
+                          />
                         )}
                       </div>
                     </AccordionPanel>
@@ -852,6 +886,10 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
         </div>
 
         <div className="w-full space-y-4">
+          {activeMode === 'essay' && (
+            <CciraEssayCards />
+          )}
+
           {activeMode === 'quick' && quickQuestion ? (
             (() => {
               const hasQuickAnswer = Number.isInteger(quickQuestion.answerIndex);

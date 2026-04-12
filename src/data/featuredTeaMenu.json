@@ -7,6 +7,13 @@
     "swatch": "#D7F0FA"
   },
   {
+    "id": "tea_process",
+    "label": "製程介紹",
+    "subtitle": "分類・製程・六大茶系",
+    "activeClass": "bg-stone-700 text-white",
+    "swatch": "#78716c"
+  },
+  {
     "id": "biluochun",
     "label": "碧螺春綠茶",
     "subtitle": "不發酵｜清鮮花果香",

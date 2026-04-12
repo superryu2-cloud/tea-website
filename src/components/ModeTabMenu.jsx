@@ -1,13 +1,15 @@
 import React from 'react';
 import { Zap, Settings, List, Layers } from 'lucide-react';
 
-const ModeTabMenu = ({ activeMode, onModeChange }) => {
-    const modes = [
+const ModeTabMenu = ({ activeMode, onModeChange, extraModes = [] }) => {
+    const baseModes = [
+        { key: 'list', label: '題庫練習', icon: List, color: 'emerald' },
         { key: 'quick', label: '快問快答', icon: Zap, color: 'sky' },
         { key: 'custom', label: '自訂測驗', icon: Settings, color: 'amber' },
-        { key: 'list', label: '題庫練習', icon: List, color: 'emerald' },
         { key: 'cards', label: '答題卡片', icon: Layers, color: 'violet' },
     ];
+
+    const modes = [...baseModes, ...extraModes];
 
     const getColorClasses = (color, isActive) => {
         const colorMap = {
@@ -27,9 +29,17 @@ const ModeTabMenu = ({ activeMode, onModeChange }) => {
                 active: 'border-violet-400 bg-violet-50 text-violet-950 shadow-sm',
                 inactive: 'border-stone-200 bg-white text-stone-700 hover:bg-violet-50/50 hover:border-violet-200',
             },
+            orange: {
+                active: 'border-orange-400 bg-orange-50 text-orange-950 shadow-sm',
+                inactive: 'border-stone-200 bg-white text-stone-700 hover:bg-orange-50/50 hover:border-orange-200',
+            },
+            rose: {
+                active: 'border-rose-400 bg-rose-50 text-rose-950 shadow-sm',
+                inactive: 'border-stone-200 bg-white text-stone-700 hover:bg-rose-50/50 hover:border-rose-200',
+            },
         };
 
-        return isActive ? colorMap[color].active : colorMap[color].inactive;
+        return isActive ? colorMap[color]?.active : colorMap[color]?.inactive;
     };
 
     return (
