@@ -14,6 +14,7 @@ export const ATLAS_ITEMS = [
   'regions',
   'history',
   'video',
+  'course',
 ];
 
 export const NAV_ITEMS = ['journey', ...ATLAS_ITEMS];

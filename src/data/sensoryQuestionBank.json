@@ -19970,5 +19970,80 @@
       "聞香氣"
     ],
     "answerIndex": 2
+  },
+  {
+    "id": "CCIRA01-0001",
+    "topic": "ccira_history",
+    "topicLabel": "01：茶文化歷史源流",
+    "stem": "陸羽《茶經》完成於中國哪個朝代？",
+    "choices": [
+      "漢代",
+      "唐代",
+      "宋代",
+      "明代"
+    ],
+    "answerIndex": 1,
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會"
+  },
+  {
+    "id": "CCIRA01-0002",
+    "topic": "ccira_history",
+    "topicLabel": "01：茶文化歷史源流",
+    "stem": "以下哪一種茶藝儀軌不屬於台灣茶席的特色？",
+    "choices": [
+      "乾泡法",
+      "茶具美學佈置",
+      "日式抹茶道",
+      "雙杯品飲"
+    ],
+    "answerIndex": 2,
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會"
+  },
+  {
+    "id": "CCIRA02-0001",
+    "topic": "ccira_variety",
+    "topicLabel": "02：台灣特色茶區",
+    "stem": "坪林主要以生產何種茶聞名？",
+    "choices": [
+      "高山烏龍茶",
+      "東方美人茶",
+      "文山包種茶",
+      "日月潭紅茶"
+    ],
+    "answerIndex": 2,
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會"
+  },
+  {
+    "id": "CCIRA01-0002",
+    "topic": "ccira_history",
+    "topicLabel": "01：茶文化歷史源流",
+    "stem": "以下哪一種茶藝儀軌不屬於台灣茶席的特色？",
+    "choices": [
+      "乾泡法",
+      "茶具美學佈置",
+      "日式抹茶道",
+      "雙杯品飲"
+    ],
+    "answerIndex": 2,
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會"
+  },
+  {
+    "id": "CCIRA02-0001",
+    "topic": "ccira_variety",
+    "topicLabel": "02：台灣特色茶區",
+    "stem": "坪林主要以生產何種茶聞名？",
+    "choices": [
+      "高山烏龍茶",
+      "東方美人茶",
+      "文山包種茶",
+      "日月潭紅茶"
+    ],
+    "answerIndex": 2,
+    "bank": "ccira",
+    "bankLabel": "中華茶產業文化研究學會"
   }
 ]

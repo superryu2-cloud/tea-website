@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings, Search } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC } from '../config/navigation';
+import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
 const VARIETIES_SUBITEMS_BY_KEY = {
@@ -252,12 +252,12 @@ export default function SiteNavigation({
   };
 
   const navRows = [
-    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured', 'video'],
+    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured', 'course', 'video'],
     ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'toolbar'],
   ];
 
   return (
-    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen) ? 'nav-drawer-open' : ''}`}>
+    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen || mobileMenuOpen) ? 'nav-drawer-open' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center min-h-[68px] py-3">
           <div className="flex items-center gap-5 pr-10">
@@ -677,8 +677,8 @@ export default function SiteNavigation({
 
       {
         mobileMenuOpen && (
-          <div className="xl:hidden tool-surface tool-surface--strong">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="xl:hidden tool-surface tool-surface--strong absolute top-full left-0 right-0 max-h-[calc(100vh-80px)] overflow-y-auto shadow-2xl border-t border-stone-200">
+            <div className="px-2 pt-2 pb-12 space-y-1 sm:px-3">
               <div className="flex items-center justify-between px-3 py-2">
                 <div className="text-xs font-bold text-stone-500">{i18n.t('ui.language')}</div>
                 <button
@@ -755,35 +755,34 @@ export default function SiteNavigation({
 
                         {/* Varieties Mobile Sub-navigation (Tier 3 & 4) */}
                         {item === 'varieties' && isActive && (
-                          <div className="ml-4 pl-4 border-l border-stone-200 space-y-2 mt-1 py-1">
+                          <div className="ml-3 pl-3 border-l-2 border-amber-500/40 space-y-3 mt-2 py-1.5 bg-stone-50/60 rounded-xl p-2.5 border border-stone-200/40 shadow-inner">
                             {VARIETIES_KINDS.map((kind) => {
                               const subItems = VARIETIES_SUBITEMS_BY_KEY[kind.key] || [];
                               const isKindActive = varietiesKind === kind.key;
                               return (
-                                <div key={kind.key} className="space-y-1">
+                                <div key={kind.key} className="space-y-1.5">
                                   <button
                                     onClick={() => setVarietiesKind(kind.key)}
-                                    className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${isKindActive ? 'bg-amber-100 text-amber-900 shadow-sm' : 'text-stone-600 hover:bg-stone-50'
+                                    className={`w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-bold transition-all flex items-center justify-between border ${isKindActive ? 'bg-amber-100/90 text-amber-950 border-amber-200/60 shadow-sm' : 'text-stone-700 bg-white hover:bg-stone-50 border-stone-200/30 hover:border-stone-200/60 shadow-sm'
                                       }`}
                                   >
-                                    <div className="flex items-center justify-between w-full">
-                                      <span>{kind.label}</span>
-                                      {subItems.length > 0 && <ChevronDown size={12} className={`opacity-50 ${isKindActive ? 'rotate-180' : ''}`} />}
-                                    </div>
+                                    <span>{kind.label}</span>
+                                    {subItems.length > 0 && <ChevronDown size={14} className={`opacity-60 transition-transform ${isKindActive ? 'rotate-180' : ''}`} />}
                                   </button>
 
                                   {isKindActive && subItems.length > 0 && (
-                                    <div className="ml-3 pl-3 border-l border-stone-100 space-y-1 py-1">
+                                    <div className="ml-2 pl-3.5 border-l-2 border-stone-300 space-y-1.5 py-1">
                                       {subItems.map((sub) => (
                                         <button
                                           key={sub.href}
                                           onClick={() => {
-                                            scrollToHrefWithOffset(sub.href, { behavior: 'smooth' });
+                                            scrollToHrefWithOffset(sub.href, { dispatchPopstate: true, behavior: 'smooth' });
                                             setMobileMenuOpen(false);
                                           }}
-                                          className="w-full text-left px-2 py-1.5 rounded text-[11px] font-medium text-stone-500 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+                                          className="w-full text-left px-3 py-2.5 rounded-lg text-[13px] font-semibold text-stone-600 hover:text-amber-950 hover:bg-amber-50/40 transition-colors flex items-center gap-1.5 border border-transparent hover:border-amber-200/20"
                                         >
-                                          {sub.label}
+                                          <span className="w-1 h-1 rounded-full bg-stone-400 shrink-0" />
+                                          <span className="truncate">{sub.label}</span>
                                         </button>
                                       ))}
                                     </div>
@@ -791,6 +790,59 @@ export default function SiteNavigation({
                                 </div>
                               );
                             })}
+                          </div>
+                        )}
+
+                        {/* Other Tabs Mobile Sub-navigation (Dynamic Chapters/TOC) */}
+                        {isActive && item !== 'varieties' && ['puerh', 'science', 'cultivars', 'featured', 'history', 'seasons'].includes(item) && (
+                          <div className="ml-3 pl-3 border-l-2 border-amber-500/40 space-y-1.5 mt-2 py-1.5 bg-stone-50/60 rounded-xl p-2 border border-stone-200/40 shadow-inner">
+                            {(() => {
+                              let subItems = [];
+                              if (item === 'puerh') subItems = PUERH_TOC;
+                              else if (item === 'science') subItems = SCIENCE_TOC;
+                              else if (item === 'cultivars') subItems = CULTIVARS_TOC;
+                              else if (item === 'featured') subItems = FEATURED_TOC;
+                              else if (item === 'history') subItems = HISTORY_SECTIONS;
+                              else if (item === 'seasons') subItems = SEASONS_SECTIONS;
+
+                              return subItems.map((sub) => {
+                                const label = sub.label;
+                                return (
+                                  <button
+                                    key={sub.href || sub.key}
+                                    onClick={() => {
+                                      goToTab(item);
+                                      if (item === 'science' && sub.key) {
+                                        setScienceRoom(sub.key);
+                                      }
+                                      
+                                      if (item === 'featured' && sub.href) {
+                                        const teaId = sub.href.replace('#featured-', '');
+                                        const url = new URL(window.location.href);
+                                        url.searchParams.set('tab', 'featured');
+                                        url.searchParams.set('tea', teaId);
+                                        window.history.pushState(null, '', url.pathname + url.search);
+                                        window.dispatchEvent(new Event('popstate'));
+                                      } else if (sub.href) {
+                                        scrollToHrefWithOffset(sub.href, { dispatchPopstate: true });
+                                      } else if (item === 'history' && sub.key) {
+                                        const url = new URL(window.location.href);
+                                        url.searchParams.set('tab', 'history');
+                                        url.searchParams.set('section', sub.key);
+                                        window.history.pushState(null, '', url.pathname + url.search);
+                                        window.dispatchEvent(new Event('popstate'));
+                                      }
+                                      
+                                      setMobileMenuOpen(false);
+                                    }}
+                                    className="w-full text-left px-3 py-2.5 rounded-lg text-[14px] font-semibold text-stone-700 hover:text-amber-900 hover:bg-amber-50/50 transition-all flex items-center gap-2 border border-transparent hover:border-amber-200/30"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60 shrink-0" />
+                                    <span className="truncate">{label}</span>
+                                  </button>
+                                );
+                              });
+                            })()}
                           </div>
                         )}
                       </div>

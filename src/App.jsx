@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
 import teaData from './data/teaData';
 import cultivars from './data/cultivars';
@@ -97,6 +97,7 @@ import ChenChuanEssaySection from './components/sections/ChenChuanEssaySection';
 import VarietiesSection from './components/sections/VarietiesSection';
 import HistorySection from './components/sections/HistorySection';
 import VideoGallerySection from './components/sections/VideoGallerySection';
+import CourseSection from './components/sections/CourseSection';
 import Footer from './components/Footer';
 import { NavigationProvider } from './contexts/NavigationContext';
 import useScrollToSection from './hooks/useScrollToSection';
@@ -410,6 +411,13 @@ const TeaWebsite = () => {
 
       if (nextTab && allowed.has(nextTab)) setActiveTab(nextTab);
 
+      if (nextTab === 'featured') {
+        const nextTea = params.get('tea');
+        if (nextTea && featuredTeaMenu.some((t) => t.id === nextTea)) {
+          setSelectedFeatured(nextTea);
+        }
+      }
+
       if (nextTab === 'history' && nextSection) {
         const allowedSections = new Set(['chineseTeaHistory', 'taiwanTeaIndustry', 'taiwanEvents']);
         if (allowedSections.has(nextSection)) {
@@ -491,6 +499,16 @@ const TeaWebsite = () => {
       dirty = true;
     }
 
+    if (activeTab === 'featured') {
+      if (params.get('tea') !== selectedFeatured) {
+        params.set('tea', selectedFeatured);
+        dirty = true;
+      }
+    } else if (params.has('tea')) {
+      params.delete('tea');
+      dirty = true;
+    }
+
     if (params.has('sub')) {
       params.delete('sub');
       dirty = true;
@@ -500,7 +518,7 @@ const TeaWebsite = () => {
       const nextUrl = `${url.pathname}?${params.toString()}${url.hash}`;
       window.history.replaceState(null, '', nextUrl);
     }
-  }, [activeTab, scienceRoom, varietiesKind]);
+  }, [activeTab, scienceRoom, varietiesKind, selectedFeatured]);
 
   useEffect(() => {
     if (!pendingScrollTarget) return;
@@ -797,6 +815,7 @@ const TeaWebsite = () => {
           />
         )}
 
+        {activeTab === 'course' && <CourseSection goToTab={goToTab} setVarietiesKind={setVarietiesKind} />}
         {activeTab === 'featured' && (
           <FeaturedTeaSection
             selectedFeatured={selectedFeatured}

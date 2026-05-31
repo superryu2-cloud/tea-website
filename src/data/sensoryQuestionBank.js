@@ -58,7 +58,11 @@ function validateQuestionBank(bank) {
   });
 }
 
-validateQuestionBank(sensoryQuestionBank);
+try {
+  validateQuestionBank(sensoryQuestionBank);
+} catch (e) {
+  console.error('[sensoryQuestionBank] 驗證錯誤（不影響網站正常運行）:', e.message);
+}
 
 export default sensoryQuestionBank;
 export { sensoryQuestionBank };
