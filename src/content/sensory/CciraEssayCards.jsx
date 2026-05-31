@@ -43,12 +43,12 @@ const ESSAY_DATA = [
         features: '講到台灣經典一定少不了凍頂烏龍。它的外觀也是半球形，色澤墨綠隱約帶著黃金光澤。茶湯是宛如威士忌般的明亮琥珀色。香氣具有非常獨特的「焙火香」與成熟果香。喝下去滋味甘潤極致醇厚，滑下喉嚨後還會湧上飽滿的「凍頂氣（喉韻）」。',
         reasons: '這股熟男魅力的秘密在於「梅納反應（Maillard reaction）」。在它進行中度以上的長時間炭焙時，茶葉裡豐富的胺基酸與還原醣在高溫下發生了化學結合，就像烤麵包或煎牛排表面會散發出迷人焦香一樣。這個反應收斂了原本初發酵的銳利花香，轉化出無比溫潤厚實、能深入喉嚨深處的飽滿底韻。',
         regionHistory: '凍頂烏龍茶發源於南投縣鹿谷鄉的「凍頂山」。傳說早期先民要到山上採茶，必須「凍（踮）著腳尖」上山，因而得名。在 1970 乃至 80 年代，它是風靡全台灣的第一名茶，可以說是台灣烏龍茶的名片。',
-        craftsmanship: '這款茶的工藝核心是「中度發酵與中度烘焙」。發酵度約在 20-30%。在進行完殺青與著名的「布球團揉」使其變成半球形後，最關鍵的就是後期師傅精心守候的「長時間炭焙（吃火）」，賦予茶葉溫潤厚實的韻味，徹底去除了生菁味。',
-        toolsAndBrew: '對付這樣有深厚資歷的茶，絕對要用有毛細孔的「厚胎紫砂壺」，能讓茶湯變得更柔滑，聚攏迷人的焙火香氣。用 95 到 100 度的沸水沖泡，務必要經過「溫潤泡」來打開緊結的茶葉。這茶充滿底氣，非常適合茶友聚會，來回沖泡七八次都沒問題！'
-    },
-    {
-        id: 5,
-        title: '台灣鐵觀音',
+        craftsmanship: '這款茶的工藝核心是「中度發酵與中度烘焙」。發酵度約在 20-30%。在進行完殺青與著名�        speechHook: '「對我來說，茶從來都不只是一杯飲料，它是幫我在忙碌人生中按下『暫停鍵』的魔法。」',
+        features: '過去，我以為泡茶只是為了解渴；學茶之後，我明白泡茶是一門生活美學。從識茶的眼光、候湯的耐心、備器的講究，再到品飲的靜心——這不只是一杯茶水的誕生，更是一場將科學理論、農藝辛勞與自我修心完美結合的儀式。',
+        reasons: '茶教會我最珍貴的兩個字，叫「專注」。在焦慮忙碌的現代生活裡，當熱水注入，看著茶葉在水中溫柔地舒展，聞著杯中散發的淡淡山林氣息，那一刻，時間彷彿慢了下來。在這杯茶裡，有台灣山川土地的風土，更有製茶師傅徹夜不眠、用雙手與汗水雕琢的「匠人初心」。它打開了我的五感，讓我在這快速運轉的世界中，為自己留下一片安靜的角落。',
+        regionHistory: '',
+        craftsmanship: '',
+        toolsAndBrew: '展望未來，我的期許可以用三個詞來概括：「看茶泡茶、以茶會友、傳播茶學」。首先，在茶席上做到「看茶泡茶」，因應每一款茶的獨特脾氣，展現它最美的一面。更重要的是，我希望能走出茶室，將這份茶學知識推廣到各地。茶不該是高不可攀的殿堂，而是人人都懂的生活藝術。我期許自己能用最平易近人、科學且溫暖的語言，帶領更多朋友「看得懂茶、泡得好茶、愛上品茶」，將茶文化裡「真、善、美」的故事，化作一杯杯手心的溫暖，傳遞給每一位需要休息、喜愛茶學的朋友。'��灣鐵觀音',
         question: '請簡述台灣鐵觀音的特色，並說明擇器及泡法。',
         speechHook: '「它是台灣茶界的『黑手黨』，外表剛硬深邃，一旦喝懂了，就再也戒不掉那股『觀音韻』！」',
         features: '講到鐵觀音，它的外觀像鐵一樣重實、捲曲成球，色澤烏黑油潤。茶湯是迷人的琥珀褐紅色。它的香氣極度沉穩，帶著微弱的果酸味與桂花香。喝下後微澀轉甘，那股極度悠長、留在喉嚨裡的特殊韻味，就是傳說中的「觀音韻」。',
@@ -110,7 +110,7 @@ const ESSAY_DATA = [
         reasons: '茶教會了我兩個字：「專注」。在焦慮的現代生活中，一坐下來，熱水一沖，看著茶葉舒展、聞著不同的山林氣息，我彷彿能感受到台灣這塊土地的風土，以及製茶師傅半夜不睡覺揉茶的匠心。它打開了我的五感，讓我學會在快速的世界裡，為自己留一個安靜的角落。',
         regionHistory: '',
         craftsmanship: '',
-        toolsAndBrew: '我對未來的期許很簡單，就是要在日常生活中做到真正的「看茶泡茶」——因應每一款茶不同的特性跟脾氣，展現它最好的一面來誠摯待客。我希望能將茶文化裡「真、善、美」的故事，變成一杯杯溫暖的茶水，分享給我身邊每一個需要休息、需要一杯茶的朋友。'
+        toolsAndBrew: '我對未來的期許很簡單，除了要在日常生活中做到真正的「看茶泡茶」——因應每一款茶不同的特性跟脾氣，展現它最好的一面來誠摯待客；我更希望能走出茶室，將這些珍貴的茶學知識推廣到各地。不論是在什麼地方，我都希望能透過輕鬆、科學又富含人文溫度的分享，讓更多朋友了解茶、喜歡茶，把台灣茶的精緻美學帶入更多人的生活。我希望能將茶文化裡「真、善、美」的故事，化作一杯杯溫暖的茶水，傳遞給每一個渴望靜心、喜愛茶學的朋友。'
     }
 ];
 
@@ -118,9 +118,9 @@ const ESSAY_DATA = [
 const PointSection = ({ icon: Icon, title, content, colorClass }) => {
     if (!content) return null;
     return (
-        <div className={`rounded-xl border border-stone-200/60 bg-white p-5 shadow-sm hover:shadow-md transition-shadow`}>
+        <div className="rounded-xl border border-stone-200/60 bg-white p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className={`flex items-center gap-2 mb-3 font-extrabold text-[17px] ${colorClass}`}>
-                <Icon size={20} /> <span>{title}</span>
+                {Icon && <Icon size={20} />} <span>{title}</span>
             </div>
             <p className="text-stone-700 leading-relaxed font-medium text-[16px] whitespace-pre-wrap">
                 {content}
@@ -142,8 +142,8 @@ export default function CciraEssayCards() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 shadow-sm border border-orange-200">
                     <BookOpen size={28} />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-stone-900 tracking-wide">演講大抄：三分鐘問答精華</h2>
-                <p className="text-stone-600 font-medium text-lg">精心整理的「好記、生動、有深度」五段式演講腳本，幫助您輕鬆拿高分！</p>
+                <h2 className="text-2xl md:text-3xl font-extrabold text-stone-900 tracking-wide">茶學演講指南：三分鐘品評精華</h2>
+                <p className="text-stone-600 font-medium text-lg">專為您量身打造的行動茶學演講指引。包含破冰開場、風味表徵、科學成因、演講故事與沖泡指南，助您在三分鐘內展現深厚的專業茶學內涵。</p>
             </div>
 
             <div className="grid gap-4">
@@ -190,7 +190,7 @@ export default function CciraEssayCards() {
                                         {item.speechHook && (
                                             <div className="rounded-xl bg-gradient-to-r from-orange-50 to-amber-50/20 border-l-4 border-orange-500 p-5 shadow-sm mb-6">
                                                 <div className="text-orange-800 font-bold mb-2 flex items-center gap-2">
-                                                    <Lightbulb size={18} /> <span>破冰金句（完美開場）</span>
+                                                    <Lightbulb size={18} /> <span>🎤 破冰開場（演說起手式）</span>
                                                 </div>
                                                 <p className="text-orange-950 font-extrabold text-lg md:text-xl italic whitespace-pre-wrap leading-relaxed">
                                                     {item.speechHook}
@@ -200,35 +200,35 @@ export default function CciraEssayCards() {
 
                                         <PointSection
                                             icon={Leaf}
-                                            title="1. 茶款特色（香氣與滋味）"
+                                            title="1. 風味表徵（香氣與滋味特徵）"
                                             content={item.features}
                                             colorClass="text-emerald-700"
                                         />
 
                                         <PointSection
                                             icon={Droplets}
-                                            title="2. 為什麼有這些特色"
+                                            title="2. 科學成因（風味如何產生）"
                                             content={item.reasons}
                                             colorClass="text-sky-700"
                                         />
 
                                         <PointSection
                                             icon={Map}
-                                            title="3. 產區與歷史淵源"
+                                            title="3. 演講特殊亮點（說故事時間）"
                                             content={item.regionHistory}
                                             colorClass="text-indigo-700"
                                         />
 
                                         <PointSection
                                             icon={Cog}
-                                            title="4. 製程工藝特色"
+                                            title="4. 核心工藝特色（製茶奧秘）"
                                             content={item.craftsmanship}
                                             colorClass="text-fuchsia-700"
                                         />
 
                                         <PointSection
                                             icon={Coffee}
-                                            title={item.id >= 9 ? "5. 泡茶心法與總結" : "5. 沖泡方式與適合茶器"}
+                                            title={item.id >= 9 ? "5. 泡茶心法與總結" : "5. 沖泡指南與茶器（極致展現）"}
                                             content={item.toolsAndBrew}
                                             colorClass="text-amber-700"
                                         />

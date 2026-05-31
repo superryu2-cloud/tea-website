@@ -843,7 +843,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                           <TopicButton
                             toneKey={stateKey === 'all' ? 'ccira' : nodeToneKey}
                             isActive={activeMode === 'essay' && (stateKey !== 'all' || !activeBank || activeBank === 'ccira')}
-                            label="演講問答精華"
+                            label="茶學演講指南"
                             count={10}
                             onClick={() =>
                               preserveSidebarScroll(() => {

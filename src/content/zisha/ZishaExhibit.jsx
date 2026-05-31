@@ -27,8 +27,42 @@ const TOC = [
 ];
 
 export default function ZishaExhibit({ siteNavHeightPx = 80 }) {
-  const [activeTabId, setActiveTabId] = useState('intro');
+  const [activeTabId, setActiveTabId] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlCh = params.get('chapter');
+      if (urlCh && TOC.some((t) => t.id === urlCh)) {
+        return urlCh;
+      }
+    }
+    return 'intro';
+  });
+
   const labelRefs = useRef([]);
+
+  useEffect(() => {
+    const handlePopstate = () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlCh = params.get('chapter');
+      if (urlCh && TOC.some((t) => t.id === urlCh)) {
+        setActiveTabId(urlCh);
+      } else {
+        setActiveTabId('intro');
+      }
+    };
+    window.addEventListener('popstate', handlePopstate);
+    return () => window.removeEventListener('popstate', handlePopstate);
+  }, []);
+
+  const handleChapterSelect = (id) => {
+    setActiveTabId(id);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('chapter', id);
+      window.history.pushState(null, '', url.pathname + url.search);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // NOTE: AtlasDockLayout handles sticky positioning via CSS variables, so manual stickyTop might be redundant for the wrapper,
   // but we can pass styles to the sidebar panel for height constraint.
@@ -59,10 +93,7 @@ export default function ZishaExhibit({ siteNavHeightPx = 80 }) {
                     <button
                       key={item.id}
                       type="button"
-                      onClick={() => {
-                        setActiveTabId(item.id);
-                        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
+                      onClick={() => handleChapterSelect(item.id)}
                       className={`block w-full text-left rounded-xl px-4 py-3 transition-all duration-300 border box-border tool-item chapter-nav-item text-lg font-bold focus:scale-[1.02] ${isActive
                         ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
                         : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md tool-muted hover:text-stone-900'

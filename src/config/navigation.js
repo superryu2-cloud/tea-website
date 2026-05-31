@@ -162,3 +162,16 @@ export const TAIWAN_CULTIVARS_TOC = [
   { href: '#cultivar-table', label: '台茶1-25號品種表' },
   { href: '#cultivar-stats', label: '統計資訊' },
 ];
+
+export const ZISHA_TOC = [
+  { key: 'intro', label: '引言' },
+  { key: 'origin', label: '1．天賜之土' },
+  { key: 'material', label: '2．五色斑斕' },
+  { key: 'clay', label: '紫砂泥料專區' },
+  { key: 'visual', label: '紫砂圖解速查' },
+  { key: 'craft', label: '3．匠心獨運' },
+  { key: 'shape', label: '4．器以載道' },
+  { key: 'culture', label: '5．文人點化' },
+  { key: 'appreciation', label: '6．品鑑之道' },
+  { key: 'outro', label: '結語' },
+];

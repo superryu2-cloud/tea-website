@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings, Search } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS } from '../config/navigation';
+import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS, ZISHA_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
 const VARIETIES_SUBITEMS_BY_KEY = {
@@ -794,7 +794,7 @@ export default function SiteNavigation({
                         )}
 
                         {/* Other Tabs Mobile Sub-navigation (Dynamic Chapters/TOC) */}
-                        {isActive && item !== 'varieties' && ['puerh', 'science', 'cultivars', 'featured', 'history', 'seasons'].includes(item) && (
+                        {isActive && item !== 'varieties' && ['puerh', 'science', 'cultivars', 'featured', 'history', 'seasons', 'zisha'].includes(item) && (
                           <div className="ml-3 pl-3 border-l-2 border-amber-500/40 space-y-1.5 mt-2 py-1.5 bg-stone-50/60 rounded-xl p-2 border border-stone-200/40 shadow-inner">
                             {(() => {
                               let subItems = [];
@@ -804,6 +804,7 @@ export default function SiteNavigation({
                               else if (item === 'featured') subItems = FEATURED_TOC;
                               else if (item === 'history') subItems = HISTORY_SECTIONS;
                               else if (item === 'seasons') subItems = SEASONS_SECTIONS;
+                              else if (item === 'zisha') subItems = ZISHA_TOC;
 
                               return subItems.map((sub) => {
                                 const label = sub.label;
@@ -829,6 +830,12 @@ export default function SiteNavigation({
                                         const url = new URL(window.location.href);
                                         url.searchParams.set('tab', 'history');
                                         url.searchParams.set('section', sub.key);
+                                        window.history.pushState(null, '', url.pathname + url.search);
+                                        window.dispatchEvent(new Event('popstate'));
+                                      } else if (item === 'zisha' && sub.key) {
+                                        const url = new URL(window.location.href);
+                                        url.searchParams.set('tab', 'zisha');
+                                        url.searchParams.set('chapter', sub.key);
                                         window.history.pushState(null, '', url.pathname + url.search);
                                         window.dispatchEvent(new Event('popstate'));
                                       }
