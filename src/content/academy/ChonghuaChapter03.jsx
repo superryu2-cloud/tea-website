@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Trophy, PenTool, Coffee, Flower, Leaf, Sun, Droplet, Mountain, Thermometer, Sprout, Tag, Bug, Globe, ShieldCheck, BookOpen, Ship, TrendingUp, MapPin, Heart, Clock, Scale, Users, Beaker, Hammer, AlertCircle, TrendingDown, Shield, Map as MapIcon } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';

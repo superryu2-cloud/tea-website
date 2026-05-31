@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Lightbulb, Plus, ArrowDown, Leaf, Coffee } from 'lucide-react';
 import TaiwanTeaMap from '../../components/TaiwanTeaMap';
 import SpecialtyTeaCard from '../../components/SpecialtyTeaCard';

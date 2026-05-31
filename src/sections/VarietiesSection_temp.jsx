@@ -1,4 +1,4 @@
-﻿  const VarietiesSection = () => {
+  const VarietiesSection = () => {
     const notesMode = UI_FLAGS.notesMode;
     const [expandedCardId, setExpandedCardId] = useState(null);
     const [filterFermentation, setFilterFermentation] = useState('all');

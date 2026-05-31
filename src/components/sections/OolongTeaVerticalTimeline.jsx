@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Star, Globe, Leaf, Ship, Mountain, Sparkles, TrendingUp, Microscope } from 'lucide-react';
 
 /**

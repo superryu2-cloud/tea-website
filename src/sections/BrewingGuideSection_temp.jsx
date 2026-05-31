@@ -1,4 +1,4 @@
-﻿  const BrewingGuide = () => {
+  const BrewingGuide = () => {
     const notesMode = UI_FLAGS.notesMode;
     const activeTea = teaData[selectedTeaForBrewing];
     const [showBrewingAtlas, setShowBrewingAtlas] = useState(!notesMode);

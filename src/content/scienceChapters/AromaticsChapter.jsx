@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Sparkles, CheckCircle, FlaskConical, Layers, Tag, Leaf, Coffee, BookOpen, Flower, Drama, Microscope, Flame, Sprout, Mountain, CloudSun, Settings, Lightbulb, Target, FileText, Apple } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
 

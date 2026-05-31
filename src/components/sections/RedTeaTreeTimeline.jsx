@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Star, Globe, Leaf, Ship, Crown, Coffee, Flame, Mountain, ZoomIn } from 'lucide-react';
 import ImageLightbox from '../ImageLightbox';
 

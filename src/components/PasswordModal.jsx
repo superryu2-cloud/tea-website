@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 const PASSWORDS = {
   daguan: '\u5927\u89c0',

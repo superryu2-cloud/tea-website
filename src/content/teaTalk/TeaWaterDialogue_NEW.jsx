@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Droplets, Sparkles, Thermometer, Waves } from 'lucide-react';
 import SectionCard from '../../components/SectionCard';
 import ClickableImage from '../../components/ClickableImage';

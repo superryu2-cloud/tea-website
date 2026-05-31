@@ -1,4 +1,4 @@
-﻿// 龍井茶文章範例 - 展示如何使用 TeaArticleTemplate 元件
+// 龍井茶文章範例 - 展示如何使用 TeaArticleTemplate 元件
 // 這是一個完整的範例，展示所有可用的排版模組
 
 import React from 'react';

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Leaf, Calendar, MapPin, Award, Info, ChevronDown, ChevronUp, History, Search, ArrowUp } from 'lucide-react';
 import ImageModal from '../../components/ImageModal';
 

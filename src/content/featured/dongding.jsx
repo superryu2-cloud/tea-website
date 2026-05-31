@@ -1,4 +1,4 @@
-﻿// Auto-extracted from src/App.jsx
+// Auto-extracted from src/App.jsx
 
 import React, { useState } from 'react';
 import { Shield, PartyPopper, AlertTriangle, Info } from 'lucide-react';

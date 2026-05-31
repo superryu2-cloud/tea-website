@@ -1,4 +1,4 @@
-﻿import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { ChevronRight, Layout, Map, Layers, Leaf, FlaskConical, PenTool, Mountain, Coffee, Search, X } from 'lucide-react';
 import AiGuideSection from './AiGuideSection';
 import SEARCH_INDEX from '../../data/searchIndex';
