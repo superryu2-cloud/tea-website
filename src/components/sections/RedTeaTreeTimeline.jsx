@@ -6,6 +6,74 @@ import ImageLightbox from '../ImageLightbox';
  * RedTeaVerticalTimeline - 紅茶歷史垂直時間線
  * 左側時間軸線，右側歷史事件卡片
  */
+const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'red', imageSrc, onImageClick }) => {
+    const colorClasses = {
+        green: 'border-green-500 bg-green-50',
+        red: 'border-red-500 bg-red-50',
+        blue: 'border-blue-500 bg-blue-50',
+        amber: 'border-amber-500 bg-amber-50',
+        purple: 'border-purple-500 bg-purple-50'
+    };
+
+    const iconColorClasses = {
+        green: 'text-green-600',
+        red: 'text-red-600',
+        blue: 'text-blue-600',
+        amber: 'text-amber-600',
+        purple: 'text-purple-600'
+    };
+
+    return (
+        <div className="relative flex gap-6 pb-8">
+            {/* Left: Timeline */}
+            <div className="flex flex-col items-center">
+                {/* Year badge */}
+                <div className={`${highlight ? 'bg-red-600' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
+                    {year}
+                </div>
+                {/* Vertical line */}
+                <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
+            </div>
+
+            {/* Right: Content card */}
+            <div className={`flex-1 bg-white rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-red-300' : ''} overflow-hidden`}>
+                <div className="flex flex-col md:flex-row">
+                    {/* Image Section - Show full square/portrait aspect on desktop, banner on mobile */}
+                    {imageSrc && (
+                        <div
+                            className="md:w-1/3 h-48 md:h-auto min-h-[200px] relative shrink-0 bg-stone-100 group cursor-zoom-in"
+                            onClick={() => onImageClick?.(imageSrc, title)}
+                        >
+                            <img
+                                src={imageSrc}
+                                alt={title}
+                                className="absolute inset-0 w-full h-full object-cover md:object-contain object-center transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+                                <span className="bg-black/50 text-white p-2 rounded-full backdrop-blur-sm">
+                                    <ZoomIn size={20} />
+                                </span>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Text Content */}
+                    <div className="p-5 flex-1">
+                        {Icon && (
+                            <div className="flex items-center mb-2">
+                                <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
+                                <h4 className="font-bold text-stone-800 text-base">{title}</h4>
+                            </div>
+                        )}
+                        {!Icon && <h4 className="font-bold text-stone-800 text-base mb-2">{title}</h4>}
+                        <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export default function RedTeaVerticalTimeline() {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
@@ -13,74 +81,6 @@ export default function RedTeaVerticalTimeline() {
     const openLightbox = (src, alt) => {
         setLightboxImage({ src, alt });
         setLightboxOpen(true);
-    };
-
-    const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'red', imageSrc }) => {
-        const colorClasses = {
-            green: 'border-green-500 bg-green-50',
-            red: 'border-red-500 bg-red-50',
-            blue: 'border-blue-500 bg-blue-50',
-            amber: 'border-amber-500 bg-amber-50',
-            purple: 'border-purple-500 bg-purple-50'
-        };
-
-        const iconColorClasses = {
-            green: 'text-green-600',
-            red: 'text-red-600',
-            blue: 'text-blue-600',
-            amber: 'text-amber-600',
-            purple: 'text-purple-600'
-        };
-
-        return (
-            <div className="relative flex gap-6 pb-8">
-                {/* Left: Timeline */}
-                <div className="flex flex-col items-center">
-                    {/* Year badge */}
-                    <div className={`${highlight ? 'bg-red-600' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
-                        {year}
-                    </div>
-                    {/* Vertical line */}
-                    <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
-                </div>
-
-                {/* Right: Content card */}
-                <div className={`flex-1 bg-white rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-red-300' : ''} overflow-hidden`}>
-                    <div className="flex flex-col md:flex-row">
-                        {/* Image Section - Show full square/portrait aspect on desktop, banner on mobile */}
-                        {imageSrc && (
-                            <div
-                                className="md:w-1/3 h-48 md:h-auto min-h-[200px] relative shrink-0 bg-stone-100 group cursor-zoom-in"
-                                onClick={() => openLightbox(imageSrc, title)}
-                            >
-                                <img
-                                    src={imageSrc}
-                                    alt={title}
-                                    className="absolute inset-0 w-full h-full object-cover md:object-contain object-center transition-transform duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
-                                    <span className="bg-black/50 text-white p-2 rounded-full backdrop-blur-sm">
-                                        <ZoomIn size={20} />
-                                    </span>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Text Content */}
-                        <div className="p-5 flex-1">
-                            {Icon && (
-                                <div className="flex items-center mb-2">
-                                    <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
-                                    <h4 className="font-bold text-stone-800 text-base">{title}</h4>
-                                </div>
-                            )}
-                            {!Icon && <h4 className="font-bold text-stone-800 text-base mb-2">{title}</h4>}
-                            <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
     };
 
     return (
@@ -112,6 +112,7 @@ export default function RedTeaVerticalTimeline() {
                             title="唐代"
                             content="蒸青團茶為主（餅茶），茶文化開始興盛。陸羽《茶經》奠定茶道基礎。"
                             imageSrc="/images/timeline/timeline_tang.png"
+                            onImageClick={openLightbox}
                             color="green"
                             icon={Leaf}
                         />
@@ -135,6 +136,7 @@ export default function RedTeaVerticalTimeline() {
                             title="明代"
                             content="朱元璋廢除團茶，改「蒸青」為「炒青」，奠定現代綠茶基礎，也為發酵茶發展埋下伏筆。"
                             imageSrc="/images/timeline/timeline_ming.png"
+                            onImageClick={openLightbox}
                             color="green"
                             icon={Flame}
                         />
@@ -156,6 +158,7 @@ export default function RedTeaVerticalTimeline() {
                             title="明末清初 - 紅茶誕生"
                             content="福建武夷山桐木關，因戰亂、長途運輸、天氣等因素，茶葉發生完全氧化（發酵），形成第一批紅茶 —— 正山小種誕生，成為世界第一款紅茶。"
                             imageSrc="/images/timeline/timeline_wuyi.png"
+                            onImageClick={openLightbox}
                             color="red"
                             highlight={true}
                             icon={Mountain}
@@ -183,6 +186,7 @@ export default function RedTeaVerticalTimeline() {
                             title="荷蘭東印度公司"
                             content="首次將正山小種輸往歐洲，作為「東方草藥」販售，開啟紅茶貿易時代。"
                             imageSrc="/images/timeline/timeline_dutch.png"
+                            onImageClick={openLightbox}
                             color="blue"
                             icon={Ship}
                         />
@@ -192,6 +196,7 @@ export default function RedTeaVerticalTimeline() {
                             title="英國皇室風潮"
                             content="葡萄牙凱瑟琳公主嫁給英王查理二世，將飲茶習慣帶入英國宮廷，引發貴族飲茶熱潮。"
                             imageSrc="/images/timeline/timeline_british.png"
+                            onImageClick={openLightbox}
                             color="blue"
                             icon={Crown}
                         />
@@ -216,6 +221,7 @@ export default function RedTeaVerticalTimeline() {
                             title="印度阿薩姆紅茶"
                             content="英國在印度創製紅茶，打破對中國茶依賴，開啟殖民地茶園時代。"
                             imageSrc="/images/timeline/timeline_assam.png"
+                            onImageClick={openLightbox}
                             color="purple"
                             icon={Globe}
                         />

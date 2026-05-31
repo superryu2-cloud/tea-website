@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {
-    BookOpen, Map, Milestone, Feather, Clock, ArrowRight, Compass,
-    ChevronDown, ChevronUp, FileText, Scroll, History, Leaf,
-    Globe, FlaskConical, Mountain, Sprout
+    BookOpen, Milestone, Feather, Clock, ArrowRight, Compass,
+    ChevronDown, ChevronUp, FileText, Map,
+    Sparkles, Sprout, Flame,
 } from 'lucide-react';
+import SixHourCourseContent from './sixHour/SixHourCourseContent';
 
 /* ─────────────────────────────────────────────
    課程題綱資料（含詳細子單元）
@@ -219,9 +220,8 @@ const syllabus = [
     }
 ];
 
-/* ─────────────────────────────────────────────
-   色系對應表
-───────────────────────────────────────────── */
+// sixHourSyllabus 資料已移至 ./sixHour/sixHourData.js
+// 渲染邏輯已移至 ./sixHour/SixHourCourseContent.jsx
 const colorMap = {
     amber: {
         badge: 'bg-amber-50 text-amber-700 border-amber-100/60',
@@ -261,6 +261,7 @@ const colorMap = {
    主元件
 ───────────────────────────────────────────── */
 export default function CourseSection({ goToTab, setVarietiesKind }) {
+    const [activeCourseType, setActiveCourseType] = useState('school'); // 'school' or 'six_hours'
     const [openId, setOpenId] = useState(null);
     const toggle = (id) => setOpenId(prev => prev === id ? null : id);
 
@@ -276,143 +277,197 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
             <div className="relative pt-16 pb-12 overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 text-amber-800 text-sm font-bold tracking-widest mb-6">
-                        <Compass className="w-4 h-4" /> SCHOOL ACADEMIC PROGRAM
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-wider mb-6 font-serif">四小時專題課程</h1>
-                    <p className="text-[17px] md:text-xl text-stone-700 font-medium max-w-3xl mx-auto leading-relaxed">
-                        本課程專為學校推廣教育與茶藝通識設計，每單元一小時。<br className="hidden md:block" />
-                        融合歷史、禮儀、科學與產區地理，系統性建立扎實的台灣茶學感知。
-                    </p>
+                    {activeCourseType === 'school' ? (
+                        <>
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 text-amber-800 text-sm font-bold tracking-widest mb-6">
+                                <Compass className="w-4 h-4" /> SCHOOL ACADEMIC PROGRAM
+                            </div>
+                            <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-wider mb-6 font-serif">四小時專題課程</h1>
+                            <p className="text-[17px] md:text-xl text-stone-700 font-medium max-w-3xl mx-auto leading-relaxed">
+                                本課程專為學校推廣教育與茶藝通識設計，每單元一小時。<br className="hidden md:block" />
+                                融合歷史、禮儀、科學與產區地理，系統性建立扎實的台灣茶學感知。
+                            </p>
+                        </>
+                    ) : (
+                        <>
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold tracking-widest mb-6">
+                                <Sparkles className="w-4 h-4" /> PROFESSIONAL DEEP-DIVE PROGRAM
+                            </div>
+                            <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 tracking-wider mb-6 font-serif">六小時專業深度課程</h1>
+                            <p className="text-[17px] md:text-xl text-stone-700 font-medium max-w-3xl mx-auto leading-relaxed">
+                                專為深度茶學愛好者與茶葉從業者打造的進階修練方案。<br className="hidden md:block" />
+                                精確對接風味化學、發酵工藝學、感官評審與文化傳承等核心主題。
+                            </p>
+                        </>
+                    )}
+                </div>
+            </div>
+
+            {/* ── 課程分類 Tab 切換器 ── */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex justify-center">
+                <div className="inline-flex p-1.5 bg-stone-200/80 rounded-2xl backdrop-blur-sm border border-stone-300/40 shadow-inner">
+                    <button
+                        type="button"
+                        onClick={() => setActiveCourseType('school')}
+                        className={`flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl text-base font-extrabold transition-all duration-300 ${
+                            activeCourseType === 'school'
+                                ? 'bg-emerald-700 text-white shadow-md'
+                                : 'text-stone-700 hover:text-emerald-800 hover:bg-stone-100'
+                        }`}
+                    >
+                        <BookOpen size={18} />
+                        學校推廣課程 (4小時)
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setActiveCourseType('six_hours')}
+                        className={`flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl text-base font-extrabold transition-all duration-300 ${
+                            activeCourseType === 'six_hours'
+                                ? 'bg-emerald-700 text-white shadow-md'
+                                : 'text-stone-700 hover:text-emerald-800 hover:bg-stone-100'
+                        }`}
+                    >
+                        <Clock size={18} />
+                        專業深度課程 (6小時)
+                    </button>
                 </div>
             </div>
 
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
-                {/* ── 課程卡片 ── */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    {syllabus.map((m) => {
-                        const Icon = m.icon;
-                        const c = colorMap[m.color];
-                        return (
-                            <div key={m.id} className="relative group flex flex-col bg-white rounded-3xl p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300">
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm border ${c.badge}`}>
-                                    <Icon className="w-7 h-7" />
-                                </div>
-                                <div className="flex items-center gap-2 mb-3">
-                                    <span className="font-sans text-xs font-bold text-stone-400 tracking-widest uppercase bg-stone-100 px-2 py-1 rounded">LESSON 0{m.id}</span>
-                                    <span className="font-sans text-[14px] font-bold text-stone-500 flex items-center gap-1"><Clock size={14} /> {m.duration}</span>
-                                </div>
-                                <h3 className="text-[26px] font-bold text-stone-800 mb-4 font-serif leading-snug">{m.title}</h3>
-                                <p className="text-stone-700 text-[17px] font-medium leading-relaxed mb-6">{m.description}</p>
-                                <div className="mt-auto pt-6 border-t border-stone-100">
-                                    <h4 className="text-[14px] font-bold text-stone-500 tracking-widest uppercase mb-3">課程大綱重點</h4>
-                                    <ul className="space-y-3 mb-6">
-                                        {m.objectives.map((obj, i) => (
-                                            <li key={i} className="flex items-start gap-3">
-                                                <div className={`w-1.5 h-1.5 rounded-full ${c.dot} mt-2 shrink-0`} />
-                                                <span className="text-[16px] text-stone-700 font-medium leading-snug">{obj}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <button onClick={() => handleTabAction(m.action.tab)} className="flex items-center justify-between w-full p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200/60 transition-colors group/btn">
-                                        <span className="text-[16px] font-bold text-stone-700">{m.action.label}</span>
-                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-white shadow-sm border border-stone-200 group-hover/btn:ring-2 ${c.ring}`}>
-                                            <ArrowRight size={16} />
+                {activeCourseType === 'school' ? (
+                    <>
+                        {/* ── 課程卡片 ── */}
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {syllabus.map((m) => {
+                                const Icon = m.icon;
+                                const c = colorMap[m.color];
+                                return (
+                                    <div key={m.id} className="relative group flex flex-col bg-white rounded-3xl p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm border ${c.badge}`}>
+                                            <Icon className="w-7 h-7" />
                                         </div>
-                                    </button>
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <span className="font-sans text-xs font-bold text-stone-400 tracking-widest uppercase bg-stone-100 px-2 py-1 rounded">LESSON 0{m.id}</span>
+                                            <span className="font-sans text-[14px] font-bold text-stone-500 flex items-center gap-1"><Clock size={14} /> {m.duration}</span>
+                                        </div>
+                                        <h3 className="text-[26px] font-bold text-stone-800 mb-4 font-serif leading-snug">{m.title}</h3>
+                                        <p className="text-stone-700 text-[17px] font-medium leading-relaxed mb-6">{m.description}</p>
+                                        <div className="mt-auto pt-6 border-t border-stone-100">
+                                            <h4 className="text-[14px] font-bold text-stone-500 tracking-widest uppercase mb-3">課程大綱重點</h4>
+                                            <ul className="space-y-3 mb-6">
+                                                {m.objectives.map((obj, i) => (
+                                                    <li key={i} className="flex items-start gap-3">
+                                                        <div className={`w-1.5 h-1.5 rounded-full ${c.dot} mt-2 shrink-0`} />
+                                                        <span className="text-[16px] text-stone-700 font-medium leading-snug">{obj}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            <button onClick={() => handleTabAction(m.action.tab)} className="flex items-center justify-between w-full p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200/60 transition-colors group/btn">
+                                                <span className="text-[16px] font-bold text-stone-700">{m.action.label}</span>
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-white shadow-sm border border-stone-200 group-hover/btn:ring-2 ${c.ring}`}>
+                                                    <ArrowRight size={16} />
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* ── 詳細題綱（可展開） ── */}
+                        <div>
+                            <div className="flex items-center gap-3 mb-8">
+                                <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-500">
+                                    <FileText className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h2 className="text-2xl font-bold text-stone-900 font-serif">各堂課詳細題綱</h2>
+                                    <p className="text-[14px] text-stone-400 mt-0.5">點擊各堂課展開完整教學規劃，供學校審查用</p>
                                 </div>
                             </div>
-                        );
-                    })}
-                </div>
 
-                {/* ── 詳細題綱（可展開） ── */}
-                <div>
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-500">
-                            <FileText className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-stone-900 font-serif">各堂課詳細題綱</h2>
-                            <p className="text-[14px] text-stone-400 mt-0.5">點擊各堂課展開完整教學規劃，供學校審查用</p>
-                        </div>
-                    </div>
+                            <div className="space-y-4">
+                                {syllabus.map((m) => {
+                                    const Icon = m.icon;
+                                    const c = colorMap[m.color];
+                                    const isOpen = openId === m.id;
+                                    const s = m.syllabusDetail;
 
-                    <div className="space-y-4">
-                        {syllabus.map((m) => {
-                            const Icon = m.icon;
-                            const c = colorMap[m.color];
-                            const isOpen = openId === m.id;
-                            const s = m.syllabusDetail;
+                                    return (
+                                        <div key={m.id} className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                                            {/* 摺疊 Header */}
+                                            <button onClick={() => toggle(m.id)} className={`w-full flex items-center justify-between px-6 md:px-8 py-5 text-left bg-gradient-to-r ${c.header} border-b ${isOpen ? 'border-stone-200' : 'border-transparent'}`}>
+                                                <div className="flex items-center gap-4">
+                                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${c.badge} shrink-0`}>
+                                                        <Icon className="w-5 h-5" />
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-0.5">LESSON 0{m.id} · {m.duration}</p>
+                                                        <h3 className="text-[19px] font-bold text-stone-800 font-serif">{m.title}</h3>
+                                                    </div>
+                                                </div>
+                                                <span className="shrink-0 ml-4 text-stone-400">{isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
+                                            </button>
 
-                            return (
-                                <div key={m.id} className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                    {/* 摺疊 Header */}
-                                    <button onClick={() => toggle(m.id)} className={`w-full flex items-center justify-between px-6 md:px-8 py-5 text-left bg-gradient-to-r ${c.header} border-b ${isOpen ? 'border-stone-200' : 'border-transparent'}`}>
-                                        <div className="flex items-center gap-4">
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${c.badge} shrink-0`}>
-                                                <Icon className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-0.5">LESSON 0{m.id} · {m.duration}</p>
-                                                <h3 className="text-[19px] font-bold text-stone-800 font-serif">{m.title}</h3>
-                                            </div>
-                                        </div>
-                                        <span className="shrink-0 ml-4 text-stone-400">{isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
-                                    </button>
+                                            {/* 展開內容 */}
+                                            {isOpen && (
+                                                <div className="px-6 md:px-10 py-8 space-y-8">
 
-                                    {/* 展開內容 */}
-                                    {isOpen && (
-                                        <div className="px-6 md:px-10 py-8 space-y-8">
+                                                    {/* 課程目標 */}
+                                                    <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+                                                        <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-3">課程目標</p>
+                                                        <p className="text-[17px] text-stone-800 font-medium leading-[1.85]">{s.courseGoal}</p>
+                                                    </div>
 
-                                            {/* 課程目標 */}
-                                            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
-                                                <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-3">課程目標</p>
-                                                <p className="text-[17px] text-stone-800 font-medium leading-[1.85]">{s.courseGoal}</p>
-                                            </div>
-
-                                            {/* 單元規劃 */}
-                                            <div>
-                                                <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-5">單元規劃</p>
-                                                <div className="space-y-6">
-                                                    {s.units.map((unit, ui) => (
-                                                        <div key={ui} className="pl-4 border-l-[3px] border-stone-200">
-                                                            <div className="flex items-center gap-3 mb-4">
-                                                                <span className={`w-7 h-7 rounded-lg ${c.number} flex items-center justify-center font-bold text-[14px] shrink-0`}>{ui + 1}</span>
-                                                                <h5 className="text-[17px] font-bold text-stone-800">{unit.title}</h5>
-                                                            </div>
-                                                            <ul className="space-y-2.5 pl-10">
-                                                                {unit.items.map((item, ii) => (
-                                                                    <li key={ii} className="flex items-start gap-3">
-                                                                        <span className={`w-1.5 h-1.5 rounded-full ${c.bullet} mt-2 shrink-0`} />
-                                                                        <span className="text-[16px] text-stone-700 font-medium leading-[1.8]">{item}</span>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
+                                                    {/* 單元規劃 */}
+                                                    <div>
+                                                        <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-5">單元規劃</p>
+                                                        <div className="space-y-6">
+                                                            {s.units.map((unit, ui) => (
+                                                                <div key={ui} className="pl-4 border-l-[3px] border-stone-200">
+                                                                    <div className="flex items-center gap-3 mb-4">
+                                                                        <span className={`w-7 h-7 rounded-lg ${c.number} flex items-center justify-center font-bold text-[14px] shrink-0`}>{ui + 1}</span>
+                                                                        <h5 className="text-[17px] font-bold text-stone-800">{unit.title}</h5>
+                                                                    </div>
+                                                                    <ul className="space-y-2.5 pl-10">
+                                                                        {unit.items.map((item, ii) => (
+                                                                            <li key={ii} className="flex items-start gap-3">
+                                                                                <span className={`w-1.5 h-1.5 rounded-full ${c.bullet} mt-2 shrink-0`} />
+                                                                                <span className="text-[16px] text-stone-700 font-medium leading-[1.8]">{item}</span>
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            ))}
                                                         </div>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                                    </div>
 
-                                            {/* 教學方式 + 評量 */}
-                                            <div className="grid md:grid-cols-2 gap-4">
-                                                <div className="bg-stone-50 rounded-xl p-5 border border-stone-100">
-                                                    <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-2">教學方式</p>
-                                                    <p className="text-[16px] text-stone-800 font-medium leading-relaxed">{s.teachingMethod}</p>
+                                                    {/* 教學方式 + 評量 */}
+                                                    <div className="grid md:grid-cols-2 gap-4">
+                                                        <div className="bg-stone-50 rounded-xl p-5 border border-stone-100">
+                                                            <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-2">教學方式</p>
+                                                            <p className="text-[16px] text-stone-800 font-medium leading-relaxed">{s.teachingMethod}</p>
+                                                        </div>
+                                                        <div className="bg-stone-50 rounded-xl p-5 border border-stone-100">
+                                                            <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-2">堂末評量</p>
+                                                            <p className="text-[16px] text-stone-800 font-medium leading-relaxed">{s.evaluation}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="bg-stone-50 rounded-xl p-5 border border-stone-100">
-                                                    <p className="text-[12px] font-bold text-stone-400 tracking-widest uppercase mb-2">堂末評量</p>
-                                                    <p className="text-[16px] text-stone-800 font-medium leading-relaxed">{s.evaluation}</p>
-                                                </div>
-                                            </div>
+                                            )}
                                         </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <SixHourCourseContent handleTabAction={handleTabAction} />
+                    </>
+                )}
+
 
                 {/* Footer note */}
                 <div className="text-center pb-4">

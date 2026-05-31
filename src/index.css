@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    /* Elegant Typography: Outfit (English) + Noto Sans TC (Chinese) */
-    --font-body: 'Outfit', 'Noto Sans TC', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
-      'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans', Arial, sans-serif;
+    /* Premium Sans-Serif Typography matching user's friend's site (Noto Sans TC) for clean, unified readability */
+    --font-body: 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+      'Microsoft JhengHei', '微軟正黑體', 'PingFang TC', '萍方', 'Hiragino Sans GB', sans-serif;
 
     /* Headings: same as body for consistency */
     --font-display: var(--font-body);
 
-    /* Serif: keep for special cases */
-    --font-serif: ui-serif, 'Noto Serif TC', 'Source Han Serif TC', 'Songti TC', 'PMingLiU', 'MingLiU', serif;
+    /* Serif: override with clean sans-serif for flat, unified look */
+    --font-serif: var(--font-body);
     --macaron-ink: #1f2937;
     --macaron-ink-soft: #475569;
     --macaron-paper: rgba(255, 255, 255, 0.88);

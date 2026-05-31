@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as d3 from 'd3-geo';
 import * as topojson from 'topojson-client';
 import mapData from '../data/taiwan-map-data.json';
 import { Leaf, Info } from 'lucide-react';
-import mapClouds from '../assets/images/map-clouds.png';
 import mapMountains from '../assets/images/map-mountains.png';
 
+// Convert TopoJSON to GeoJSON statically at module level since mapData is static JSON
+const geoData = mapData ? topojson.feature(mapData, mapData.objects.map || mapData.objects.counties) : null;
+
 const TaiwanTeaMap = () => {
-    const [geoData, setGeoData] = useState(null);
     const [activeRegion, setActiveRegion] = useState(null);
-    const [hoverRegion, setHoverRegion] = useState(null);
 
     // Pastel Palette
     // Color Categories
@@ -180,13 +180,7 @@ const TaiwanTeaMap = () => {
         ],
     };
 
-    useEffect(() => {
-        if (mapData) {
-            // Convert TopoJSON to GeoJSON
-            const featureCollection = topojson.feature(mapData, mapData.objects.map || mapData.objects.counties);
-            setGeoData(featureCollection);
-        }
-    }, []);
+
 
     // Projection & Path Generator
     // Adjusted for 800x600 viewBox to allow space for popups
@@ -326,8 +320,6 @@ const TaiwanTeaMap = () => {
                                     stroke="#FFFFFF"
                                     strokeWidth={isActive ? 2 : 1}
                                     className={`transition-all duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)] cursor-pointer outline-none ${isTeaRegion ? 'hover:brightness-95' : ''}`}
-                                    onMouseEnter={() => isTeaRegion && setHoverRegion(name)}
-                                    onMouseLeave={() => setHoverRegion(null)}
                                     onClick={() => handleRegionClick(name)}
                                     style={{
                                         filter: isActive ? 'url(#drop-shadow)' : 'none',
@@ -346,7 +338,6 @@ const TaiwanTeaMap = () => {
                         const name = feature.properties.name;
                         const isTeaRegion = !!TEA_REGIONS[name];
                         const label = REGION_LABELS[name];
-                        const isActive = activeRegion === name;
 
                         if (!isTeaRegion || !label) return null;
 

@@ -1,12 +1,20 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings, Search } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS, ZISHA_TOC } from '../config/navigation';
+import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS, ZISHA_TOC, RED_TOC, WHITE_TOC } from '../config/navigation';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
+const WHITE_TOC_EXTENDED = [
+  { href: '#white-history', label: '白茶歷史' },
+  { href: '#white-fujian', label: '福建' },
+  { href: '#white-yunnan', label: '雲南' },
+];
+
 const VARIETIES_SUBITEMS_BY_KEY = {
-  ref_chenchuan: CHEN_CHUAN_TOC,
+  ref_chenchuan: [{ href: '#cc-all', label: '全部章節' }, ...CHEN_CHUAN_TOC],
   oolong: OOLONG_TOC,
+  red: RED_TOC,
+  white: WHITE_TOC_EXTENDED,
 };
 
 const NAV_THEME_STORAGE_KEY = 'tea.navTheme';
@@ -104,11 +112,8 @@ export default function SiteNavigation({
   i18n,
   activeTab,
   varietiesKind,
-  scienceRoom,
-  atlasNavOpen,
   mobileMenuOpen,
   goToTab,
-  setAtlasNavOpen,
   setMobileMenuOpen,
   setVarietiesKind,
   setScienceRoom,
@@ -118,7 +123,6 @@ export default function SiteNavigation({
   onUnlockRequest,
 }) {
   const journeyLabel = splitNavLabel(String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, ''));
-  const atlasLabel = splitNavLabel(String(i18n.t('nav.atlas')).replace(/\s*\n\s*/g, ''));
   const academyLabel = '大觀書院';
   const chonghuaLabel = '崇華書院';
   const renderFlipLabel = (label) => (
@@ -146,8 +150,6 @@ export default function SiteNavigation({
     return PAPER_THEMES.some((t) => t.key === stored) ? stored : 'ivory';
   });
 
-  const [paperDropdownOpen, setPaperDropdownOpen] = useState(false);
-
   const [academyNavOpen, setAcademyNavOpen] = useState(false);
   const [chonghuaNavOpen, setChonghuaNavOpen] = useState(false);
   const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
@@ -162,17 +164,14 @@ export default function SiteNavigation({
 
 
   // Secret Trigger Logic - Open password modal after 5 clicks
-  const [secretClickCount, setSecretClickCount] = useState(0);
+  const secretClickCountRef = useRef(0);
 
   const handleSecretClick = () => {
-    setSecretClickCount((prev) => {
-      const next = prev + 1;
-      if (next >= 5) {
-        onUnlockRequest?.('daguan');
-        return 0; // 重置計數器
-      }
-      return next;
-    });
+    secretClickCountRef.current += 1;
+    if (secretClickCountRef.current >= 5) {
+      onUnlockRequest?.('daguan');
+      secretClickCountRef.current = 0;
+    }
   };
 
   useEffect(() => {
@@ -195,7 +194,6 @@ export default function SiteNavigation({
     }
   }, [paperTheme]);
 
-  const themeLabel = useMemo(() => NAV_THEMES.find((t) => t.key === navTheme)?.label ?? NAV_THEMES[0].label, [navTheme]);
   const paperThemeLabel = useMemo(() => PAPER_THEMES.find((t) => t.key === paperTheme)?.label ?? PAPER_THEMES[0].label, [paperTheme]);
 
   const scrollToHrefWithOffset = (href, options = {}) => {

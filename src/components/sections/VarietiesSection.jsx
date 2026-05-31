@@ -28,6 +28,30 @@ const WHITE_TOC_EXTENDED = [
     { href: '#white-yunnan', label: '雲南' },
 ];
 
+const FactsGrid = ({ tea }) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="text-xs font-extrabold tracking-widest text-stone-500">FERMENTATION</div>
+            <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.fermentation}</div>
+            <div className="mt-2 text-sm text-stone-600">茶湯：{tea.liquorColor}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="text-xs font-extrabold tracking-widest text-stone-500">REPRESENTATIVE</div>
+            <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.representative}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="text-xs font-extrabold tracking-widest text-stone-500">PROCESS</div>
+            <div className="mt-2 text-sm text-stone-700">{tea.process}</div>
+        </div>
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="text-xs font-extrabold tracking-widest text-stone-500">BREWING</div>
+            <div className="mt-2 text-sm text-stone-700">
+                水溫：<span className="font-bold">{tea.temp}</span>／出湯：<span className="font-bold">{tea.time}</span>
+            </div>
+        </div>
+    </div>
+);
+
 const VarietiesSection = ({
     activeTab,
     varietiesKind,
@@ -356,30 +380,6 @@ const VarietiesSection = ({
         if (varietiesKind === 'red') selectRedTeaTopic(href);
         if (varietiesKind === 'white') selectWhiteRegion(href);
     };
-
-    const FactsGrid = ({ tea }) => (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="text-xs font-extrabold tracking-widest text-stone-500">FERMENTATION</div>
-                <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.fermentation}</div>
-                <div className="mt-2 text-sm text-stone-600">茶湯：{tea.liquorColor}</div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="text-xs font-extrabold tracking-widest text-stone-500">REPRESENTATIVE</div>
-                <div className="mt-1 text-lg font-extrabold text-stone-900">{tea.representative}</div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="text-xs font-extrabold tracking-widest text-stone-500">PROCESS</div>
-                <div className="mt-2 text-sm text-stone-700">{tea.process}</div>
-            </div>
-            <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-                <div className="text-xs font-extrabold tracking-widest text-stone-500">BREWING</div>
-                <div className="mt-2 text-sm text-stone-700">
-                    水溫：<span className="font-bold">{tea.temp}</span>／出湯：<span className="font-bold">{tea.time}</span>
-                </div>
-            </div>
-        </div>
-    );
 
     if (activeTab === 'home') {
         const homeTeaKinds = VARIETIES_KINDS.filter((kind) => kind.type === 'tea');

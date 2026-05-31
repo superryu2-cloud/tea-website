@@ -1,13 +1,8 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
 import teaData from './data/teaData';
-import cultivars from './data/cultivars';
-import solarTerms from './data/solarTerms';
-import timelineData from './data/timelineData';
 import featuredTeaMenu from './data/featuredTeaMenu';
 import sensoryQuestionBank from './data/sensoryQuestionBank.js';
-import scienceChapters from './content/scienceChapters';
-import createHistoryData from './content/historyData';
 import TieGuanyinContent from './content/featured/tieguanyin';
 import DongDingContent from './content/featured/dongding';
 import RedOolongContent from './content/featured/redoolong';
@@ -55,10 +50,9 @@ import TaiwanTeaMap from './components/TaiwanTeaMap';
 import ChapterSidebar from './components/ChapterSidebar';
 import CollapsibleSidebar from './components/CollapsibleSidebar';
 import HorizontalNavigation from './components/HorizontalNavigation';
-import AcademyRouter, { getImplementedChapterIds } from './components/academy/AcademyRouter';
+import AcademyRouter from './components/academy/AcademyRouter';
 import PinnedChapterSidebar from './components/PinnedChapterSidebar';
 import AtlasDockLayout from './components/AtlasDockLayout';
-import useAnchoredSubnav from './hooks/useAnchoredSubnav';
 import AcademySection from './components/academy/AcademySection';
 import AcademyContentBlock from './components/academy/AcademyContentBlock';
 import AcademyHighlightBox from './components/academy/AcademyHighlightBox';
@@ -140,12 +134,7 @@ const TeaWebsite = () => {
   });
   const chenChuanScrollOffsetPx = siteNavHeightPx + 20;
 
-  const cultivarsSubnav = useAnchoredSubnav({
-    enabled: activeTab === 'cultivars',
-    items: CULTIVARS_TOC,
-    fallbackNavHeightPx: siteNavHeightPx,
-    enableScrollSpy: false,
-  });
+
 
   // 使用統一的滾動 hook
   const { scrollToSection, scrollToTop } = useScrollToSection(siteNavHeightPx);
@@ -368,6 +357,7 @@ const TeaWebsite = () => {
     const allowedPuerhHrefs = new Set(PUERH_TOC.map((item) => item.href));
     const allowedOolongHrefs = new Set(OOLONG_TOC.map((item) => item.href));
     const allowedWhiteHrefs = new Set(WHITE_TOC_EXTENDED.map((item) => item.href));
+    const allowedRedHrefs = new Set(RED_TOC.map((item) => item.href));
 
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
@@ -460,6 +450,10 @@ const TeaWebsite = () => {
           const hash = window.location.hash;
           if (allowedWhiteHrefs.has(hash)) setWhiteRegionHref(hash);
           else setWhiteRegionHref('#white-history');
+        }
+        if (nextKind === 'red') {
+          const hash = window.location.hash;
+          if (allowedRedHrefs.has(hash)) setRedTeaHref(hash);
         }
       }
     };
@@ -683,16 +677,12 @@ const TeaWebsite = () => {
         onClose={() => setPasswordModalTarget(null)}
         onSuccess={handleUnlockSuccess}
       />
-
       <SiteNavigation
         i18n={i18n}
         activeTab={activeTab}
         varietiesKind={varietiesKind}
-        scienceRoom={scienceRoom}
-        atlasNavOpen={atlasNavOpen}
         mobileMenuOpen={mobileMenuOpen}
         goToTab={goToTab}
-        setAtlasNavOpen={setAtlasNavOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         setVarietiesKind={setVarietiesKind}
         setScienceRoom={setScienceRoom}

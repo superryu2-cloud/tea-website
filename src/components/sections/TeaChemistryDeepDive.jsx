@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FlaskConical, Wind } from 'lucide-react';
 import scienceChapters from '../../content/scienceChapters';
 
 const TeaChemistryDeepDive = ({ embedded = false, activeHref = null }) => {
-    const [activeChapter, setActiveChapter] = useState('chapter1');
-
-    // Sync activeChapter with activeHref from sidebar
-    useEffect(() => {
-        if (activeHref && activeHref.startsWith('#chapter')) {
-            const chapterKey = activeHref.substring(1); // Remove '#'
-            setActiveChapter(chapterKey);
-        }
-    }, [activeHref]);
-
+    const activeChapter = (activeHref && activeHref.startsWith('#chapter'))
+        ? activeHref.substring(1)
+        : 'chapter1';
     const EnzymeAnimation = () => (
         <div className="not-prose my-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
             {/* PPO Animation */}

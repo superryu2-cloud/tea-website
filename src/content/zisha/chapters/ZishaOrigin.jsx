@@ -2,6 +2,19 @@ import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Section } from '../../references/ui';
 
+// 章節內部小節卡片（統一風格）
+function SubCard({ title, children }) {
+    return (
+        <div className="rounded-2xl border border-stone-200 bg-white p-5 md:p-6">
+            <div className="flex items-center gap-2 mb-4">
+                <div className="w-1 h-5 rounded-full bg-gradient-to-b from-amber-500 to-amber-700 shrink-0" />
+                <div className="font-extrabold text-stone-900">{title}</div>
+            </div>
+            {children}
+        </div>
+    );
+}
+
 export default function ZishaOrigin() {
     return (
         <Section id="zisha-1" title="1．天賜之土：陶都宜興的風土根源" icon={MapPin}>
@@ -10,9 +23,8 @@ export default function ZishaOrigin() {
                 是孕育紫砂文化的先決條件。本章節將從其神秘的傳說與地理特徵，探討紫砂壺的起源。
             </p>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-                <div className="font-extrabold text-stone-900">神話源起：富貴土的傳說</div>
-                <p className="mt-3">
+            <SubCard title="神話源起：富貴土的傳說">
+                <p>
                     關於紫砂的誕生，宜興丁蜀鎮流傳著一個充滿神秘色彩的傳說。相傳古時，鎮上的陶工們勤勞地製作著陶缸等粗陶器皿。一日，
                     村中來了一位奇異的遊方僧人，他沿街高聲叫賣：「賣富貴土嘍！買就能富！」這番話引起了陶工們的好奇。僧人見狀便說：「欲買富貴，且隨我來。」
                 </p>
@@ -21,12 +33,10 @@ export default function ZishaOrigin() {
                     他便化作一道青煙消失不見。陶工們將信將疑地走進山洞，只見洞內五彩斑斕，霞光四射，竟是從未見過的五色陶土。他們將這些「富貴土」背回家中，
                     用其製作陶器，燒成後色澤萬千，古雅質樸，這便是最早的紫砂器。這個傳說為紫砂的起源蒙上了一層神話面紗，也預示著這種泥土的不凡價值。
                 </p>
-            </div>
+            </SubCard>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-5">
-                <div className="font-extrabold text-stone-900">地理稟賦：茶與陶的共生</div>
-
-                <figure className="my-6 rounded-xl overflow-hidden border border-stone-100 shadow-sm group">
+            <SubCard title="地理稟賦：茶與陶的共生">
+                <figure className="my-4 rounded-xl overflow-hidden border border-stone-100 shadow-sm group">
                     <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden">
                         <img
                             src="/assets/zisha/zisha_origin_layers.png"
@@ -52,7 +62,7 @@ export default function ZishaOrigin() {
                     茶文化與陶文化在此地相輔相成，共生共榮，奠定了紫砂壺發展的深厚根基。
                 </p>
                 <p className="mt-3">正是這片獨特的土地，孕育出了構成紫砂壺美學基礎的非凡泥料。</p>
-            </div>
+            </SubCard>
         </Section>
     );
 }

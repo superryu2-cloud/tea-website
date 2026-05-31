@@ -107,6 +107,75 @@ const TeaConstituentsChart = () => {
     );
 };
 
+const ConstituentCard = ({ id, title, color, icon: Icon, compounds, size = 'normal', onClick }) => {
+    const colorClasses = {
+        emerald: 'from-emerald-50 to-emerald-100 border-emerald-300 hover:border-emerald-400',
+        purple: 'from-purple-50 to-purple-100 border-purple-300 hover:border-purple-400',
+        amber: 'from-amber-50 to-amber-100 border-amber-300 hover:border-amber-400',
+        green: 'from-green-50 to-green-100 border-green-300 hover:border-green-400',
+        cyan: 'from-cyan-50 to-cyan-100 border-cyan-300 hover:border-cyan-400',
+        stone: 'from-stone-100 to-stone-200 border-stone-400 hover:border-stone-500',
+        rose: 'from-rose-100 to-rose-200 border-rose-400 hover:border-rose-500',
+        orange: 'from-orange-50 to-orange-100 border-orange-300 hover:border-orange-400',
+        red: 'from-red-50 to-red-100 border-red-300 hover:border-red-400',
+        yellow: 'from-yellow-50 to-yellow-100 border-yellow-400 hover:border-yellow-500',
+        indigo: 'from-indigo-50 to-indigo-100 border-indigo-300 hover:border-indigo-400',
+        pink: 'from-pink-50 to-pink-100 border-pink-300 hover:border-pink-400',
+        teal: 'from-teal-50 to-teal-100 border-teal-300 hover:border-teal-400',
+        blue: 'from-blue-50 to-blue-100 border-blue-300 hover:border-blue-400',
+        lime: 'from-lime-50 to-lime-100 border-lime-300 hover:border-lime-400'
+    };
+
+    const textColorClasses = {
+        emerald: 'text-emerald-900',
+        purple: 'text-purple-900',
+        amber: 'text-amber-900',
+        green: 'text-green-900',
+        cyan: 'text-cyan-900',
+        stone: 'text-stone-900',
+        rose: 'text-rose-900',
+        orange: 'text-orange-900',
+        red: 'text-red-900',
+        yellow: 'text-yellow-900',
+        indigo: 'text-indigo-900',
+        pink: 'text-pink-900',
+        teal: 'text-teal-900',
+        blue: 'text-blue-900',
+        lime: 'text-lime-900'
+    };
+
+    const compoundColorClasses = {
+        emerald: 'text-emerald-700',
+        purple: 'text-purple-700',
+        amber: 'text-amber-700',
+        green: 'text-green-700',
+        cyan: 'text-cyan-700',
+        stone: 'text-stone-700',
+        rose: 'text-rose-700',
+        orange: 'text-orange-700',
+        red: 'text-red-700',
+        yellow: 'text-yellow-700',
+        indigo: 'text-indigo-700',
+        pink: 'text-pink-700',
+        teal: 'text-teal-700',
+        blue: 'text-blue-700',
+        lime: 'text-lime-700'
+    };
+
+    return (
+        <div
+            onClick={() => onClick(id)}
+            className={`bg-gradient-to-br ${colorClasses[color]} ${size === 'large' ? 'p-5' : 'p-4'} rounded-xl border-2 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:scale-105`}
+        >
+            <h4 className={`${size === 'large' ? 'text-xl' : 'text-[19px]'} font-bold ${textColorClasses[color]} mb-2 flex items-center ${size === 'large' ? 'justify-center' : ''}`}>
+                {Icon && <Icon className="mr-2" size={18} />}
+                {title}
+            </h4>
+            <p className={`text-sm ${compoundColorClasses[color]} ${size === 'large' ? 'text-center text-base' : ''}`}>{compounds}</p>
+        </div>
+    );
+};
+
 export default function ConstituentsChapter() {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -241,74 +310,7 @@ export default function ConstituentsChapter() {
         }
     };
 
-    const ConstituentCard = ({ id, title, color, icon: Icon, compounds, size = 'normal' }) => {
-        const colorClasses = {
-            emerald: 'from-emerald-50 to-emerald-100 border-emerald-300 hover:border-emerald-400',
-            purple: 'from-purple-50 to-purple-100 border-purple-300 hover:border-purple-400',
-            amber: 'from-amber-50 to-amber-100 border-amber-300 hover:border-amber-400',
-            green: 'from-green-50 to-green-100 border-green-300 hover:border-green-400',
-            cyan: 'from-cyan-50 to-cyan-100 border-cyan-300 hover:border-cyan-400',
-            stone: 'from-stone-100 to-stone-200 border-stone-400 hover:border-stone-500',
-            rose: 'from-rose-100 to-rose-200 border-rose-400 hover:border-rose-500',
-            orange: 'from-orange-50 to-orange-100 border-orange-300 hover:border-orange-400',
-            red: 'from-red-50 to-red-100 border-red-300 hover:border-red-400',
-            yellow: 'from-yellow-50 to-yellow-100 border-yellow-400 hover:border-yellow-500',
-            indigo: 'from-indigo-50 to-indigo-100 border-indigo-300 hover:border-indigo-400',
-            pink: 'from-pink-50 to-pink-100 border-pink-300 hover:border-pink-400',
-            teal: 'from-teal-50 to-teal-100 border-teal-300 hover:border-teal-400',
-            blue: 'from-blue-50 to-blue-100 border-blue-300 hover:border-blue-400',
-            lime: 'from-lime-50 to-lime-100 border-lime-300 hover:border-lime-400'
-        };
 
-        const textColorClasses = {
-            emerald: 'text-emerald-900',
-            purple: 'text-purple-900',
-            amber: 'text-amber-900',
-            green: 'text-green-900',
-            cyan: 'text-cyan-900',
-            stone: 'text-stone-900',
-            rose: 'text-rose-900',
-            orange: 'text-orange-900',
-            red: 'text-red-900',
-            yellow: 'text-yellow-900',
-            indigo: 'text-indigo-900',
-            pink: 'text-pink-900',
-            teal: 'text-teal-900',
-            blue: 'text-blue-900',
-            lime: 'text-lime-900'
-        };
-
-        const compoundColorClasses = {
-            emerald: 'text-emerald-700',
-            purple: 'text-purple-700',
-            amber: 'text-amber-700',
-            green: 'text-green-700',
-            cyan: 'text-cyan-700',
-            stone: 'text-stone-700',
-            rose: 'text-rose-700',
-            orange: 'text-orange-700',
-            red: 'text-red-700',
-            yellow: 'text-yellow-700',
-            indigo: 'text-indigo-700',
-            pink: 'text-pink-700',
-            teal: 'text-teal-700',
-            blue: 'text-blue-700',
-            lime: 'text-lime-700'
-        };
-
-        return (
-            <div
-                onClick={() => setSelectedCategory(id)}
-                className={`bg-gradient-to-br ${colorClasses[color]} ${size === 'large' ? 'p-5' : 'p-4'} rounded-xl border-2 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:scale-105`}
-            >
-                <h4 className={`${size === 'large' ? 'text-xl' : 'text-[19px]'} font-bold ${textColorClasses[color]} mb-2 flex items-center ${size === 'large' ? 'justify-center' : ''}`}>
-                    {Icon && <Icon className="mr-2" size={18} />}
-                    {title}
-                </h4>
-                <p className={`text-sm ${compoundColorClasses[color]} ${size === 'large' ? 'text-center text-base' : ''}`}>{compounds}</p>
-            </div>
-        );
-    };
 
     return (
         <div className="space-y-12">
@@ -362,31 +364,31 @@ export default function ConstituentsChapter() {
                     </h3>
 
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3">
-                        <ConstituentCard id="green" title="生青" color="emerald" icon={Leaf} compounds="順式青葉醇" />
-                        <ConstituentCard id="aroma" title="香氣" color="purple" icon={Sparkles} compounds="芳樟醇 / 香葉醇 / 橙花叔醇" />
-                        <ConstituentCard id="sweet" title="甜" color="amber" icon={Droplets} compounds="可溶性糖 / 丙氨酸 / 絲氨酸 / 茶紅質" />
-                        <ConstituentCard id="umami" title="鮮甜" color="green" icon={Leaf} compounds="氨基酸" />
-                        <ConstituentCard id="salty" title="鹹" color="cyan" icon={Wind} compounds="鉀離子 / 鉀鹽子" />
+                        <ConstituentCard id="green" title="生青" color="emerald" icon={Leaf} compounds="順式青葉醇" onClick={setSelectedCategory} />
+                        <ConstituentCard id="aroma" title="香氣" color="purple" icon={Sparkles} compounds="芳樟醇 / 香葉醇 / 橙花叔醇" onClick={setSelectedCategory} />
+                        <ConstituentCard id="sweet" title="甜" color="amber" icon={Droplets} compounds="可溶性糖 / 丙氨酸 / 絲氨酸 / 茶紅質" onClick={setSelectedCategory} />
+                        <ConstituentCard id="umami" title="鮮甜" color="green" icon={Leaf} compounds="氨基酸" onClick={setSelectedCategory} />
+                        <ConstituentCard id="salty" title="鹹" color="cyan" icon={Wind} compounds="鉀離子 / 鉀鹽子" onClick={setSelectedCategory} />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-                        <ConstituentCard id="astringent" title="澀及收斂性" color="stone" icon={Coffee} compounds="非酯型兒茶素、沒食子酸" size="large" />
-                        <ConstituentCard id="bitterAstringent" title="苦澀及收斂性" color="rose" icon={Coffee} compounds="酯型兒茶素、黃酮苷" size="large" />
+                        <ConstituentCard id="astringent" title="澀及收斂性" color="stone" icon={Coffee} compounds="非酯型兒茶素、沒食子酸" size="large" onClick={setSelectedCategory} />
+                        <ConstituentCard id="bitterAstringent" title="苦澀及收斂性" color="rose" icon={Coffee} compounds="酯型兒茶素、黃酮苷" size="large" onClick={setSelectedCategory} />
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3">
-                        <ConstituentCard id="light" title="淡味" color="orange" compounds="茶褐質" />
-                        <ConstituentCard id="sour" title="酸" color="red" icon={Coffee} compounds="沒食子酸 / 有機酸 / 維生素C / 軟氨酸" />
-                        <ConstituentCard id="bitter" title="苦" color="yellow" compounds="花青素因 / 咖啡因 / 茶皂素 / 檸檬酸" />
-                        <ConstituentCard id="body" title="厚度" color="indigo" icon={Layers} compounds="可溶性果膠 / 可溶性蛋白 / 茶多酚及氧化物" />
-                        <ConstituentCard id="aftertaste" title="回甘" color="pink" compounds="氨基酸 / 黃酮醇" />
+                        <ConstituentCard id="light" title="淡味" color="orange" compounds="茶褐質" onClick={setSelectedCategory} />
+                        <ConstituentCard id="sour" title="酸" color="red" icon={Coffee} compounds="沒食子酸 / 有機酸 / 維生素C / 軟氨酸" onClick={setSelectedCategory} />
+                        <ConstituentCard id="bitter" title="苦" color="yellow" compounds="花青素因 / 咖啡因 / 茶皂素 / 檸檬酸" onClick={setSelectedCategory} />
+                        <ConstituentCard id="body" title="厚度" color="indigo" icon={Layers} compounds="可溶性果膠 / 可溶性蛋白 / 茶多酚及氧化物" onClick={setSelectedCategory} />
+                        <ConstituentCard id="aftertaste" title="回甘" color="pink" compounds="氨基酸 / 黃酮醇" onClick={setSelectedCategory} />
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <ConstituentCard id="energy" title="茶氣" color="teal" icon={Sparkles} compounds="香氣精油 / 微量元素" />
-                        <ConstituentCard id="viscosity" title="黏稠度" color="blue" compounds="可溶性果膠 / 可溶性蛋白" />
-                        <ConstituentCard id="refreshing" title="爽口" color="lime" compounds="咖啡與茶多酚或茶黃素質絡合物" />
-                        <ConstituentCard id="color" title="湯色" color="orange" icon={Flame} compounds="黃酮類 / 剝落葉綠素 / 茶多酚氧化物" />
+                        <ConstituentCard id="energy" title="茶氣" color="teal" icon={Sparkles} compounds="香氣精油 / 微量元素" onClick={setSelectedCategory} />
+                        <ConstituentCard id="viscosity" title="黏稠度" color="blue" compounds="可溶性果膠 / 可溶性蛋白" onClick={setSelectedCategory} />
+                        <ConstituentCard id="refreshing" title="爽口" color="lime" compounds="咖啡與茶多酚或茶黃素質絡合物" onClick={setSelectedCategory} />
+                        <ConstituentCard id="color" title="湯色" color="orange" icon={Flame} compounds="黃酮類 / 剝落葉綠素 / 茶多酚氧化物" onClick={setSelectedCategory} />
                     </div>
 
                     <p className="text-base text-stone-500 text-center mt-6 italic">

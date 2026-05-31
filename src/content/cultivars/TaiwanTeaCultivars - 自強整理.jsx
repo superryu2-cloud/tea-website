@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { Leaf, Calendar, MapPin, Award, Info, ChevronDown, ChevronUp } from 'lucide-react';
 
+const SortIcon = ({ columnKey, sortConfig }) => {
+    if (sortConfig.key !== columnKey) {
+        return <ChevronDown className="inline ml-1 opacity-30" size={14} />;
+    }
+    return sortConfig.direction === 'asc' ?
+        <ChevronUp className="inline ml-1" size={14} /> :
+        <ChevronDown className="inline ml-1" size={14} />;
+};
+
 export default function TaiwanTeaCultivars() {
     const [sortConfig, setSortConfig] = useState({ key: 'number', direction: 'asc' });
 
@@ -61,14 +70,7 @@ export default function TaiwanTeaCultivars() {
         return 0;
     });
 
-    const SortIcon = ({ columnKey }) => {
-        if (sortConfig.key !== columnKey) {
-            return <ChevronDown className="inline ml-1 opacity-30" size={14} />;
-        }
-        return sortConfig.direction === 'asc' ?
-            <ChevronUp className="inline ml-1" size={14} /> :
-            <ChevronDown className="inline ml-1" size={14} />;
-    };
+
 
     return (
         <div className="space-y-8">
@@ -132,7 +134,7 @@ export default function TaiwanTeaCultivars() {
                                     className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors"
                                     onClick={() => handleSort('number')}
                                 >
-                                    品種 <SortIcon columnKey="number" />
+                                    品種 <SortIcon columnKey="number" sortConfig={sortConfig} />
                                 </th>
                                 <th className="px-4 py-4 text-left font-bold">名稱</th>
                                 <th className="px-4 py-4 text-left font-bold">品系名稱</th>
@@ -142,13 +144,13 @@ export default function TaiwanTeaCultivars() {
                                     className="px-4 py-4 text-center font-bold cursor-pointer hover:bg-stone-600 transition-colors"
                                     onClick={() => handleSort('breedYear')}
                                 >
-                                    雜交年代 <SortIcon columnKey="breedYear" />
+                                    雜交年代 <SortIcon columnKey="breedYear" sortConfig={sortConfig} />
                                 </th>
                                 <th
                                     className="px-4 py-4 text-center font-bold cursor-pointer hover:bg-stone-600 transition-colors"
                                     onClick={() => handleSort('releaseYear')}
                                 >
-                                    命名年 <SortIcon columnKey="releaseYear" />
+                                    命名年 <SortIcon columnKey="releaseYear" sortConfig={sortConfig} />
                                 </th>
                                 <th className="px-4 py-4 text-left font-bold">樹勢/樹型</th>
                                 <th className="px-4 py-4 text-left font-bold">適製性</th>

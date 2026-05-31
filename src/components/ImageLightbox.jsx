@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 
 export default function ImageLightbox({ isOpen, onClose, imageSrc, altText }) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-        return () => setMounted(false);
-    }, []);
-
     useEffect(() => {
         const handleEsc = (e) => {
             if (e.key === 'Escape') onClose();
@@ -24,7 +17,7 @@ export default function ImageLightbox({ isOpen, onClose, imageSrc, altText }) {
         };
     }, [isOpen, onClose]);
 
-    if (!isOpen || !imageSrc || !mounted) return null;
+    if (!isOpen || !imageSrc) return null;
 
     return createPortal(
         <div

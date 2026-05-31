@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { Leaf, Calendar, MapPin, Award, Info, ChevronDown, ChevronUp, History, Search, ArrowUp } from 'lucide-react';
 import ImageModal from '../../components/ImageModal';
 
+const SortIcon = ({ columnKey, sortConfig }) => {
+    if (sortConfig.key !== columnKey) {
+        return <ChevronDown className="inline ml-1 opacity-30" size={14} />;
+    }
+    return sortConfig.direction === 'asc' ?
+        <ChevronUp className="inline ml-1" size={14} /> :
+        <ChevronDown className="inline ml-1" size={14} />;
+};
+
 export default function TaiwanTeaCultivars() {
     const [sortConfig, setSortConfig] = useState({ key: 'number', direction: 'asc' });
     const [previewImage, setPreviewImage] = useState(null);
@@ -178,14 +187,7 @@ export default function TaiwanTeaCultivars() {
         return 0;
     });
 
-    const SortIcon = ({ columnKey }) => {
-        if (sortConfig.key !== columnKey) {
-            return <ChevronDown className="inline ml-1 opacity-30" size={14} />;
-        }
-        return sortConfig.direction === 'asc' ?
-            <ChevronUp className="inline ml-1" size={14} /> :
-            <ChevronDown className="inline ml-1" size={14} />;
-    };
+
 
     // 品種分類顏色邏輯
     const getVarietyStyle = (number) => {
@@ -360,28 +362,28 @@ export default function TaiwanTeaCultivars() {
                             <thead className="bg-gradient-to-r from-stone-800 to-stone-700 text-white">
                                 <tr>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('number')}>
-                                        品種 <SortIcon columnKey="number" />
+                                        品種 <SortIcon columnKey="number" sortConfig={sortConfig} />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('name')}>
-                                        名稱 <SortIcon columnKey="name" />
+                                        名稱 <SortIcon columnKey="name" sortConfig={sortConfig} />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('alias')}>
-                                        品系名稱 <SortIcon columnKey="alias" />
+                                        品系名稱 <SortIcon columnKey="alias" sortConfig={sortConfig} />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('parent')}>
-                                        親本 (母 x 父) <SortIcon columnKey="parent" />
+                                        親本 (母 x 父) <SortIcon columnKey="parent" sortConfig={sortConfig} />
                                     </th>
                                     <th
                                         className="px-4 py-3 text-center cursor-pointer hover:bg-stone-800 transition-colors"
                                         onClick={() => handleSort('breedYear')}
                                     >
-                                        雜交 / 命名年 <SortIcon columnKey="breedYear" />
+                                        雜交 / 命名年 <SortIcon columnKey="breedYear" sortConfig={sortConfig} />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('type')}>
-                                        樹勢/樹型 <SortIcon columnKey="type" />
+                                        樹勢/樹型 <SortIcon columnKey="type" sortConfig={sortConfig} />
                                     </th>
                                     <th className="px-4 py-4 text-left font-bold cursor-pointer hover:bg-stone-600 transition-colors whitespace-nowrap" onClick={() => handleSort('use')}>
-                                        適製性 <SortIcon columnKey="use" />
+                                        適製性 <SortIcon columnKey="use" sortConfig={sortConfig} />
                                     </th>
                                 </tr>
                             </thead>

@@ -1,40 +1,41 @@
 import React from 'react';
 import { Compass, Mountain, Package, Sparkles } from 'lucide-react';
 
-export default function BlackTeaTimeline() {
-    const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'amber' }) => {
-        const colorClasses = {
-            amber: 'border-amber-500 bg-amber-50',
-            brown: 'border-amber-700 bg-amber-100',
-        };
-
-        const iconColorClasses = {
-            amber: 'text-amber-600',
-            brown: 'text-amber-800',
-        };
-
-        return (
-            <div className="relative flex gap-6 pb-8">
-                <div className="flex flex-col items-center">
-                    <div className={`${highlight ? 'bg-amber-700' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
-                        {year}
-                    </div>
-                    <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
-                </div>
-
-                <div className={`flex-1 bg-white p-5 rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-amber-300' : ''}`}>
-                    {Icon && (
-                        <div className="flex items-center mb-2">
-                            <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
-                            <h4 className="font-bold text-stone-800 text-base">{title}</h4>
-                        </div>
-                    )}
-                    {!Icon && <h4 className="font-bold text-stone-800 text-base mb-2">{title}</h4>}
-                    <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
-                </div>
-            </div>
-        );
+const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'amber' }) => {
+    const colorClasses = {
+        amber: 'border-amber-500 bg-amber-50',
+        brown: 'border-amber-700 bg-amber-100',
     };
+
+    const iconColorClasses = {
+        amber: 'text-amber-600',
+        brown: 'text-amber-800',
+    };
+
+    return (
+        <div className="relative flex gap-6 pb-8">
+            <div className="flex flex-col items-center">
+                <div className={`${highlight ? 'bg-amber-700' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
+                    {year}
+                </div>
+                <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
+            </div>
+
+            <div className={`flex-1 bg-white p-5 rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-amber-300' : ''}`}>
+                {Icon && (
+                    <div className="flex items-center mb-2">
+                        <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
+                        <h4 className="font-bold text-stone-800 text-base">{title}</h4>
+                    </div>
+                )}
+                {!Icon && <h4 className="font-bold text-stone-800 text-base mb-2">{title}</h4>}
+                <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
+            </div>
+        </div>
+    );
+};
+
+export default function BlackTeaTimeline() {
 
     return (
         <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl border border-amber-200 shadow-lg">

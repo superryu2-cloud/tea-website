@@ -113,28 +113,30 @@ function Callout({ title, children }) {
   );
 }
 
+const Lightbox = ({ lightboxData, onClose }) => {
+  if (!lightboxData) return null;
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+      onClick={onClose}
+    >
+      <img
+        src={lightboxData.src}
+        alt={lightboxData.alt}
+        className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
+      />
+      <button className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors" onClick={onClose}>
+        <X size={48} />
+      </button>
+    </div>,
+    document.body
+  );
+};
+
 export default function PuerhEncyclopedia({ topOffsetPx, activeHref = '#puerh-1' }) {
   const [lightboxData, setLightboxData] = useState(null);
 
-  const Lightbox = () => {
-    if (!lightboxData) return null;
-    return createPortal(
-      <div
-        className="fixed inset-0 z-[10000] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
-        onClick={() => setLightboxData(null)}
-      >
-        <img
-          src={lightboxData.src}
-          alt={lightboxData.alt}
-          className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
-        />
-        <button className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors">
-          <X size={48} />
-        </button>
-      </div>,
-      document.body
-    );
-  };
+
   const CHAPTERS = {
     '#puerh-1': {
       title: '一：什麼是普洱茶',
@@ -3287,7 +3289,7 @@ export default function PuerhEncyclopedia({ topOffsetPx, activeHref = '#puerh-1'
           </Section>
         </div>
       </div>
-      <Lightbox />
+      <Lightbox lightboxData={lightboxData} onClose={() => setLightboxData(null)} />
     </article>
   );
 }

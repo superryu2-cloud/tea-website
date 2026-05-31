@@ -19,18 +19,14 @@ import { UI_FLAGS } from '../../config/uiFlags';
 const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
     const notesMode = UI_FLAGS.notesMode;
     const [searchTerm, setSearchTerm] = useState("");
-    const [showCultivarsAtlas, setShowCultivarsAtlas] = useState(!notesMode);
-    const [showCultivarDiversity, setShowCultivarDiversity] = useState(true);
     const [activeCultivarSection, setActiveCultivarSection] = useState('taiwan-cultivars');
     const [activeCultivarHref, setActiveCultivarHref] = useState(null);
-    const cultivarsSidebarItems = CULTIVARS_TOC.map((item) => ({ key: item.href, label: item.label }));
     const { largeLeafCultivars, majorCultivars, otherSmallLeaf } = cultivars;
 
     const scrollToCultivarSection = (href) => {
         if (typeof window === 'undefined') return;
         if (!href) return;
-        setShowCultivarsAtlas(true);
-        setShowCultivarDiversity(true);
+        setActiveCultivarHref(href);
 
         let attempts = 0;
         const tryScroll = () => {
@@ -76,30 +72,8 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                                 </div>
                                 <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">茶樹品種｜筆記卡</h2>
                                 <p className="mt-3 max-w-3xl text-stone-700 leading-relaxed text-lg">
-                                    品種像是茶的「底盤」：決定內含物質組合與香氣走向。先看筆記卡建立框架，需要時再展開百科（含表格、品種卡、長文整理與搜尋）。
+                                    品種像是茶的「底盤」：決定內含物質組合與香氣走向。以下筆記卡可助您建立框架，搭配下方的品種百科（含對照表、品種卡與搜尋篩選）能有更深度的理解。
                                 </p>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
-                                <button
-                                    type="button"
-                                    onClick={() => setShowCultivarsAtlas(true)}
-                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-5 py-2.5 text-sm font-extrabold hover:bg-emerald-800 transition-colors w-full sm:w-auto"
-                                >
-                                    展開百科
-                                    <ChevronRight size={16} />
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        setShowCultivarsAtlas(true);
-                                        setShowCultivarDiversity(true);
-                                    }}
-                                    className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors w-full sm:w-auto"
-                                >
-                                    讀台灣品種整理
-                                    <ChevronRight size={16} className="text-emerald-700" />
-                                </button>
                             </div>
                         </div>
 
@@ -143,9 +117,8 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                     </div>
                 )}
 
-                {showCultivarsAtlas ? (
-                    <AtlasDockLayout
-                        topOffsetPx={siteNavHeightPx + 36}
+                <AtlasDockLayout
+                    topOffsetPx={siteNavHeightPx + 36}
                         sidebar={
                             <CollapsibleSidebar
                                 title="茶樹品種"
@@ -389,36 +362,6 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                             )}
                         </div>
                     </AtlasDockLayout>
-                ) : notesMode ? (
-                    <div className="museum-panel p-7 md:p-10 text-center">
-                        <div className="museum-label mx-auto">ATLAS · ON DEMAND</div>
-                        <div className="mt-4 text-lg font-extrabold text-stone-900">需要查品種時再展開百科</div>
-                        <p className="mt-2 text-stone-600 leading-relaxed max-w-2xl mx-auto">
-                            百科包含：台灣品種整理長文、大葉/小葉對照表、四大品種與其他品種卡片、關鍵字搜尋。
-                        </p>
-                        <div className="mt-6 flex flex-col sm:flex-row gap-2 justify-center">
-                            <button
-                                type="button"
-                                onClick={() => setShowCultivarsAtlas(true)}
-                                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 text-white px-6 py-3 text-sm font-extrabold hover:bg-emerald-800 transition-colors"
-                            >
-                                展開百科內容
-                                <ChevronRight size={16} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setShowCultivarsAtlas(true);
-                                    setShowCultivarDiversity(true);
-                                }}
-                                className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-200 bg-white px-6 py-3 text-sm font-extrabold text-stone-800 hover:bg-stone-50 transition-colors"
-                            >
-                                直接看台灣品種整理
-                                <ChevronRight size={16} className="text-emerald-700" />
-                            </button>
-                        </div>
-                    </div>
-                ) : null}
 
             </div>
         </div>

@@ -5,54 +5,55 @@ import { Star, Globe, Leaf, Ship, Mountain, Sparkles, TrendingUp, Microscope } f
  * OolongTeaVerticalTimeline - 青茶（烏龍茶）歷史垂直時間線
  * 左側時間軸線，右側歷史事件卡片
  */
-export default function OolongTeaVerticalTimeline({ onNavigate }) {
-    const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'amber' }) => {
-        const colorClasses = {
-            green: 'border-green-500 bg-green-50',
-            amber: 'border-amber-500 bg-amber-50',
-            orange: 'border-orange-500 bg-orange-50',
-            blue: 'border-blue-500 bg-blue-50',
-            cyan: 'border-cyan-500 bg-cyan-50',
-            teal: 'border-teal-500 bg-teal-50',
-            purple: 'border-purple-500 bg-purple-50'
-        };
-
-        const iconColorClasses = {
-            green: 'text-green-600',
-            amber: 'text-amber-600',
-            orange: 'text-orange-600',
-            blue: 'text-blue-600',
-            cyan: 'text-cyan-600',
-            teal: 'text-teal-600',
-            purple: 'text-purple-600'
-        };
-
-        return (
-            <div className="relative flex gap-6 pb-8">
-                {/* Left: Timeline */}
-                <div className="flex flex-col items-center">
-                    {/* Year badge */}
-                    <div className={`${highlight ? 'bg-amber-600' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
-                        {year}
-                    </div>
-                    {/* Vertical line */}
-                    <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
-                </div>
-
-                {/* Right: Content card */}
-                <div className={`flex-1 bg-white p-5 rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-amber-300' : ''}`}>
-                    {Icon && (
-                        <div className="flex items-center mb-2">
-                            <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
-                            <h4 className="font-bold text-stone-800 text-lg">{title}</h4>
-                        </div>
-                    )}
-                    {!Icon && <h4 className="font-bold text-stone-800 text-lg mb-2">{title}</h4>}
-                    <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
-                </div>
-            </div >
-        );
+const TimelineEvent = ({ year, title, content, icon: Icon, highlight = false, color = 'amber' }) => {
+    const colorClasses = {
+        green: 'border-green-500 bg-green-50',
+        amber: 'border-amber-500 bg-amber-50',
+        orange: 'border-orange-500 bg-orange-50',
+        blue: 'border-blue-500 bg-blue-50',
+        cyan: 'border-cyan-500 bg-cyan-50',
+        teal: 'border-teal-500 bg-teal-50',
+        purple: 'border-purple-500 bg-purple-50'
     };
+
+    const iconColorClasses = {
+        green: 'text-green-600',
+        amber: 'text-amber-600',
+        orange: 'text-orange-600',
+        blue: 'text-blue-600',
+        cyan: 'text-cyan-600',
+        teal: 'text-teal-600',
+        purple: 'text-purple-600'
+    };
+
+    return (
+        <div className="relative flex gap-6 pb-8">
+            {/* Left: Timeline */}
+            <div className="flex flex-col items-center">
+                {/* Year badge */}
+                <div className={`${highlight ? 'bg-amber-600' : 'bg-stone-800'} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md border-2 border-white whitespace-nowrap z-10`}>
+                    {year}
+                </div>
+                {/* Vertical line */}
+                <div className="w-0.5 bg-stone-300 flex-1 mt-2"></div>
+            </div>
+
+            {/* Right: Content card */}
+            <div className={`flex-1 bg-white p-5 rounded-lg shadow-sm border-l-4 ${colorClasses[color]} hover:shadow-md transition-shadow ${highlight ? 'ring-2 ring-amber-300' : ''}`}>
+                {Icon && (
+                    <div className="flex items-center mb-2">
+                        <Icon size={18} className={`${iconColorClasses[color]} mr-2`} />
+                        <h4 className="font-bold text-stone-800 text-lg">{title}</h4>
+                    </div>
+                )}
+                {!Icon && <h4 className="font-bold text-stone-800 text-lg mb-2">{title}</h4>}
+                <p className="text-stone-600 text-sm leading-relaxed">{content}</p>
+            </div>
+        </div >
+    );
+};
+
+export default function OolongTeaVerticalTimeline({ onNavigate }) {
 
     return (
         <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl border border-amber-200 shadow-lg">
