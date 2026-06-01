@@ -123,6 +123,23 @@ export default function ZishaExhibit({ siteNavHeightPx = 80 }) {
         >
           {/* Main Content Area */}
           <main className="min-h-[50vh]">
+            {/* ── 手機版章節選擇器（xl 以上隱藏，由側邊欄取代）── */}
+            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-[#fcfbfa]/95 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6">
+                <label htmlFor="mobile-zisha-select" className="sr-only">選擇紫砂章節</label>
+                <select
+                    id="mobile-zisha-select"
+                    value={activeTabId}
+                    onChange={(e) => handleChapterSelect(e.target.value)}
+                    className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-bold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-600 appearance-none"
+                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2378350f' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                >
+                    {TOC.map((item) => (
+                        <option key={item.id} value={item.id}>
+                            {item.label} — {item.subtitle}
+                        </option>
+                    ))}
+                </select>
+            </div>
             {/* Premium Hero Header Card */}
             <div className="relative rounded-[32px] overflow-hidden mb-12 border border-amber-800/30 shadow-2xl p-8 md:p-12 text-center bg-gradient-to-br from-[#3d2f32] via-[#2a1e20] to-[#1e1315]">
               {/* Decorative elements */}

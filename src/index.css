@@ -1043,11 +1043,24 @@
 
   .nav-main-grid {
     display: grid;
-    grid-template-columns: repeat(8, max-content);
+    grid-template-columns: repeat(10, max-content);
     column-gap: 10px;
     row-gap: 4px;
     justify-content: center;
     align-items: center;
+  }
+
+  /* 英文版面專屬微調：調整字型與間距，防止英文單字過長擠壓 Logo 重疊 */
+  .lang-en .nav-main-grid {
+    column-gap: 6px;
+  }
+
+  @media (min-width: 1280px) {
+    .lang-en .nav-pill--tier1 {
+      font-size: 14.5px;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
   }
 
   .nav-main-grid__cell {

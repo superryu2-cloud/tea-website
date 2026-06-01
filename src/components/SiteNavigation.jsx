@@ -255,10 +255,10 @@ export default function SiteNavigation({
   ];
 
   return (
-    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen || mobileMenuOpen) ? 'nav-drawer-open' : ''}`}>
+    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen || mobileMenuOpen) ? 'nav-drawer-open' : ''} ${i18n.lang === 'en' ? 'lang-en' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center min-h-[68px] py-3">
-          <div className="flex items-center gap-5 pr-10">
+          <div className="flex items-center gap-5 pr-10 shrink-0">
             {/* 綠色葉子 Logo - 隱藏的5次點擊功能 */}
             <button
               type="button"

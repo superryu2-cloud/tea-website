@@ -58,7 +58,8 @@ function Paragraph({ children, className = "" }) {
   );
 }
 
-function Callout({ title, children, icon: Icon = ClipboardList, variant = "sky" }) {
+function Callout({ title, children, icon: Icon, variant = "sky" }) {
+  const ActiveIcon = Icon || ClipboardList;
   const themes = {
     sky: "border-sky-200 bg-sky-50 text-sky-800 icon-bg-sky-600",
     emerald: "border-emerald-200 bg-emerald-50 text-emerald-800 icon-bg-emerald-600",
@@ -71,7 +72,7 @@ function Callout({ title, children, icon: Icon = ClipboardList, variant = "sky" 
     <div className={`rounded-2xl border ${theme.split(' ')[0]} ${theme.split(' ')[1]} p-6 relative overflow-hidden shadow-sm`}>
       <div className="flex items-start gap-4 relative z-10">
         <span className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white border ${theme.split(' ')[0]} ${theme.split(' ')[2]} shadow-sm shrink-0`}>
-          <Icon size={20} />
+          <ActiveIcon size={20} />
         </span>
         <div>
           <div className="font-extrabold text-stone-900 text-lg mb-1">{title}</div>
@@ -110,31 +111,35 @@ export default function TaiwanCultivarDiversity() {
     <article className="max-w-6xl mx-auto space-y-16 pb-24 font-sans selection:bg-emerald-100">
 
       {/* Hero Section: Cinematic Visual Upgrade */}
-      <header className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-stone-900 min-h-[600px] flex items-end group shadow-emerald-900/10">
+      <header className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-stone-900 min-h-[580px] flex items-end group shadow-emerald-950/10 border border-emerald-800/10">
         <img
           src="/images/cultivars/bg_plantation.png"
           alt="Taiwan Tea Cultivar Diversity - Cinematic Landscape"
-          className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-[2000ms] ease-out group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[3000ms] ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/30 to-transparent"></div>
+        {/* Subtle dynamic overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/40 to-transparent"></div>
+        <div className="absolute top-4 left-4 right-4 bottom-4 border border-white/5 rounded-[2rem] pointer-events-none" />
 
-        <div className="relative z-10 w-full p-8 md:p-20">
-          <div className="max-w-4xl space-y-8">
-            <div className="flex flex-wrap gap-4 animate-fadeIn">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 backdrop-blur-xl border border-emerald-400/30 text-emerald-100 text-[13px] font-black tracking-[0.2em] uppercase">
-                <Dna size={14} className="animate-pulse" /> DNA & Lineage
+        <div className="relative z-10 w-full p-6 md:p-14">
+          {/* Glassmorphism Title Card */}
+          <div className="max-w-3xl space-y-6 bg-stone-950/50 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/10 shadow-2xl animate-fadeIn">
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 backdrop-blur-xl border border-emerald-400/30 text-emerald-100 text-xs font-black tracking-[0.2em] uppercase">
+                <Dna size={13} className="animate-pulse" /> DNA & Lineage
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-stone-200 text-[13px] font-black tracking-[0.2em] uppercase">
-                <Mountain size={14} /> Terroir Adaptability
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-stone-200 text-xs font-black tracking-[0.2em] uppercase">
+                <Mountain size={13} /> Terroir Adaptability
               </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-7xl font-black text-white leading-[1.1] tracking-tighter">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight font-serif">
                 多樣性的台灣茶樹<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">栽培品種</span>解析
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">栽培品種與特性</span>解析
               </h1>
-              <p className="text-lg md:text-xl text-stone-300 leading-relaxed font-light max-w-2xl border-l-4 border-emerald-500 pl-6 py-1">
+              <div className="w-16 h-1 bg-emerald-500 rounded-full" />
+              <p className="text-base md:text-lg text-stone-300 leading-relaxed font-light">
                 以<strong className="text-white">育種科學</strong>、<strong className="text-white">化學成分</strong>與<strong className="text-white">地理適性</strong>為主線，
                 深入探索這片土地最具競爭優勢的綠色基因庫。
               </p>

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { RotateCcw, Layout, Move, HelpCircle, Info, ArrowDown, ArrowUp, ArrowLeft, ArrowRight, X, ZoomIn } from 'lucide-react';
 import DraggableWrapper from '../DraggableWrapper';
 import ImageModal from '../ImageModal';

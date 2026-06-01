@@ -46,7 +46,6 @@ export default function ScienceSection({
     );
 
     const isScienceTeachingRoom = scienceRoom === 'teaching' || scienceRoom.startsWith('teaching-');
-    const isScienceOxidationRoom = scienceRoom === 'oxidation';
 
     const scienceTeachingActiveHref = scienceRoom.startsWith('teaching-')
         ? `#ref-${scienceRoom.replace('teaching-', '')}`
@@ -147,6 +146,74 @@ export default function ScienceSection({
                             }
                         >
                             <div className="space-y-8 min-w-0">
+                                {/* ── 手機版科學實驗室選擇器（xl 以上隱藏，由側邊欄取代）── */}
+                                <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                                    <div className="flex-1 relative">
+                                        <label htmlFor="mobile-science-select" className="sr-only">選擇科學展廳</label>
+                                        <select
+                                            id="mobile-science-select"
+                                            value={scienceRoom}
+                                            onChange={(e) => {
+                                                const key = e.target.value;
+                                                setScienceRoom(key);
+                                                if (key === 'teaching') onSelectTeachingChapter?.('#ref-all');
+                                                if (key.startsWith('teaching-')) onSelectTeachingChapter?.(`#ref-${key.replace('teaching-', '')}`);
+                                                if (typeof window !== 'undefined') {
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                }
+                                            }}
+                                            className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                        >
+                                            {scienceSidebarItems.map((item) => (
+                                                <option key={item.key} value={item.key}>
+                                                    {item.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    {(scienceRoom === 'teaching' || scienceRoom === 'oxidation') && (
+                                        <div className="flex-1 relative">
+                                            <label htmlFor="mobile-sciencesub-select" className="sr-only">選擇子章節</label>
+                                            <select
+                                                id="mobile-sciencesub-select"
+                                                value={scienceRoom === 'teaching' ? teachingChapterHref : oxidationChapterHref}
+                                                onChange={(e) => {
+                                                    const href = e.target.value;
+                                                    if (scienceRoom === 'teaching') {
+                                                        onSelectTeachingChapter?.(href);
+                                                        if (typeof window !== 'undefined') {
+                                                            const targetId = href.startsWith('#') ? href.slice(1) : href;
+                                                            const el = document.getElementById(targetId);
+                                                            if (el) {
+                                                                const y = el.getBoundingClientRect().top + window.scrollY - (siteNavHeightPx + 60);
+                                                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                                            }
+                                                        }
+                                                    } else if (scienceRoom === 'oxidation') {
+                                                        setOxidationChapterHref(href);
+                                                        if (typeof window !== 'undefined') {
+                                                            const targetId = href.startsWith('#') ? href.slice(1) : href;
+                                                            const el = document.getElementById(targetId);
+                                                            if (el) {
+                                                                const y = el.getBoundingClientRect().top + window.scrollY - (siteNavHeightPx + 60);
+                                                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                                            }
+                                                        }
+                                                    }
+                                                }}
+                                                className="w-full rounded-xl border border-stone-300 bg-emerald-50 px-4 py-2.5 text-[15px] font-semibold text-emerald-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23047857'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                            >
+                                                {scienceSubItemsByKey[scienceRoom]?.map((sub) => (
+                                                    <option key={sub.href} value={sub.href}>
+                                                        {sub.label}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    )}
+                                </div>
                                 <main className="space-y-8">
                                     {isScienceTeachingRoom && (
                                         <div id="science-teaching" className="scroll-mt-28">

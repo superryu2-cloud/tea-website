@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, ChevronRight, Sun, Wind, Mountain, Droplets, FlaskConical, Feather, CheckCircle, ArrowRight, Play, Pause, RotateCcw, Award } from 'lucide-react';
+import { Clock, ChevronRight, Sun, Wind, Mountain, Droplets, FlaskConical, Feather, CheckCircle, ArrowRight, Play, Pause, RotateCcw, Award, Thermometer } from 'lucide-react';
 import ImageLightbox from '../components/ImageLightbox';
 import sunImage from '../assets/images/brewing_sun_terroir.png';
 import windImage from '../assets/images/xueya-ch4-vessels.png';
@@ -24,6 +24,42 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
         setLightboxOpen(true);
     };
 
+    const playZenBell = () => {
+        try {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            const ctx = new AudioContext();
+            
+            // 磬的基音 (520Hz)
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(520, ctx.currentTime);
+            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.0);
+            
+            // 磬的泛音共鳴 (830Hz - 帶有空靈的金屬共振感)
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(830, ctx.currentTime);
+            gain2.gain.setValueAtTime(0.15, ctx.currentTime);
+            gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.8);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc2.connect(gain2);
+            gain2.connect(ctx.destination);
+
+            osc.start();
+            osc2.start();
+            osc.stop(ctx.currentTime + 3.0);
+            osc2.stop(ctx.currentTime + 1.8);
+        } catch (e) {
+            console.warn('AudioContext error:', e);
+        }
+    };
+
     const TeaTimer = ({ defaultSeconds }) => {
         const [timeLeft, setTimeLeft] = useState(defaultSeconds);
         const [isActive, setIsActive] = useState(false);
@@ -41,6 +77,7 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                 }, 1000);
             } else if (timeLeft === 0) {
                 setIsActive(false);
+                playZenBell();
             }
             return () => clearInterval(interval);
         }, [isActive, timeLeft]);
@@ -58,20 +95,35 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
         };
 
         return (
-            <div className="bg-stone-800 text-white p-6 rounded-xl shadow-lg border border-stone-700 flex flex-col items-center justify-center">
-                <h4 className="text-stone-400 text-sm font-bold uppercase tracking-wider mb-4 flex items-center"><Clock size={16} className="mr-2" /> 泡茶計時器</h4>
-                <div className={`text-6xl font-mono font-bold mb-6 ${timeLeft === 0 ? 'text-red-400 animate-pulse' : 'text-white'}`}>
+            <div className={`w-full bg-gradient-to-br from-stone-900 via-stone-950 to-stone-900 text-white p-8 rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden transition-all duration-500 ${timeLeft === 0 ? 'ring-4 ring-rose-500/30 shadow-rose-950/20' : ''}`}>
+                {/* 磬聲波形裝飾 */}
+                {isActive && (
+                    <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
+                        <div className="w-48 h-48 rounded-full border-4 border-amber-400 animate-ping" />
+                    </div>
+                )}
+                
+                <h4 className="text-stone-400 text-sm font-bold uppercase tracking-widest mb-4 flex items-center justify-center font-sans">
+                    <Clock size={16} className={`mr-2 ${isActive ? 'animate-spin' : ''}`} style={{ animationDuration: '4s' }} /> 泡茶計時器
+                </h4>
+                
+                <div className={`text-6xl md:text-7xl font-mono font-black mb-6 transition-all duration-300 text-center select-none ${timeLeft === 0 ? 'text-rose-400 animate-pulse' : isActive ? 'text-amber-400 drop-shadow-[0_0_15px_rgba(245,158,11,0.55)]' : 'text-white'}`}>
                     {formatTime(timeLeft)}
                 </div>
-                <div className="flex gap-4">
-                    <button onClick={toggleTimer} className={`p-3 rounded-full transition-colors ${isActive ? 'bg-amber-600 hover:bg-amber-700' : 'bg-green-600 hover:bg-green-700'}`}>
-                        {isActive ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
+                
+                <div className="flex gap-4 justify-center relative z-10">
+                    <button onClick={toggleTimer} className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${isActive ? 'bg-amber-600 hover:bg-amber-500 shadow-amber-500/20 hover:scale-105' : 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-500/20 hover:scale-105'}`}>
+                        {isActive ? <Pause size={22} fill="currentColor" /> : <Play size={22} fill="currentColor" className="ml-1" />}
                     </button>
-                    <button onClick={resetTimer} className="p-3 rounded-full bg-stone-600 hover:bg-stone-500 transition-colors">
-                        <RotateCcw size={24} />
+                    <button onClick={resetTimer} className="w-14 h-14 rounded-full flex items-center justify-center bg-stone-800 hover:bg-stone-700 border border-stone-700 text-stone-300 hover:text-white transition-all duration-300 hover:scale-105 shadow-md">
+                        <RotateCcw size={22} />
                     </button>
                 </div>
-                {timeLeft === 0 && <p className="mt-4 text-red-400 font-bold animate-bounce">時間到！請出湯</p>}
+                {timeLeft === 0 && (
+                    <p className="mt-6 text-rose-400 font-black text-[15px] tracking-widest animate-bounce flex items-center justify-center gap-2">
+                        <Award size={16} /> 香氣正濃，請即刻出湯！
+                    </p>
+                )}
             </div>
         );
     };
@@ -402,13 +454,59 @@ export default function BrewingGuideSection({ selectedTeaForBrewing, setSelected
                             </div>
                         </div>
 
-                        <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-                            <div className="lg:col-span-3 mb-8 lg:mb-0"><div className="bg-white shadow rounded-lg overflow-hidden"><div className="px-4 py-5 bg-stone-200"><h3 className="font-medium">選擇茶種</h3></div><div className="divide-y divide-stone-100">{teaData.map((tea) => (<button key={tea.id} onClick={() => setSelectedTeaForBrewing(tea.id)} className={`w-full text-left px-4 py-4 ${selectedTeaForBrewing === tea.id ? 'bg-stone-50 border-l-4 border-green-600' : ''}`}>{tea.name}</button>))}</div></div></div>
+                        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-start">
+                            {/* 左側：東方宣紙禪意導覽 */}
+                            <div className="lg:col-span-3 mb-8 lg:mb-0">
+                                <div className="bg-[#fcfbf9] border border-[#e5dec9] rounded-3xl overflow-hidden shadow-md">
+                                    <div className="px-5 py-4.5 bg-emerald-950 text-emerald-100 border-b border-emerald-900 shadow-sm flex items-center gap-2">
+                                        <Award size={18} className="text-amber-400" />
+                                        <h3 className="font-extrabold tracking-wider text-base font-serif">選擇茶種</h3>
+                                    </div>
+                                    <div className="divide-y divide-stone-100 p-2 space-y-1">
+                                        {teaData.map((tea) => (
+                                            <button
+                                                key={tea.id}
+                                                onClick={() => setSelectedTeaForBrewing(tea.id)}
+                                                className={`w-full text-left px-4 py-3.5 rounded-2xl flex items-center justify-between transition-all duration-300 group ${selectedTeaForBrewing === tea.id ? 'bg-emerald-50 text-emerald-900 border-l-4 border-emerald-600 font-black shadow-sm' : 'text-stone-600 hover:bg-stone-100/60 hover:text-stone-900'}`}
+                                            >
+                                                <span className="text-[15px]">{tea.name}</span>
+                                                <ChevronRight size={16} className={`opacity-0 transition-all duration-300 transform ${selectedTeaForBrewing === tea.id ? 'opacity-100 text-emerald-700 translate-x-0.5' : 'group-hover:opacity-40 group-hover:translate-x-0.5'}`} />
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* 右側：大師茶案沖泡指引 */}
                             <div className="lg:col-span-9">
-                                <div className="bg-white shadow-lg rounded-lg p-8 border border-stone-100 mb-8">
-                                    <h2 className="text-3xl font-bold mb-6" style={{ color: activeTea.textColor }}>{activeTea.name}</h2>
-                                    <div className="grid grid-cols-3 gap-4 text-center mb-8"><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">水溫</p><p className="font-bold">{activeTea.temp}</p></div><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">時間</p><p className="font-bold">{activeTea.time}</p></div><div className="bg-stone-50 p-4 rounded"><p className="text-xs text-stone-500">湯色</p><p className="font-bold">{activeTea.liquorColor}</p></div></div>
-                                    <p className="text-stone-700 leading-relaxed mb-8">{activeTea.brewingTips}</p>
+                                <div className="bg-[#fdfcf9] border border-[#e5dfd0] rounded-[2.5rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-100/20 to-transparent pointer-events-none rounded-tr-[2.5rem]" />
+                                    
+                                    <h2 className="text-3xl md:text-4xl font-black mb-2 font-serif flex items-center gap-3 transition-colors duration-500" style={{ color: activeTea.textColor || '#065f46' }}>
+                                        {activeTea.name}
+                                    </h2>
+                                    <div className="h-[2px] bg-gradient-to-r from-stone-200 via-stone-200/50 to-transparent my-6" />
+                                    
+                                    {/* 三合寶匣屬性卡 */}
+                                    <div className="grid grid-cols-3 gap-4 md:gap-6 text-center mb-8">
+                                        {[
+                                            { label: '水溫', value: activeTea.temp, icon: Thermometer, color: 'text-orange-500 bg-orange-50/70 border-orange-100/50' },
+                                            { label: '時間', value: activeTea.time, icon: Clock, color: 'text-amber-500 bg-amber-50/70 border-amber-100/50' },
+                                            { label: '湯色', value: activeTea.liquorColor, icon: Droplets, color: 'text-emerald-500 bg-emerald-50/70 border-emerald-100/50' }
+                                        ].map((box) => (
+                                            <div key={box.label} className={`border rounded-2xl p-4.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-white flex flex-col items-center justify-center ${box.color}`}>
+                                                <box.icon size={20} className="mb-2 shrink-0" />
+                                                <p className="text-[12px] opacity-75 font-semibold uppercase tracking-wider mb-1">{box.label}</p>
+                                                <p className="font-extrabold text-stone-900 text-sm md:text-base">{box.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    
+                                    <div className="flex gap-4 items-start bg-stone-50 p-6 rounded-2xl border border-stone-200/60 mb-8">
+                                        <Feather className="text-stone-400 shrink-0 mt-1" size={18} />
+                                        <p className="text-stone-700 leading-relaxed text-[16px] font-medium">{activeTea.brewingTips}</p>
+                                    </div>
+                                    
                                     <TeaTimer defaultSeconds={activeTea.seconds || 60} />
                                 </div>
                             </div>

@@ -26,16 +26,9 @@ export default function FeaturedTeaSection({
     const [showFeaturedAtlas, setShowFeaturedAtlas] = useState(!notesMode);
     const [orientalBeautySection, setOrientalBeautySection] = useState('main');
 
-    const [featuredSidebarWidth, setFeaturedSidebarWidth] = useState(() => {
-        if (typeof window === 'undefined') return 260;
-        const raw = window.localStorage?.getItem('tea.featuredSidebarWidth');
-        const parsed = raw ? Number(raw) : NaN;
-        if (!Number.isFinite(parsed)) return 260;
-        return Math.min(Math.max(parsed, 220), 420);
-    });
+
 
     const featuredTopRef = useRef(null);
-    const featuredSidebarOffsetPx = siteNavHeightPx + 48;
 
     const scrollToFeaturedTop = () => {
         if (typeof window === 'undefined' || !featuredTopRef.current) return;
@@ -86,19 +79,9 @@ export default function FeaturedTeaSection({
         }
     }, [selectedFeatured]);
 
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-        try {
-            window.localStorage?.setItem('tea.featuredSidebarWidth', String(featuredSidebarWidth));
-        } catch {
-            // ignore
-        }
-    }, [featuredSidebarWidth]);
 
-    const handleFeaturedResize = (newWidth) => {
-        const clamped = Math.min(Math.max(newWidth, 220), 420);
-        setFeaturedSidebarWidth(clamped);
-    };
+
+
 
 
     return (
@@ -266,6 +249,46 @@ export default function FeaturedTeaSection({
                     >
                         {/* Content Area */}
                         <div className="min-w-0">
+                            {/* ── 手機版特色茶選擇器（xl 以上隱藏，由側邊欄取代）── */}
+                            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                                <div className="flex-1 relative">
+                                    <label htmlFor="mobile-featured-select" className="sr-only">選擇特色茶</label>
+                                    <select
+                                        id="mobile-featured-select"
+                                        value={selectedFeatured}
+                                        onChange={(e) => {
+                                            setSelectedFeatured(e.target.value);
+                                            scrollToFeaturedTop();
+                                        }}
+                                        className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 appearance-none"
+                                        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                    >
+                                        {featuredTeaMenu.map((item) => (
+                                            <option key={item.id} value={item.id}>
+                                                {item.label} — {item.subtitle}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                {selectedFeatured === 'orientalbeauty' && (
+                                    <div className="flex-1 relative">
+                                        <label htmlFor="mobile-orientalbeauty-select" className="sr-only">選擇東方美人章節</label>
+                                        <select
+                                            id="mobile-orientalbeauty-select"
+                                            value={orientalBeautySection}
+                                            onChange={(e) => {
+                                                setOrientalBeautySection(e.target.value);
+                                                scrollToFeaturedTop();
+                                            }}
+                                            className="w-full rounded-xl border border-stone-300 bg-amber-50 px-4 py-2.5 text-[15px] font-semibold text-amber-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 appearance-none"
+                                            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d97706'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                        >
+                                            <option value="main">東方美人茶</option>
+                                            <option value="origins">東方美人茶的前世</option>
+                                        </select>
+                                    </div>
+                                )}
+                            </div>
                             <div ref={featuredTopRef} className="scroll-mt-28" />
                             {selectedFeatured === 'overview' && <FeaturedTeaOverview />}
                             {selectedFeatured === 'longjing' && <LongjingTeaArticle />}

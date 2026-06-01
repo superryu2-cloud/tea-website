@@ -4,6 +4,7 @@ import ClickableImage from '../ClickableImage';
 import teaData from '../../data/teaData';
 import { UI_FLAGS } from '../../config/uiFlags';
 import { VARIETIES_KINDS, CHEN_CHUAN_TOC, OOLONG_TOC, RED_TOC } from '../../config/navigation';
+import useScrollToSection from '../../hooks/useScrollToSection';
 import ChenChuanTeaClassification from '../../content/varieties/ChenChuanTeaClassification';
 import RedTeaGlobalStory from '../../content/varieties/RedTeaGlobalStory';
 import GreenTeaHistory from '../../content/varieties/GreenTeaHistory';
@@ -27,6 +28,24 @@ const WHITE_TOC_EXTENDED = [
     { href: '#white-fujian', label: '福建' },
     { href: '#white-yunnan', label: '雲南' },
 ];
+
+const GREEN_TOC = [
+    { href: '#green-intro', label: '綠茶通識' },
+    { href: '#green-origin', label: '綠茶悠久起源' },
+    { href: '#green-evolution', label: '飲茶風尚演變' },
+    { href: '#green-guide', label: '品飲實用指南' },
+    { href: '#green-special', label: '碧螺春專題' },
+];
+
+const YELLOW_TOC = [
+    { href: '#yellow-intro', label: '黃茶通識' },
+    { href: '#yellow-biochem', label: '悶黃生化機理' },
+    { href: '#yellow-taiwan', label: '台灣茶改場觀點' },
+    { href: '#yellow-terroir', label: '三大分類與風土' },
+    { href: '#yellow-guide', label: '黃茶品飲指南' },
+    { href: '#yellow-health', label: '脾胃健康密碼' },
+];
+
 
 const FactsGrid = ({ tea }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -79,11 +98,55 @@ const VarietiesSection = ({
     selectScienceTeachingChapter,
 }) => {
     const notesMode = UI_FLAGS.notesMode;
+
+    // 決定最頂層大卡片（茶類筆記）的 Header 配色與 Title/Icon
+    let notesCardClass = "bg-white border-stone-200";
+    let notesHeaderClass = "border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white";
+    let notesTitle = "茶類筆記（定義／製作）";
+    let notesIcon = Scroll;
+
+    // 決定最底層「沖泡要點」卡片的配色與字體
+    let brewCardClass = "bg-white border-stone-200";
+    let brewHeaderClass = "border-b border-stone-200 bg-gradient-to-r from-stone-50 to-white";
+    let brewTextClass = "text-stone-700 text-sm md:text-base";
+
+    if (varietiesKind === 'green') {
+        notesCardClass = "bg-[#fafcf9] border-[#d6dfd3] shadow-sm";
+        notesHeaderClass = "border-b border-[#d6dfd3]/30 bg-gradient-to-r from-[#edf4ec] to-[#fafcf9]";
+        notesTitle = "綠茶";
+        notesIcon = Leaf;
+
+        brewCardClass = "bg-[#fafcf9] border-[#d6dfd3] shadow-sm";
+        brewHeaderClass = "border-b border-[#d6dfd3]/30 bg-gradient-to-r from-[#edf4ec] to-[#fafcf9]";
+        brewTextClass = "text-[#242f21] text-[15px] md:text-[17px] font-medium";
+    } else if (varietiesKind === 'yellow') {
+        notesCardClass = "bg-[#faf8f2] border-[#ebdcb9]/80 shadow-sm";
+        notesHeaderClass = "border-b border-[#ebdcb9]/30 bg-gradient-to-r from-[#fcf5e5] to-[#faf8f2]";
+        notesTitle = "黃茶";
+        notesIcon = Leaf;
+
+        brewCardClass = "bg-[#faf8f2] border-[#ebdcb9]/80 shadow-sm";
+        brewHeaderClass = "border-b border-[#ebdcb9]/30 bg-gradient-to-r from-[#fcf5e5] to-[#faf8f2]";
+        brewTextClass = "text-[#2c2921] text-[15px] md:text-[17px] font-medium";
+    } else if (varietiesKind === 'white') {
+        notesTitle = "白茶";
+        notesIcon = Leaf;
+    } else if (varietiesKind === 'black') {
+        notesTitle = "黑茶";
+        notesIcon = Leaf;
+    } else if (varietiesKind === 'blacktea') {
+        notesTitle = "紅茶";
+        notesIcon = Flame;
+    }
     const [expandedCardId, setExpandedCardId] = useState(null);
     const [filterFermentation, setFilterFermentation] = useState('all');
     const [searchKeyword, setSearchKeyword] = useState('');
     const [showVarietiesAtlas, setShowVarietiesAtlas] = useState(!notesMode);
     const [showChenChuanEssay, setShowChenChuanEssay] = useState(false);
+    const [greenTeaHref, setGreenTeaHref] = useState('#green-intro');
+    const [yellowTeaHref, setYellowTeaHref] = useState('#yellow-intro');
+    const { scrollToSection } = useScrollToSection(siteNavHeightPx);
+
 
     const handleCardClick = (id) => {
         setExpandedCardId(prevId => (prevId === id ? null : id));
@@ -359,6 +422,8 @@ const VarietiesSection = ({
         oolong: OOLONG_TOC,
         red: RED_TOC,
         white: WHITE_TOC_EXTENDED,
+        green: GREEN_TOC,
+        yellow: YELLOW_TOC,
     };
 
     const varietiesActiveSubHref =
@@ -370,7 +435,11 @@ const VarietiesSection = ({
                     ? redTeaHref
                     : varietiesKind === 'white'
                         ? whiteRegionHref
-                        : null;
+                        : varietiesKind === 'green'
+                            ? greenTeaHref
+                            : varietiesKind === 'yellow'
+                                ? yellowTeaHref
+                                : null;
 
     const onSelectVarietiesSubHref = (href) => {
         if (!href) return;
@@ -379,6 +448,24 @@ const VarietiesSection = ({
         if (varietiesKind === 'oolong') selectOolongRegion(href);
         if (varietiesKind === 'red') selectRedTeaTopic(href);
         if (varietiesKind === 'white') selectWhiteRegion(href);
+        if (varietiesKind === 'green') {
+            setGreenTeaHref(href);
+            if (typeof window !== 'undefined') {
+                const targetId = href.startsWith('#') ? href.slice(1) : href;
+                window.requestAnimationFrame(() => {
+                    scrollToSection(targetId, { additionalOffset: 56 });
+                });
+            }
+        }
+        if (varietiesKind === 'yellow') {
+            setYellowTeaHref(href);
+            if (typeof window !== 'undefined') {
+                const targetId = href.startsWith('#') ? href.slice(1) : href;
+                window.requestAnimationFrame(() => {
+                    scrollToSection(targetId, { additionalOffset: 56 });
+                });
+            }
+        }
     };
 
     if (activeTab === 'home') {
@@ -532,6 +619,8 @@ const VarietiesSection = ({
                                 if (key === 'red') setRedTeaHref('#red-global');
                                 if (key === 'oolong') setOolongRegionHref(null);
                                 if (key === 'white') setWhiteRegionHref('#white-history');
+                                if (key === 'green') setGreenTeaHref('#green-intro');
+                                if (key === 'yellow') setYellowTeaHref('#yellow-intro');
                                 if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                             subItemsByKey={varietiesSubItemsByKey}
@@ -543,6 +632,64 @@ const VarietiesSection = ({
                     }
                 >
                     <div className="space-y-6 min-w-0">
+                        {/* ── 手機版六大茶類選擇器（xl 以上隱藏，由側邊欄取代）── */}
+                        <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                            <div className="flex-1 relative">
+                                <label htmlFor="mobile-varieties-select" className="sr-only">選擇茶類</label>
+                                <select
+                                    id="mobile-varieties-select"
+                                    value={varietiesKind}
+                                    onChange={(e) => {
+                                        const key = e.target.value;
+                                        setVarietiesKind(key);
+                                        if (key === 'ref_chenchuan') setChenChuanChapterHref('#cc-all');
+                                        if (key === 'red') setRedTeaHref('#red-global');
+                                        if (key === 'oolong') setOolongRegionHref(null);
+                                        if (key === 'white') setWhiteRegionHref('#white-history');
+                                        if (key === 'green') setGreenTeaHref('#green-intro');
+                                        if (key === 'yellow') setYellowTeaHref('#yellow-intro');
+                                        if (typeof window !== 'undefined') {
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                >
+                                    {varietiesSidebarItems.map((item) => (
+                                        <option key={item.key} value={item.key}>
+                                            {item.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            {varietiesSubItemsByKey[varietiesKind]?.length > 0 && (
+                                <div className="flex-1 relative">
+                                    <label htmlFor="mobile-varietiessub-select" className="sr-only">選擇子目錄</label>
+                                    <select
+                                        id="mobile-varietiessub-select"
+                                        value={varietiesActiveSubHref || ''}
+                                        onChange={(e) => {
+                                            const href = e.target.value;
+                                            onSelectVarietiesSubHref(href);
+                                            if (typeof window !== 'undefined') {
+                                                const targetId = href.startsWith('#') ? href.slice(1) : href;
+                                                window.requestAnimationFrame(() => {
+                                                    scrollToSection(targetId, { additionalOffset: 36 });
+                                                });
+                                            }
+                                        }}
+                                        className="w-full rounded-xl border border-stone-300 bg-emerald-50 px-4 py-2.5 text-[15px] font-semibold text-emerald-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23047857'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                    >
+                                        {varietiesSubItemsByKey[varietiesKind].map((sub) => (
+                                            <option key={sub.href} value={sub.href}>
+                                                {sub.label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )}
+                        </div>
 
                         {kindMeta.key === 'ref_chenchuan' ? (
                             <ChenChuanTeaClassification
@@ -588,13 +735,23 @@ const VarietiesSection = ({
                                         </SectionCard>
 
                                         {showSixTeaNotes ? (
-                                            <SectionCard title="茶類筆記（定義／製作）" icon={Scroll}>
+                                            <SectionCard 
+                                                title={notesTitle} 
+                                                icon={notesIcon}
+                                                className={notesCardClass}
+                                                headerClassName={notesHeaderClass}
+                                            >
                                                 <SixTeaTypesNotes kind={varietiesKind} />
                                             </SectionCard>
                                         ) : null}
 
-                                        <SectionCard title="沖泡要點" icon={Droplets}>
-                                            <p className="text-stone-700 leading-relaxed">{kindTea.brewingTips}</p>
+                                        <SectionCard 
+                                            title="沖泡要點" 
+                                            icon={Droplets}
+                                            className={brewCardClass}
+                                            headerClassName={brewHeaderClass}
+                                        >
+                                            <p className={`leading-relaxed ${brewTextClass}`}>{kindTea.brewingTips}</p>
                                         </SectionCard>
 
                                         {varietiesKind === 'oolong' && !oolongRegionHref ? (

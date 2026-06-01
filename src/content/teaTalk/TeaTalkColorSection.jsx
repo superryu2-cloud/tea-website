@@ -24,7 +24,8 @@ function ComingSoon({ title }) {
   );
 }
 
-export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx = 80 }) {
+export default function TeaTalkColorSection({ siteNavHeightPx = 80 }) {
+
   const [activeChapter, setActiveChapter] = useState('overview');
 
   const chapters = useMemo(
@@ -66,6 +67,27 @@ export default function TeaTalkColorSection({ topOffsetPx = 0, siteNavHeightPx =
           }
         >
           <div className="space-y-8 min-w-0">
+
+            {/* ── 手機版章節選擇器（xl 以上隱藏，由側邊欄取代）── */}
+            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+              <label htmlFor="mobile-chapter-select" className="sr-only">選擇章節</label>
+              <select
+                id="mobile-chapter-select"
+                value={activeChapter}
+                onChange={(e) => {
+                  setActiveChapter(e.target.value);
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+              >
+                {chapters.map((ch) => (
+                  <option key={ch.key} value={ch.key}>{ch.label}</option>
+                ))}
+              </select>
+            </div>
 
             {activeChapter === 'overview' ? (
               <div className="space-y-6">

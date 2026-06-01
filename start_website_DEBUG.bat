@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
 :: Keep window open for debugging
@@ -97,11 +98,8 @@ echo Opening browser in 3 seconds...
 echo Press Ctrl+C to stop the server
 echo.
 
-:: Open browser after delay
-start "" cmd /c "timeout /t 3 >nul & start http://localhost:5173"
-
-:: Start Vite
-npm run dev
+:: Start Vite and auto-open browser natively
+npm run dev -- --open
 
 :: If we get here, server stopped
 :end_with_pause

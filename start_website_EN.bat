@@ -1,7 +1,8 @@
 @echo off
+chcp 65001 >nul
 setlocal EnableDelayedExpansion
 :: ==========================================
-:: Tea Website - Smart Launcher
+:: Tea Website - Smart Launcher (English Version)
 :: Auto-detect environment, install dependencies, start website
 :: ==========================================
 
@@ -184,18 +185,13 @@ echo ==========================================
 echo.
 echo  URL: http://%HOST%:%PORT%
 echo.
-echo  Browser will open in 5 seconds...
-echo  If it doesn't open automatically, please copy the URL above
-echo.
+echo  Browser will open automatically...
 echo  Press Ctrl+C to stop the server
 echo ==========================================
 echo.
 
-:: Delay and auto-open browser
-start "" cmd /c "timeout /t 5 >nul & start http://%HOST%:%PORT%"
-
-:: Start development server
-"%NPM_PATH%" run dev -- --host %HOST% --port %PORT%
+:: Start development server and auto-open browser natively
+"%NPM_PATH%" run dev -- --host %HOST% --port %PORT% --open
 
 :: After server stops
 echo.

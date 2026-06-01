@@ -83,6 +83,48 @@ export default function SeasonsSection({ siteNavHeightPx }) {
                 }
             >
                 <div className="min-w-0">
+                    {/* ── 手機版章節選擇器（xl 以上隱藏，由側邊欄取代）── */}
+                    <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                        <div className="flex-1 relative">
+                            <label htmlFor="mobile-season-select" className="sr-only">選擇採茶季節</label>
+                            <select
+                                id="mobile-season-select"
+                                value={activeSeasonSection}
+                                onChange={(e) => {
+                                    const key = e.target.value;
+                                    setActiveSeasonSection(key);
+                                    setActiveSeasonHref(null);
+                                    if (typeof window !== 'undefined') {
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }
+                                }}
+                                className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                            >
+                                <option value="four-seasons">四季採茶</option>
+                                <option value="solar-terms">二十四節氣</option>
+                            </select>
+                        </div>
+                        {activeSeasonSection === 'solar-terms' && (
+                            <div className="flex-1 relative">
+                                <label htmlFor="mobile-seasonsub-select" className="sr-only">選擇節氣</label>
+                                <select
+                                    id="mobile-seasonsub-select"
+                                    value={activeSeasonHref || ''}
+                                    onChange={(e) => scrollToSeasonSection(e.target.value)}
+                                    className="w-full rounded-xl border border-stone-300 bg-emerald-50 px-4 py-2.5 text-[15px] font-semibold text-emerald-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23047857'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                >
+                                    <option value="">選擇節氣...</option>
+                                    {(SEASONS_SECTIONS.find((section) => section.key === 'solar-terms')?.children ?? []).map((child) => (
+                                        <option key={child.href} value={child.href}>
+                                            {child.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+                    </div>
                     {activeSeasonSection === 'four-seasons' ? (
                         <div id="four-seasons-content">
                             <FourSeasonsSection />

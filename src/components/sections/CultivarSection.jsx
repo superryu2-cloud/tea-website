@@ -134,6 +134,27 @@ const CultivarSection = ({ cultivarsSubnav, siteNavHeightPx }) => {
                         }
                     >
                         <div className="min-w-0">
+                            {/* ── 手機版章節選擇器（xl 以上隱藏，由側邊欄取代）── */}
+                            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6">
+                                <label htmlFor="mobile-cultivar-select" className="sr-only">選擇品種分類</label>
+                                <select
+                                    id="mobile-cultivar-select"
+                                    value={activeCultivarSection}
+                                    onChange={(e) => {
+                                        setActiveCultivarSection(e.target.value);
+                                        setActiveCultivarHref(null);
+                                        if (typeof window !== 'undefined') {
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-[15px] font-semibold text-stone-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none"
+                                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                                >
+                                    <option value="taiwan-cultivars">台灣茶樹品種名錄</option>
+                                    <option value="cultivar-diversity">多樣性的臺灣茶樹栽培品種</option>
+                                    <option value="cultivar-mystery">品種的奧秘</option>
+                                </select>
+                            </div>
 
                             {/* View 1: Taiwan Tea Cultivars Registry */}
                             {activeCultivarSection === 'taiwan-cultivars' && (
