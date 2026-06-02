@@ -245,16 +245,21 @@ export default function JourneySection({ goToTab, setScienceRoom, navigateToSear
                 <div className="absolute inset-0 bg-gradient-to-b from-stone-950/20 via-stone-900/30 to-stone-950/70"></div>
                 <div className="absolute top-4 left-4 right-4 bottom-4 border border-white/5 rounded-[2.5rem] pointer-events-none" />
                 <div className="absolute inset-0 flex items-center justify-center p-4">
-                    {/* Glassmorphic Zen Card */}
-                    <div className="max-w-3xl w-full text-center space-y-6 bg-stone-950/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 border border-white/10 shadow-2xl hover:shadow-emerald-950/20 hover:border-white/15 transition-all duration-700 transform hover:scale-[1.01]">
+                    {/* Floating Zen Typography (No Frame Background, Master Calligraphy) */}
+                    <div className="max-w-4xl w-full text-center space-y-6 transition-all duration-700 transform hover:scale-[1.01]">
                         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 backdrop-blur-xl border border-emerald-400/30 text-emerald-100 text-xs font-black tracking-[0.2em] uppercase">
                             <Leaf size={12} className="animate-pulse" /> TEA EXHIBITION ATLAS
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-md font-serif">
-                            茶韻之旅
+                        <h1 className="relative tracking-tight leading-tight py-2">
+                            <span className="sr-only">茶韻之旅</span>
+                            <img 
+                                src="/images/hero/chayun_calligraphy_transparent.png" 
+                                alt="茶韻之旅" 
+                                className="w-[75%] sm:w-[60%] md:w-[50%] max-w-[480px] md:max-w-[580px] h-auto mx-auto object-contain invert brightness-200 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] transition-all duration-500 hover:scale-105" 
+                            />
                         </h1>
                         <div className="w-16 h-1 bg-amber-400/80 mx-auto rounded-full" />
-                        <p className="text-[16px] md:text-[20px] text-amber-200/90 tracking-[0.25em] font-serif italic font-light drop-shadow">
+                        <p className="text-[16px] md:text-[20px] text-amber-200/95 tracking-[0.25em] font-serif italic font-light drop-shadow">
                             「{randomPoem.text}」
                             <span className="text-[12px] opacity-75 tracking-normal ml-2 font-sans font-semibold not-italic block md:inline mt-1 md:mt-0">— {randomPoem.author}</span>
                         </p>
