@@ -273,6 +273,7 @@ export default function MultiplayerGame() {
             if (prev.some(a => a.playerId === answerInfo.playerId)) return prev;
             
             const question = gameQuestions[currentQuestionIndexRef.current];
+            if (!question) return prev;
             const isCorrect = answerInfo.answerIndex === question.answer;
             
             // Points formula: max 1000, decreasing with time
@@ -404,7 +405,7 @@ export default function MultiplayerGame() {
             // Broadcast round end, correct answer, explanation, and leaderboard to players
             broadcastState(clientRef.current, roomId, {
                 status: 'round_end',
-                correctAnswer: gameQuestions[currentQuestionIndexRef.current].answer,
+                correctAnswer: gameQuestions[currentQuestionIndexRef.current]?.answer,
                 answers: answersReceived,
                 leaderboard: sortedLeaderboard
             });
@@ -641,8 +642,8 @@ export default function MultiplayerGame() {
                             </h4>
                             
                             <div className="grid md:grid-cols-2 gap-4 pt-4">
-                                {gameQuestions[currentQuestionIndex].options.map((opt, i) => {
-                                    const isCorrect = i === gameQuestions[currentQuestionIndex].answer;
+                                {gameQuestions[currentQuestionIndex]?.options?.map((opt, i) => {
+                                    const isCorrect = i === gameQuestions[currentQuestionIndex]?.answer;
                                     const showAnswer = !questionActive;
                                     return (
                                         <div 

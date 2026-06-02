@@ -117,7 +117,7 @@ export default function TeaTriviaGame() {
         if (selectedAnswer !== null) return; // Prevent multiple selections
         setSelectedAnswer(index);
         setShowExplanation(true);
-        if (index === questions[currentIndex].answer) {
+        if (index === questions[currentIndex]?.answer) {
             setScore(prev => prev + 1);
         }
     };
@@ -207,14 +207,14 @@ export default function TeaTriviaGame() {
 
                         {/* Question Text */}
                         <h4 className="text-xl md:text-2xl font-bold text-stone-950 font-serif leading-snug">
-                            {questions[currentIndex].question}
+                            {questions[currentIndex]?.question}
                         </h4>
 
                         {/* Options */}
                         <div className="grid gap-3.5 mt-6">
-                            {questions[currentIndex].options.map((opt, index) => {
+                            {questions[currentIndex]?.options?.map((opt, index) => {
                                 const isSelected = selectedAnswer === index;
-                                const isCorrect = index === questions[currentIndex].answer;
+                                const isCorrect = index === questions[currentIndex]?.answer;
                                 const hasAnswered = selectedAnswer !== null;
 
                                 let btnClass = "border-stone-200 bg-white text-stone-800 hover:bg-stone-50 hover:border-stone-300";
@@ -251,7 +251,7 @@ export default function TeaTriviaGame() {
                                     <span>大師解析</span>
                                 </div>
                                 <p className="text-[15px] text-stone-700 leading-relaxed font-medium">
-                                    {questions[currentIndex].explanation}
+                                    {questions[currentIndex]?.explanation}
                                 </p>
                                 <div className="pt-2 flex justify-end">
                                     <button

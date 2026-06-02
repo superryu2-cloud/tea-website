@@ -28,7 +28,7 @@ export default function QuizModal({ topic, isOpen, onClose, currentScores, onSco
     function handlePick(idx) {
         if (picked !== null) return;
         setPicked(idx);
-        setResults((r) => [...r, idx === q.answer]);
+        setResults((r) => [...r, idx === q?.answer]);
     }
 
     function handleNext() {
@@ -36,7 +36,7 @@ export default function QuizModal({ topic, isOpen, onClose, currentScores, onSco
             setQIdx(qIdx + 1);
             setPicked(null);
         } else {
-            const correctCount = results.filter(Boolean).length + (picked === q.answer ? 1 : 0);
+            const correctCount = results.filter(Boolean).length + (picked === q?.answer ? 1 : 0);
             const gain = (correctCount / questions.length) * 20;
             const newScores = { ...currentScores, [topic]: Math.min(100, (currentScores?.[topic] ?? 0) + gain) };
             onScoresUpdate(newScores);
@@ -80,7 +80,7 @@ export default function QuizModal({ topic, isOpen, onClose, currentScores, onSco
                                 {q.options.map((opt, idx) => {
                                     let cls = 'border-stone-200 bg-white text-stone-800';
                                     if (isAnswered) {
-                                        if (idx === q.answer) cls = 'border-emerald-500 bg-emerald-50 text-emerald-800';
+                                        if (idx === q?.answer) cls = 'border-emerald-500 bg-emerald-50 text-emerald-800';
                                         else if (idx === picked) cls = 'border-red-400 bg-red-50 text-red-700';
                                         else cls = 'border-stone-100 bg-stone-50 text-stone-400';
                                     }
@@ -91,9 +91,9 @@ export default function QuizModal({ topic, isOpen, onClose, currentScores, onSco
                                             disabled={isAnswered}
                                             className={`w-full text-left px-5 py-3.5 rounded-xl border-2 font-sans text-[16px] font-semibold transition-all duration-200 flex items-center gap-3 ${cls} ${!isAnswered ? 'hover:border-teal-300 hover:bg-teal-50/50' : ''}`}
                                         >
-                                            {isAnswered && idx === q.answer && <CheckCircle size={18} className="text-emerald-500 shrink-0" />}
-                                            {isAnswered && idx === picked && idx !== q.answer && <XCircle size={18} className="text-red-400 shrink-0" />}
-                                            {(!isAnswered || (idx !== q.answer && idx !== picked)) && (
+                                            {isAnswered && idx === q?.answer && <CheckCircle size={18} className="text-emerald-500 shrink-0" />}
+                                            {isAnswered && idx === picked && idx !== q?.answer && <XCircle size={18} className="text-red-400 shrink-0" />}
+                                            {(!isAnswered || (idx !== q?.answer && idx !== picked)) && (
                                                 <span className="w-[18px] h-[18px] rounded-full border-2 border-current shrink-0 opacity-40" />
                                             )}
                                             {opt}
