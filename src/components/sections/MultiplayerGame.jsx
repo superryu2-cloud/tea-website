@@ -163,6 +163,13 @@ export default function MultiplayerGame() {
         };
     }, []);
 
+    // Auto end question round when all players have submitted answers
+    useEffect(() => {
+        if (mode === 'host_playing' && questionActive && players.length > 0 && answersReceived.length >= players.length) {
+            endQuestionRound();
+        }
+    }, [answersReceived, players, mode, questionActive]);
+
     // Create a room as Host
     const createRoom = () => {
         if (!window.mqtt) return;
@@ -255,12 +262,14 @@ export default function MultiplayerGame() {
             if (prev.some(p => p.id === playerInfo.id)) return prev;
             const updated = [...prev, { id: playerInfo.id, name: playerInfo.name, score: 0 }];
             
-            // Notify players of new lobby status with updated list
-            broadcastState(clientRef.current, roomId, {
-                status: 'lobby',
-                roomId: roomId,
-                players: updated
-            });
+            // Notify players of new lobby status with updated list (run as side effect)
+            setTimeout(() => {
+                broadcastState(clientRef.current, roomId, {
+                    status: 'lobby',
+                    roomId: roomId,
+                    players: updated
+                });
+            }, 0);
             return updated;
         });
     };
@@ -289,14 +298,7 @@ export default function MultiplayerGame() {
                 points
             };
             
-            const nextAnswers = [...prev, newAnswer];
-            
-            // If all active players answered, end the timer early
-            if (nextAnswers.length >= players.length) {
-                endQuestionRound();
-            }
-
-            return nextAnswers;
+            return [...prev, newAnswer];
         });
     };
 
@@ -388,7 +390,7 @@ export default function MultiplayerGame() {
     };
 
     const endQuestionRound = () => {
-        clearInterval(timerIntervalRef.current);
+        if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
         setQuestionActive(false);
 
         // Update scores for this round in main players array
@@ -402,13 +404,15 @@ export default function MultiplayerGame() {
             // Sort by score for leaderboard
             const sortedLeaderboard = [...updatedPlayers].sort((a, b) => b.score - a.score);
 
-            // Broadcast round end, correct answer, explanation, and leaderboard to players
-            broadcastState(clientRef.current, roomId, {
-                status: 'round_end',
-                correctAnswer: gameQuestions[currentQuestionIndexRef.current]?.answer,
-                answers: answersReceived,
-                leaderboard: sortedLeaderboard
-            });
+            // Broadcast round end, correct answer, explanation, and leaderboard to players (run as side effect)
+            setTimeout(() => {
+                broadcastState(clientRef.current, roomId, {
+                    status: 'round_end',
+                    correctAnswer: gameQuestions[currentQuestionIndexRef.current]?.answer,
+                    answers: answersReceived,
+                    leaderboard: sortedLeaderboard
+                });
+            }, 0);
 
             return updatedPlayers;
         });
