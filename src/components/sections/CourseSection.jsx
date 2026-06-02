@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BookOpen, Milestone, Feather, Clock, ArrowRight, Compass,
     ChevronDown, ChevronUp, FileText, Map,
     Sparkles, Sprout, Flame,
 } from 'lucide-react';
 import SixHourCourseContent from './sixHour/SixHourCourseContent';
+import TeaTriviaGame from './TeaTriviaGame';
+import MultiplayerGame from './MultiplayerGame';
 
 /* ─────────────────────────────────────────────
    課程題綱資料（含詳細子單元）
@@ -263,6 +265,15 @@ const colorMap = {
 export default function CourseSection({ goToTab, setVarietiesKind }) {
     const [activeCourseType, setActiveCourseType] = useState('school'); // 'school' or 'six_hours'
     const [openId, setOpenId] = useState(null);
+    const [gameMode, setGameMode] = useState('single'); // 'single' or 'multiplayer'
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('room')) {
+            setGameMode('multiplayer');
+        }
+    }, []);
+
     const toggle = (id) => setOpenId(prev => prev === id ? null : id);
 
     const handleTabAction = (tab) => {
@@ -468,6 +479,39 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
                     </>
                 )}
 
+                {/* 互動遊戲區塊 */}
+                <div className="max-w-4xl mx-auto mt-12 mb-2 flex flex-col items-center gap-3">
+                    <div className="inline-flex p-1 bg-stone-200/60 rounded-xl border border-stone-200/80 shadow-inner">
+                        <button 
+                            type="button"
+                            onClick={() => setGameMode('single')}
+                            className={`px-5 py-2 rounded-lg text-sm font-extrabold transition-all duration-300 ${
+                                gameMode === 'single' 
+                                    ? 'bg-emerald-800 text-white shadow-sm' 
+                                    : 'text-stone-600 hover:text-emerald-850'
+                            }`}
+                        >
+                            單人練習
+                        </button>
+                        <button 
+                            type="button"
+                            onClick={() => setGameMode('multiplayer')}
+                            className={`px-5 py-2 rounded-lg text-sm font-extrabold transition-all duration-300 flex items-center gap-2 ${
+                                gameMode === 'multiplayer' 
+                                    ? 'bg-emerald-800 text-white shadow-sm' 
+                                    : 'text-stone-600 hover:text-emerald-850'
+                            }`}
+                        >
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            多人搶答
+                        </button>
+                    </div>
+                </div>
+
+                {gameMode === 'single' ? <TeaTriviaGame /> : <MultiplayerGame />}
 
                 {/* Footer note */}
                 <div className="text-center pb-4">
