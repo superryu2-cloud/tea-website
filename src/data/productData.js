@@ -80,7 +80,7 @@ function loadCustomProducts() {
 export function saveCustomProducts(products) {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-    } catch { }
+    } catch { return false; }
 }
 
 function loadDeletedIds() {
@@ -92,7 +92,7 @@ function loadDeletedIds() {
 function saveDeletedIds(ids) {
     try {
         localStorage.setItem(DELETED_KEY, JSON.stringify(ids));
-    } catch { }
+    } catch { return false; }
 }
 
 // ── 合併預設 + 自訂商品（排除已刪除） ──
@@ -203,7 +203,7 @@ export function getDisplayConfig() {
 export function saveDisplayConfig(enabledPages) {
     try {
         localStorage.setItem(DISPLAY_KEY, JSON.stringify(enabledPages));
-    } catch { }
+    } catch { return false; }
 }
 
 export function isPageEnabled(activeTab) {

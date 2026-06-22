@@ -7,6 +7,42 @@ import {
   AlertCircle, CheckCircle, Sparkles
 } from 'lucide-react';
 
+const ARTICLE_HERO_VARIANTS = {
+  amber: {
+    container: 'bg-gradient-to-r from-stone-700 to-amber-800 border-amber-700',
+    glow: 'bg-amber-500/20',
+    tag: 'bg-amber-600',
+    subtitle: 'text-amber-100',
+  },
+  emerald: {
+    container: 'bg-gradient-to-r from-emerald-700 to-green-600 border-green-700',
+    glow: 'bg-green-500/20',
+    tag: 'bg-green-600',
+    subtitle: 'text-green-100',
+  },
+  green: {
+    container: 'bg-gradient-to-r from-emerald-700 to-green-600 border-green-700',
+    glow: 'bg-green-500/20',
+    tag: 'bg-green-600',
+    subtitle: 'text-green-100',
+  },
+  stone: {
+    container: 'bg-gradient-to-r from-stone-800 to-stone-600 border-stone-700',
+    glow: 'bg-stone-400/20',
+    tag: 'bg-stone-700',
+    subtitle: 'text-stone-100',
+  },
+};
+
+function getArticleHeroVariant({ variant, accentColor, gradientFrom }) {
+  if (ARTICLE_HERO_VARIANTS[variant]) return ARTICLE_HERO_VARIANTS[variant];
+  if (ARTICLE_HERO_VARIANTS[accentColor]) return ARTICLE_HERO_VARIANTS[accentColor];
+  if (typeof gradientFrom === 'string' && gradientFrom.includes('emerald')) {
+    return ARTICLE_HERO_VARIANTS.emerald;
+  }
+  return ARTICLE_HERO_VARIANTS.amber;
+}
+
 /**
  * 文章封面區塊
  * @param {string} title - 主標題
@@ -20,22 +56,25 @@ export function ArticleHero({
   title,
   subtitle,
   tag,
+  variant,
   gradientFrom = 'stone-700',
   gradientTo = 'amber-800',
   accentColor = 'amber'
 }) {
+  const heroVariant = getArticleHeroVariant({ variant, accentColor, gradientFrom, gradientTo });
+
   return (
-    <div className={`relative bg-gradient-to-r from-${gradientFrom} to-${gradientTo} text-amber-50 rounded-2xl overflow-hidden mb-12 p-8 md:p-16 border border-${accentColor}-700`}>
-      <div className={`absolute top-0 right-0 w-96 h-96 bg-${accentColor}-500/20 rounded-full blur-3xl -mr-32 -mt-32`}></div>
+    <div className={`relative ${heroVariant.container} text-amber-50 rounded-2xl overflow-hidden mb-12 p-8 md:p-16 border`}>
+      <div className={`absolute top-0 right-0 w-96 h-96 ${heroVariant.glow} rounded-full blur-3xl -mr-32 -mt-32`}></div>
       <div className="relative z-10 md:w-3/4">
         {tag && (
-          <div className={`inline-block px-3 py-1 bg-${accentColor}-600 text-white text-sm font-bold rounded mb-4`}>
+          <div className={`inline-block px-3 py-1 ${heroVariant.tag} text-white text-sm font-bold rounded mb-4`}>
             {tag}
           </div>
         )}
         <h2 className="text-4xl md:text-5xl font-semibold mb-4 font-sans">{title}</h2>
         {subtitle && (
-          <p className={`text-xl text-${accentColor}-100 leading-relaxed font-light mb-6`}>
+          <p className={`text-xl ${heroVariant.subtitle} leading-relaxed font-light mb-6`}>
             {subtitle}
           </p>
         )}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { BookOpen, Leaf, Flame, Thermometer, FlaskConical, Layers, Coffee, ArrowRight, Droplets, Wind, Sun, Sparkles, Users, Eye, Mountain } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
@@ -70,7 +70,7 @@ const OxidationSimulator = () => {
    主元件：崇華書院 第05堂 — 認識氧化
    ────────────────────────────────────────── */
 export default function ChonghuaChapter05() {
-    const TOC = [
+    const TOC = useMemo(() => [
         { id: 'ch05-intro', label: '課程簡介' },
         { id: 'ch05-what', label: '什麼是氧化？' },
         { id: 'ch05-vs', label: '氧化 vs. 發酵' },
@@ -82,7 +82,7 @@ export default function ChonghuaChapter05() {
         { id: 'ch05-practice', label: '進階思考' },
         { id: 'ch05-six', label: '六大茶類光譜' },
         { id: 'ch05-summary', label: '帶走的觀念' },
-    ];
+    ], []);
 
     const [activeId, setActiveId] = useState(TOC[0].id);
 
@@ -99,7 +99,7 @@ export default function ChonghuaChapter05() {
             if (el) observer.observe(el);
         });
         return () => observer.disconnect();
-    }, []);
+    }, [TOC]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);

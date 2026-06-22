@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
 
@@ -35,21 +35,6 @@ export default function CollapsibleSidebar({
     const asideClassName =
         pinMode === 'sticky' ? 'hidden xl:block sticky self-start' : 'hidden xl:block self-start';
     const asideStyle = pinMode === 'sticky' ? { top: `${resolvedTopOffsetPx}px` } : undefined;
-
-    const toggleSection = (sectionKey) => {
-        if (sectionKey === 'solar-terms') {
-            return;
-        }
-        setExpandedSections((prev) => {
-            const next = new Set(prev);
-            if (next.has(sectionKey)) {
-                next.delete(sectionKey);
-            } else {
-                next.add(sectionKey);
-            }
-            return next;
-        });
-    };
 
     const handleSectionClick = (section) => {
         // 如果有子項目，則展開（不再切換）

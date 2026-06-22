@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import { BookOpen, Leaf, Sprout, Tag, AlertCircle, Layers, Coffee, Sun, Droplet, Mountain, Thermometer, Scale, Map as MapIcon, Compass, Trophy, Globe, Shield, Heart } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
@@ -7,7 +7,7 @@ import ImageLightbox from '../../components/ui/ImageLightbox';
 const IMG = '/images/academy/chapter04';
 
 export default function ChonghuaChapter04() {
-    const TOC = [
+    const TOC = useMemo(() => [
         { id: 'ch04-preface', label: '序言' },
         { id: 'ch04-number-1', label: '數字「1」萬茶歸宗' },
         { id: 'ch04-number-2', label: '數字「2」血統之別' },
@@ -16,7 +16,7 @@ export default function ChonghuaChapter04() {
         { id: 'ch04-modern', label: '現代啟示錄' },
         { id: 'ch04-practice', label: '評鑑實作與風味輪' },
         { id: 'ch04-conclusion', label: '結語' },
-    ];
+    ], []);
 
     const [activeId, setActiveId] = useState(TOC[0].id);
 
@@ -33,7 +33,7 @@ export default function ChonghuaChapter04() {
             if (el) observer.observe(el);
         });
         return () => observer.disconnect();
-    }, []);
+    }, [TOC]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);
@@ -340,14 +340,14 @@ export default function ChonghuaChapter04() {
                                             <span className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0"></span>
                                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                                                 <strong className="whitespace-nowrap text-stone-900">柵狀組織 ＝ 1 層</strong>
-                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 大葉種</span>
+                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 大葉種（海綿組織多）</span>
                                             </div>
                                         </li>
                                         <li className="flex items-start gap-3 bg-white/60 p-3 rounded-xl shadow-sm border border-teal-100/50">
                                             <span className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0"></span>
                                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                                                 <strong className="whitespace-nowrap text-stone-900">柵狀組織 ＝ 2-3 層</strong>
-                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 小葉種</span>
+                                                <span className="text-teal-700 font-bold whitespace-nowrap">→ 小葉種（海綿組織少）</span>
                                             </div>
                                         </li>
                                     </ul>
@@ -379,7 +379,7 @@ export default function ChonghuaChapter04() {
                                         山茶科山茶屬茶系
                                     </h4>
                                     <p className="text-[17px] text-stone-700 leading-relaxed mb-6">
-                                        下層的<strong>海綿組織</strong>是圓形的，它的厚薄程度與茶葉內質物的蓄積量息息相關。海綿組織越飽滿，內質物含量越多。
+                                        <strong>柵狀組織</strong>呈柱狀排列，層數越多，芳香物質累積越多；<strong>海綿組織</strong>較多者，內質物含量較高，滋味較醇厚，但香氣相對較不突出。
                                     </p>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="flex gap-4 items-start bg-white p-5 rounded-2xl border border-stone-100 shadow-sm transition-shadow hover:shadow-md h-full">
@@ -388,7 +388,7 @@ export default function ChonghuaChapter04() {
                                             </div>
                                             <div>
                                                 <h6 className="font-bold text-[17px] text-stone-900 mb-1.5">小葉種：以香氣見長</h6>
-                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">海綿組織較薄，內質物相對較少，因此喝起來比較<strong>溫和、口感圓潤</strong>。</p>
+                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">柵狀組織有 2-3 層、海綿組織較少，因此喝起來比較<strong>溫和、口感圓潤</strong>。</p>
                                             </div>
                                         </div>
                                         <div className="flex gap-4 items-start bg-white p-5 rounded-2xl border border-stone-100 shadow-sm transition-shadow hover:shadow-md h-full">
@@ -397,7 +397,7 @@ export default function ChonghuaChapter04() {
                                             </div>
                                             <div>
                                                 <h6 className="font-bold text-[17px] text-stone-900 mb-1.5">大葉種：滋味更豐厚</h6>
-                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">海綿組織豐厚，儲存轉化了大量的養分。喝起來比較<strong>飽滿、更具刺激與收斂感</strong>。</p>
+                                                <p className="text-[15.5px] text-stone-600 leading-relaxed m-0">柵狀組織為 1 層、海綿組織較多，內質物含量較高，因此喝起來比較<strong>飽滿、收斂感強</strong>。</p>
                                             </div>
                                         </div>
                                     </div>
@@ -880,3 +880,4 @@ export default function ChonghuaChapter04() {
         </div >
     );
 }
+

@@ -24,7 +24,7 @@ function Badge({ icon: Icon, title, desc }) {
     <div className="museum-card p-5">
       <div className="flex items-start gap-3">
         <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl border border-stone-200 bg-white text-stone-700">
-          <Icon size={18} />
+          {React.createElement(Icon, { size: 18 })}
         </div>
         <div className="min-w-0">
           <div className="font-extrabold text-[17px] text-stone-900">{title}</div>
@@ -316,4 +316,3 @@ export default function TeaPackagingStorage() {
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Trophy, CheckCircle2, XCircle, RotateCcw, Share2, HelpCircle, Lightbulb, Gamepad2, ChevronRight } from 'lucide-react';
 
 const ALL_QUESTIONS = [

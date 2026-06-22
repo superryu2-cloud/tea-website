@@ -1,112 +1,28 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+﻿import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { ChevronDown, ChevronRight, Leaf, Menu, X, Palette, Settings, Search } from 'lucide-react';
 import AccordionPanel from './AccordionPanel';
-import { ATLAS_ITEMS, CHEN_CHUAN_TOC, OOLONG_TOC, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS, ZISHA_TOC, RED_TOC, WHITE_TOC } from '../config/navigation';
+import { ATLAS_ITEMS, VARIETIES_KINDS, SCIENCE_TOC, CULTIVARS_TOC, TEA_REFERENCE_TOC, PUERH_TOC, FEATURED_TOC, HISTORY_SECTIONS, SEASONS_SECTIONS, ZISHA_TOC, MAIN_NAV_ROWS } from '../config/navigation';
+import { PRIMARY_SITE_NAV } from '../config/siteArchitecture';
+import {
+  ACADEMY_STRUCTURE,
+  NAV_THEMES,
+  NAV_THEME_STORAGE_KEY,
+  PAPER_THEMES,
+  PAPER_THEME_STORAGE_KEY,
+  VARIETIES_SUBITEMS_BY_KEY,
+} from '../config/siteNavigationConfig';
 import { splitNavLabel } from '../utils/splitNavLabel';
 
-const WHITE_TOC_EXTENDED = [
-  { href: '#white-history', label: '白茶歷史' },
-  { href: '#white-fujian', label: '福建' },
-  { href: '#white-yunnan', label: '雲南' },
-];
+const CHONGHUA_CATEGORY = ACADEMY_STRUCTURE.find((category) => category.key === 'chonghua');
+const ACADEMY_NAV_CATEGORIES = ACADEMY_STRUCTURE.filter((category) => category.key !== 'chonghua');
 
-const VARIETIES_SUBITEMS_BY_KEY = {
-  ref_chenchuan: [{ href: '#cc-all', label: '全部章節' }, ...CHEN_CHUAN_TOC],
-  oolong: OOLONG_TOC,
-  red: RED_TOC,
-  white: WHITE_TOC_EXTENDED,
-};
-
-const NAV_THEME_STORAGE_KEY = 'tea.navTheme';
-const NAV_THEMES = [
-  { key: 'default', label: '預設（紙感）' },
-  { key: 'lp', label: '淺藍（LP）' },
-  { key: 'slate', label: '深藍灰（玻璃）' },
-  { key: 'graphite', label: '石墨黑（玻璃）' },
-];
-
-const PAPER_THEME_STORAGE_KEY = 'tea.paperTheme';
-const PAPER_THEMES = [
-  { key: 'ivory', label: '牙白紙張' },
-  { key: 'landscape', label: '茶山風景' },
-  { key: 'premium-landscape', label: '晨光茶丘' },
-  { key: 'dramatic', label: '東方藝術' },
-  { key: 'cybertea', label: '科技深藍' },
-  { key: 'inkwash', label: '水墨山亭' },
-  { key: 'zen', label: '禪意茶石' },
-  { key: 'teatable', label: '茶席靜物' },
-  { key: 'light', label: '淺色紙張' },
-  { key: 'blue', label: '淺藍紙張' },
-  { key: 'dotted', label: '點點紙張' },
-  { key: 'natural', label: '自然紙張' },
-  { key: 'slate', label: '深藍灰紙張' },
-  { key: 'cream', label: '奶油紙張' },
-  { key: 'ink', label: '山水潑墨' },
-  { key: 'parchment', label: '復古羊皮' },
-];
-
-const ACADEMY_STRUCTURE = [
-  {
-    key: 'xueya',
-    label: '學雅',
-    chapters: [
-      { id: '01', title: '茶之於味：當代茶道的藝術與哲學精神' },
-      { id: '02', title: '' },
-      { id: '03', title: '儀軌教學 / 茶荷置茶法' },
-      { id: '04', title: '人文茶道儀軌' },
-      { id: '05', title: '凍頂烏龍茶深度解析' },
-      { id: '06', title: '鐵觀音' },
-      { id: '07', title: '蓋杯 / 紅烏龍' },
-      { id: '08', title: '茶則置茶 / 坪林包種茶' },
-      { id: '09', title: '東方美人' },
-      { id: '10', title: '做紅茶' },
-      { id: '11', title: '紅茶：小葉紅 / 大葉紅' },
-      { id: '12', title: '學雅茶湯會' },
-    ],
-    prefix: '?tab=academy_xueya_',
-  },
-  {
-    key: 'zhiya',
-    label: '質雅',
-    chapters: [
-      { id: '01', title: '紅烏龍 / 懸空置茶法' },
-      { id: '02', title: '品味討論 清香形' },
-      { id: '03', title: '品味討論 焙香形' },
-      { id: '04', title: '品味討論 濃香形' },
-      { id: '05', title: '茶席設計與雙杯品鑑' },
-      { id: '06', title: '茶席設計美學：佈局/用色/意境' },
-      { id: '07', title: '茶席/器物之選/色彩密碼' },
-      { id: '08', title: '茶會觀摩學習 / 大桶茶泡法' },
-      { id: '09', title: '茶道進階與西湖龍井品鑑' },
-      { id: '10', title: '茶碗以匙分茶 / 碧螺春 / 武夷岩茶' },
-      { id: '11', title: '普洱茶' },
-      { id: '12', title: '武夷岩茶沖泡' },
-      { id: '13', title: '白茶沖泡' },
-      { id: '14', title: '紅茶' },
-      { id: '15', title: '茶會的舉辦與練習' },
-      { id: '16', title: '茶會的舉辦：清香渡荷來' },
-    ],
-    prefix: '?tab=academy_zhiya_',
-  },
-  {
-    key: 'chonghua',
-    label: '崇華',
-    chapters: [
-      { id: '01', title: '茶具的佈置與搭配' }, { id: '02', title: '茶席儀軌' }, { id: '03', title: '世界與台灣紅茶史' },
-      { id: '04', title: '開啟你的風味冒險地圖' }, { id: '05', title: '認識氧化' }, { id: '06', title: '認識茶樹品種' },
-      { id: '07', title: '第07堂' }, { id: '08', title: '第08堂' }, { id: '09', title: '第09堂' },
-      { id: '10', title: '第10堂' }, { id: '11', title: '第11堂' }, { id: '12', title: '第12堂' },
-      { id: '13', title: '第13堂' }, { id: '14', title: '第14堂' }, { id: '15', title: '第15堂' },
-      { id: '16', title: '第16堂' }, { id: '17', title: '第17堂' }, { id: '18', title: '第18堂' },
-      { id: '19', title: '第19堂' }, { id: '20', title: '第20堂' }, { id: '21', title: '第21堂' },
-      { id: '22', title: '第22堂' }, { id: '23', title: '第23堂' }, { id: '24', title: '第24堂' },
-      { id: '25', title: '第25堂' }, { id: '26', title: '第26堂' }, { id: '27', title: '第27堂' },
-      { id: '28', title: '第28堂' }, { id: '29', title: '第29堂' }, { id: '30', title: '第30堂' },
-      { id: '31', title: '第31堂' }, { id: '32', title: '第32堂' }, { id: '33', title: '第33堂' },
-    ],
-    prefix: '?tab=academy_chonghua_',
-  },
-];
+const getPaperThemePreviewStyle = (theme) => ({
+  backgroundColor: theme.color ?? '#f5f3ed',
+  backgroundImage: theme.previewImage ? `url('${theme.previewImage}')` : undefined,
+  backgroundRepeat: theme.tile ? 'repeat' : 'no-repeat',
+  backgroundSize: theme.tile ? '88px 88px' : 'cover',
+  backgroundPosition: 'center',
+});
 
 export default function SiteNavigation({
   i18n,
@@ -154,12 +70,57 @@ export default function SiteNavigation({
   const [chonghuaNavOpen, setChonghuaNavOpen] = useState(false);
   const [academyMobileSubOpen, setAcademyMobileSubOpen] = useState({});
   const [chonghuaMobileOpen, setChonghuaMobileOpen] = useState(false);
+  const [openPrimaryNavId, setOpenPrimaryNavId] = useState(null);
+  const [paperMenuOpen, setPaperMenuOpen] = useState(false);
   const [adminUnlocked, setAdminUnlocked] = useState(false);
+  const daguanEntryVisible = daguanUnlocked && !academyMenuHidden;
+  const localizedNavText = (entry, field) => {
+    if (!entry) return '';
+    if (i18n.lang === 'en') {
+      return entry[`${field}En`] ?? entry[field] ?? '';
+    }
+    return entry[field] ?? '';
+  };
+
+  const activePrimaryNavId = useMemo(() => {
+    const activeGroup = PRIMARY_SITE_NAV.find((group) =>
+      group.currentTab === activeTab || group.children?.some((child) => child.currentTab === activeTab)
+    );
+    return activeGroup?.id ?? null;
+  }, [activeTab]);
+
+  const navigateToPrimaryEntry = (entry) => {
+    if (!entry?.currentTab) return;
+    goToTab(entry.currentTab);
+    if (entry.currentTab === 'science' && entry.scienceRoom) {
+      setScienceRoom(entry.scienceRoom);
+    }
+    if (entry.currentTab === 'varieties' && entry.varietiesKind) {
+      setVarietiesKind(entry.varietiesKind);
+    }
+    setOpenPrimaryNavId(null);
+    setAcademyNavOpen(false);
+    setChonghuaNavOpen(false);
+    setPaperMenuOpen(false);
+    setMobileMenuOpen(false);
+  };
+
+  const toggleMobilePrimaryGroup = (group) => {
+    const groupChildren = group?.children ?? [];
+    if (!groupChildren.length) {
+      navigateToPrimaryEntry(group);
+      return;
+    }
+    setOpenPrimaryNavId((current) => (current === group.id ? null : group.id));
+    setAcademyNavOpen(false);
+    setChonghuaMobileOpen(false);
+    setPaperMenuOpen(false);
+  };
 
   const handleAdminClick = () => {
-    if (adminUnlocked) { goToTab('admin'); setAcademyNavOpen(false); return; }
+    if (adminUnlocked) { goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); return; }
     const pw = prompt('請輸入管理密碼：');
-    if (pw === '690214') { setAdminUnlocked(true); goToTab('admin'); setAcademyNavOpen(false); }
+    if (pw === '690214') { setAdminUnlocked(true); goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); }
   };
 
 
@@ -172,6 +133,18 @@ export default function SiteNavigation({
       onUnlockRequest?.('daguan');
       secretClickCountRef.current = 0;
     }
+  };
+
+  const handleAcademyToolbarClick = () => {
+    if (!daguanEntryVisible) {
+      onUnlockRequest?.('daguan');
+      return;
+    }
+    setAcademyNavOpen((v) => !v);
+    setChonghuaNavOpen(false);
+    setChonghuaMobileOpen(false);
+    setOpenPrimaryNavId(null);
+    setPaperMenuOpen(false);
   };
 
   useEffect(() => {
@@ -194,7 +167,40 @@ export default function SiteNavigation({
     }
   }, [paperTheme]);
 
-  const paperThemeLabel = useMemo(() => PAPER_THEMES.find((t) => t.key === paperTheme)?.label ?? PAPER_THEMES[0].label, [paperTheme]);
+  const activePaperTheme = useMemo(() => PAPER_THEMES.find((t) => t.key === paperTheme) ?? PAPER_THEMES[0], [paperTheme]);
+  const paperThemeLabel = activePaperTheme?.label ?? PAPER_THEMES[0].label;
+
+  const renderPaperThemeOptions = (compact = false) => (
+    <div className={compact ? 'grid grid-cols-1 gap-2.5 sm:grid-cols-2' : 'grid grid-cols-4 gap-2.5'}>
+      {PAPER_THEMES.map((theme) => {
+        const selected = theme.key === paperTheme;
+        return (
+          <button
+            key={theme.key}
+            type="button"
+            onClick={() => {
+              setPaperTheme(theme.key);
+              setPaperMenuOpen(false);
+            }}
+            className={`group flex min-h-[88px] items-center gap-3 rounded-2xl border p-2.5 text-left transition-all ${selected
+              ? 'border-emerald-400 bg-emerald-50 shadow-sm ring-2 ring-emerald-200/70'
+              : 'border-stone-200 bg-white/85 hover:border-amber-300 hover:bg-amber-50/50'
+              }`}
+            aria-pressed={selected}
+          >
+            <span
+              className="block h-[62px] w-[96px] shrink-0 rounded-xl border border-stone-200 shadow-inner"
+              style={getPaperThemePreviewStyle(theme)}
+              aria-hidden="true"
+            />
+            <span className={`block min-w-0 text-[15px] font-extrabold leading-snug ${selected ? 'text-emerald-950' : 'text-stone-700 group-hover:text-amber-950'}`}>
+              {theme.label}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
 
   const scrollToHrefWithOffset = (href, options = {}) => {
     if (typeof window === 'undefined') return;
@@ -244,21 +250,128 @@ export default function SiteNavigation({
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
-      chonghua: ['01', '02', '03', '04', '05', '06'],
+      chonghua: ['01', '02', '03', '04', '05', '06', '07', '08'],
     };
     return implemented[catKey]?.includes(num);
   };
 
-  const navRows = [
-    ['journey', 'home', 'varieties', 'puerh', 'cultivars', 'science', 'brewing', 'featured', 'course', 'video'],
-    ['seasons', 'zisha', 'regions', 'history', 'ceremony', 'tea_talk', 'sensory', 'chonghua', 'academy', 'toolbar'],
-  ];
+  const renderMobileContextNavigation = (item) => {
+    if (item === 'varieties') {
+      return (
+        <div className="ml-3 mt-2 space-y-3 rounded-xl border border-stone-200/40 bg-stone-50/60 p-2.5 pl-3 shadow-inner">
+          {VARIETIES_KINDS.map((kind) => {
+            const subItems = VARIETIES_SUBITEMS_BY_KEY[kind.key] || [];
+            const isKindActive = varietiesKind === kind.key;
+            return (
+              <div key={kind.key} className="space-y-1.5">
+                <button
+                  type="button"
+                  onClick={() => setVarietiesKind(kind.key)}
+                  className={`w-full rounded-xl border px-3.5 py-2.5 text-left text-[14px] font-bold transition-all ${isKindActive ? 'border-amber-200/60 bg-amber-100/90 text-amber-950 shadow-sm' : 'border-stone-200/30 bg-white text-stone-700 shadow-sm hover:border-stone-200/60 hover:bg-stone-50'}`}
+                >
+                  <span className="flex items-center justify-between gap-2">
+                    <span>{kind.label}</span>
+                    {subItems.length > 0 ? (
+                      <ChevronDown size={14} className={`opacity-60 transition-transform ${isKindActive ? 'rotate-180' : ''}`} />
+                    ) : null}
+                  </span>
+                </button>
+
+                {isKindActive && subItems.length > 0 ? (
+                  <div className="ml-2 space-y-1.5 border-l-2 border-stone-300 py-1 pl-3.5">
+                    {subItems.map((sub) => (
+                      <button
+                        key={sub.href}
+                        type="button"
+                        onClick={() => {
+                          scrollToHrefWithOffset(sub.href, { dispatchPopstate: true, behavior: 'smooth' });
+                          setMobileMenuOpen(false);
+                        }}
+                        className="flex w-full items-center gap-1.5 rounded-lg border border-transparent px-3 py-2.5 text-left text-[13px] font-semibold text-stone-600 transition-colors hover:border-amber-200/20 hover:bg-amber-50/40 hover:text-amber-950"
+                      >
+                        <span className="h-1 w-1 shrink-0 rounded-full bg-stone-400" />
+                        <span className="truncate">{sub.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+
+    if (!['puerh', 'science', 'cultivars', 'featured', 'history', 'seasons', 'zisha'].includes(item)) {
+      return null;
+    }
+
+    let subItems = [];
+    if (item === 'puerh') subItems = PUERH_TOC;
+    else if (item === 'science') subItems = SCIENCE_TOC;
+    else if (item === 'cultivars') subItems = CULTIVARS_TOC;
+    else if (item === 'featured') subItems = FEATURED_TOC;
+    else if (item === 'history') subItems = HISTORY_SECTIONS;
+    else if (item === 'seasons') subItems = SEASONS_SECTIONS;
+    else if (item === 'zisha') subItems = ZISHA_TOC;
+
+    return (
+      <div className="ml-3 mt-2 space-y-1.5 rounded-xl border border-stone-200/40 bg-stone-50/60 p-2 pl-3 shadow-inner">
+        {subItems.map((sub) => {
+          const label = sub.label;
+          return (
+            <button
+              key={sub.href || sub.key}
+              type="button"
+              onClick={() => {
+                goToTab(item);
+                if (item === 'science' && sub.key) {
+                  setScienceRoom(sub.key);
+                }
+
+                if (item === 'featured' && sub.href && !['#featured-overview', '#featured-longjing'].includes(sub.href)) {
+                  const teaId = sub.href.replace('#featured-', '');
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('tab', 'featured');
+                  url.searchParams.set('tea', teaId);
+                  window.history.pushState(null, '', url.pathname + url.search);
+                  window.dispatchEvent(new Event('popstate'));
+                } else if (sub.href) {
+                  scrollToHrefWithOffset(sub.href, { dispatchPopstate: true });
+                } else if (item === 'history' && sub.key) {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('tab', 'history');
+                  url.searchParams.set('section', sub.key);
+                  window.history.pushState(null, '', url.pathname + url.search);
+                  window.dispatchEvent(new Event('popstate'));
+                } else if (item === 'zisha' && sub.key) {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('tab', 'zisha');
+                  url.searchParams.set('chapter', sub.key);
+                  window.history.pushState(null, '', url.pathname + url.search);
+                  window.dispatchEvent(new Event('popstate'));
+                }
+
+                setMobileMenuOpen(false);
+              }}
+              className="flex w-full items-center gap-2 rounded-lg border border-transparent px-3 py-2.5 text-left text-[14px] font-semibold text-stone-700 transition-all hover:border-amber-200/30 hover:bg-amber-50/50 hover:text-amber-900"
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500/60" />
+              <span className="truncate">{label}</span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const navRows = MAIN_NAV_ROWS;
 
   return (
-    <nav id="site-nav" className={`sticky top-0 z-50 cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen || mobileMenuOpen) ? 'nav-drawer-open' : ''} ${i18n.lang === 'en' ? 'lang-en' : ''}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex justify-between items-center min-h-[68px] py-3">
-          <div className="flex items-center gap-5 pr-10 shrink-0">
+    <nav id="site-nav" className={`sticky top-0 ${mobileMenuOpen ? 'z-[10020]' : 'z-50'} cement-paper backdrop-blur-md relative ${(academyNavOpen || chonghuaNavOpen || mobileMenuOpen) ? 'nav-drawer-open' : ''} ${i18n.lang === 'en' ? 'lang-en' : ''}`}>
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex justify-between items-center gap-3 min-h-[60px] sm:min-h-[68px] py-2 sm:py-3">
+          <div className="flex min-w-0 flex-1 items-center gap-3 pr-0 xl:flex-none xl:gap-5 xl:pr-10 xl:shrink-0">
             {/* 綠色葉子 Logo - 隱藏的5次點擊功能 */}
             <button
               type="button"
@@ -266,16 +379,16 @@ export default function SiteNavigation({
                 e.stopPropagation();
                 handleSecretClick();
               }}
-              className="inline-flex items-center justify-center w-12 h-12 rounded-2xl tool-surface tool-surface--strong hover:scale-105 transition-transform cursor-pointer"
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl tool-surface tool-surface--strong transition-transform hover:scale-105 sm:h-12 sm:w-12 cursor-pointer"
               aria-label="Logo"
             >
-              <Leaf className="h-7 w-7 text-emerald-800" />
+              <Leaf className="h-6 w-6 text-emerald-800 sm:h-7 sm:w-7" />
 
             </button>
 
             {/* 標題 */}
-            <div className="leading-tight min-w-[190px] px-1 py-0.5" onClick={() => goToTab('journey')} style={{ cursor: 'pointer' }}>
-              <div className="text-3xl font-extrabold text-stone-900 tracking-widest">{i18n.t('site.title')}</div>
+            <div className="min-w-0 flex-1 leading-tight px-0.5 py-0.5 xl:min-w-[190px]" onClick={() => goToTab('journey')} style={{ cursor: 'pointer' }}>
+              <div className="truncate whitespace-nowrap text-2xl font-extrabold tracking-wider text-stone-900 sm:text-3xl sm:tracking-widest">{i18n.t('site.title')}</div>
 
             </div>
           </div>
@@ -287,11 +400,100 @@ export default function SiteNavigation({
               <div className="nav-main-grid">
                 {navRows.map((row, rowIndex) =>
                   row.map((item, colIndex) => {
-                    if (item === 'academy' && academyMenuHidden) {
-                      return null;
-                    }
                     let content = null;
-                    if (item === 'academy') {
+                    if (item.startsWith('primary:')) {
+                      const primaryId = item.replace('primary:', '');
+                      const group = PRIMARY_SITE_NAV.find((navItem) => navItem.id === primaryId);
+                      const groupChildren = group?.children ?? [];
+                      const hasChildren = groupChildren.length > 0;
+                      const isOpen = hasChildren && openPrimaryNavId === primaryId;
+                      const isActive = activePrimaryNavId === primaryId;
+                      const groupLabel = localizedNavText(group, 'label');
+                      const groupEyebrow = localizedNavText(group, 'eyebrow') || groupLabel;
+                      const groupDescription = localizedNavText(group, 'description');
+                      content = group ? (
+		                        <div
+		                          className="relative"
+		                          onMouseEnter={() => {
+	                            setOpenPrimaryNavId(hasChildren ? primaryId : null);
+	                            setAcademyNavOpen(false);
+	                            setChonghuaNavOpen(false);
+	                          }}
+	                          onMouseLeave={() => setOpenPrimaryNavId(null)}
+	                        >
+                          <button
+                            type="button"
+                            onClick={() => navigateToPrimaryEntry(group)}
+	                            onFocus={() => {
+	                              setOpenPrimaryNavId(hasChildren ? primaryId : null);
+	                              setAcademyNavOpen(false);
+	                              setChonghuaNavOpen(false);
+	                            }}
+                            className={`nav-pill nav-pill--tier1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600/30 ${isActive ? 'nav-pill--active' : ''}`}
+                            aria-expanded={hasChildren ? isOpen : undefined}
+                          >
+                            <span className="inline-flex items-center gap-1.5">
+	                                  <span className="nav-pill__label">
+	                                    <span className="nav-pill__label--flip">
+	                                      <span className="nav-pill__label-inner">
+	                                    <span className="nav-pill__label-front">{groupLabel}</span>
+	                                    <span className="nav-pill__label-back" aria-hidden="true">
+	                                      {groupLabel}
+	                                    </span>
+	                                  </span>
+	                                </span>
+	                              </span>
+                              {hasChildren ? (
+                                <ChevronDown
+                                  size={14}
+                                  className={`opacity-70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                                />
+                              ) : null}
+                            </span>
+                          </button>
+
+                          {hasChildren ? (
+                            <div
+                              className={`absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 rounded-2xl border border-stone-200 bg-white/95 p-3 shadow-xl backdrop-blur-md transition-all duration-150 ${isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
+                            >
+	                              <div className="px-3.5 py-2.5">
+	                                <div className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-emerald-700/70">
+	                                  {groupEyebrow}
+	                                </div>
+	                                {groupDescription ? (
+	                                  <div className="mt-1 text-sm font-semibold leading-snug text-stone-500">
+	                                    {groupDescription}
+	                                  </div>
+	                                ) : null}
+	                              </div>
+	                              {groupChildren.map((child) => {
+                                  const childLabel = localizedNavText(child, 'label');
+                                  const childDescription = localizedNavText(child, 'description');
+                                  return (
+	                                  <button
+	                                    key={child.id}
+	                                    type="button"
+	                                    onClick={() => navigateToPrimaryEntry(child)}
+	                                    className={`w-full rounded-xl px-3.5 py-3.5 text-left transition-colors ${activeTab === child.currentTab ? 'bg-amber-50 text-amber-900' : 'text-stone-700 hover:bg-stone-50 hover:text-amber-900'}`}
+	                                  >
+	                                    <span className="block text-[17px] font-extrabold leading-snug">
+	                                      {childLabel}
+	                                    </span>
+	                                    {childDescription ? (
+	                                      <span className={`mt-1 block text-sm font-semibold leading-snug ${activeTab === child.currentTab ? 'text-amber-800/70' : 'text-stone-500'}`}>
+	                                        {childDescription}
+	                                      </span>
+	                                    ) : null}
+	                                  </button>
+                                  );
+                                })}
+	                            </div>
+	                          ) : null}
+	                        </div>
+	                      ) : null;
+                    } else if (item === 'academy' && academyMenuHidden) {
+                      return null;
+                    } else if (item === 'academy') {
                       content = (
                         <button
                           type="button"
@@ -425,13 +627,49 @@ export default function SiteNavigation({
                         </button>
                       );
                     } else if (item === 'toolbar') {
-                      const cyclePaperTheme = () => {
-                        const currentIndex = PAPER_THEMES.findIndex(t => t.key === paperTheme);
-                        const nextIndex = (currentIndex + 1) % PAPER_THEMES.length;
-                        setPaperTheme(PAPER_THEMES[nextIndex].key);
-                      };
                       content = (
                         <div className="flex items-center gap-1 bg-stone-100/60 rounded-full px-1.5 py-1">
+                          <button
+                            type="button"
+                            onClick={handleAcademyToolbarClick}
+                            className={`flex items-center justify-center h-8 rounded-full hover:bg-white transition-colors px-2 gap-1 text-xs font-bold ${academyNavOpen ? 'bg-white shadow-sm text-amber-800' : 'text-stone-600'}`}
+                            aria-label={daguanEntryVisible ? academyLabel : '輸入大觀密碼'}
+                            aria-expanded={daguanEntryVisible ? academyNavOpen : undefined}
+                            title={daguanEntryVisible ? academyLabel : '輸入大觀密碼'}
+                          >
+                            <span>{daguanEntryVisible ? '大觀' : '書院'}</span>
+                            {daguanEntryVisible ? (
+                              <ChevronDown
+                                size={13}
+                                className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-180' : ''}`}
+                              />
+                            ) : null}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!chonghuaUnlocked) {
+                                onUnlockRequest?.('chonghua');
+                                return;
+                              }
+                              setChonghuaNavOpen((v) => !v);
+                              setAcademyNavOpen(false);
+                              setOpenPrimaryNavId(null);
+                              setPaperMenuOpen(false);
+                            }}
+                            className={`flex items-center justify-center h-8 rounded-full hover:bg-white transition-colors px-2 gap-1 text-xs font-bold ${chonghuaNavOpen ? 'bg-white shadow-sm text-orange-800' : 'text-stone-600'}`}
+                            aria-label={chonghuaLabel}
+                            aria-expanded={chonghuaUnlocked ? chonghuaNavOpen : undefined}
+                            title={chonghuaLabel}
+                          >
+                            <span>崇華</span>
+                            {chonghuaUnlocked ? (
+                              <ChevronDown
+                                size={13}
+                                className={`opacity-70 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${chonghuaNavOpen ? 'rotate-180' : ''}`}
+                              />
+                            ) : null}
+                          </button>
                           <button
                             type="button"
                             onClick={handleAdminClick}
@@ -441,15 +679,41 @@ export default function SiteNavigation({
                           >
                             <Settings size={15} className="text-stone-600" />
                           </button>
-                          <button
-                            type="button"
-                            onClick={cyclePaperTheme}
-                            className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors"
-                            aria-label="紙張風格"
-                            title={paperThemeLabel}
-                          >
-                            <Palette size={15} className="text-stone-600" />
-                          </button>
+                          <div className="relative">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setPaperMenuOpen((v) => !v);
+                                setAcademyNavOpen(false);
+                                setChonghuaNavOpen(false);
+                                setOpenPrimaryNavId(null);
+                              }}
+                              className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors ${paperMenuOpen ? 'bg-white shadow-sm' : ''}`}
+                              aria-label="背景風格"
+                              aria-haspopup="menu"
+                              aria-expanded={paperMenuOpen}
+                              title={paperThemeLabel}
+                            >
+                              <Palette size={15} className="text-stone-600" />
+                            </button>
+                            {paperMenuOpen ? (
+                              <div
+                                className="absolute right-0 top-full z-[10060] mt-3 max-h-[calc(100vh-96px)] w-[920px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-3xl border border-stone-200 bg-white/96 p-4 shadow-2xl backdrop-blur-xl"
+                                role="menu"
+                              >
+                                <div className="mb-3 flex items-center justify-between gap-3 px-1">
+                                  <div>
+                                    <div className="text-[11px] font-extrabold tracking-widest text-stone-400">BACKGROUND</div>
+                                    <div className="text-base font-extrabold text-stone-900">全站背景</div>
+                                  </div>
+                                  <div className="max-w-[220px] truncate text-sm font-bold text-emerald-800">
+                                    {paperThemeLabel}
+                                  </div>
+                                </div>
+                                {renderPaperThemeOptions(false)}
+                              </div>
+                            ) : null}
+                          </div>
                           <button
                             type="button"
                             onClick={i18n.toggleLang}
@@ -506,12 +770,17 @@ export default function SiteNavigation({
             <div className="justify-self-end" />
           </div>
 
-          <div className="xl:hidden flex items-center">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-stone-600"
-              aria-label={mobileMenuOpen ? i18n.t('ui.menuClose') : i18n.t('ui.menuOpen')}
-            >
+          <div className="xl:hidden flex shrink-0 items-center">
+	            <button
+		              onClick={() => {
+                    setMobileMenuOpen(!mobileMenuOpen);
+                    setPaperMenuOpen(false);
+                  }}
+	              className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-stone-700 hover:bg-stone-100"
+	              aria-label={mobileMenuOpen ? i18n.t('ui.menuClose') : i18n.t('ui.menuOpen')}
+	              aria-expanded={mobileMenuOpen}
+	              aria-controls="mobile-site-menu"
+	            >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -550,14 +819,14 @@ export default function SiteNavigation({
                     崇華書院
                   </div>
                   <div className="grid grid-cols-4 gap-3">
-                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
+                    {CHONGHUA_CATEGORY?.chapters?.map((chapter) => {
                       const num = chapter.id;
                       const active = isAcademyImplemented('chonghua', num);
                       const isCurrentTab = activeTab === `academy_chonghua_${num}`;
                       return (
                         <a
                           key={num}
-                          href={`?tab=academy_chonghua_${num}`}
+                          href={active ? `?tab=academy_chonghua_${num}` : '?tab=academy_coming_soon'}
                           className={`nav-pill nav-pill--tier2 ${isCurrentTab ? 'nav-pill--active' : ''} justify-start items-center rounded-xl px-3.5 py-2.5 text-base transition-all duration-200 ${isCurrentTab
                             ? 'bg-orange-50 text-orange-900 font-extrabold ring-1 ring-orange-300/60 shadow-md'
                             : active
@@ -568,6 +837,11 @@ export default function SiteNavigation({
                             e.preventDefault();
                             if (!chonghuaUnlocked) {
                               onUnlockRequest?.('chonghua');
+                              return;
+                            }
+                            if (!active) {
+                              goToTab('academy_coming_soon');
+                              setChonghuaNavOpen(false);
                               return;
                             }
                             goToTab(`academy_chonghua_${num}`);
@@ -586,7 +860,7 @@ export default function SiteNavigation({
               )}
 
               {/* 顯示大觀書院內容 */}
-              {academyNavOpen && ACADEMY_STRUCTURE.filter(cat => cat.key !== 'chonghua').map((cat) => (
+              {academyNavOpen && ACADEMY_NAV_CATEGORIES.map((cat) => (
                 <div key={cat.key}>
                   <div className="text-lg font-bold text-stone-500 mb-3 px-2 border-l-4 border-stone-300">
                     {cat.label}
@@ -675,7 +949,7 @@ export default function SiteNavigation({
 
       {
         mobileMenuOpen && (
-          <div className="xl:hidden tool-surface tool-surface--strong absolute top-full left-0 right-0 max-h-[calc(100vh-80px)] overflow-y-auto shadow-2xl border-t border-stone-200">
+	          <div id="mobile-site-menu" className="xl:hidden tool-surface tool-surface--strong absolute top-full left-0 right-0 max-h-[calc(100vh-80px)] overflow-y-auto shadow-2xl border-t border-stone-200">
             <div className="px-2 pt-2 pb-12 space-y-1 sm:px-3">
               <div className="flex items-center justify-between px-3 py-2">
                 <div className="text-xs font-bold text-stone-500">{i18n.t('ui.language')}</div>
@@ -694,9 +968,9 @@ export default function SiteNavigation({
                 </button>
               </div>
 
-              <div className="flex items-center justify-between px-3 py-2">
-                <div className="text-xs font-bold text-stone-500">配色</div>
-                <select
+	              <div className="flex items-center justify-between px-3 py-2">
+	                <div className="text-xs font-bold text-stone-500">配色</div>
+	                <select
                   value={navTheme}
                   onChange={(e) => setNavTheme(e.target.value)}
                   className="rounded-full px-3 py-1.5 text-xs font-extrabold tool-item"
@@ -707,11 +981,81 @@ export default function SiteNavigation({
                       {theme.label}
                     </option>
                   ))}
-                </select>
+	                </select>
+	              </div>
+
+              <div className="px-3 py-2">
+                <div className="mb-2 flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-xs font-bold text-stone-500">背景</div>
+                    <div className="text-[13px] font-semibold text-stone-500">目前：{paperThemeLabel}</div>
+                  </div>
+                  <Palette size={16} className="text-stone-500" aria-hidden="true" />
+                </div>
+                {renderPaperThemeOptions(true)}
               </div>
 
-              {/* Tier 1 - All items at top level */}
-              <div className="space-y-2 px-2">
+	              <div className="space-y-3 px-2">
+	                {PRIMARY_SITE_NAV.map((group) => {
+	                  const groupChildren = group.children ?? [];
+	                  const isGroupActive = activePrimaryNavId === group.id;
+	                  const isGroupOpen = openPrimaryNavId === group.id || isGroupActive;
+                    const groupLabel = localizedNavText(group, 'label');
+                    const groupDescription = localizedNavText(group, 'description');
+	                  return (
+	                    <div key={group.id} className={`rounded-2xl border p-2 shadow-sm transition-colors ${isGroupOpen ? 'border-emerald-200/70 bg-white/90' : 'border-stone-200/50 bg-white/70'}`}>
+	                      <button
+	                        type="button"
+                        onClick={() => toggleMobilePrimaryGroup(group)}
+	                        className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[17px] font-extrabold transition-colors ${isGroupActive ? 'bg-emerald-50 text-emerald-950' : isGroupOpen ? 'bg-stone-50 text-stone-950' : 'text-stone-800 hover:bg-stone-50'}`}
+	                        aria-expanded={groupChildren.length > 0 ? isGroupOpen : undefined}
+	                      >
+	                        <span className="min-w-0 flex-1 truncate">{groupLabel}</span>
+	                        {groupChildren.length > 0 ? (
+	                          <ChevronDown size={18} className={`shrink-0 text-stone-400 transition-transform ${isGroupOpen ? 'rotate-180 text-emerald-700' : ''}`} />
+	                        ) : null}
+	                      </button>
+	                      {groupDescription ? (
+	                        <div className="px-4 pb-2 text-[13px] font-semibold leading-snug text-stone-500">
+	                          {groupDescription}
+	                        </div>
+	                      ) : null}
+	
+	                      {groupChildren.length > 0 && isGroupOpen ? (
+	                        <div className="space-y-1.5 px-2 pb-2">
+	                          {groupChildren.map((child) => {
+	                            const isChildActive = activeTab === child.currentTab;
+                              const childLabel = localizedNavText(child, 'label');
+                              const childDescription = localizedNavText(child, 'description');
+	                            return (
+	                              <div key={child.id}>
+	                                <button
+	                                  type="button"
+	                                  onClick={() => navigateToPrimaryEntry(child)}
+	                                  className={`w-full rounded-xl px-3 py-3 text-left transition-colors ${isChildActive ? 'bg-emerald-50 text-emerald-950' : 'text-stone-700 hover:bg-stone-50 hover:text-amber-900'}`}
+	                                >
+	                                  <span className="block text-[16px] font-extrabold leading-snug">{childLabel}</span>
+	                                  {childDescription ? (
+	                                    <span className={`mt-1 block text-[13px] font-semibold leading-snug ${isChildActive ? 'text-emerald-900/70' : 'text-stone-500'}`}>
+	                                      {childDescription}
+	                                    </span>
+	                                  ) : null}
+	                                </button>
+                                {isChildActive ? renderMobileContextNavigation(child.currentTab) : null}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        isGroupActive ? renderMobileContextNavigation(group.currentTab) : null
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Legacy mobile atlas list is hidden; grouped IA above is the active mobile navigation. */}
+              <div className="hidden">
                 <button
                   type="button"
                   onClick={() => goToTab('journey')}
@@ -720,23 +1064,6 @@ export default function SiteNavigation({
                 >
                   {String(i18n.t('nav.journey')).replace(/\s*\n\s*/g, '')}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => goToTab('tea_talk')}
-                  className={`px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'tea_talk' ? 'tool-item--active' : ''
-                    }`}
-                >
-                  {String(i18n.t('nav.tea_talk')).replace(/\s*\n\s*/g, '')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => goToTab('sensory')}
-                  className={`nav-flip-trigger px-3 py-2 rounded-xl text-base font-semibold w-full text-left transition-colors tool-item ${activeTab === 'sensory' ? 'tool-item--active' : ''
-                    }`}
-                >
-                  {renderFlipLabel(String(i18n.t('nav.sensory')).replace(/\s*\n\s*/g, ''))}
-                </button>
-
                 {/* All Atlas items */}
                 <div className="space-y-2">
                   {ATLAS_ITEMS.map((item) => {
@@ -815,7 +1142,7 @@ export default function SiteNavigation({
                                         setScienceRoom(sub.key);
                                       }
                                       
-                                      if (item === 'featured' && sub.href) {
+                                      if (item === 'featured' && sub.href && !['#featured-overview', '#featured-longjing'].includes(sub.href)) {
                                         const teaId = sub.href.replace('#featured-', '');
                                         const url = new URL(window.location.href);
                                         url.searchParams.set('tab', 'featured');
@@ -857,30 +1184,31 @@ export default function SiteNavigation({
               </div>
 
               {/* Academy (Mobile) */}
-              {academyMenuHidden ? null : (
-                <div className="mt-2 px-2">
+              <div className="mt-2 px-2">
                   <button
                     type="button"
                     onClick={() => {
-                      if (!daguanUnlocked) {
+                      if (!daguanEntryVisible) {
                         onUnlockRequest?.('daguan');
                         return;
                       }
                       setAcademyNavOpen((v) => !v);
+                      setChonghuaMobileOpen(false);
+                      setOpenPrimaryNavId(null);
                     }}
                     className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
-                    aria-expanded={academyNavOpen}
+                    aria-expanded={daguanEntryVisible ? academyNavOpen : undefined}
                   >
-                    {renderFlipLabel(academyLabel)}
+                    {renderFlipLabel(daguanEntryVisible ? academyLabel : '書院')}
                     <ChevronRight
                       size={16}
                       className={`text-amber-800 transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${academyNavOpen ? 'rotate-90' : '-rotate-90'}`}
                     />
                   </button>
 
-                  <AccordionPanel open={academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
+                  <AccordionPanel open={daguanEntryVisible && academyNavOpen} className="mt-2" disablePointerEventsWhenClosed>
                     <div className="space-y-2 pl-2 border-l border-stone-200">
-                      {ACADEMY_STRUCTURE.filter(cat => cat.key !== 'chonghua').map((cat) => {
+                      {ACADEMY_NAV_CATEGORIES.map((cat) => {
                         const isOpen = academyMobileSubOpen[cat.key];
                         return (
                           <div key={cat.key}>
@@ -956,20 +1284,21 @@ export default function SiteNavigation({
                       })}
                     </div>
                   </AccordionPanel>
-                </div>
-              )}
+              </div>
 
               {/* Chonghua (Mobile) */}
               <div className="mt-2 px-2">
                 <button
                   type="button"
-                  onClick={() => {
-                    if (!chonghuaUnlocked) {
-                      onUnlockRequest?.('chonghua');
-                      return;
-                    }
-                    setChonghuaMobileOpen((v) => !v);
-                  }}
+	                  onClick={() => {
+	                    if (!chonghuaUnlocked) {
+	                      onUnlockRequest?.('chonghua');
+	                      return;
+	                    }
+	                    setChonghuaMobileOpen((v) => !v);
+	                    setAcademyNavOpen(false);
+	                    setOpenPrimaryNavId(null);
+	                  }}
                   className="nav-flip-trigger w-full inline-flex items-center justify-between rounded-xl px-3 py-2 text-sm font-extrabold tool-item"
                   aria-expanded={chonghuaMobileOpen}
                 >
@@ -982,12 +1311,12 @@ export default function SiteNavigation({
 
                 <AccordionPanel open={chonghuaMobileOpen} className="mt-2" disablePointerEventsWhenClosed>
                   <div className="grid grid-cols-3 gap-2 p-2">
-                    {ACADEMY_STRUCTURE[2]?.chapters?.map((chapter) => {
+                    {CHONGHUA_CATEGORY?.chapters?.map((chapter) => {
                       const active = isAcademyImplemented('chonghua', chapter.id);
                       return (
                         <a
                           key={chapter.id}
-                          href={`?tab=academy_chonghua_${chapter.id}`}
+                          href={active ? `?tab=academy_chonghua_${chapter.id}` : '?tab=academy_coming_soon'}
                           className={`nav-flip-trigger text-left rounded-md py-3 px-3 text-sm font-medium transition-all ${active
                             ? 'bg-orange-50 text-orange-800 shadow-sm'
                             : 'bg-white text-stone-600 shadow-sm'
@@ -996,6 +1325,11 @@ export default function SiteNavigation({
                             e.preventDefault();
                             if (!chonghuaUnlocked) {
                               onUnlockRequest?.('chonghua');
+                              return;
+                            }
+                            if (!active) {
+                              goToTab('academy_coming_soon');
+                              setMobileMenuOpen(false);
                               return;
                             }
                             goToTab(`academy_chonghua_${chapter.id}`);
@@ -1035,3 +1369,4 @@ export default function SiteNavigation({
     </nav>
   );
 }
+

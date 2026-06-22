@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { BookOpen, Leaf, Sprout, Dna, Mountain, Sparkles, Flower, Droplets, MapPin, Award, GitBranch, Sun, Users, Beaker } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
@@ -10,7 +10,7 @@ const IMG = '/images';
    主元件：崇華書院 第06堂 — 認識茶樹品種
    ────────────────────────────────────────── */
 export default function ChonghuaChapter06() {
-    const TOC = [
+    const TOC = useMemo(() => [
         { id: 'ch06-intro', label: '課程簡介' },
         { id: 'ch06-why', label: '為什麼要懂品種？' },
         { id: 'ch06-bigsmall', label: '大葉種 vs 小葉種' },
@@ -23,7 +23,7 @@ export default function ChonghuaChapter06() {
         { id: 'ch06-history', label: '品種命名簡史' },
         { id: 'ch06-future', label: '未來之星' },
         { id: 'ch06-summary', label: '帶走的觀念' },
-    ];
+    ], []);
 
     const [activeId, setActiveId] = useState(TOC[0].id);
 
@@ -40,7 +40,7 @@ export default function ChonghuaChapter06() {
             if (el) observer.observe(el);
         });
         return () => observer.disconnect();
-    }, []);
+    }, [TOC]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);
@@ -512,7 +512,7 @@ export default function ChonghuaChapter06() {
                                 },
                             ].map(item => (
                                 <div key={item.name} className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-stone-100">
-                                    <div className={`h-2 bg-gradient-to-r from-${item.color}-400 to-${item.color}-500`} style={{ background: `linear-gradient(to right, var(--color-${item.color}-400, #94a3b8), var(--color-${item.color}-500, #64748b))` }}></div>
+                                    <div className="h-2 bg-gradient-to-r" style={{ background: `linear-gradient(to right, var(--color-${item.color}-400, #94a3b8), var(--color-${item.color}-500, #64748b))` }}></div>
                                     <div className="p-6">
                                         <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                                             <h5 className="text-[19px] font-bold text-stone-900">{item.name}</h5>

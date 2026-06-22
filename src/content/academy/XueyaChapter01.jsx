@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   Sparkles,
   Heart,
@@ -461,11 +461,11 @@ export default function XueyaChapter01() {
 
           <h4 className="mb-3 text-lg font-bold text-stone-900">內部組織：分類的核心依據</h4>
           <p className="mb-6 leading-relaxed">
-            單純從視覺上的葉片大小來判斷茶樹品種，往往會產生誤解。科學分類的真正關鍵，在於觀察葉片內部的「葉肉組織」結構。葉肉組織主要由「柵狀組織」(palisade tissue) 與「海綿組織」(spongy tissue) 構成，兩者比例的不同，是區分大葉種與小葉種的核心依據：
+            單純從視覺上的葉片大小來判斷茶樹品種，往往會產生誤解。科學分類的真正關鍵，在於觀察葉片內部的「葉肉組織」結構。葉肉組織主要由「柵狀組織」(palisade tissue) 與「海綿組織」(spongy tissue) 構成。觀察柵狀組織的層數及海綿組織的多寡，可作為區分大葉種與小葉種的組織學依據：
           </p>
           <ul className="mb-6 list-disc list-inside space-y-2 leading-relaxed text-stone-700">
-            <li>大葉種： 其葉肉組織中，海綿組織所佔的比例明顯較多。</li>
-            <li>小葉種： 其柵狀組織與海綿組織的比例約為 1:1。</li>
+            <li><strong>大葉種：</strong>柵狀組織為 1 層，海綿組織較多；內質物含量較高，滋味較飽滿、收斂感較強。</li>
+            <li><strong>小葉種：</strong>柵狀組織為 2-3 層，海綿組織較少；滋味較溫和，口感圓潤。</li>
           </ul>
           <p className="mb-6 leading-relaxed">
             因此，品種的歸屬是由其內在的生理結構所決定，而非單純的外觀尺寸。
@@ -538,3 +538,4 @@ export default function XueyaChapter01() {
     </div>
   );
 }
+

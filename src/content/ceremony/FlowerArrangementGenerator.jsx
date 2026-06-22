@@ -99,7 +99,7 @@ const FlowerArrangementGenerator = ({ onClose }) => {
                 image: "/images/ceremony/camellia.png"
             }
         ];
-    }, [vaseType, flowerStyle, calcLengths]);
+    }, [vaseType, calcLengths]);
 
     // Teacher's Tips (Master's Note) - Ni Zhixiang Philosophy
     const masterTips = useMemo(() => {
@@ -464,7 +464,10 @@ const FlowerArrangementGenerator = ({ onClose }) => {
                     <div className="mt-1 shrink-0">
                         <Leaf size={16} className="text-emerald-500" />
                     </div>
-                    <p className="text-sm text-stone-500 italic">
+                    <p
+                        className="text-sm text-stone-500 italic"
+                        data-master-tip={masterTips[Math.min(tutorialStep, masterTips.length - 1)].title}
+                    >
                         {tutorialStep === 0 ? "大師說：心靜則花美，別急著動剪刀。" :
                             tutorialStep === 1 ? "大師說：主枝要留有餘地，不要剪得太短，長了還能修，短了就沒救了。" :
                                 tutorialStep === 2 ? "大師說：讓風能穿過枝葉之間，不要插得太密。" :

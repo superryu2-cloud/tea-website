@@ -28,7 +28,7 @@ function FeatureCard({ icon: Icon, title, desc, colorClass }) {
     <div className={`p-5 rounded-2xl border ${colorClass} transition-all hover:-translate-y-1 hover:shadow-md`}>
       <div className="flex items-center gap-3 mb-3">
         <div className={`p-2 rounded-xl bg-white bg-opacity-60`}>
-          <Icon size={20} />
+          {React.createElement(Icon, { size: 20 })}
         </div>
         <h4 className="font-bold text-[19px]">{title}</h4>
       </div>

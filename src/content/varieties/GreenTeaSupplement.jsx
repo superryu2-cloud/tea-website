@@ -63,7 +63,7 @@ export default function GreenTeaSupplement() {
               <div key={title} className="group p-5 rounded-2xl border border-stone-200 bg-white hover:shadow-lg hover:border-emerald-200 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-10 h-10 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center group-hover:bg-emerald-100 group-hover:text-emerald-600 transition-colors">
-                    <Icon size={18} />
+                    {React.createElement(Icon, { size: 18 })}
                   </div>
                   <h4 className="text-[19px] font-bold text-stone-900" style={{ fontFamily: 'sans-serif' }}>{title}</h4>
                 </div>

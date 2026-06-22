@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Wind, Mic, Zap, Smile, BookOpen, Volume2, X, ZoomIn } from 'lucide-react';
 
+const ImageCard = ({ src, alt, caption, className = "", onOpen }) => (
+    <div
+        className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
+        onClick={() => onOpen({ src, alt })}
+    >
+        <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+            <p className="text-white text-sm font-bold flex items-center gap-2">
+                <ZoomIn size={16} />
+                {caption || "點擊放大"}
+            </p>
+        </div>
+    </div>
+);
+
 export default function SlurpingChapter() {
     const [viewingImage, setViewingImage] = useState(null);
-
-    const ImageCard = ({ src, alt, caption, className = "" }) => (
-        <div
-            className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
-            onClick={() => setViewingImage({ src, alt })}
-        >
-            <img
-                src={src}
-                alt={alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                <p className="text-white text-sm font-bold flex items-center gap-2">
-                    <ZoomIn size={16} />
-                    {caption || "點擊放大"}
-                </p>
-            </div>
-        </div>
-    );
 
     return (
         <div className="space-y-16 animate-fadeIn py-8 text-stone-800">
@@ -97,6 +97,7 @@ export default function SlurpingChapter() {
                         alt="Artistic Mist - 茶湯霧化"
                         caption="液體霧化：釋放更多香氣分子"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
                 <div className="space-y-6">
@@ -155,6 +156,7 @@ export default function SlurpingChapter() {
                             alt="Retronasal Olfaction - 鼻後嗅覺路徑"
                             caption="鼻後嗅覺：捕捉深層風味的通道"
                             className="h-full border-4 border-stone-700"
+                            onOpen={setViewingImage}
                         />
                     </div>
                 </div>
@@ -229,6 +231,7 @@ export default function SlurpingChapter() {
                                 alt="Ramen Slurping - 吸麵條的藝術"
                                 caption="想像一下：就像用力吸拉麵一樣"
                                 className="h-full shadow-orange-200"
+                                onOpen={setViewingImage}
                             />
                         </div>
                         <div className="order-1 md:order-2 space-y-6">

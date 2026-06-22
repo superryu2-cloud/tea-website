@@ -62,6 +62,64 @@ function Bullet({ title, children }) {
   );
 }
 
+const darkTeaImages = {
+  origin: {
+    src: '/images/varieties/dark_tea/dark_tea_origin.png',
+    alt: '雲南古茶樹、茶山梯田與山霧交織的黑茶起源意象',
+    title: '古茶樹與雲南茶源',
+    caption: '黑茶的故事從大葉種、山地風土與長期運輸需求開始。',
+  },
+  tasting: {
+    src: '/images/varieties/dark_tea/dark_tea_bricks_tasting.png',
+    alt: '黑茶茶磚、茶餅與深琥珀色茶湯的品飲場景',
+    title: '緊壓、陳化與品飲',
+    caption: '茶磚、茶餅與茶湯把黑茶的保存、轉化與日常飲用串在一起。',
+  },
+  fermentation: {
+    src: '/images/varieties/dark_tea/dark_tea_fermentation.png',
+    alt: '黑茶渥堆後發酵工藝中的茶堆、蒸氣與微生物轉化意象',
+    title: '渥堆後發酵',
+    caption: '濕熱堆積讓微生物參與轉化，是黑茶區別於多數茶類的核心。',
+  },
+  caravan: {
+    src: '/images/varieties/dark_tea/dark_tea_caravan.png',
+    alt: '茶馬古道山徑與運茶馬幫的歷史場景',
+    title: '茶馬古道與邊茶',
+    caption: '邊疆飲食、長途運輸與文化交流，使黑茶成為重要生活茶。',
+  },
+  goldenFlower: {
+    src: '/images/varieties/dark_tea/dark_tea_golden_flower.png',
+    alt: '茯磚茶金花菌在黑茶茶面上的放大意象',
+    title: '金花與發花工藝',
+    caption: '金花可作為部分茯磚品質指標，但不是所有黑茶都需要追求。',
+  },
+  soupCheck: {
+    src: '/images/varieties/dark_tea/dark_tea_soup_check.png',
+    alt: '黑茶乾茶、茶湯澄澈度與霉點檢查的選購辨識意象',
+    title: '看乾茶、聞氣味、觀茶湯',
+    caption: '選購黑茶時，清潔儲存與澄亮茶湯比故事與年份更可靠。',
+  },
+};
+
+function DarkTeaFigure({ image, className = '' }) {
+  return (
+    <figure className={`overflow-hidden rounded-2xl border border-[#d6dfd3]/60 bg-white shadow-sm ${className}`}>
+      <div className="aspect-[16/9] overflow-hidden bg-stone-100">
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      </div>
+      <figcaption className="border-t border-[#d6dfd3]/60 bg-[#f8f6ed] px-4 py-3 text-[15px] leading-relaxed text-[#536150]">
+        <span className="font-extrabold text-[#141b12]">{image.title}</span>
+        <span className="ml-2">{image.caption}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function SixTeaTypesNotes({ kind }) {
   const [whiteTab, setWhiteTab] = React.useState('general');
   const greenContentRef = useRef(null);
@@ -1837,17 +1895,22 @@ export default function SixTeaTypesNotes({ kind }) {
   if (kind === 'black') {
     return (
       <div className="space-y-6">
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-stone-50 px-6 py-6">
-          <div className="text-sm font-extrabold tracking-[0.28em] text-slate-700/70">DARK TEA</div>
-          <div className="mt-2 text-xl font-extrabold text-[#141b12]">黑茶：從工藝、歷史到品鑑的完整指南</div>
-          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
-            什麼是黑茶？它在何時出現，又從何而來？為什麼普洱茶不全然是黑茶？如何判斷一款黑茶的好壞，又該如何享受它獨特的功效？
-            這裡用一套「工藝 → 歷史 → 品類 → 選購」的路線，完整梳理黑茶的核心脈絡。
-          </p>
-        </div>
+	        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-stone-50 px-6 py-6">
+	          <div className="text-sm font-extrabold tracking-[0.28em] text-slate-700/70">DARK TEA</div>
+	          <div className="mt-2 text-xl font-extrabold text-[#141b12]">黑茶：從工藝、歷史到品鑑的完整指南</div>
+	          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
+	            什麼是黑茶？它在何時出現，又從何而來？為什麼普洱茶不全然是黑茶？如何判斷一款黑茶的好壞，又該如何享受它獨特的功效？
+	            這裡用一套「工藝 → 歷史 → 品類 → 選購」的路線，完整梳理黑茶的核心脈絡。
+	          </p>
+	        </div>
 
-        <div className="grid gap-3 lg:grid-cols-3">
-          <div className="rounded-2xl border border-[#d6dfd3]/50 bg-white px-5 py-4">
+	        <div className="grid gap-4 lg:grid-cols-2">
+	          <DarkTeaFigure image={darkTeaImages.origin} />
+	          <DarkTeaFigure image={darkTeaImages.tasting} />
+	        </div>
+
+	        <div className="grid gap-3 lg:grid-cols-3">
+	          <div className="rounded-2xl border border-[#d6dfd3]/50 bg-white px-5 py-4">
             <div className="text-sm font-extrabold tracking-widest text-[#536150]">工藝定位</div>
             <div className="mt-2 text-base font-extrabold text-[#141b12]">後發酵（微生物參與）</div>
             <p className="mt-2 text-[16px] text-[#242f21] leading-relaxed">
@@ -1877,13 +1940,15 @@ export default function SixTeaTypesNotes({ kind }) {
         <div className="rounded-3xl border border-[#d6dfd3]/50 bg-white px-6 py-6">
           <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">PROCESS</div>
           <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">1. 解構黑茶：獨一無二的「後發酵」工藝</div>
-          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
-            六大茶類是依加工工藝與發酵程度劃分。黑茶外觀深色，但它的「發酵」不能直接用 0–100% 去理解，因為它採用的是「後發酵」：
-            在殺菁之後、以微生物參與為主的轉化過程。
-          </p>
+	          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
+	            六大茶類是依加工工藝與發酵程度劃分。黑茶外觀深色，但它的「發酵」不能直接用 0–100% 去理解，因為它採用的是「後發酵」：
+	            在殺菁之後、以微生物參與為主的轉化過程。
+	          </p>
 
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-[#d6dfd3]/50">
-            <table className="min-w-[720px] w-full text-left text-[16px]">
+	          <DarkTeaFigure image={darkTeaImages.fermentation} className="mt-4" />
+
+	          <div className="mt-4 overflow-x-auto rounded-2xl border border-[#d6dfd3]/50">
+	            <table className="min-w-[720px] w-full text-left text-[16px]">
               <thead className="bg-[#f5f8f4] text-[#242f21]">
                 <tr>
                   <th className="px-4 py-2 font-extrabold">茶類</th>
@@ -1934,13 +1999,14 @@ export default function SixTeaTypesNotes({ kind }) {
         <div className="rounded-3xl border border-[#d6dfd3]/50 bg-white px-6 py-6">
           <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">HISTORY</div>
           <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">2. 追本溯源：黑茶的歷史演進與工藝定型</div>
-          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
-            黑茶的「苗頭」可追溯到唐代邊疆需求與「茶馬古道」貿易：粗老茶葉在長途運輸中遭遇濕熱而自然變化，色澤由青綠轉烏黑。
-            宋代後，邊民習慣此滋味，產地開始嘗試「堆積做色」與「蒸壓成塊」以利運輸。
-          </p>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <Bullet title="從自然演變到主動製作">
-              製茶師傅意識到與其被動不可控，不如在產地「主動加工」到目標狀態，因而促使工藝逐步成熟與定型。
+	          <p className="mt-3 text-[16px] text-[#242f21] leading-relaxed">
+	            黑茶的「苗頭」可追溯到唐代邊疆需求與「茶馬古道」貿易：粗老茶葉在長途運輸中遭遇濕熱而自然變化，色澤由青綠轉烏黑。
+	            宋代後，邊民習慣此滋味，產地開始嘗試「堆積做色」與「蒸壓成塊」以利運輸。
+	          </p>
+	          <DarkTeaFigure image={darkTeaImages.caravan} className="mt-4" />
+	          <div className="mt-4 grid gap-3 md:grid-cols-2">
+	            <Bullet title="從自然演變到主動製作">
+	              製茶師傅意識到與其被動不可控，不如在產地「主動加工」到目標狀態，因而促使工藝逐步成熟與定型。
             </Bullet>
             <Bullet title="學術觀點：何時算黑茶？">
               關於起源時間有不同看法；陳椽教授主張現代意義黑茶應以安化黑茶等（低溫殺菁後色澤已呈深褐綠）為核心脈絡，時間多指向明末清初。
@@ -1949,12 +2015,13 @@ export default function SixTeaTypesNotes({ kind }) {
         </div>
 
         <div className="rounded-3xl border border-[#d6dfd3]/50 bg-white px-6 py-6">
-          <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">MAP</div>
-          <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">3. 品類巡禮：主流黑茶與「金花」</div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#d6dfd3]/50 bg-[#f5f8f4] px-5 py-4">
-              <div className="text-sm font-extrabold tracking-widest text-[#536150]">常見黑茶種類</div>
-              <ul className="mt-2 text-[16px] text-[#242f21] leading-relaxed list-disc pl-5 space-y-1">
+	          <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">MAP</div>
+	          <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">3. 品類巡禮：主流黑茶與「金花」</div>
+	          <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px]">
+	            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-1">
+	            <div className="rounded-2xl border border-[#d6dfd3]/50 bg-[#f5f8f4] px-5 py-4">
+	              <div className="text-sm font-extrabold tracking-widest text-[#536150]">常見黑茶種類</div>
+	              <ul className="mt-2 text-[16px] text-[#242f21] leading-relaxed list-disc pl-5 space-y-1">
                 <li>普洱茶（雲南）：熟茶是典型黑茶；生茶工藝更接近綠茶系統的蒸壓茶路線</li>
                 <li>六堡茶（廣西）：檳榔香與陳香，有時可見「金花」</li>
                 <li>安化黑茶（湖南）：黑磚、茯磚（金花）、千兩茶、天尖、貢尖等</li>
@@ -1973,12 +2040,14 @@ export default function SixTeaTypesNotes({ kind }) {
                 <li>形成：需特定溫濕度與「發花」工藝</li>
                 <li>影響：分泌酶轉化物質，使口感更醇和甘甜</li>
                 <li>價值：可作為茯磚等品質指標之一，但非所有黑茶都會有</li>
-              </ul>
-              <div className="mt-3 text-sm text-[#536150]">建議心態：可遇不可求，不必強求。</div>
-            </div>
-          </div>
+	              </ul>
+	              <div className="mt-3 text-sm text-[#536150]">建議心態：可遇不可求，不必強求。</div>
+	            </div>
+	            </div>
+	            <DarkTeaFigure image={darkTeaImages.goldenFlower} />
+	          </div>
 
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
+	          <div className="mt-4 grid gap-3 md:grid-cols-2">
             <Bullet title="普洱茶是黑茶嗎？">
               需分生茶與熟茶：熟普包含渥堆，因此屬黑茶；生普不經渥堆、無微生物主導轉化，許多專業觀點將其視為蒸壓綠茶路線，但具陳放轉化特性。
             </Bullet>
@@ -1988,11 +2057,12 @@ export default function SixTeaTypesNotes({ kind }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-[#d6dfd3]/50 bg-white px-6 py-6">
-          <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">BUYING GUIDE</div>
-          <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">4. 消費者指南：如何挑選優質與安全的黑茶</div>
-          <div className="mt-4 grid gap-3 lg:grid-cols-3">
-            <div className="rounded-2xl border border-[#d6dfd3]/50 bg-[#f5f8f4] px-5 py-4">
+	        <div className="rounded-3xl border border-[#d6dfd3]/50 bg-white px-6 py-6">
+	          <div className="text-sm font-extrabold tracking-[0.28em] text-[#536150]">BUYING GUIDE</div>
+	          <div className="mt-2 text-[16px] font-extrabold text-[#141b12]">4. 消費者指南：如何挑選優質與安全的黑茶</div>
+	          <DarkTeaFigure image={darkTeaImages.soupCheck} className="mt-4" />
+	          <div className="mt-4 grid gap-3 lg:grid-cols-3">
+	            <div className="rounded-2xl border border-[#d6dfd3]/50 bg-[#f5f8f4] px-5 py-4">
               <div className="text-sm font-extrabold tracking-widest text-[#536150]">第一步：看外觀</div>
               <p className="mt-2 text-[16px] text-[#242f21] leading-relaxed">
                 檢查是否有青色或白色霉點（深色乾茶上通常更顯眼）。

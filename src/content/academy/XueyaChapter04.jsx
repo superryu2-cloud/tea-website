@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 
 // Import Generated Images
-import heroImage from '../../assets/images/xueya-ch4-hero-v2.png';
 import pouringImage from '../../assets/images/xueya-ch4-pouring.png';
 import mistImage from '../../assets/images/xueya-ch4-mist.png';
 import vesselsImage from '../../assets/images/xueya-ch4-vessels.png';
@@ -26,7 +25,7 @@ function SectionTitle({ icon: Icon, title, subtitle, colorClass = "text-stone-90
     return (
         <div className="flex items-start gap-4 mb-10 group">
             <div className={`p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-stone-200 ${colorClass} group-hover:scale-110 transition-transform duration-500`}>
-                <Icon size={28} strokeWidth={1.5} />
+                {React.createElement(Icon, { size: 28, strokeWidth: 1.5 })}
             </div>
             <div className="pt-2">
                 <h3 className={`text-3xl font-extrabold ${colorClass} font-serif tracking-wide`}>{title}</h3>
@@ -60,7 +59,7 @@ export default function XueyaChapter04() {
     const [activeSection, setActiveSection] = useState('intro');
 
     // Navigation Items
-    const tocItems = [
+    const tocItems = useMemo(() => [
         { id: 'intro', label: '引言：人文茶道哲學' },
         { id: 'part1', label: '第一部：美學基礎' },
         { id: 'part2-header', label: '第二部：儀軌實務' },
@@ -73,7 +72,7 @@ export default function XueyaChapter04() {
         { id: 'part3', label: '第三部：高山茶深度解析' },
         { id: 'part4', label: '第四部：因茶擇器' },
         { id: 'conclusion', label: '結語' },
-    ];
+    ], []);
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -106,7 +105,7 @@ export default function XueyaChapter04() {
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [tocItems]);
 
     const [selectedImage, setSelectedImage] = useState(null);
 

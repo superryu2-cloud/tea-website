@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Sparkles, Leaf, Flame, Clock, RefreshCw, RotateCcw, Scroll, Dices, Radar, PenTool, Camera, Brain } from 'lucide-react';
 import featuredTeaMenu from '../../data/featuredTeaMenu';
 import oracleVisual from '../../assets/images/oracle-visual.png';

@@ -58,7 +58,10 @@ const ZenHaikuWidget = () => {
             }, 80);
             return () => clearTimeout(timeout);
         } else if (displayedPoem.length === poem.length) {
-            setIsTyping(false);
+            const timeout = setTimeout(() => {
+                setIsTyping(false);
+            }, 0);
+            return () => clearTimeout(timeout);
         }
     }, [isTyping, displayedPoem, poem]);
 

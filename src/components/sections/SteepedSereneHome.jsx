@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Leaf, Wind, Clock, Thermometer, MapPin, Mail, Instagram, Facebook, ChevronRight, ChevronLeft, Sparkles, Droplets, Flame, User } from 'lucide-react';
 import DraggableWrapper from '../DraggableWrapper';
 import '../../styles/SereneStyles.css';

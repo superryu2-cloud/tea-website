@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FlaskConical, Leaf, Droplets, Sparkles, Wind, Flame, Coffee, Layers, X, Info } from 'lucide-react';
 

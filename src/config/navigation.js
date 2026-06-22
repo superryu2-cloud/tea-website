@@ -19,6 +19,10 @@ export const ATLAS_ITEMS = [
 
 export const NAV_ITEMS = ['journey', ...ATLAS_ITEMS];
 
+export const MAIN_NAV_ROWS = [
+  ['primary:learn', 'primary:encyclopedia', 'primary:taiwan-tea', 'primary:courses', 'primary:tools', 'primary:resources', 'toolbar'],
+];
+
 export const VARIETIES_KINDS = [
   { key: 'overview', label: '總覽', type: 'overview' },
   { key: 'ref_chenchuan', label: '分類理論（陳椽教授）', type: 'ref' },
@@ -62,6 +66,12 @@ export const OOLONG_TOC = [
 ];
 
 export const WHITE_TOC = [
+  { href: '#white-fujian', label: '福建' },
+  { href: '#white-yunnan', label: '雲南' },
+];
+
+export const WHITE_TOC_EXTENDED = [
+  { href: '#white-history', label: '白茶歷史' },
   { href: '#white-fujian', label: '福建' },
   { href: '#white-yunnan', label: '雲南' },
 ];

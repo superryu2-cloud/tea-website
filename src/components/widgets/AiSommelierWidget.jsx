@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Thermometer, Droplets, Wind, Brain, Sparkles, Coffee, Clock, ChevronRight, Activity } from 'lucide-react';
 
 const MOODS = [
@@ -48,7 +48,6 @@ const RECOMMENDATIONS = {
 };
 
 const AiSommelierWidget = () => {
-    const [mood, setMood] = useState(null);
     const [isScanning, setIsScanning] = useState(false);
     const [envData, setEnvData] = useState({ temp: 24, humidity: 65, wind: '微風' });
     const [result, setResult] = useState(null);
@@ -66,7 +65,6 @@ const AiSommelierWidget = () => {
     }, []);
 
     const handleRecommend = (selectedMood) => {
-        setMood(selectedMood);
         setIsScanning(true);
         setResult(null);
 
@@ -180,7 +178,7 @@ const AiSommelierWidget = () => {
                     </div>
 
                     <button
-                        onClick={() => { setResult(null); setMood(null); }}
+                        onClick={() => setResult(null)}
                         className="w-full py-3 bg-stone-100 text-stone-600 rounded-2xl font-black text-sm hover:bg-stone-200 transition-colors flex items-center justify-center gap-2"
                     >
                         重新測評 <Sparkles size={14} />

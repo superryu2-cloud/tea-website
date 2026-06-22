@@ -72,10 +72,10 @@ export default function FloatingSearch({ navigateToSearch, goToTab }) {
             <button
                 type="button"
                 onClick={() => setOpen(prev => !prev)}
-                className={`fixed bottom-[144px] right-5 md:right-7 z-[9996] w-12 h-12 rounded-full shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center ${open
-                    ? 'bg-stone-700 text-white'
-                    : 'bg-gradient-to-br from-amber-400 to-amber-500 text-stone-900'
-                    }`}
+	                className={`fixed bottom-[calc(env(safe-area-inset-bottom)+7.25rem)] right-4 z-[9996] flex h-12 w-12 items-center justify-center rounded-full shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-2xl active:scale-95 md:bottom-[144px] md:right-7 ${open
+	                    ? 'bg-stone-700 text-white'
+	                    : 'bg-gradient-to-br from-amber-400 to-amber-500 text-stone-900'
+	                    }`}
                 aria-label="搜尋百科"
                 title="搜尋百科"
             >
@@ -86,7 +86,7 @@ export default function FloatingSearch({ navigateToSearch, goToTab }) {
             {open && (
                 <div
                     ref={panelRef}
-                    className="fixed bottom-[204px] right-5 md:right-7 z-[9997] w-[340px] max-h-[420px] rounded-2xl bg-white/95 backdrop-blur-xl border border-stone-200 shadow-2xl overflow-hidden animate-in"
+	                    className="fixed bottom-[calc(env(safe-area-inset-bottom)+10.75rem)] left-4 right-4 z-[9997] max-h-[420px] overflow-hidden rounded-2xl border border-stone-200 bg-white/95 shadow-2xl backdrop-blur-xl animate-in sm:left-auto sm:w-[340px] md:bottom-[204px] md:right-7"
                     style={{
                         animation: 'floatingSearchIn 200ms ease-out',
                     }}

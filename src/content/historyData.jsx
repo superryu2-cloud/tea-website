@@ -1,42 +1,13 @@
 // Auto-extracted from src/App.jsx
 
-import React, { useState } from 'react';
-import { Leaf, Droplets, Clock, BookOpen, Search, Menu, X, ChevronRight, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle, Hammer } from 'lucide-react';
-import { chineseTeaDynasties, dongdingTimeline, teaNameEtymology, teaNicknames } from '../data/historyCulture';
-import ImageLightbox from '../components/ImageLightbox';
-import shennongImage from '../assets/images/history_shennong.png';
+import React from 'react';
+import { Leaf, Droplets, Clock, BookOpen, Menu, X, ChevronRight, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle, Hammer } from 'lucide-react';
+import { chineseTeaDynasties, teaNameEtymology, teaNicknames } from '../data/historyCulture';
+import ZoomableImage from '../components/ZoomableHistoryImage';
 import scrollTexture from '../assets/images/history_calligraphy_scroll.png';
 import dynastyRiver from '../assets/images/history_dynasty_river.png';
 import teaHouseImage from '../assets/images/history_tea_house_ghibli.png';
 import highMountainImage from '../assets/images/history_high_mountain_ghibli.png';
-
-function ZoomableImage({ src, alt, containerClassName, imgClassName, overlayClassName, children }) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className={containerClassName}>
-            <button
-                type="button"
-                onClick={() => setIsOpen(true)}
-                className="group absolute inset-0 w-full h-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
-                aria-label={`${alt || '圖片'}（點擊放大）`}
-            >
-                <img src={src} alt={alt} className={imgClassName} />
-                {overlayClassName ? <div className={overlayClassName} /> : null}
-                {children}
-                <span className="absolute bottom-4 right-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 text-stone-700 shadow-lg opacity-0 transition-opacity group-hover:opacity-100">
-                    <Search size={18} />
-                </span>
-            </button>
-            <ImageLightbox
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-                imageSrc={src}
-                altText={alt}
-            />
-        </div>
-    );
-}
 
 
 export function createHistoryData({ searchTerm, setSearchTerm, filteredTimelineData, TimelineRow }) {

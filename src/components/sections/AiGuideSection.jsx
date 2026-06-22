@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DiagnosisQuiz from '../ai/DiagnosisQuiz';
 import ResultCard from '../ai/ResultCard';
 import ImageLightbox from '../ui/ImageLightbox';
@@ -12,7 +12,7 @@ function loadSaved() {
 }
 
 function save(data) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch { }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch { return null; }
 }
 
 const TAB_MAP = {

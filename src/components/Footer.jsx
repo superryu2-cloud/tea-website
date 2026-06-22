@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Leaf, ArrowUp } from 'lucide-react';
 
-const Footer = ({ goToTab, i18n }) => {
+const Footer = ({ goToTab, i18n, mobileMenuOpen = false }) => {
     const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
@@ -109,13 +109,13 @@ const Footer = ({ goToTab, i18n }) => {
                 </div>
             </div>
 
-            {showScrollTop && (
+            {showScrollTop && !mobileMenuOpen && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-[84px] right-5 md:right-7 bg-amber-300 text-stone-900 p-3 rounded-full hover:bg-amber-200 transition-all z-50 animate-fadeIn border border-amber-200 shadow-lg"
+	                    className="fixed bottom-[calc(env(safe-area-inset-bottom)+4.125rem)] right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-amber-200 bg-amber-300 p-0 text-stone-900 shadow-lg transition-all hover:bg-amber-200 md:bottom-[84px] md:right-7 md:h-auto md:w-auto md:p-3 animate-fadeIn"
                     aria-label={i18n.t('ui.backToTop')}
                 >
-                    <ArrowUp size={24} />
+	                    <ArrowUp size={22} />
                 </button>
             )}
         </footer>

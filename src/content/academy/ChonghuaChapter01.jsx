@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import ImageLightbox from '../../components/ImageLightbox';
@@ -103,7 +103,7 @@ function SubLabel({ children }) {
 }
 
 export default function ChonghuaChapter01() {
-    const TOC = [
+    const TOC = useMemo(() => [
         { id: 'ch01-foreword', label: '前言' },
         { id: 'ch01-tea-art', label: '什麼是茶藝' },
         { id: 'ch01-choose-teaware', label: '因茶擇器' },
@@ -113,7 +113,7 @@ export default function ChonghuaChapter01() {
         { id: 'ch01-fair-cup', label: '勻杯' },
         { id: 'ch01-assist-tools', label: '茶道輔助器具' },
         { id: 'ch01-layout-diagram', label: '茶席佈置位圖' },
-    ];
+    ], []);
 
     const [activeId, setActiveId] = useState(TOC[0].id);
 
@@ -130,7 +130,7 @@ export default function ChonghuaChapter01() {
             if (el) observer.observe(el);
         });
         return () => observer.disconnect();
-    }, []);
+    }, [TOC]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);
@@ -536,7 +536,7 @@ export default function ChonghuaChapter01() {
                                         </div>
                                     </div>
                                     <div className="w-full">
-                                        <h3 className="text-[22px] font-bold text-stone-900 mb-6 font-sans">勻杯　分奉茶湯</h3>
+                                        <h3 className="text-[22px] font-bold text-stone-900 mb-6 font-sans">勻杯 分奉茶湯</h3>
 
                                         <div className="space-y-6">
                                             <div>

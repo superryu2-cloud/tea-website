@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Sprout, Globe, Map, Coffee } from 'lucide-react';
 import TaiwanTeaMap from '../TaiwanTeaMap';
+import TaiwanHighMountainTeaMap from '../TaiwanHighMountainTeaMap';
 import ImageModal from '../ImageModal';
 
 const RegionsSection = () => {
@@ -149,6 +150,11 @@ const RegionsSection = () => {
                     </p>
 
                     <TaiwanTeaMap />
+                </div>
+
+                {/* Independent High Mountain Tea Map — original map remains unchanged */}
+                <div className="mb-24">
+                    <TaiwanHighMountainTeaMap />
                 </div>
 
                 {/* World Black Tea Origins Visual Section */}
@@ -309,3 +315,4 @@ const RegionsSection = () => {
 };
 
 export default RegionsSection;
+

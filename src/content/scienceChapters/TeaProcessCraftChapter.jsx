@@ -5,17 +5,15 @@ import SectionCard from '../../components/SectionCard';
 
 const ZoomableImage = ({ src, alt, caption }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    if (!isOpen || typeof document === 'undefined') return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = previousOverflow;
     };
   }, [isOpen]);
 
@@ -73,7 +71,7 @@ const ZoomableImage = ({ src, alt, caption }) => {
         </div>
       </div>
 
-      {mounted && isOpen && createPortal(modalContent, document.body)}
+      {isOpen && typeof document !== 'undefined' && createPortal(modalContent, document.body)}
     </>
   );
 };

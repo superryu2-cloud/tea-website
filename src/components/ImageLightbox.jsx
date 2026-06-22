@@ -21,13 +21,13 @@ export default function ImageLightbox({ isOpen, onClose, imageSrc, altText }) {
 
     return createPortal(
         <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-stone-900/95 backdrop-blur-sm animate-fadeIn cursor-zoom-out p-6 md:p-12"
+	            className="fixed inset-0 z-[10000] flex cursor-zoom-out items-center justify-center bg-stone-900/95 p-4 backdrop-blur-sm animate-fadeIn md:p-12"
             onClick={onClose}
         >
             {/* Close button */}
             <button
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-colors z-[10000]"
+	                className="absolute right-4 top-4 z-[10001] p-2 text-white/70 transition-colors hover:text-white md:right-6 md:top-6"
                 aria-label="Close"
             >
                 <X size={48} strokeWidth={1.5} />
@@ -35,17 +35,16 @@ export default function ImageLightbox({ isOpen, onClose, imageSrc, altText }) {
 
             {/* Image Container */}
             <div
-                className="relative flex items-center justify-center animate-scaleUp"
-                onClick={(e) => e.stopPropagation()} // Prevent click on image from closing
-                style={{ maxWidth: '90vw', maxHeight: '90vh' }}
-            >
-                <img
-                    src={imageSrc}
-                    alt={altText || 'Enlarged view'}
-                    className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl"
-                />
-                {altText && (
-                    <div className="absolute -bottom-10 left-0 right-0 text-center">
+	                className="relative flex max-h-[calc(100vh-2rem)] max-w-[92vw] flex-col items-center justify-center gap-3 animate-scaleUp"
+	                onClick={(e) => e.stopPropagation()} // Prevent click on image from closing
+	            >
+	                <img
+	                    src={imageSrc}
+	                    alt={altText || 'Enlarged view'}
+	                    className="max-h-[calc(100vh-7rem)] max-w-full object-contain rounded shadow-2xl md:max-h-[90vh]"
+	                />
+	                {altText && (
+	                    <div className="max-w-full text-center">
                         <p className="text-stone-300 text-sm font-medium tracking-wide">{altText}</p>
                     </div>
                 )}

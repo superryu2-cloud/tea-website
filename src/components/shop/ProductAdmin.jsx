@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     getAllProducts, addProduct, updateProduct, deleteProduct,
     DEFAULT_ORDER_URL, PAGE_OPTIONS, getDisplayConfig, saveDisplayConfig,
@@ -36,14 +36,13 @@ const catBadge = { teaware: 'bg-amber-100 text-amber-700', tea: 'bg-emerald-100 
 const catLabel = { teaware: '茶具', tea: '茶葉', accessory: '配件' };
 
 export default function ProductAdmin() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(() => getAllProducts());
     const [form, setForm] = useState(EMPTY_FORM);
     const [editingId, setEditingId] = useState(null);
     const [isNew, setIsNew] = useState(false);
     const [enabledPages, setEnabledPages] = useState(() => getDisplayConfig());
 
     const reload = () => setProducts(getAllProducts());
-    useEffect(() => { reload(); }, []);
 
     function togglePage(pageId) {
         setEnabledPages((prev) => {
@@ -363,7 +362,11 @@ export default function ProductAdmin() {
                         <button
                             type="button"
                             onClick={async () => {
-                                const all = getAllProducts().map(({ _source, ...p }) => p);
+                                const all = getAllProducts().map((product) => {
+                                    const next = { ...product };
+                                    delete next._source;
+                                    return next;
+                                });
                                 try {
                                     const res = await fetch('/__sync-products', {
                                         method: 'POST',

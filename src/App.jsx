@@ -1,113 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Leaf, Droplets, Clock, Coffee, BookOpen, Search, Menu, X, ChevronRight, ChevronDown, Wind, Flame, Tag, Layers, Map, FlaskConical, ArrowRight, Mountain, Compass, Sprout, Microscope, Scale, Table, Info, Star, Feather, Scroll, Thermometer, Sun, Snowflake, CloudRain, Wheat, Cloud, User, AlertTriangle, TrendingUp, History, Book, PenTool, Globe, Bug, Sparkles, ShieldAlert, CheckCircle, Palette, Layout, Calendar, RefreshCw, ArrowUp, Filter, Play, Pause, RotateCcw, Bot, HelpCircle } from 'lucide-react';
-import teaData from './data/teaData';
+import React, { useState, useEffect, useRef } from 'react';
 import featuredTeaMenu from './data/featuredTeaMenu';
-import sensoryQuestionBank from './data/sensoryQuestionBank.js';
-import TieGuanyinContent from './content/featured/tieguanyin';
-import DongDingContent from './content/featured/dongding';
-import RedOolongContent from './content/featured/redoolong';
-import OrientalBeautyContent from './content/featured/orientalbeauty';
-import HoneyAromaBlackTeaContent from './content/featured/honeyblack';
-import WenshanPouchongContent from './content/featured/wenshan';
-import BiluochunGreenTeaContent from './content/featured/biluochun';
-import FeaturedTeaOverview from './content/featured/FeaturedTeaOverview';
-import GaoshanOolongContent from './content/featured/gaoshanoolong';
-import BlackTeaVarietiesContent from './content/featured/BlackTeaVarieties';
-import LongjingTeaArticle from './content/examples/LongjingTeaArticle';
-import ChenChuanTeaClassification from './content/varieties/ChenChuanTeaClassification';
-import PuerhEncyclopedia from './content/varieties/PuerhEncyclopedia';
-import RedTeaGlobalStory from './content/varieties/RedTeaGlobalStory';
-import GreenTeaHistory from './content/varieties/GreenTeaHistory';
-import YellowTeaHistory from './content/varieties/YellowTeaHistory';
-import WhiteTeaHistory from './content/varieties/WhiteTeaHistory';
-import BlackTeaHistory from './content/varieties/BlackTeaHistory';
-import SixTeaTypesNotes from './content/varieties/SixTeaTypesNotes';
-import TeaEncyclopediaOverview from './content/varieties/TeaEncyclopediaOverview';
-import OolongRegions from './content/varieties/OolongRegions';
-import WhiteTeaRegions from './content/varieties/WhiteTeaRegions';
-import OolongTeaVerticalTimeline from './components/sections/OolongTeaVerticalTimeline';
-import RitualSection from './components/sections/RitualSection';
-import TeaSetupSection from './components/sections/TeaSetupSection';
-import TaiwanCultivarDiversity from './content/cultivars/TaiwanCultivarDiversity';
-import TaiwanTeaCultivars from './content/cultivars/TaiwanTeaCultivars';
-import CultivarMysterySection from './content/cultivars/CultivarMysterySection';
-import TeaReferenceNotes from './content/references/TeaReferenceNotes';
-import SensoryQuestionBank from './content/sensory/SensoryQuestionBank';
-import TeaTalkColorSection from './content/teaTalk/TeaTalkColorSection';
-import OolongNameStory from './content/teaTalk/OolongNameStory';
-import TeaArtSpirit from './content/ceremony/TeaArtSpirit';
-import SolarTermsPrimer from './content/seasons/SolarTermsPrimer';
-import FourSeasonsSection from './content/seasons/FourSeasonsSection';
-import ZishaExhibit from './content/zisha/ZishaExhibit';
-import { UI_FLAGS } from './config/uiFlags';
-import { CHEN_CHUAN_TOC, CULTIVARS_SECTIONS, CULTIVARS_TOC, NAV_ITEMS, OOLONG_TOC, PUERH_TOC, RED_TOC, SCIENCE_TOC, SEASONS_SECTIONS, TEA_REFERENCE_TOC, VARIETIES_KINDS } from './config/navigation';
+import { CHEN_CHUAN_TOC, NAV_ITEMS, OOLONG_TOC, PUERH_TOC, RED_TOC, SCIENCE_TOC, TEA_REFERENCE_TOC, VARIETIES_KINDS, WHITE_TOC_EXTENDED as CONFIG_WHITE_TOC_EXTENDED } from './config/navigation';
 import useI18n from './i18n/useI18n';
-import SectionCard from './components/SectionCard';
-import ImageModal from './components/ImageModal';
 import PasswordModal from './components/PasswordModal';
 import SiteNavigation from './components/SiteNavigation';
-import TaiwanTeaMap from './components/TaiwanTeaMap';
-import ChapterSidebar from './components/ChapterSidebar';
-import CollapsibleSidebar from './components/CollapsibleSidebar';
-import HorizontalNavigation from './components/HorizontalNavigation';
-import AcademyRouter from './components/academy/AcademyRouter';
-import PinnedChapterSidebar from './components/PinnedChapterSidebar';
-import AtlasDockLayout from './components/AtlasDockLayout';
-import AcademySection from './components/academy/AcademySection';
-import AcademyContentBlock from './components/academy/AcademyContentBlock';
-import AcademyHighlightBox from './components/academy/AcademyHighlightBox';
-import AcademyChapter from './components/academy/AcademyChapter';
-import HeroSection from './components/sections/HeroSection';
-import CNYHero from './components/hero/CNYHero';
-import TeaPoetrySection from './components/sections/TeaPoetrySection';
-import JourneySection from './components/sections/JourneySection';
-import AiChatButton from './components/ai/AiChatButton';
-import ProductAdmin from './components/shop/ProductAdmin';
-import RelatedProducts from './components/shop/RelatedProducts';
-import StationNav from './components/ai/StationNav';
-import FloatingSearch from './components/FloatingSearch';
-import { isPageEnabled } from './data/productData';
-import ScienceSectionLegacy from './components/sections/ScienceSectionLegacy';
-import ScienceSection from './components/sections/ScienceSection';
-import AromaticsChapter from './content/scienceChapters/AromaticsChapter';
-import TeaProcessCraftChapter from './content/scienceChapters/TeaProcessCraftChapter';
-import ConstituentsChapter from './content/scienceChapters/ConstituentsChapter';
-import RoastingChapter from './content/scienceChapters/RoastingChapter';
-import SlurpingChapter from './content/scienceChapters/SlurpingChapter';
-import PuerhSection from './sections/PuerhSection';
-import SeasonsSection from './sections/SeasonsSection';
-import BrewingGuideSection from './sections/BrewingGuideSection';
-import DraggableWrapper from './components/DraggableWrapper';
-import SteepedSereneHome from './components/sections/SteepedSereneHome';
-import ResizableDivider from './components/ResizableDivider';
-import FeaturedTeaSection from './components/sections/FeaturedTeaSection';
-import UtensilsSection from './components/sections/UtensilsSection';
-import CultivarSection from './components/sections/CultivarSection';
-import TeaCeremonySection from './components/sections/TeaCeremonySection';
-import RegionsSection from './components/sections/RegionsSection';
-import VarietiesNotesMode from './components/sections/VarietiesNotesMode';
-import TeaSearchFilter from './components/sections/TeaSearchFilter';
-import ChenChuanEssaySection from './components/sections/ChenChuanEssaySection';
-import VarietiesSection from './components/sections/VarietiesSection';
-import HistorySection from './components/sections/HistorySection';
-import VideoGallerySection from './components/sections/VideoGallerySection';
-import CourseSection from './components/sections/CourseSection';
+import ActiveTabContent from './components/app/ActiveTabContent';
 import Footer from './components/Footer';
-import { NavigationProvider } from './contexts/NavigationContext';
+import ImageLightbox from './components/ImageLightbox';
+import useAcademyUnlock from './hooks/useAcademyUnlock';
 import useScrollToSection from './hooks/useScrollToSection';
+import useSiteNavHeight from './hooks/useSiteNavHeight';
 
-const VARIETIES_CONTEXT_BAR_OFFSET_IDS = ['varieties-context-bar'];
-const WHITE_TOC_EXTENDED = [
-  { href: '#white-history', label: '白茶歷史' },
-  { href: '#white-fujian', label: '福建' },
-  { href: '#white-yunnan', label: '雲南' },
-];
+const CHONGHUA_ACADEMY_TABS = Array.from({ length: 33 }, (_, index) => `academy_chonghua_${String(index + 1).padStart(2, '0')}`);
 
 const TeaWebsite = () => {
   const i18n = useI18n();
   const [activeTab, setActiveTab] = useState('journey');
+  const urlWriteInitializedRef = useRef(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [atlasNavOpen, setAtlasNavOpen] = useState(true);
+  const [, setAtlasNavOpen] = useState(true);
   const [selectedTeaForBrewing, setSelectedTeaForBrewing] = useState(0);
   const [historyTab, setHistoryTab] = useState('taiwanTeaIndustry');
   const [scienceRoom, setScienceRoom] = useState('constituents');
@@ -121,7 +32,8 @@ const TeaWebsite = () => {
   const [redTeaHref, setRedTeaHref] = useState('#red-global');
   const [pendingScrollTarget, setPendingScrollTarget] = useState(null);
   const [pendingOffsetScrollTarget, setPendingOffsetScrollTarget] = useState(null);
-  const [siteNavHeightPx, setSiteNavHeightPx] = useState(88);
+  const [globalLightboxImage, setGlobalLightboxImage] = useState({ src: '', alt: '' });
+  const siteNavHeightPx = useSiteNavHeight(activeTab);
   const [selectedFeatured, setSelectedFeatured] = useState(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -165,31 +77,6 @@ const TeaWebsite = () => {
       setPendingOffsetScrollTarget(normalized.slice(1));
     }
   };
-
-  // Dynamically calculate navigation height to account for two-row layout
-  useEffect(() => {
-    const updateNavHeight = () => {
-      const navEl = document.getElementById('site-nav');
-      if (navEl) {
-        const height = navEl.getBoundingClientRect().height;
-        setSiteNavHeightPx(Math.round(height));
-      }
-    };
-
-    // Initial calculation
-    updateNavHeight();
-
-    // Recalculate on window resize
-    window.addEventListener('resize', updateNavHeight);
-
-    // Recalculate after a short delay to ensure layout is complete
-    const timer = setTimeout(updateNavHeight, 100);
-
-    return () => {
-      window.removeEventListener('resize', updateNavHeight);
-      clearTimeout(timer);
-    };
-  }, [activeTab]); // Recalculate when tab changes
 
   const selectOolongRegion = (href) => {
     const normalized = String(href ?? '');
@@ -342,13 +229,14 @@ const TeaWebsite = () => {
   };
 
   useEffect(() => {
-    const allowed = new Set([...NAV_ITEMS, 'academy_zhiya_02', 'academy_zhiya_03', 'academy_zhiya_04', 'academy_zhiya_05', 'academy_zhiya_06', 'academy_zhiya_07', 'academy_zhiya_09', 'academy_zhiya_10', 'academy_zhiya_14', 'academy_xueya_01', 'academy_xueya_03', 'academy_xueya_05', 'academy_xueya_06',
+    const allowed = new Set([...NAV_ITEMS, 'academy_zhiya_02', 'academy_zhiya_03', 'academy_zhiya_04', 'academy_zhiya_05', 'academy_zhiya_06', 'academy_zhiya_07', 'academy_zhiya_09', 'academy_zhiya_10', 'academy_zhiya_14', 'academy_xueya_01', 'academy_xueya_03', 'academy_xueya_04', 'academy_xueya_05', 'academy_xueya_06',
       'academy_xueya_07',
       'academy_xueya_08',
       'academy_xueya_09',
       'academy_xueya_11',
       'academy_coming_soon',
-      'brand'
+      'brand',
+      ...CHONGHUA_ACADEMY_TABS
     ]);
     const allowedRooms = new Set(SCIENCE_TOC.map((item) => item.key).filter(Boolean));
     const allowedVarietiesKinds = new Set(VARIETIES_KINDS.map((k) => k.key));
@@ -356,7 +244,7 @@ const TeaWebsite = () => {
     const allowedTeachingHrefs = new Set(TEA_REFERENCE_TOC.map((item) => item.href));
     const allowedPuerhHrefs = new Set(PUERH_TOC.map((item) => item.href));
     const allowedOolongHrefs = new Set(OOLONG_TOC.map((item) => item.href));
-    const allowedWhiteHrefs = new Set(WHITE_TOC_EXTENDED.map((item) => item.href));
+    const allowedWhiteHrefs = new Set(CONFIG_WHITE_TOC_EXTENDED.map((item) => item.href));
     const allowedRedHrefs = new Set(RED_TOC.map((item) => item.href));
 
     const syncFromUrl = () => {
@@ -464,6 +352,11 @@ const TeaWebsite = () => {
   }, []);
 
   useEffect(() => {
+    if (!urlWriteInitializedRef.current) {
+      urlWriteInitializedRef.current = true;
+      return;
+    }
+
     const url = new URL(window.location.href);
     const params = new URLSearchParams(url.search);
     let dirty = false;
@@ -565,116 +458,53 @@ const TeaWebsite = () => {
   }, [pendingOffsetScrollTarget, siteNavHeightPx]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const siteNav = document.getElementById('site-nav');
-    if (!siteNav) return;
-
-    const measure = () => setSiteNavHeightPx(Math.max(0, Math.round(siteNav.getBoundingClientRect().height)));
-    measure();
-
-    const ro = window.ResizeObserver ? new ResizeObserver(measure) : null;
-    ro?.observe(siteNav);
-    window.addEventListener('resize', measure);
-
-    return () => {
-      ro?.disconnect();
-      window.removeEventListener('resize', measure);
-    };
-  }, []);
-
-  useEffect(() => {
     document.title = `${i18n.t('site.title')} · ${i18n.t(`nav.${activeTab}`)}`;
   }, [activeTab, i18n]);
 
+  const {
+    daguanUnlocked,
+    chonghuaUnlocked,
+    academyMenuHidden,
+    passwordModalTarget,
+    closePasswordModal,
+    handleUnlockRequest,
+    handleUnlockSuccess,
+  } = useAcademyUnlock();
 
-
-
-
-
-
-  // VarietiesSection extracted to src/components/sections/VarietiesSection.jsx
-
-
-
-
-  // PuerhSection extracted to src/sections/PuerhSection.jsx
-
-  // SeasonsSection extracted to src/sections/SeasonsSection.jsx
-
-  // FeaturedTeaSection extracted to src/components/sections/FeaturedTeaSection.jsx
-
-  // BrewingGuide extracted to src/sections/BrewingGuideSection.jsx
-
-
-
-  // Academy Password Protection
-  const DAGUAN_UNLOCK_KEY = 'academy.daguanUnlocked';
-  const CHONGHUA_UNLOCK_KEY = 'academy.chonghuaUnlocked';
-  const ACADEMY_MENU_HIDDEN_KEY = 'academy.menuHidden';
-  const [daguanUnlocked, setDaguanUnlocked] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    const stored = window.localStorage?.getItem(DAGUAN_UNLOCK_KEY) === 'true';
-    if (stored) return true;
-    const legacy = window.localStorage?.getItem('museumUnlocked') === 'true';
-    if (legacy) {
-      try {
-        window.localStorage?.setItem(DAGUAN_UNLOCK_KEY, 'true');
-      } catch {
-        // ignore
-      }
-      return true;
+  const handleSiteUnlockRequest = (targetKey) => {
+    if (targetKey === false && activeTab.startsWith('academy')) {
+      goToTab('journey');
     }
-    return false;
-  });
-  const [chonghuaUnlocked, setChonghuaUnlocked] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.localStorage?.getItem(CHONGHUA_UNLOCK_KEY) === 'true';
-  });
-  const [passwordModalTarget, setPasswordModalTarget] = useState(null);
-  const [academyMenuHidden, setAcademyMenuHidden] = useState(() => {
-    if (typeof window === 'undefined') return true;
-    const stored = window.localStorage?.getItem(ACADEMY_MENU_HIDDEN_KEY);
-    if (stored === null) return true;
-    return stored === 'true';
-  });
+    handleUnlockRequest(targetKey);
+  };
 
-  const handleUnlockSuccess = (targetKey) => {
-    if (targetKey === 'daguan') {
-      setDaguanUnlocked(true);
-      try {
-        window.localStorage?.setItem(DAGUAN_UNLOCK_KEY, 'true');
-      } catch {
-        // ignore
-      }
-      setAcademyMenuHidden(false);
-      try {
-        window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
-      } catch {
-        // ignore
-      }
-    }
-    if (targetKey === 'chonghua') {
-      setChonghuaUnlocked(true);
-      try {
-        window.localStorage?.setItem(CHONGHUA_UNLOCK_KEY, 'true');
-      } catch {
-        // ignore
-      }
-    }
-    try {
-      window.localStorage?.removeItem('museumUnlocked');
-    } catch {
-      // ignore
-    }
-    setPasswordModalTarget(null);
+  const openGlobalImageLightbox = (event) => {
+    const image = event.target?.closest?.('img');
+    if (!image) return;
+    if (!event.currentTarget.contains(image)) return;
+    if (image.closest('a, button, [role="button"], input, select, textarea, label, [data-no-lightbox], [data-lightbox-overlay]')) return;
+
+    const src = image.currentSrc || image.src || image.getAttribute('src');
+    if (!src) return;
+
+    const rect = image.getBoundingClientRect();
+    const isTinyUtilityImage = rect.width < 72 || rect.height < 72;
+    if (isTinyUtilityImage && !image.closest('figure, article, section')) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    setGlobalLightboxImage({
+      src,
+      alt: image.alt || image.getAttribute('aria-label') || '',
+    });
   };
 
   return (
-    <div className="min-h-screen text-stone-900">
+    <div className="tea-site min-h-screen text-stone-900" onClickCapture={openGlobalImageLightbox}>
       <PasswordModal
         isOpen={Boolean(passwordModalTarget)}
         target={passwordModalTarget}
-        onClose={() => setPasswordModalTarget(null)}
+        onClose={closePasswordModal}
         onSuccess={handleUnlockSuccess}
       />
       <SiteNavigation
@@ -689,175 +519,65 @@ const TeaWebsite = () => {
         daguanUnlocked={daguanUnlocked}
         chonghuaUnlocked={chonghuaUnlocked}
         academyMenuHidden={academyMenuHidden}
-        onUnlockRequest={(targetKey) => {
-          if (targetKey === false) {
-            // 重新鎖定：移除解鎖狀態
-            setDaguanUnlocked(false);
-            setChonghuaUnlocked(false);
-            setAcademyMenuHidden(true);
-            try {
-              window.localStorage?.removeItem(DAGUAN_UNLOCK_KEY);
-              window.localStorage?.removeItem(CHONGHUA_UNLOCK_KEY);
-              window.localStorage?.removeItem('museumUnlocked');
-              window.localStorage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'true');
-            } catch {
-              // ignore
-            }
-          } else {
-            // 顯示密碼框（總是打開，不切換）
-            setPasswordModalTarget(targetKey ?? 'any');
-          }
-        }}
+        onUnlockRequest={handleSiteUnlockRequest}
       />
 
 
 
-      <main>
-        <AiChatButton />
-        <FloatingSearch navigateToSearch={navigateToSearch} goToTab={goToTab} />
-        {activeTab === 'admin' && <ProductAdmin />}
-        {activeTab === 'journey' && <JourneySection goToTab={goToTab} setScienceRoom={setScienceRoom} navigateToSearch={navigateToSearch} />}
-        {activeTab === 'home' && (
-          <>
-            <CNYHero />
-            <HeroSection goToTab={goToTab} goToTeaExhibit={goToTeaExhibit} teaData={teaData} />
-          </>
-        )}
-        {activeTab === 'home' && (
-          <VarietiesSection
-            activeTab={activeTab}
-            varietiesKind={varietiesKind}
-            setVarietiesKind={setVarietiesKind}
-            setActiveTab={setActiveTab}
-            setAtlasNavOpen={setAtlasNavOpen}
-            setMobileMenuOpen={setMobileMenuOpen}
-            setPendingScrollTarget={setPendingScrollTarget}
-            chenChuanScrollOffsetPx={chenChuanScrollOffsetPx}
-            chenChuanChapterHref={chenChuanChapterHref}
-            setChenChuanChapterHref={setChenChuanChapterHref}
-            oolongRegionHref={oolongRegionHref}
-            setOolongRegionHref={setOolongRegionHref}
-            redTeaHref={redTeaHref}
-            setRedTeaHref={setRedTeaHref}
-            whiteRegionHref={whiteRegionHref}
-            setWhiteRegionHref={setWhiteRegionHref}
-            siteNavHeightPx={siteNavHeightPx}
-            goToTab={goToTab}
-            selectChenChuanChapter={selectChenChuanChapter}
-            selectOolongRegion={selectOolongRegion}
-            selectRedTeaTopic={selectRedTeaTopic}
-            selectWhiteRegion={selectWhiteRegion}
-            setScienceRoom={setScienceRoom}
-            selectScienceTeachingChapter={selectScienceTeachingChapter}
-          />
-        )}
-        {activeTab === 'home' && <TeaPoetrySection />}
-
-        {activeTab === 'puerh' && (
-          <PuerhSection
-            siteNavHeightPx={siteNavHeightPx}
-            puerhChapterHref={puerhChapterHref}
-            selectPuerhChapter={selectPuerhChapter}
-          />
-        )}
-
-        {activeTab === 'sensory' && (
-          <div className="museum-page">
-            <div className="museum-stage">
-              <SensoryQuestionBank
-                questions={sensoryQuestionBank}
-                activeTopic={sensoryTopic}
-                onSelectTopic={setSensoryTopic}
-                topOffsetPx={siteNavHeightPx + 12}
-              />
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'tea_talk' && <TeaTalkColorSection siteNavHeightPx={siteNavHeightPx} />}
-        {activeTab === 'cultivars' && <CultivarSection siteNavHeightPx={siteNavHeightPx} />}
-        {activeTab === 'varieties' && (
-          <VarietiesSection
-            activeTab={activeTab}
-            varietiesKind={varietiesKind}
-            setVarietiesKind={setVarietiesKind}
-            setActiveTab={setActiveTab}
-            setAtlasNavOpen={setAtlasNavOpen}
-            setMobileMenuOpen={setMobileMenuOpen}
-            setPendingScrollTarget={setPendingScrollTarget}
-            chenChuanScrollOffsetPx={chenChuanScrollOffsetPx}
-            chenChuanChapterHref={chenChuanChapterHref}
-            setChenChuanChapterHref={setChenChuanChapterHref}
-            oolongRegionHref={oolongRegionHref}
-            setOolongRegionHref={setOolongRegionHref}
-            redTeaHref={redTeaHref}
-            setRedTeaHref={setRedTeaHref}
-            whiteRegionHref={whiteRegionHref}
-            setWhiteRegionHref={setWhiteRegionHref}
-            siteNavHeightPx={siteNavHeightPx}
-            goToTab={goToTab}
-            selectChenChuanChapter={selectChenChuanChapter}
-            selectOolongRegion={selectOolongRegion}
-            selectRedTeaTopic={selectRedTeaTopic}
-            selectWhiteRegion={selectWhiteRegion}
-            setScienceRoom={setScienceRoom}
-            selectScienceTeachingChapter={selectScienceTeachingChapter}
-          />
-        )}
-
-        {activeTab === 'course' && <CourseSection goToTab={goToTab} setVarietiesKind={setVarietiesKind} />}
-        {activeTab === 'featured' && (
-          <FeaturedTeaSection
-            selectedFeatured={selectedFeatured}
-            setSelectedFeatured={setSelectedFeatured}
-            siteNavHeightPx={siteNavHeightPx}
-          />
-        )}
-
-        {activeTab === 'seasons' && <SeasonsSection siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'zisha' && <ZishaExhibit siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'science' && (
-          <ScienceSection
-            scienceRoom={scienceRoom}
-            setScienceRoom={setScienceRoom}
-            teachingChapterHref={teachingChapterHref}
-            onSelectTeachingChapter={selectScienceTeachingChapter}
-            siteNavHeightPx={siteNavHeightPx}
-          />
-        )}
-
-        {activeTab === 'brewing' && <BrewingGuideSection selectedTeaForBrewing={selectedTeaForBrewing} setSelectedTeaForBrewing={setSelectedTeaForBrewing} />}
-
-        {activeTab === 'ceremony' && <TeaCeremonySection siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'regions' && <RegionsSection siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'history' && <HistorySection historyTab={historyTab} setHistoryTab={setHistoryTab} siteNavHeightPx={siteNavHeightPx} />}
-
-        {activeTab === 'video' && <VideoGallerySection siteNavHeightPx={siteNavHeightPx} />}
-
-        {/* Academy Section - Centralized routing through AcademyRouter */}
-        <AcademyRouter
-          activeTab={activeTab}
-          daguanUnlocked={daguanUnlocked}
-          chonghuaUnlocked={chonghuaUnlocked}
-        />
-
-        {/* 個人化學習導航（根據測驗路線） */}
-        <StationNav activeTab={activeTab} goToTab={goToTab} />
-
-        {/* 全域商品推薦（根據後台展示設定） */}
-        {activeTab !== 'admin' && isPageEnabled(activeTab) && (
-          <div className="max-w-5xl mx-auto px-4 pb-12">
-            <RelatedProducts showAll title="推薦商品" />
-          </div>
-        )}
-      </main>
+      <ActiveTabContent
+        activeTab={activeTab}
+        mobileMenuOpen={mobileMenuOpen}
+        navigateToSearch={navigateToSearch}
+        goToTab={goToTab}
+        setScienceRoom={setScienceRoom}
+        goToTeaExhibit={goToTeaExhibit}
+        varietiesKind={varietiesKind}
+        setVarietiesKind={setVarietiesKind}
+        setActiveTab={setActiveTab}
+        setAtlasNavOpen={setAtlasNavOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        setPendingScrollTarget={setPendingScrollTarget}
+        chenChuanScrollOffsetPx={chenChuanScrollOffsetPx}
+        chenChuanChapterHref={chenChuanChapterHref}
+        setChenChuanChapterHref={setChenChuanChapterHref}
+        oolongRegionHref={oolongRegionHref}
+        setOolongRegionHref={setOolongRegionHref}
+        redTeaHref={redTeaHref}
+        setRedTeaHref={setRedTeaHref}
+        whiteRegionHref={whiteRegionHref}
+        setWhiteRegionHref={setWhiteRegionHref}
+        siteNavHeightPx={siteNavHeightPx}
+        selectChenChuanChapter={selectChenChuanChapter}
+        selectOolongRegion={selectOolongRegion}
+        selectRedTeaTopic={selectRedTeaTopic}
+        selectWhiteRegion={selectWhiteRegion}
+        selectScienceTeachingChapter={selectScienceTeachingChapter}
+        puerhChapterHref={puerhChapterHref}
+        selectPuerhChapter={selectPuerhChapter}
+        sensoryTopic={sensoryTopic}
+        setSensoryTopic={setSensoryTopic}
+        historyTab={historyTab}
+        setHistoryTab={setHistoryTab}
+        selectedFeatured={selectedFeatured}
+        setSelectedFeatured={setSelectedFeatured}
+        selectedTeaForBrewing={selectedTeaForBrewing}
+        setSelectedTeaForBrewing={setSelectedTeaForBrewing}
+        scienceRoom={scienceRoom}
+        teachingChapterHref={teachingChapterHref}
+        daguanUnlocked={daguanUnlocked}
+        chonghuaUnlocked={chonghuaUnlocked}
+      />
 
       {/* AI Components are now correctly defined and called */}
-      <Footer goToTab={goToTab} i18n={i18n} />
+      <Footer goToTab={goToTab} i18n={i18n} mobileMenuOpen={mobileMenuOpen} />
+      <div data-lightbox-overlay>
+        <ImageLightbox
+          isOpen={Boolean(globalLightboxImage.src)}
+          onClose={() => setGlobalLightboxImage({ src: '', alt: '' })}
+          imageSrc={globalLightboxImage.src}
+          altText={globalLightboxImage.alt}
+        />
+      </div>
     </div>
   );
 };
@@ -865,4 +585,3 @@ const TeaWebsite = () => {
 export default function App() {
   return <TeaWebsite />;
 }
-

@@ -123,7 +123,7 @@ function Accordion({ title, icon: Icon, iconColor, color, body }) {
                 className={`w-full flex items-center justify-between px-6 py-4 text-left hover:brightness-95 transition-all`}
             >
                 <div className="flex items-center gap-3">
-                    <Icon size={22} className={iconColor} />
+                    {React.createElement(Icon, { size: 22, className: iconColor })}
                     <span className="font-bold text-[18px]">{title}</span>
                 </div>
                 {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
@@ -348,7 +348,7 @@ const TeaProcessIntro = () => {
                     <div className="w-10 h-1 bg-amber-500 rounded-full" />
                     <h2 className="text-2xl font-extrabold text-stone-900">臺灣特色茶加工製程圖</h2>
                 </div>
-                <p className="text-[14px] text-stone-400 mb-8">資料來源：行政院農業委員會茶業改良場　· 點擊各步驟可查看說明</p>
+                <p className="text-[14px] text-stone-400 mb-8">資料來源：行政院農業委員會茶業改良場 · 點擊各步驟可查看說明</p>
                 <TeaProcessFlowChart />
             </section>
 

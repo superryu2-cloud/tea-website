@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { BookOpen, Video, Droplets, Wind, Sparkles, Layout, Flame, Scale, FlaskConical, Heart, Archive } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
@@ -9,14 +9,14 @@ import imgVertical from '../../assets/images/xueya-ch4-seat-vertical.png';
 import pouringImage from '../../assets/images/xueya-ch4-art-connection.png';
 
 export default function ChonghuaChapter02() {
-    const TOC = [
+    const TOC = useMemo(() => [
         { id: 'ch02-intro', label: '課程簡介' },
         { id: 'ch02-layout', label: '茶席佈局：橫向與直式' },
         { id: 'ch02-video', label: '茶席儀軌觀摩影片' },
         { id: 'ch02-steps', label: '儀軌四大核心' },
         { id: 'ch02-clean', label: '結席與清壺' },
         { id: 'ch02-mindset', label: '茶席心法' },
-    ];
+    ], []);
 
     const [activeId, setActiveId] = useState(TOC[0].id);
 
@@ -33,7 +33,7 @@ export default function ChonghuaChapter02() {
             if (el) observer.observe(el);
         });
         return () => observer.disconnect();
-    }, []);
+    }, [TOC]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);

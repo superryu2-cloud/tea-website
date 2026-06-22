@@ -1,12 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import {
     BookOpen, Milestone, Feather, Clock, ArrowRight, Compass,
     ChevronDown, ChevronUp, FileText, Map,
-    Sparkles, Sprout, Flame,
+    Sparkles, Sprout, Flame, Coffee,
 } from 'lucide-react';
-import SixHourCourseContent from './sixHour/SixHourCourseContent';
-import TeaTriviaGame from './TeaTriviaGame';
-import MultiplayerGame from './MultiplayerGame';
+
+const SixHourCourseContent = lazy(() => import('./sixHour/SixHourCourseContent'));
+const TeaTriviaGame = lazy(() => import('./TeaTriviaGame'));
+const MultiplayerGame = lazy(() => import('./MultiplayerGame'));
+
+function CourseContentLoadingFallback({ label = 'Loading course content...' }) {
+    return (
+        <div className="rounded-3xl border border-stone-200 bg-white/80 p-8 text-center text-sm font-bold text-stone-500 shadow-sm">
+            {label}
+        </div>
+    );
+}
+
+function getInitialGameMode() {
+    if (typeof window === 'undefined') return 'single';
+    return new URLSearchParams(window.location.search).get('room') ? 'multiplayer' : 'single';
+}
 
 /* ─────────────────────────────────────────────
    課程題綱資料（含詳細子單元）
@@ -256,8 +270,226 @@ const colorMap = {
         header: 'from-emerald-50 to-white border-emerald-100',
         number: 'bg-emerald-100 text-emerald-700',
         bullet: 'bg-emerald-400',
-    },
+	    },
+	};
+
+const redBlackTeaMicroCourse = {
+    eyebrow: '20 MINUTE MICRO COURSE',
+    title: '紅茶類風味辨識短講',
+    subtitle: '用 20 分鐘建立「同樣做成紅茶，茶樹品種與生態條件如何改變香氣」的判斷框架。',
+    heroImage: '/images/course/red-black-tea/red-black-tea-course-hero.png',
+    goals: [
+        '理解紅茶全發酵製程如何放大香氣與甜感',
+        '分辨山茶、蜜香、台茶18號與小葉種紅茶的風味性格',
+        '建立品飲順序：由細緻到厚重，讓學員更容易比較',
+    ],
+    timeline: [
+        { time: '0-2 分', title: '紅茶核心概念', desc: '紅茶是全發酵茶，重點在萎凋、揉捻、發酵與乾燥。' },
+        { time: '2-5 分', title: '風味怎麼來', desc: '品種決定骨架，製程決定香氣，發酵決定湯色與厚度。' },
+        { time: '5-8.5 分', title: '山茶紅茶', desc: '山林感、木質調、喉韻深，重在耐喝與尾韻。' },
+        { time: '8.5-12 分', title: '蜜香紅茶', desc: '小綠葉蟬著涎帶出蜜甜、熟果與柔順口感。' },
+        { time: '12-15.5 分', title: '台茶18號紅玉', desc: '薄荷、肉桂、甘蔗與厚實茶湯，是台灣紅茶代表。' },
+        { time: '15.5-18.5 分', title: '小葉種紅茶', desc: '花香、甜香、清爽細緻，走優雅型紅茶路線。' },
+        { time: '18.5-20 分', title: '比較總結', desc: '以香氣、滋味、口感與適飲對象快速收束。' },
+    ],
+    teaTypes: [
+        {
+            name: '山茶紅茶',
+            image: '/images/course/red-black-tea/mountain-camellia-black-tea.png',
+            alt: '山茶紅茶與霧氣山林茶園',
+            notes: ['木質、山林、野花、藥草感', '茶湯沉穩厚實，喉韻較深', '適合放在最後品飲，感受尾韻'],
+            tags: ['山林感', '木質調', '耐泡'],
+        },
+        {
+            name: '蜜香紅茶',
+            image: '/images/course/red-black-tea/honey-aroma-black-tea.png',
+            alt: '蜜香紅茶、茶園與花蜜感茶湯',
+            notes: ['小綠葉蟬刺激後形成天然蜜香', '蜂蜜、熟果、花蜜香明顯', '甜潤柔和，初學者接受度高'],
+            tags: ['蜜甜香', '熟果香', '柔順'],
+        },
+        {
+            name: '台茶18號紅玉',
+            image: '/images/course/red-black-tea/ruby-18-black-tea.png',
+            alt: '台茶18號紅玉紅茶與日月潭茶園',
+            notes: ['緬甸大葉種與台灣野生山茶育成', '薄荷、肉桂、甘蔗、熟果香', '湯感厚、有骨架，辨識度很高'],
+            tags: ['薄荷', '肉桂', '厚實'],
+        },
+        {
+            name: '小葉種紅茶',
+            image: '/images/course/red-black-tea/small-leaf-black-tea.png',
+            alt: '小葉種紅茶與清雅茶席',
+            notes: ['香氣細緻，常見花香、甜香、淡果香', '茶湯不走厚重，重在清爽與優雅', '適合作為品飲第一杯，建立清楚基準'],
+            tags: ['花香', '清爽', '細緻'],
+        },
+    ],
 };
+
+function RedBlackTeaMicroCourse({ onVarieties, onFeatured }) {
+    return (
+        <section className="rounded-[2rem] border border-red-100 bg-gradient-to-br from-red-50 via-white to-amber-50 p-5 md:p-8 shadow-sm overflow-hidden">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] items-stretch">
+                <div className="relative min-h-[360px] overflow-hidden rounded-3xl bg-stone-900 shadow-xl">
+                    <img
+                        src={redBlackTeaMicroCourse.heroImage}
+                        alt="紅茶類風味辨識短講茶樣與品飲桌面"
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 text-white">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-extrabold tracking-[0.22em] backdrop-blur">
+                            <Coffee className="h-4 w-4" />
+                            {redBlackTeaMicroCourse.eyebrow}
+                        </div>
+                        <h2 className="mt-4 text-3xl md:text-4xl font-extrabold font-serif leading-tight">
+                            {redBlackTeaMicroCourse.title}
+                        </h2>
+                        <p className="mt-3 max-w-2xl text-[17px] leading-relaxed text-stone-100">
+                            {redBlackTeaMicroCourse.subtitle}
+                        </p>
+                    </div>
+                </div>
+
+                <div className="rounded-3xl border border-red-100/80 bg-white/90 p-6 md:p-7 shadow-sm">
+                    <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-100 text-red-800">
+                            <Clock className="h-5 w-5" />
+                        </div>
+                        <div>
+                            <p className="text-xs font-extrabold tracking-[0.24em] text-red-700/70">COURSE FLOW</p>
+                            <h3 className="text-xl font-extrabold text-stone-900">20 分鐘講解節奏</h3>
+                        </div>
+                    </div>
+
+                    <div className="mt-5 space-y-3">
+                        {redBlackTeaMicroCourse.timeline.map((item) => (
+                            <div key={item.time} className="grid grid-cols-[82px_minmax(0,1fr)] gap-3 rounded-2xl border border-stone-100 bg-stone-50/70 p-3">
+                                <div className="rounded-xl bg-white px-2 py-2 text-center text-[12px] font-extrabold text-red-800 shadow-sm">
+                                    {item.time}
+                                </div>
+                                <div>
+                                    <div className="text-[15px] font-extrabold text-stone-900">{item.title}</div>
+                                    <p className="mt-1 text-[14px] leading-relaxed text-stone-600">{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                {redBlackTeaMicroCourse.teaTypes.map((tea) => (
+                    <article key={tea.name} className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+                        <div className="aspect-[16/10] overflow-hidden bg-stone-100">
+                            <img
+                                src={tea.image}
+                                alt={tea.alt}
+                                loading="lazy"
+                                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-5">
+                            <h3 className="text-xl font-extrabold text-stone-900 font-serif">{tea.name}</h3>
+                            <div className="mt-3 flex flex-wrap gap-2">
+                                {tea.tags.map((tag) => (
+                                    <span key={tag} className="rounded-full bg-red-50 px-2.5 py-1 text-xs font-extrabold text-red-800">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <ul className="mt-4 space-y-2">
+                                {tea.notes.map((note) => (
+                                    <li key={note} className="flex gap-2 text-[15px] leading-relaxed text-stone-700">
+                                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                                        <span>{note}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+                <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+                    <div className="border-b border-stone-100 px-5 py-4">
+                        <p className="text-xs font-extrabold tracking-[0.24em] text-stone-400">COMPARISON</p>
+                        <h3 className="mt-1 text-xl font-extrabold text-stone-900">四款紅茶快速比較</h3>
+                    </div>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-[760px] w-full text-left text-[15px]">
+                            <thead className="bg-stone-50 text-stone-700">
+                                <tr>
+                                    <th className="px-5 py-3 font-extrabold">類型</th>
+                                    <th className="px-5 py-3 font-extrabold">香氣</th>
+                                    <th className="px-5 py-3 font-extrabold">口感</th>
+                                    <th className="px-5 py-3 font-extrabold">教學定位</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-stone-100 text-stone-700">
+                                <tr>
+                                    <td className="px-5 py-3 font-extrabold text-stone-900">山茶紅茶</td>
+                                    <td className="px-5 py-3">木質、山林、野花、藥草</td>
+                                    <td className="px-5 py-3">厚實、有喉韻</td>
+                                    <td className="px-5 py-3">理解紅茶的深度與野性</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-5 py-3 font-extrabold text-stone-900">蜜香紅茶</td>
+                                    <td className="px-5 py-3">蜂蜜、熟果、花蜜</td>
+                                    <td className="px-5 py-3">甜潤、柔順</td>
+                                    <td className="px-5 py-3">最容易讓初學者建立興趣</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-5 py-3 font-extrabold text-stone-900">台茶18號</td>
+                                    <td className="px-5 py-3">薄荷、肉桂、甘蔗、熟果</td>
+                                    <td className="px-5 py-3">濃厚、有骨架</td>
+                                    <td className="px-5 py-3">台灣代表性紅茶辨識</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-5 py-3 font-extrabold text-stone-900">小葉種紅茶</td>
+                                    <td className="px-5 py-3">花香、甜香、淡果香</td>
+                                    <td className="px-5 py-3">清爽、細緻</td>
+                                    <td className="px-5 py-3">建立輕盈優雅的對照基準</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div className="rounded-3xl border border-amber-100 bg-amber-50/80 p-6">
+                    <div className="flex items-center gap-3">
+                        <Sparkles className="h-5 w-5 text-amber-700" />
+                        <h3 className="text-lg font-extrabold text-stone-900">建議品飲順序</h3>
+                    </div>
+                    <ol className="mt-4 space-y-3 text-[16px] font-bold text-stone-700">
+                        <li>1. 小葉種紅茶：先建立細緻清香基準</li>
+                        <li>2. 蜜香紅茶：接著感受甜香與柔順</li>
+                        <li>3. 台茶18號：辨識厚度與薄荷肉桂感</li>
+                        <li>4. 山茶紅茶：最後感受山林韻與尾韻</li>
+                    </ol>
+                    <div className="mt-5 grid gap-3">
+                        <button
+                            type="button"
+                            onClick={onVarieties}
+                            className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 text-left text-[15px] font-extrabold text-stone-800 shadow-sm transition hover:bg-stone-50"
+                        >
+                            前往紅茶類資料
+                            <ArrowRight className="h-4 w-4" />
+                        </button>
+                        <button
+                            type="button"
+                            onClick={onFeatured}
+                            className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 text-left text-[15px] font-extrabold text-stone-800 shadow-sm transition hover:bg-stone-50"
+                        >
+                            前往台灣特色茶
+                            <ArrowRight className="h-4 w-4" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 /* ─────────────────────────────────────────────
    主元件
@@ -265,14 +497,7 @@ const colorMap = {
 export default function CourseSection({ goToTab, setVarietiesKind }) {
     const [activeCourseType, setActiveCourseType] = useState('school'); // 'school' or 'six_hours'
     const [openId, setOpenId] = useState(null);
-    const [gameMode, setGameMode] = useState('single'); // 'single' or 'multiplayer'
-
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('room')) {
-            setGameMode('multiplayer');
-        }
-    }, []);
+    const [gameMode, setGameMode] = useState(getInitialGameMode); // 'single' or 'multiplayer'
 
     const toggle = (id) => setOpenId(prev => prev === id ? null : id);
 
@@ -349,9 +574,9 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
                 {activeCourseType === 'school' ? (
                     <>
                         {/* ── 課程卡片 ── */}
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {syllabus.map((m) => {
-                                const Icon = m.icon;
+	                        <div className="grid md:grid-cols-2 gap-8">
+	                            {syllabus.map((m) => {
+	                                const Icon = m.icon;
                                 const c = colorMap[m.color];
                                 return (
                                     <div key={m.id} className="relative group flex flex-col bg-white rounded-3xl p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300">
@@ -382,12 +607,20 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
                                             </button>
                                         </div>
                                     </div>
-                                );
-                            })}
-                        </div>
+	                                );
+	                            })}
+	                        </div>
 
-                        {/* ── 詳細題綱（可展開） ── */}
-                        <div>
+	                        <RedBlackTeaMicroCourse
+	                            onVarieties={() => {
+	                                goToTab('varieties');
+	                                setVarietiesKind?.('red');
+	                            }}
+	                            onFeatured={() => handleTabAction('featured')}
+	                        />
+	
+	                        {/* ── 詳細題綱（可展開） ── */}
+	                        <div>
                             <div className="flex items-center gap-3 mb-8">
                                 <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-500">
                                     <FileText className="w-5 h-5" />
@@ -474,9 +707,9 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
                         </div>
                     </>
                 ) : (
-                    <>
+                    <Suspense fallback={<CourseContentLoadingFallback />}>
                         <SixHourCourseContent handleTabAction={handleTabAction} />
-                    </>
+                    </Suspense>
                 )}
 
                 {/* 互動遊戲區塊 */}
@@ -511,7 +744,9 @@ export default function CourseSection({ goToTab, setVarietiesKind }) {
                     </div>
                 </div>
 
-                {gameMode === 'single' ? <TeaTriviaGame /> : <MultiplayerGame />}
+                <Suspense fallback={<CourseContentLoadingFallback label="Loading game..." />}>
+                    {gameMode === 'single' ? <TeaTriviaGame /> : <MultiplayerGame />}
+                </Suspense>
 
                 {/* Footer note */}
                 <div className="text-center pb-4">

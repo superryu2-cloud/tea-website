@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { Leaf, BookOpen, ChevronRight, ChevronDown, Flame, Clock, Map, Star, Info, History, Scroll, Droplets, Globe, Wind, Tag, Scale } from 'lucide-react';
 import ClickableImage from '../ClickableImage';
 import teaData from '../../data/teaData';
 import { UI_FLAGS } from '../../config/uiFlags';
 import { VARIETIES_KINDS, CHEN_CHUAN_TOC, OOLONG_TOC, RED_TOC } from '../../config/navigation';
 import useScrollToSection from '../../hooks/useScrollToSection';
-import ChenChuanTeaClassification from '../../content/varieties/ChenChuanTeaClassification';
-import RedTeaGlobalStory from '../../content/varieties/RedTeaGlobalStory';
-import GreenTeaHistory from '../../content/varieties/GreenTeaHistory';
-import YellowTeaHistory from '../../content/varieties/YellowTeaHistory';
-import WhiteTeaHistory from '../../content/varieties/WhiteTeaHistory';
-import BlackTeaHistory from '../../content/varieties/BlackTeaHistory';
-import SixTeaTypesNotes from '../../content/varieties/SixTeaTypesNotes';
-import TeaEncyclopediaOverview from '../../content/varieties/TeaEncyclopediaOverview';
-import OolongRegions from '../../content/varieties/OolongRegions';
-import WhiteTeaRegions from '../../content/varieties/WhiteTeaRegions';
-import OolongTeaVerticalTimeline from '../sections/OolongTeaVerticalTimeline';
 import SectionCard from '../SectionCard';
 import AtlasDockLayout from '../AtlasDockLayout';
 import ChapterSidebar from '../ChapterSidebar';
 import VarietiesNotesMode from './VarietiesNotesMode';
 import TeaSearchFilter from './TeaSearchFilter';
 import ChenChuanEssaySection from './ChenChuanEssaySection';
+
+const ChenChuanTeaClassification = lazy(() => import('../../content/varieties/ChenChuanTeaClassification'));
+const RedTeaGlobalStory = lazy(() => import('../../content/varieties/RedTeaGlobalStory'));
+const GreenTeaHistory = lazy(() => import('../../content/varieties/GreenTeaHistory'));
+const YellowTeaHistory = lazy(() => import('../../content/varieties/YellowTeaHistory'));
+const WhiteTeaHistory = lazy(() => import('../../content/varieties/WhiteTeaHistory'));
+const BlackTeaHistory = lazy(() => import('../../content/varieties/BlackTeaHistory'));
+const SixTeaTypesNotes = lazy(() => import('../../content/varieties/SixTeaTypesNotes'));
+const TeaEncyclopediaOverview = lazy(() => import('../../content/varieties/TeaEncyclopediaOverview'));
+const OolongRegions = lazy(() => import('../../content/varieties/OolongRegions'));
+const WhiteTeaRegions = lazy(() => import('../../content/varieties/WhiteTeaRegions'));
+const OolongTeaVerticalTimeline = lazy(() => import('../sections/OolongTeaVerticalTimeline'));
 
 const WHITE_TOC_EXTENDED = [
     { href: '#white-history', label: '白茶歷史' },
@@ -68,6 +69,12 @@ const FactsGrid = ({ tea }) => (
                 水溫：<span className="font-bold">{tea.temp}</span>／出湯：<span className="font-bold">{tea.time}</span>
             </div>
         </div>
+    </div>
+);
+
+const VarietiesContentLoadingFallback = () => (
+    <div className="rounded-2xl border border-stone-200 bg-white/80 p-6 text-sm font-semibold text-stone-500 shadow-sm">
+        Loading tea atlas...
     </div>
 );
 
@@ -633,7 +640,7 @@ const VarietiesSection = ({
                 >
                     <div className="space-y-6 min-w-0">
                         {/* ── 手機版六大茶類選擇器（xl 以上隱藏，由側邊欄取代）── */}
-                        <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                        <div className="xl:hidden sticky top-0 z-30 mx-0 px-0 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
                             <div className="flex-1 relative">
                                 <label htmlFor="mobile-varieties-select" className="sr-only">選擇茶類</label>
                                 <select
@@ -691,12 +698,13 @@ const VarietiesSection = ({
                             )}
                         </div>
 
-                        {kindMeta.key === 'ref_chenchuan' ? (
-                            <ChenChuanTeaClassification
-                                topOffsetPx={chenChuanScrollOffsetPx}
-                                activeHref={chenChuanChapterHref === '#cc-all' ? null : chenChuanChapterHref}
-                            />
-                        ) : null}
+                        <Suspense fallback={<VarietiesContentLoadingFallback />}>
+                            {kindMeta.key === 'ref_chenchuan' ? (
+                                <ChenChuanTeaClassification
+                                    topOffsetPx={chenChuanScrollOffsetPx}
+                                    activeHref={chenChuanChapterHref === '#cc-all' ? null : chenChuanChapterHref}
+                                />
+                            ) : null}
 
                         {kindMeta.type === 'overview' ? (
                             <TeaEncyclopediaOverview />
@@ -1240,7 +1248,8 @@ const VarietiesSection = ({
                                     </div>
                                 ) : null}
                             </>
-                        ) : null}
+                            ) : null}
+                        </Suspense>
                     </div>
                 </AtlasDockLayout>
             </div>

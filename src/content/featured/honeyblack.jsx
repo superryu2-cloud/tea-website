@@ -25,7 +25,7 @@ function SectionTitle({ icon: Icon, title, subtitle, colorClass = "text-amber-80
   return (
     <div className="flex items-start gap-4 mb-10">
       <div className={`p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-stone-100 ${colorClass}`}>
-        <Icon size={28} strokeWidth={1.5} />
+        {React.createElement(Icon, { size: 28, strokeWidth: 1.5 })}
       </div>
       <div className="pt-2">
         <h3 className={`text-3xl font-bold ${colorClass} font-serif tracking-wide`}>{title}</h3>
@@ -46,6 +46,11 @@ function QuoteBlock({ children }) {
     </div>
   );
 }
+
+const INNOVATION_ICON_TONES = {
+  red: 'bg-red-50 text-red-600',
+  blue: 'bg-blue-50 text-blue-600',
+};
 
 export default function HoneyAromaBlackTeaContent() {
   return (
@@ -203,7 +208,7 @@ export default function HoneyAromaBlackTeaContent() {
               { icon: TrendingUp, color: "blue", title: "經濟效益", desc: "製作過程相對簡單，且生產成本較低，為茶農帶來新機遇。" }
             ].map((item, i) => (
               <div key={i} className="bg-white p-8 rounded-3xl border border-stone-100 shadow-lg hover:-translate-y-2 transition-transform duration-300">
-                <div className={`w-14 h-14 rounded-2xl bg-${item.color}-50 text-${item.color}-600 flex items-center justify-center mb-6`}>
+                <div className={`w-14 h-14 rounded-2xl ${INNOVATION_ICON_TONES[item.color] ?? 'bg-stone-50 text-stone-600'} flex items-center justify-center mb-6`}>
                   <item.icon size={28} />
                 </div>
                 <h4 className="text-xl font-bold text-stone-900 mb-3">{item.title}</h4>

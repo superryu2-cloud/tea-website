@@ -1,14 +1,9 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
+import NavigationContext from './NavigationContextCore';
 
 /**
  * Navigation Context
  * 統一管理所有導航相關的狀態
- */
-const NavigationContext = createContext(null);
-
-/**
- * Navigation Provider
- * 提供導航狀態管理
  */
 export const NavigationProvider = ({ children }) => {
     // 主要導航狀態
@@ -180,20 +175,4 @@ export const NavigationProvider = ({ children }) => {
     );
 };
 
-/**
- * 使用 Navigation Context 的 Hook
- * 
- * @returns {Object} Navigation context value
- * @throws {Error} 如果在 NavigationProvider 外使用
- */
-export const useNavigation = () => {
-    const context = useContext(NavigationContext);
-
-    if (!context) {
-        throw new Error('useNavigation must be used within NavigationProvider');
-    }
-
-    return context;
-};
-
-export default NavigationContext;
+export default NavigationProvider;

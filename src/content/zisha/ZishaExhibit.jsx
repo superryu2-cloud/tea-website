@@ -124,7 +124,7 @@ export default function ZishaExhibit({ siteNavHeightPx = 80 }) {
           {/* Main Content Area */}
           <main className="min-h-[50vh]">
             {/* ── 手機版章節選擇器（xl 以上隱藏，由側邊欄取代）── */}
-            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-[#fcfbfa]/95 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6">
+            <div className="xl:hidden sticky top-0 z-30 mx-0 px-0 py-2 bg-[#fcfbfa]/95 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6">
                 <label htmlFor="mobile-zisha-select" className="sr-only">選擇紫砂章節</label>
                 <select
                     id="mobile-zisha-select"

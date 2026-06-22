@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Flame, Droplets, Wind, Thermometer, Clock, History, Coffee, AlertTriangle, X, ZoomIn } from 'lucide-react';
 
+const ImageCard = ({ src, alt, caption, className = "", onOpen }) => (
+    <div
+        className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
+        onClick={() => onOpen({ src, alt })}
+    >
+        <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+            <p className="text-white text-sm font-bold flex items-center gap-2">
+                <ZoomIn size={16} />
+                {caption || "點擊放大"}
+            </p>
+        </div>
+    </div>
+);
+
 export default function RoastingChapter() {
     const [viewingImage, setViewingImage] = useState(null);
-
-    const ImageCard = ({ src, alt, caption, className = "" }) => (
-        <div
-            className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
-            onClick={() => setViewingImage({ src, alt })}
-        >
-            <img
-                src={src}
-                alt={alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                <p className="text-white text-sm font-bold flex items-center gap-2">
-                    <ZoomIn size={16} />
-                    {caption || "點擊放大"}
-                </p>
-            </div>
-        </div>
-    );
 
     return (
         <div className="space-y-16 mt-12 border-t border-stone-200 pt-12 relative">
@@ -87,6 +87,7 @@ export default function RoastingChapter() {
                         alt="Ancient Tea Roasting Room - 古代炭焙場景"
                         caption="古代製茶：乾燥與烘焙共用同一團火"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
                 <div className="order-1 md:order-2 space-y-6">
@@ -147,6 +148,7 @@ export default function RoastingChapter() {
                         alt="19th Century Tea Transport - 茶葉的海上旅程"
                         caption="海上運輸：乾燥是為了生存"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
             </div>
@@ -264,6 +266,7 @@ export default function RoastingChapter() {
                         alt="Roasting Spectrum - 烘焙風味光譜"
                         caption="風味光譜：從清香(左)到濃香(右)"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
 

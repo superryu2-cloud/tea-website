@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
@@ -18,7 +18,7 @@ export default function ZhiyaChapter14() {
         trade: '/images/academy/zhiya14/tea_path_eastern_art.png'
     };
 
-    const tocItems = [
+    const tocItems = useMemo(() => [
         { id: 'intro', label: '課程概述' },
         { id: 'part1', label: '茶事之釀：冰磚創意' },
         { id: 'part2', label: '競技場上的視覺行銷' },
@@ -33,7 +33,7 @@ export default function ZhiyaChapter14() {
         { id: 'part11', label: '紅茶沖泡實踐' },
         { id: 'part12', label: '紅茶文化意涵' },
         { id: 'part13', label: '茶湯會：茶與自我' },
-    ];
+    ], []);
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -67,7 +67,7 @@ export default function ZhiyaChapter14() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [tocItems]);
 
     return (
         <div className="flex flex-col lg:flex-row gap-12 relative max-w-7xl mx-auto">
@@ -630,7 +630,7 @@ export default function ZhiyaChapter14() {
                                     <div>
                                         <h4 className="text-xl font-bold text-stone-900 mb-4">品茶的五種美好 (歐陽修)</h4>
                                         <div className="grid grid-cols-5 gap-2 text-center">
-                                            {[['泉甘', '水質甘甜', Droplets, 'text-blue-500'], ['器潔', '器物潔淨', Sparkles, 'text-emerald-500'], ['天色佳', '天氣晴好', '☀️', 'text-amber-500'], ['嘉客', '志同道合', Users, 'text-purple-500'], ['新茶', '品質優異', Coffee, 'text-rose-500']].map(([title, desc, Icon, colorClass]) => (
+                                            {[['泉甘', '水質甘甜', Droplets, 'text-blue-500'], ['器潔', '器物潔淨', Sparkles, 'text-emerald-500'], ['天色佳', '天氣晴好', '☀️', 'text-amber-500'], ['嘉客', '志同道合', Users, 'text-purple-500'], ['新茶', '品質優異', Coffee, 'text-rose-500']].map(([title, , Icon, colorClass]) => (
                                                 <div key={title} className="bg-stone-50 p-3 rounded-lg">
                                                     <div className={`mx-auto mb-1 ${colorClass} flex justify-center`}>
                                                         {typeof Icon === 'string' ? Icon : <Icon size={20} />}

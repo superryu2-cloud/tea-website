@@ -302,7 +302,7 @@ export default function JourneySection({ goToTab, setScienceRoom, navigateToSear
             </div>
 
             <div className="museum-stage !pt-6 md:!pt-8">
-                <div className="mb-10 text-center">
+                <div className="journey-section-heading mb-10 text-center">
                     <div className="museum-label mx-auto">TEA HOUSE · JOURNEY</div>
                     <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight">
                         茶館筆記 · 學習旅程

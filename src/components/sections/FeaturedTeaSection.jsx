@@ -1,21 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Suspense, lazy, useState, useEffect, useRef } from 'react';
 import { Leaf, ChevronRight, ChevronDown } from 'lucide-react';
 import { UI_FLAGS } from '../../config/uiFlags';
 import featuredTeaMenu from '../../data/featuredTeaMenu';
 import AtlasDockLayout from '../AtlasDockLayout';
-import FeaturedTeaOverview from '../../content/featured/FeaturedTeaOverview';
-import LongjingTeaArticle from '../../content/examples/LongjingTeaArticle';
-import BiluochunGreenTeaContent from '../../content/featured/biluochun';
-import TieGuanyinContent from '../../content/featured/tieguanyin';
-import DongDingContent from '../../content/featured/dongding';
-import GaoshanOolongContent from '../../content/featured/gaoshanoolong';
-import RedOolongContent from '../../content/featured/redoolong';
-import HoneyAromaBlackTeaContent from '../../content/featured/honeyblack';
-import OrientalBeautyContent from '../../content/featured/orientalbeauty';
-import WenshanPouchongContent from '../../content/featured/wenshan';
-import BlackTeaVarietiesContent from '../../content/featured/BlackTeaVarieties';
-import OolongNameStory from '../../content/teaTalk/OolongNameStory';
-import TeaProcessIntro from '../../content/featured/TeaProcessIntro';
+
+const FeaturedTeaOverview = lazy(() => import('../../content/featured/FeaturedTeaOverview'));
+const LongjingTeaArticle = lazy(() => import('../../content/examples/LongjingTeaArticle'));
+const BiluochunGreenTeaContent = lazy(() => import('../../content/featured/biluochun'));
+const TieGuanyinContent = lazy(() => import('../../content/featured/tieguanyin'));
+const DongDingContent = lazy(() => import('../../content/featured/dongding'));
+const GaoshanOolongContent = lazy(() => import('../../content/featured/gaoshanoolong'));
+const RedOolongContent = lazy(() => import('../../content/featured/redoolong'));
+const HoneyAromaBlackTeaContent = lazy(() => import('../../content/featured/honeyblack'));
+const OrientalBeautyContent = lazy(() => import('../../content/featured/orientalbeauty'));
+const WenshanPouchongContent = lazy(() => import('../../content/featured/wenshan'));
+const BlackTeaVarietiesContent = lazy(() => import('../../content/featured/BlackTeaVarieties'));
+const OolongNameStory = lazy(() => import('../../content/teaTalk/OolongNameStory'));
+const TeaProcessIntro = lazy(() => import('../../content/featured/TeaProcessIntro'));
+
+function FeaturedTeaLoadingFallback() {
+    return (
+        <div className="museum-panel p-8 text-center text-sm font-semibold text-stone-500">
+            Loading...
+        </div>
+    );
+}
 
 export default function FeaturedTeaSection({
     selectedFeatured,
@@ -250,7 +259,7 @@ export default function FeaturedTeaSection({
                         {/* Content Area */}
                         <div className="min-w-0">
                             {/* ── 手機版特色茶選擇器（xl 以上隱藏，由側邊欄取代）── */}
-                            <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                            <div className="xl:hidden sticky top-0 z-30 mx-0 px-0 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
                                 <div className="flex-1 relative">
                                     <label htmlFor="mobile-featured-select" className="sr-only">選擇特色茶</label>
                                     <select
@@ -290,19 +299,21 @@ export default function FeaturedTeaSection({
                                 )}
                             </div>
                             <div ref={featuredTopRef} className="scroll-mt-28" />
-                            {selectedFeatured === 'overview' && <FeaturedTeaOverview />}
-                            {selectedFeatured === 'longjing' && <LongjingTeaArticle />}
-                            {selectedFeatured === 'biluochun' && <BiluochunGreenTeaContent />}
-                            {selectedFeatured === 'tieguanyin' && <TieGuanyinContent />}
-                            {selectedFeatured === 'dongding' && <DongDingContent />}
-                            {selectedFeatured === 'gaoshanoolong' && <GaoshanOolongContent />}
-                            {selectedFeatured === 'redoolong' && <RedOolongContent />}
-                            {selectedFeatured === 'honeyblack' && <HoneyAromaBlackTeaContent />}
-                            {selectedFeatured === 'orientalbeauty' && <OrientalBeautyContent activeSection={orientalBeautySection} />}
-                            {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
-                            {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
-                            {selectedFeatured === 'oolong_name_story' && <OolongNameStory />}
-                            {selectedFeatured === 'tea_process' && <TeaProcessIntro />}
+                            <Suspense fallback={<FeaturedTeaLoadingFallback />}>
+                                {selectedFeatured === 'overview' && <FeaturedTeaOverview />}
+                                {selectedFeatured === 'longjing' && <LongjingTeaArticle />}
+                                {selectedFeatured === 'biluochun' && <BiluochunGreenTeaContent />}
+                                {selectedFeatured === 'tieguanyin' && <TieGuanyinContent />}
+                                {selectedFeatured === 'dongding' && <DongDingContent />}
+                                {selectedFeatured === 'gaoshanoolong' && <GaoshanOolongContent />}
+                                {selectedFeatured === 'redoolong' && <RedOolongContent />}
+                                {selectedFeatured === 'honeyblack' && <HoneyAromaBlackTeaContent />}
+                                {selectedFeatured === 'orientalbeauty' && <OrientalBeautyContent activeSection={orientalBeautySection} />}
+                                {selectedFeatured === 'wenshan' && <WenshanPouchongContent />}
+                                {selectedFeatured === 'black_varieties' && <BlackTeaVarietiesContent />}
+                                {selectedFeatured === 'oolong_name_story' && <OolongNameStory />}
+                                {selectedFeatured === 'tea_process' && <TeaProcessIntro />}
+                            </Suspense>
                         </div>
                     </AtlasDockLayout>
                 ) : notesMode ? (

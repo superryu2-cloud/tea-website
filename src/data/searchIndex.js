@@ -47,7 +47,7 @@ const SEARCH_INDEX = [
     { keywords: '氧化 發酵 酶促氧化 兒茶素 茶黃素 茶紅素', label: '氧化與發酵', category: '科學', tab: 'science', detail: { room: 'oxidation' } },
     { keywords: '烘焙 焙火 梅納反應 焦糖化 輕焙 中焙 重焙', label: '烘焙科學', category: '科學', tab: 'science', detail: { room: 'roasting' } },
     { keywords: '內含物 茶多酚 咖啡因 胺基酸 茶胺酸 兒茶素', label: '茶葉內含物質', category: '科學', tab: 'science', detail: { room: 'constituents' } },
-    { keywords: '香氣 芳香物質 萜烯 醇類 酯類 花香 果香', label: '茶葉香氣科學', category: '科學', tab: 'science', detail: { room: 'aromatics' } },
+    { keywords: '香氣 芳香物質 萜烯 醇類 酯類 花香 果香', label: '茶葉香氣科學', category: '科學', tab: 'science', detail: { room: 'aroma' } },
 
     // ── 沖泡 / 製程 ──
     { keywords: '沖泡 泡茶 水溫 時間 茶水比 功夫茶', label: '沖泡指南', category: '沖泡', tab: 'brewing' },

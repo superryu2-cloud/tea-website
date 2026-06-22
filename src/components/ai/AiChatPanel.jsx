@@ -16,6 +16,10 @@ function botReply(input) {
     return FALLBACKS[Math.floor(Math.random() * FALLBACKS.length)];
 }
 
+function getReplyDelayMs() {
+    return 600 + Math.random() * 400;
+}
+
 export default function AiChatPanel({ isOpen, onClose }) {
     const [messages, setMessages] = useState([
         { role: 'bot', text: '你好！我是**茶識 AI**，熟悉這個網站的所有茶知識 🍵\n\n你可以問我任何關於茶的問題，或點擊下方快速提問！' },
@@ -38,13 +42,13 @@ export default function AiChatPanel({ isOpen, onClose }) {
             const reply = botReply(q);
             setMessages((m) => [...m, { role: 'bot', text: reply }]);
             setTyping(false);
-        }, 600 + Math.random() * 400);
+        }, getReplyDelayMs());
     }
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed bottom-24 right-4 md:right-6 z-[9999] w-[340px] md:w-[380px] bg-white rounded-3xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden" style={{ maxHeight: '70vh' }}>
+	        <div className="fixed bottom-[calc(env(safe-area-inset-bottom)+4.75rem)] right-4 z-[9999] flex w-[calc(100vw-2rem)] max-w-[340px] flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-2xl md:bottom-24 md:right-6 md:w-[380px] md:max-w-[380px]" style={{ maxHeight: '70vh' }}>
             {/* 標題列 */}
             <div className="flex items-center gap-3 px-5 py-4 bg-gradient-to-r from-teal-600 to-emerald-600">
                 <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">

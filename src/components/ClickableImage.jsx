@@ -21,9 +21,9 @@ const ClickableImage = ({ src, alt, caption, className = '', captionClassName = 
                     className="w-full h-full object-cover rounded-2xl border border-stone-200 shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-[1.02]"
                 />
                 {/* 放大圖示提示 */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-2xl flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                        <ZoomIn size={24} className="text-stone-700" />
+                <div className="absolute inset-0 rounded-2xl bg-black/0 transition-all duration-300 group-hover:bg-black/10">
+                    <div className="absolute right-3 top-3 rounded-full bg-white/90 p-2.5 shadow-lg ring-1 ring-stone-200/70 backdrop-blur-sm transition-opacity duration-300 md:right-4 md:top-4 md:p-3 md:opacity-0 md:group-hover:opacity-100">
+                        <ZoomIn size={20} className="text-stone-700 md:size-6" />
                     </div>
                 </div>
             </div>

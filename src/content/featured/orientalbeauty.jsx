@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import {
   AlertTriangle,
   ArrowRight,
@@ -45,8 +45,6 @@ function Panel({ title, icon: Icon, children, className = '' }) {
 import OrientalBeautyHistory from './OrientalBeautyHistory';
 
 export default function OrientalBeautyContent({ activeSection = 'main' }) {
-  const contentRef = useRef(null);
-
   // Per user request:
   // 1. 'main' renders the Supplement/Teaching data (Industry/Science/Process).
   // 2. 'origins' renders the "Past Life" (History/Names/Terroir) data.
@@ -77,5 +75,4 @@ export default function OrientalBeautyContent({ activeSection = 'main' }) {
     </div>
   );
   */
-  return null; // Ensure function always returns something if logic falls through (though it won't)
 }

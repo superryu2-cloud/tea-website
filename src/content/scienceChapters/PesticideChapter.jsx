@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { ShieldCheck, Droplets, AlertTriangle, Scale, X, ZoomIn, Beaker, Leaf, Microscope } from 'lucide-react';
 
+const ImageCard = ({ src, alt, caption, className = "", onOpen }) => (
+    <div
+        className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
+        onClick={() => onOpen({ src, alt })}
+    >
+        <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+            <p className="text-white text-sm font-bold flex items-center gap-2">
+                <ZoomIn size={16} />
+                {caption || "點擊放大"}
+            </p>
+        </div>
+    </div>
+);
+
 export default function PesticideChapter() {
     const [viewingImage, setViewingImage] = useState(null);
-
-    const ImageCard = ({ src, alt, caption, className = "" }) => (
-        <div
-            className={`group relative rounded-3xl overflow-hidden shadow-xl cursor-zoom-in ${className}`}
-            onClick={() => setViewingImage({ src, alt })}
-        >
-            <img
-                src={src}
-                alt={alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4 right-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                <p className="text-white text-sm font-bold flex items-center gap-2">
-                    <ZoomIn size={16} />
-                    {caption || "點擊放大"}
-                </p>
-            </div>
-        </div>
-    );
 
     return (
         <div className="space-y-16 mt-12 border-t border-stone-200 pt-12 relative animate-fadeIn">
@@ -92,6 +92,7 @@ export default function PesticideChapter() {
                         alt="The Invisible Barrier - 物理定律形成的天然屏障"
                         caption="物理屏障：葉面蠟質層與水相的對抗"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
             </div>
@@ -107,6 +108,7 @@ export default function PesticideChapter() {
                             alt="The Dual Paths - 水溶性與脂溶性的分流"
                             caption="分流機制：親水性與親脂性的抉擇"
                             className="h-full"
+                            onOpen={setViewingImage}
                         />
                     </div>
                     <div className="space-y-6">
@@ -169,6 +171,7 @@ export default function PesticideChapter() {
                         alt="The Four Realms - 四象限風險地圖"
                         caption="風險地圖：從高度危險(森林)到絕對安全(屏障)"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
 
@@ -240,6 +243,7 @@ export default function PesticideChapter() {
                                 alt="Detection vs Intake - 強制萃取與自然溶出的對比"
                                 caption="實驗室極限萃取 vs 生活自然沖泡"
                                 className="h-full w-full"
+                                onOpen={setViewingImage}
                             />
                         </div>
 
@@ -270,6 +274,7 @@ export default function PesticideChapter() {
                         alt="The Purity of Tea - 物理定律保障下的純淨"
                         caption="結論：物理定律保障下的飲茶安全"
                         className="h-full"
+                        onOpen={setViewingImage}
                     />
                 </div>
                 <div className="space-y-6 order-1 md:order-1">

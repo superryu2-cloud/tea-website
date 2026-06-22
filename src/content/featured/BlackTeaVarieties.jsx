@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import {
     Coffee,
     Map,
@@ -333,20 +333,20 @@ export default function BlackTeaVarietiesContent() {
                                                     <thead className="bg-stone-50 text-stone-800 border-b border-stone-100">
                                                         <tr>
                                                             <th className="p-5 text-base font-bold">組織類型</th>
-                                                            <th className="p-5 text-base font-bold text-stone-500">小葉種比例</th>
-                                                            <th className="p-5 text-base font-bold text-amber-700 bg-amber-50">大葉種比例</th>
+                                                            <th className="p-5 text-base font-bold text-stone-500">小葉種</th>
+                                                            <th className="p-5 text-base font-bold text-amber-700 bg-amber-50">大葉種</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody className="divide-y divide-stone-100">
                                                         <tr className="group hover:bg-stone-50 transition-colors">
                                                             <td className="p-5 font-bold text-stone-700">海綿組織</td>
-                                                            <td className="p-5 text-stone-600">約 1</td>
-                                                            <td className="p-5 font-black text-amber-700 text-[17px] bg-amber-50 group-hover:bg-amber-100/50 transition-colors">約 2-3</td>
+                                                            <td className="p-5 text-stone-600">較少</td>
+                                                            <td className="p-5 font-black text-amber-700 text-[17px] bg-amber-50 group-hover:bg-amber-100/50 transition-colors">較多</td>
                                                         </tr>
                                                         <tr className="group hover:bg-stone-50 transition-colors">
-                                                            <td className="p-5 font-bold text-stone-700">柵欄組織</td>
-                                                            <td className="p-5 text-stone-600">約 1</td>
-                                                            <td className="p-5 text-amber-700 font-medium bg-amber-50 group-hover:bg-amber-100/50 transition-colors">1</td>
+                                                            <td className="p-5 font-bold text-stone-700">柵狀組織</td>
+                                                            <td className="p-5 text-stone-600">2-3 層</td>
+                                                            <td className="p-5 text-amber-700 font-medium bg-amber-50 group-hover:bg-amber-100/50 transition-colors">1 層</td>
                                                         </tr>
                                                         <tr className="bg-amber-50/50">
                                                             <td className="p-5" colSpan="3">
@@ -354,7 +354,7 @@ export default function BlackTeaVarietiesContent() {
                                                                     <span className="text-[19px]">💡</span>
                                                                     <p className="text-amber-900 text-sm md:text-base leading-relaxed">
                                                                         <strong className="block text-amber-700 mb-1 uppercase tracking-wider text-xs">Impact</strong>
-                                                                        大葉種圓形結構多，能容納更多內含物，帶來飽滿強勁的滋味。
+                                                                        柵狀組織呈柱狀排列，層數較多有利芳香物質累積；海綿組織較多者內質物含量較高，滋味較醇厚，但香氣相對較不突出。
                                                                     </p>
                                                                 </div>
                                                             </td>
@@ -938,3 +938,6 @@ export default function BlackTeaVarietiesContent() {
         </div>
     );
 }
+
+
+

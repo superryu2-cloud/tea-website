@@ -113,7 +113,7 @@ export default function TaiwanCultivarDiversity() {
       {/* Hero Section: Cinematic Visual Upgrade */}
       <header className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-stone-900 min-h-[580px] flex items-end group shadow-emerald-950/10 border border-emerald-800/10">
         <img
-          src="/images/cultivars/bg_plantation.png"
+          src="/images/cultivars/diversity_hero.png"
           alt="Taiwan Tea Cultivar Diversity - Cinematic Landscape"
           className="absolute inset-0 w-full h-full object-cover opacity-85 transition-transform duration-[3000ms] ease-out group-hover:scale-105"
         />
@@ -174,7 +174,7 @@ export default function TaiwanCultivarDiversity() {
             </div>
             <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-stone-200">
               <ClickableImage
-                src="/images/tea-talk/ch01-breeding-methods.png"
+                src="/images/cultivars/diversity_breeding_methods.png"
                 alt="Breeding Methods"
                 caption="茶樹具備極高的遺傳多樣性與育種途徑"
               />
@@ -221,7 +221,7 @@ export default function TaiwanCultivarDiversity() {
 
           <div className="mb-8">
             <ClickableImage
-              src="/images/tea-talk/ch01-leaf-comparison.png"
+              src="/images/cultivars/diversity_leaf_comparison.png"
               alt="大葉種與小葉種比較"
               caption="大葉種（左）與小葉種（右）的葉形與化學結構對比"
             />
@@ -315,7 +315,7 @@ export default function TaiwanCultivarDiversity() {
           <div className="mt-8 rounded-[2rem] border-2 border-stone-200 bg-white p-8 md:p-12 shadow-inner">
             <div className="mb-8">
               <ClickableImage
-                src="/images/tea-talk/ch01-cultivar-tree.png"
+                src="/images/cultivars/diversity_cultivar_tree.png"
                 alt="台灣茶樹品種系譜"
                 caption="台灣茶樹品種系譜：詳列了大葉種與小葉種的血緣與演進"
               />
@@ -377,7 +377,7 @@ export default function TaiwanCultivarDiversity() {
         <Section id="cultivar-geography" title="4. 台灣茶區的品種地理學：產區、特性與分布" icon={Mountain}>
           <div className="mb-10">
             <ClickableImage
-              src="/images/cultivars/bg_leaves.png"
+              src="/images/cultivars/diversity_geography_leaves.png"
               alt="Tea Mountain Geography"
               caption="台灣茶產業的競爭力，體現在地理環境與品種適性的深度結合"
             />
@@ -439,7 +439,7 @@ export default function TaiwanCultivarDiversity() {
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-stone-100">
               <ClickableImage
-                src="/images/cultivars/ruby18.png"
+                src="/images/cultivars/diversity_ruby18_market.png"
                 alt="Black Tea Craft"
                 caption="台灣紅茶的創新，是不斷將不同品種的香氣極限推向感官前端"
               />
@@ -452,7 +452,7 @@ export default function TaiwanCultivarDiversity() {
           <Grid cols={1} className="md:grid-cols-[0.8fr,1.2fr] items-center">
             <div className="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg border border-purple-100">
               <ClickableImage
-                src="/images/cultivars/mountain24.png"
+                src="/images/cultivars/diversity_ttes25_purplebud.png"
                 alt="TTES 25 Visual Style"
                 caption="台茶25號：天然的紫芽抗氧化資產"
               />
@@ -506,7 +506,7 @@ export default function TaiwanCultivarDiversity() {
 
               <div className="mb-10 max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-emerald-500/30">
                 <ClickableImage
-                  src="/images/tea-talk/ch01-ideal-environment.png"
+                  src="/images/cultivars/diversity_ideal_environment.png"
                   alt="Ideal Environment"
                   caption="茶樹理想栽培環境之四重維度分析"
                 />

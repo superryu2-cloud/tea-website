@@ -1,58 +1,57 @@
-import React from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import AcademyChapter from './AcademyChapter';
 
-// Import all Academy chapter components
-import ZhiyaChapter02 from '../../content/academy/ZhiyaChapter02';
-import ZhiyaChapter03 from '../../content/academy/ZhiyaChapter03';
-import ZhiyaChapter04 from '../../content/academy/ZhiyaChapter04';
-import ZhiyaChapter05 from '../../content/academy/ZhiyaChapter05';
-import ZhiyaChapter06 from '../../content/academy/ZhiyaChapter06';
-import ZhiyaChapter07 from '../../content/academy/ZhiyaChapter07';
-import ZhiyaChapter09 from '../../content/academy/ZhiyaChapter09';
-import ZhiyaChapter10 from '../../content/academy/ZhiyaChapter10';
-import ZhiyaChapter14 from '../../content/academy/ZhiyaChapter14';
-import XueyaChapter01 from '../../content/academy/XueyaChapter01';
-import XueyaChapter03 from '../../content/academy/XueyaChapter03';
-import XueyaChapter04 from '../../content/academy/XueyaChapter04';
-import XueyaChapter05 from '../../content/academy/XueyaChapter05';
-import XueyaChapter06 from '../../content/academy/XueyaChapter06';
-import XueyaChapter07 from '../../content/academy/XueyaChapter07';
-import XueyaChapter08 from '../../content/academy/XueyaChapter08';
-import XueyaChapter09 from '../../content/academy/XueyaChapter09';
-import XueyaChapter11 from '../../content/academy/XueyaChapter11';
-import ChonghuaChapter01 from '../../content/academy/ChonghuaChapter01';
-import ChonghuaChapter02 from '../../content/academy/ChonghuaChapter02';
-import ChonghuaChapter03 from '../../content/academy/ChonghuaChapter03';
-import ChonghuaChapter04 from '../../content/academy/ChonghuaChapter04';
-import ChonghuaChapter05 from '../../content/academy/ChonghuaChapter05';
-import ChonghuaChapter06 from '../../content/academy/ChonghuaChapter06';
-import ChonghuaChapter07 from '../../content/academy/ChonghuaChapter07';
-import ChonghuaChapter08 from '../../content/academy/ChonghuaChapter08';
-import ChonghuaChapter09 from '../../content/academy/ChonghuaChapter09';
-import ChonghuaChapter10 from '../../content/academy/ChonghuaChapter10';
-import ChonghuaChapter11 from '../../content/academy/ChonghuaChapter11';
-import ChonghuaChapter12 from '../../content/academy/ChonghuaChapter12';
-import ChonghuaChapter13 from '../../content/academy/ChonghuaChapter13';
-import ChonghuaChapter14 from '../../content/academy/ChonghuaChapter14';
-import ChonghuaChapter15 from '../../content/academy/ChonghuaChapter15';
-import ChonghuaChapter16 from '../../content/academy/ChonghuaChapter16';
-import ChonghuaChapter17 from '../../content/academy/ChonghuaChapter17';
-import ChonghuaChapter18 from '../../content/academy/ChonghuaChapter18';
-import ChonghuaChapter19 from '../../content/academy/ChonghuaChapter19';
-import ChonghuaChapter20 from '../../content/academy/ChonghuaChapter20';
-import ChonghuaChapter21 from '../../content/academy/ChonghuaChapter21';
-import ChonghuaChapter22 from '../../content/academy/ChonghuaChapter22';
-import ChonghuaChapter23 from '../../content/academy/ChonghuaChapter23';
-import ChonghuaChapter24 from '../../content/academy/ChonghuaChapter24';
-import ChonghuaChapter25 from '../../content/academy/ChonghuaChapter25';
-import ChonghuaChapter26 from '../../content/academy/ChonghuaChapter26';
-import ChonghuaChapter27 from '../../content/academy/ChonghuaChapter27';
-import ChonghuaChapter28 from '../../content/academy/ChonghuaChapter28';
-import ChonghuaChapter29 from '../../content/academy/ChonghuaChapter29';
-import ChonghuaChapter30 from '../../content/academy/ChonghuaChapter30';
-import ChonghuaChapter31 from '../../content/academy/ChonghuaChapter31';
-import ChonghuaChapter32 from '../../content/academy/ChonghuaChapter32';
-import ChonghuaChapter33 from '../../content/academy/ChonghuaChapter33';
+const ZhiyaChapter02 = lazy(() => import('../../content/academy/ZhiyaChapter02'));
+const ZhiyaChapter03 = lazy(() => import('../../content/academy/ZhiyaChapter03'));
+const ZhiyaChapter04 = lazy(() => import('../../content/academy/ZhiyaChapter04'));
+const ZhiyaChapter05 = lazy(() => import('../../content/academy/ZhiyaChapter05'));
+const ZhiyaChapter06 = lazy(() => import('../../content/academy/ZhiyaChapter06'));
+const ZhiyaChapter07 = lazy(() => import('../../content/academy/ZhiyaChapter07'));
+const ZhiyaChapter09 = lazy(() => import('../../content/academy/ZhiyaChapter09'));
+const ZhiyaChapter10 = lazy(() => import('../../content/academy/ZhiyaChapter10'));
+const ZhiyaChapter14 = lazy(() => import('../../content/academy/ZhiyaChapter14'));
+const XueyaChapter01 = lazy(() => import('../../content/academy/XueyaChapter01'));
+const XueyaChapter03 = lazy(() => import('../../content/academy/XueyaChapter03'));
+const XueyaChapter04 = lazy(() => import('../../content/academy/XueyaChapter04'));
+const XueyaChapter05 = lazy(() => import('../../content/academy/XueyaChapter05'));
+const XueyaChapter06 = lazy(() => import('../../content/academy/XueyaChapter06'));
+const XueyaChapter07 = lazy(() => import('../../content/academy/XueyaChapter07'));
+const XueyaChapter08 = lazy(() => import('../../content/academy/XueyaChapter08'));
+const XueyaChapter09 = lazy(() => import('../../content/academy/XueyaChapter09'));
+const XueyaChapter11 = lazy(() => import('../../content/academy/XueyaChapter11'));
+const ChonghuaChapter01 = lazy(() => import('../../content/academy/ChonghuaChapter01'));
+const ChonghuaChapter02 = lazy(() => import('../../content/academy/ChonghuaChapter02'));
+const ChonghuaChapter03 = lazy(() => import('../../content/academy/ChonghuaChapter03'));
+const ChonghuaChapter04 = lazy(() => import('../../content/academy/ChonghuaChapter04'));
+const ChonghuaChapter05 = lazy(() => import('../../content/academy/ChonghuaChapter05'));
+const ChonghuaChapter06 = lazy(() => import('../../content/academy/ChonghuaChapter06'));
+const ChonghuaChapter07 = lazy(() => import('../../content/academy/ChonghuaChapter07'));
+const ChonghuaChapter08 = lazy(() => import('../../content/academy/ChonghuaChapter08'));
+const ChonghuaChapter09 = lazy(() => import('../../content/academy/ChonghuaChapter09'));
+const ChonghuaChapter10 = lazy(() => import('../../content/academy/ChonghuaChapter10'));
+const ChonghuaChapter11 = lazy(() => import('../../content/academy/ChonghuaChapter11'));
+const ChonghuaChapter12 = lazy(() => import('../../content/academy/ChonghuaChapter12'));
+const ChonghuaChapter13 = lazy(() => import('../../content/academy/ChonghuaChapter13'));
+const ChonghuaChapter14 = lazy(() => import('../../content/academy/ChonghuaChapter14'));
+const ChonghuaChapter15 = lazy(() => import('../../content/academy/ChonghuaChapter15'));
+const ChonghuaChapter16 = lazy(() => import('../../content/academy/ChonghuaChapter16'));
+const ChonghuaChapter17 = lazy(() => import('../../content/academy/ChonghuaChapter17'));
+const ChonghuaChapter18 = lazy(() => import('../../content/academy/ChonghuaChapter18'));
+const ChonghuaChapter19 = lazy(() => import('../../content/academy/ChonghuaChapter19'));
+const ChonghuaChapter20 = lazy(() => import('../../content/academy/ChonghuaChapter20'));
+const ChonghuaChapter21 = lazy(() => import('../../content/academy/ChonghuaChapter21'));
+const ChonghuaChapter22 = lazy(() => import('../../content/academy/ChonghuaChapter22'));
+const ChonghuaChapter23 = lazy(() => import('../../content/academy/ChonghuaChapter23'));
+const ChonghuaChapter24 = lazy(() => import('../../content/academy/ChonghuaChapter24'));
+const ChonghuaChapter25 = lazy(() => import('../../content/academy/ChonghuaChapter25'));
+const ChonghuaChapter26 = lazy(() => import('../../content/academy/ChonghuaChapter26'));
+const ChonghuaChapter27 = lazy(() => import('../../content/academy/ChonghuaChapter27'));
+const ChonghuaChapter28 = lazy(() => import('../../content/academy/ChonghuaChapter28'));
+const ChonghuaChapter29 = lazy(() => import('../../content/academy/ChonghuaChapter29'));
+const ChonghuaChapter30 = lazy(() => import('../../content/academy/ChonghuaChapter30'));
+const ChonghuaChapter31 = lazy(() => import('../../content/academy/ChonghuaChapter31'));
+const ChonghuaChapter32 = lazy(() => import('../../content/academy/ChonghuaChapter32'));
+const ChonghuaChapter33 = lazy(() => import('../../content/academy/ChonghuaChapter33'));
 
 /**
  * Academy chapter configuration
@@ -173,8 +172,18 @@ const ACADEMY_CHAPTERS = {
     academy_chonghua_04: { component: ChonghuaChapter04, category: '崇華書院', title: '第04堂：開啟你的風味冒險地圖 (1-2-6 體系指南)', intro: '掌握「1-2-6」三個數字，從萬茶歸宗的植物學起點、小葉種與大葉種的血統之別，到六大茶類的工藝光譜，建立一套風味預測系統。' },
     academy_chonghua_05: { component: ChonghuaChapter05, category: '崇華書院', title: '第05堂', intro: '認識氧化——茶葉風味的幕後推手' },
     academy_chonghua_06: { component: ChonghuaChapter06, category: '崇華書院', title: '第06堂', intro: '認識茶樹品種——一片葉子的身世之謎' },
-    academy_chonghua_07: { component: ChonghuaChapter07, category: '崇華書院', title: '第07堂', intro: '規劃中' },
-    academy_chonghua_08: { component: ChonghuaChapter08, category: '崇華書院', title: '第08堂', intro: '規劃中' },
+    academy_chonghua_07: {
+        component: ChonghuaChapter07,
+        category: '崇華書院',
+        title: '第07堂：青茶類風味辨識',
+        intro: '從文山包種、杉林溪、梨山到木柵鐵觀音，理解青茶製程、產區風格與清香至焙香的品飲辨識。'
+    },
+    academy_chonghua_08: {
+        component: ChonghuaChapter08,
+        category: '崇華書院',
+        title: '第08堂：紅茶類風味辨識',
+        intro: '以山茶紅茶、蜜香紅茶、台茶18號紅玉與小葉種紅茶為核心，建立紅茶類的香氣、湯感與品種判讀能力。'
+    },
     academy_chonghua_09: { component: ChonghuaChapter09, category: '崇華書院', title: '第09堂', intro: '規劃中' },
     academy_chonghua_10: { component: ChonghuaChapter10, category: '崇華書院', title: '第10堂', intro: '規劃中' },
     academy_chonghua_11: { component: ChonghuaChapter11, category: '崇華書院', title: '第11堂', intro: '規劃中' },
@@ -201,6 +210,18 @@ const ACADEMY_CHAPTERS = {
     academy_chonghua_32: { component: ChonghuaChapter32, category: '崇華書院', title: '第32堂', intro: '規劃中' },
     academy_chonghua_33: { component: ChonghuaChapter33, category: '崇華書院', title: '第33堂', intro: '規劃中' }
 };
+
+function AcademyLoadingFallback() {
+    return (
+        <div className="museum-page">
+            <div className="museum-stage">
+                <div className="museum-panel p-8 text-center text-sm font-semibold text-stone-500">
+                    Loading...
+                </div>
+            </div>
+        </div>
+    );
+}
 
 /**
  * AcademyRouter Component
@@ -246,6 +267,7 @@ export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnloc
     const ChapterComponent = chapter.component;
 
     return (
+        <Suspense fallback={<AcademyLoadingFallback />}>
         <AcademyChapter
             category={chapter.category}
             title={chapter.title}
@@ -253,15 +275,8 @@ export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnloc
         >
             <ChapterComponent />
         </AcademyChapter>
+        </Suspense>
     );
 }
 
-/**
- * Get list of all implemented Academy chapter IDs
- * Useful for navigation components to determine which chapters are active
- * 
- * @returns {string[]} Array of chapter IDs (e.g., ['academy_zhiya_02', ...])
- */
-export function getImplementedChapterIds() {
-    return Object.keys(ACADEMY_CHAPTERS);
-}
+

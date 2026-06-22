@@ -1,18 +1,25 @@
-import React, { useState, useMemo } from 'react';
+import React, { Suspense, lazy, useState, useMemo } from 'react';
 import { Microscope, ChevronRight, RefreshCw, Flame, Sparkles, FlaskConical, ShieldAlert } from 'lucide-react';
 import { UI_FLAGS } from '../../config/uiFlags';
 import { SCIENCE_TOC, TEA_REFERENCE_TOC } from '../../config/navigation';
 import useI18n from '../../i18n/useI18n';
 import AtlasDockLayout from '../AtlasDockLayout';
 import ChapterSidebar from '../ChapterSidebar';
-import TeaReferenceNotes from '../../content/references/TeaReferenceNotes';
-import TeaChemistryDeepDive from './TeaChemistryDeepDive';
-import RoastingChapter from '../../content/scienceChapters/RoastingChapter';
-import SlurpingChapter from '../../content/scienceChapters/SlurpingChapter';
-import ConstituentsChapter from '../../content/scienceChapters/ConstituentsChapter';
-import AromaticsChapter from '../../content/scienceChapters/AromaticsChapter';
-import TeaProcessCraftChapter from '../../content/scienceChapters/TeaProcessCraftChapter';
-import PesticideChapter from '../../content/scienceChapters/PesticideChapter';
+
+const TeaReferenceNotes = lazy(() => import('../../content/references/TeaReferenceNotes'));
+const TeaChemistryDeepDive = lazy(() => import('./TeaChemistryDeepDive'));
+const RoastingChapter = lazy(() => import('../../content/scienceChapters/RoastingChapter'));
+const SlurpingChapter = lazy(() => import('../../content/scienceChapters/SlurpingChapter'));
+const ConstituentsChapter = lazy(() => import('../../content/scienceChapters/ConstituentsChapter'));
+const AromaticsChapter = lazy(() => import('../../content/scienceChapters/AromaticsChapter'));
+const TeaProcessCraftChapter = lazy(() => import('../../content/scienceChapters/TeaProcessCraftChapter'));
+const PesticideChapter = lazy(() => import('../../content/scienceChapters/PesticideChapter'));
+
+const ScienceRoomLoadingFallback = () => (
+    <div className="museum-frame museum-paper p-8 text-center text-sm font-semibold text-stone-500">
+        Loading science room...
+    </div>
+);
 
 export default function ScienceSection({
     scienceRoom,
@@ -147,7 +154,7 @@ export default function ScienceSection({
                         >
                             <div className="space-y-8 min-w-0">
                                 {/* ── 手機版科學實驗室選擇器（xl 以上隱藏，由側邊欄取代）── */}
-                                <div className="xl:hidden sticky top-0 z-30 -mx-4 px-4 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
+                                <div className="xl:hidden sticky top-0 z-30 mx-0 px-0 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
                                     <div className="flex-1 relative">
                                         <label htmlFor="mobile-science-select" className="sr-only">選擇科學展廳</label>
                                         <select
@@ -215,7 +222,8 @@ export default function ScienceSection({
                                     )}
                                 </div>
                                 <main className="space-y-8">
-                                    {isScienceTeachingRoom && (
+                                    <Suspense fallback={<ScienceRoomLoadingFallback />}>
+                                        {isScienceTeachingRoom && (
                                         <div id="science-teaching" className="scroll-mt-28">
                                             <TeaReferenceNotes activeHref={scienceTeachingActiveHref === '#ref-all' ? null : scienceTeachingActiveHref} />
                                         </div>
@@ -490,6 +498,7 @@ export default function ScienceSection({
                                             </div>
                                         </div>
                                     )}
+                                    </Suspense>
                                 </main>
                             </div>
                         </AtlasDockLayout>

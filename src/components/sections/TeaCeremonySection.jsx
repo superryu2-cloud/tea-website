@@ -8,7 +8,6 @@ import RitualSection from './RitualSection';
 
 const TeaCeremonySection = () => {
     const [ceremonyTab, setCeremonyTab] = useState('philosophy');
-    const [showAllUtensils, setShowAllUtensils] = useState(false);
     const ceremonySectionRef = useRef(null);
     const [sidebarWidth, setSidebarWidth] = useState(() => {
         if (typeof window === 'undefined') return 300;

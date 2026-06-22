@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { Users, Trophy, Play, CheckCircle2, XCircle, Clock, Loader2, RefreshCw, AlertCircle, Award, Crown, ArrowRight, Share2, Copy } from 'lucide-react';
 
 const QUESTIONS_POOL = [
@@ -105,18 +105,43 @@ const loadMqttLib = () => {
     });
 };
 
+const createRandomId = (prefix) => `${prefix}_${Math.random().toString(36).slice(2, 11)}`;
+const createRoomId = () => Math.floor(1000 + Math.random() * 9000).toString();
+const getTimestamp = () => Date.now();
+
+const pickRandomQuestions = (pool, limit) => {
+    const next = [...pool];
+    for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+    }
+    return next.slice(0, limit);
+};
+
+const broadcastState = (client, rId, data) => {
+    if (!client || !rId) return;
+    client.publish(`teaparty/${rId}/state`, JSON.stringify(data));
+};
+
+const getInitialRoomId = () => {
+    if (typeof window === 'undefined') return '';
+    return new URLSearchParams(window.location.search).get('room') || '';
+};
+
+const initialRoomId = getInitialRoomId();
+
 export default function MultiplayerGame() {
     const [mqttLoaded, setMqttLoaded] = useState(false);
     const [mqttError, setMqttError] = useState(null);
-    const [mode, setMode] = useState('select'); // 'select', 'host_lobby', 'host_playing', 'host_result', 'player_join', 'player_waiting', 'player_playing', 'player_round_result', 'player_finished'
+    const [mode, setMode] = useState(() => initialRoomId ? 'player_join' : 'select'); // 'select', 'host_lobby', 'host_playing', 'host_result', 'player_join', 'player_waiting', 'player_playing', 'player_round_result', 'player_finished'
     
     // MQTT Client Ref
     const clientRef = useRef(null);
     
     // Common State
-    const [roomId, setRoomId] = useState('');
+    const [roomId, setRoomId] = useState(() => initialRoomId);
     const [nickname, setNickname] = useState('');
-    const [playerId, setPlayerId] = useState('');
+    const [playerId, setPlayerId] = useState(() => initialRoomId ? createRandomId('usr') : '');
     
     // Host States
     const [players, setPlayers] = useState([]); // Array of { id, name, score }
@@ -128,6 +153,9 @@ export default function MultiplayerGame() {
     const timerIntervalRef = useRef(null);
     const questionStartTimeRef = useRef(null);
     const currentQuestionIndexRef = useRef(0);
+    const answersReceivedRef = useRef([]);
+    const gameQuestionsRef = useRef([]);
+    const roomIdRef = useRef('');
 
     // Player States
     const [playerScore, setPlayerScore] = useState(0);
@@ -138,20 +166,53 @@ export default function MultiplayerGame() {
     const [pointsGained, setPointsGained] = useState(0);
     const [playerStatusMsg, setPlayerStatusMsg] = useState('正在等待主持人開始遊戲...');
 
+    useEffect(() => {
+        answersReceivedRef.current = answersReceived;
+    }, [answersReceived]);
+
+    useEffect(() => {
+        gameQuestionsRef.current = gameQuestions;
+    }, [gameQuestions]);
+
+    useEffect(() => {
+        roomIdRef.current = roomId;
+    }, [roomId]);
+
+    const endQuestionRound = useCallback(() => {
+        if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+        setQuestionActive(false);
+
+        const latestAnswers = answersReceivedRef.current;
+        const latestQuestions = gameQuestionsRef.current;
+        const currentRoomId = roomIdRef.current;
+
+        setPlayers(prevPlayers => {
+            const updatedPlayers = prevPlayers.map(p => {
+                const answer = latestAnswers.find(a => a.playerId === p.id);
+                const points = answer ? answer.points : 0;
+                return { ...p, score: p.score + points };
+            });
+
+            const sortedLeaderboard = [...updatedPlayers].sort((a, b) => b.score - a.score);
+
+            setTimeout(() => {
+                broadcastState(clientRef.current, currentRoomId, {
+                    status: 'round_end',
+                    correctAnswer: latestQuestions[currentQuestionIndexRef.current]?.answer,
+                    answers: latestAnswers,
+                    leaderboard: sortedLeaderboard
+                });
+            }, 0);
+
+            return updatedPlayers;
+        });
+    }, []);
+
     // Load MQTT on mount
     useEffect(() => {
         loadMqttLib()
             .then(() => setMqttLoaded(true))
-            .catch((err) => setMqttError('無法連線到多人遊戲伺服器，請檢查網路連線。'));
-
-        // Check URL for join room parameter
-        const params = new URLSearchParams(window.location.search);
-        const roomFromUrl = params.get('room');
-        if (roomFromUrl) {
-            setRoomId(roomFromUrl);
-            setPlayerId(`usr_${Math.random().toString(36).substr(2, 9)}`);
-            setMode('player_join');
-        }
+            .catch(() => setMqttError('無法連線到多人遊戲伺服器，請檢查網路連線。'));
 
         return () => {
             if (clientRef.current) {
@@ -166,19 +227,20 @@ export default function MultiplayerGame() {
     // Auto end question round when all players have submitted answers
     useEffect(() => {
         if (mode === 'host_playing' && questionActive && players.length > 0 && answersReceived.length >= players.length) {
-            endQuestionRound();
+            const timeoutId = window.setTimeout(endQuestionRound, 0);
+            return () => window.clearTimeout(timeoutId);
         }
-    }, [answersReceived, players, mode, questionActive]);
+    }, [answersReceived, players, mode, questionActive, endQuestionRound]);
 
     // Create a room as Host
     const createRoom = () => {
         if (!window.mqtt) return;
-        const generatedRoomId = Math.floor(1000 + Math.random() * 9000).toString();
+        const generatedRoomId = createRoomId();
         setRoomId(generatedRoomId);
         
         // Connect to public broker
         const client = window.mqtt.connect('wss://broker.emqx.io:8084/mqtt', {
-            clientId: `host_${Math.random().toString(36).substr(2, 9)}`,
+            clientId: createRandomId('host'),
             keepalive: 60
         });
 
@@ -340,17 +402,11 @@ export default function MultiplayerGame() {
         }
     };
 
-    // Helper for Host to Broadcast Game State
-    const broadcastState = (client, rId, data) => {
-        if (!client || !rId) return;
-        client.publish(`teaparty/${rId}/state`, JSON.stringify(data));
-    };
-
     // Host Starts Game
     const hostStartGame = () => {
         if (players.length === 0) return; // Need players
         // Select 5 random questions
-        const selected = [...QUESTIONS_POOL].sort(() => 0.5 - Math.random()).slice(0, 5);
+        const selected = pickRandomQuestions(QUESTIONS_POOL, 5);
         setGameQuestions(selected);
         setCurrentQuestionIndex(0);
         currentQuestionIndexRef.current = 0;
@@ -364,7 +420,7 @@ export default function MultiplayerGame() {
         setQuestionActive(true);
         setTimerCount(20);
         setAnswersReceived([]);
-        questionStartTimeRef.current = Date.now();
+        questionStartTimeRef.current = getTimestamp();
         
         broadcastState(clientRef.current, roomId, {
             status: 'playing',
@@ -389,35 +445,6 @@ export default function MultiplayerGame() {
         }, 1000);
     };
 
-    const endQuestionRound = () => {
-        if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-        setQuestionActive(false);
-
-        // Update scores for this round in main players array
-        setPlayers(prevPlayers => {
-            const updatedPlayers = prevPlayers.map(p => {
-                const answer = answersReceived.find(a => a.playerId === p.id);
-                const points = answer ? answer.points : 0;
-                return { ...p, score: p.score + points };
-            });
-
-            // Sort by score for leaderboard
-            const sortedLeaderboard = [...updatedPlayers].sort((a, b) => b.score - a.score);
-
-            // Broadcast round end, correct answer, explanation, and leaderboard to players (run as side effect)
-            setTimeout(() => {
-                broadcastState(clientRef.current, roomId, {
-                    status: 'round_end',
-                    correctAnswer: gameQuestions[currentQuestionIndexRef.current]?.answer,
-                    answers: answersReceived,
-                    leaderboard: sortedLeaderboard
-                });
-            }, 0);
-
-            return updatedPlayers;
-        });
-    };
-
     const hostNextQuestion = () => {
         const nextIndex = currentQuestionIndex + 1;
         if (nextIndex < 5) {
@@ -440,7 +467,7 @@ export default function MultiplayerGame() {
         if (playerSelectedAnswer !== null || !clientRef.current) return;
         setPlayerSelectedAnswer(index);
         
-        const timeSpent = (Date.now() - questionStartTimeRef.current) / 1000;
+        const timeSpent = (getTimestamp() - questionStartTimeRef.current) / 1000;
         
         clientRef.current.publish(`teaparty/${roomId}/answer`, JSON.stringify({
             playerId: playerId,
@@ -542,7 +569,7 @@ export default function MultiplayerGame() {
                                     <button
                                         onClick={() => {
                                             if (roomId.length === 4) {
-                                                setPlayerId(`usr_${Math.random().toString(36).substr(2, 9)}`);
+                                                setPlayerId(createRandomId('usr'));
                                                 setMode('player_join');
                                             } else {
                                                 alert('請輸入 4 位數房間號！');
