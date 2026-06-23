@@ -217,10 +217,6 @@ export default function TaiwanHighMountainTeaMap() {
                     )}                    <svg
                         viewBox={`${center.x - 500 / zoom} ${center.y - 400 / zoom} ${1000 / zoom} ${800 / zoom}`}
                         className={`min-h-[680px] w-full select-none touch-none md:min-h-[820px] ${zoom > MIN_ZOOM ? (dragStart ? 'cursor-grabbing' : 'cursor-grab') : ''}`}
-                        onWheel={(event) => {
-                            event.preventDefault();
-                            changeZoom(zoom + (event.deltaY < 0 ? 0.25 : -0.25));
-                        }}
                         onPointerDown={handlePointerDown}
                         onPointerMove={handlePointerMove}
                         onPointerUp={stopDragging}

@@ -984,16 +984,6 @@ export default function SiteNavigation({
 	                </select>
 	              </div>
 
-              <div className="px-3 py-2">
-                <div className="mb-2 flex items-center justify-between gap-3">
-                  <div>
-                    <div className="text-xs font-bold text-stone-500">背景</div>
-                    <div className="text-[13px] font-semibold text-stone-500">目前：{paperThemeLabel}</div>
-                  </div>
-                  <Palette size={16} className="text-stone-500" aria-hidden="true" />
-                </div>
-                {renderPaperThemeOptions(true)}
-              </div>
 
 	              <div className="space-y-3 px-2">
 	                {PRIMARY_SITE_NAV.map((group) => {
