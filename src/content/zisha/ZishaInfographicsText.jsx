@@ -1,23 +1,73 @@
-import React from 'react';
+﻿import React from 'react';
 import { Callout, DataTable } from '../references/ui';
+const referencePhotos = [
+  {
+    src: '/assets/zisha/reference/yixing-teapots-variety.jpg',
+    title: '宜興紫砂壺器型觀察',
+    caption: '實拍壺群可用來觀察壺身比例、壺嘴角度、壺把重心與整體氣韻。',
+    source: 'Wikimedia Commons：Tea pots.jpg',
+    url: 'https://commons.wikimedia.org/wiki/File:Tea_pots.jpg',
+  },
+  {
+    src: '/assets/zisha/reference/yixing-green-teapot.jpg',
+    title: '單把紫砂壺細節觀察',
+    caption: '適合搭配器型、泥色與使用痕跡說明，讓學生先看實物，再回到文字分類。',
+    source: 'Wikimedia Commons：Yixing clay teapot.jpg',
+    url: 'https://commons.wikimedia.org/wiki/File:Yixing_clay_teapot.jpg',
+  },
+];
+
+const REAL_ZISHA_IMAGES = [
+  {
+    title: '清代曼生壺',
+    tag: '器型與文人壺',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Man%20Sheng%20teapot.JPG',
+    source: 'https://commons.wikimedia.org/wiki/File:Man_Sheng_teapot.JPG',
+    credit: '风之清扬 / CC BY-SA 3.0',
+    note: '可用來對照紫砂壺的文人題銘、壺身比例與樸雅氣質。',
+  },
+  {
+    title: '約 1900 年宜興壺',
+    tag: '壺形比例',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Teapot%20%28Yixing%20ware%2C%20about%201900%29.JPG',
+    source: 'https://commons.wikimedia.org/wiki/File:Teapot_(Yixing_ware,_about_1900).JPG',
+    credit: 'Gerbil / CC BY-SA 3.0',
+    note: '適合觀察流、把、鈕與壺身重心的整體協調。',
+  },
+  {
+    title: '紫砂提梁壺',
+    tag: '提梁器型',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/P1090266.JPG',
+    source: 'https://commons.wikimedia.org/wiki/File:P1090266.JPG',
+    credit: 'Yongxinge / CC BY-SA 3.0',
+    note: '可對照提梁壺的高把結構，以及手持、出水與造型張力。',
+  },
+  {
+    title: '天青泥紫砂壺',
+    tag: '泥料觀察',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/YixingClayTeapotByShaoHengyuOfQingDynasty-TianQingClay.jpg',
+    source: 'https://commons.wikimedia.org/wiki/File:YixingClayTeapotByShaoHengyuOfQingDynasty-TianQingClay.jpg',
+    credit: 'Gw2100 / CC BY-SA 4.0',
+    note: '用於說明泥料色澤、砂感與泡養後可能產生的視覺變化。',
+  },
+];
 
 function Panel({ id, title, subtitle, children }) {
   return (
-    <details id={id} className="group scroll-mt-28 rounded-2xl border border-stone-200 bg-white shadow-sm overflow-hidden">
-      <summary className="cursor-pointer select-none px-6 py-5 bg-gradient-to-r from-stone-50 to-white flex items-start justify-between gap-6">
-        <div className="min-w-0">
-          <div className="font-extrabold text-stone-900">{title}</div>
-          {subtitle ? <div className="mt-1 text-sm text-stone-600">{subtitle}</div> : null}
-          <div className="mt-2 text-xs text-stone-500">點此展開／收合</div>
+    <section id={id} className="scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-white shadow-sm">
+      <div className="border-b border-stone-200 bg-gradient-to-r from-amber-50 via-stone-50 to-white px-6 py-5">
+        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div className="min-w-0">
+            <div className="text-xs font-extrabold tracking-[0.2em] text-amber-700">ZISHA TEXT BOARD</div>
+            <h3 className="mt-1 text-xl font-black text-stone-950">{title}</h3>
+          </div>
+          {subtitle ? <div className="max-w-xl text-sm font-semibold leading-6 text-stone-600 md:text-right">{subtitle}</div> : null}
         </div>
-        <div className="shrink-0 w-10 h-10 rounded-xl border border-stone-200 bg-white flex items-center justify-center text-stone-500">
-          <span className="text-lg leading-none group-open:rotate-45 transition-transform">＋</span>
-        </div>
-      </summary>
-      <div className="px-6 pb-6">
-        <div className="mt-5 space-y-5 text-[15px] leading-7 text-stone-700 md:text-base">{children}</div>
       </div>
-    </details>
+      <div className="px-6 py-6">
+        <div className="space-y-5 text-[15px] leading-7 text-stone-700 md:text-base">{children}</div>
+      </div>
+    </section>
   );
 }
 
@@ -37,6 +87,97 @@ function Card({ title, children, className = '' }) {
 function K({ children }) {
   return <span className="font-extrabold text-stone-900">{children}</span>;
 }
+function PhotoCard({ photo }) {
+  return (
+    <figure className="overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white shadow-sm">
+      <div className="aspect-[4/3] overflow-hidden bg-stone-100">
+        <img src={photo.src} alt={photo.title} className="h-full w-full object-cover" loading="lazy" />
+      </div>
+      <figcaption className="space-y-2 p-4">
+        <div className="text-sm font-black text-stone-950">{photo.title}</div>
+        <p className="text-sm leading-6 text-stone-600">{photo.caption}</p>
+        <a
+          href={photo.url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex text-xs font-bold text-amber-800 underline-offset-4 hover:underline"
+        >
+          圖片來源：{photo.source}
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
+function GuideStrip({ title, children, tone = 'amber' }) {
+  const tones = {
+    amber: 'border-amber-200 bg-amber-50 text-amber-900',
+    stone: 'border-stone-200 bg-stone-50 text-stone-800',
+    green: 'border-emerald-200 bg-emerald-50 text-emerald-900',
+    purple: 'border-purple-200 bg-purple-50 text-purple-900',
+  };
+
+  return (
+    <div className={`rounded-2xl border p-4 ${tones[tone]}`}>
+      <div className="text-sm font-black">{title}</div>
+      <div className="mt-2 text-sm leading-6">{children}</div>
+    </div>
+  );
+}
+function SourceImageCard({ image }) {
+  return (
+    <article className="group overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg">
+      <div className="relative h-56 overflow-hidden bg-stone-100">
+        <img
+          src={image.src}
+          alt={image.title}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute left-3 top-3 rounded-full bg-stone-950/75 px-3 py-1 text-xs font-extrabold tracking-widest text-amber-100 backdrop-blur-sm">
+          {image.tag}
+        </div>
+      </div>
+      <div className="space-y-3 p-5">
+        <div>
+          <h4 className="text-lg font-black text-stone-950">{image.title}</h4>
+          <p className="mt-2 text-sm leading-6 text-stone-600">{image.note}</p>
+        </div>
+        <div className="rounded-2xl border border-amber-100 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900">
+          圖片：{image.credit}
+          <a className="ml-2 font-extrabold underline decoration-amber-400 underline-offset-4" href={image.source} target="_blank" rel="noreferrer">
+            查看來源
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function RealImageGallery() {
+  return (
+    <section className="overflow-hidden rounded-[2rem] border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-stone-50 p-5 shadow-sm md:p-6">
+      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <div className="text-xs font-extrabold tracking-[0.22em] text-amber-700">REAL IMAGE REFERENCES</div>
+          <h3 className="mt-2 text-2xl font-black text-stone-950">真實圖像參照</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-stone-600">
+            這裡選用 Wikimedia Commons 上有授權資訊的紫砂壺實拍照片，讓器型、泥料與養護文字能對照真實物件閱讀。
+          </p>
+        </div>
+        <div className="rounded-full border border-stone-200 bg-white px-4 py-2 text-xs font-extrabold text-stone-600">
+          真實照片 · 附來源授權
+        </div>
+      </div>
+      <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {REAL_ZISHA_IMAGES.map((image) => (
+          <SourceImageCard key={image.title} image={image} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function ZishaInfographicsText() {
   return (
@@ -44,9 +185,39 @@ export default function ZishaInfographicsText() {
       <Callout title="圖卡文字版（繁體）">
         本區將你提供的圖卡內容轉成可搜尋、可引用的文字展板，並統一改為繁體中文；段落結構與用語盡量依原圖呈現，方便教學使用。
       </Callout>
+      <section className="overflow-hidden rounded-[1.75rem] border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-stone-50 shadow-sm">
+        <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="p-6 md:p-7">
+            <div className="text-xs font-extrabold tracking-[0.22em] text-amber-700">REAL PHOTO REFERENCES</div>
+            <h3 className="mt-3 text-2xl font-black leading-tight text-stone-950">先看真實器物，再讀分類文字</h3>
+            <p className="mt-3 text-[15px] leading-7 text-stone-700">
+              這一區不只放文字清單，而是先用真實紫砂壺照片建立視覺印象：看壺身比例、嘴把位置、壺蓋與壺鈕關係，
+              再往下對照器型、工藝、養護與泥料分類。課堂上可以先請學生看圖說出觀察點，再回到文字展板整理概念。
+            </p>
+            <div className="mt-5 grid gap-3">
+              <GuideStrip title="閱讀順序建議">
+                ① 先看照片建立感覺 → ② 看器型分類 → ③ 理解工藝與養護 → ④ 最後用泥料表格補充辨識框架。
+              </GuideStrip>
+              <GuideStrip title="授權提醒" tone="stone">
+                圖片採用可追溯來源的 Wikimedia Commons 實拍圖，頁面保留來源連結；若未來商用印刷，建議再逐張確認原頁授權條款。
+              </GuideStrip>
+            </div>
+          </div>
+          <div className="grid gap-4 border-t border-amber-100 p-5 sm:grid-cols-2 lg:border-l lg:border-t-0">
+            {referencePhotos.map((photo) => (
+              <PhotoCard key={photo.src} photo={photo} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RealImageGallery />
 
       <Panel id="zisha-visual-shapes" title="器型大全（文字展板）" subtitle="圓器／方器／花器／提梁／筋紋器（圖鑑圖卡）">
         <BlockTitle>紫砂壺器型大全</BlockTitle>
+        <GuideStrip title="怎麼讀這一段">
+          器型不要只背名稱，先抓「壺身幾何」：圓器看飽滿與線條，方器看轉折與比例，花器看仿生題材，提梁看上方提把重心，筋紋器看放射狀線條是否均勻。
+        </GuideStrip>
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="圓器">
             <div>德鐘壺、石瓢壺、掇球壺、西施壺、美人肩、茄段壺。</div>
@@ -68,6 +239,9 @@ export default function ZishaInfographicsText() {
 
       <Panel id="zisha-visual-craft" title="工藝大全（文字展板）" subtitle="全手工／半手工／盤築法／純手捏（工藝圖卡）">
         <BlockTitle>紫砂壺工藝大全</BlockTitle>
+        <GuideStrip title="教學切入點" tone="stone">
+          工藝段落適合用「成型方式」來比較：全手工重在泥片拍身與接縫，半手工重在模具輔助，盤築法看泥條層層堆疊，純手捏則強調手感與自由塑形。
+        </GuideStrip>
 
         <Card title="全手工">
           <div>可以從以下 4 個點觀察紫砂壺是否是手工壺。</div>
@@ -103,6 +277,9 @@ export default function ZishaInfographicsText() {
 
       <Panel id="zisha-visual-care" title="養護大全（文字展板）" subtitle="開壺／養壺／清洗／包漿（養護圖卡）">
         <BlockTitle>紫砂壺養護大全</BlockTitle>
+        <GuideStrip title="養護重點" tone="green">
+          養壺不是把壺弄得越油越好，而是「乾淨使用、固定茶類、保持通風」。課堂上可把開壺、日常沖淋、清洗、存放分成四個步驟講。
+        </GuideStrip>
 
         <Card title="開壺">
           <div>
@@ -152,6 +329,9 @@ export default function ZishaInfographicsText() {
 
       <Panel id="zisha-visual-clay-palette" title="泥料大全（色卡文字版）" subtitle="紅泥／團泥／紫泥／綠泥（色卡圖）">
         <BlockTitle>紫砂壺泥料大全</BlockTitle>
+        <GuideStrip title="辨泥提醒" tone="purple">
+          泥料不能只靠顏色判斷。照片、色卡與文字只能建立初步認識，實際仍要看胎質、顆粒、燒成氣氛、泡養變化與可信來源。
+        </GuideStrip>
         <DataTable title="色卡分組（文字版）">
           <table className="min-w-full divide-y divide-stone-200">
             <thead className="bg-stone-100">
@@ -438,3 +618,7 @@ export default function ZishaInfographicsText() {
     </div>
   );
 }
+
+
+
+

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -126,7 +126,7 @@
   /* Paper Texture Theme: Light (瘛箄蝝撐) */
   :root[data-paper-theme='light'] body {
     background-color: #faf8f3;
-    background-image: url('/images/paper_texture_light.png');
+    background-image: url('/images/paper_texture_light_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -261,6 +261,78 @@
     background-attachment: fixed;
   }
 
+  /* Large Wallpaper Theme: Warm and Cool Yin-Yang */
+  :root[data-paper-theme='home-yinyang-fire-ice'] body {
+    background-color: #d9d2c5;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.34)),
+      url('/images/hero/home_yinyang_fire_ice_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Large Wallpaper Theme: Snow Summit */
+  :root[data-paper-theme='home-snow-summit'] body {
+    background-color: #e8edf0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
+      url('/images/hero/home_snow_summit_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Large Wallpaper Theme: Fushoushan Cloud Sea */
+  :root[data-paper-theme='home-fushoushan-cloudsea'] body {
+    background-color: #dfe9df;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.36)),
+      url('/images/hero/home_fushoushan_cloudsea_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Large Wallpaper Theme: Peak Moon */
+  :root[data-paper-theme='home-peak-moon'] body {
+    background-color: #111827;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.08)),
+      url('/images/hero/home_peak_moon_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Large Wallpaper Theme: City Moon Night */
+  :root[data-paper-theme='home-city-moon'] body {
+    background-color: #101820;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.06)),
+      url('/images/hero/home_city_moon_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Large Wallpaper Theme: Gorge Sky */
+  :root[data-paper-theme='home-gorge-sky'] body {
+    background-color: #d8e5e8;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
+      url('/images/hero/home_gorge_sky_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
   /* Large Wallpaper Theme: Landscape (茶山風景) */
   :root[data-paper-theme='landscape'] body {
     background-color: #f5f3ed;
@@ -346,7 +418,7 @@
   /* Paper Texture Theme: Blue (瘛箄?蝝撐) */
   :root[data-paper-theme='blue'] body {
     background-color: #e8f4f8;
-    background-image: url('/images/paper_texture_blue.png');
+    background-image: url('/images/paper_texture_blue_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -355,7 +427,7 @@
   /* Paper Texture Theme: Dotted (暺?蝝撐) */
   :root[data-paper-theme='dotted'] body {
     background-color: #f8f6f2;
-    background-image: url('/images/paper_texture_dotted.png');
+    background-image: url('/images/paper_texture_dotted_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -364,7 +436,7 @@
   /* Paper Texture Theme: Natural (?芰蝝撐) */
   :root[data-paper-theme='natural'] body {
     background-color: #f5f1e8;
-    background-image: url('/images/paper_texture_natural.png');
+    background-image: url('/images/paper_texture_natural_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -373,7 +445,7 @@
   /* Paper Texture Theme: Slate (瘛梯??啁?撘? */
   :root[data-paper-theme='slate'] body {
     background-color: #4a5c6a;
-    background-image: url('/images/paper_texture_slate.png');
+    background-image: url('/images/paper_texture_slate_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -383,7 +455,7 @@
   /* Paper Texture Theme: Cream (憟嗆硃蝝撐) */
   :root[data-paper-theme='cream'] body {
     background-color: #f8f6f0;
-    background-image: url('/images/paper_texture_cream.png');
+    background-image: url('/images/paper_texture_cream_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -392,18 +464,20 @@
   /* Paper Texture Theme: Ink (山水潑墨) */
   :root[data-paper-theme='ink'] body {
     background-color: #1a1c22;
-    background-image: url('/images/paper_texture_ink.png');
-    background-size: 512px 512px;
-    /* Set a specific size for better landscape visibility */
-    background-repeat: repeat;
-    background-position: 0 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.22)),
+      url('/images/paper_texture_ink_premium.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     color: #e8e8e8;
   }
 
   /* Paper Texture Theme: Parchment (羊皮紙) */
   :root[data-paper-theme='parchment'] body {
     background-color: #e6dcc8;
-    background-image: url('/images/paper_texture_parchment.png');
+    background-image: url('/images/paper_texture_parchment_premium.png');
     background-size: auto;
     background-repeat: repeat;
     background-position: 0 0;
@@ -2164,7 +2238,7 @@
 
 /* Sidebar Background Texture */
 .sidebar-texture-bg {
-  background-image: url('/images/paper_texture_natural.png');
+  background-image: url('/images/paper_texture_natural_premium.png');
   background-size: 200px;
   background-repeat: repeat;
   background-blend-mode: overlay;
@@ -2314,3 +2388,6 @@
 .tea-site [data-lightbox-overlay] img {
   cursor: inherit;
 }
+
+
+
