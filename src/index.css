@@ -145,7 +145,7 @@
   :root[data-paper-theme='seamless-tea'] body {
     background-color: #f8f5ed;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_pattern.png');
     background-size: auto, 520px 520px;
     background-repeat: repeat, repeat;
@@ -157,7 +157,7 @@
   :root[data-paper-theme='seamless-tea-jade'] body {
     background-color: #f7f7ef;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_jade.png');
     background-size: auto, 540px 540px;
     background-repeat: repeat, repeat;
@@ -169,7 +169,7 @@
   :root[data-paper-theme='seamless-tea-ink'] body {
     background-color: #f3f0e7;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_ink.png');
     background-size: auto, 560px 560px;
     background-repeat: repeat, repeat;
@@ -181,7 +181,7 @@
   :root[data-paper-theme='seamless-tea-ceramic'] body {
     background-color: #f7f8f4;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.66)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_ceramic.png');
     background-size: auto, 500px 500px;
     background-repeat: repeat, repeat;
@@ -193,7 +193,7 @@
   :root[data-paper-theme='seamless-tea-roast'] body {
     background-color: #f7f1e7;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_roast.png');
     background-size: auto, 540px 540px;
     background-repeat: repeat, repeat;
@@ -205,7 +205,7 @@
   :root[data-paper-theme='high-mountain-tea'] body {
     background-color: #edf4ed;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.58)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/high_mountain_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -217,7 +217,7 @@
   :root[data-paper-theme='deep-forest-tea'] body {
     background-color: #e9efe5;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/deep_forest_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -229,7 +229,7 @@
   :root[data-paper-theme='bamboo-forest-tea'] body {
     background-color: #edf3e4;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.58)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/bamboo_forest_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -241,7 +241,7 @@
   :root[data-paper-theme='formal-tea-ceremony'] body {
     background-color: #17140f;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/formal_tea_ceremony_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -253,7 +253,7 @@
   :root[data-paper-theme='snow-forest-path'] body {
     background-color: #eef3f5;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/snow_forest_path_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -265,7 +265,7 @@
   :root[data-paper-theme='home-yinyang-fire-ice'] body {
     background-color: #d9d2c5;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.34)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_yinyang_fire_ice_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -277,7 +277,7 @@
   :root[data-paper-theme='home-snow-summit'] body {
     background-color: #e8edf0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_snow_summit_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -289,7 +289,7 @@
   :root[data-paper-theme='home-fushoushan-cloudsea'] body {
     background-color: #dfe9df;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.36)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_fushoushan_cloudsea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -301,7 +301,7 @@
   :root[data-paper-theme='home-peak-moon'] body {
     background-color: #111827;
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.08)),
+      linear-gradient(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_peak_moon_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -313,7 +313,7 @@
   :root[data-paper-theme='home-city-moon'] body {
     background-color: #101820;
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.06)),
+      linear-gradient(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_city_moon_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -325,7 +325,7 @@
   :root[data-paper-theme='home-gorge-sky'] body {
     background-color: #d8e5e8;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/hero/home_gorge_sky_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -336,7 +336,7 @@
   /* Large Wallpaper Theme: Landscape (茶山風景) */
   :root[data-paper-theme='landscape'] body {
     background-color: #f5f3ed;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/tea_landscape_bg.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), url('/images/tea_landscape_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -346,7 +346,7 @@
   /* Premium Wallpaper Theme: Morning Tea Hills (晨光茶丘) */
   :root[data-paper-theme='premium-landscape'] body {
     background-color: #fbf9f4;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/premium_tea_landscape.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), url('/images/premium_tea_landscape.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -376,7 +376,7 @@
   /* Ink Wash Theme (水墨山亭) */
   :root[data-paper-theme='inkwash'] body {
     background-color: #f0ebe0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/ink_wash_tea_bg.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), url('/images/ink_wash_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -398,7 +398,7 @@
 
   :root[data-paper-theme='zen'] body {
     background-color: #f5f2eb;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/zen_botanical_bg.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), url('/images/zen_botanical_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -408,7 +408,7 @@
   /* Full HD Tea Table Theme (茶席靜物) */
   :root[data-paper-theme='teatable'] body {
     background-color: #f3ede4;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/images/fullhd_tea_bg.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), url('/images/fullhd_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -465,7 +465,7 @@
   :root[data-paper-theme='ink'] body {
     background-color: #1a1c22;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.22)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(0, 0, 0, 0.22)),
       url('/images/paper_texture_ink_premium.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -500,7 +500,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='seamless-tea'] body {
     background-color: #f8f5ed;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_pattern.png');
     background-size: auto, 520px 520px;
     background-repeat: repeat, repeat;
@@ -511,7 +511,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='seamless-tea-jade'] body {
     background-color: #f7f7ef;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_jade.png');
     background-size: auto, 540px 540px;
     background-repeat: repeat, repeat;
@@ -522,7 +522,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='seamless-tea-ink'] body {
     background-color: #f3f0e7;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_ink.png');
     background-size: auto, 560px 560px;
     background-repeat: repeat, repeat;
@@ -533,7 +533,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='seamless-tea-ceramic'] body {
     background-color: #f7f8f4;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.66)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_ceramic.png');
     background-size: auto, 500px 500px;
     background-repeat: repeat, repeat;
@@ -544,7 +544,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='seamless-tea-roast'] body {
     background-color: #f7f1e7;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/seamless_tea_roast.png');
     background-size: auto, 540px 540px;
     background-repeat: repeat, repeat;
@@ -555,7 +555,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='high-mountain-tea'] body {
     background-color: #edf4ed;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.58)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/high_mountain_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -566,7 +566,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='deep-forest-tea'] body {
     background-color: #e9efe5;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/deep_forest_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -577,7 +577,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='bamboo-forest-tea'] body {
     background-color: #edf3e4;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.58)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/bamboo_forest_tea_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -588,7 +588,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='formal-tea-ceremony'] body {
     background-color: #17140f;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/formal_tea_ceremony_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -599,7 +599,7 @@
   :root[data-nav-theme='lp'][data-paper-theme='snow-forest-path'] body {
     background-color: #eef3f5;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)),
+      linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
       url('/images/snow_forest_path_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -966,6 +966,38 @@
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
   }
 
+
+  :root[data-paper-theme='seamless-tea-ink'] .journey-section-heading,
+  :root[data-paper-theme='home-peak-moon'] .journey-section-heading,
+  :root[data-paper-theme='home-city-moon'] .journey-section-heading,
+  :root[data-paper-theme='slate'] .journey-section-heading {
+    color: rgba(248, 250, 252, 0.96);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.62);
+  }
+
+  :root[data-paper-theme='seamless-tea-ink'] .journey-section-heading :where(h1, h2, h3),
+  :root[data-paper-theme='home-peak-moon'] .journey-section-heading :where(h1, h2, h3),
+  :root[data-paper-theme='home-city-moon'] .journey-section-heading :where(h1, h2, h3),
+  :root[data-paper-theme='slate'] .journey-section-heading :where(h1, h2, h3) {
+    color: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  :root[data-paper-theme='seamless-tea-ink'] .journey-section-heading p,
+  :root[data-paper-theme='home-peak-moon'] .journey-section-heading p,
+  :root[data-paper-theme='home-city-moon'] .journey-section-heading p,
+  :root[data-paper-theme='slate'] .journey-section-heading p {
+    color: rgba(226, 232, 240, 0.94) !important;
+  }
+
+  :root[data-paper-theme='seamless-tea-ink'] .journey-section-heading .museum-label,
+  :root[data-paper-theme='home-peak-moon'] .journey-section-heading .museum-label,
+  :root[data-paper-theme='home-city-moon'] .journey-section-heading .museum-label,
+  :root[data-paper-theme='slate'] .journey-section-heading .museum-label {
+    background-color: rgba(6, 78, 59, 0.72);
+    border-color: rgba(167, 243, 208, 0.72);
+    color: rgba(236, 253, 245, 0.98);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+  }
   .tool-muted {
     color: var(--tool-muted);
   }
@@ -2388,6 +2420,7 @@
 .tea-site [data-lightbox-overlay] img {
   cursor: inherit;
 }
+
 
 
 

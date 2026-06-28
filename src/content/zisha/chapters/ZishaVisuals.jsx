@@ -40,44 +40,24 @@ const visualTopics = [
 ];
 const realPhotoCards = [
     {
-        label: '器型參照',
-        title: '清代曼生壺',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Man%20Sheng%20teapot.JPG',
-        alt: '清代曼生壺照片',
-        description: '以真實器物觀察文人壺的題銘、壺身比例與樸雅氣質，適合搭配器型圖鑑一起閱讀。',
-        source: 'Wikimedia Commons：Man Sheng teapot',
+        label: '器型 × 比例',
+        title: '曼生式宜興紫砂壺',
+        image: '/assets/zisha/photos/man-sheng-teapot.jpg',
+        alt: '曼生式宜興紫砂壺真實照片',
+        description: '以真實器物觀察壺身、流、把、鈕與題銘的位置關係，適合搭配「圓器、方器、花器」器型分類一起閱讀。',
+        source: 'Wikimedia Commons：Man Sheng teapot.JPG',
         license: 'CC BY-SA 3.0',
         url: 'https://commons.wikimedia.org/wiki/File:Man_Sheng_teapot.JPG',
     },
     {
-        label: '壺形比例',
-        title: '約 1900 年宜興壺',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Teapot%20%28Yixing%20ware%2C%20about%201900%29.JPG',
-        alt: '約 1900 年宜興紫砂壺照片',
-        description: '用來觀察流、把、鈕與壺身重心的整體協調，讓文字展板的器型分類更有具體對照。',
-        source: 'Wikimedia Commons：Teapot (Yixing ware, about 1900)',
+        label: '養壺 × 情境',
+        title: '茶席使用情境',
+        image: '/assets/zisha/photos/chinese-tea-ceremony.jpg',
+        alt: '茶席泡茶情境真實照片',
+        description: '用實際茶席帶出「開壺、養壺、清洗、包漿」不是口訣，而是長期泡茶、擦拭與通風存放累積出的狀態。',
+        source: 'Wikimedia Commons：Chinese tea ceremony.jpg',
         license: 'CC BY-SA 3.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Teapot_(Yixing_ware,_about_1900).JPG',
-    },
-    {
-        label: '提梁器型',
-        title: '紫砂提梁壺',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/P1090266.JPG',
-        alt: '紫砂提梁壺照片',
-        description: '提梁壺的高把結構很適合說明「造型」與「實用」如何同時成立。',
-        source: 'Wikimedia Commons：P1090266',
-        license: 'CC BY-SA 3.0',
-        url: 'https://commons.wikimedia.org/wiki/File:P1090266.JPG',
-    },
-    {
-        label: '泥料觀察',
-        title: '天青泥紫砂壺',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/YixingClayTeapotByShaoHengyuOfQingDynasty-TianQingClay.jpg',
-        alt: '清代邵亨裕天青泥紫砂壺照片',
-        description: '可用於說明泥料色澤、砂感與泡養後可能產生的視覺變化。',
-        source: 'Wikimedia Commons：TianQingClay Yixing teapot',
-        license: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:YixingClayTeapotByShaoHengyuOfQingDynasty-TianQingClay.jpg',
+        url: 'https://commons.wikimedia.org/wiki/File:Chinese_tea_ceremony.jpg',
     },
 ];
 export default function ZishaVisuals() {
@@ -289,6 +269,7 @@ export default function ZishaVisuals() {
         </Section>
     );
 }
+
 
 
 

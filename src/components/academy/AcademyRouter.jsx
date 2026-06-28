@@ -170,7 +170,7 @@ const ACADEMY_CHAPTERS = {
     academy_chonghua_02: { component: ChonghuaChapter02, category: '崇華書院', title: '第02堂：茶席儀軌', intro: '探討茶席上的美學與動態儀軌。從靜態的橫向與直式佈局，到四大核心步驟「溫、置、注、奉」中物理作用與待客心理的奧秘。' },
     academy_chonghua_03: { component: ChonghuaChapter03, category: '崇華書院', title: '第03堂：世界與台灣紅茶史', intro: '從中國武夷山走向世界的全球貿易脈絡，到日月潭紅玉的在地風味轉型。' },
     academy_chonghua_04: { component: ChonghuaChapter04, category: '崇華書院', title: '第04堂：開啟你的風味冒險地圖 (1-2-6 體系指南)', intro: '掌握「1-2-6」三個數字，從萬茶歸宗的植物學起點、小葉種與大葉種的血統之別，到六大茶類的工藝光譜，建立一套風味預測系統。' },
-    academy_chonghua_05: { component: ChonghuaChapter05, category: '崇華書院', title: '第05堂', intro: '課程內容準備中' },
+    academy_chonghua_05: { component: ChonghuaChapter05, category: '崇華書院', title: '第05堂：蓋碗教學', intro: '從蓋、碗、托的器物理解，到三指持碗、蓋縫控制、短泡出湯與不燙手練習，建立蓋碗沖泡的基本功。' },
     academy_chonghua_06: { component: ChonghuaChapter06, category: '崇華書院', title: '第06堂', intro: '認識茶樹品種——一片葉子的身世之謎' },
     academy_chonghua_07: {
         component: ChonghuaChapter07,
@@ -278,6 +278,7 @@ export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnloc
         </Suspense>
     );
 }
+
 
 
 

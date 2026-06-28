@@ -250,7 +250,7 @@ export default function SiteNavigation({
     const implemented = {
       zhiya: ['02', '03', '04', '05', '06', '07', '09', '10', '14'],
       xueya: ['01', '03', '04', '05', '06', '07', '08', '09', '11'],
-      chonghua: ['01', '02', '03', '04', '06', '07', '08', '09'],
+      chonghua: ['01', '02', '03', '04', '05', '06', '07', '08', '09'],
     };
     return implemented[catKey]?.includes(num);
   };
@@ -1359,5 +1359,6 @@ export default function SiteNavigation({
     </nav>
   );
 }
+
 
 
