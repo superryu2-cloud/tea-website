@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import teaData from '../../data/teaData';
 import { isPageEnabled } from '../../data/productData';
 import AiChatButton from '../ai/AiChatButton';
@@ -27,6 +27,7 @@ const ZishaExhibit = lazy(() => import('../../content/zisha/ZishaExhibit'));
 const PuerhSection = lazy(() => import('../../sections/PuerhSection'));
 const SeasonsSection = lazy(() => import('../../sections/SeasonsSection'));
 const BrewingGuideSection = lazy(() => import('../../sections/BrewingGuideSection'));
+const AIPlannerRoom = lazy(() => import('../ai-planner/AIPlannerRoom'));
 
 function RouteLoadingFallback() {
   return (
@@ -122,6 +123,7 @@ export default function ActiveTabContent({
       )}
       <Suspense fallback={<RouteLoadingFallback />}>
         {activeTab === 'admin' && <ProductAdmin />}
+        {activeTab === 'ai_planner' && <AIPlannerRoom />}
         {activeTab === 'journey' && (
           <JourneySection
             goToTab={goToTab}
@@ -215,3 +217,4 @@ export default function ActiveTabContent({
     </main>
   );
 }
+

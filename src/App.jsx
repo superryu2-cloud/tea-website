@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import featuredTeaMenu from './data/featuredTeaMenu';
 import { CHEN_CHUAN_TOC, NAV_ITEMS, OOLONG_TOC, PUERH_TOC, RED_TOC, SCIENCE_TOC, TEA_REFERENCE_TOC, VARIETIES_KINDS, WHITE_TOC_EXTENDED as CONFIG_WHITE_TOC_EXTENDED } from './config/navigation';
 import useI18n from './i18n/useI18n';
@@ -236,6 +236,7 @@ const TeaWebsite = () => {
       'academy_xueya_11',
       'academy_coming_soon',
       'brand',
+      'ai_planner',
       ...CHONGHUA_ACADEMY_TABS
     ]);
     const allowedRooms = new Set(SCIENCE_TOC.map((item) => item.key).filter(Boolean));
@@ -585,3 +586,5 @@ const TeaWebsite = () => {
 export default function App() {
   return <TeaWebsite />;
 }
+
+

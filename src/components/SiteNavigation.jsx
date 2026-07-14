@@ -72,6 +72,7 @@ export default function SiteNavigation({
   const [chonghuaMobileOpen, setChonghuaMobileOpen] = useState(false);
   const [openPrimaryNavId, setOpenPrimaryNavId] = useState(null);
   const [paperMenuOpen, setPaperMenuOpen] = useState(false);
+  const [adminMenuOpen, setAdminMenuOpen] = useState(false);
   const [adminUnlocked, setAdminUnlocked] = useState(false);
   const daguanEntryVisible = daguanUnlocked && !academyMenuHidden;
   const localizedNavText = (entry, field) => {
@@ -118,9 +119,9 @@ export default function SiteNavigation({
   };
 
   const handleAdminClick = () => {
-    if (adminUnlocked) { goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); return; }
+    if (adminUnlocked) { goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); setAdminMenuOpen(false); return; }
     const pw = prompt('請輸入管理密碼：');
-    if (pw === '690214') { setAdminUnlocked(true); goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); }
+    if (pw === '690214') { setAdminUnlocked(true); goToTab('admin'); setAcademyNavOpen(false); setPaperMenuOpen(false); setAdminMenuOpen(false); }
   };
 
 
@@ -670,15 +671,53 @@ export default function SiteNavigation({
                               />
                             ) : null}
                           </button>
-                          <button
-                            type="button"
-                            onClick={handleAdminClick}
-                            className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors ${activeTab === 'admin' ? 'bg-white shadow-sm' : ''}`}
-                            aria-label="商品管理"
-                            title="商品管理"
-                          >
-                            <Settings size={15} className="text-stone-600" />
-                          </button>
+                          <div className="relative">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setAdminMenuOpen((v) => !v);
+                                setPaperMenuOpen(false);
+                                setAcademyNavOpen(false);
+                                setChonghuaNavOpen(false);
+                                setOpenPrimaryNavId(null);
+                              }}
+                              className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-white transition-colors ${(activeTab === 'admin' || activeTab === 'ai_planner' || adminMenuOpen) ? 'bg-white shadow-sm' : ''}`}
+                              aria-label="教師工具"
+                              aria-haspopup="menu"
+                              aria-expanded={adminMenuOpen}
+                              title="教師工具"
+                            >
+                              <Settings size={15} className="text-stone-600" />
+                            </button>
+                            {adminMenuOpen ? (
+                              <div className="absolute right-0 top-full z-[10060] mt-3 w-56 rounded-2xl border border-stone-200 bg-white/96 p-2 shadow-2xl backdrop-blur-xl" role="menu">
+                                <button
+                                  type="button"
+                                  onClick={handleAdminClick}
+                                  className="w-full rounded-xl px-3.5 py-3 text-left text-sm font-extrabold text-stone-700 transition hover:bg-stone-50 hover:text-amber-800"
+                                  role="menuitem"
+                                >
+                                  商品管理
+                                  <span className="mt-0.5 block text-xs font-semibold text-stone-400">管理後台</span>
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    goToTab('ai_planner');
+                                    setAdminMenuOpen(false);
+                                    setPaperMenuOpen(false);
+                                    setAcademyNavOpen(false);
+                                    setChonghuaNavOpen(false);
+                                  }}
+                                  className="w-full rounded-xl px-3.5 py-3 text-left text-sm font-extrabold text-emerald-800 transition hover:bg-emerald-50"
+                                  role="menuitem"
+                                >
+                                  AI 企劃室
+                                  <span className="mt-0.5 block text-xs font-semibold text-emerald-700/70">教師備課草稿工具</span>
+                                </button>
+                              </div>
+                            ) : null}
+                          </div>
                           <div className="relative">
                             <button
                               type="button"
@@ -1359,6 +1398,9 @@ export default function SiteNavigation({
     </nav>
   );
 }
+
+
+
 
 
 

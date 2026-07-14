@@ -1,40 +1,130 @@
-import React, { useRef, useState } from 'react';
+﻿import React, { useRef, useState } from 'react';
 import {
-  Leaf,
-  Sparkles,
-  MapPin,
-  History,
-  Thermometer,
-  Droplets,
-  Sprout,
-  Wind,
+  ArrowRight,
+  BookOpen,
   ChefHat,
-  Info,
-  ArrowRight
+  Droplets,
+  Leaf,
+  MapPin,
+  Mountain,
+  Sparkles,
+  Sprout,
+  Thermometer,
+  Wind,
 } from 'lucide-react';
 import ReadingAssist from '../../components/ReadingAssist';
 import ImageModal from '../../components/ImageModal';
 
-function Tag({ className, children }) {
+const HERO_IMAGE = {
+  src: '/images/varieties/green_tea/taiwan_green_tea_sanxia.png',
+  alt: '三峽碧螺春茶園與綠茶意象',
+};
+
+const IMAGE_GALLERY = [
+  {
+    src: '/images/biluochun.png',
+    alt: '碧螺春茶乾與細嫩白毫',
+    title: '細嫩白毫',
+    desc: '觀察細嫩芽葉、白毫與自然捲曲的綠茶外觀。',
+  },
+  {
+    src: '/images/green_tea_zhengqing.png',
+    alt: '綠茶殺菁製程',
+    title: '高溫殺菁',
+    desc: '以高溫抑制酵素活性，是綠茶保持鮮綠與清香的核心。',
+  },
+  {
+    src: '/images/green_tea_floating.png',
+    alt: '碧螺春上投法茶芽下沉',
+    title: '上投法茶舞',
+    desc: '透明杯中可觀察茶芽舒展，感受細嫩綠茶的杯中風景。',
+  },
+];
+
+const QUICK_FACTS = [
+  { label: '茶類', value: '不發酵綠茶', icon: Sprout },
+  { label: '主產地', value: '新北市三峽茶區', icon: MapPin },
+  { label: '代表品種', value: '青心柑仔', icon: Leaf },
+  { label: '採摘', value: '嫩採一心一葉／二葉', icon: Sparkles },
+];
+
+const PROCESS_STEPS = [
+  {
+    title: '嫩採茶菁',
+    desc: '以一心一葉或一心二葉等細嫩芽葉為主，白毫、嫩香與鮮爽感都從原料開始決定。',
+  },
+  {
+    title: '高溫殺菁',
+    desc: '採後以高溫迅速抑制酵素活性，停止氧化走向，是綠茶能保持鮮綠、清香與鮮爽的關鍵。',
+  },
+  {
+    title: '揉捻成形',
+    desc: '揉捻讓茶葉形成細緊、微捲或條索狀，也使茶汁附著於葉面，影響後續沖泡的滋味釋放。',
+  },
+  {
+    title: '乾燥定香',
+    desc: '乾燥降低含水量，固定香氣、滋味與外形。綠茶怕光、怕熱、怕潮，保存時更需要密封低溫。',
+  },
+];
+
+const TASTING_NOTES = [
+  { title: '外觀', desc: '茶形細嫩、條索緊結或自然捲曲，優質者可見嫩芽白毫。' },
+  { title: '湯色', desc: '茶湯清澈明亮，多呈淡綠至黃綠色，葉底鮮綠柔嫩。' },
+  { title: '香氣', desc: '常見嫩葉香、綠豆香、蔬果香、清花香，部分茶品可帶海苔或淡淡青草氣息。' },
+  { title: '滋味', desc: '入口鮮爽甘甜、清新細緻；若水溫過高或浸泡太久，容易轉為苦澀。' },
+];
+
+const BREWING_GUIDE = [
+  { label: '器具', value: '透明玻璃杯、白瓷蓋碗' },
+  { label: '水溫', value: '75–85°C' },
+  { label: '茶量', value: '約 3g／150ml' },
+  { label: '第一泡', value: '約 50–70 秒，依茶量調整' },
+  { label: '重點', value: '細嫩綠茶不建議洗茶，第一泡就是鮮爽精華' },
+];
+
+function InfoPill({ icon, label, value }) {
   return (
-    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-sm font-bold shadow-sm ${className}`}>
-      {children}
-    </span>
+    <div className="rounded-2xl border border-emerald-100 bg-white/85 p-4 shadow-sm">
+      <div className="mb-2 flex items-center gap-2 text-sm font-extrabold tracking-[0.14em] text-emerald-700">
+        {React.createElement(icon, { size: 16 })}
+        {label}
+      </div>
+      <div className="text-[18px] font-extrabold text-stone-950">{value}</div>
+    </div>
   );
 }
 
-function FeatureCard({ icon: Icon, title, desc, colorClass }) {
+function SectionTitle({ icon, eyebrow, title, children }) {
   return (
-    <div className={`p-5 rounded-2xl border ${colorClass} transition-all hover:-translate-y-1 hover:shadow-md`}>
-      <div className="flex items-center gap-3 mb-3">
-        <div className={`p-2 rounded-xl bg-white bg-opacity-60`}>
-          {React.createElement(Icon, { size: 20 })}
-        </div>
-        <h4 className="font-bold text-[19px]">{title}</h4>
+    <div className="mb-7">
+      <div className="mb-3 flex items-center gap-3 text-sm font-extrabold tracking-[0.2em] text-emerald-700 uppercase">
+        <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+          {React.createElement(icon, { size: 21 })}
+        </span>
+        {eyebrow}
       </div>
-      <p className="text-[17px] opacity-90 leading-relaxed">{desc}</p>
+      <h3 className="text-3xl font-black tracking-tight text-stone-950 md:text-4xl">{title}</h3>
+      {children ? <p className="mt-4 max-w-3xl text-[19px] leading-relaxed text-stone-700">{children}</p> : null}
     </div>
-  )
+  );
+}
+
+function ImageCard({ image, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onClick({ src: image.src, alt: image.alt })}
+      className="group overflow-hidden rounded-3xl border border-stone-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+    >
+      <div className="aspect-[4/3] overflow-hidden bg-emerald-50">
+        <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+      </div>
+      <div className="p-5">
+        <h4 className="text-xl font-black text-stone-950">{image.title}</h4>
+        <p className="mt-2 text-[17px] leading-relaxed text-stone-600">{image.desc}</p>
+      </div>
+    </button>
+  );
 }
 
 export default function BiluochunGreenTeaContent() {
@@ -43,253 +133,182 @@ export default function BiluochunGreenTeaContent() {
 
   return (
     <div className="animate-fadeIn space-y-12">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-sky-50 text-stone-800 rounded-3xl overflow-hidden p-8 md:p-14 border border-emerald-100 shadow-xl shadow-emerald-100/50">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-emerald-200/40 to-teal-200/40 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-sky-200/30 to-emerald-200/30 rounded-full blur-[60px] -ml-20 -mb-20 pointer-events-none" />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-emerald-200 text-emerald-800 text-base font-bold shadow-sm backdrop-blur-sm mb-6">
-            <Leaf size={14} className="text-emerald-600" />
-            <span className="tracking-widest">台灣特色茶｜綠茶</span>
+      <section className="overflow-hidden rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-lime-50 shadow-xl shadow-emerald-100/40">
+        <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="p-8 md:p-12">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/80 px-4 py-2 text-sm font-extrabold tracking-[0.18em] text-emerald-800 shadow-sm">
+              TAIWAN GREEN TEA · SANXIA
+            </div>
+            <h2 className="text-4xl font-black leading-tight tracking-tight text-emerald-950 md:text-6xl">
+              三峽碧螺春綠茶
+            </h2>
+            <p className="mt-6 max-w-2xl text-[21px] leading-relaxed text-stone-700">
+              臺灣北部代表性的炒菁綠茶。以新北三峽風土、青心柑仔品種與不發酵工藝，保留春芽最鮮明的清香、綠豆香與嫩芽白毫之美。它不像焙火茶那樣厚重，而是以清、鮮、柔、亮展現綠茶的精緻。
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {QUICK_FACTS.map((fact) => <InfoPill key={fact.label} {...fact} />)}
+            </div>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-900 leading-tight mb-6">
-            碧螺春綠茶
-          </h2>
-          <p className="text-xl md:text-2xl text-stone-600 leading-relaxed font-light tracking-wide max-w-2xl mb-8">
-            碧綠浮動，清香襲人。<br className="md:hidden" />一幅生動的春日畫卷。
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-            <Tag className="border-emerald-200 bg-emerald-50/50 text-emerald-900">
-              <Sprout size={14} />
-              不發酵 (0%)
-            </Tag>
-            <Tag className="border-teal-200 bg-teal-50/50 text-teal-900">
-              <ChefHat size={14} />
-              炒青工藝 (Pan-fried)
-            </Tag>
-            <Tag className="border-stone-200 bg-white/50 text-stone-700">
-              <MapPin size={14} />
-              新北市三峽
-            </Tag>
-          </div>
+          <button
+            type="button"
+            onClick={() => setPreviewImage(HERO_IMAGE)}
+            className="group relative min-h-[360px] overflow-hidden bg-emerald-900 text-left"
+          >
+            <img src={HERO_IMAGE.src} alt={HERO_IMAGE.alt} className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/75 via-emerald-950/15 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-7 text-white">
+              <div className="text-sm font-extrabold tracking-[0.2em] text-emerald-100">MAIN IMAGE</div>
+              <div className="mt-2 text-2xl font-black">三峽茶鄉的鮮綠風格</div>
+            </div>
+          </button>
         </div>
-      </div>
+      </section>
 
       <ReadingAssist contentRef={contentRef} headingSelector="h3" />
 
-      <div ref={contentRef} className="space-y-16 max-w-5xl mx-auto px-4 md:px-0">
-
-        {/* Intro: Poetry & Aesthetics */}
-        <section className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-emerald-100 text-emerald-700 rounded-xl"><Sparkles size={24} /></div>
-              <h3 className="text-2xl font-bold text-stone-900">碧螺春的詩意與美學</h3>
+      <div ref={contentRef} className="mx-auto max-w-6xl space-y-14 px-4 md:px-0">
+        <section className="rounded-[2rem] border border-stone-200 bg-white/88 p-8 shadow-sm md:p-10">
+          <SectionTitle icon={MapPin} eyebrow="01 · Origin" title="三峽碧螺春：臺灣綠茶的清雅代表">
+            談到臺灣茶，許多人第一時間會想到高山烏龍；但三峽碧螺春代表的是另一種迷人的方向：清亮、鮮爽、帶著春芽生命力的綠茶風格。它的價值不在厚重焙火，而在於把茶葉剛採下時的細緻鮮味保存下來。
+          </SectionTitle>
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+            <div className="space-y-5 text-[19px] leading-relaxed text-stone-700">
+              <p>
+                三峽碧螺春主產於新北市三峽茶區，常以<strong className="text-emerald-800">青心柑仔</strong>製作。三峽位於北臺灣丘陵茶區，氣候濕潤，適合製作清香型綠茶；青心柑仔則提供清新、甘醇與細緻香氣的基底。
+              </p>
+              <p>
+                如果高山烏龍像雲霧山林的厚度，三峽碧螺春更像早春茶芽在水中舒展的亮度：輕、鮮、清、柔。入口不追求濃重，而是讓人感覺乾淨、細緻，像一口春天。
+              </p>
             </div>
-            <p className="text-[19px] text-stone-700 leading-relaxed">
-              當碧螺春被投入溫熱的茶碗中，一幅生動的春日畫卷就此展開。清代文人以「碧綠浮動，清香襲人」八字，精準捕捉了其神韻。那些細嫩如睫、滿披白毫的茶芽，在水中輕盈地舒展、浮動，彷彿一朵朵碧綠的花，散發出沁人心脾的清雅香氣，構成了一幅令人心醉的茶中景致。
-            </p>
-            <div className="bg-emerald-50/80 p-6 rounded-2xl border border-emerald-100 italic text-emerald-800">
-              「細雨飄食，春雷動，帶纖手採摘雨前鮮芽」
-            </div>
-            <p className="text-stone-700 leading-relaxed">
-              這句詩生動地描繪了「驚蟄」時節的自然景象：春雨綿綿，洗淨塵埃；春雷乍響，喚醒蟄伏的萬物。正是在此時，茶樹迸發出最鮮嫩的生命力，迎來了最佳的採摘時機。
-            </p>
-
-            {/* Picking Girl Image - Mobile optimized placement or secondary image */}
-            <div
-              className="rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative aspect-video cursor-zoom-in"
-              onClick={() => setPreviewImage({ src: '/images/featured/biluochun/picking_girl.png', alt: '纖手採摘雨前鮮芽' })}
-            >
-              <img src="/images/featured/biluochun/picking_girl.png" alt="纖手採摘" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <p className="absolute bottom-3 left-4 text-white text-[17px] font-bold tracking-wider">纖手採摘</p>
-            </div>
-            <p className="text-stone-600 text-[17px] leading-relaxed">
-              詩中的「帶纖手」，更蘊藏了工藝的極致精巧。指的是由八至十二歲的少女來進行採摘，因為只有她們纖細的手指，才能輕柔地摘下那比眼睫毛還細的茶芽，而不會損傷其分毫。
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div
-              className="rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative aspect-[3/4] cursor-zoom-in"
-              onClick={() => setPreviewImage({ src: '/images/featured/biluochun/spring_thunder.png', alt: '驚蟄・春雷動' })}
-            >
-              <img src="/images/featured/biluochun/spring_thunder.png" alt="春雷動，細雨飄，茶山甦醒" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <p className="absolute bottom-4 left-6 text-white text-base font-bold tracking-wider">驚蟄・春雷動</p>
+            <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-6">
+              <h4 className="mb-4 text-xl font-black text-emerald-950">認識重點</h4>
+              <p className="text-[20px] font-bold leading-relaxed text-emerald-900">
+                碧螺春是理解「不發酵茶」很好的入口：茶菁採下後，越快透過殺菁停止氧化，就越能保留鮮葉原本的清新。
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Flying Emerald Landscape */}
-        <section
-          className="relative rounded-3xl overflow-hidden shadow-xl border border-stone-200 group h-[400px] md:h-[500px] cursor-zoom-in"
-          onClick={() => setPreviewImage({ src: '/images/featured/biluochun/flying_emerald.png', alt: '洞山無處不飛翠' })}
-        >
-          <img src="/images/featured/biluochun/flying_emerald.png" alt="洞山無處不飛翠" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/80 via-emerald-950/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-2xl text-white space-y-6 pointer-events-none">
-            <h3 className="text-3xl font-bold font-serif">洞山無處不飛翠</h3>
-            <p className="text-[19px] md:text-xl text-emerald-50 opacity-95 leading-relaxed">
-              「飛翠」一詞極富畫面感，它並非指單一的綠色，而是描繪了春天山林中，因新芽初發、嫩葉漸長、老葉猶存，從而形成了從嫩綠、淺綠到深綠、墨綠的豐富色彩層次。這種交錯疊加的視覺效果，讓整個山巒充滿了流動的生命力。
-            </p>
-          </div>
-        </section>
-
-        {/* Naming Origins */}
-        <section className="bg-stone-50 rounded-3xl border border-stone-200 p-8 md:p-12">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-stone-200 text-stone-700 rounded-xl"><History size={24} /></div>
-            <h3 className="text-2xl font-bold text-stone-900">名號源由與傳說</h3>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                <h4 className="font-bold text-emerald-800 mb-2">人名傳說</h4>
-                <p className="text-stone-600 text-[17px]">相傳一位名為「碧螺」的姑娘，為救治愛人上山採藥，不幸墜崖。她身殞之處長出了一棵茶樹，人們認為是她的化身，遂以「碧螺」為其命名。</p>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                <h4 className="font-bold text-emerald-800 mb-2">地名來源</h4>
-                <p className="text-stone-600 text-[17px]">此茶原產於江蘇洞庭湖東西兩山的碧螺峰，因地得名。</p>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                <h4 className="font-bold text-emerald-800 mb-2">外形特徵</h4>
-                <p className="text-stone-600 text-[17px]">最為直觀的解釋，綜合了茶葉「色澤碧綠、形態捲曲如螺、於春天採摘」的三大特點，故名「碧螺春」。</p>
-              </div>
-            </div>
-
-            <div className="bg-white/50 p-8 rounded-2xl border border-stone-200 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
-                <ChefHat size={140} />
-              </div>
-              <h4 className="text-xl font-bold text-stone-900 mb-4">嚇煞人香？</h4>
-              <div className="space-y-4 text-stone-700 leading-relaxed">
-                <p>
-                  相傳康熙皇帝南巡時品嚐此茶，驚豔於其馥郁的香氣，遂賜名「嚇煞人香」。
-                </p>
-                <p className="text-[17px]">
-                  這不禁引人思考，古今對於「香」的品味標準或許存在差異。古人所追求的，或許正是那種源於茶芽嫩毫的「豪香」，一種極致清雅內斂的嫩香；而現代人習慣的香氣，可能更為直接奔放。這就好比傳統的明星花露水與現代的香奈兒香水，雖同為香氣，其審美意趣與價值體系卻截然不同。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Characteristics */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-emerald-100 text-emerald-700 rounded-xl"><Leaf size={24} /></div>
-            <h3 className="text-2xl font-bold text-stone-900">茶品特色：一嫩三鮮</h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <FeatureCard
-              icon={Wind}
-              title="外形"
-              desc="「捲曲成螺，滿身披白毫」，茶乾形態優美，銀毫滿佈，極具觀賞性。"
-              colorClass="bg-emerald-50 border-emerald-200 text-emerald-900"
-            />
-            <FeatureCard
-              icon={Droplets}
-              title="風味"
-              desc="「色香味三鮮」，其茶湯色澤鮮亮、香氣鮮爽、滋味鮮醇。"
-              colorClass="bg-teal-50 border-teal-200 text-teal-900"
-            />
-            <FeatureCard
-              icon={Sprout}
-              title="香氣"
-              desc="帶有獨特的「花香果味」，這是其產地生態環境賦予的獨特印記。"
-              colorClass="bg-stone-50 border-stone-200 text-stone-900"
-            />
+          <SectionTitle icon={Sparkles} eyebrow="02 · Visual Identity" title="從外觀、製程到杯中風景">
+            先從外觀認識白毫與細嫩芽葉，再理解殺菁如何保留清香，最後回到杯中觀察茶芽舒展。這三個角度，能快速抓住碧螺春的核心美感。
+          </SectionTitle>
+          <div className="grid gap-6 md:grid-cols-3">
+            {IMAGE_GALLERY.map((image) => <ImageCard key={image.src} image={image} onClick={setPreviewImage} />)}
           </div>
         </section>
 
-        {/* Brewing & Tasting */}
-        <section className="grid lg:grid-cols-2 gap-12 items-center">
-          <div
-            className="order-2 lg:order-1 relative group cursor-zoom-in"
-            onClick={() => setPreviewImage({ src: '/images/featured/biluochun/brewing_snowflakes.png', alt: '上投法沖泡，如雪片飄落' })}
+        <section className="rounded-[2rem] border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 shadow-sm md:p-10">
+          <SectionTitle icon={ChefHat} eyebrow="03 · Processing" title="製程核心：殺菁留住春芽鮮味">
+            碧螺春的基本流程是「採摘 → 攤放 → 殺菁 → 揉捻／整形 → 乾燥」。製程看似簡潔，真正困難的是掌握火候與時間：既要停止氧化，又不能把嫩芽做老、做悶。
+          </SectionTitle>
+          <div className="grid gap-4 md:grid-cols-4">
+            {PROCESS_STEPS.map((step, index) => (
+              <div key={step.title} className="relative rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-700 text-lg font-black text-white">{index + 1}</div>
+                <h4 className="text-xl font-black text-stone-950">{step.title}</h4>
+                <p className="mt-3 text-[17px] leading-relaxed text-stone-600">{step.desc}</p>
+                {index < PROCESS_STEPS.length - 1 ? <ArrowRight className="absolute -right-4 top-1/2 hidden text-emerald-400 md:block" size={28} /> : null}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[2rem] border border-emerald-100 bg-emerald-950 p-8 text-white shadow-sm md:p-10">
+            <SectionTitle icon={Leaf} eyebrow="04 · Tasting" title="風味辨識：清新鮮爽，帶蔬果與豆香" />
+            <p className="text-[19px] leading-relaxed text-emerald-50/90">
+              好的三峽碧螺春，喝起來應該明亮、清爽，有嫩葉、綠豆、蔬果般的鮮甜感。若入口苦澀厚重，常見原因是水溫太高、浸泡太久，或製程中茶菁與殺菁控制不夠細緻。
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {TASTING_NOTES.map((note) => (
+              <div key={note.title} className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+                <h4 className="text-xl font-black text-emerald-900">{note.title}</h4>
+                <p className="mt-3 text-[18px] leading-relaxed text-stone-700">{note.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <button
+            type="button"
+            onClick={() => setPreviewImage({ src: '/images/green_tea_glass.png', alt: '玻璃杯沖泡綠茶' })}
+            className="group relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white shadow-lg"
           >
-            <div className="absolute -inset-4 bg-emerald-100/50 rounded-[2rem] rotate-2 transform transition-transform group-hover:rotate-1"></div>
-            <img src="/images/featured/biluochun/brewing_snowflakes.png" alt="上投法沖泡，如雪片飄落" className="relative rounded-2xl shadow-xl w-full transition-transform duration-700 group-hover:scale-[1.02]" />
-            <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold text-emerald-800 shadow-sm">
-              上投法・雪片紛飛
+            <img src="/images/green_tea_glass.png" alt="玻璃杯沖泡綠茶" className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+            <div className="absolute bottom-5 left-6 text-left text-white">
+              <div className="text-sm font-extrabold tracking-[0.2em]">BREWING</div>
+              <div className="mt-1 text-2xl font-black">低溫短浸，不溫潤泡</div>
             </div>
-          </div>
-
-          <div className="order-1 lg:order-2 space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-stone-900 mb-4 flex items-center gap-3">
-                <Thermometer className="text-emerald-600" /> 沖泡心法：上投法
-              </h3>
-              <p className="text-stone-700 leading-relaxed mb-4">
-                沖泡如此細嫩的茶葉，手法尤為關鍵。講師建議採用<strong>「上投法」</strong>：先在茶碗中注入適溫的熱水，再將茶葉輕輕投撒於水面。
-              </p>
-              <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 text-emerald-900 text-[17px]">
-                此時會出現一個極美的景象——滿佈的白毫在接觸水分後，會增加茶芽的重量，使其「如雪片般」紛紛揚揚地飄落至碗底，整個過程充滿了動態的詩意。
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-[19px] font-bold text-stone-900 mb-2">品飲樂趣：嚼茶</h4>
-              <p className="text-stone-700 leading-relaxed">
-                品飲碧螺春還有一大樂趣，即可將舒展開的茶芽一同入口咀嚼。其口感近似蓮子心，帶有新生事物特有的微苦，但這種苦味轉瞬即逝，隨之而來的是清涼的回甘，具有很好的「退火」效果。
-              </p>
+          </button>
+          <div>
+            <SectionTitle icon={Thermometer} eyebrow="05 · Brewing" title="沖泡建議：讓鮮爽留在第一泡">
+              碧螺春是細嫩綠茶，不適合沸水猛沖。第一泡不是拿來洗茶，而是最珍貴的鮮爽香氣。
+            </SectionTitle>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {BREWING_GUIDE.map((item) => (
+                <div key={item.label} className="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+                  <div className="text-sm font-black tracking-[0.16em] text-emerald-700">{item.label}</div>
+                  <div className="mt-1 text-[18px] font-bold text-stone-900">{item.value}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Ecology & Health  */}
-        <section className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-stone-50 to-white rounded-3xl border border-stone-200 p-8 shadow-sm h-full">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-amber-100 text-amber-700 rounded-xl"><Sparkles size={24} /></div>
-              <h3 className="text-xl font-bold text-stone-900">茶飲與四時養生</h3>
+        <section className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm md:p-10">
+          <SectionTitle icon={BookOpen} eyebrow="06 · Compare" title="三峽碧螺春與洞庭碧螺春，不是同一個風土">
+            名稱相通，但產地、品種與茶區文化不同。理解這個差異，就能看見茶不只是品名，更是風土、樹種、工藝與時代共同留下的味道。
+          </SectionTitle>
+          <div className="overflow-hidden rounded-3xl border border-stone-200">
+            <div className="grid grid-cols-3 bg-emerald-800 text-center text-[17px] font-black text-white">
+              <div className="p-4">面向</div>
+              <div className="border-l border-white/20 p-4">臺灣三峽碧螺春</div>
+              <div className="border-l border-white/20 p-4">中國洞庭碧螺春</div>
             </div>
-
-            <div className="space-y-4 text-stone-700">
-              <p>慈禧太后的養生秘笈：「夏喝龍井，冬飲普洱」。</p>
-              <ul className="space-y-4 mt-4">
-                <li className="flex gap-4 p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-                  <span className="font-bold text-emerald-700 shrink-0">春・木・肝</span>
-                  <span className="text-[17px]">春天屬木，對應肝臟。飲用綠茶（如碧螺春）性微寒，助疏肝理氣，清解春燥。</span>
-                </li>
-                <li className="flex gap-4 p-4 bg-stone-100/50 rounded-xl border border-stone-200">
-                  <span className="font-bold text-stone-700 shrink-0">冬・水・腎</span>
-                  <span className="text-[17px]">冬天屬水，對應腎臟。飲用普洱熟茶，性溫和，湯色深濃，助溫養腎氣。</span>
-                </li>
-              </ul>
-              <p className="text-[17px] text-stone-500 mt-4 leading-relaxed">
-                這與莊子「養形、養神、養氣」身心合一的哲學不謀而合。
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-stone-50 to-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm h-full flex flex-col">
-            <div
-              className="h-48 overflow-hidden relative cursor-zoom-in"
-              onClick={() => setPreviewImage({ src: '/images/featured/biluochun/tea_fruit_ecology.png', alt: '花果間植生態' })}
-            >
-              <img src="/images/featured/biluochun/tea_fruit_ecology.png" alt="花果間植生態" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-              <div className="absolute bottom-4 left-6 text-white font-bold text-[19px] drop-shadow-md">茶果間植的智慧</div>
-            </div>
-            <div className="p-8 flex-1">
-              <p className="text-stone-700 leading-relaxed mb-4">
-                碧螺春獨特的「花香果味」，源於古代茶園管理智慧——<strong>「花果樹交錯間栽」</strong>。古人認為茶樹根系會與周邊花果樹（如桃、李、杏、梅）在土壤中盤錯，吸收其獨特香氣。
-              </p>
-              <div className="text-[17px] text-stone-500 bg-stone-100 p-4 rounded-xl">
-                明代文獻闡述其雙重效益：不僅「香根脈相通」，高大樹木更能「一足以蔽霜雪，禦秋陽」，展現順應自然的生態智慧。
+            {[
+              ['產地', '新北市三峽茶區', '江蘇蘇州太湖洞庭東山、西山'],
+              ['品種', '以青心柑仔為代表', '洞庭山地方茶樹資源'],
+              ['風味', '蔬果香、綠豆香、鮮爽甘醇', '花果香、嫩香、色香味三鮮'],
+              ['知識定位', '臺灣在地綠茶風格', '中國傳統名茶脈絡'],
+            ].map(([label, taiwan, china]) => (
+              <div key={label} className="grid grid-cols-3 border-t border-stone-200 bg-white text-[17px] leading-relaxed text-stone-700">
+                <div className="bg-stone-50 p-4 font-black text-stone-950">{label}</div>
+                <div className="border-l border-stone-200 p-4">{taiwan}</div>
+                <div className="border-l border-stone-200 p-4">{china}</div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
+        <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <button
+            type="button"
+            onClick={() => setPreviewImage({ src: '/images/tea_poem_tang_spring.png', alt: '春日茶詩意象' })}
+            className="group relative min-h-[360px] overflow-hidden rounded-[2rem] border border-stone-200 shadow-lg"
+          >
+            <img src="/images/tea_poem_tang_spring.png" alt="春日茶詩意象" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/75 to-transparent" />
+            <div className="absolute bottom-6 left-6 text-left text-white">
+              <div className="text-sm font-extrabold tracking-[0.2em]">TEA KNOWLEDGE</div>
+              <div className="mt-2 text-2xl font-black">春天鮮味的茶</div>
+            </div>
+          </button>
+          <div className="rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 md:p-10">
+            <SectionTitle icon={Wind} eyebrow="07 · Knowledge Note" title="知識總結：一口喝懂綠茶與烏龍的差別" />
+            <p className="text-[20px] leading-relaxed text-stone-700">
+              碧螺春很適合作為認識「不發酵茶」的入口。它讓人看見：同一片茶葉，只要製程不同，風味就會走向完全不同的世界。綠茶保留鮮葉清新；烏龍透過萎凋、攪拌與發酵創造花香；紅茶則讓氧化充分進行，形成甜香與紅亮湯色。
+            </p>
+            <div className="mt-6 rounded-3xl border border-emerald-200 bg-white p-5 text-[19px] font-bold leading-relaxed text-emerald-900">
+              一句話記憶：三峽碧螺春，是臺灣茶裡最能代表「春天鮮味」的綠茶。它的美，不在濃烈，而在清雅、鮮活與細緻。
+            </div>
+          </div>
+        </section>
       </div>
 
-      {/* Lightbox Modal */}
       {previewImage && (
         <ImageModal
           isOpen={true}

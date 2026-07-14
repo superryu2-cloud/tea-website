@@ -1,0 +1,176 @@
+export const CHONGHUA_QUIZZES = {
+    academy_chonghua_05: {
+        title: '第05堂課後小測驗：蓋碗教學',
+        description: '確認你是否掌握蓋碗的結構、手法、安全原則與基礎沖泡流程。',
+        questions: [
+            {
+                id: 'ch05-q1',
+                prompt: '蓋碗三件式中，主要負責控制出湯縫隙的是哪一個部件？',
+                options: [
+                    { id: 'a', label: '蓋' },
+                    { id: 'b', label: '碗' },
+                    { id: 'c', label: '托' },
+                    { id: 'd', label: '公道杯' },
+                ],
+                answer: 'a',
+                explanation: '蓋可以撥茶、聚香，也能透過蓋縫控制茶湯流速與茶葉是否外漏。',
+            },
+            {
+                id: 'ch05-q2',
+                prompt: '初學者用蓋碗時，最安全的手指接觸位置是哪裡？',
+                options: [
+                    { id: 'a', label: '直接抓住碗身中央' },
+                    { id: 'b', label: '拇指與中指碰碗口外沿，食指輕壓蓋鈕' },
+                    { id: 'c', label: '整個手掌包住蓋碗' },
+                    { id: 'd', label: '只用食指勾住蓋鈕' },
+                ],
+                answer: 'b',
+                explanation: '碗身吸熱最快，手指應避開碗身，利用碗口外沿與蓋鈕形成穩定支點。',
+            },
+            {
+                id: 'ch05-q3',
+                prompt: '「水不滿、手不貼、縫不大、倒不急」主要是在提醒什麼？',
+                options: [
+                    { id: 'a', label: '茶葉要放得越少越好' },
+                    { id: 'b', label: '蓋碗沖泡的安全與穩定操作' },
+                    { id: 'c', label: '所有茶都只能用低溫沖泡' },
+                    { id: 'd', label: '蓋碗只能用來泡紅茶' },
+                ],
+                answer: 'b',
+                explanation: '這句口訣是在降低燙手、漏水、茶葉外流與操作慌亂的風險。',
+            },
+            {
+                id: 'ch05-q4',
+                prompt: '100 ml 蓋碗作為初學練習時，清香烏龍較適合的茶量基準是？',
+                options: [
+                    { id: 'a', label: '1–2 g' },
+                    { id: 'b', label: '3–4 g' },
+                    { id: 'c', label: '5–6 g' },
+                    { id: 'd', label: '10 g 以上' },
+                ],
+                answer: 'c',
+                explanation: '課程中以 100 ml 蓋碗為基準，清香烏龍可先用 5–6 g，再依茶葉狀態調整。',
+            },
+            {
+                id: 'ch05-q5',
+                prompt: '正式熱水沖泡前，最適合初學者建立手感的練習順序是？',
+                options: [
+                    { id: 'a', label: '直接滿水快倒' },
+                    { id: 'b', label: '空碗、冷水、溫水、少量熱水，再正式泡茶' },
+                    { id: 'c', label: '先拿最大容量的蓋碗練習' },
+                    { id: 'd', label: '跳過練習，只看示範' },
+                ],
+                answer: 'b',
+                explanation: '由空碗到冷水、溫水、少量熱水，可逐步建立蓋縫、角度、水位與安全感。',
+            },
+        ],
+    },
+    academy_chonghua_07: {
+        title: '第07堂課後小測驗：青茶風味辨識',
+        description: '從文山包種、高山茶到鐵觀音，整理青茶的製程、產區與香氣判讀。',
+        questions: [
+            {
+                id: 'ch07-q1',
+                prompt: '青茶又常被稱為什麼茶類？',
+                options: [
+                    { id: 'a', label: '白茶' },
+                    { id: 'b', label: '烏龍茶' },
+                    { id: 'c', label: '黑茶' },
+                    { id: 'd', label: '黃茶' },
+                ],
+                answer: 'b',
+                explanation: '青茶一般也稱烏龍茶，特色在於半發酵與做青工藝形成的香氣層次。',
+            },
+            {
+                id: 'ch07-q2',
+                prompt: '文山包種茶常見的風格較接近下列哪一種？',
+                options: [
+                    { id: 'a', label: '清香、花香、條索狀' },
+                    { id: 'b', label: '重煙燻、松煙香' },
+                    { id: 'c', label: '熟果與酒香為主' },
+                    { id: 'd', label: '陳香與堆味為主' },
+                ],
+                answer: 'a',
+                explanation: '文山包種茶發酵較輕，常以清揚花香、柔和茶湯與條索外形為特色。',
+            },
+            {
+                id: 'ch07-q3',
+                prompt: '杉林溪、梨山等高山茶常強調的共同特徵是？',
+                options: [
+                    { id: 'a', label: '低海拔、強烈煙燻味' },
+                    { id: 'b', label: '高海拔環境帶來的清香、冷涼感與細緻度' },
+                    { id: 'c', label: '必須製成紅茶才有價值' },
+                    { id: 'd', label: '只適合長時間悶泡' },
+                ],
+                answer: 'b',
+                explanation: '高山環境通常與日夜溫差、雲霧、冷涼氣候相關，常形成清香細緻的風格。',
+            },
+            {
+                id: 'ch07-q4',
+                prompt: '鐵觀音與清香高山茶相比，較常被學生辨識出的方向是？',
+                options: [
+                    { id: 'a', label: '完全沒有焙火或熟香' },
+                    { id: 'b', label: '可能帶焙火、熟果、觀音韻等較厚實的表現' },
+                    { id: 'c', label: '只能冷泡不能熱泡' },
+                    { id: 'd', label: '一定是綠茶製程' },
+                ],
+                answer: 'b',
+                explanation: '傳統鐵觀音常有焙火與較厚實的韻味，是與清香型高山茶對比的好教材。',
+            },
+        ],
+    },
+    academy_chonghua_09: {
+        title: '第09堂課後小測驗：認識氧化',
+        description: '用簡短題目確認氧化、發酵與茶類風味轉化的基本概念。',
+        questions: [
+            {
+                id: 'ch09-q1',
+                prompt: '茶學中常說的「氧化」，主要和哪一類變化有關？',
+                options: [
+                    { id: 'a', label: '茶多酚在酵素作用下產生的顏色與風味轉化' },
+                    { id: 'b', label: '茶葉加入糖後的甜度變化' },
+                    { id: 'c', label: '茶葉包裝紙變色' },
+                    { id: 'd', label: '杯子材質變重' },
+                ],
+                answer: 'a',
+                explanation: '茶葉氧化會影響葉色、湯色、香氣與滋味，是區分許多茶類的重要概念。',
+            },
+            {
+                id: 'ch09-q2',
+                prompt: '綠茶製程中「殺菁」的重要目的之一是什麼？',
+                options: [
+                    { id: 'a', label: '促進茶葉繼續大量氧化' },
+                    { id: 'b', label: '降低酵素活性，保留較鮮綠的風味' },
+                    { id: 'c', label: '讓茶葉變成緊壓茶' },
+                    { id: 'd', label: '增加茶葉含水量' },
+                ],
+                answer: 'b',
+                explanation: '殺菁可停止或降低酵素氧化作用，使綠茶保留較鮮爽、青綠的風味方向。',
+            },
+            {
+                id: 'ch09-q3',
+                prompt: '紅茶相較於綠茶，通常具有較高程度的哪一項變化？',
+                options: [
+                    { id: 'a', label: '酵素氧化' },
+                    { id: 'b', label: '冷凍乾燥' },
+                    { id: 'c', label: '加鹽醃製' },
+                    { id: 'd', label: '磨成粉末' },
+                ],
+                answer: 'a',
+                explanation: '紅茶的甜香、果香、紅亮湯色，與較充分的酵素氧化密切相關。',
+            },
+            {
+                id: 'ch09-q4',
+                prompt: '教學上區分「氧化」與「微生物發酵」時，較謹慎的說法是？',
+                options: [
+                    { id: 'a', label: '兩者完全一樣，不需要區分' },
+                    { id: 'b', label: '氧化偏向酵素與化學轉化；微生物發酵則涉及微生物作用' },
+                    { id: 'c', label: '氧化只會發生在茶杯裡' },
+                    { id: 'd', label: '微生物發酵只會讓茶變苦' },
+                ],
+                answer: 'b',
+                explanation: '這樣說能避免把所有茶類變化都簡化成同一種「發酵」，比較符合教學精準度。',
+            },
+        ],
+    },
+};

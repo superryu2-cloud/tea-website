@@ -1,5 +1,7 @@
 ﻿import React, { Suspense, lazy } from 'react';
 import AcademyChapter from './AcademyChapter';
+import AcademyQuiz from './AcademyQuiz';
+import { CHONGHUA_QUIZZES } from '../../content/academy/chonghuaQuizzes';
 
 const ZhiyaChapter02 = lazy(() => import('../../content/academy/ZhiyaChapter02'));
 const ZhiyaChapter03 = lazy(() => import('../../content/academy/ZhiyaChapter03'));
@@ -265,6 +267,7 @@ export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnloc
 
     // Render the chapter
     const ChapterComponent = chapter.component;
+    const quiz = CHONGHUA_QUIZZES[resolvedActiveTab];
 
     return (
         <Suspense fallback={<AcademyLoadingFallback />}>
@@ -274,10 +277,14 @@ export default function AcademyRouter({ activeTab, daguanUnlocked, chonghuaUnloc
             intro={chapter.intro}
         >
             <ChapterComponent />
+            {quiz && <AcademyQuiz quiz={quiz} />}
         </AcademyChapter>
         </Suspense>
     );
 }
+
+
+
 
 
 

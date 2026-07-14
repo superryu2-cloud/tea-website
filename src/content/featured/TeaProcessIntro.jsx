@@ -1,380 +1,326 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-    Beaker, Flame, Waves, Wind, Package,
-    ArrowDown, ChevronDown, ChevronRight, BookOpen
+    ArrowRight, Beaker, BookOpen, CheckCircle2, Flame, Leaf,
+    Package, Sparkles, Sun, Waves, Wind
 } from 'lucide-react';
 import TeaProcessFlowChart from './TeaProcessFlowChart';
 
-// ── 發酵程度橫向光譜 ──────────────────────────────────────
+const CLASSIFICATION_CARDS = [
+    {
+        title: '依發酵／氧化程度',
+        subtitle: '從綠茶到紅茶，觀察酵素氧化帶來的香氣與湯色變化。',
+        tone: 'emerald',
+        items: ['不發酵茶', '部分發酵茶', '全發酵茶'],
+    },
+    {
+        title: '依成品外觀與湯色',
+        subtitle: '六大茶類名稱多與乾茶外觀、湯色及製程結果相關。',
+        tone: 'amber',
+        items: ['綠茶', '黃茶', '白茶', '青茶', '紅茶', '黑茶'],
+    },
+];
+
 const FERMENTATION_SPECTRUM = [
-    { name: '白茶', pct: 10, color: '#e5e7eb', text: 'text-gray-700', bg: 'bg-gray-100', border: 'border-gray-300', dot: '#d1d5db', desc: '萎凋後輕度處理' },
-    { name: '包種茶', pct: 15, color: '#d1fae5', text: 'text-emerald-800', bg: 'bg-emerald-50', border: 'border-emerald-300', dot: '#6ee7b7', desc: '8–25%，湯色淺黃' },
-    { name: '高山烏龍', pct: 20, color: '#d1fae5', text: 'text-emerald-800', bg: 'bg-emerald-50', border: 'border-emerald-300', dot: '#6ee7b7', desc: '8–25%，清香清甜' },
-    { name: '凍頂烏龍', pct: 28, color: '#fef9c3', text: 'text-yellow-800', bg: 'bg-yellow-50', border: 'border-yellow-300', dot: '#fde047', desc: '25–30%，焙火韻' },
-    { name: '鐵觀音', pct: 40, color: '#fef3c7', text: 'text-amber-800', bg: 'bg-amber-50', border: 'border-amber-300', dot: '#fcd34d', desc: '約 40%，音韻醇厚' },
-    { name: '東方美人', pct: 55, color: '#ffedd5', text: 'text-orange-800', bg: 'bg-orange-50', border: 'border-orange-300', dot: '#fdba74', desc: '50–60%，蜜香熟果' },
-    { name: '臺灣紅茶', pct: 100, color: '#fee2e2', text: 'text-red-800', bg: 'bg-red-50', border: 'border-red-300', dot: '#fca5a5', desc: '全發酵，條形/碎形' },
+    { name: '綠茶', pct: 0, desc: '不發酵，鮮爽清香', color: '#22c55e' },
+    { name: '文山包種', pct: 15, desc: '輕發酵，花香清揚', color: '#14b8a6' },
+    { name: '高山烏龍', pct: 20, desc: '輕發酵，清甜厚潤', color: '#38bdf8' },
+    { name: '凍頂烏龍', pct: 30, desc: '中發酵，焙火韻', color: '#f59e0b' },
+    { name: '鐵觀音', pct: 40, desc: '中重發酵，音韻醇厚', color: '#b45309' },
+    { name: '東方美人', pct: 60, desc: '重發酵，蜜香熟果', color: '#f97316' },
+    { name: '紅茶', pct: 100, desc: '全發酵，甜香醇厚', color: '#b91c1c' },
 ];
 
-// ── 六大茶類加工製程 ──────────────────────────────────────
 const SIX_TEA_METHODS = [
-    { id: 'green', label: '綠茶', badge: '不發酵', badgeColor: 'bg-emerald-600 text-white', steps: ['採摘茶菁', '蒸菁或炒菁', '揉捻', '乾燥'] },
-    { id: 'yellow', label: '黃茶', badge: '不發酵', badgeColor: 'bg-lime-600 text-white', steps: ['採摘茶菁', '炒菁', '揉捻', '悶黃', '乾燥'] },
-    { id: 'white', label: '白茶', badge: '部分發酵', badgeColor: 'bg-sky-600 text-white', steps: ['採摘茶菁', '長時間萎凋', '烘菁', '輕度揉捻', '乾燥'] },
-    { id: 'oolong', label: '青茶', badge: '部分發酵', badgeColor: 'bg-amber-600 text-white', steps: ['採摘茶菁', '日光萎凋', '靜置與攪拌', '炒菁', '揉捻', '乾燥'] },
-    { id: 'black', label: '紅茶', badge: '全發酵', badgeColor: 'bg-red-700 text-white', steps: ['採摘茶菁', '萎凋', '揉捻', '發酵氧化', '乾燥'] },
-    { id: 'dark', label: '黑茶', badge: '後發酵', badgeColor: 'bg-stone-700 text-white', steps: ['採摘茶菁', '殺菁', '揉捻', '渥堆（微生物發酵）', '乾燥成黑毛茶', '蒸壓成形'] },
+    { id: 'green', label: '綠茶', badge: '不發酵', accent: '#16a34a', steps: ['採摘茶菁', '殺菁', '揉捻', '乾燥'], note: '先以高溫停止氧化，保留鮮綠色澤與清爽滋味。' },
+    { id: 'yellow', label: '黃茶', badge: '悶黃', accent: '#ca8a04', steps: ['採摘茶菁', '殺菁', '揉捻', '悶黃', '乾燥'], note: '在綠茶基礎上增加悶黃，使滋味較柔和。' },
+    { id: 'white', label: '白茶', badge: '輕萎凋', accent: '#94a3b8', steps: ['採摘茶菁', '長時間萎凋', '輕度乾燥'], note: '少干預、重萎凋，呈現自然甜香與毫香。' },
+    { id: 'oolong', label: '青茶', badge: '部分發酵', accent: '#0f766e', steps: ['採摘茶菁', '日光萎凋', '靜置攪拌', '殺菁', '揉捻', '乾燥'], note: '以萎凋、做青與殺菁控制發酵程度，是臺灣特色茶核心。' },
+    { id: 'black', label: '紅茶', badge: '全發酵', accent: '#dc2626', steps: ['採摘茶菁', '萎凋', '揉捻', '發酵氧化', '乾燥'], note: '揉捻後讓多酚氧化充分進行，形成紅茶湯色與甜香。' },
+    { id: 'dark', label: '黑茶', badge: '後發酵', accent: '#44403c', steps: ['採摘茶菁', '殺菁', '揉捻', '渥堆', '乾燥', '蒸壓'], note: '乾燥前後透過微生物與時間轉化，形成陳香與醇厚感。' },
 ];
 
-// ── 臺灣特色茶六大茶系 ─────────────────────────────────────
 const TAIWAN_TEA_TYPES = [
-    { id: 1, label: '臺灣綠茶', repr: '三峽碧螺春綠茶', color: 'bg-emerald-100 border-emerald-400 text-emerald-900' },
-    { id: 2, label: '清香型條形包種茶', repr: '文山包種茶、南港包種茶', color: 'bg-teal-100 border-teal-400 text-teal-900' },
-    { id: 3, label: '清香型球形烏龍茶', repr: '高山烏龍茶', color: 'bg-sky-100 border-sky-400 text-sky-900' },
-    { id: 4, label: '焙香型球型烏龍茶', repr: '凍頂烏龍茶、鐵觀音茶、紅烏龍茶', color: 'bg-amber-100 border-amber-400 text-amber-900' },
-    { id: 5, label: '東方美人茶', repr: '石碇及桃竹苗地區所產之白毫烏龍茶', color: 'bg-orange-100 border-orange-400 text-orange-900' },
-    { id: 6, label: '臺灣紅茶', repr: '日月潭紅茶、小葉種紅茶、蜜香紅茶', color: 'bg-red-100 border-red-400 text-red-900' },
+    { label: '臺灣綠茶', repr: '三峽碧螺春綠茶', feature: '不發酵，清鮮花果香', color: 'emerald' },
+    { label: '清香型條形包種茶', repr: '文山包種茶、南港包種茶', feature: '輕發酵，條索自然，花香清雅', color: 'teal' },
+    { label: '清香型球形烏龍茶', repr: '高山烏龍茶', feature: '輕發酵，球形，重視高海拔清甜', color: 'sky' },
+    { label: '焙香型球形烏龍茶', repr: '凍頂烏龍茶、鐵觀音茶、紅烏龍茶', feature: '中至重發酵，焙火形成熟香與韻味', color: 'amber' },
+    { label: '東方美人茶', repr: '白毫烏龍、膨風茶', feature: '重發酵，著涎蜜香與熟果韻', color: 'orange' },
+    { label: '臺灣紅茶', repr: '日月潭紅茶、小葉種紅茶、蜜香紅茶', feature: '全發酵，甜香醇厚，湯色紅亮', color: 'red' },
 ];
 
-// ── 製程步驟說明 ─────────────────────────────────────────
+
+const PROCESS_VISUALS = [
+    {
+        title: '萎凋｜散水起香',
+        desc: '茶菁水分慢慢消散，葉片變柔軟，香氣前驅物質開始轉化。',
+        src: '/images/generated/process_withering.png',
+    },
+    {
+        title: '攪拌做青｜形成花香',
+        desc: '青茶以靜置與翻動控制葉緣氧化，是臺灣烏龍香氣的核心工序。',
+        src: '/images/oolong_shaking_process.png',
+    },
+    {
+        title: '殺菁｜固定風味',
+        desc: '以高溫鈍化酵素活性，讓茶葉停止繼續氧化，保留當下風味。',
+        src: '/images/generated/process_kill_green.png',
+    },
+    {
+        title: '揉捻乾燥｜成形入味',
+        desc: '揉捻讓茶葉成形並釋出茶汁，乾燥則穩定品質、利於保存。',
+        src: '/images/generated/process_rolling.png',
+    },
+];
 const PROCESS_STEPS = [
-    {
-        id: 'wither',
-        icon: Wind,
-        title: '萎凋',
-        color: 'bg-sky-50 border-sky-300 text-sky-800',
-        iconColor: 'text-sky-500',
-        body: '分為日光（熱風）萎凋及室內萎凋。藉由熱能使茶葉水分消散，促進化學反應產生特殊香氣及滋味。萎凋過程可使茶葉重量、體積、硬度降低。',
-    },
-    {
-        id: 'stir',
-        icon: Waves,
-        title: '攪拌（浪菁）',
-        color: 'bg-teal-50 border-teal-300 text-teal-800',
-        iconColor: 'text-teal-500',
-        body: '製作部分發酵茶時，初期藉由翻動使茶菁水分重新分配；後續藉由攪拌使茶葉細胞摩擦破損，增加多元酚氧化酶及兒茶素作用，進而控制茶葉發酵的程度。',
-    },
-    {
-        id: 'fix',
-        icon: Flame,
-        title: '殺菁',
-        color: 'bg-orange-50 border-orange-300 text-orange-800',
-        iconColor: 'text-orange-500',
-        body: '藉由熱破壞茶葉中酵素活性，並促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味及穩定茶菁色澤及香氣。',
-    },
-    {
-        id: 'rest',
-        icon: BookOpen,
-        title: '靜置回潤',
-        color: 'bg-rose-50 border-rose-300 text-rose-800',
-        iconColor: 'text-rose-500',
-        body: '東方美人茶炒菁出鍋後，以濕布覆蓋，靜置回潤約 10~30 分鐘，使茶葉水分重新分布，避免揉捻時產生碎葉且易於成形，增加蜜香及熟果味。',
-    },
-    {
-        id: 'roll',
-        icon: Beaker,
-        title: '揉捻',
-        color: 'bg-amber-50 border-amber-300 text-amber-800',
-        iconColor: 'text-amber-500',
-        body: '使茶葉捲曲形成條狀，並破壞茶葉的細胞組織，使茶葉的汁液流出附著於表面，增加沖泡時的風味；在紅茶揉捻中促使多元酚氧化酶及兒茶素反應。',
-    },
-    {
-        id: 'ferment2',
-        icon: Beaker,
-        title: '補足發酵',
-        color: 'bg-red-50 border-red-300 text-red-800',
-        iconColor: 'text-red-500',
-        body: '紅茶揉捻後需將茶葉堆疊進行補足發酵，使多元酚氧化酶與兒茶素類充分反應，生成紅茶的色澤、風味及品質。',
-    },
-    {
-        id: 'dry',
-        icon: Flame,
-        title: '乾燥',
-        color: 'bg-stone-50 border-stone-300 text-stone-800',
-        iconColor: 'text-stone-500',
-        body: '以熱風去除茶葉中的水分，使其含水量降至 5% 以下，延長保存期限，並可停止發酵作用及其他生化反應，使品質固定。',
-    },
-    {
-        id: 'hotroll',
-        icon: Package,
-        title: '熱團揉',
-        color: 'bg-yellow-50 border-yellow-300 text-yellow-800',
-        iconColor: 'text-yellow-600',
-        body: '球形烏龍茶的關鍵步驟。將初乾後的茶葉加熱至 60~65℃，以布巾包覆再以束包機捲曲形成布球，置於平揉機下滾動，重複數次使茶葉逐漸捲曲成球狀。',
-    },
-    {
-        id: 'roast',
-        icon: Flame,
-        title: '烘焙',
-        color: 'bg-amber-100 border-amber-400 text-amber-900',
-        iconColor: 'text-amber-700',
-        body: '烘焙具有去除水分效果，有效延長茶葉貯藏壽命，並改善粗製茶普遍帶有之菁臭味和不良雜味，增加茶葉的特殊香氣及特色性。',
-    },
+    { icon: Wind, title: '萎凋', tag: '散水・起香', body: '讓茶菁水分消散、葉片軟化，並啟動香氣前驅物質的轉化，是白茶、青茶、紅茶的重要基礎。' },
+    { icon: Waves, title: '靜置與攪拌', tag: '做青・控香', body: '部分發酵茶透過靜置與翻動，使葉緣細胞受損並逐步氧化，製茶師在此決定香氣、滋味與發酵程度。' },
+    { icon: Flame, title: '殺菁', tag: '停止氧化', body: '以高溫破壞酵素活性，固定茶葉狀態，去除菁味，讓後續揉捻與乾燥能穩定進行。' },
+    { icon: Beaker, title: '揉捻', tag: '成形・出味', body: '讓茶葉捲曲成條或球，並使茶汁附著於表面，沖泡時更容易釋放滋味；紅茶揉捻也會促進氧化反應。' },
+    { icon: Package, title: '熱團揉', tag: '球形烏龍', body: '球形烏龍茶的關鍵成形工序，反覆束包與揉壓，使茶葉逐漸緊結成球，形成耐泡與厚實口感。' },
+    { icon: Flame, title: '乾燥與烘焙', tag: '固定・昇華', body: '乾燥讓含水量降低以利保存；烘焙則進一步調整香氣、降低雜味，形成凍頂、鐵觀音等熟香韻味。' },
 ];
 
-// ── Accordion 元件 ────────────────────────────────────────
-function Accordion({ title, icon: Icon, iconColor, color, body }) {
-    const [open, setOpen] = useState(false);
+const toneClass = {
+    emerald: 'border-emerald-200 bg-emerald-50 text-emerald-900',
+    amber: 'border-amber-200 bg-amber-50 text-amber-900',
+    teal: 'border-teal-200 bg-teal-50 text-teal-900',
+    sky: 'border-sky-200 bg-sky-50 text-sky-900',
+    orange: 'border-orange-200 bg-orange-50 text-orange-900',
+    red: 'border-red-200 bg-red-50 text-red-900',
+};
+
+function SectionTitle({ eyebrow, title, children }) {
     return (
-        <div className={`rounded-2xl border-2 ${color} shadow-sm overflow-hidden`}>
-            <button
-                type="button"
-                onClick={() => setOpen(!open)}
-                className={`w-full flex items-center justify-between px-6 py-4 text-left hover:brightness-95 transition-all`}
-            >
-                <div className="flex items-center gap-3">
-                    {React.createElement(Icon, { size: 22, className: iconColor })}
-                    <span className="font-bold text-[18px]">{title}</span>
-                </div>
-                {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
-            </button>
-            {open && (
-                <div className="px-6 pb-5 pt-1">
-                    <p className="font-sans text-[17px] leading-relaxed opacity-90">{body}</p>
-                </div>
-            )}
+        <div className="mb-7">
+            <div className="flex items-center gap-3 text-xs font-extrabold tracking-[0.24em] text-amber-700 uppercase">
+                <span className="h-1 w-9 rounded-full bg-amber-500" />
+                {eyebrow}
+            </div>
+            <h2 className="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight text-stone-950">{title}</h2>
+            {children ? <p className="mt-3 max-w-3xl text-[17px] leading-relaxed text-stone-600">{children}</p> : null}
         </div>
     );
 }
 
-// ── 主頁面元件 ────────────────────────────────────────────
+function ProcessCard({ tea }) {
+    return (
+        <article className="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="flex items-start justify-between gap-3">
+                <div>
+                    <div className="text-xs font-extrabold tracking-[0.18em] text-stone-400">{tea.badge}</div>
+                    <h3 className="mt-1 text-xl font-extrabold text-stone-950">{tea.label}</h3>
+                </div>
+                <span className="h-4 w-4 rounded-full ring-4 ring-white shadow" style={{ backgroundColor: tea.accent }} />
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-stone-600">{tea.note}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+                {tea.steps.map((step, index) => (
+                    <React.Fragment key={step}>
+                        <span className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 text-sm font-bold text-stone-700">
+                            {index + 1}. {step}
+                        </span>
+                        {index < tea.steps.length - 1 ? <ArrowRight size={14} className="text-stone-300" /> : null}
+                    </React.Fragment>
+                ))}
+            </div>
+        </article>
+    );
+}
+
 const TeaProcessIntro = () => {
-    const [activeSixTea, setActiveSixTea] = useState('green');
-    const activeTea = SIX_TEA_METHODS.find(t => t.id === activeSixTea);
+    const [activeSixTea, setActiveSixTea] = useState('oolong');
+    const activeTea = useMemo(() => SIX_TEA_METHODS.find((tea) => tea.id === activeSixTea), [activeSixTea]);
 
     return (
-        <div className="space-y-14 pb-20 max-w-5xl mx-auto">
-            {/* ── Hero 標題 ─────────────────────────────── */}
-            <section className="museum-panel px-8 pt-10 pb-10 md:px-14 md:pt-14">
-                <div className="museum-label mb-4">TAIWAN TEA · PROCESSING</div>
-                <h1 className="text-3xl md:text-4xl font-extrabold text-stone-900 mb-4 tracking-tight">
-                    臺灣特色茶分類及加工製程簡介
-                </h1>
-                <p className="text-[18px] text-stone-600 leading-relaxed max-w-3xl">
-                    茶葉因生產加工程序及製程後品質特性差異，區分為不同系統。了解製程，能更深刻欣賞每種茶背後的工藝與風味成因。
-                </p>
+        <div className="mx-auto max-w-6xl space-y-10 pb-20">
+            <section className="museum-panel overflow-hidden p-0">
+                <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
+                    <div className="px-7 py-10 md:px-12 md:py-14">
+                        <div className="museum-label mb-5">TAIWAN TEA · PROCESSING</div>
+                        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-stone-950">
+                            臺灣特色茶分類及加工製程簡介
+                        </h1>
+                        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-stone-700">
+                            這一頁用「分類邏輯 → 製程流程 → 臺灣代表茶系」三層架構，幫助學生理解：同一片茶葉，如何因氧化、殺菁、揉捻與烘焙而走向不同風味。
+                        </p>
+                        <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                            {['先看分類', '再看流程', '最後對照茶品'].map((item, index) => (
+                                <div key={item} className="rounded-2xl border border-emerald-100 bg-emerald-50/70 px-4 py-3">
+                                    <div className="text-xs font-extrabold text-emerald-700">STEP {index + 1}</div>
+                                    <div className="mt-1 font-bold text-stone-900">{item}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="relative min-h-[280px] bg-gradient-to-br from-emerald-950 via-emerald-800 to-amber-700 p-8 text-white">
+                        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 20%, white 0 2px, transparent 3px), radial-gradient(circle at 70% 45%, white 0 1px, transparent 2px)', backgroundSize: '42px 42px, 28px 28px' }} />
+                        <div className="relative flex h-full flex-col justify-between">
+                            <Leaf size={44} className="text-emerald-100" />
+                            <div>
+                                <div className="text-sm font-extrabold tracking-[0.24em] text-emerald-100">PROCESS MAP</div>
+                                <div className="mt-3 text-3xl font-extrabold">香氣不是偶然，製程就是風味的路線圖。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            {/* ── Section 1：兩大分類系統 ──────────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-8">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">一、茶葉加工製程簡介</h2>
-                </div>
-
-                <p className="text-[17px] text-stone-700 leading-relaxed mb-8">
-                    茶葉主要可依兩種系統分類：
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-10">
-                    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200 p-7 shadow-sm">
-                        <div className="font-bold text-emerald-800 text-[17px] mb-2">（一）依發酵氧化程度</div>
-                        <ul className="space-y-2 mt-3">
-                            {['不發酵茶', '部分發酵茶', '全發酵茶'].map((t) => (
-                                <li key={t} className="flex items-center gap-3 text-[17px] text-stone-700">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                                    {t}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl border border-amber-200 p-7 shadow-sm">
-                        <div className="font-bold text-amber-800 text-[17px] mb-2">（二）依成品外觀色澤及湯色</div>
-                        <ul className="space-y-2 mt-3">
-                            {['綠茶', '黃茶', '白茶', '青茶', '紅茶', '黑茶'].map((t) => (
-                                <li key={t} className="flex items-center gap-3 text-[17px] text-stone-700">
-                                    <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-                                    {t}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-
-                {/* 三大發酵程度說明 */}
-                <div className="space-y-6">
-                    {[
-                        {
-                            num: '1', title: '不發酵茶', badge: '以綠茶為主',
-                            badgeColor: 'bg-emerald-100 text-emerald-800',
-                            content: '一般製程為茶菁直接經殺菁，破壞茶葉內之酵素活性，而抑制酵素氧化作用。臺灣綠茶主要以北部為主要產區，如碧螺春及龍井等，顏色多呈現鮮綠色。'
-                        },
-                        {
-                            num: '2', title: '全發酵茶', badge: '以紅茶為主',
-                            badgeColor: 'bg-red-100 text-red-800',
-                            content: '茶菁經適當萎凋失去水分後，進行揉捻破壞茶葉組織使茶葉內酵素釋出，調整適當相對濕度，使酵素與茶葉內容物進行完整氧化反應。臺灣主要以中部南投為產區，以大葉種為主。'
-                        },
-                        {
-                            num: '3', title: '部分發酵茶', badge: '臺灣最主要茶類',
-                            badgeColor: 'bg-amber-100 text-amber-800',
-                            content: '茶葉氧化程度介於不發酵茶與全發酵茶之間，為臺灣最主要生產的茶類，種類繁多。發酵程度從白茶約 10% 到東方美人茶約 50–60%，工藝變化豐富，首重香氣及滋味。'
-                        }
-                    ].map(({ num, title, badge, badgeColor, content }) => (
-                        <div key={num} className="flex gap-5 items-start">
-                            <div className="w-10 h-10 bg-stone-800 text-white rounded-full flex items-center justify-center font-extrabold text-lg shrink-0">
-                                {num}
-                            </div>
-                            <div className="flex-1 bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
-                                <div className="flex flex-wrap items-center gap-3 mb-3">
-                                    <h3 className="text-[20px] font-extrabold text-stone-900">{title}</h3>
-                                    <span className={`text-[13px] font-bold px-3 py-1 rounded-full ${badgeColor}`}>{badge}</span>
-                                </div>
-                                <p className="text-[17px] text-stone-700 leading-relaxed">{content}</p>
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="01 · Classification" title="兩套分類法，先建立判斷座標">
+                    茶葉分類不是只看名稱，而是同時看「氧化程度」與「成品外觀／湯色」。先掌握這兩個座標，後面的茶類就會清楚很多。
+                </SectionTitle>
+                <div className="grid gap-5 lg:grid-cols-2">
+                    {CLASSIFICATION_CARDS.map((card) => (
+                        <div key={card.title} className={`rounded-3xl border p-6 ${toneClass[card.tone]}`}>
+                            <h3 className="text-xl font-extrabold">{card.title}</h3>
+                            <p className="mt-2 text-sm leading-relaxed opacity-80">{card.subtitle}</p>
+                            <div className="mt-5 flex flex-wrap gap-2">
+                                {card.items.map((item) => (
+                                    <span key={item} className="rounded-full bg-white/80 px-4 py-2 text-sm font-bold shadow-sm">{item}</span>
+                                ))}
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* ── Section 2：發酵光譜 ──────────────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">部分發酵茶發酵程度比較</h2>
-                </div>
-                <p className="text-[17px] text-stone-600 mb-8">以未氧化之綠茶兒茶素含量定為 100%，依此估算各茶類的發酵程度。</p>
-
-                {/* 光譜條 */}
-                <div className="relative mb-10">
-                    <div className="flex h-6 rounded-full overflow-hidden shadow-md mb-3">
-                        <div className="bg-emerald-500 flex-none" style={{ width: '15%' }} />
-                        <div className="bg-gradient-to-r from-emerald-400 to-yellow-400 flex-1" />
-                        <div className="bg-red-600 flex-none" style={{ width: '12%' }} />
-                    </div>
-                    <div className="flex justify-between text-[13px] font-bold text-stone-500 mb-1">
-                        <span>不發酵 0%</span>
-                        <span className="text-amber-700">部分發酵</span>
-                        <span>全發酵 100%</span>
-                    </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {FERMENTATION_SPECTRUM.map((t) => (
-                        <div key={t.name} className={`rounded-2xl border-2 p-5 ${t.bg} ${t.border} shadow-sm`}>
-                            <div className="flex items-center justify-between mb-2">
-                                <span className={`font-extrabold text-[17px] ${t.text}`}>{t.name}</span>
-                                <span className={`font-bold text-[13px] px-3 py-1 rounded-full bg-white/80 ${t.text}`}>
-                                    {t.pct}%
-                                </span>
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="02 · Oxidation Spectrum" title="從清香到熟香：發酵程度光譜">
+                    臺灣特色茶以部分發酵茶最具代表性。發酵程度越高，通常由清香、花香，逐漸走向蜜香、熟果香與醇厚感。
+                </SectionTitle>
+                <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
+                    <div className="relative h-4 rounded-full bg-gradient-to-r from-emerald-500 via-amber-400 to-red-700 shadow-inner" />
+                    <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                        {FERMENTATION_SPECTRUM.map((tea) => (
+                            <div key={tea.name} className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
+                                <div className="flex items-center justify-between gap-3">
+                                    <span className="font-extrabold text-stone-900">{tea.name}</span>
+                                    <span className="rounded-full px-2.5 py-1 text-xs font-extrabold text-white" style={{ backgroundColor: tea.color }}>{tea.pct}%</span>
+                                </div>
+                                <div className="mt-3 h-2 rounded-full bg-white">
+                                    <div className="h-full rounded-full" style={{ width: `${Math.max(tea.pct, 6)}%`, backgroundColor: tea.color }} />
+                                </div>
+                                <p className="mt-3 text-sm font-semibold text-stone-600">{tea.desc}</p>
                             </div>
-                            <div className="w-full h-2 rounded-full bg-white/60 overflow-hidden mb-2">
-                                <div
-                                    className="h-full rounded-full transition-all duration-500"
-                                    style={{ width: `${t.pct}%`, backgroundColor: t.dot }}
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="03 · Visual Guide" title="先看畫面：四個關鍵製程印象">
+                    製茶不是抽象名詞。把萎凋、做青、殺菁與揉捻先變成畫面，學生再回頭看流程會更容易理解。
+                </SectionTitle>
+                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                    {PROCESS_VISUALS.map((visual) => (
+                        <article key={visual.title} className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+                            <div className="aspect-[4/3] overflow-hidden bg-stone-100">
+                                <img
+                                    src={visual.src}
+                                    alt={visual.title}
+                                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                                    loading="lazy"
                                 />
                             </div>
-                            <p className={`text-[14px] ${t.text} opacity-80`}>{t.desc}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* ── Section 3：六大茶類製程 ──────────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">（二）六大茶類加工製程</h2>
-                </div>
-                <p className="text-[17px] text-stone-600 mb-8">選擇茶類，查看其基本生產步驟。</p>
-
-                {/* 選擇按鈕 */}
-                <div className="flex flex-wrap gap-3 mb-8">
-                    {SIX_TEA_METHODS.map((t) => (
-                        <button
-                            key={t.id}
-                            type="button"
-                            onClick={() => setActiveSixTea(t.id)}
-                            className={`px-4 py-2 rounded-full font-bold text-[15px] border-2 transition-all ${activeSixTea === t.id ? t.badgeColor + ' border-transparent ring-2 ring-stone-400' : 'bg-white text-stone-700 border-stone-200 hover:border-amber-400'}`}
-                        >
-                            {t.label}
-                        </button>
-                    ))}
-                </div>
-
-                {/* 步驟流程 */}
-                {activeTea && (
-                    <div className="bg-white rounded-2xl border border-stone-200 p-7 shadow-sm">
-                        <div className="flex items-center gap-3 mb-6">
-                            <span className={`px-3 py-1 rounded-full text-[13px] font-bold ${activeTea.badgeColor}`}>{activeTea.badge}</span>
-                            <h3 className="text-[22px] font-extrabold text-stone-900">{activeTea.label}</h3>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-2">
-                            {activeTea.steps.map((step, idx) => (
-                                <React.Fragment key={step}>
-                                    <div className="flex flex-col items-center">
-                                        <div className="text-[13px] font-bold text-stone-500 mb-1">{idx + 1}</div>
-                                        <div className="bg-stone-50 border border-stone-200 rounded-xl px-5 py-3 font-bold text-[16px] text-stone-800 shadow-sm">
-                                            {step}
-                                        </div>
-                                    </div>
-                                    {idx < activeTea.steps.length - 1 && (
-                                        <ArrowDown size={18} className="text-stone-400 rotate-[-90deg] mt-5 shrink-0" />
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </section>
-
-            {/* ── Section 4：臺灣特色茶六大茶系 ──────────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">臺灣特色茶六大茶系</h2>
-                </div>
-                <p className="text-[17px] text-stone-600 mb-8">
-                    臺灣茶因風土氣候、栽植品種及加工方法的不同，發展出多元茶類，主要可分為八大特色茶類，並歸類為六大茶系。
-                </p>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {TAIWAN_TEA_TYPES.map((t) => (
-                        <div key={t.id} className={`rounded-2xl border-2 p-6 shadow-sm ${t.color}`}>
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-9 h-9 rounded-full bg-white/70 border border-current flex items-center justify-center font-extrabold text-lg">
-                                    {t.id}
-                                </div>
-                                <h3 className="font-extrabold text-[17px]">{t.label}</h3>
+                            <div className="p-5">
+                                <h3 className="text-lg font-extrabold text-stone-950">{visual.title}</h3>
+                                <p className="mt-2 text-sm leading-relaxed text-stone-600">{visual.desc}</p>
                             </div>
-                            <p className="text-[15px] opacity-80 leading-relaxed">代表：{t.repr}</p>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="04 · Six Tea Processes" title="六大茶類加工製程，一次展開">
+                    每一類茶都有自己的關鍵工序。以下先看完整卡片，再用按鈕挑選單一茶類做課堂講解。
+                </SectionTitle>
+                <div className="grid gap-5 lg:grid-cols-2">
+                    {SIX_TEA_METHODS.map((tea) => <ProcessCard key={tea.id} tea={tea} />)}
+                </div>
+                <div className="mt-7 rounded-3xl border border-amber-200 bg-amber-50 p-5">
+                    <div className="mb-4 flex flex-wrap gap-2">
+                        {SIX_TEA_METHODS.map((tea) => (
+                            <button
+                                key={tea.id}
+                                type="button"
+                                onClick={() => setActiveSixTea(tea.id)}
+                                className={`rounded-full px-4 py-2 text-sm font-extrabold transition ${activeSixTea === tea.id ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-700 hover:bg-stone-100'}`}
+                            >
+                                {tea.label}
+                            </button>
+                        ))}
+                    </div>
+                    {activeTea ? (
+                        <div className="rounded-2xl bg-white p-5 shadow-sm">
+                            <div className="flex items-center gap-3">
+                                <Sparkles size={20} className="text-amber-600" />
+                                <h3 className="text-xl font-extrabold text-stone-950">課堂聚焦：{activeTea.label}</h3>
+                            </div>
+                            <p className="mt-3 text-[17px] leading-relaxed text-stone-700">{activeTea.note}</p>
                         </div>
+                    ) : null}
+                </div>
+            </section>
+
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="05 · Taiwan Tea Families" title="臺灣特色茶六大茶系">
+                    臺灣茶的特色不只在茶名，而在風土、品種與工藝組合。這一區可作為學生認識臺灣茶的總表。
+                </SectionTitle>
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                    {TAIWAN_TEA_TYPES.map((tea, index) => (
+                        <article key={tea.label} className={`rounded-3xl border p-5 shadow-sm ${toneClass[tea.color]}`}>
+                            <div className="flex items-start gap-4">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/80 text-lg font-extrabold shadow-sm">{index + 1}</div>
+                                <div>
+                                    <h3 className="text-lg font-extrabold">{tea.label}</h3>
+                                    <p className="mt-1 text-sm font-bold opacity-80">代表：{tea.repr}</p>
+                                    <p className="mt-3 text-sm leading-relaxed opacity-85">{tea.feature}</p>
+                                </div>
+                            </div>
+                        </article>
                     ))}
                 </div>
             </section>
 
-            {/* ── Section 5：互動製程流程圖 ───────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">臺灣特色茶加工製程圖</h2>
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="06 · Processing Purpose" title="常見製程目的：把動作和風味連起來">
+                    這裡改為直接展開，讓學生不用一直點開收合；上課時也比較容易投影講解。
+                </SectionTitle>
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                    {PROCESS_STEPS.map((step) => {
+                        const Icon = step.icon;
+                        return (
+                            <article key={step.title} className="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm">
+                                <div className="flex items-center gap-3">
+                                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">
+                                        <Icon size={22} />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-extrabold text-stone-950">{step.title}</h3>
+                                        <div className="text-xs font-extrabold tracking-[0.16em] text-amber-700">{step.tag}</div>
+                                    </div>
+                                </div>
+                                <p className="mt-4 text-[15px] leading-relaxed text-stone-650">{step.body}</p>
+                            </article>
+                        );
+                    })}
                 </div>
-                <p className="text-[14px] text-stone-400 mb-8">資料來源：行政院農業委員會茶業改良場 · 點擊各步驟可查看說明</p>
+            </section>
+
+            <section className="museum-panel px-7 py-9 md:px-10">
+                <SectionTitle eyebrow="07 · Flowchart" title="臺灣特色茶加工製程圖">
+                    保留原本的互動流程圖，作為進階對照。前面先建立觀念，最後再用流程圖整合。
+                </SectionTitle>
+                <div className="mb-5 flex items-center gap-2 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-900">
+                    <CheckCircle2 size={18} />
+                    建議上課順序：先講六大茶類流程，再回到這張圖比較臺灣特色茶差異。
+                </div>
                 <TeaProcessFlowChart />
-            </section>
-
-            {/* ── Section 6：製程步驟說明 ──────────────── */}
-            <section className="museum-panel px-8 py-10 md:px-12">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-1 bg-amber-500 rounded-full" />
-                    <h2 className="text-2xl font-extrabold text-stone-900">二、茶葉加工製程處理之目的</h2>
-                </div>
-                <p className="text-[17px] text-stone-600 mb-8">點擊各製程步驟了解其目的與說明。</p>
-
-                <div className="space-y-4">
-                    {PROCESS_STEPS.map((step) => (
-                        <Accordion
-                            key={step.id}
-                            title={step.title}
-                            icon={step.icon}
-                            iconColor={step.iconColor}
-                            color={step.color}
-                            body={step.body}
-                        />
-                    ))}
-                </div>
             </section>
         </div>
     );
 };
 
 export default TeaProcessIntro;
+
