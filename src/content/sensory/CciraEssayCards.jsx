@@ -1,6 +1,62 @@
 ﻿import React, { useState } from 'react';
 import { ChevronDown, BookOpen, Droplets, Leaf, Coffee, Lightbulb, Map } from 'lucide-react';
 
+const SPEECH_CLOSINGS = {
+    1: {
+        features: '所以碧螺春要講的不是濃，而是春芽的清新與鮮活。',
+        reasons: '也就是因為不發酵、快速定色定香，才有這種清嫩感。',
+        story: '我會把它記成三峽風土做出的台灣嫩芽綠茶。',
+        brew: '總結來說，碧螺春要用較低水溫，泡出鮮，不要泡出澀。'
+    },
+    2: {
+        features: '所以文山包種的重點，就是清雅花香與乾淨茶湯。',
+        reasons: '也就是發酵要輕而準，才能把花香留住。',
+        story: '我會把它記成北台灣最代表性的清香型條形烏龍。',
+        brew: '總結來說，包種茶要泡出香氣細緻，不要把它悶熟。'
+    },
+    3: {
+        features: '所以高山茶迷人的地方，是清香之外還有山韻與甘甜。',
+        reasons: '也就是高海拔慢生長，成就它低苦澀、高甘甜的特色。',
+        story: '我會把它記成台灣山林氣候與烏龍工藝結合的代表。',
+        brew: '總結來說，高山茶要用高溫喚醒香氣，但注水要均勻柔和。'
+    },
+    4: {
+        features: '所以凍頂烏龍的魅力，是焙火香、厚度和喉韻三者一起出現。',
+        reasons: '也就是發酵和焙火共同把茶湯做得更厚、更甜。',
+        story: '我會把它記成鹿谷最具代表性的經典焙香烏龍。',
+        brew: '總結來說，凍頂要用高溫與保溫好的器具，把焙火厚度泡出來。'
+    },
+    5: {
+        features: '所以鐵觀音不是只喝火香，而是喝它深沉的觀音韻。',
+        reasons: '也就是包布焙揉與重焙火，讓它形成微酸回甘的層次。',
+        story: '我會把它記成木柵風土與安溪鐵觀音工藝在台灣的融合。',
+        brew: '總結來說，鐵觀音要用高溫與厚器，把韻味慢慢逼出來。'
+    },
+    6: {
+        features: '所以東方美人最迷人的地方，就是蜜香、甜感與五色茶乾。',
+        reasons: '也就是小綠葉蟬與重發酵，把蟲咬轉化成蜜香。',
+        story: '我會把它記成台灣把自然條件轉成高級風味的代表茶。',
+        brew: '總結來說，東方美人要溫柔沖泡，保留第一泡珍貴蜜香。'
+    },
+    7: {
+        features: '所以紅烏龍可以用一句話記：紅茶甜、烏龍韻、焙火厚。',
+        reasons: '也就是三種工藝特色合在一起，形成紅烏龍的辨識度。',
+        story: '我會把它記成台東鹿野最有創新精神的特色茶。',
+        brew: '總結來說，紅烏龍熱泡喝厚度，冷泡喝甜潤。'
+    },
+    8: {
+        features: '所以台灣紅茶的重點，是紅亮茶湯和清楚的品種香。',
+        reasons: '也就是充分氧化，讓茶湯轉紅，香氣轉熟、轉甜。',
+        story: '我會把它記成日月潭紅茶帶動台灣紅茶品牌的重要代表。',
+        brew: '總結來說，紅茶要泡出甜香與紅亮，不要把澀感泡得太重。'
+    }
+};
+
+const appendClosing = (content, closing) => {
+    if (!content || !closing) return content;
+    return `${content}\n\n結尾：${closing}`;
+};
+
 const ESSAY_DATA = [
     {
         id: 1,
@@ -149,6 +205,7 @@ export default function CciraEssayCards() {
             <div className="grid gap-4">
                 {ESSAY_DATA.map((item) => {
                     const isOpen = openCardId === item.id;
+                    const closings = SPEECH_CLOSINGS[item.id] || {};
                     return (
                         <div
                             key={item.id}
@@ -201,14 +258,14 @@ export default function CciraEssayCards() {
                                         <PointSection
                                             icon={Leaf}
                                             title="1. 茶湯滋味：先說喝起來的感覺"
-                                            content={item.features}
+                                            content={appendClosing(item.features, closings.features)}
                                             colorClass="text-emerald-700"
                                         />
 
                                         <PointSection
                                             icon={Droplets}
                                             title="2. 特色成因：為什麼會有這種味道"
-                                            content={item.reasons}
+                                            content={appendClosing(item.reasons, closings.reasons)}
                                             colorClass="text-sky-700"
                                         />
 
@@ -222,7 +279,7 @@ export default function CciraEssayCards() {
                                         <PointSection
                                             icon={Coffee}
                                             title={item.id >= 9 ? "4. 泡茶心法與總結" : "4. 沖泡建議：器具、材質、水溫、茶量、時間"}
-                                            content={item.toolsAndBrew}
+                                            content={appendClosing(item.toolsAndBrew, closings.brew)}
                                             colorClass="text-amber-700"
                                         />
                                     </div>
