@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   BookOpen,
   ClipboardList,
@@ -311,6 +311,56 @@ export default function TaiwanCultivarDiversity() {
             </div>
           </Grid>
 
+          <div className="mt-8 rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-white via-emerald-50/50 to-amber-50/70 p-7 md:p-9 shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+              <div className="lg:w-[34%] space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-emerald-200 text-emerald-800 text-xs font-black tracking-[0.18em] uppercase">
+                  <GitBranch size={14} /> CULTIVAR FAMILY TREE
+                </div>
+                <h4 className="text-2xl md:text-3xl font-black text-stone-900 leading-tight">
+                  一張家譜看懂：台灣烏龍與台茶編號的親本關係
+                </h4>
+                <Paragraph className="text-[16px]">
+                  品種不是茶名，也不等於產地。品種像茶的「血統底盤」，決定葉質、香氣潛力與適製方向；製程與產區，則把這個潛力表現成包種、高山烏龍、東方美人或紅茶。
+                </Paragraph>
+                <p className="text-[13px] text-stone-500 leading-relaxed">
+                  整理自祥興茶行〈一張家譜看懂台灣茶品種〉，並依茶及飲料作物改良場公開品種資料改寫為本站教學版。
+                </p>
+              </div>
+
+              <div className="lg:flex-1 grid md:grid-cols-2 gap-4">
+                {[
+                  { title: '地方種：台灣茶的老根', tone: 'stone', items: ['青心烏龍：包種、高山烏龍與許多台茶新品種的重要基礎。', '青心大冇：東方美人的核心品種，白毫與蜜香表現突出。', '硬枝紅心：金萱、翠玉共同牽連的關鍵親本。', '大葉烏龍：早期四大名種之一，樹勢與葉形具代表性。'] },
+                  { title: '硬枝紅心樞紐', tone: 'amber', items: ['台茶12號金萱＝台農8號為母本 × 硬枝紅心為父本。', '台茶13號翠玉＝硬枝紅心為母本 × 台農80號為父本。', '金萱與翠玉風味不同，但家譜上都連到硬枝紅心。'] },
+                  { title: '青心烏龍樞紐', tone: 'emerald', items: ['台茶19號碧玉＝金萱為母本 × 青心烏龍為父本。', '台茶20號迎香＝2022品系為母本 × 青心烏龍為父本。', '台茶22號沁玉＝金萱為母本 × 青心烏龍為父本。'] },
+                  { title: '紅茶系：大葉種血統', tone: 'rose', items: ['台茶18號紅玉＝緬甸大葉種 B-729 × 台灣野生山茶 B-607。', '台茶21號紅韻＝母本 FKK-1 品系，父本為天然授粉不明。', '紅玉偏肉桂、薄荷香；紅韻常見柑橘、柚花蜜香。'] }
+                ].map((card) => (
+                  <div key={card.title} className={`rounded-2xl border p-5 bg-white shadow-sm ${card.tone === 'amber' ? 'border-amber-200' : card.tone === 'emerald' ? 'border-emerald-200' : card.tone === 'rose' ? 'border-rose-200' : 'border-stone-200'}`}>
+                    <h5 className={`text-lg font-black mb-3 ${card.tone === 'amber' ? 'text-amber-900' : card.tone === 'emerald' ? 'text-emerald-900' : card.tone === 'rose' ? 'text-rose-900' : 'text-stone-900'}`}>{card.title}</h5>
+                    <ul className="space-y-2 text-[15px] md:text-[16px] leading-relaxed text-stone-700">
+                      {card.items.map((item) => <li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-current opacity-60 shrink-0" /> <span>{item}</span></li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 grid md:grid-cols-3 gap-3 text-[15px]">
+              <div className="rounded-2xl bg-white/80 border border-stone-200 p-4">
+                <strong className="block text-stone-900 mb-1">容易記錯 1</strong>
+                金萱不是硬枝紅心的母本，而是「台農8號為母、硬枝紅心為父」。
+              </div>
+              <div className="rounded-2xl bg-white/80 border border-stone-200 p-4">
+                <strong className="block text-stone-900 mb-1">容易記錯 2</strong>
+                翠玉是「硬枝紅心為母、台農80號為父」；1938 是雜交年份，1981 才正式命名。
+              </div>
+              <div className="rounded-2xl bg-white/80 border border-stone-200 p-4">
+                <strong className="block text-stone-900 mb-1">一句話結論</strong>
+                硬枝紅心串起金萱與翠玉；青心烏龍串起碧玉、迎香與沁玉。
+              </div>
+            </div>
+          </div>
+
           {/* THE GRID: RESTORING FULL DETAIL */}
           <div className="mt-8 rounded-[2rem] border-2 border-stone-200 bg-white p-8 md:p-12 shadow-inner">
             <div className="mb-8">
@@ -335,7 +385,7 @@ export default function TaiwanCultivarDiversity() {
                     { name: "阿薩姆 (Assam)", desc: "早年引進之地方種", icon: "🌱" },
                     { name: "台茶 8 號", desc: "阿薩姆優良選拔", icon: "✔️" },
                     { name: "台茶 18 號 (紅玉)", desc: "肉桂與薄荷香氣 (人工雜交)", highlight: true },
-                    { name: "台茶 21 號 (紅韻)", desc: "柑橘與花果香氣 (人工雜交)", highlight: true }
+                    { name: "台茶 21 號 (紅韻)", desc: "柑橘與柚花蜜香 (天然授粉選拔)", highlight: true }
                   ].map(item => (
                     <div key={item.name} className={`flex items-center justify-between p-4 rounded-xl border-2 ${item.highlight ? 'border-rose-300 bg-rose-50 shadow-sm' : 'border-stone-100 bg-white'} group hover:scale-[1.02] transition-all`}>
                       <span className="font-extrabold text-stone-900 text-lg">{item.name}</span>

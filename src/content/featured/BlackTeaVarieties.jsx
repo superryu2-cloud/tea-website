@@ -374,13 +374,27 @@ export default function BlackTeaVarietiesContent() {
                                     國際紅茶分級系統
                                 </h4>
                                 <p className="text-stone-700 text-[17px] leading-relaxed mb-8">
-                                    在國際貿易中，紅茶主要根據加工後茶乾的「外形」進行分級，常見的等級如下：
+                                    在國際貿易中，紅茶常依加工後茶乾的「葉形與大小」分級。請注意：分級不是品質保證，而是告訴你這款茶比較適合細品、茶包或調飲。
                                 </p>
+                                <figure className="mb-8 overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+                                    <div className="aspect-[16/7] overflow-hidden bg-stone-100">
+                                        <img
+                                            src="/images/varieties/black_tea/black_tea_leaf_grading.png"
+                                            alt="紅茶葉形分級：整葉、碎葉、碎屑與 CTC 顆粒示意"
+                                            loading="lazy"
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <figcaption className="border-t border-stone-200 bg-stone-50 px-5 py-3 text-[15px] leading-relaxed text-stone-600">
+                                        原創教學圖：葉片越碎，出味通常越快、越濃；整葉則更適合慢慢細品香氣層次。
+                                    </figcaption>
+                                </figure>
+
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm transition-transform hover:-translate-y-1">
                                         <div className="text-amber-600 font-bold text-[19px] mb-3">條型（原片）</div>
                                         <p className="text-stone-700 leading-relaxed mb-4">
-                                            指保留完整葉形的茶葉。等級命名通常以 FOP (Flowery Orange Pekoe) 為基礎，代表含有芽尖的完整葉片。英文字母越多，如 SFTGFOP (Super Fine Tippy Golden Flowery Orange Pekoe)，通常代表等級越高、品質越好。
+                                            指保留完整葉形的茶葉。OP 是基準整葉級，FOP 代表含較多芽尖；再往上如 TGFOP、SFTGFOP1，表示芽尖比例與揀選更精細。但字母越長不等於一定更好喝，仍要看產區、季節與製作水準。
                                         </p>
                                     </div>
                                     <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm transition-transform hover:-translate-y-1">
@@ -394,6 +408,34 @@ export default function BlackTeaVarietiesContent() {
                                         <p className="text-stone-700 leading-relaxed mb-4">
                                             這是一種特殊的加工方式，全稱為 Crush, Tear, Curl（壓碎、撕裂、揉捲）。茶葉經過這種處理後會形成細小的顆粒狀。CTC紅茶的茶湯濃度極高，能夠在短時間內釋放濃郁滋味，是製作港式「絲襪奶茶」等濃郁調飲的理想基底。
                                         </p>
+                                    </div>
+                                </div>
+
+                                <div className="mt-8 overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+                                    <div className="bg-stone-900 px-6 py-4 text-white">
+                                        <h5 className="text-xl font-black">紅茶分級速查：先看工藝，再看葉形</h5>
+                                        <p className="mt-1 text-[15px] text-stone-300">整理自祥興茶行〈世界紅茶入門〉，改寫為本站教學版。</p>
+                                    </div>
+                                    <div className="overflow-x-auto">
+                                        <table className="min-w-full divide-y divide-stone-200 text-[15px] text-stone-700">
+                                            <thead className="bg-stone-50 text-stone-500">
+                                                <tr>
+                                                    <th className="px-5 py-3 text-left font-black">標示</th>
+                                                    <th className="px-5 py-3 text-left font-black">意思</th>
+                                                    <th className="px-5 py-3 text-left font-black">適合用途</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="divide-y divide-stone-100 bg-white">
+                                                <tr><td className="px-5 py-4 font-black text-stone-900">OP / FOP</td><td className="px-5 py-4">整葉或含芽尖整葉，出味較慢，香氣層次較容易展開。</td><td className="px-5 py-4">清飲、欣賞產區香氣。</td></tr>
+                                                <tr><td className="px-5 py-4 font-black text-stone-900">TGFOP / SFTGFOP1</td><td className="px-5 py-4">芽尖比例與揀選更細，常見於高階大吉嶺標示。</td><td className="px-5 py-4">清飲，但仍需看產區與批次品質。</td></tr>
+                                                <tr><td className="px-5 py-4 font-black text-stone-900">BOP</td><td className="px-5 py-4">Broken Orange Pekoe，碎葉級，萃取速度更快。</td><td className="px-5 py-4">茶包、奶茶、需要濃度的調飲。</td></tr>
+                                                <tr><td className="px-5 py-4 font-black text-stone-900">Fannings / Dust</td><td className="px-5 py-4">碎屑與粉末，出味最快、湯色深。</td><td className="px-5 py-4">商用茶包、快速大量沖泡。</td></tr>
+                                                <tr><td className="px-5 py-4 font-black text-stone-900">CTC</td><td className="px-5 py-4">Crush–Tear–Curl，壓碎、撕裂、捲曲成顆粒。</td><td className="px-5 py-4">印度奶茶、英式濃奶茶、手搖茶底。</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="border-t border-amber-100 bg-amber-50 px-6 py-4 text-[15px] leading-relaxed text-amber-900">
+                                        <strong>三個避坑：</strong>分級≠品質；Orange Pekoe 的 Orange 不是橙味；不同產區與拍賣制度的字母用法可能略有差異。
                                     </div>
                                 </div>
                             </div>

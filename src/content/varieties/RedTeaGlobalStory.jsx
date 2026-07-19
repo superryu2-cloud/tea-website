@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { AlertTriangle, Coffee, Globe, Mountain } from 'lucide-react';
 import RedTeaTreeTimeline from '../../components/sections/RedTeaTreeTimeline';
 import ImageModal from '../../components/ImageModal';
@@ -27,6 +27,39 @@ export default function RedTeaGlobalStory() {
             </p>
           </div>
 
+          <figure className="overflow-hidden rounded-[2rem] border border-stone-700/60 bg-stone-900/70 shadow-2xl">
+            <div className="aspect-[16/7] overflow-hidden">
+              <img
+                src="/images/varieties/black_tea/world_black_tea_origins_hero.png"
+                alt="世界紅茶四大產區意象：大吉嶺、阿薩姆、錫蘭與中國紅茶山區"
+                className="h-full w-full object-cover opacity-90"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="border-t border-stone-700/70 px-5 py-4 text-[15px] leading-relaxed text-stone-400">
+              原創示意圖：以四種風土氣氛呈現世界紅茶版圖；實際選茶仍需回到產區、採摘季、製法與葉形分級判讀。
+            </figcaption>
+          </figure>
+
+          <div className="grid md:grid-cols-4 gap-4">
+            {[
+              ['大吉嶺 Darjeeling', '麝香葡萄感', '二番摘最具代表性，適合清飲。'],
+              ['祁門 Keemun', '煙燻、花香', '中國紅茶代表，清飲可品其細緻香氣。'],
+              ['錫蘭 Ceylon', '明亮、花香甜感', '低地濃強；高地清亮細緻，海拔很關鍵。'],
+              ['阿薩姆 Assam', '麥芽濃厚', '茶湯濃厚有力，適合加奶或調飲。']
+            ].map(([name, aroma, note]) => (
+              <div key={name} className="rounded-2xl border border-stone-700/70 bg-stone-900/60 p-5">
+                <div className="text-sm font-extrabold tracking-widest text-amber-300 uppercase">ORIGIN</div>
+                <h4 className="mt-2 text-xl font-black text-white">{name}</h4>
+                <div className="mt-3 text-amber-100 font-bold">{aroma}</div>
+                <p className="mt-2 text-[15px] leading-relaxed text-stone-400">{note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl border border-amber-400/20 bg-amber-500/10 px-6 py-5 text-[16px] leading-relaxed text-amber-50">
+            <strong>讀法提醒：</strong>「四大名紅茶」重點在風味辨識與產區性格，不是產量排名。肯亞雖是重要紅茶出口國，但多為 CTC 與茶包拼配用途，因此常不列入傳統名茶風味榜。
+          </div>
           {/* Origin Cards Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {/* Wuyi Card */}

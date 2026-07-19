@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Leaf, Calendar, MapPin, Award, Info, ChevronDown, ChevronUp, History, Search, ArrowUp } from 'lucide-react';
 import ImageModal from '../../components/ImageModal';
 
@@ -129,8 +129,8 @@ export default function TaiwanTeaCultivars() {
             image: '/images/cultivars/ttes_20.png', imageAlt: '迎香 (台茶20號)'
         },
         {
-            number: 21, name: '紅韻', alias: 'FKK-22', parent: '祈門 Kymun (母) x Kyang (父)', location: '—', breedYear: 1953, releaseYear: 2008, type: '強/直立', use: '紅茶',
-            description: '#台茶21號：(紅韻)。此品種於2008年10月17日 經審查通過，正式命名為「台茶21號」；且於2008年10月24日 為故新井耕吉郎支所長塑像揭幕式後，另取別名為「紅韻」。',
+            number: 21, name: '紅韻', alias: 'FKK-22', parent: 'FKK-1 品系 (母) x 天然授粉父本不明', location: '—', breedYear: 1953, releaseYear: 2008, type: '強/直立', use: '紅茶',
+            description: '#台茶21號：(紅韻)。為適製紅茶品種，母本為 FKK-1 品系，父本為天然授粉不明來源；2008年10月17日經審查通過，正式命名為「台茶21號」，另名「紅韻」。風味常以柑橘、柚花與蜜香作為辨識重點。',
             image: '/images/cultivars/ttes_21.png', imageAlt: '紅韻 (台茶21號)'
         },
         {
