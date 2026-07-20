@@ -1,8 +1,9 @@
-﻿import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   ArrowRight,
   BookOpen,
   ChefHat,
+  ChevronRight,
   Droplets,
   Leaf,
   MapPin,
@@ -69,7 +70,7 @@ const PROCESS_STEPS = [
 
 const TASTING_NOTES = [
   { title: '外觀', desc: '茶形細嫩、條索緊結或自然捲曲，優質者可見嫩芽白毫。' },
-  { title: '湯色', desc: '茶湯清澈明亮，多呈淡綠至黃綠色，葉底鮮綠柔嫩。' },
+  { title: '湯色', desc: '茶湯碧綠至黃綠、清澈明亮，葉底鮮綠柔嫩；評鑑用語以「綠色系」掌握最穩妥。' },
   { title: '香氣', desc: '常見嫩葉香、綠豆香、蔬果香、清花香，部分茶品可帶海苔或淡淡青草氣息。' },
   { title: '滋味', desc: '入口鮮爽甘甜、清新細緻；若水溫過高或浸泡太久，容易轉為苦澀。' },
 ];
@@ -80,6 +81,24 @@ const BREWING_GUIDE = [
   { label: '茶量', value: '約 3g／150ml' },
   { label: '第一泡', value: '約 50–70 秒，依茶量調整' },
   { label: '重點', value: '細嫩綠茶不建議洗茶，第一泡就是鮮爽精華' },
+];
+const CONTENT_NODES = [
+  { id: 'biluochun-taiwan-origin', number: '01', label: '三峽風土', group: '臺灣碧螺春' },
+  { id: 'biluochun-taiwan-sensory', number: '02', label: '色・香・味', group: '臺灣碧螺春' },
+  { id: 'biluochun-taiwan-process', number: '03', label: '製程關鍵', group: '臺灣碧螺春' },
+  { id: 'biluochun-taiwan-brewing', number: '04', label: '沖泡指南', group: '臺灣碧螺春' },
+  { id: 'biluochun-china-origin', number: '05', label: '洞庭風土', group: '中國洞庭碧螺春' },
+  { id: 'biluochun-china-craft', number: '06', label: '傳統工藝', group: '中國洞庭碧螺春' },
+  { id: 'biluochun-compare', number: '07', label: '雙茶辨識', group: '快速比較' },
+  { id: 'biluochun-summary', number: '08', label: '知識總結', group: '快速比較' },
+];
+
+const DONGTING_PROCESS = [
+  { title: '鮮葉揀剔', desc: '採取幼嫩芽葉並細緻揀剔，先從原料整齊度建立品質。' },
+  { title: '高溫殺青', desc: '迅速抑制酵素活性，保留綠茶的嫩香與鮮醇滋味。' },
+  { title: '熱揉成形', desc: '趁熱揉製，使芽葉逐步形成纖細、彎曲的輪廓。' },
+  { title: '搓團顯毫', desc: '反覆搓團，使外形捲曲呈螺，茸毫在茶體表面顯露。' },
+  { title: '文火乾燥', desc: '以較溫和火力完成乾燥，固定嫩香、外形與回甘。' },
 ];
 
 function InfoPill({ icon, label, value }) {
@@ -130,6 +149,30 @@ function ImageCard({ image, onClick }) {
 export default function BiluochunGreenTeaContent() {
   const contentRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(null);
+  const [activeNode, setActiveNode] = useState(CONTENT_NODES[0].id);
+
+  useEffect(() => {
+    const sections = CONTENT_NODES
+      .map((node) => document.getElementById(node.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveNode(visible.target.id);
+      },
+      { rootMargin: '-18% 0px -68% 0px', threshold: [0, 0.15, 0.4] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToNode = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="animate-fadeIn space-y-12">
@@ -166,9 +209,53 @@ export default function BiluochunGreenTeaContent() {
 
       <ReadingAssist contentRef={contentRef} headingSelector="h3" />
 
-      <div ref={contentRef} className="mx-auto max-w-6xl space-y-14 px-4 md:px-0">
-        <section className="rounded-[2rem] border border-stone-200 bg-white/88 p-8 shadow-sm md:p-10">
-          <SectionTitle icon={MapPin} eyebrow="01 · Origin" title="三峽碧螺春：臺灣綠茶的清雅代表">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 md:px-0 lg:grid-cols-[270px_minmax(0,1fr)] lg:items-start">
+        <aside className="self-start lg:sticky lg:top-24">
+          <div className="rounded-[1.75rem] border border-emerald-100 bg-white/95 p-4 shadow-xl shadow-emerald-950/5 backdrop-blur md:p-5">
+            <div className="flex items-center justify-between gap-3 lg:block">
+              <div>
+                <div className="text-xs font-black tracking-[0.2em] text-emerald-700">BILUOCHUN ATLAS</div>
+                <h3 className="mt-1 text-xl font-black text-stone-950">碧螺春知識節點</h3>
+              </div>
+              <div className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800">臺灣 × 洞庭</div>
+            </div>
+            <nav className="mt-5 flex gap-2 overflow-x-auto pb-2 lg:block lg:space-y-1" aria-label="碧螺春文章節點">
+              {CONTENT_NODES.map((node, index) => {
+                const isActive = activeNode === node.id;
+                const showGroup = index === 0 || CONTENT_NODES[index - 1].group !== node.group;
+                return (
+                  <React.Fragment key={node.id}>
+                    {showGroup ? (
+                      <div className="hidden px-3 pb-2 pt-4 text-xs font-black tracking-[0.16em] text-stone-400 first:pt-0 lg:block">
+                        {node.group}
+                      </div>
+                    ) : null}
+                    <button
+                      type="button"
+                      onClick={() => scrollToNode(node.id)}
+                      className={`group flex min-w-[154px] items-center gap-3 rounded-2xl px-3 py-3 text-left transition lg:w-full lg:min-w-0 ${
+                        isActive
+                          ? 'bg-emerald-800 text-white shadow-md shadow-emerald-900/15'
+                          : 'bg-stone-50 text-stone-700 hover:bg-emerald-50 hover:text-emerald-900'
+                      }`}
+                      aria-current={isActive ? 'location' : undefined}
+                    >
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${isActive ? 'bg-white text-emerald-800' : 'border border-emerald-200 bg-white text-emerald-700'}`}>
+                        {node.number}
+                      </span>
+                      <span className="text-[16px] font-extrabold">{node.label}</span>
+                      <ChevronRight size={17} className={`ml-auto hidden transition lg:block ${isActive ? 'translate-x-0 opacity-100' : '-translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`} />
+                    </button>
+                  </React.Fragment>
+                );
+              })}
+            </nav>
+          </div>
+        </aside>
+
+        <main ref={contentRef} className="min-w-0 space-y-14">
+        <section id="biluochun-taiwan-origin" className="scroll-mt-28 rounded-[2rem] border border-stone-200 bg-white/88 p-8 shadow-sm md:p-10">
+          <SectionTitle icon={MapPin} eyebrow="01 · Taiwan Origin" title="三峽碧螺春：臺灣綠茶的清雅代表">
             談到臺灣茶，許多人第一時間會想到高山烏龍；但三峽碧螺春代表的是另一種迷人的方向：清亮、鮮爽、帶著春芽生命力的綠茶風格。它的價值不在厚重焙火，而在於把茶葉剛採下時的細緻鮮味保存下來。
           </SectionTitle>
           <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -198,8 +285,8 @@ export default function BiluochunGreenTeaContent() {
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 shadow-sm md:p-10">
-          <SectionTitle icon={ChefHat} eyebrow="03 · Processing" title="製程核心：殺菁留住春芽鮮味">
+        <section id="biluochun-taiwan-process" className="scroll-mt-28 rounded-[2rem] border border-stone-200 bg-gradient-to-br from-stone-50 to-white p-8 shadow-sm md:p-10">
+          <SectionTitle icon={ChefHat} eyebrow="02 · Taiwan Processing" title="製程核心：殺菁留住春芽鮮味">
             碧螺春的基本流程是「採摘 → 攤放 → 殺菁 → 揉捻／整形 → 乾燥」。製程看似簡潔，真正困難的是掌握火候與時間：既要停止氧化，又不能把嫩芽做老、做悶。
           </SectionTitle>
           <div className="grid gap-4 md:grid-cols-4">
@@ -214,9 +301,9 @@ export default function BiluochunGreenTeaContent() {
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <section id="biluochun-taiwan-sensory" className="scroll-mt-28 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-[2rem] border border-emerald-100 bg-emerald-950 p-8 text-white shadow-sm md:p-10">
-            <SectionTitle icon={Leaf} eyebrow="04 · Tasting" title="風味辨識：清新鮮爽，帶蔬果與豆香" />
+            <SectionTitle icon={Leaf} eyebrow="03 · Taiwan Tasting" title="風味辨識：清新鮮爽，帶蔬果與豆香" />
             <p className="text-[19px] leading-relaxed text-emerald-50/90">
               好的三峽碧螺春，喝起來應該明亮、清爽，有嫩葉、綠豆、蔬果般的鮮甜感。若入口苦澀厚重，常見原因是水溫太高、浸泡太久，或製程中茶菁與殺菁控制不夠細緻。
             </p>
@@ -231,7 +318,7 @@ export default function BiluochunGreenTeaContent() {
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <section id="biluochun-taiwan-brewing" className="scroll-mt-28 grid gap-8 lg:grid-cols-2 lg:items-center">
           <button
             type="button"
             onClick={() => setPreviewImage({ src: '/images/green_tea_glass.png', alt: '玻璃杯沖泡綠茶' })}
@@ -245,7 +332,7 @@ export default function BiluochunGreenTeaContent() {
             </div>
           </button>
           <div>
-            <SectionTitle icon={Thermometer} eyebrow="05 · Brewing" title="沖泡建議：讓鮮爽留在第一泡">
+            <SectionTitle icon={Thermometer} eyebrow="04 · Taiwan Brewing" title="沖泡建議：讓鮮爽留在第一泡">
               碧螺春是細嫩綠茶，不適合沸水猛沖。第一泡不是拿來洗茶，而是最珍貴的鮮爽香氣。
             </SectionTitle>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -259,21 +346,73 @@ export default function BiluochunGreenTeaContent() {
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm md:p-10">
-          <SectionTitle icon={BookOpen} eyebrow="06 · Compare" title="三峽碧螺春與洞庭碧螺春，不是同一個風土">
+
+        <section id="biluochun-china-origin" className="scroll-mt-28 overflow-hidden rounded-[2rem] border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-amber-50 shadow-sm">
+          <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
+            <div className="bg-slate-900 p-8 text-white md:p-10">
+              <div className="text-sm font-extrabold tracking-[0.2em] text-sky-200">05 · CHINA ORIGIN</div>
+              <h3 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">中國洞庭碧螺春</h3>
+              <p className="mt-5 text-[19px] leading-relaxed text-slate-200">
+                這裡的「洞庭」不是湖南洞庭湖，而是江蘇蘇州太湖中的洞庭東山與洞庭西山（金庭鎮）。洞庭山碧螺春是受地理標誌保護的中國傳統名茶，名稱不能只靠外形相似就混用。
+              </p>
+              <div className="mt-7 rounded-3xl border border-white/15 bg-white/10 p-5">
+                <div className="text-sm font-black tracking-[0.16em] text-sky-200">辨識一句話</div>
+                <p className="mt-2 text-[20px] font-bold leading-relaxed">東山、西山的茶果複合風土，加上搓團顯毫工藝，是洞庭碧螺春的核心身分。</p>
+              </div>
+            </div>
+            <div className="p-8 md:p-10">
+              <SectionTitle icon={Mountain} eyebrow="Protected Origin" title="產地、茶樹與茶果複合系統" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  ['法定產區', '蘇州市東山鎮（洞庭東山）與金庭鎮（洞庭西山）'],
+                  ['茶樹資源', '以洞庭山群體小葉種為主，也可採用經審定的良種'],
+                  ['栽培景觀', '茶園嵌種枇杷、柑橘、楊梅、板栗、梅樹等果樹'],
+                  ['品質輪廓', '纖細多毫、卷曲呈螺、嫩香持久、鮮醇回甘'],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div className="text-sm font-black tracking-[0.14em] text-sky-700">{label}</div>
+                    <p className="mt-2 text-[18px] font-bold leading-relaxed text-stone-800">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="biluochun-china-craft" className="scroll-mt-28 rounded-[2rem] border border-sky-100 bg-white p-8 shadow-sm md:p-10">
+          <SectionTitle icon={ChefHat} eyebrow="06 · China Craft" title="洞庭傳統工藝：搓團顯毫，塑造卷曲如螺">
+            洞庭碧螺春同樣是不發酵綠茶，但傳統製作特別強調「熱揉成形」與「搓團顯毫」。這正是它形成纖細、多毫、卷曲外觀的重要工藝語彙。
+          </SectionTitle>
+          <div className="grid gap-4 md:grid-cols-5">
+            {DONGTING_PROCESS.map((step, index) => (
+              <div key={step.title} className="relative rounded-3xl border border-sky-100 bg-sky-50/60 p-5">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-sky-700 text-sm font-black text-white">{index + 1}</div>
+                <h4 className="text-[19px] font-black text-slate-950">{step.title}</h4>
+                <p className="mt-3 text-[16px] leading-relaxed text-slate-600">{step.desc}</p>
+                {index < DONGTING_PROCESS.length - 1 ? <ArrowRight className="absolute -right-4 top-1/2 z-10 hidden text-sky-400 md:block" size={26} /> : null}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="biluochun-compare" className="scroll-mt-28 rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm md:p-10">
+          <SectionTitle icon={BookOpen} eyebrow="07 · Compare" title="三峽碧螺春與洞庭碧螺春，不是同一個風土">
             名稱相通，但產地、品種與茶區文化不同。理解這個差異，就能看見茶不只是品名，更是風土、樹種、工藝與時代共同留下的味道。
           </SectionTitle>
-          <div className="overflow-hidden rounded-3xl border border-stone-200">
+          <div className="overflow-x-auto rounded-3xl border border-stone-200">
+            <div className="min-w-[760px]">
             <div className="grid grid-cols-3 bg-emerald-800 text-center text-[17px] font-black text-white">
               <div className="p-4">面向</div>
               <div className="border-l border-white/20 p-4">臺灣三峽碧螺春</div>
               <div className="border-l border-white/20 p-4">中國洞庭碧螺春</div>
             </div>
             {[
-              ['產地', '新北市三峽茶區', '江蘇蘇州太湖洞庭東山、西山'],
-              ['品種', '以青心柑仔為代表', '洞庭山地方茶樹資源'],
-              ['風味', '蔬果香、綠豆香、鮮爽甘醇', '花果香、嫩香、色香味三鮮'],
-              ['知識定位', '臺灣在地綠茶風格', '中國傳統名茶脈絡'],
+              ['正式定位', '臺灣特色茶代表綠茶', '中國地理標誌保護產品'],
+              ['產地', '新北市三峽茶區', '江蘇蘇州洞庭東山、洞庭西山（金庭鎮）'],
+              ['品種', '以青心柑仔為代表', '以洞庭山群體小葉種為主'],
+              ['茶乾', '碧綠、細緊捲曲、芽尖白毫顯著', '纖細多毫、卷曲呈螺'],
+              ['湯色與風味', '碧綠清澈；綠豆香、蔬果香，鮮活爽口', '嫩香持久；滋味鮮醇、回味甘甜'],
+              ['工藝辨識', '嫩採、殺菁、揉捻整形、乾燥', '鮮葉揀剔、高溫殺青、熱揉、搓團顯毫、文火乾燥'],
             ].map(([label, taiwan, china]) => (
               <div key={label} className="grid grid-cols-3 border-t border-stone-200 bg-white text-[17px] leading-relaxed text-stone-700">
                 <div className="bg-stone-50 p-4 font-black text-stone-950">{label}</div>
@@ -281,10 +420,19 @@ export default function BiluochunGreenTeaContent() {
                 <div className="border-l border-stone-200 p-4">{china}</div>
               </div>
             ))}
+            </div>
+          </div>
+          <div className="mt-6 grid gap-3 text-[15px] leading-relaxed text-stone-600 md:grid-cols-2">
+            <a href="https://www.tbrs.gov.tw/theme_data.php?id=5275&print=Y&sub_theme=agricultural_news&theme=news" target="_blank" rel="noreferrer" className="rounded-2xl border border-emerald-100 bg-emerald-50 p-4 font-bold transition hover:border-emerald-300 hover:text-emerald-800">
+              臺灣資料核對｜農業部茶及飲料作物改良場：三峽碧螺春評鑑與風味特色
+            </a>
+            <a href="https://www.suzhou.gov.cn/szsrmzf/gbdfxfg/202403/4633ff414f894d119221022e55ba44a9.shtml" target="_blank" rel="noreferrer" className="rounded-2xl border border-sky-100 bg-sky-50 p-4 font-bold transition hover:border-sky-300 hover:text-sky-800">
+              洞庭資料核對｜蘇州市人民政府：洞庭山碧螺春茶保護條例
+            </a>
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+        <section id="biluochun-summary" className="scroll-mt-28 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
           <button
             type="button"
             onClick={() => setPreviewImage({ src: '/images/tea_poem_tang_spring.png', alt: '春日茶詩意象' })}
@@ -298,7 +446,7 @@ export default function BiluochunGreenTeaContent() {
             </div>
           </button>
           <div className="rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 md:p-10">
-            <SectionTitle icon={Wind} eyebrow="07 · Knowledge Note" title="知識總結：一口喝懂綠茶與烏龍的差別" />
+            <SectionTitle icon={Wind} eyebrow="08 · Knowledge Note" title="知識總結：一口喝懂綠茶與烏龍的差別" />
             <p className="text-[20px] leading-relaxed text-stone-700">
               碧螺春很適合作為認識「不發酵茶」的入口。它讓人看見：同一片茶葉，只要製程不同，風味就會走向完全不同的世界。綠茶保留鮮葉清新；烏龍透過萎凋、攪拌與發酵創造花香；紅茶則讓氧化充分進行，形成甜香與紅亮湯色。
             </p>
@@ -307,6 +455,7 @@ export default function BiluochunGreenTeaContent() {
             </div>
           </div>
         </section>
+        </main>
       </div>
 
       {previewImage && (
