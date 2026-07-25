@@ -73,6 +73,112 @@ export default function WenshanPouchongContent() {
                     </div>
                 </section>
 
+                {/* 完整解析 */}
+                <section className="bg-gradient-to-br from-white via-emerald-50/60 to-teal-50 rounded-3xl p-8 md:p-10 shadow-sm border border-emerald-100">
+                    <div className="flex items-center gap-3 mb-6 border-b border-emerald-100 pb-4">
+                        <div className="p-3 bg-white text-emerald-700 rounded-xl shadow-sm border border-emerald-100">
+                            <BookOpen size={24} />
+                        </div>
+                        <div>
+                            <p className="text-sm font-black tracking-[0.25em] text-emerald-600 uppercase mb-1">WENSHAN POUCHONG</p>
+                            <h3 className="text-2xl font-bold text-stone-800">文山包種茶完整解析：地名、窨花、清香與製程</h3>
+                        </div>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 border border-emerald-100 shadow-sm mb-6">
+                        <h4 className="font-bold text-xl text-emerald-900 mb-3 flex items-center gap-2">
+                            <Map size={20} className="text-emerald-600" /> 一、文山在哪裡？從行政地名到茶名
+                        </h4>
+                        <p className="text-stone-700 leading-relaxed text-[18px] mb-4">
+                            今日台北市有「文山區」，大致包含木柵、景美一帶；但「文山包種茶」裡的文山，並不只等於現在的文山區，而是沿用早期更大的地理稱呼。清代至日治時期，北台灣曾有「文山堡」、後來有「文山郡」等行政區概念，範圍涵蓋今日台北文山，以及新北新店、深坑、石碇、坪林、雙溪等山區。因為這一帶所產包種茶品質突出，文山這個舊地名便被保留下來，成為茶名的一部分。
+                        </p>
+                        <div className="grid md:grid-cols-3 gap-4">
+                            <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                                <p className="text-sm font-bold text-emerald-700 mb-1">現在的文山</p>
+                                <p className="text-stone-700 leading-relaxed">多指台北市木柵、景美一帶，也就是今日行政上的文山區。</p>
+                            </div>
+                            <div className="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                                <p className="text-sm font-bold text-teal-700 mb-1">茶名裡的文山</p>
+                                <p className="text-stone-700 leading-relaxed">源自舊文山堡、文山郡的大文山山區概念，範圍比今日文山區更廣。</p>
+                            </div>
+                            <div className="bg-amber-50 rounded-xl p-4 border border-amber-100">
+                                <p className="text-sm font-bold text-amber-700 mb-1">今日核心茶區</p>
+                                <p className="text-stone-700 leading-relaxed">以新北坪林、石碇、深坑、新店，以及台北南港、木柵周邊最具代表性。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-6">
+                        <div className="bg-white/85 rounded-2xl p-6 border border-white shadow-sm">
+                            <h4 className="font-bold text-xl text-emerald-900 mb-3">二、包種茶首先是一套製茶方法</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px]">
+                                茶類的形成，核心不只在品種，更在製程。綠茶、紅茶、包種茶、鐵觀音、凍頂烏龍，都可視為不同製茶邏輯所形成的風格。早期包種茶可從條形發展到半球形，後來中南部球形茶逐漸被稱為烏龍茶；今日在分類上，常把條形清香茶稱為包種茶，球形茶稱為烏龍茶，讓消費者更容易辨識。
+                            </p>
+                        </div>
+                        <div className="bg-emerald-900 text-emerald-50 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                            <div className="absolute -right-16 -bottom-16 w-40 h-40 bg-emerald-400/20 rounded-full blur-2xl" />
+                            <h4 className="relative font-bold text-xl mb-3">三、風味核心：清香是靈魂</h4>
+                            <p className="relative leading-relaxed text-[18px] text-emerald-50/90">
+                                文山包種最重視香氣表現，講究清香、花香與香氣入水。好的包種茶不只是乾茶或杯蓋聞起來香，茶湯入口也要甘醇、乾淨、有活性；香氣越清揚、越持久，越能呈現文山包種的典型價值。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                        <h4 className="font-bold text-xl text-stone-900 mb-4">四、從窨花到自然花香：包種茶的技術轉折</h4>
+                        <div className="grid md:grid-cols-2 gap-5 text-stone-700 leading-relaxed text-[18px]">
+                            <p>
+                                早期烏龍茶若香氣不足，常送往大陸或在台灣以窨花工藝補香。所謂「窨花」，是把茶與茉莉、桂花等鮮花共同堆放，利用茶葉吸附香氣的特性，讓花香進入茶中，使原本香氣不足的茶重新具有商品價值。
+                            </p>
+                            <p>
+                                後來茶人開始思考：能否不靠加花，而是靠茶葉本身產生花香？王水錦、魏靜時等前輩吸收烏龍茶攪拌與萎凋技術，改良出透過日光萎凋、室內靜置攪拌、殺菁與乾燥，使茶葉自然形成清香花韻的包種茶製法。這也是文山包種茶最重要的歷史意義：它把「外加花香」推進到「茶葉自生花香」。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 grid md:grid-cols-3 gap-5">
+                        <div className="bg-white rounded-2xl p-5 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-lg text-stone-900 mb-3 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-amber-400" />日光萎凋：啟動香氣</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                日光萎凋讓茶菁水分散失，也讓細胞受到溫度、光線與水分變化的刺激。若萎凋不足，後續攪拌也不容易香；若萎凋過頭，茶湯容易變紅、失去清雅。
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-5 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-lg text-stone-900 mb-3 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-emerald-500" />靜置攪拌：香氣判斷</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                室內靜置與浪菁會讓香氣不斷轉變，師傅要判斷何時攪動、何時等待。時間不對，青雜、苦澀會被固定；時間正好，花香才會明亮而乾淨。
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-5 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-lg text-stone-900 mb-3 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-teal-500" />殺菁揉捻：定香成形</h4>
+                            <p className="text-stone-700 leading-relaxed">
+                                聞到理想香氣後殺菁，讓酵素作用停止，把花香保留下來；再揉捻、乾燥，使內容物附著於葉面並利於沖泡，最後水分降至適合保存的狀態。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 grid lg:grid-cols-2 gap-6">
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-stone-900 mb-4">五、採摘成熟度：為香氣而採</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px]">
+                                包種茶講求香，採摘不只追求嫩度，也重視成熟度。傳統製茶經驗常以「第一葉乾、第二葉甜、第三葉香」來理解葉片風味差異，因此包種茶多選擇駐芽、開面時採摘；太嫩的茶菁含水高、容易受傷，處理時要輕手；太老則活性不足，香氣與滋味容易空薄。
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-stone-900 mb-4">六、適製品種：不同品種，不同花香</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px]">
+                                文山包種以青心烏龍最具代表性，能呈現清雅、細緻、耐看的花香。金萱可帶奶香，翠玉常見玉蘭花、檳榔花或野薑花調，青心大冇可有蘭花香，四季春則以香氣明快取勝。品種提供香氣底色，製程則決定香氣能不能被乾淨地引出來。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 bg-gradient-to-r from-stone-900 to-emerald-950 text-white rounded-2xl p-6 shadow-sm">
+                        <h4 className="font-bold text-xl mb-3">七、現代文山包種：水源保護區、熱風萎凋與科技輔助</h4>
+                        <p className="leading-relaxed text-[18px] text-white/85">
+                            坪林、石碇一帶與翡翠水庫水源保護區關係密切，茶園與茶廠空間受到地形、環境與天候限制。當春茶採收遇到雨天或缺乏曬菁空間時，現代茶廠會運用熱風萎凋、空調、除濕等方式，協助茶菁達到接近日光萎凋後的狀態。傳統的核心邏輯沒有改變，仍是讓茶菁在適當時間走水、轉香、定香；改變的是工具更精準，判斷更科學，也讓文山包種在現代環境裡繼續保有清香細緻的特色。
+                        </p>
+                    </div>
+                </section>
                 {/* 產區 */}
                 <section className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-stone-100 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center gap-3 mb-6 border-b border-stone-100 pb-4">
@@ -87,8 +193,17 @@ export default function WenshanPouchongContent() {
                                 <div className="p-2 bg-stone-100 rounded-full text-stone-500"><Map size={20} /></div>
                             </div>
                             <div>
-                                <span className="font-bold text-[19px] text-stone-900 block mb-1">核心產區</span>
-                                <span className="text-stone-600 leading-relaxed">新北市坪林區（最大產區）、石碇區、深坑區、南港區。</span>
+                                <span className="font-bold text-[19px] text-stone-900 block mb-1">大文山茶區</span>
+                                <span className="text-stone-600 leading-relaxed">「文山」源自舊文山堡、文山郡的地理概念，包含今日台北文山，以及新北新店、深坑、石碇、坪林、雙溪等山區。</span>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="mt-1">
+                                <div className="p-2 bg-stone-100 rounded-full text-stone-500"><Map size={20} /></div>
+                            </div>
+                            <div>
+                                <span className="font-bold text-[19px] text-stone-900 block mb-1">今日核心產地</span>
+                                <span className="text-stone-600 leading-relaxed">以新北市坪林區最具代表性，並延伸至石碇、深坑、新店、南港、木柵等北台灣近郊茶區。</span>
                             </div>
                         </div>
                         <div className="flex gap-4">
@@ -97,12 +212,20 @@ export default function WenshanPouchongContent() {
                             </div>
                             <div>
                                 <span className="font-bold text-[19px] text-stone-900 block mb-1">主要品種</span>
-                                <span className="text-stone-600 leading-relaxed">青心烏龍（品質最佳）、台茶12號（金萱）、台茶13號（翠玉）。</span>
+                                <span className="text-stone-600 leading-relaxed">青心烏龍為代表；金萱常帶奶香，翠玉可帶玉蘭花、檳榔花或野薑花調，四季春香氣明快。</span>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="mt-1">
+                                <div className="p-2 bg-stone-100 rounded-full text-stone-500"><Droplets size={20} /></div>
+                            </div>
+                            <div>
+                                <span className="font-bold text-[19px] text-stone-900 block mb-1">風土條件</span>
+                                <span className="text-stone-600 leading-relaxed">北部山區多霧、濕潤，茶園鄰近水源保護區，適合發展清香、細緻、乾淨的條形包種茶。</span>
                             </div>
                         </div>
                     </div>
                 </section>
-
                 {/* 歷史 */}
                 <section className="space-y-6">
                     <div className="bg-amber-50/50 p-8 rounded-3xl border border-amber-100">
