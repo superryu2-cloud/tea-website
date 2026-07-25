@@ -178,6 +178,81 @@ export default function WenshanPouchongContent() {
                             坪林、石碇一帶與翡翠水庫水源保護區關係密切，茶園與茶廠空間受到地形、環境與天候限制。當春茶採收遇到雨天或缺乏曬菁空間時，現代茶廠會運用熱風萎凋、空調、除濕等方式，協助茶菁達到接近日光萎凋後的狀態。傳統的核心邏輯沒有改變，仍是讓茶菁在適當時間走水、轉香、定香；改變的是工具更精準，判斷更科學，也讓文山包種在現代環境裡繼續保有清香細緻的特色。
                         </p>
                     </div>
+
+                    <div className="mt-6 grid lg:grid-cols-2 gap-6">
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-stone-900 mb-4">八、名稱與外銷：一包四兩的歷史記憶</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px] mb-4">
+                                「包種」的名稱，常見說法與早期包裝及青心烏龍俗稱有關。早期茶商以內外兩方紙包茶，每包約四兩，包成長方形，便於販售與外銷；也有說法認為青心烏龍在閩南語中稱為「種仔」，用紙包起來的種仔茶，逐漸稱為「包種茶」。
+                            </p>
+                            <div className="bg-amber-50 rounded-xl p-4 border border-amber-100 text-stone-700 leading-relaxed">
+                                早期外銷以英制重量計算，一磅約 454 公克，數包茶連同包紙重量便於計量交易。這讓「包種」不只是茶名，也保存了包裝、外銷與北台灣茶業發展的歷史記憶。
+                            </div>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-stone-900 mb-4">九、包種與烏龍：從條形到球形的演變</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px]">
+                                從製程角度看，包種茶原本不只限於條形；隨著製茶機具與地區傳播，曾發展出半球形、球形等樣態。後來中南部球形茶逐漸被市場稱為烏龍茶，北台灣則保留條索狀、清香型包種茶的代表風格。今日常以「條形包種、球形烏龍」作為辨識上的簡化說法。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                        <h4 className="font-bold text-xl text-stone-900 mb-4">十、製茶判斷：香氣不是公式，而是走水、轉香與定香</h4>
+                        <div className="grid md:grid-cols-2 gap-5 text-stone-700 leading-relaxed text-[18px]">
+                            <p>
+                                文山包種茶的難處，在於每一步都會受茶菁成熟度、天氣、濕度與師傅手感影響。日光萎凋像是啟動香氣的第一步；室內靜置與攪拌則像調整茶葉呼吸，讓青氣慢慢退去、花香逐漸浮現。
+                            </p>
+                            <p>
+                                傳統經驗常說「水若行透茶就香」、「炒茶不要趕時間」。所謂走水，是讓茶菁內外水分與香氣前驅物質順利轉化；若在不恰當的時間攪動，青雜味與苦澀可能被固定；若等到香氣成熟再殺菁，茶湯就能保有乾淨花香。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 grid lg:grid-cols-[0.95fr_1.05fr] gap-6">
+                        <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-emerald-900 mb-4">十一、風味輪：包種茶以花香為語言</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px] mb-4">
+                                在台灣特色茶風味輪中，清香型包種茶會把花香放在很前面，因為它最重視的不是厚重焙火，而是清楚、乾淨、能入茶湯的自然花香。
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">桂花</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">玉蘭花</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">梔子花</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">野薑花</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">蘭花</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">清香</span>
+                                <span className="px-3 py-1.5 bg-white text-emerald-800 rounded-full border border-emerald-100 text-sm font-bold">甜香</span>
+                            </div>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
+                            <h4 className="font-bold text-xl text-stone-900 mb-4">十二、產地生態與品種保存</h4>
+                            <p className="text-stone-700 leading-relaxed text-[18px]">
+                                坪林位於翡翠水庫水源保護區，茶園管理常往有機、友善或自然農法靠近；在地也常見保護翡翠樹蛙等生態共存的做法。坪林、石碇一帶除了青心烏龍，也保存不少特殊品種與地方風味，如肉桂、紅心早種、大葉種、白毛猴、黃金桂、武夷、毛蟹等。這些品種讓文山包種茶不只是單一風味，而是一個北台灣清香型茶的風味資料庫。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 bg-gradient-to-br from-slate-900 via-emerald-950 to-stone-950 text-white rounded-2xl p-6 shadow-sm">
+                        <h4 className="font-bold text-xl mb-4">十三、從師徒經驗到香氣科學：文山包種的現代方向</h4>
+                        <div className="grid md:grid-cols-3 gap-4">
+                            <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+                                <p className="font-bold text-emerald-200 mb-2">熱風萎凋</p>
+                                <p className="text-white/80 leading-relaxed">雨天或缺乏曬菁空間時，以熱風協助茶菁初步失水，模擬日光萎凋後的狀態。</p>
+                            </div>
+                            <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+                                <p className="font-bold text-emerald-200 mb-2">空調與除濕</p>
+                                <p className="text-white/80 leading-relaxed">控制室內萎凋環境，使溫度、濕度更穩定，幫助香氣轉化更可預測。</p>
+                            </div>
+                            <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+                                <p className="font-bold text-emerald-200 mb-2">電子鼻與 GC-MS</p>
+                                <p className="text-white/80 leading-relaxed">利用儀器捕捉揮發性香氣分子，把「聞香判斷」轉成可分析、可比較的數據。</p>
+                            </div>
+                        </div>
+                        <p className="mt-4 text-white/85 leading-relaxed text-[18px]">
+                            傳統師傅靠鼻子、手感與經驗判斷「什麼時候攪拌、什麼時候殺菁」；現代研究則嘗試用電子鼻與香氣分析，把綠豆香、青花、乳花、盛花到謝花的氣味變化轉成圖像與數據。科技不是取代師傅，而是讓文山包種茶的香氣工藝更容易被記錄、教學、傳承與穩定生產。
+                        </p>
+                    </div>
                 </section>
                 {/* 產區 */}
                 <section className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-stone-100 hover:shadow-md transition-shadow duration-300">
