@@ -57,6 +57,44 @@ const appendClosing = (content, closing) => {
     return `${content}\n\n收束句：${closing}`;
 };
 
+
+const SPEECH_SECTION_META = [
+    {
+        label: '發酵度・風味輪',
+        hint: '先定位茶類與製程方向',
+        icon: Leaf,
+        badge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        panel: 'border-emerald-100 bg-emerald-50/35'
+    },
+    {
+        label: '茶湯特色',
+        hint: '外觀、水色、香氣、滋味',
+        icon: Droplets,
+        badge: 'bg-sky-50 text-sky-700 border-sky-200',
+        panel: 'border-sky-100 bg-sky-50/35'
+    },
+    {
+        label: '品種・產地',
+        hint: '代表品種與核心茶區',
+        icon: Map,
+        badge: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+        panel: 'border-indigo-100 bg-indigo-50/35'
+    },
+    {
+        label: '歷史・特殊資料',
+        hint: '由來、背景與加分細節',
+        icon: BookOpen,
+        badge: 'bg-amber-50 text-amber-700 border-amber-200',
+        panel: 'border-amber-100 bg-amber-50/35'
+    },
+    {
+        label: '擇器・泡法',
+        hint: '器具、水溫、時間與手法',
+        icon: Coffee,
+        badge: 'bg-orange-50 text-orange-700 border-orange-200',
+        panel: 'border-orange-100 bg-orange-50/35'
+    }
+];
 const SPEECH_SCRIPTS = {
     1: [
         "碧螺春綠茶屬於不發酵茶，在台灣風味輪的歸納中屬於台灣綠茶，也是傳統綠茶製造中不經過萎凋與攪拌程序的茶類。它的基本製程為茶菁、殺菁、揉捻、初乾、解塊、乾燥。台灣碧螺春雖然歸類為炒菁綠茶，但實務上有些茶農在生產時會讓茶菁短暫攤放靜置，以改善茶葉風味。",
@@ -318,12 +356,41 @@ export default function CciraEssayCards() {
                                                     <BookOpen size={20} />
                                                     <span>2–3 分鐘專業介紹稿｜含擇器泡法</span>
                                                 </div>
-                                                <div className="space-y-4 p-5 md:p-6">
-                                                    {SPEECH_SCRIPTS[item.id].map((paragraph, index) => (
-                                                        <p key={index} className="text-[17px] md:text-[18px] leading-[2] font-semibold text-stone-800 whitespace-pre-wrap">
-                                                            {paragraph}
-                                                        </p>
-                                                    ))}
+                                                <div className="p-5 md:p-6 space-y-5">
+                                                    <div className="grid grid-cols-1 gap-2 rounded-2xl border border-stone-200 bg-stone-50/80 p-3 sm:grid-cols-5">
+                                                        {SPEECH_SECTION_META.map((section, sectionIndex) => {
+                                                            const SectionIcon = section.icon;
+                                                            return (
+                                                                <div key={section.label} className={`rounded-xl border px-3 py-2 ${section.badge}`}>
+                                                                    <div className="flex items-center gap-1.5 text-[13px] font-black">
+                                                                        <SectionIcon size={14} />
+                                                                        <span>{sectionIndex + 1}. {section.label}</span>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+
+                                                    <div className="space-y-4">
+                                                        {SPEECH_SCRIPTS[item.id].map((paragraph, index) => {
+                                                            const section = SPEECH_SECTION_META[index] || SPEECH_SECTION_META[SPEECH_SECTION_META.length - 1];
+                                                            const SectionIcon = section.icon;
+                                                            return (
+                                                                <section key={index} className={`rounded-2xl border p-4 md:p-5 shadow-sm ${section.panel}`}>
+                                                                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                                                                        <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-black ${section.badge}`}>
+                                                                            <SectionIcon size={16} />
+                                                                            <span>{index + 1}. {section.label}</span>
+                                                                        </div>
+                                                                        <span className="text-sm font-bold text-stone-500">{section.hint}</span>
+                                                                    </div>
+                                                                    <p className="text-[17px] md:text-[18px] leading-[2] font-semibold text-stone-800 whitespace-pre-wrap">
+                                                                        {paragraph}
+                                                                    </p>
+                                                                </section>
+                                                            );
+                                                        })}
+                                                    </div>
                                                 </div>
                                             </div>
                                         ) : (
