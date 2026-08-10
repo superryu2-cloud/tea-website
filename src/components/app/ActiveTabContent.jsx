@@ -1,4 +1,4 @@
-﻿import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import teaData from '../../data/teaData';
 import { isPageEnabled } from '../../data/productData';
 import AiChatButton from '../ai/AiChatButton';
@@ -28,6 +28,7 @@ const PuerhSection = lazy(() => import('../../sections/PuerhSection'));
 const SeasonsSection = lazy(() => import('../../sections/SeasonsSection'));
 const BrewingGuideSection = lazy(() => import('../../sections/BrewingGuideSection'));
 const AIPlannerRoom = lazy(() => import('../ai-planner/AIPlannerRoom'));
+const Competition2026Section = lazy(() => import('../sections/Competition2026Section'));
 
 function RouteLoadingFallback() {
   return (
@@ -155,6 +156,8 @@ export default function ActiveTabContent({
             topOffsetPx={siteNavHeightPx + 12}
           />
         )}
+
+        {activeTab === 'competition_2026' && <Competition2026Section />}
 
         {activeTab === 'tea_talk' && <TeaTalkColorSection siteNavHeightPx={siteNavHeightPx} />}
         {activeTab === 'cultivars' && <CultivarSection siteNavHeightPx={siteNavHeightPx} />}
