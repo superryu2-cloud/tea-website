@@ -1,4 +1,4 @@
-﻿/* eslint-disable react-hooks/set-state-in-effect -- Quiz interaction state resets when filters, cards, and timers change; this will move into a reducer when the file is split. */
+/* eslint-disable react-hooks/set-state-in-effect -- Quiz interaction state resets when filters, cards, and timers change; this will move into a reducer when the file is split. */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AccordionPanel from '../../components/AccordionPanel';
 import ResizableDivider from '../../components/ResizableDivider';
@@ -534,8 +534,8 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       <main className="min-w-0 w-full lg:pl-8">
         {(showIntro || activeBank === 'tea_certification') && (
           <div className="museum-frame museum-paper p-5 mb-4 border border-emerald-200">
-            <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定 · 持續更新</h2>
-            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，完整系列預計約 4,000 題，後續取得資料後陸續加入。題目、選項與備註採繁體中文，英文題保留原文。</p>
+            <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定（國考）· 持續更新</h2>
+            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，另有約 1,700 多題國考資料整理中，後續取得資料後陸續加入；省考將另設獨立系列。題目、選項與備註採繁體中文，英文題保留原文。</p>
             <p className="mt-2 text-sm text-stone-600">答案依提供的題庫收錄；有特殊答案的題目另附原始提醒。</p>
           </div>
         )}

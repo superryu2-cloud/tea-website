@@ -2,7 +2,7 @@
   {
     "id": "tea-cert-batch-001-1",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 1,
@@ -20,7 +20,7 @@
   {
     "id": "tea-cert-batch-001-2",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 2,
@@ -38,7 +38,7 @@
   {
     "id": "tea-cert-batch-001-3",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 3,
@@ -56,7 +56,7 @@
   {
     "id": "tea-cert-batch-001-4",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 4,
@@ -74,7 +74,7 @@
   {
     "id": "tea-cert-batch-001-5",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 5,
@@ -92,7 +92,7 @@
   {
     "id": "tea-cert-batch-001-6",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 6,
@@ -110,7 +110,7 @@
   {
     "id": "tea-cert-batch-001-7",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 7,
@@ -128,7 +128,7 @@
   {
     "id": "tea-cert-batch-001-8",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 8,
@@ -146,7 +146,7 @@
   {
     "id": "tea-cert-batch-001-9",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 9,
@@ -164,7 +164,7 @@
   {
     "id": "tea-cert-batch-001-10",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 10,
@@ -182,7 +182,7 @@
   {
     "id": "tea-cert-batch-001-11",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 11,
@@ -200,7 +200,7 @@
   {
     "id": "tea-cert-batch-001-12",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 12,
@@ -218,7 +218,7 @@
   {
     "id": "tea-cert-batch-001-13",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 13,
@@ -236,7 +236,7 @@
   {
     "id": "tea-cert-batch-001-14",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 14,
@@ -254,7 +254,7 @@
   {
     "id": "tea-cert-batch-001-15",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 15,
@@ -272,7 +272,7 @@
   {
     "id": "tea-cert-batch-001-16",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 16,
@@ -290,7 +290,7 @@
   {
     "id": "tea-cert-batch-001-17",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 17,
@@ -308,7 +308,7 @@
   {
     "id": "tea-cert-batch-001-18",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 18,
@@ -326,7 +326,7 @@
   {
     "id": "tea-cert-batch-001-19",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 19,
@@ -344,7 +344,7 @@
   {
     "id": "tea-cert-batch-001-20",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 20,
@@ -362,7 +362,7 @@
   {
     "id": "tea-cert-batch-001-21",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 21,
@@ -380,7 +380,7 @@
   {
     "id": "tea-cert-batch-001-22",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 22,
@@ -398,7 +398,7 @@
   {
     "id": "tea-cert-batch-001-23",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 23,
@@ -416,7 +416,7 @@
   {
     "id": "tea-cert-batch-001-24",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 24,
@@ -434,7 +434,7 @@
   {
     "id": "tea-cert-batch-001-25",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 25,
@@ -452,7 +452,7 @@
   {
     "id": "tea-cert-batch-001-26",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 26,
@@ -470,7 +470,7 @@
   {
     "id": "tea-cert-batch-001-27",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 27,
@@ -488,7 +488,7 @@
   {
     "id": "tea-cert-batch-001-28",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 28,
@@ -506,7 +506,7 @@
   {
     "id": "tea-cert-batch-001-29",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 29,
@@ -524,7 +524,7 @@
   {
     "id": "tea-cert-batch-001-30",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 30,
@@ -542,7 +542,7 @@
   {
     "id": "tea-cert-batch-001-31",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 31,
@@ -560,7 +560,7 @@
   {
     "id": "tea-cert-batch-001-32",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 32,
@@ -578,7 +578,7 @@
   {
     "id": "tea-cert-batch-001-33",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 33,
@@ -596,7 +596,7 @@
   {
     "id": "tea-cert-batch-001-34",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 34,
@@ -614,7 +614,7 @@
   {
     "id": "tea-cert-batch-001-35",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 35,
@@ -632,7 +632,7 @@
   {
     "id": "tea-cert-batch-001-36",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 36,
@@ -650,7 +650,7 @@
   {
     "id": "tea-cert-batch-001-37",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 37,
@@ -668,7 +668,7 @@
   {
     "id": "tea-cert-batch-001-38",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 38,
@@ -686,7 +686,7 @@
   {
     "id": "tea-cert-batch-001-39",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 39,
@@ -704,7 +704,7 @@
   {
     "id": "tea-cert-batch-001-40",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 40,
@@ -722,7 +722,7 @@
   {
     "id": "tea-cert-batch-001-41",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 41,
@@ -740,7 +740,7 @@
   {
     "id": "tea-cert-batch-001-42",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 42,
@@ -758,7 +758,7 @@
   {
     "id": "tea-cert-batch-001-43",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 43,
@@ -776,7 +776,7 @@
   {
     "id": "tea-cert-batch-001-44",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 44,
@@ -794,7 +794,7 @@
   {
     "id": "tea-cert-batch-001-45",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 45,
@@ -812,7 +812,7 @@
   {
     "id": "tea-cert-batch-001-46",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 46,
@@ -830,7 +830,7 @@
   {
     "id": "tea-cert-batch-001-47",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 47,
@@ -848,7 +848,7 @@
   {
     "id": "tea-cert-batch-001-48",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 48,
@@ -866,7 +866,7 @@
   {
     "id": "tea-cert-batch-001-49",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 49,
@@ -884,7 +884,7 @@
   {
     "id": "tea-cert-batch-001-50",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 50,
@@ -902,7 +902,7 @@
   {
     "id": "tea-cert-batch-001-51",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 51,
@@ -920,7 +920,7 @@
   {
     "id": "tea-cert-batch-001-52",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 52,
@@ -938,7 +938,7 @@
   {
     "id": "tea-cert-batch-001-53",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 53,
@@ -956,7 +956,7 @@
   {
     "id": "tea-cert-batch-001-54",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 54,
@@ -974,7 +974,7 @@
   {
     "id": "tea-cert-batch-001-55",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 55,
@@ -992,7 +992,7 @@
   {
     "id": "tea-cert-batch-001-56",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 56,
@@ -1010,7 +1010,7 @@
   {
     "id": "tea-cert-batch-001-57",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 57,
@@ -1028,7 +1028,7 @@
   {
     "id": "tea-cert-batch-001-58",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 58,
@@ -1046,7 +1046,7 @@
   {
     "id": "tea-cert-batch-001-59",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 59,
@@ -1064,7 +1064,7 @@
   {
     "id": "tea-cert-batch-001-60",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 60,
@@ -1082,7 +1082,7 @@
   {
     "id": "tea-cert-batch-001-61",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 61,
@@ -1100,7 +1100,7 @@
   {
     "id": "tea-cert-batch-001-62",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 62,
@@ -1118,7 +1118,7 @@
   {
     "id": "tea-cert-batch-001-63",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 63,
@@ -1136,7 +1136,7 @@
   {
     "id": "tea-cert-batch-001-64",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 64,
@@ -1154,7 +1154,7 @@
   {
     "id": "tea-cert-batch-001-65",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 65,
@@ -1172,7 +1172,7 @@
   {
     "id": "tea-cert-batch-001-66",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 66,
@@ -1190,7 +1190,7 @@
   {
     "id": "tea-cert-batch-001-67",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 67,
@@ -1208,7 +1208,7 @@
   {
     "id": "tea-cert-batch-001-68",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 68,
@@ -1226,7 +1226,7 @@
   {
     "id": "tea-cert-batch-001-69",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 69,
@@ -1244,7 +1244,7 @@
   {
     "id": "tea-cert-batch-001-70",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 70,
@@ -1262,7 +1262,7 @@
   {
     "id": "tea-cert-batch-001-71",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 71,
@@ -1280,7 +1280,7 @@
   {
     "id": "tea-cert-batch-001-72",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 72,
@@ -1298,7 +1298,7 @@
   {
     "id": "tea-cert-batch-001-73",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 73,
@@ -1316,7 +1316,7 @@
   {
     "id": "tea-cert-batch-001-74",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 74,
@@ -1334,7 +1334,7 @@
   {
     "id": "tea-cert-batch-001-75",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 75,
@@ -1352,7 +1352,7 @@
   {
     "id": "tea-cert-batch-001-76",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 76,
@@ -1370,7 +1370,7 @@
   {
     "id": "tea-cert-batch-001-77",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 77,
@@ -1388,7 +1388,7 @@
   {
     "id": "tea-cert-batch-001-78",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 78,
@@ -1406,7 +1406,7 @@
   {
     "id": "tea-cert-batch-001-79",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 79,
@@ -1424,7 +1424,7 @@
   {
     "id": "tea-cert-batch-001-80",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 80,
@@ -1442,7 +1442,7 @@
   {
     "id": "tea-cert-batch-001-81",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 81,
@@ -1460,7 +1460,7 @@
   {
     "id": "tea-cert-batch-001-82",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 82,
@@ -1478,7 +1478,7 @@
   {
     "id": "tea-cert-batch-001-83",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 83,
@@ -1496,7 +1496,7 @@
   {
     "id": "tea-cert-batch-001-84",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 84,
@@ -1514,7 +1514,7 @@
   {
     "id": "tea-cert-batch-001-85",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 85,
@@ -1532,7 +1532,7 @@
   {
     "id": "tea-cert-batch-001-86",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 86,
@@ -1550,7 +1550,7 @@
   {
     "id": "tea-cert-batch-001-87",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 87,
@@ -1568,7 +1568,7 @@
   {
     "id": "tea-cert-batch-001-88",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 88,
@@ -1586,7 +1586,7 @@
   {
     "id": "tea-cert-batch-001-89",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 89,
@@ -1604,7 +1604,7 @@
   {
     "id": "tea-cert-batch-001-90",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 90,
@@ -1622,7 +1622,7 @@
   {
     "id": "tea-cert-batch-001-91",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 91,
@@ -1640,7 +1640,7 @@
   {
     "id": "tea-cert-batch-001-92",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 92,
@@ -1658,7 +1658,7 @@
   {
     "id": "tea-cert-batch-001-93",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 93,
@@ -1676,7 +1676,7 @@
   {
     "id": "tea-cert-batch-001-94",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 94,
@@ -1694,7 +1694,7 @@
   {
     "id": "tea-cert-batch-001-95",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 95,
@@ -1712,7 +1712,7 @@
   {
     "id": "tea-cert-batch-001-96",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 96,
@@ -1730,7 +1730,7 @@
   {
     "id": "tea-cert-batch-001-97",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 97,
@@ -1748,7 +1748,7 @@
   {
     "id": "tea-cert-batch-001-98",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 98,
@@ -1766,7 +1766,7 @@
   {
     "id": "tea-cert-batch-001-99",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 99,
@@ -1784,7 +1784,7 @@
   {
     "id": "tea-cert-batch-001-100",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 100,
@@ -1802,7 +1802,7 @@
   {
     "id": "tea-cert-batch-001-101",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 101,
@@ -1820,7 +1820,7 @@
   {
     "id": "tea-cert-batch-001-102",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 102,
@@ -1838,7 +1838,7 @@
   {
     "id": "tea-cert-batch-001-103",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 103,
@@ -1856,7 +1856,7 @@
   {
     "id": "tea-cert-batch-001-104",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 104,
@@ -1874,7 +1874,7 @@
   {
     "id": "tea-cert-batch-001-105",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 105,
@@ -1892,7 +1892,7 @@
   {
     "id": "tea-cert-batch-001-106",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 106,
@@ -1910,7 +1910,7 @@
   {
     "id": "tea-cert-batch-001-107",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 107,
@@ -1928,7 +1928,7 @@
   {
     "id": "tea-cert-batch-001-108",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 108,
@@ -1946,7 +1946,7 @@
   {
     "id": "tea-cert-batch-001-109",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 109,
@@ -1964,7 +1964,7 @@
   {
     "id": "tea-cert-batch-001-110",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 110,
@@ -1982,7 +1982,7 @@
   {
     "id": "tea-cert-batch-001-111",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 111,
@@ -2000,7 +2000,7 @@
   {
     "id": "tea-cert-batch-001-112",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 112,
@@ -2018,7 +2018,7 @@
   {
     "id": "tea-cert-batch-001-113",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 113,
@@ -2036,7 +2036,7 @@
   {
     "id": "tea-cert-batch-001-114",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 114,
@@ -2054,7 +2054,7 @@
   {
     "id": "tea-cert-batch-001-115",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 115,
@@ -2072,7 +2072,7 @@
   {
     "id": "tea-cert-batch-001-116",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 116,
@@ -2090,7 +2090,7 @@
   {
     "id": "tea-cert-batch-001-117",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 117,
@@ -2108,7 +2108,7 @@
   {
     "id": "tea-cert-batch-001-118",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 118,
@@ -2126,7 +2126,7 @@
   {
     "id": "tea-cert-batch-001-119",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 119,
@@ -2144,7 +2144,7 @@
   {
     "id": "tea-cert-batch-001-120",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 120,
@@ -2162,7 +2162,7 @@
   {
     "id": "tea-cert-batch-001-121",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 121,
@@ -2180,7 +2180,7 @@
   {
     "id": "tea-cert-batch-001-122",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 122,
@@ -2198,7 +2198,7 @@
   {
     "id": "tea-cert-batch-001-123",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 123,
@@ -2216,7 +2216,7 @@
   {
     "id": "tea-cert-batch-001-124",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 124,
@@ -2234,7 +2234,7 @@
   {
     "id": "tea-cert-batch-001-125",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 125,
@@ -2252,7 +2252,7 @@
   {
     "id": "tea-cert-batch-001-126",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 126,
@@ -2270,7 +2270,7 @@
   {
     "id": "tea-cert-batch-001-127",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 127,
@@ -2288,7 +2288,7 @@
   {
     "id": "tea-cert-batch-001-128",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 128,
@@ -2306,7 +2306,7 @@
   {
     "id": "tea-cert-batch-001-129",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶藝館服務禮儀與英語",
     "topicLabel": "茶藝館服務禮儀與英語",
     "sourceNumber": 129,
@@ -2324,7 +2324,7 @@
   {
     "id": "tea-cert-batch-001-130",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 130,
@@ -2342,7 +2342,7 @@
   {
     "id": "tea-cert-batch-001-131",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 131,
@@ -2360,7 +2360,7 @@
   {
     "id": "tea-cert-batch-001-132",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 132,
@@ -2378,7 +2378,7 @@
   {
     "id": "tea-cert-batch-001-133",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 133,
@@ -2396,7 +2396,7 @@
   {
     "id": "tea-cert-batch-001-134",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 134,
@@ -2414,7 +2414,7 @@
   {
     "id": "tea-cert-batch-001-135",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 135,
@@ -2432,7 +2432,7 @@
   {
     "id": "tea-cert-batch-001-136",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 136,
@@ -2450,7 +2450,7 @@
   {
     "id": "tea-cert-batch-001-137",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 137,
@@ -2468,7 +2468,7 @@
   {
     "id": "tea-cert-batch-001-138",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 138,
@@ -2486,7 +2486,7 @@
   {
     "id": "tea-cert-batch-001-139",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 139,
@@ -2504,7 +2504,7 @@
   {
     "id": "tea-cert-batch-001-140",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 140,
@@ -2522,7 +2522,7 @@
   {
     "id": "tea-cert-batch-001-141",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶葉分類與品質加工",
     "topicLabel": "茶葉分類與品質加工",
     "sourceNumber": 141,
@@ -2540,7 +2540,7 @@
   {
     "id": "tea-cert-batch-001-142",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 142,
@@ -2558,7 +2558,7 @@
   {
     "id": "tea-cert-batch-001-143",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 143,
@@ -2576,7 +2576,7 @@
   {
     "id": "tea-cert-batch-001-144",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 144,
@@ -2594,7 +2594,7 @@
   {
     "id": "tea-cert-batch-001-145",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 145,
@@ -2612,7 +2612,7 @@
   {
     "id": "tea-cert-batch-001-146",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 146,
@@ -2630,7 +2630,7 @@
   {
     "id": "tea-cert-batch-001-147",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-職業道德與法規標準",
     "topicLabel": "職業道德與法規標準",
     "sourceNumber": 147,
@@ -2648,7 +2648,7 @@
   {
     "id": "tea-cert-batch-001-148",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶席設計與沖泡茶藝",
     "topicLabel": "茶席設計與沖泡茶藝",
     "sourceNumber": 148,
@@ -2666,7 +2666,7 @@
   {
     "id": "tea-cert-batch-001-149",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 149,
@@ -2684,7 +2684,7 @@
   {
     "id": "tea-cert-batch-001-150",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 150,
@@ -2702,7 +2702,7 @@
   {
     "id": "tea-cert-batch-001-151",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 151,
@@ -2720,7 +2720,7 @@
   {
     "id": "tea-cert-batch-001-152",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 152,
@@ -2738,7 +2738,7 @@
   {
     "id": "tea-cert-batch-001-153",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 153,
@@ -2756,7 +2756,7 @@
   {
     "id": "tea-cert-batch-001-154",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶具器皿與名窯紫砂",
     "topicLabel": "茶具器皿與名窯紫砂",
     "sourceNumber": 154,
@@ -2774,7 +2774,7 @@
   {
     "id": "tea-cert-batch-001-155",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-少數民族與地方茶俗",
     "topicLabel": "少數民族與地方茶俗",
     "sourceNumber": 155,
@@ -2792,7 +2792,7 @@
   {
     "id": "tea-cert-batch-001-156",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 156,
@@ -2810,7 +2810,7 @@
   {
     "id": "tea-cert-batch-001-157",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 157,
@@ -2828,7 +2828,7 @@
   {
     "id": "tea-cert-batch-001-158",
     "bank": "tea_certification",
-    "bankLabel": "茶藝師檢定",
+    "bankLabel": "茶藝師檢定（國考）",
     "topic": "tea-cert-茶文化與歷史典故",
     "topicLabel": "茶文化與歷史典故",
     "sourceNumber": 158,

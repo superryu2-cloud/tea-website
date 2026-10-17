@@ -23,7 +23,7 @@ const questions = raw.map(q => {
   assert(choices.every(value => typeof value === 'string' && value.length));
   return {
     id: `tea-cert-${batch}-${q.id}`,
-    bank: 'tea_certification', bankLabel: '茶藝師檢定',
+    bank: 'tea_certification', bankLabel: '茶藝師檢定（國考）',
     topic: `tea-cert-${q.category}`, topicLabel: q.category,
     sourceNumber: q.id, batch, stem: q.q_tc, choices,
     answerIndex: 'ABCD'.indexOf(q.answer), note: (q.note || '')
