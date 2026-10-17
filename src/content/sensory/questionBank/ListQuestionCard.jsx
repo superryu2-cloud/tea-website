@@ -2,6 +2,7 @@ import QuestionImage from './QuestionImage';
 
 export default function ListQuestionCard({
   question,
+  containerRef,
   index,
   answered,
   revealAnswers,
@@ -14,7 +15,7 @@ export default function ListQuestionCard({
   const choices = Array.isArray(question.choices) ? question.choices : [];
 
   return (
-    <div className="museum-frame museum-paper p-6 md:p-7">
+    <div ref={containerRef} className="museum-frame museum-paper p-6 md:p-7">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs font-extrabold tracking-widest text-stone-500">

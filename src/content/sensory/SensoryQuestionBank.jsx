@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect -- Quiz interaction state resets when filters, cards, and timers change; this will move into a reducer when the file is split. */
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import AccordionPanel from '../../components/AccordionPanel';
 import ResizableDivider from '../../components/ResizableDivider';
 import ModeTabMenu from '../../components/ModeTabMenu';
@@ -23,6 +23,16 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const [activeMode, setActiveMode] = useState('list'); // 'list' | 'quick' | 'custom' | 'cards'
   const [query, setQuery] = useState('');
   const [listPage, setListPage] = useState(0);
+  const [selectionScrollRequest, setSelectionScrollRequest] = useState(0);
+  const firstQuestionRef = useRef(null);
+  const practiceContentRef = useRef(null);
+  useLayoutEffect(() => {
+    if (!selectionScrollRequest) return;
+    const target = firstQuestionRef.current ?? practiceContentRef.current;
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - topOffsetPx - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  }, [selectionScrollRequest, topOffsetPx]);
   useEffect(() => { setListPage(0); }, [query, activeTopic]);
   const [activeBank, setActiveBank] = useState(null);
   const [expandedBankKeys, setExpandedBankKeys] = useState([]);
@@ -393,7 +403,15 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
     if (introMode && next.trim().length > 0) setIntroMode(false);
   };
 
+  const resetSelectionPosition = () => {
+    setListPage(0);
+    setCardIndex(0);
+    setCardFlipped(false);
+    setSelectionScrollRequest(request => request + 1);
+  };
+
   const handleSidebarToggleBankNode = (stateKey) => {
+    resetSelectionPosition();
     preserveSidebarScroll(() => {
       setIntroMode(false);
       setActiveBank(stateKey === 'all' ? null : stateKey);
@@ -407,6 +425,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   };
 
   const handleSidebarSelectBankQuestions = (stateKey) => {
+    resetSelectionPosition();
     preserveSidebarScroll(() => {
       setIntroMode(false);
       const nextBankKey = stateKey === 'all' ? null : stateKey;
@@ -420,6 +439,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   };
 
   const handleSidebarSelectTopic = (stateKey, topic) => {
+    resetSelectionPosition();
     preserveSidebarScroll(() => {
       setIntroMode(false);
       const nextBankKey = stateKey === 'all' ? null : stateKey;
@@ -547,7 +567,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
           />
         </div>
 
-        <div className="w-full space-y-4">
+        <div ref={practiceContentRef} className="w-full space-y-4">
           {activeMode === 'essay' && (
             <CciraEssayCards />
           )}
@@ -1010,6 +1030,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
             ? filteredQuestions.slice(listPage * 30, (listPage + 1) * 30).map((question, index) => (
               <ListQuestionCard
                 key={question.id}
+                containerRef={index === 0 ? firstQuestionRef : undefined}
                 question={question}
                 index={listPage * 30 + index}
                 answered={answersById[question.id]}
