@@ -31,8 +31,9 @@ export default function FlashcardMode({
   }
 
   const current = cardQuestions[cardIndex];
-  const hasAnswer = current && Number.isInteger(current.answerIndex);
-  const answerLabel = hasAnswer ? current.choices[current.answerIndex] : null;
+  const correctIndices = current.answerIndices ?? (Number.isInteger(current.answerIndex) ? [current.answerIndex] : []);
+  const hasAnswer = correctIndices.length > 0;
+  const answerLabel = correctIndices.map(i => `${i + 1}. ${current.choices[i]}`).join('；');
 
   return (
     <div className="museum-frame museum-paper p-8 md:p-10 space-y-6">
@@ -59,14 +60,14 @@ export default function FlashcardMode({
             <div className="text-sm font-semibold text-stone-500">答案</div>
             {hasAnswer ? (
               <div className="text-lg font-extrabold text-emerald-900">
-                {current.answerIndex + 1}. {answerLabel}
+                {answerLabel}
               </div>
             ) : (
               <div className="text-lg font-extrabold text-stone-700">尚未提供答案</div>
             )}
             <div className="grid gap-2 md:grid-cols-2">
               {current.choices.map((choice, idx) => {
-                const isAnswer = hasAnswer && idx === current.answerIndex;
+                const isAnswer = correctIndices.includes(idx);
                 return (
                   <div
                     key={`${current.id}-${idx}`}

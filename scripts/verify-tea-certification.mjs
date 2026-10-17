@@ -10,9 +10,10 @@ const ids = [...existing, ...questions].map(q => q.id);
 assert.equal(new Set(ids).size, ids.length, 'IDs must not collide with existing banks');
 for (const q of questions) {
   assert(q.bank === 'tea_certification' && q.stem && q.topicLabel);
-  assert.equal(q.choices.length, 4);
+  assert([2, 4].includes(q.choices.length));
   assert(q.choices.every(c => typeof c === 'string' && c.length));
-  assert(Number.isInteger(q.answerIndex) && q.answerIndex >= 0 && q.answerIndex < 4);
+  assert(q.answerIndex == null || (Number.isInteger(q.answerIndex) && q.answerIndex >= 0 && q.answerIndex < q.choices.length));
+  if (q.answerIndices) assert(q.answerIndices.every(i => Number.isInteger(i) && i >= 0 && i < q.choices.length));
 }
 if (process.argv[2]) {
   const html = fs.readFileSync(process.argv[2], 'utf8');

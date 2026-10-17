@@ -155,7 +155,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const customBanks = useMemo(() => bankTree.filter((node) => node.stateKey !== 'all'), [bankTree]);
 
   const customPool = useMemo(() => {
-    const list = questions ?? [];
+    const list = (questions ?? []).filter(q => Number.isInteger(q?.answerIndex));
     if (!customSelectedBanks.length) return list;
     const selected = new Set(customSelectedBanks);
     const hasTopicFilter = Object.keys(customSelectedTopics).length > 0;
@@ -187,11 +187,12 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   }, [questionsInBank, selectedTopic, normalizedQuery]);
 
   const quickQuestion = useMemo(() => {
-    if (!filteredQuestions.length) return null;
-    const poolSize = filteredQuestions.length;
+    const pool = filteredQuestions.filter(q => Number.isInteger(q.answerIndex));
+    if (!pool.length) return null;
+    const poolSize = pool.length;
     const seed = Math.abs(quickSeed) + 1;
     const index = (seed * 9301 + 49297) % 233280;
-    return filteredQuestions[index % poolSize];
+    return pool[index % poolSize];
   }, [filteredQuestions, quickSeed]);
 
   const quickQuestionId = quickQuestion?.id ?? null;
@@ -291,7 +292,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const challengeQuestions = useMemo(() => {
     if (!challengeOn) return [];
     if (!filteredQuestions.length) return [];
-    return filteredQuestions.slice(0, Math.min(DEFAULT_CHALLENGE_SIZE, filteredQuestions.length));
+    return filteredQuestions.filter(q => Number.isInteger(q.answerIndex)).slice(0, DEFAULT_CHALLENGE_SIZE);
   }, [challengeOn, filteredQuestions]);
 
   const customQuestions = customSession?.questions ?? [];
@@ -466,7 +467,12 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   };
 
   const handleListQuestionAnswer = (questionId, choiceIndex) => {
-    setAnswersById((prev) => ({ ...prev, [questionId]: choiceIndex }));
+    const question = questions.find(q => q.id === questionId);
+    setAnswersById((prev) => {
+      if (question?.questionType !== '複選題') return { ...prev, [questionId]: choiceIndex };
+      const selected = Array.isArray(prev[questionId]) ? prev[questionId] : [];
+      return { ...prev, [questionId]: selected.includes(choiceIndex) ? selected.filter(i => i !== choiceIndex) : [...selected, choiceIndex] };
+    });
   };
 
   const handleQuickNextQuestion = () => {
@@ -555,8 +561,9 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
         {(showIntro || activeBank === 'tea_certification') && (
           <div className="museum-frame museum-paper p-5 mb-4 border border-emerald-200">
             <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定（國考）· 持續更新</h2>
-            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，另有約 1,700 多題國考資料整理中，後續取得資料後陸續加入；省考將另設獨立系列。題目、選項與備註採繁體中文，英文題保留原文。</p>
+            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，國考資料將持續補充；省考將另設獨立系列。題目、選項與備註採繁體中文，英文題保留原文。</p>
             <p className="mt-2 text-sm text-stone-600">答案依提供的題庫收錄；有特殊答案的題目另附原始提醒。</p>
+            <p className="mt-2 text-sm text-stone-600">複選題請於題庫練習勾選多個選項後核對，或使用答題卡片複習。快問快答與自訂測驗僅抽取答案及選項完整的單選、是非題；資料缺漏的題目保留供閱讀。</p>
           </div>
         )}
         {/* Mode Selection Menu */}
@@ -612,6 +619,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                   <div className="mt-2 text-lg font-extrabold text-stone-900">自訂測驗</div>
                   <div className="mt-2 h-1.5 w-12 rounded-full bg-amber-500/80" />
                   <div className="mt-1 text-sm font-semibold text-stone-600">從全部題庫挑選範圍與題數，建立專屬考題。</div>
+                  <p className="mt-2 text-sm text-stone-600">僅抽取可計分的單選、是非題；複選題可在題庫練習或答題卡片複習。</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button

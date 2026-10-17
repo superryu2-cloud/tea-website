@@ -1,4 +1,5 @@
 import QuestionImage from './QuestionImage';
+import { useState } from 'react';
 
 export default function ListQuestionCard({
   question,
@@ -8,7 +9,10 @@ export default function ListQuestionCard({
   revealAnswers,
   onAnswer,
 }) {
-  const hasAnswerKey = question.answerIndex != null;
+  const [checked, setChecked] = useState(false);
+  const multiple = question.questionType === '複選題';
+  const correctIndices = question.answerIndices ?? (question.answerIndex != null ? [question.answerIndex] : []);
+  const hasAnswerKey = correctIndices.length > 0;
   const correctIndex = hasAnswerKey ? question.answerIndex : null;
   const answeredIndex = Number.isInteger(answered) ? answered : null;
   const shouldRevealAnswer = Boolean(revealAnswers && hasAnswerKey);
@@ -20,6 +24,7 @@ export default function ListQuestionCard({
         <div className="min-w-0">
           <div className="text-xs font-extrabold tracking-widest text-stone-500">
             {question.topicLabel}{question.sourceNumber != null && ` · 原題號 ${question.sourceNumber}`}
+            {question.questionType && ` · ${question.questionType}`}
           </div>
           <div className="mt-2 text-xl md:text-2xl font-extrabold text-stone-900 leading-snug">
             {index + 1}. {question.stem}
@@ -33,9 +38,9 @@ export default function ListQuestionCard({
 
         <div className="grid gap-1 grid-cols-1">
           {choices.map((choice, choiceIndex) => {
-            const isSelected = answered === choiceIndex;
-            const isCorrectChoice = hasAnswerKey && choiceIndex === correctIndex;
-            const showFeedback = hasAnswerKey && answeredIndex != null;
+            const isSelected = multiple ? Array.isArray(answered) && answered.includes(choiceIndex) : answered === choiceIndex;
+            const isCorrectChoice = hasAnswerKey && (multiple ? correctIndices.includes(choiceIndex) : choiceIndex === correctIndex);
+            const showFeedback = hasAnswerKey && (multiple ? checked : answeredIndex != null);
             const isWrongSelected = showFeedback && isSelected && !isCorrectChoice;
             const showCorrectMarker = (showFeedback || shouldRevealAnswer) && isCorrectChoice;
 
@@ -43,7 +48,8 @@ export default function ListQuestionCard({
               <button
                 key={`${question.id}-${choiceIndex}`}
                 type="button"
-                onClick={() => onAnswer(question.id, choiceIndex)}
+                onClick={() => { setChecked(false); onAnswer(question.id, choiceIndex); }}
+                aria-pressed={isSelected}
                 className={`text-left rounded-xl border px-4 py-2 transition-colors ${
                   (showFeedback || shouldRevealAnswer) && isCorrectChoice
                     ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
@@ -72,6 +78,12 @@ export default function ListQuestionCard({
             );
           })}
         </div>
+        {multiple && hasAnswerKey && (
+          <div className="space-y-2">
+            <button type="button" onClick={() => setChecked(true)} className="rounded-xl border border-emerald-300 px-4 py-2 text-emerald-900">核對複選答案</button>
+            {checked && <p role="status">{Array.isArray(answered) && answered.length === correctIndices.length && correctIndices.every(i => answered.includes(i)) ? '答對了' : '尚未完全答對，請對照標示的正確選項。'}</p>}
+          </div>
+        )}
       </div>
     </div>
   );
