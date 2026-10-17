@@ -24,7 +24,7 @@ export default function ListQuestionCard({
         <div className="min-w-0">
           <div className="text-xs font-extrabold tracking-widest text-stone-500">
             {question.topicLabel}{question.sourceNumber != null && ` · 原題號 ${question.sourceNumber}`}
-            {question.questionType && ` · ${question.questionType}`}
+            {question.questionType && !question.topicLabel.includes(question.questionType) && ` · ${question.questionType}`}
           </div>
           <div className="mt-2 text-xl md:text-2xl font-extrabold text-stone-900 leading-snug">
             {index + 1}. {question.stem}
@@ -56,7 +56,9 @@ export default function ListQuestionCard({
                     : isWrongSelected
                       ? 'border-rose-300 bg-rose-50 text-rose-950'
                       : isSelected && !shouldRevealAnswer
-                        ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
+                        ? question.reviewStatus === 'pending'
+                          ? 'border-sky-300 bg-sky-50 text-sky-950'
+                          : 'border-emerald-300 bg-emerald-50 text-emerald-950'
                         : 'border-stone-200 bg-white/80 hover:bg-white text-stone-900'
                 }`}
               >

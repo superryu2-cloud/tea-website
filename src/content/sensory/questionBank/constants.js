@@ -8,5 +8,6 @@ export const BANK_PRESETS = [
   { key: 'tea_tech_c', label: '製茶技術丙級' },
   { key: 'tea_artisan', label: '茶藝師' },
   { key: 'tea_certification', label: '茶藝師檢定（國考）' },
+  { key: 'tea_certification_provincial', label: '茶藝師檢定（省考）' },
   { key: 'ccira', label: '中華茶產業文化研究學會' },
 ];

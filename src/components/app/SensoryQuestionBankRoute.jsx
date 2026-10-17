@@ -73,9 +73,12 @@ export default function SensoryQuestionBankRoute({
           if (!result.ok) throw new Error(`Question bank request failed: ${result.status}`);
           return result.json();
         };
-        const manifest = await loadJson('/data/tea-certification/manifest.json');
-        const batches = await Promise.all(manifest.batches.map(file =>
-          loadJson(`/data/tea-certification/${file}`)));
+        const directories = ['tea-certification', 'tea-certification-provincial'];
+        const series = await Promise.all(directories.map(async directory => {
+          const manifest = await loadJson(`/data/${directory}/manifest.json`);
+          return Promise.all(manifest.batches.map(file => loadJson(`/data/${directory}/${file}`)));
+        }));
+        const batches = series.flat();
         const combined = normalizeQuestionBank([...data, ...batches.flat()]);
         if (new Set(combined.map(question => question.id)).size !== combined.length) {
           throw new Error('Duplicate question IDs');

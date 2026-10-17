@@ -63,7 +63,7 @@ export default function FlashcardMode({
                 {answerLabel}
               </div>
             ) : (
-              <div className="text-lg font-extrabold text-stone-700">尚未提供答案</div>
+              <div className="text-lg font-extrabold text-stone-700">{current.reviewStatus === 'pending' ? '答案待核對，暫不提供標準答案' : '尚未提供答案'}</div>
             )}
             <div className="grid gap-2 md:grid-cols-2">
               {current.choices.map((choice, idx) => {
