@@ -1,4 +1,4 @@
-// Keep source wording intact; standardize empty answer blanks for display.
+// Use a readable answer line instead of cramped empty parentheses.
 export const formatQuestionText = value => typeof value === 'string'
-  ? value.replace(/\([\s\u3000]*\)/g, '（）')
+  ? value.replace(/[（(][\s\u3000]*[）)]/g, '＿＿＿')
   : value;
