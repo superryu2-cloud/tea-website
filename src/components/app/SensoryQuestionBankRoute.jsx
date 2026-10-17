@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import SensoryQuestionBank from '../../content/sensory/SensoryQuestionBank';
+import { formatQuestionText } from '../../content/sensory/questionBank/formatQuestionText';
 
 const QUESTION_BANK_URL = '/data/sensoryQuestionBank.json';
 const FALLBACK_BANK = 'tea_tech_c';
@@ -17,10 +18,11 @@ function normalizeQuestionBank(data) {
     const hasBankLabel =
       typeof question.bankLabel === 'string' && question.bankLabel.trim().length > 0;
 
-    if (hasBank && hasBankLabel) return question;
-
     return {
       ...question,
+      stem: formatQuestionText(question.stem),
+      choices: question.choices?.map(formatQuestionText),
+      note: formatQuestionText(question.note),
       bank: hasBank ? question.bank : FALLBACK_BANK,
       bankLabel: hasBankLabel ? question.bankLabel : FALLBACK_BANK_LABEL,
     };
@@ -74,7 +76,7 @@ export default function SensoryQuestionBankRoute({
         const manifest = await loadJson('/data/tea-certification/manifest.json');
         const batches = await Promise.all(manifest.batches.map(file =>
           loadJson(`/data/tea-certification/${file}`)));
-        const combined = [...normalizeQuestionBank(data), ...batches.flat()];
+        const combined = normalizeQuestionBank([...data, ...batches.flat()]);
         if (new Set(combined.map(question => question.id)).size !== combined.length) {
           throw new Error('Duplicate question IDs');
         }
