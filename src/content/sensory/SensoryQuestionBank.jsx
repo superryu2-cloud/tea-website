@@ -561,17 +561,22 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
         {(showIntro || activeBank === 'tea_certification') && (
           <div className="museum-frame museum-paper p-5 mb-4 border border-emerald-200">
             <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定（國考）· 持續更新</h2>
-            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，國考資料將持續補充；省考將另設獨立系列。題目、選項與備註採繁體中文，英文題保留原文。</p>
-            <p className="mt-2 text-sm text-stone-600">答案依提供的題庫收錄；有特殊答案的題目另附原始提醒。</p>
-            <p className="mt-2 text-sm text-stone-600">複選題請於題庫練習勾選多個選項後核對，或使用答題卡片複習。快問快答與自訂測驗僅抽取答案及選項完整的單選、是非題；資料缺漏的題目保留供閱讀。</p>
+            <p className="mt-2 text-sm text-stone-700">共 {questions.filter(q => q.bank === 'tea_certification').length} 題 · 繁體中文，英文題保留原文。</p>
+            <details className="mt-2 text-sm text-stone-600">
+              <summary className="cursor-pointer">題庫說明</summary>
+              <p className="mt-2 leading-relaxed">國考資料持續補充，省考另設獨立系列。答案依提供的題庫收錄，有特殊答案者另附提醒。複選題可勾選多個選項後核對，或使用答題卡片複習；計分測驗僅抽取答案完整的單選、是非題。</p>
+            </details>
           </div>
         )}
         {(showIntro || activeBank === 'tea_certification_provincial') && (
           <div className="museum-frame museum-paper p-5 mb-4 border border-emerald-200">
             <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定（省考）</h2>
-            <p className="mt-2 text-stone-700">目前收錄 {questions.filter(q => q.bank === 'tea_certification_provincial').length} 題，由提供的操作影片整理，題目與選項統一為繁體中文。答案以影片顯示的解析為依據。</p>
-            <p className="mt-2 text-sm text-stone-600">每題附影片檔名及時間點供核對。文字或答案仍有疑義的題目會標示待核對，暫不納入計分測驗。</p>
-            <p className="mt-2 text-sm font-semibold text-emerald-900">已核對 {questions.filter(q => q.bank === 'tea_certification_provincial' && q.reviewStatus === 'verified').length} 題 · 待核對 {questions.filter(q => q.bank === 'tea_certification_provincial' && q.reviewStatus === 'pending').length} 題。待核對內容為影片辨識稿，可先閱讀與翻卡複習。</p>
+            <p className="mt-2 text-sm text-stone-700">共 {questions.filter(q => q.bank === 'tea_certification_provincial').length} 題 · 已核對 {questions.filter(q => q.bank === 'tea_certification_provincial' && q.reviewStatus === 'verified').length} 題</p>
+            <p className="mt-1 text-sm font-semibold text-emerald-900">待核對 {questions.filter(q => q.bank === 'tea_certification_provincial' && q.reviewStatus === 'pending').length} 題，暫不計分。</p>
+            <details className="mt-2 text-sm text-stone-600">
+              <summary className="cursor-pointer">題庫說明</summary>
+              <p className="mt-2 leading-relaxed">由操作影片整理，文字統一為繁體中文，答案依影片解析收錄。每題可展開「來源與備註」查看影片檔名、時間與核對資訊。</p>
+            </details>
           </div>
         )}
         {/* Mode Selection Menu */}
@@ -1023,7 +1028,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
               <div className="text-xs font-extrabold tracking-widest text-stone-500">PRACTICE · QUIZ BANK</div>
               <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-stone-900">品評考題（題庫）</h2>
               <p className="mt-4 text-base md:text-lg text-stone-700 leading-relaxed">
-                請先從左側選單選擇「題庫」與「章節」開始練習。你也可以使用搜尋快速定位題目。
+                請從「選擇題庫與章節」或左側分類開始練習，也可以搜尋題號或關鍵字。
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-stone-200 bg-white/70 p-4">

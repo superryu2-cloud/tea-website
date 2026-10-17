@@ -1,4 +1,5 @@
 import { ChevronDown, Eye, EyeOff, RotateCcw, Search } from 'lucide-react';
+import { useState } from 'react';
 import AccordionPanel from '../../../components/AccordionPanel';
 import { MenuButton, TopicButton } from './SensoryNavButtons';
 
@@ -19,14 +20,16 @@ export default function QuestionBankSidebar({
   onSelectTopic,
   onSelectEssay,
 }) {
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+  const activeLabel = bankTree.find(node => node.stateKey === (activeBank ?? 'all'))?.label ?? '全部題庫';
   return (
     <div
       ref={sidebarScrollRef}
-      className="space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto"
+      className="space-y-3 lg:space-y-6 lg:max-h-[calc(100vh-var(--sidebar-top))] lg:overflow-auto"
       style={{ overflowAnchor: 'none' }}
     >
       <div className="museum-frame museum-paper overflow-hidden">
-        <div className="px-6 py-5 md:px-8 flex flex-col gap-3">
+        <div className="px-4 py-4 sm:px-6 sm:py-5 md:px-8 flex flex-col gap-3">
           <div className="min-w-0">
             <div className="relative">
               <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-400">
@@ -42,7 +45,7 @@ export default function QuestionBankSidebar({
             </div>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             <button
               type="button"
               onClick={onToggleRevealAnswers}
@@ -72,7 +75,11 @@ export default function QuestionBankSidebar({
         </div>
       </div>
 
-      <div className="museum-frame museum-paper p-5 md:p-6">
+      <button type="button" aria-expanded={mobileCategoriesOpen} aria-controls="sensory-bank-categories" onClick={() => setMobileCategoriesOpen(open => !open)} className="museum-frame museum-paper flex w-full items-center justify-between gap-3 p-4 text-left font-semibold lg:hidden">
+        <span className="min-w-0">{activeLabel}<span className="block text-xs font-normal text-stone-500">選擇題庫與章節</span></span>
+        <ChevronDown size={18} className={`shrink-0 ${mobileCategoriesOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <div id="sensory-bank-categories" className={`${mobileCategoriesOpen ? '' : 'hidden'} lg:block museum-frame museum-paper p-4 sm:p-5 md:p-6`}>
         <div className="text-sm font-semibold tracking-widest text-stone-500">題庫分類</div>
         <div className="mt-3 space-y-2">
           {bankTree.map((node) => {
@@ -107,7 +114,7 @@ export default function QuestionBankSidebar({
                       isActive={!selectedTopic && nodeSelected}
                       label="全部題目"
                       count={node.count}
-                      onClick={() => onSelectBankQuestions(stateKey)}
+                      onClick={() => { onSelectBankQuestions(stateKey); setMobileCategoriesOpen(false); }}
                     />
 
                     {node.topics.length > 0 ? (
@@ -121,7 +128,7 @@ export default function QuestionBankSidebar({
                           }
                           label={topic.label}
                           count={topic.count}
-                          onClick={() => onSelectTopic(stateKey, topic)}
+                          onClick={() => { onSelectTopic(stateKey, topic); setMobileCategoriesOpen(false); }}
                         />
                       ))
                     ) : (
@@ -139,7 +146,7 @@ export default function QuestionBankSidebar({
                         }
                         label="茶研所申論題"
                         count={10}
-                        onClick={() => onSelectEssay(stateKey)}
+                        onClick={() => { onSelectEssay(stateKey); setMobileCategoriesOpen(false); }}
                       />
                     )}
                   </div>

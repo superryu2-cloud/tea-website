@@ -1,4 +1,5 @@
 import React from 'react';
+import QuestionNote from './QuestionNote';
 
 export default function FlashcardMode({
   isActive,
@@ -36,7 +37,7 @@ export default function FlashcardMode({
   const answerLabel = correctIndices.map(i => `${i + 1}. ${current.choices[i]}`).join('；');
 
   return (
-    <div className="museum-frame museum-paper p-8 md:p-10 space-y-6">
+    <div className="museum-frame museum-paper p-4 sm:p-8 md:p-10 space-y-4 sm:space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div className="text-xs font-extrabold tracking-widest text-stone-500">
           {current.topicLabel}
@@ -46,8 +47,7 @@ export default function FlashcardMode({
         </div>
       </div>
 
-      <div className="rounded-3xl border border-stone-200 bg-white/70 p-6 md:p-8 shadow-sm">
-        {current.note && <p className="mb-4 rounded-xl bg-amber-50 p-3 text-amber-950">{current.note}</p>}
+      <div className="rounded-3xl border border-stone-200 bg-white/70 p-4 sm:p-6 md:p-8 shadow-sm">
         {!cardFlipped ? (
           <div className="space-y-3">
             <div className="text-sm font-semibold text-stone-500">題目</div>
@@ -83,6 +83,7 @@ export default function FlashcardMode({
             </div>
           </div>
         )}
+        <div className="mt-4"><QuestionNote key={current.id} question={current} /></div>
       </div>
 
       <div className="flex flex-wrap gap-2">

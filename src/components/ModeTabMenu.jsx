@@ -43,7 +43,7 @@ const ModeTabMenu = ({ activeMode, onModeChange, extraModes = [] }) => {
     };
 
     return (
-        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-stone-300 scrollbar-track-transparent">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
             {modes.map((mode) => {
                 const isActive = activeMode === mode.key;
                 const Icon = mode.icon;
@@ -53,11 +53,11 @@ const ModeTabMenu = ({ activeMode, onModeChange, extraModes = [] }) => {
                         key={mode.key}
                         onClick={() => onModeChange(mode.key)}
                         className={`
-              flex items-center gap-2 px-4 py-2.5 rounded-full
+              flex min-h-11 items-center justify-center gap-2 px-3 sm:px-4 py-2.5 rounded-full
               border-2 font-bold text-sm whitespace-nowrap
               transition-all duration-200
               ${getColorClasses(mode.color, isActive)}
-              ${isActive ? 'scale-105' : 'hover:scale-102'}
+              ${isActive ? 'sm:scale-105' : 'hover:scale-102'}
             `}
                     >
                         <Icon size={16} className={isActive ? 'animate-pulse' : ''} />

@@ -1,4 +1,5 @@
 import QuestionImage from './QuestionImage';
+import QuestionNote from './QuestionNote';
 import { useState } from 'react';
 
 export default function ListQuestionCard({
@@ -19,7 +20,7 @@ export default function ListQuestionCard({
   const choices = Array.isArray(question.choices) ? question.choices : [];
 
   return (
-    <div ref={containerRef} className="museum-frame museum-paper p-6 md:p-7">
+    <div ref={containerRef} className="museum-frame museum-paper p-4 sm:p-6 md:p-7">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs font-extrabold tracking-widest text-stone-500">
@@ -32,11 +33,11 @@ export default function ListQuestionCard({
         </div>
       </div>
 
-      <div className="mt-4 pl-8 space-y-3">
+      <div className="mt-4 sm:pl-8 space-y-3">
         <QuestionImage question={question} />
-        {question.note && <p className="rounded-xl bg-amber-50 border border-amber-200 p-3 text-amber-950">{question.note}</p>}
+        <QuestionNote question={question} />
 
-        <div className="grid gap-1 grid-cols-1">
+        <div className="grid gap-2 grid-cols-1">
           {choices.map((choice, choiceIndex) => {
             const isSelected = multiple ? Array.isArray(answered) && answered.includes(choiceIndex) : answered === choiceIndex;
             const isCorrectChoice = hasAnswerKey && (multiple ? correctIndices.includes(choiceIndex) : choiceIndex === correctIndex);
@@ -50,7 +51,7 @@ export default function ListQuestionCard({
                 type="button"
                 onClick={() => { setChecked(false); onAnswer(question.id, choiceIndex); }}
                 aria-pressed={isSelected}
-                className={`text-left rounded-xl border px-4 py-2 transition-colors ${
+                className={`min-h-12 text-left rounded-xl border px-3 sm:px-4 py-2 transition-colors ${
                   (showFeedback || shouldRevealAnswer) && isCorrectChoice
                     ? 'border-emerald-300 bg-emerald-50 text-emerald-950'
                     : isWrongSelected
@@ -62,19 +63,19 @@ export default function ListQuestionCard({
                         : 'border-stone-200 bg-white/80 hover:bg-white text-stone-900'
                 }`}
               >
-                <span className="inline-flex items-center gap-3">
+                <span className="flex items-center gap-3">
                   <span
-                    className={`inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-extrabold transition-opacity ${
-                      showCorrectMarker ? 'opacity-100' : 'opacity-0'
+                    className={`shrink-0 items-center justify-center w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-extrabold transition-opacity ${
+                      showCorrectMarker ? 'inline-flex opacity-100' : 'hidden sm:inline-flex opacity-0'
                     }`}
                     aria-hidden={!showCorrectMarker}
                   >
                     O
                   </span>
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-stone-200 bg-white text-base font-extrabold text-stone-700">
+                  <span className="inline-flex shrink-0 items-center justify-center w-8 h-8 rounded-full border border-stone-200 bg-white text-base font-extrabold text-stone-700">
                     {choiceIndex + 1}
                   </span>
-                  <span className="text-lg font-semibold leading-snug">{choice}</span>
+                  <span className="min-w-0 break-words text-lg font-semibold leading-relaxed">{choice}</span>
                 </span>
               </button>
             );
