@@ -46,6 +46,7 @@ export default function FlashcardMode({
       </div>
 
       <div className="rounded-3xl border border-stone-200 bg-white/70 p-6 md:p-8 shadow-sm">
+        {current.note && <p className="mb-4 rounded-xl bg-amber-50 p-3 text-amber-950">{current.note}</p>}
         {!cardFlipped ? (
           <div className="space-y-3">
             <div className="text-sm font-semibold text-stone-500">題目</div>

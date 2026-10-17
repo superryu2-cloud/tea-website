@@ -18,7 +18,7 @@ export default function ListQuestionCard({
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs font-extrabold tracking-widest text-stone-500">
-            {question.topicLabel}
+            {question.topicLabel}{question.sourceNumber != null && ` · 原題號 ${question.sourceNumber}`}
           </div>
           <div className="mt-2 text-xl md:text-2xl font-extrabold text-stone-900 leading-snug">
             {index + 1}. {question.stem}
@@ -28,6 +28,7 @@ export default function ListQuestionCard({
 
       <div className="mt-4 pl-8 space-y-3">
         <QuestionImage question={question} />
+        {question.note && <p className="rounded-xl bg-amber-50 border border-amber-200 p-3 text-amber-950">{question.note}</p>}
 
         <div className="grid gap-1 grid-cols-1">
           {choices.map((choice, choiceIndex) => {

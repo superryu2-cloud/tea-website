@@ -80,6 +80,7 @@ function ChallengePanel({
             <>
               <div className="text-base font-semibold text-stone-900 leading-relaxed">
                 {activeChallengeQuestion.stem}
+                {activeChallengeQuestion.note && <p className="mt-3 text-base text-amber-800">{activeChallengeQuestion.note}</p>}
               </div>
               <div className="grid gap-2 md:grid-cols-2">
                 {activeChallengeQuestion.choices.map((choice, idx) => {
@@ -256,6 +257,7 @@ export default function QuickMode({
             <div className="absolute right-4 top-4 text-[11px] font-extrabold tracking-widest text-stone-400">Q-CARD</div>
             <div className="text-xl md:text-2xl font-semibold text-stone-900 leading-relaxed">
               {quickQuestion.stem}
+              {quickQuestion.note && <p className="mt-3 text-base text-amber-800">{quickQuestion.note}</p>}
             </div>
 
             <div className="mt-4 grid gap-3 md:grid-cols-2">

@@ -22,6 +22,8 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
   const [introMode, setIntroMode] = useState(true);
   const [activeMode, setActiveMode] = useState('list'); // 'list' | 'quick' | 'custom' | 'cards'
   const [query, setQuery] = useState('');
+  const [listPage, setListPage] = useState(0);
+  useEffect(() => { setListPage(0); }, [query, activeTopic]);
   const [activeBank, setActiveBank] = useState(null);
   const [expandedBankKeys, setExpandedBankKeys] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(activeTopic ?? null);
@@ -130,6 +132,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
 
   const normalizedQuery = query.trim().toLowerCase();
   const showIntro = introMode && !selectedTopic && !activeBank && !normalizedQuery;
+  useEffect(() => { setListPage(0); }, [activeBank, selectedTopic]);
 
   const questionsInBank = useMemo(() => {
     const list = questions ?? [];
@@ -168,7 +171,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       if (!q) return false;
       if (selectedTopic && q.topic !== selectedTopic) return false;
       if (!normalizedQuery) return true;
-      const hay = `${q.topicLabel ?? ''} ${q.stem ?? ''} ${(q.choices ?? []).join(' ')}`.toLowerCase();
+      const hay = `${q.sourceNumber ?? ''} ${q.topicLabel ?? ''} ${q.stem ?? ''} ${(q.choices ?? []).join(' ')}`.toLowerCase();
       return hay.includes(normalizedQuery);
     });
   }, [questionsInBank, selectedTopic, normalizedQuery]);
@@ -529,6 +532,13 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
       />
 
       <main className="min-w-0 w-full lg:pl-8">
+        {(showIntro || activeBank === 'tea_certification') && (
+          <div className="museum-frame museum-paper p-5 mb-4 border border-emerald-200">
+            <h2 className="text-xl font-bold text-emerald-950">茶藝師檢定 · 持續更新</h2>
+            <p className="mt-2 text-stone-700">目前已收錄 {questions.filter(q => q.bank === 'tea_certification').length} 題，完整系列預計約 4,000 題，後續取得資料後陸續加入。題目、選項與備註採繁體中文，英文題保留原文。</p>
+            <p className="mt-2 text-sm text-stone-600">答案依提供的題庫收錄；有特殊答案的題目另附原始提醒。</p>
+          </div>
+        )}
         {/* Mode Selection Menu */}
         <div className="museum-frame museum-paper p-4 mb-4">
           <ModeTabMenu
@@ -881,6 +891,7 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
                           <div className="h-1.5 w-12 rounded-full bg-amber-400/80" />
                           <div className="border-l-4 border-amber-400 pl-3 text-[24px] md:text-[30px] font-extrabold text-slate-100 leading-snug">
                             {customActiveQuestion.stem}
+                            {customActiveQuestion.note && <p className="mt-3 text-base text-amber-200">{customActiveQuestion.note}</p>}
                           </div>
                           <div className="grid gap-3 md:grid-cols-2">
                             {customActiveQuestion.choices.map((choice, idx) => {
@@ -996,11 +1007,11 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
           ) : null}
 
           {activeMode === 'list' && !showIntro
-            ? filteredQuestions.map((question, index) => (
+            ? filteredQuestions.slice(listPage * 30, (listPage + 1) * 30).map((question, index) => (
               <ListQuestionCard
                 key={question.id}
                 question={question}
-                index={index}
+                index={listPage * 30 + index}
                 answered={answersById[question.id]}
                 revealAnswers={revealAnswers}
                 onAnswer={handleListQuestionAnswer}
@@ -1011,6 +1022,13 @@ export default function SensoryQuestionBank({ questions, activeTopic, onSelectTo
           {activeMode === 'list' && !showIntro && filteredQuestions.length === 0 ? (
             <div className="museum-panel p-8 text-center text-stone-600">找不到符合條件的題目，請調整關鍵字或篩選。</div>
           ) : null}
+          {activeMode === 'list' && !showIntro && filteredQuestions.length > 30 && (
+            <nav aria-label="題目分頁" className="flex flex-wrap items-center justify-center gap-4 py-6">
+              <button type="button" disabled={listPage === 0} onClick={() => setListPage(p => p - 1)} className="rounded-xl border bg-white px-4 py-2 disabled:opacity-40">上一頁</button>
+              <span>第 {listPage + 1} / {Math.ceil(filteredQuestions.length / 30)} 頁 · 共 {filteredQuestions.length} 題</span>
+              <button type="button" disabled={(listPage + 1) * 30 >= filteredQuestions.length} onClick={() => setListPage(p => p + 1)} className="rounded-xl border bg-white px-4 py-2 disabled:opacity-40">下一頁</button>
+            </nav>
+          )}
         </div>
       </main>
     </div>
