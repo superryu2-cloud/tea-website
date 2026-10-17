@@ -1,0 +1,7958 @@
+[
+  {
+    "id": "tea-cert-batch-002-159",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 159,
+    "batch": "batch-002",
+    "stem": "()直接影響到茶藝師留給顧客的第一印象。",
+    "choices": [
+      "服務之聲",
+      "介紹之聲",
+      "送客之聲",
+      "迎客之聲"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-160",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 160,
+    "batch": "batch-002",
+    "stem": "()指長條形的字畫,尺寸一般為一張整宣紙對裁。",
+    "choices": [
+      "掛軸",
+      "條幅",
+      "斗方",
+      "橫幅"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-161",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 161,
+    "batch": "batch-002",
+    "stem": "()中提到：「茶之為飲,發乎神農氏,聞於魯周公。」",
+    "choices": [
+      "華佗《食論》",
+      "陸羽《茶經》",
+      "李時珍《本草綱目》",
+      "趙佶《大觀茶論》"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-162",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 162,
+    "batch": "batch-002",
+    "stem": "()中有記載:「神農嚐百草,日遇七十二毒,得荼而解之」,其中的「荼」指茶,原文中特指茶有解毒的功效。",
+    "choices": [
+      "《本草綱目》",
+      "《傷寒雜病論》",
+      "《神農本草經》",
+      "《黃帝內經》"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-163",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 163,
+    "batch": "batch-002",
+    "stem": "()主要流行於我國南方客家人聚居區。",
+    "choices": [
+      "奶茶",
+      "擂茶",
+      "竹筒茶",
+      "酥油茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-164",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 164,
+    "batch": "batch-002",
+    "stem": "()最早見於元代,明清時期景德鎮仍在燒製,以明永樂時燒製的最為著名,有白釉、紅釉等品種。",
+    "choices": [
+      "雞頭壺",
+      "鳳頭壺",
+      "僧帽壺",
+      "梨壺"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-165",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 165,
+    "batch": "batch-002",
+    "stem": "《NY/T393—2013綠色食品農藥使用準則》屬於()的茶葉生產加工和管理標準。",
+    "choices": [
+      "國家標準",
+      "行業標準",
+      "地方標準",
+      "企業標準"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-166",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 166,
+    "batch": "batch-002",
+    "stem": "《高山》、《流水》一直被人們看作早期中()代表性曲目。",
+    "choices": [
+      "有詞琴曲",
+      "無詞琴曲",
+      "多詞琴曲",
+      "單詞琴曲"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-167",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 167,
+    "batch": "batch-002",
+    "stem": "《神農本草》是最早記載茶為()的書籍。",
+    "choices": [
+      "食用",
+      "禮品",
+      "藥用",
+      "聘禮"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-168",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 168,
+    "batch": "batch-002",
+    "stem": "《隨園食單·茶酒單》是()晚年所著的著作。",
+    "choices": [
+      "歐陽修",
+      "蘇軾",
+      "冒襄",
+      "袁枚"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-169",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 169,
+    "batch": "batch-002",
+    "stem": "《漁舟唱晚》是著名箏家()先生,根據古曲《歸去來辭》的音樂片段為素材變化發展而成的。",
+    "choices": [
+      "程午如",
+      "金灼南",
+      "婁樹華",
+      "張為昭"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-170",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 170,
+    "batch": "batch-002",
+    "stem": "《中華人民共和國勞動合同法》是遵循合法、公平、平等自願、()、協商一致的原則。",
+    "choices": [
+      "個人意願",
+      "強強聯合",
+      "誠實守信",
+      "以上都是"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-171",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 171,
+    "batch": "batch-002",
+    "stem": "《中華人民共和國食品安全法》的職能機構中,由國務院設立() 。",
+    "choices": [
+      "食品安全委員會",
+      "衛生委員會",
+      "健康委員會",
+      "協調委員會"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-172",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 172,
+    "batch": "batch-002",
+    "stem": "《走筆謝孟諫議寄新茶》的作者是()。",
+    "choices": [
+      "陸羽",
+      "盧仝",
+      "皎然",
+      "李白"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-173",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 173,
+    "batch": "batch-002",
+    "stem": "150mL的綠茶標準審評杯,審評茶時投綠茶茶量() 。",
+    "choices": [
+      "2g",
+      "5g",
+      "4g",
+      "3g"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-174",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 174,
+    "batch": "batch-002",
+    "stem": "1940年,()先生在為傅宏鎮編著《中外茶業藝文志》一書所作的序裡,就使用了「茶藝」一詞。",
+    "choices": [
+      "胡浩川",
+      "顧景舟",
+      "吳覺農",
+      "陳椽"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-175",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 175,
+    "batch": "batch-002",
+    "stem": "1950年中國()錢崇澍根據國際命名和茶樹特性的研究,確定以CamelliaSinensis(L.)O.Kuntze為茶樹學名。",
+    "choices": [
+      "文學家",
+      "物理學家",
+      "植物學家",
+      "數學家"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-176",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 176,
+    "batch": "batch-002",
+    "stem": "19世紀後半期,()就已出現人工合成香料。",
+    "choices": [
+      "歐洲",
+      "中國",
+      "亞洲",
+      "美洲"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-177",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 177,
+    "batch": "batch-002",
+    "stem": "2016年02月29日,國務院下發關於取消地方衛生部門對飯館、咖啡館、酒吧、茶座4類公共場所核發的()。",
+    "choices": [
+      "衛生許可證",
+      "QS認證",
+      "註冊商標",
+      "安全健康證"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-178",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 178,
+    "batch": "batch-002",
+    "stem": "80℃水溫比較適宜沖泡()茶葉。",
+    "choices": [
+      "白茶",
+      "花茶",
+      "沱茶",
+      "綠茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-179",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 179,
+    "batch": "batch-002",
+    "stem": "90℃左右水溫比較適宜沖泡()茶葉。",
+    "choices": [
+      "紅茶",
+      "龍井茶",
+      "烏龍茶",
+      "普洱茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-180",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 180,
+    "batch": "batch-002",
+    "stem": "95℃以上的水溫適宜沖泡()茶葉。",
+    "choices": [
+      "烏龍茶",
+      "龍井茶",
+      "碧螺春",
+      "白毫銀針"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-181",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 181,
+    "batch": "batch-002",
+    "stem": "95℃以上的水溫適宜沖泡()茶葉。",
+    "choices": [
+      "玉綠茶",
+      "普洱茶",
+      "碧螺春",
+      "龍井茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-182",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 182,
+    "batch": "batch-002",
+    "stem": "Dragon Well Tea is akind of().",
+    "choices": [
+      "Oolong tea",
+      "black tea",
+      "green tea",
+      "dark tea"
+    ],
+    "answerIndex": 2,
+    "note": "原題英文連寫為 akind"
+  },
+  {
+    "id": "tea-cert-batch-002-183",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 183,
+    "batch": "batch-002",
+    "stem": "Hello,Joan.(),Kate.Glad to see you.",
+    "choices": [
+      "How are you?",
+      "Hello",
+      "Good morning",
+      "How do you do"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-184",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 184,
+    "batch": "batch-002",
+    "stem": "How are you,Joan?().",
+    "choices": [
+      "How are you,Mary?",
+      "Fine,thanks,and you?",
+      "All is right.",
+      "That's good."
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-185",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 185,
+    "batch": "batch-002",
+    "stem": "I'm sorry,sir.「我們不收美金.」漢譯英是() 。",
+    "choices": [
+      "We don't accept RM",
+      "We don't accept pounds.",
+      "We don't accept dollars.",
+      "We don't accept yuan."
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-186",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 186,
+    "batch": "batch-002",
+    "stem": "May I know your name,please?()",
+    "choices": [
+      "Thankyou",
+      "MynameisLinWei.",
+      "Yes,Iam.",
+      "Goodmorning."
+    ],
+    "answerIndex": 1,
+    "note": "原題選項英文未留空格"
+  },
+  {
+    "id": "tea-cert-batch-002-187",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 187,
+    "batch": "batch-002",
+    "stem": "Normally,for each cup of green tea,()of tea leafisenough.And foreachpotofoolongteaorpu'ertea,it'sbettertouse()tealeaf.",
+    "choices": [
+      "A4g,7g",
+      "3g,7g",
+      "7g,3g",
+      "8g,4g"
+    ],
+    "answerIndex": 1,
+    "note": "原題英文多處未留空格"
+  },
+  {
+    "id": "tea-cert-batch-002-188",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 188,
+    "batch": "batch-002",
+    "stem": "The glassbottleis mostsui table for making() 。",
+    "choices": [
+      "AOolongtea",
+      "Greentea",
+      "LapsangSouchongtea",
+      "scentedtea"
+    ],
+    "answerIndex": 1,
+    "note": "原題英文多處排版連寫或斷字"
+  },
+  {
+    "id": "tea-cert-batch-002-189",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 189,
+    "batch": "batch-002",
+    "stem": "こ注文をどそ的意思是()。",
+    "choices": [
+      "請問您的電話號碼",
+      "你想要點什麼",
+      "請問您有預約嗎",
+      "請您這邊走"
+    ],
+    "answerIndex": 1,
+    "note": "原題日文因題庫OCR誤植，正確日文為「ご注文をどうぞ」"
+  },
+  {
+    "id": "tea-cert-batch-002-190",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 190,
+    "batch": "batch-002",
+    "stem": "ちっしせいませ的意思是()。",
+    "choices": [
+      "晚安",
+      "請等一下",
+      "您好",
+      "歡迎光臨"
+    ],
+    "answerIndex": 3,
+    "note": "原題日文因題庫OCR誤植，正確日文為「いらっしゃいませ」"
+  },
+  {
+    "id": "tea-cert-batch-002-191",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 191,
+    "batch": "batch-002",
+    "stem": "ちみません，タへつを吸ってもいてちか的意思是() 。",
+    "choices": [
+      "這座位有人嗎",
+      "還需要什麼嗎",
+      "請問我可以在這裡吸煙嗎",
+      "請問衛生間在哪"
+    ],
+    "answerIndex": 2,
+    "note": "原題日文因題庫OCR誤植，正確日文為「すみません、タバコを吸ってもいいですか」"
+  },
+  {
+    "id": "tea-cert-batch-002-192",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 192,
+    "batch": "batch-002",
+    "stem": "も会いてきて光榮です的意思是()。",
+    "choices": [
+      "你想要點什麼",
+      "請問幾位",
+      "很榮幸見到您",
+      "最近怎麼樣"
+    ],
+    "answerIndex": 2,
+    "note": "原題日文因題庫OCR誤植，正確日文為「お会いできて光栄です」"
+  },
+  {
+    "id": "tea-cert-batch-002-193",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 193,
+    "batch": "batch-002",
+    "stem": "ち目にかかわて大嬉し乙す的意思是() 。",
+    "choices": [
+      "好久不見",
+      "很高興見到您",
+      "近來好嗎",
+      "請慢走"
+    ],
+    "answerIndex": 1,
+    "note": "原題日文因題庫OCR誤植，正確日文為「お目にかかれて大変嬉しいです」"
+  },
+  {
+    "id": "tea-cert-batch-002-194",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 194,
+    "batch": "batch-002",
+    "stem": "つカートを見せてください的意思是() 。",
+    "choices": [
+      "請收好您的VIP卡",
+      "請出示一下您的VLP卡",
+      "在這裡辦理VIP卡",
+      "這裡不用信用卡"
+    ],
+    "answerIndex": 1,
+    "note": "原題日文及選項B(VLP卡)因題庫OCR誤植，正確日文為「VIPカードを見せてください」"
+  },
+  {
+    "id": "tea-cert-batch-002-195",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 195,
+    "batch": "batch-002",
+    "stem": "て住所をす教入原えませ人か的意思是() 。",
+    "choices": [
+      "請問幾位",
+      "你想要點什麼",
+      "請多關照",
+      "請問您的地址"
+    ],
+    "answerIndex": 3,
+    "note": "原題日文因題庫OCR誤植，正確日文為「ご住所を教えていただけませんか」"
+  },
+  {
+    "id": "tea-cert-batch-002-196",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 196,
+    "batch": "batch-002",
+    "stem": "埃及人嗜好喝濃厚醇香的()。",
+    "choices": [
+      "紅茶",
+      "綠茶",
+      "白茶",
+      "烏龍茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-197",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 197,
+    "batch": "batch-002",
+    "stem": "埃及人喜歡喝濃厚醇香的紅茶,他們不喜歡在茶湯中加() 。",
+    "choices": [
+      "蔗糖",
+      "白砂糖",
+      "牛奶",
+      "小豆蔻"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-198",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 198,
+    "batch": "batch-002",
+    "stem": "安全事故發生後,負傷者或者事故現場有關人員應當立即直接或者逐級報告()。",
+    "choices": [
+      "企業負責人",
+      "公安部門",
+      "監察部門",
+      "勞動部門"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-199",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 199,
+    "batch": "batch-002",
+    "stem": "按5位賓客計算,沖泡調飲紅茶的置茶量應以()為宜。",
+    "choices": [
+      "2g",
+      "5g",
+      "10g",
+      "12g"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-200",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 200,
+    "batch": "batch-002",
+    "stem": "按發酵程度分,黑茶屬於()。",
+    "choices": [
+      "微發酵茶",
+      "半發酵茶",
+      "不發酵茶",
+      "後發酵茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-201",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 201,
+    "batch": "batch-002",
+    "stem": "按展銷會的()可將展銷會分為綜合性展銷會、專題性展銷會。",
+    "choices": [
+      "內容",
+      "時間",
+      "主題",
+      "目的"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-202",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 202,
+    "batch": "batch-002",
+    "stem": "按展銷會的內容可將展銷會分為綜合性展銷會、() 。",
+    "choices": [
+      "大型展銷會",
+      "宣傳性展銷會",
+      "專題性展銷會",
+      "巡迴展銷會"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-203",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 203,
+    "batch": "batch-002",
+    "stem": "按展銷會的性質可將展銷會分為()、宣傳性展銷會。",
+    "choices": [
+      "綜合性展銷會",
+      "專題性展銷會",
+      "巡迴展銷會",
+      "貿易性展銷會"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-204",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 204,
+    "batch": "batch-002",
+    "stem": "按展銷會時間分類可分為:長期展銷會、定期更換內容的展銷會和() 。",
+    "choices": [
+      "短期展銷會",
+      "專題性展銷會",
+      "綜合性展銷會",
+      "一次性展銷會"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-205",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 205,
+    "batch": "batch-002",
+    "stem": "按照標準的管理權限,下列()標準屬於國家標準。",
+    "choices": [
+      "《平炒青綠茶》",
+      "《杭炒青綠茶》",
+      "《西湖龍井》",
+      "《緊壓茶.緊茶》"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-206",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 206,
+    "batch": "batch-002",
+    "stem": "澳門茶樓的供茶方式是()式。",
+    "choices": [
+      "壺盅",
+      "壺杯",
+      "品杯",
+      "杯盞"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-207",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 207,
+    "batch": "batch-002",
+    "stem": "巴基斯坦西北高地和一些遊牧民族喜歡喝(),通常在茶中加糖,但不加薄荷。",
+    "choices": [
+      "紅茶",
+      "綠茶",
+      "花茶",
+      "烏龍茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-208",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 208,
+    "batch": "batch-002",
+    "stem": "白茶的香氣特點是() 。",
+    "choices": [
+      "陳香",
+      "蜜香",
+      "毫香",
+      "花香"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-209",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 209,
+    "batch": "batch-002",
+    "stem": "白毫銀針的茶湯色澤屬於()。",
+    "choices": [
+      "淺綠型",
+      "微黃型",
+      "黃亮型",
+      "黃褐型"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-210",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 210,
+    "batch": "batch-002",
+    "stem": "白牡丹產品分()。",
+    "choices": [
+      "特級和一級",
+      "特級、一級至二級",
+      "特級、一級至三級",
+      "特級、一級至五級"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-211",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 211,
+    "batch": "batch-002",
+    "stem": "白牡丹是以大白茶樹品種或水仙茶樹品種的單芽為原料,按產品感官品質的不同可分為()級別。",
+    "choices": [
+      "二個",
+      "三個",
+      "四個",
+      "五個"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-212",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 212,
+    "batch": "batch-002",
+    "stem": "白族「三道茶」茶藝,投茶時待壺底烘烤至()時再投下茶葉。",
+    "choices": [
+      "發白",
+      "發紅",
+      "發黑",
+      "發烏"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-213",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 213,
+    "batch": "batch-002",
+    "stem": "白族「三道茶」茶藝演示中,主副泡備具時分別以()順序擺放茶具。",
+    "choices": [
+      "前後",
+      "交替",
+      "上下",
+      "左右"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-214",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 214,
+    "batch": "batch-002",
+    "stem": "白族「三道茶」第二道甜茶沖泡時的注水方式是() 。",
+    "choices": [
+      "單邊定點法",
+      "鳳凰三點頭法",
+      "迴旋法",
+      "懸壺高沖法"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-215",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 215,
+    "batch": "batch-002",
+    "stem": "白族「三道茶」第三道回味茶,使用的注水方式是() 。",
+    "choices": [
+      "單邊定點法",
+      "鳳凰三點頭法",
+      "迴旋法",
+      "懸壺高沖法"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-216",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 216,
+    "batch": "batch-002",
+    "stem": "白族「三道茶」潤茶時,舉提樑壺往側把壺中定點沖入()開水。",
+    "choices": [
+      "少量",
+      "大量",
+      "滿量",
+      "半壺"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-217",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 217,
+    "batch": "batch-002",
+    "stem": "白族三道茶的頭道苦茶,是以土罐烘烤的()調製而成,味道香苦。",
+    "choices": [
+      "紅茶",
+      "綠茶",
+      "白茶",
+      "普洱茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-218",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 218,
+    "batch": "batch-002",
+    "stem": "白族三道茶已成為白族人民待客交友的一種禮儀,其特點是「一苦、二()、三回味」。",
+    "choices": [
+      "甜",
+      "甘",
+      "辣",
+      "鮮"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-219",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 219,
+    "batch": "batch-002",
+    "stem": "般來說,黃茶、白茶(新茶)的茶水比以()毫升左右為宜。",
+    "choices": [
+      "1:50",
+      "1:60",
+      "1:100",
+      "1:80"
+    ],
+    "answerIndex": 0,
+    "note": "原題開頭漏「一」字，作「般來說」"
+  },
+  {
+    "id": "tea-cert-batch-002-220",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 220,
+    "batch": "batch-002",
+    "stem": "般認為,茶室是指泡茶與飲茶的() 。",
+    "choices": [
+      "一組房子",
+      "一間房子",
+      "茶室的一部分",
+      "整個茶庭"
+    ],
+    "answerIndex": 1,
+    "note": "原題開頭漏「一」字，作「般認為」"
+  },
+  {
+    "id": "tea-cert-batch-002-221",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 221,
+    "batch": "batch-002",
+    "stem": "半球體器型早在()就已出現,多為陶質,斂口,半球形腹,圜底。",
+    "choices": [
+      "原始社會時期",
+      "新石器時代",
+      "舊石器時代",
+      "母系社會時期"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-222",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 222,
+    "batch": "batch-002",
+    "stem": "被堪稱中國茶道「活化石」的是()工夫茶藝。",
+    "choices": [
+      "潮汕",
+      "台灣",
+      "閩南",
+      "武夷山"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-223",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 223,
+    "batch": "batch-002",
+    "stem": "碧螺春的香氣特點是()。",
+    "choices": [
+      "甜醇帶蜜糖香",
+      "甜醇帶板栗香",
+      "鮮嫩帶蜜糖香",
+      "鮮嫩帶花果香"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-224",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 224,
+    "batch": "batch-002",
+    "stem": "碧螺春是()名優綠茶的代表。",
+    "choices": [
+      "扁平形",
+      "捲曲形",
+      "雀舌形",
+      "蘭花形"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-225",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 225,
+    "batch": "batch-002",
+    "stem": "扁平形名優綠茶的代表是()。",
+    "choices": [
+      "黃山毛峰",
+      "信陽毛尖",
+      "碧螺春",
+      "龍井茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-226",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 226,
+    "batch": "batch-002",
+    "stem": "賓主席是賓客與茶的對話,其茶席設計的特徵是() 。",
+    "choices": [
+      "冷漠",
+      "便利",
+      "親切",
+      "雅緻"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-227",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 227,
+    "batch": "batch-002",
+    "stem": "冰茶的原料茶,常用的以紅碎茶為主,主要目的是便於() 。",
+    "choices": [
+      "茶湯溫度降低",
+      "茶汁快速浸出",
+      "提高茶湯濃度",
+      "清洗"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-228",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 228,
+    "batch": "batch-002",
+    "stem": "冰茶的原料以()為主,還可根據個人愛好添加牛奶或檸檬等不同配料。",
+    "choices": [
+      "茶葉和鹽",
+      "薄荷和糖",
+      "茶葉和糖",
+      "薄荷和鹽"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-229",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 229,
+    "batch": "batch-002",
+    "stem": "冰茶品飲時,男性多採用(),先聞香,再觀色,後啜飲。",
+    "choices": [
+      "雙手握柄持杯",
+      "單手握柄持杯",
+      "雙手捧杯身",
+      "左手持杯,右手托杯底"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-230",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 230,
+    "batch": "batch-002",
+    "stem": "冰茶品飲時,女性多採用(),先聞香,再觀色,後啜飲。",
+    "choices": [
+      "右手持杯,左手托杯底",
+      "單手握柄持杯",
+      "雙手捧杯身",
+      "左手持杯,右手托杯底"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-231",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 231,
+    "batch": "batch-002",
+    "stem": "冰茶製作時沖泡用水的水溫以()為宜。",
+    "choices": [
+      "60℃",
+      "80℃",
+      "95℃",
+      "100℃"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-232",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 232,
+    "batch": "batch-002",
+    "stem": "波蘭人大都飲用()茶,並配上糕點,是波蘭人至高的享受。",
+    "choices": [
+      "花茶",
+      "白茶",
+      "綠茶",
+      "紅茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-233",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 233,
+    "batch": "batch-002",
+    "stem": "波蘭人飲用紅茶的方式曾經和()相似,都習慣使用俄式茶炊「沙瑪瓦特」。",
+    "choices": [
+      "蘇聯",
+      "美國",
+      "中國",
+      "俄羅斯"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-234",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 234,
+    "batch": "batch-002",
+    "stem": "不同季節的茶葉中維生素的含量是最高的是() 。",
+    "choices": [
+      "春茶",
+      "夏茶",
+      "秋茶",
+      "冬茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-235",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 235,
+    "batch": "batch-002",
+    "stem": "佈置茶室空間時,陳設面積控制在牆面面積的()以內,宜少不宜多。",
+    "choices": [
+      "()",
+      "()",
+      "()",
+      "()"
+    ],
+    "answerIndex": 3,
+    "note": "原題小程式選項文字均顯示為()，標準題庫中D選項為「1/3」"
+  },
+  {
+    "id": "tea-cert-batch-002-236",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 236,
+    "batch": "batch-002",
+    "stem": "彩繪是在燒過的紫砂壺上用釉彩繪成滿身掛釉,此工藝在()宮廷很受歡迎。",
+    "choices": [
+      "宋代",
+      "明代",
+      "明清",
+      "清代"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-237",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 237,
+    "batch": "batch-002",
+    "stem": "藏族同胞喝茶的茶具是一種木頭雕刻的小碗,稱() 。",
+    "choices": [
+      "牛眼盅",
+      "茶盅",
+      "貢碗",
+      "翠花碗"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-238",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 238,
+    "batch": "batch-002",
+    "stem": "藏族無論農民牧民,男子的主要衣服是一件大領、開右襟的() 。",
+    "choices": [
+      "長衫",
+      "短衫",
+      "長袍",
+      "短袍"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-239",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 239,
+    "batch": "batch-002",
+    "stem": "插花是一門獨立的(),特別是在當代更是受到人們的青睞。",
+    "choices": [
+      "文學藝術",
+      "生活藝術",
+      "舞台藝術",
+      "表演藝術"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-240",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 240,
+    "batch": "batch-002",
+    "stem": "茶道精神是()的核心和靈魂。",
+    "choices": [
+      "茶藝",
+      "茶文化",
+      "茶儀",
+      "茶俗"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-241",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 241,
+    "batch": "batch-002",
+    "stem": "茶道是借品茗倡導清和、儉約、廉潔、求真、()的高雅精神。",
+    "choices": [
+      "自然",
+      "和諧",
+      "求美",
+      "淡泊"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-242",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 242,
+    "batch": "batch-002",
+    "stem": "茶道是以一定的()為基礎,以泡茶、置茶、烹茶、點茶為核心,以語言、動作、器具、裝飾為體現,以飲茶過程中的思想和精神追求為內涵等等。",
+    "choices": [
+      "精神內涵",
+      "環境氛圍",
+      "思想追求",
+      "哲學美學"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-243",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 243,
+    "batch": "batch-002",
+    "stem": "茶的()作用,是坐禪的最佳依賴和幫助。",
+    "choices": [
+      "防暑降溫",
+      "清心醒腦",
+      "強身健體",
+      "宗教崇拜"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-244",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 244,
+    "batch": "batch-002",
+    "stem": "茶館茶藝師對銷售中的茶葉要掌握「八知道」指的是要知道()、價格、質量、性能、特點、用途、沖泡方法、保管措施。",
+    "choices": [
+      "茶類",
+      "沖泡技能",
+      "品茶方法",
+      "茶葉的產地"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-245",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 245,
+    "batch": "batch-002",
+    "stem": "茶館茶藝師對銷售中的茶葉要掌握「八知道」指的是要知道茶葉的()、性能、特點、用途、沖泡方法、保管措施。",
+    "choices": [
+      "品種、類別、風格",
+      "茶名、茶類、茶量",
+      "產地、價格、質量",
+      "茶量、水溫、時間"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-246",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 246,
+    "batch": "batch-002",
+    "stem": "茶館應嚴格執行《公共場所衛生管理條例》和《公共場所衛生管理條例實施細則》等規章制度,服從()的監督、檢測。",
+    "choices": [
+      "當地衛生所",
+      "行業協會",
+      "品茗客人",
+      "衛生監督部門"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-247",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 247,
+    "batch": "batch-002",
+    "stem": "茶館用水要求水質達到四個指標:()、化學指標、毒理指標、微生物指標。",
+    "choices": [
+      "感官指標",
+      "輕清甘活",
+      "清澈透明",
+      "無肉眼可見物"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-248",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 248,
+    "batch": "batch-002",
+    "stem": "茶館中可以看到山景、()、海景等視線好、敞亮的地方是茶室位置的首選。",
+    "choices": [
+      "綠蔭",
+      "街景",
+      "密集建築物",
+      "江景"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-249",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 249,
+    "batch": "batch-002",
+    "stem": "茶具是每一個泡茶場所必須有的設備,如果要表現古樸醇厚的氣息,選用()更適合。",
+    "choices": [
+      "玻璃茶具",
+      "白瓷茶具",
+      "粗陶茶具",
+      "薄胎瓷茶具"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-250",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 250,
+    "batch": "batch-002",
+    "stem": "茶具這一概念最早出現於西漢時期()中「武陽買茶,烹茶盡具」。",
+    "choices": [
+      "王褒《茶譜》",
+      "陸羽《茶經》",
+      "陸羽《茶譜》",
+      "王褒《僮約》"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-251",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 251,
+    "batch": "batch-002",
+    "stem": "茶色素包括茶黃素、茶紅素、茶褐素等,其藥效作用與()相似。",
+    "choices": [
+      "維生素",
+      "茶氨酸",
+      "茶多糖",
+      "茶多酚"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-252",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 252,
+    "batch": "batch-002",
+    "stem": "茶聖陸羽所評的十大名泉中,天下第一泉是指()。",
+    "choices": [
+      "趵突泉",
+      "谷簾泉",
+      "陸羽泉",
+      "惠山泉"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-253",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 253,
+    "batch": "batch-002",
+    "stem": "茶是雲南當地的特產,傣族人愛喝()的大葉茶。",
+    "choices": [
+      "加香料",
+      "不加香料",
+      "加鹽",
+      "加糖"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-254",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 254,
+    "batch": "batch-002",
+    "stem": "茶樹的葉片背面生著()茸毛。",
+    "choices": [
+      "透明",
+      "粉色",
+      "白色",
+      "黃色"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-255",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 255,
+    "batch": "batch-002",
+    "stem": "茶樹的葉片有葉脈,()由葉柄引伸到葉尖。",
+    "choices": [
+      "主脈",
+      "側脈",
+      "網脈",
+      "細脈"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-256",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 256,
+    "batch": "batch-002",
+    "stem": "茶樹對土壤酸鹼度很敏感,它只能生長在()土壤中。",
+    "choices": [
+      "鹼性",
+      "弱鹼性",
+      "酸性",
+      "弱酸性"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-257",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 257,
+    "batch": "batch-002",
+    "stem": "茶樹扦插繁殖後代的意義是能充分保持母株的()。",
+    "choices": [
+      "高產特性",
+      "抗旱特性",
+      "性狀和特性",
+      "優質與抗蟲特性"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-258",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 258,
+    "batch": "batch-002",
+    "stem": "茶樹具有較耐陰的特性,正常生長的茶樹需() 。",
+    "choices": [
+      "強光",
+      "弱光",
+      "較強的光",
+      "較弱的光"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-259",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 259,
+    "batch": "batch-002",
+    "stem": "茶樹扦插繁殖後代的意義是能充分保持母株的()。",
+    "choices": [
+      "早生早採的特性",
+      "晚生遲採的特性",
+      "高產和優質的特性",
+      "性狀和特性"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-260",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 260,
+    "batch": "batch-002",
+    "stem": "茶樹生長需要年降水量在1500mm左右為宜,且分佈均勻,早晚有霧,相對濕度保持在()左右為佳。",
+    "choices": [
+      "()",
+      "()",
+      "()",
+      "()"
+    ],
+    "answerIndex": 3,
+    "note": "原題小程式選項文字均顯示為()，標準題庫中D選項為「80%」"
+  },
+  {
+    "id": "tea-cert-batch-002-261",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 261,
+    "batch": "batch-002",
+    "stem": "茶樹適宜在土質疏鬆,排水良好的()土壤中生長,以酸鹼度PH值在4.5—5.5之間為最佳。",
+    "choices": [
+      "中性",
+      "酸性",
+      "偏酸性",
+      "微酸性"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-262",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 262,
+    "batch": "batch-002",
+    "stem": "茶樹適宜在土質疏鬆,排水良好的微酸性土壤中生長,以酸鹼度PH值在()之間為最佳。",
+    "choices": [
+      "6.5—7.5",
+      "5.5—6.5",
+      "4.5—5.5",
+      "3.5—4.5"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-263",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 263,
+    "batch": "batch-002",
+    "stem": "茶樹性喜溫暖、(),對緯度的要求南緯45°與北緯38°間都可以種植。",
+    "choices": [
+      "乾燥",
+      "潮濕",
+      "水濕",
+      "濕潤"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-264",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 264,
+    "batch": "batch-002",
+    "stem": "茶樹性喜溫暖、(),通常氣溫在18℃—25℃之間最適宜生長。",
+    "choices": [
+      "乾燥的環境",
+      "濕潤的環境",
+      "避光的環境",
+      "陰冷的環境"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-265",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 265,
+    "batch": "batch-002",
+    "stem": "茶樹葉的葉緣有鋸齒,一般為16 ~ 32對,鋸齒部都是() 。",
+    "choices": [
+      "密而深",
+      "密而淺",
+      "疏而淺",
+      "疏而深"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-266",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 266,
+    "batch": "batch-002",
+    "stem": "茶樹葉片的葉尖分有急尖、漸尖、鈍尖和()。",
+    "choices": [
+      "圓尖",
+      "三角尖",
+      "波浪尖",
+      "其他三項都是"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-267",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 267,
+    "batch": "batch-002",
+    "stem": "茶樹葉片的葉脈呈網狀,有明顯的(),再分出側脈,然後又分出細脈。",
+    "choices": [
+      "主脈",
+      "側脈",
+      "網脈",
+      "細脈"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-268",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 268,
+    "batch": "batch-002",
+    "stem": "茶樹葉片的葉緣離葉基()處沒有鋸齒。",
+    "choices": [
+      "1/2",
+      "1/3",
+      "1/4",
+      "1/5"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-269",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 269,
+    "batch": "batch-002",
+    "stem": "茶湯入口之後,舌頭各部位的味蕾對不同的滋味感受不一樣,說法正確的是() 。",
+    "choices": [
+      "舌尖易感甜味,舌面易感鮮味,舌根易感苦味",
+      "舌尖易感鮮味,舌面易感苦味,舌根易感甜味",
+      "舌尖易感苦味,舌面易感甜味,舌根易感",
+      "酸味"
+    ],
+    "answerIndex": 0,
+    "note": "原題C選項後半截「酸味」被誤拆至D選項"
+  },
+  {
+    "id": "tea-cert-batch-002-270",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 270,
+    "batch": "batch-002",
+    "stem": "茶文化的三個主要社會功能是()。",
+    "choices": [
+      "修身、齊家、入仕",
+      "寡欲、清心、廉儉",
+      "雅志、敬客、行道",
+      "益思、明目、健身"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-271",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 271,
+    "batch": "batch-002",
+    "stem": "茶文化旅遊的特點是集()、遊覽觀光及學術考察為一體。",
+    "choices": [
+      "觀光茶山、體驗茶俗",
+      "休閒性、民間性",
+      "參與性、欣賞性",
+      "文化性、趣味性"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-272",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 272,
+    "batch": "batch-002",
+    "stem": "茶文化旅遊的特點是集文化性、趣味性、()及學術考察為一體。",
+    "choices": [
+      "體驗少數民族風情",
+      "親自煮茶",
+      "遊覽觀光",
+      "參與製茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-273",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 273,
+    "batch": "batch-002",
+    "stem": "茶席不僅是一個空間的概念,還是品茶環境的所在,是一種新的() 。",
+    "choices": [
+      "娛樂形式",
+      "活動方法",
+      "聚會方式",
+      "藝術形態"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-274",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 274,
+    "batch": "batch-002",
+    "stem": "茶席佈置時,鋪墊物採用()方法是鋪墊中最富層次感的一種方法。",
+    "choices": [
+      "平鋪",
+      "疊鋪",
+      "立體鋪",
+      "簾下鋪"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-275",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 275,
+    "batch": "batch-002",
+    "stem": "茶席的風格可以通過()來進行烘托,以達到想要營造的氛圍。",
+    "choices": [
+      "四周背景",
+      "茶品種類",
+      "茶品價格",
+      "茶點口感"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-276",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 276,
+    "batch": "batch-002",
+    "stem": "茶席的靈魂是(),它是茶席的思想基礎。",
+    "choices": [
+      "茶品",
+      "茶人",
+      "茶器",
+      "茶藝"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-277",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 277,
+    "batch": "batch-002",
+    "stem": "茶席的色彩,是指()色彩氣氛所呈現的色彩感覺。",
+    "choices": [
+      "具體和部分",
+      "個體和個別",
+      "具體和總體",
+      "全體和全部"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-278",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 278,
+    "batch": "batch-002",
+    "stem": "茶席風格及茶藝演示風格的體現離不開()的塑造。",
+    "choices": [
+      "茶點",
+      "茶事",
+      "茶葉",
+      "音樂"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-279",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 279,
+    "batch": "batch-002",
+    "stem": "茶席工藝品的作用是為了有效陪襯茶席主題,甚至起()的作用。",
+    "choices": [
+      "烘托茶具",
+      "深化主題",
+      "體現效果",
+      "增加亮點"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-280",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 280,
+    "batch": "batch-002",
+    "stem": "茶席掛畫的作用,主要是為了烘托茶席的()氣息。",
+    "choices": [
+      "文化",
+      "環境",
+      "生活",
+      "民族"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-281",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 281,
+    "batch": "batch-002",
+    "stem": "茶席器具組合細膩、靈巧的,宜選擇節奏平緩、()的音樂。",
+    "choices": [
+      "宏大",
+      "柔美",
+      "粗獷",
+      "時尚"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-282",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 282,
+    "batch": "batch-002",
+    "stem": "茶席設計,不僅題材、主題要創新,而且()同樣需要創新。",
+    "choices": [
+      "器具搭配",
+      "茶葉選擇",
+      "茶點選用",
+      "茶葉沖泡"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-283",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 283,
+    "batch": "batch-002",
+    "stem": "茶席設計的物質基礎與思想基礎是() 。",
+    "choices": [
+      "人",
+      "器",
+      "水",
+      "茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-284",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 284,
+    "batch": "batch-002",
+    "stem": "茶席設計的最後一個工作是()。",
+    "choices": [
+      "掛畫",
+      "命名",
+      "點香",
+      "插花"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-285",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 285,
+    "batch": "batch-002",
+    "stem": "茶席設計是以()為主體,在一定的空間形態中,與其它藝術相結合。",
+    "choices": [
+      "茶葉",
+      "茶器",
+      "茶湯",
+      "茶人"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-286",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 286,
+    "batch": "batch-002",
+    "stem": "茶席設計中()始終是茶席設計的源頭。",
+    "choices": [
+      "茶品的質量",
+      "茶人的訴求",
+      "茶具的質地",
+      "插花的款式"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-287",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 287,
+    "batch": "batch-002",
+    "stem": "茶席設計中()始終是茶席設計的源頭。",
+    "choices": [
+      "茶品的質量",
+      "茶人的訴求",
+      "茶具的質地",
+      "插花的款式"
+    ],
+    "answerIndex": 1,
+    "note": "與第286題完全重複"
+  },
+  {
+    "id": "tea-cert-batch-002-288",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 288,
+    "batch": "batch-002",
+    "stem": "茶席作品的主題是主旨、題旨,習慣稱之為() 。",
+    "choices": [
+      "主題思想",
+      "思想感情",
+      "主體情感",
+      "感情線索"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-289",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 289,
+    "batch": "batch-002",
+    "stem": "茶葉()是按照茶葉產品加工的階段不同,一般可分為毛茶標準樣、加工標準樣和貿易標準樣。",
+    "choices": [
+      "精製標準樣",
+      "出口標準樣",
+      "進口標準樣",
+      "實物標準樣"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-290",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 290,
+    "batch": "batch-002",
+    "stem": "茶葉按照加工工藝和發酵程度不同進行分類,分為綠茶、白茶、黃茶、青茶、紅茶、()。",
+    "choices": [
+      "緊壓茶",
+      "果味茶",
+      "黑茶",
+      "花茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-291",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 291,
+    "batch": "batch-002",
+    "stem": "茶葉保存可以採用低溫儲藏,所謂的低溫指()。",
+    "choices": [
+      "-5℃以下",
+      "1℃以下",
+      "-1℃以上",
+      "-2℃以上"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-292",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 292,
+    "batch": "batch-002",
+    "stem": "茶葉保存應注意光線照射,因為光線能促進植物的()氧化,加速茶葉變質。",
+    "choices": [
+      "色素或蛋白質",
+      "維生素或蛋白質",
+      "色素或脂質",
+      "色素或維生素"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-293",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 293,
+    "batch": "batch-002",
+    "stem": "茶葉保存應注意水分的控制,當茶葉水分含量()時,就會加速茶葉的變質。",
+    "choices": [
+      "超過4%",
+      "達到5%",
+      "不足5%",
+      "超過5%"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-294",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 294,
+    "batch": "batch-002",
+    "stem": "茶葉保存應注意溫度的控制。溫度平均每升高10℃,茶葉的色澤褐變速度將增加()倍。",
+    "choices": [
+      "3 ~ 5",
+      "2 ~ 3",
+      "1 ~ 2",
+      "1 ~ 3"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-295",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 295,
+    "batch": "batch-002",
+    "stem": "茶葉沖泡時,()不影響茶的香氣、色澤、滋味得以充分發揮。",
+    "choices": [
+      "選配茶具",
+      "投茶方式",
+      "水的溫度",
+      "技藝之美"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-296",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 296,
+    "batch": "batch-002",
+    "stem": "茶葉初製形成的茶葉產品稱為()。",
+    "choices": [
+      "毛茶",
+      "粗製茶",
+      "精製茶",
+      "商品茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-297",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 297,
+    "batch": "batch-002",
+    "stem": "茶葉傳說故事的流傳和()利用的年代一樣久遠。",
+    "choices": [
+      "茶樹利用",
+      "茶樹發現",
+      "茶葉生產",
+      "茶葉品"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-298",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 298,
+    "batch": "batch-002",
+    "stem": "茶葉的保存應注意氧氣的控制,茶葉中()的氧化和氧氣有關,會破壞茶葉的品質。",
+    "choices": [
+      "多酚類化合物",
+      "蛋白質類",
+      "維生素類",
+      "脂肪類"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-299",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 299,
+    "batch": "batch-002",
+    "stem": "茶葉感官審評,是由專業的()來完成。",
+    "choices": [
+      "服務員",
+      "評茶員",
+      "茶藝師",
+      "品茶師"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-300",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 300,
+    "batch": "batch-002",
+    "stem": "茶葉感官審評室內應保持清潔、()、無異味,空氣流通。",
+    "choices": [
+      "陽光",
+      "乾燥",
+      "濕度",
+      "以上都是"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-301",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 301,
+    "batch": "batch-002",
+    "stem": "茶葉國家標準一般是由國家技術監督局制定的,適用於全國範圍,國家標準的代號是() 。",
+    "choices": [
+      "GB",
+      "SB",
+      "QB",
+      "WMB"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-302",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 302,
+    "batch": "batch-002",
+    "stem": "茶葉合理儲藏的要點是低溫、()、去氧、避光。",
+    "choices": [
+      "增濕",
+      "高溫",
+      "乾燥",
+      "保濕"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-303",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 303,
+    "batch": "batch-002",
+    "stem": "茶葉界公認的說法是,生長在海拔()左右的茶葉,可以認為是高山茶。",
+    "choices": [
+      "800米",
+      "1000米",
+      "1200米",
+      "1500米"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-304",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 304,
+    "batch": "batch-002",
+    "stem": "茶葉精製就是對毛茶進行進一步的加工整理,這種加工整理包括篩分、風選、復火、切斷、揀剔、()、裝箱等過程。",
+    "choices": [
+      "勻稱",
+      "勻整",
+      "勻齊",
+      "勻堆"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-305",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 305,
+    "batch": "batch-002",
+    "stem": "茶葉具有利尿、調節體溫的作用,這與()有關。",
+    "choices": [
+      "茶多酚",
+      "黃酮類化合物",
+      "咖啡鹼",
+      "維生素"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-306",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 306,
+    "batch": "batch-002",
+    "stem": "茶葉品質順序的排列樣品應在()以上,評分前工作人員對茶樣進行分類、編號。",
+    "choices": [
+      "兩隻(含兩隻)",
+      "三隻(含三隻)",
+      "四隻(含四隻)",
+      "五隻(含五隻)"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-307",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 307,
+    "batch": "batch-002",
+    "stem": "茶葉審評時,開湯審評的順序是()。",
+    "choices": [
+      "嗅香氣、嚐滋味、看湯色、評葉底",
+      "嗅香氣、看湯色、嚐滋味、評葉底",
+      "看湯色、嗅香氣、嚐滋味、評葉底",
+      "嚐滋味、嗅香氣、看湯色、評葉底"
+    ],
+    "answerIndex": 1,
+    "note": "本影片結尾停於第307題點擊顯示答案前，答案於下一段影片開頭揭曉為B"
+  },
+  {
+    "id": "tea-cert-batch-002-308",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 308,
+    "batch": "batch-002",
+    "stem": "茶葉實物標準樣中，各類茶葉的()是按品質分級，級間不設等。",
+    "choices": [
+      "毛茶標準樣",
+      "加工標準樣",
+      "貿易標準樣",
+      "精製標準樣"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-309",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 309,
+    "batch": "batch-002",
+    "stem": "茶葉在儲存、銷售過程中要注意防潮、防霉、()。",
+    "choices": [
+      "防污染",
+      "防爆",
+      "防堵",
+      "防腐"
+    ],
+    "answerIndex": 0,
+    "note": "茶葉具有極強的吸濕性與吸味性，儲存與銷售時需防潮、防霉、防污染（防異味）。"
+  },
+  {
+    "id": "tea-cert-batch-002-310",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 310,
+    "batch": "batch-002",
+    "stem": "茶葉中的()含量多少直接影響著茶湯的鮮爽度。",
+    "choices": [
+      "茶多酚",
+      "氨基酸",
+      "蛋白質",
+      "茶黃素"
+    ],
+    "answerIndex": 1,
+    "note": "茶葉中的游離氨基酸（如茶氨酸）是形成茶湯鮮爽滋味的主要物質。"
+  },
+  {
+    "id": "tea-cert-batch-002-311",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 311,
+    "batch": "batch-002",
+    "stem": "茶葉中的多酚類物質主要是由()、黃酮類化合物、花青素和酚酸組成。",
+    "choices": [
+      "葉綠素",
+      "茶黃素",
+      "茶紅素",
+      "兒茶素"
+    ],
+    "answerIndex": 3,
+    "note": "茶多酚主要由兒茶素類、黃酮及黃酮醇類、花青素及花白素類、酚酸及縮酚酸類組成。"
+  },
+  {
+    "id": "tea-cert-batch-002-312",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 312,
+    "batch": "batch-002",
+    "stem": "茶葉中的咖啡鹼不具有()作用。",
+    "choices": [
+      "興奮",
+      "利尿",
+      "強心",
+      "抗氧化"
+    ],
+    "answerIndex": 3,
+    "note": "咖啡鹼具有興奮中樞神經、強心、利尿等生理作用；抗氧化主要是茶多酚與維生素的作用。"
+  },
+  {
+    "id": "tea-cert-batch-002-313",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 313,
+    "batch": "batch-002",
+    "stem": "茶葉中的咖啡鹼具有()作用。",
+    "choices": [
+      "美容",
+      "利尿",
+      "抗衰老",
+      "抗氧化"
+    ],
+    "answerIndex": 1,
+    "note": "咖啡鹼能促進腎臟血管舒張、增加腎血流量，具有明顯的利尿作用。"
+  },
+  {
+    "id": "tea-cert-batch-002-314",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 314,
+    "batch": "batch-002",
+    "stem": "茶葉中的維生素()是著名的抗氧化劑,具有防衰老的作用。",
+    "choices": [
+      "維生素A",
+      "維生素B",
+      "維生素H",
+      "維生素E"
+    ],
+    "answerIndex": 3,
+    "note": "維生素E（生育酚）是著名的脂溶性抗氧化劑，能阻斷脂質過氧化，具防衰老作用。"
+  },
+  {
+    "id": "tea-cert-batch-002-315",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 315,
+    "batch": "batch-002",
+    "stem": "茶葉中對味覺起主導作用的物質是()。",
+    "choices": [
+      "咖啡鹼與還原糖",
+      "茶多酚與咖啡鹼",
+      "咖啡鹼與氨基酸",
+      "茶多酚與氨基酸"
+    ],
+    "answerIndex": 3,
+    "note": "茶多酚（醇厚苦澀）與氨基酸（鮮爽甘甜）的含量及酚氨比對茶湯味覺起主導作用。"
+  },
+  {
+    "id": "tea-cert-batch-002-316",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 316,
+    "batch": "batch-002",
+    "stem": "茶葉中多酚類物質以兒茶素類化合物含量最高,約佔茶多酚總量()。",
+    "choices": [
+      "50%～60%",
+      "70%～80%",
+      "30%～40%",
+      "40%～50%"
+    ],
+    "answerIndex": 1,
+    "note": "兒茶素類是茶多酚的主體成分，約佔茶多酚總量的70%～80%。"
+  },
+  {
+    "id": "tea-cert-batch-002-317",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 317,
+    "batch": "batch-002",
+    "stem": "茶葉中含有()多種化學成分。",
+    "choices": [
+      "100",
+      "300",
+      "600",
+      "1000"
+    ],
+    "answerIndex": 2,
+    "note": "茶葉經過分離鑑定的化合物有600多種。"
+  },
+  {
+    "id": "tea-cert-batch-002-318",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 318,
+    "batch": "batch-002",
+    "stem": "茶葉中含有多種礦物質,以()含量最高。",
+    "choices": [
+      "磷與鉀",
+      "鈣與鎂",
+      "鐵與錳",
+      "鈣與鋁"
+    ],
+    "answerIndex": 0,
+    "note": "茶葉礦物質元素中以磷與鉀的含量最高。"
+  },
+  {
+    "id": "tea-cert-batch-002-319",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 319,
+    "batch": "batch-002",
+    "stem": "茶葉中化學成分主要有水分、蛋白質、茶多醣、維生素類、皂苷、灰分、礦物質,此外還包含其餘成分,以下描述有錯誤的是()。",
+    "choices": [
+      "茶多酚",
+      "氨基酸",
+      "脂肪",
+      "咖啡鹼"
+    ],
+    "answerIndex": 2,
+    "note": "茶葉的主要特徵化學成分包括茶多酚、氨基酸、咖啡鹼等，脂肪並非主要有效特徵成分（題庫標準答案為C）。"
+  },
+  {
+    "id": "tea-cert-batch-002-320",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 320,
+    "batch": "batch-002",
+    "stem": "茶葉中水溶性維生素主要是()。",
+    "choices": [
+      "維生素B族",
+      "維生素C族",
+      "維生素E族",
+      "維生素B族和C族"
+    ],
+    "answerIndex": 3,
+    "note": "茶葉中的水溶性維生素主要是維生素B族和維生素C族。"
+  },
+  {
+    "id": "tea-cert-batch-002-321",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 321,
+    "batch": "batch-002",
+    "stem": "茶葉中維生素一般分為水溶性和脂溶性兩類。水溶性維生素主要有()。",
+    "choices": [
+      "維生素A、B",
+      "維生素B、C",
+      "維生素C、E",
+      "維生素E、K"
+    ],
+    "answerIndex": 1,
+    "note": "維生素B族和維生素C屬於水溶性維生素；維生素A、D、E、K屬於脂溶性維生素。"
+  },
+  {
+    "id": "tea-cert-batch-002-322",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 322,
+    "batch": "batch-002",
+    "stem": "茶葉中主要藥用成分有咖啡鹼、茶多酚、氨基酸、()、礦物質等。",
+    "choices": [
+      "澱粉",
+      "脂肪",
+      "葉綠素",
+      "維生素"
+    ],
+    "answerIndex": 3,
+    "note": "茶葉主要藥用保健成分有咖啡鹼、茶多酚、氨基酸、維生素、礦物質等。"
+  },
+  {
+    "id": "tea-cert-batch-002-323",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 323,
+    "batch": "batch-002",
+    "stem": "茶藝表演中()、插花、焚香、點茶統稱為四藝。",
+    "choices": [
+      "掛畫",
+      "奇石",
+      "古玩",
+      "壺藝"
+    ],
+    "answerIndex": 0,
+    "note": "宋代文人「四藝」為點茶、焚香、插花、掛畫。"
+  },
+  {
+    "id": "tea-cert-batch-002-324",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 324,
+    "batch": "batch-002",
+    "stem": "茶藝表演中掛畫、插花、焚香、點茶統稱為()。",
+    "choices": [
+      "茶藝背景",
+      "茶境",
+      "四藝",
+      "四絕"
+    ],
+    "answerIndex": 2,
+    "note": "掛畫、插花、焚香、點茶統稱為「四藝」。"
+  },
+  {
+    "id": "tea-cert-batch-002-325",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 325,
+    "batch": "batch-002",
+    "stem": "茶藝沖泡台佈置符合()原則,同時顧及環境、季節以及服務對象的需要。",
+    "choices": [
+      "實用、簡約、張揚、優美",
+      "實用、華麗、潔淨、個性",
+      "華麗、簡約、潔淨、優美",
+      "實用、簡約、潔淨、優美"
+    ],
+    "answerIndex": 3,
+    "note": "茶藝沖泡台佈置應符合實用、簡約、潔淨、優美的原則。"
+  },
+  {
+    "id": "tea-cert-batch-002-326",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 326,
+    "batch": "batch-002",
+    "stem": "茶藝從業人員的職業道德水平直接關係到茶藝人員的精神面貌和茶藝館的()。",
+    "choices": [
+      "水平",
+      "形象",
+      "發展",
+      "服務"
+    ],
+    "answerIndex": 1,
+    "note": "從業人員的職業道德水平直接關係到精神面貌與茶藝館的形象。"
+  },
+  {
+    "id": "tea-cert-batch-002-327",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 327,
+    "batch": "batch-002",
+    "stem": "茶藝從業人員在茶藝服務工作中,應做到主動、熱情、()、周到。",
+    "choices": [
+      "禮貌",
+      "耐心",
+      "敏銳",
+      "決心"
+    ],
+    "answerIndex": 0,
+    "note": "茶藝服務工作中應做到主動、熱情、禮貌、周到（或主動、熱情、耐心、周到，依選項搭配此題為禮貌）。"
+  },
+  {
+    "id": "tea-cert-batch-002-328",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 328,
+    "batch": "batch-002",
+    "stem": "茶藝從業人員在茶藝服務工作中處處為客人著想,做到()、熱情、耐心、周到。",
+    "choices": [
+      "時尚",
+      "高價",
+      "高傲",
+      "主動"
+    ],
+    "answerIndex": 3,
+    "note": "服務工作應做到主動、熱情、耐心、周到。"
+  },
+  {
+    "id": "tea-cert-batch-002-329",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 329,
+    "batch": "batch-002",
+    "stem": "茶藝的風格除了茶藝師的演示風格自成一派外,大部分的作品是由()來呈現的。",
+    "choices": [
+      "茶技",
+      "茶席",
+      "茶品",
+      "音樂"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝作品的風格大部分是由茶席設計來呈現的。"
+  },
+  {
+    "id": "tea-cert-batch-002-330",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 330,
+    "batch": "batch-002",
+    "stem": "茶藝動作每個步驟都有嚴格的要求,首先是歸位,其次是規範,再次是()。",
+    "choices": [
+      "習慣",
+      "禮儀",
+      "恭敬",
+      "沖泡"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝動作要求：首先是歸位，其次是規範，再次是恭敬。"
+  },
+  {
+    "id": "tea-cert-batch-002-331",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 331,
+    "batch": "batch-002",
+    "stem": "茶藝服務人員在接待外賓時,絕不能有任何()的意識,應本著「來者都是客」的態度來接待。",
+    "choices": [
+      "輕重緩急",
+      "不聞不問",
+      "買賣先後",
+      "看客施禮"
+    ],
+    "answerIndex": 3,
+    "note": "接待外賓絕不能有「看客施禮」的意識，應一視同仁、「來者都是客」。"
+  },
+  {
+    "id": "tea-cert-batch-002-332",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 332,
+    "batch": "batch-002",
+    "stem": "茶藝服務人員在為日本或()賓客泡茶時應注意泡茶的禮儀規範。",
+    "choices": [
+      "朝鮮",
+      "台灣",
+      "泰國",
+      "韓國"
+    ],
+    "answerIndex": 3,
+    "note": "日本與韓國都有深厚的茶道禮儀傳統，為日本或韓國賓客泡茶時應特別注意泡茶禮儀規範。"
+  },
+  {
+    "id": "tea-cert-batch-002-333",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 333,
+    "batch": "batch-002",
+    "stem": "茶藝服務中與品茶客人交流時要()。",
+    "choices": [
+      "態度和藹、熱情友好",
+      "低聲說話、緩慢和氣",
+      "快速回答、簡單明瞭",
+      "嚴肅認真、語氣平和"
+    ],
+    "answerIndex": 0,
+    "note": "與品茶客人交流時應態度和藹、熱情友好。"
+  },
+  {
+    "id": "tea-cert-batch-002-334",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 334,
+    "batch": "batch-002",
+    "stem": "茶藝服務中與品茶客人交流時要()。",
+    "choices": [
+      "態度溫和、說話緩慢",
+      "嚴肅認真、有問必答",
+      "快速問答、簡單明瞭",
+      "語氣平和、熱情友好"
+    ],
+    "answerIndex": 3,
+    "note": "與品茶客人交流時要語氣平和、熱情友好。"
+  },
+  {
+    "id": "tea-cert-batch-002-335",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 335,
+    "batch": "batch-002",
+    "stem": "茶藝工作者應時刻注意理智地調節自己的(),不斷促進自己心理品質的完善,使之符合職業道德規範。",
+    "choices": [
+      "言行",
+      "習慣",
+      "愛好",
+      "語言"
+    ],
+    "answerIndex": 0,
+    "note": "茶藝工作者應時刻注意理智地調節自己的言行，使之符合職業道德規範。"
+  },
+  {
+    "id": "tea-cert-batch-002-336",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 336,
+    "batch": "batch-002",
+    "stem": "茶藝館經營,按照()的原則,建立健全經營安全的責任制並實行嚴格的目標管理。",
+    "choices": [
+      "個人負責",
+      "誰主管誰負責",
+      "監察部門負責",
+      "勞動部門負責"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝館經營安全按照「誰主管誰負責」的原則建立健全責任制。"
+  },
+  {
+    "id": "tea-cert-batch-002-337",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 337,
+    "batch": "batch-002",
+    "stem": "茶藝名稱的由來,有一個發展過程。在唐代,「藝」字與「茶」字發生()。",
+    "choices": [
+      "敬茶",
+      "習俗",
+      "聯姻",
+      "藝術"
+    ],
+    "answerIndex": 2,
+    "note": "在唐代，「藝」字與「茶」字開始發生聯姻（如陸羽茶道與茶藝概念的萌芽）。"
+  },
+  {
+    "id": "tea-cert-batch-002-338",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 338,
+    "batch": "batch-002",
+    "stem": "茶藝人員在待機接待時,下列()不屬於六種最佳主動接近顧客的內容。",
+    "choices": [
+      "顧客長時間凝視商品",
+      "顧客與茶藝人員目光相對時",
+      "顧客似在找尋商品時",
+      "顧客站店門口時"
+    ],
+    "answerIndex": 3,
+    "note": "顧客站在店門口觀望時尚未進店，不宜貿然上前推銷以免嚇跑顧客；其餘三項皆屬於主動接近顧客的最佳時機。"
+  },
+  {
+    "id": "tea-cert-batch-002-339",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 339,
+    "batch": "batch-002",
+    "stem": "茶藝人員在對商品、服務介紹時,應觀察顧客心理,著重做好四件事,以下不屬於這四件事的是()。",
+    "choices": [
+      "引起顧客的注意",
+      "培養對方的興趣",
+      "增強對方的慾望",
+      "知道商品的用途"
+    ],
+    "answerIndex": 3,
+    "note": "銷售心理四步驟（AIDA）：引起注意、培養興趣、增強購買慾望、促成購買行為，「知道商品的用途」不屬於這四件事。"
+  },
+  {
+    "id": "tea-cert-batch-002-340",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 340,
+    "batch": "batch-002",
+    "stem": "茶藝師的()是社會主義道德基本原則在茶藝服務中的具體體現,是評價茶藝從業人員職業行為的總準則。",
+    "choices": [
+      "職業紀律",
+      "職業道德",
+      "職業守則",
+      "職業規範"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝師的職業道德是評價茶藝從業人員職業行為的總準則。"
+  },
+  {
+    "id": "tea-cert-batch-002-341",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 341,
+    "batch": "batch-002",
+    "stem": "茶藝師的銷售技巧和()直接影響到茶藝館的經營狀況。",
+    "choices": [
+      "性別情況",
+      "銷售意識",
+      "外貌長相",
+      "職務身份"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝師的銷售技巧和銷售意識直接影響茶藝館的經營狀況。"
+  },
+  {
+    "id": "tea-cert-batch-002-342",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 342,
+    "batch": "batch-002",
+    "stem": "茶藝師的職業道德是評價茶藝從業人員的()的總準則。",
+    "choices": [
+      "職業紀律",
+      "職業道德",
+      "職業行為",
+      "職業習慣"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝師的職業道德是評價茶藝從業人員職業行為的總準則。"
+  },
+  {
+    "id": "tea-cert-batch-002-343",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 343,
+    "batch": "batch-002",
+    "stem": "茶藝師的職業能力應具有良好的語言表達能力,一定的人際交往能力,較好的形體知覺能力與動作協調能力,較敏銳的色覺、嗅覺和()。",
+    "choices": [
+      "錯覺",
+      "發覺",
+      "味覺",
+      "夢覺"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝師需具備較敏銳的色覺、嗅覺和味覺，以便評鑑茶葉與茶湯品質。"
+  },
+  {
+    "id": "tea-cert-batch-002-344",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 344,
+    "batch": "batch-002",
+    "stem": "茶藝師對所銷售的商品,需掌握其要領:要做到「一懂」、「四會」、「八知道」,下列()不屬於其要領。",
+    "choices": [
+      "知道商品的產地",
+      "知道商品的生產過程",
+      "知道商品的性能",
+      "知道商品的用途"
+    ],
+    "answerIndex": 1,
+    "note": "「八知道」包含知道商品的品名、規格、產地、牌號、性能、用途、價格、保管方法，不包含具體生產過程。"
+  },
+  {
+    "id": "tea-cert-batch-002-345",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 345,
+    "batch": "batch-002",
+    "stem": "茶藝師對所銷售的商品,需掌握其要領:要做到()。",
+    "choices": [
+      "一懂、二會、三知道",
+      "二懂、三會、四知道",
+      "一懂、八會、四知道",
+      "一懂、四會、八知道"
+    ],
+    "answerIndex": 3,
+    "note": "商品銷售基本功要領為「一懂、四會、八知道」。"
+  },
+  {
+    "id": "tea-cert-batch-002-346",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 346,
+    "batch": "batch-002",
+    "stem": "茶藝師服務過程中應注意印度人拿食物、禮品或敬茶時只能()。",
+    "choices": [
+      "用左手",
+      "用雙手",
+      "用右手",
+      "隨意"
+    ],
+    "answerIndex": 2,
+    "note": "印度習俗認為左手不潔，因此遞送食物、禮品或敬茶時應使用右手。"
+  },
+  {
+    "id": "tea-cert-batch-002-347",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 347,
+    "batch": "batch-002",
+    "stem": "茶藝師崗位可以促進()的對外傳播,使世界各國人民更加了解中國傳統茶文化的博大精深。",
+    "choices": [
+      "中華書法文化",
+      "中華茶文化",
+      "中華酒文化",
+      "中華中醫文化"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝師崗位能促進中華茶文化的對外傳播。"
+  },
+  {
+    "id": "tea-cert-batch-002-348",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 348,
+    "batch": "batch-002",
+    "stem": "茶藝師給賓客講故事,首先,要看()。",
+    "choices": [
+      "時間",
+      "地點",
+      "人物",
+      "經過"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝師給賓客講茶故事時，首先要看對象（人物），因人而異選擇合適的話題。"
+  },
+  {
+    "id": "tea-cert-batch-002-349",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 349,
+    "batch": "batch-002",
+    "stem": "茶藝師盡心盡職就是要在茶藝服務中充分發揮主觀能動性,用自己最大的努力盡到自己的(),處處為品茶的客人著想。",
+    "choices": [
+      "職業責任",
+      "職業習慣",
+      "職業紀律",
+      "職業榮譽"
+    ],
+    "answerIndex": 0,
+    "note": "盡心盡職即用自己最大的努力盡到自己的職業責任。"
+  },
+  {
+    "id": "tea-cert-batch-002-350",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 350,
+    "batch": "batch-002",
+    "stem": "茶藝師可根據(),確立茶藝演示的基本動作。",
+    "choices": [
+      "茶品",
+      "茶具",
+      "茶席",
+      "茶葉"
+    ],
+    "answerIndex": 1,
+    "note": "不同的茶具（如蓋碗、紫砂壺、玻璃杯）決定了不同的持器與沖泡手法，因此根據茶具確立茶藝演示的基本動作。"
+  },
+  {
+    "id": "tea-cert-batch-002-351",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 351,
+    "batch": "batch-002",
+    "stem": "茶藝師可以充分利用「購」在旅遊活動中的(),盡量引導遊客將茶葉作為饋贈親友的禮品。",
+    "choices": [
+      "普通性",
+      "特殊性",
+      "需求性",
+      "伸縮性"
+    ],
+    "answerIndex": 3,
+    "note": "旅遊六要素中「購」具有很大的消費伸縮性（彈性），可引導遊客選購茶葉作為禮品。"
+  },
+  {
+    "id": "tea-cert-batch-002-352",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 352,
+    "batch": "batch-002",
+    "stem": "茶藝師通過積極與顧客溝通引起顧客好感,顧客傾向於相信()的銷售。",
+    "choices": [
+      "默不作聲",
+      "誇誇其談",
+      "熱情友善",
+      "沉默寡言"
+    ],
+    "answerIndex": 2,
+    "note": "顧客傾向於相信熱情友善的銷售人員。"
+  },
+  {
+    "id": "tea-cert-batch-002-353",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 353,
+    "batch": "batch-002",
+    "stem": "茶藝師通過演示所要傳達給觀眾的一切文化,都匯聚於()當中。",
+    "choices": [
+      "主題",
+      "飾物",
+      "茶點",
+      "茶葉"
+    ],
+    "answerIndex": 0,
+    "note": "茶藝演示所要傳達給觀眾的一切文化內涵都匯聚於茶席與茶藝的「主題」當中。"
+  },
+  {
+    "id": "tea-cert-batch-002-354",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 354,
+    "batch": "batch-002",
+    "stem": "茶藝師為賓客呈遞茶單時,應當將茶單的()朝上,從賓客的右側打開茶單的第一頁,雙手握住茶單向賓客遞出。",
+    "choices": [
+      "背面",
+      "正面",
+      "側面",
+      "隨便打開一頁"
+    ],
+    "answerIndex": 1,
+    "note": "呈遞茶單時應將茶單的正面朝上，方便賓客閱讀。"
+  },
+  {
+    "id": "tea-cert-batch-002-355",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 355,
+    "batch": "batch-002",
+    "stem": "茶藝師要主動(),及時向部門領導匯報有建設性的意見和建議。",
+    "choices": [
+      "了解客人習慣",
+      "練習自身技能",
+      "營造文化氛圍",
+      "徵詢客人意見"
+    ],
+    "answerIndex": 3,
+    "note": "茶藝師應主動徵詢客人意見，並及時向部門領導匯報有建設性的意見和建議。"
+  },
+  {
+    "id": "tea-cert-batch-002-356",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 356,
+    "batch": "batch-002",
+    "stem": "茶藝師應對所有客人熱情、周到,做到(),迅速上前服務。",
+    "choices": [
+      "「隨叫隨到」",
+      "「問有答聲」",
+      "「熱情快速」",
+      "「招呼及時」"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝師對待客人應熱情周到，做到「問有答聲」，迅速上前服務。"
+  },
+  {
+    "id": "tea-cert-batch-002-357",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 357,
+    "batch": "batch-002",
+    "stem": "茶藝師在春節期間接待港、澳、台的客人時,注意不能說()。",
+    "choices": [
+      "「萬事如意」",
+      "「恭喜發財」",
+      "「祝賀新年」",
+      "「新年快樂」"
+    ],
+    "answerIndex": 3,
+    "note": "依大陸茶藝師檢定教材記載，粵語中「快樂」與「快落（衰落）」諧音，故教材稱接待港澳台客人春節忌說「新年快樂」，多說「恭喜發財」。"
+  },
+  {
+    "id": "tea-cert-batch-002-358",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 358,
+    "batch": "batch-002",
+    "stem": "茶藝師在端杯奉茶時,奉茶盤不能太高也不能太低,一般以客人()能看到杯中的茶湯的角度最為適宜。",
+    "choices": [
+      "15°",
+      "10°",
+      "20°",
+      "45°"
+    ],
+    "answerIndex": 3,
+    "note": "端杯奉茶時，一般以客人45°視角能看到杯中茶湯的高度最為適宜。"
+  },
+  {
+    "id": "tea-cert-batch-002-359",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 359,
+    "batch": "batch-002",
+    "stem": "茶藝師在對商品、服務介紹時,應觀察顧客心理,著重做好四件事,以下不屬於這四件事的是()。",
+    "choices": [
+      "引起顧客的注意",
+      "培養對方的興趣",
+      "增強對方的慾望",
+      "介紹自己的情況"
+    ],
+    "answerIndex": 3,
+    "note": "介紹商品與服務時著重做好的四件事（引起注意、培養興趣、增強慾望、促成購買）不包括「介紹自己的情況」。"
+  },
+  {
+    "id": "tea-cert-batch-002-360",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 360,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待服務「商務顧客」時,要求站立在(),同時易於觀察顧客、接近顧客的位置。",
+    "choices": [
+      "吧台附近",
+      "門口附近",
+      "顧客旁邊",
+      "易於照看自己管轄範圍"
+    ],
+    "answerIndex": 3,
+    "note": "待機服務時應站立在易於照看自己管轄範圍，同時易於觀察顧客、接近顧客的位置，既不打擾商務洽談又能及時響應。"
+  },
+  {
+    "id": "tea-cert-batch-002-361",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 361,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待顧客時,若想使自己積極主動的行為奏效,重要的是要()。",
+    "choices": [
+      "選準水溫",
+      "選準顧客",
+      "選準領導",
+      "選準時機"
+    ],
+    "answerIndex": 3,
+    "note": "主動接待顧客若想奏效，關鍵在於「選準時機」。"
+  },
+  {
+    "id": "tea-cert-batch-002-362",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 362,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待外賓的服務中應()。",
+    "choices": [
+      "觀察不同賓客的身份,以不同態度對待",
+      "細心觀察賓客的服飾,以不同態度對待",
+      "判斷出賓客的消費能力,以不同態度對待",
+      "以「來者都是客」的真誠態度對待"
+    ],
+    "answerIndex": 3,
+    "note": "接待外賓應一視同仁，以「來者都是客」的真誠態度對待。"
+  },
+  {
+    "id": "tea-cert-batch-002-363",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 363,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待外賓的服務中應()。",
+    "choices": [
+      "熱情周到、賓客至上",
+      "因人而異、看客施禮",
+      "從賓客的著裝上對賓客的身份進行判斷,進而以不同的態度接待",
+      "根據消費金額的大小採取不同態度的服務"
+    ],
+    "answerIndex": 0,
+    "note": "接待外賓應堅持熱情周到、賓客至上的原則。"
+  },
+  {
+    "id": "tea-cert-batch-002-364",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 364,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待外賓時,要以()的姿態出現,特別要注意維護國格和人格。",
+    "choices": [
+      "「民間外交官」",
+      "「中國傳統禮儀官」",
+      "「中國茶文化傳播大使」",
+      "「主人翁」"
+    ],
+    "answerIndex": 0,
+    "note": "接待外賓時，茶藝師要以「民間外交官」的姿態出現，不卑不亢，維護國格和人格。"
+  },
+  {
+    "id": "tea-cert-batch-002-365",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 365,
+    "batch": "batch-002",
+    "stem": "茶藝師在接待外賓時,應本著「()」的態度來接待。",
+    "choices": [
+      "隨性",
+      "主人",
+      "買賣先後",
+      "來者都是客"
+    ],
+    "answerIndex": 3,
+    "note": "接待外賓應本著「來者都是客」的態度。"
+  },
+  {
+    "id": "tea-cert-batch-002-366",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 366,
+    "batch": "batch-002",
+    "stem": "茶藝師在進行茶事服務時,需要掌握的要點是:選茶、擇水、備器、沖泡、()、茶人、禮儀、雅境。",
+    "choices": [
+      "品嚐",
+      "品味",
+      "品香",
+      "品韻"
+    ],
+    "answerIndex": 0,
+    "note": "茶事服務八要點為：選茶、擇水、備器、沖泡、品嚐、茶人、禮儀、雅境。"
+  },
+  {
+    "id": "tea-cert-batch-002-367",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 367,
+    "batch": "batch-002",
+    "stem": "茶藝師在品茗環境的佈置中其茶席設計上勿採用百合花的國家是()。",
+    "choices": [
+      "中國",
+      "美國",
+      "加拿大",
+      "韓國"
+    ],
+    "answerIndex": 2,
+    "note": "在加拿大習俗中，白百合花常與葬禮相關，故接待加拿大賓客時茶席設計忌用百合花。"
+  },
+  {
+    "id": "tea-cert-batch-002-368",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 368,
+    "batch": "batch-002",
+    "stem": "茶藝師職業道德的基本準則,就是指()。",
+    "choices": [
+      "遵守職業道德原則,熱愛茶藝工作,不斷提高服務質量",
+      "精通業務,不斷提高技能水平",
+      "努力鑽研業務,追求經濟效益第一",
+      "提高自身修養,實現自我提高"
+    ],
+    "answerIndex": 0,
+    "note": "茶藝師職業道德的基本準則即遵守職業道德原則，熱愛茶藝工作，不斷提高服務質量。"
+  },
+  {
+    "id": "tea-cert-batch-002-369",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 369,
+    "batch": "batch-002",
+    "stem": "茶藝演示者在演示時,不能只把重心放在舞台視覺效果上,只在乎動作過程而忽略()。",
+    "choices": [
+      "舞台背景",
+      "茶具效果",
+      "茶湯品質",
+      "茶葉品質"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝的核心是泡好一杯茶，演示時不能只注重舞台視覺效果與動作過程而忽略了最終的「茶湯品質」。"
+  },
+  {
+    "id": "tea-cert-batch-002-370",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 370,
+    "batch": "batch-002",
+    "stem": "茶藝演示中,茶藝插花雖能起到美化環境、烘托氛圍、顯現主題的作用,但實際運用中還需(),不能亂用、濫用。",
+    "choices": [
+      "過猶不及",
+      "如出一轍",
+      "恰恰相反",
+      "恰到好處"
+    ],
+    "answerIndex": 3,
+    "note": "茶席插花講究簡素清雅、恰到好處，不可喧賓奪主或濫用。"
+  },
+  {
+    "id": "tea-cert-batch-002-371",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 371,
+    "batch": "batch-002",
+    "stem": "茶藝演示中,重視用音樂來營造意境,特別是我國()名曲重情味、重音韻、重生命的享受。",
+    "choices": [
+      "民族",
+      "近代",
+      "現代",
+      "古典"
+    ],
+    "answerIndex": 3,
+    "note": "茶藝演示常選用我國古典名曲（如古琴、古箏曲）來營造深遠意境。"
+  },
+  {
+    "id": "tea-cert-batch-002-372",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 372,
+    "batch": "batch-002",
+    "stem": "茶藝演示中恰當的妝容可給人健康和美的感受,要求妝容()。",
+    "choices": [
+      "濃妝艷裹",
+      "宜濃不宜淡",
+      "宜艷不宜素",
+      "宜淡不宜濃"
+    ],
+    "answerIndex": 3,
+    "note": "茶藝師妝容應自然清雅，講究「宜淡不宜濃」。"
+  },
+  {
+    "id": "tea-cert-batch-002-373",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 373,
+    "batch": "batch-002",
+    "stem": "茶藝與插花,存在雙重結構,因為它們是兩種藝術,但又是以茶藝為()的藝術。",
+    "choices": [
+      "輔助",
+      "主體",
+      "干擾",
+      "次要"
+    ],
+    "answerIndex": 1,
+    "note": "在茶席中，茶藝與插花結合時是以「茶藝」為主體、插花為襯托。"
+  },
+  {
+    "id": "tea-cert-batch-002-374",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 374,
+    "batch": "batch-002",
+    "stem": "茶藝在本質上也是()的美好展示,是茶道高雅精神的具體呈現。",
+    "choices": [
+      "儀容",
+      "禮法",
+      "語言",
+      "儀表"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝在本質上也是「禮法」的美好展示，是茶道高雅精神的具體呈現。"
+  },
+  {
+    "id": "tea-cert-batch-002-375",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 375,
+    "batch": "batch-002",
+    "stem": "茶藝之美是茶藝演示人員通過()及內心美來表達。",
+    "choices": [
+      "飲茶習慣",
+      "儀表美",
+      "地域美",
+      "民族美"
+    ],
+    "answerIndex": 1,
+    "note": "茶藝演示人員通過外在的儀表美（含姿態動作美）及內在的內心美來表達茶藝之美。"
+  },
+  {
+    "id": "tea-cert-batch-002-376",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 376,
+    "batch": "batch-002",
+    "stem": "茶因其(),在旅遊中多飲能調節旅遊者的身心健康。",
+    "choices": [
+      "富含各種營養",
+      "含有豐富的維生素和礦物質",
+      "獨特的製作工藝",
+      "回歸自然的文化"
+    ],
+    "answerIndex": 1,
+    "note": "茶葉含有豐富的維生素和礦物質，旅途中多飲茶可補充營養、調節身心健康。"
+  },
+  {
+    "id": "tea-cert-batch-002-377",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 377,
+    "batch": "batch-002",
+    "stem": "茶因其(),在旅遊中多飲能調節旅遊者的身心健康。",
+    "choices": [
+      "生長地區多為高海拔",
+      "茶俗風情的特色",
+      "可融入文化娛樂活動中",
+      "多消油脂的藥用"
+    ],
+    "answerIndex": 3,
+    "note": "茶具有消食解膩、多消油脂的藥用保健功效，有助於調節旅遊者的身心健康。"
+  },
+  {
+    "id": "tea-cert-batch-002-378",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 378,
+    "batch": "batch-002",
+    "stem": "禪師茶藝按照佛教教理選用茶具,安排茶室擺設,賦予象徵意義,其中「茶扇十骨」表示()。",
+    "choices": [
+      "十全十美",
+      "功德圓滿",
+      "如同虛設",
+      "十界茶"
+    ],
+    "answerIndex": 3,
+    "note": "禪師茶藝中，「茶扇十骨」象徵佛教的「十界茶」。"
+  },
+  {
+    "id": "tea-cert-batch-002-379",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 379,
+    "batch": "batch-002",
+    "stem": "禪師茶藝講求僧侶們身體力行,自己種茶、製茶、煮茶,以茶供佛,(),以茶修行,即物求道,不離物言道。",
+    "choices": [
+      "以茶為生",
+      "以茶解渴",
+      "以茶待客",
+      "以茶消暑"
+    ],
+    "answerIndex": 2,
+    "note": "禪師茶藝講求以茶供佛、以茶待客、以茶修行。"
+  },
+  {
+    "id": "tea-cert-batch-002-380",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 380,
+    "batch": "batch-002",
+    "stem": "禪師茶藝講求僧侶們身體力行,自己種茶、製茶、煮茶,以茶供佛,以茶待客,(),即物求道,不離物言道。",
+    "choices": [
+      "以茶為生",
+      "以茶解渴",
+      "以茶修行",
+      "以茶消暑"
+    ],
+    "answerIndex": 2,
+    "note": "禪師茶藝講求以茶供佛、以茶待客、以茶修行，即物求道。"
+  },
+  {
+    "id": "tea-cert-batch-002-381",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 381,
+    "batch": "batch-002",
+    "stem": "禪師茶藝要求茶室如禪室,力求簡樸,()。",
+    "choices": [
+      "有祖師真容、茶、花、香、畫即可",
+      "要求設有誦經台、茶具、茶",
+      "要求備有茶、茶具",
+      "要求有經書、茶"
+    ],
+    "answerIndex": 0,
+    "note": "禪師茶藝要求茶室如禪室，力求簡樸，有祖師真容、茶、花、香、畫即可。"
+  },
+  {
+    "id": "tea-cert-batch-002-382",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 382,
+    "batch": "batch-002",
+    "stem": "禪師茶藝要求茶室如禪室,力求簡樸,有祖師真容、茶、()、香、畫即可。",
+    "choices": [
+      "文房四寶",
+      "花",
+      "蓮花墊",
+      "誦經台"
+    ],
+    "answerIndex": 1,
+    "note": "禪師茶室陳設簡樸，有祖師真容、茶、花、香、畫即可。"
+  },
+  {
+    "id": "tea-cert-batch-002-383",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 383,
+    "batch": "batch-002",
+    "stem": "禪師茶藝中「以茶禪定」的禪宗文化思想的倡導者是()。",
+    "choices": [
+      "皮日休",
+      "趙佶",
+      "榮西禪師",
+      "泰山降魔師"
+    ],
+    "answerIndex": 3,
+    "note": "唐代《封氏聞見記》記載，泰山靈巖寺降魔師大興禪教，學禪務於不寐，皆許飲茶，開創「以茶禪定」之風。"
+  },
+  {
+    "id": "tea-cert-batch-002-384",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 384,
+    "batch": "batch-002",
+    "stem": "禪師茶藝中的()的禪宗文化思想的倡導者是泰山降魔師。",
+    "choices": [
+      "「以茶修行」",
+      "「茶禪一味」",
+      "「以茶修身」",
+      "「以茶禪定」"
+    ],
+    "answerIndex": 3,
+    "note": "泰山降魔師是「以茶禪定」思想的倡導者。"
+  },
+  {
+    "id": "tea-cert-batch-002-385",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 385,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶被譽為中國茶道的「()」。",
+    "choices": [
+      "活化石",
+      "始祖",
+      "標本",
+      "四寶"
+    ],
+    "answerIndex": 0,
+    "note": "潮汕工夫茶承襲唐宋烹茶與明清泡茶遺風，被譽為中國茶道的「活化石」。"
+  },
+  {
+    "id": "tea-cert-batch-002-386",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 386,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶必備的「四寶」是()。",
+    "choices": [
+      "玉書煨、潮汕爐、大彬罐、若琛杯",
+      "玉書煨、潮汕爐、孟臣罐、若琛杯",
+      "隨手泡、酒精爐、孟臣罐、若琛杯",
+      "隨手泡、酒精爐、大彬罐、若琛杯"
+    ],
+    "answerIndex": 1,
+    "note": "潮汕工夫茶「四寶」為：玉書煨（砂銚）、潮汕爐（風爐）、孟臣罐（紫砂小壺）、若琛杯（白瓷小杯）。"
+  },
+  {
+    "id": "tea-cert-batch-002-387",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 387,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶必備的「四寶」中的「若琛杯」是指精細的()。",
+    "choices": [
+      "紫砂小品茗杯",
+      "白色小瓷杯",
+      "青色小瓷杯",
+      "黑釉小瓷杯"
+    ],
+    "answerIndex": 1,
+    "note": "「若琛杯」是指景德鎮燒製的薄胎精細白色小瓷杯（半隻空殼雞蛋大小）。"
+  },
+  {
+    "id": "tea-cert-batch-002-388",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 388,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶必備的「四寶」中的「玉書煨」是指()。",
+    "choices": [
+      "玻璃水壺",
+      "酒精爐",
+      "陶製水壺",
+      "不鏽鋼水壺"
+    ],
+    "answerIndex": 2,
+    "note": "「玉書煨」是指赭色薄胎扁形陶製煮水壺（砂銚）。"
+  },
+  {
+    "id": "tea-cert-batch-002-389",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 389,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中「乾壺置茶」是指()。",
+    "choices": [
+      "用沸水燙熱茶壺",
+      "將茶葉放進乾熱的茶壺中",
+      "用火將茶葉烤乾",
+      "用沸水淋澆茶壺外壁"
+    ],
+    "answerIndex": 2,
+    "note": "注意：題庫此題官方答案設為C（實際茶藝中乾壺置茶為將茶葉放進乾熱茶壺中，但本題庫系統標準答案為C，特此標註）。"
+  },
+  {
+    "id": "tea-cert-batch-002-390",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 390,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中「烘茶沖點」中的「烘茶」是()。",
+    "choices": [
+      "用火烤茶",
+      "用沸水燙熱茶盅",
+      "將茶葉放入乾熱的茶壺中",
+      "靠水溫來烘茶"
+    ],
+    "answerIndex": 1,
+    "note": "注意：題庫此題與389題選項定義互調，本題庫系統標準答案為B。"
+  },
+  {
+    "id": "tea-cert-batch-002-391",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 391,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中「淋眉」的目的是給茶壺(),以充分逼出茶香。",
+    "choices": [
+      "降低溫度",
+      "進一步加溫",
+      "烘乾茶葉",
+      "洗壺"
+    ],
+    "answerIndex": 1,
+    "note": "「淋眉」是用沸水淋澆壺蓋與壺身，目的是給茶壺進一步加溫，以逼出高香。"
+  },
+  {
+    "id": "tea-cert-batch-002-392",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 392,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中「燙壺溫盅」的目的是()。",
+    "choices": [
+      "降低茶湯的濃度",
+      "增加茶湯的濃度",
+      "提高茶壺和茶盅的溫度",
+      "降低茶壺和茶盅的溫度"
+    ],
+    "answerIndex": 2,
+    "note": "「燙壺溫盅」的目的是提高茶壺和茶盅（品茗杯）的溫度，有利於激發茶香。"
+  },
+  {
+    "id": "tea-cert-batch-002-393",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 393,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中通過()使茶葉在壺內旋轉,有利於滋味的迅速溢出。",
+    "choices": [
+      "低沖水",
+      "高沖水",
+      "迴旋沖水",
+      "沖水7-8分滿"
+    ],
+    "answerIndex": 1,
+    "note": "潮汕工夫茶講究「高沖低灑」，通過高沖水使茶葉在壺內翻滾旋轉，有利於滋味與香氣迅速溢出。"
+  },
+  {
+    "id": "tea-cert-batch-002-394",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 394,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶茶藝中用壺蓋輕輕刮去壺口泡沫稱之為「()」。",
+    "choices": [
+      "淋眉",
+      "高沖",
+      "低斟",
+      "刮頂"
+    ],
+    "answerIndex": 3,
+    "note": "以壺蓋刮去壺口茶沫稱為「刮頂」（或春風拂面）。"
+  },
+  {
+    "id": "tea-cert-batch-002-395",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 395,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶以()為止,要求各泡的茶湯濃度一致。",
+    "choices": [
+      "三泡",
+      "五泡",
+      "七泡",
+      "十泡"
+    ],
+    "answerIndex": 0,
+    "note": "傳統潮汕工夫茶一般以沖泡三泡為止，且要求各泡及各杯的茶湯濃度一致。"
+  },
+  {
+    "id": "tea-cert-batch-002-396",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 396,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶以三泡為止,要求各泡的茶湯濃度()。",
+    "choices": [
+      "隨心所欲",
+      "一致",
+      "由濃到淡",
+      "因人而異"
+    ],
+    "answerIndex": 1,
+    "note": "潮汕工夫茶要求各泡茶湯濃度一致。"
+  },
+  {
+    "id": "tea-cert-batch-002-397",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 397,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶在備器時,茶杯呈「品」字形置於茶盤中央,以「品」字頭朝()。",
+    "choices": [
+      "賓客",
+      "主泡",
+      "外",
+      "上"
+    ],
+    "answerIndex": 1,
+    "note": "潮汕工夫茶擺放三隻若琛杯呈「品」字形，以「品」字頭朝向主泡者（兩杯朝客、一杯朝主）。"
+  },
+  {
+    "id": "tea-cert-batch-002-398",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 398,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶置茶時,茶一般要置到壺的()滿。",
+    "choices": [
+      "七八成",
+      "五六成",
+      "八九成",
+      "二三成"
+    ],
+    "answerIndex": 0,
+    "note": "潮汕工夫茶投茶量較大，一般置茶到茶壺容量的七八成滿。"
+  },
+  {
+    "id": "tea-cert-batch-002-399",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 399,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶置茶時習慣用()投茶。",
+    "choices": [
+      "茶則",
+      "茶匙",
+      "茶罐",
+      "素紙"
+    ],
+    "answerIndex": 3,
+    "note": "傳統潮汕工夫茶置茶時，習慣將茶葉倒在素紙（白紙）上分粗細（納茶），再用素紙投入壺中。"
+  },
+  {
+    "id": "tea-cert-batch-002-400",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 400,
+    "batch": "batch-002",
+    "stem": "潮汕工夫茶中「灑茶」講究將茶水()到各個小茶杯中去。",
+    "choices": [
+      "高沖",
+      "低斟",
+      "隨意沖入",
+      "三點頭"
+    ],
+    "answerIndex": 1,
+    "note": "潮汕工夫茶講究「高沖低灑（低斟）」，灑茶時壺嘴緊貼杯沿低斟，以免香氣散失及起泡。"
+  },
+  {
+    "id": "tea-cert-batch-002-401",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 401,
+    "batch": "batch-002",
+    "stem": "沉香為香木所結(),因放入水中則下沉,故名。",
+    "choices": [
+      "果實",
+      "結晶",
+      "種子",
+      "樹脂"
+    ],
+    "answerIndex": 3,
+    "note": "沉香是瑞香科沉香屬樹木受傷後分泌凝聚的固態油脂（樹脂）與木質混合物，入水能沉。"
+  },
+  {
+    "id": "tea-cert-batch-002-402",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 402,
+    "batch": "batch-002",
+    "stem": "成都茶館一般多用()的銅壺為客人摻茶添水。",
+    "choices": [
+      "一尺五寸",
+      "二尺五寸",
+      "三尺五寸",
+      "四尺五寸"
+    ],
+    "answerIndex": 1,
+    "note": "成都茶館傳統長嘴銅壺壺嘴一般長約二尺五寸（約80公分左右）。"
+  },
+  {
+    "id": "tea-cert-batch-002-403",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 403,
+    "batch": "batch-002",
+    "stem": "沖泡白毫銀針時,通常一隻容量為150毫升的玻璃杯,投茶量約為()。",
+    "choices": [
+      "2克左右",
+      "3克左右",
+      "5克左右",
+      "8克左右"
+    ],
+    "answerIndex": 1,
+    "note": "150毫升玻璃杯沖泡白毫銀針，茶水比約1:50，投茶量約為3克左右。"
+  },
+  {
+    "id": "tea-cert-batch-002-404",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 404,
+    "batch": "batch-002",
+    "stem": "沖泡白牡丹最佳選配的茶具是()。",
+    "choices": [
+      "陶杯",
+      "玻璃杯",
+      "飄逸杯",
+      "蓋碗"
+    ],
+    "answerIndex": 3,
+    "note": "白牡丹一芽一二葉，使用白瓷蓋碗沖泡最能展現其毫香與清甜湯色。"
+  },
+  {
+    "id": "tea-cert-batch-002-405",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 405,
+    "batch": "batch-002",
+    "stem": "沖泡茶的過程中,在以下()動作體現茶藝師借用形體動作傳遞對賓客的敬意。",
+    "choices": [
+      "雙手奉茶",
+      "高沖水",
+      "溫潤泡",
+      "溫壺"
+    ],
+    "answerIndex": 0,
+    "note": "「雙手奉茶」並欠身行禮，直接體現了茶藝師借用形體動作傳遞對賓客的敬意。"
+  },
+  {
+    "id": "tea-cert-batch-002-406",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 406,
+    "batch": "batch-002",
+    "stem": "沖泡當年的白牡丹時,通常一隻容量為150毫升的蓋碗,投茶量約為()。",
+    "choices": [
+      "10克左右",
+      "9克左右",
+      "8克左右",
+      "5克左右"
+    ],
+    "answerIndex": 3,
+    "note": "150毫升蓋碗沖泡白牡丹，投茶量一般約為5克左右（約佔蓋碗容積1/3至1/2蓬鬆度）。"
+  },
+  {
+    "id": "tea-cert-batch-002-407",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 407,
+    "batch": "batch-002",
+    "stem": "沖泡調飲紅茶的盛茶杯應選用()。",
+    "choices": [
+      "玻璃杯",
+      "品茗杯",
+      "帶柄帶托的瓷杯",
+      "帶柄的大茶杯"
+    ],
+    "answerIndex": 2,
+    "note": "英式或西式調飲紅茶（加糖、奶、檸檬等）通常選用帶柄帶托的瓷杯（紅茶杯組）。"
+  },
+  {
+    "id": "tea-cert-batch-002-408",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 408,
+    "batch": "batch-002",
+    "stem": "沖泡調飲紅茶的時間一般以()分鐘為宜。",
+    "choices": [
+      "0.5～1",
+      "1～2",
+      "3～5",
+      "7～8"
+    ],
+    "answerIndex": 2,
+    "note": "沖泡調飲紅茶（如紅碎茶、CTC紅茶或工夫紅茶壺泡）浸泡時間一般以3～5分鐘為宜，使茶湯濃強適口以便調飲。"
+  },
+  {
+    "id": "tea-cert-batch-002-409",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 409,
+    "batch": "batch-002",
+    "stem": "沖泡調飲紅茶的水溫以()為宜。",
+    "choices": [
+      "25℃",
+      "60℃",
+      "70℃",
+      "90℃"
+    ],
+    "answerIndex": 3,
+    "note": "沖泡紅茶的水溫需較高，四個選項中以90℃最為適宜。"
+  },
+  {
+    "id": "tea-cert-batch-002-410",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 410,
+    "batch": "batch-002",
+    "stem": "沖泡調飲紅茶的置茶量按每位賓客()置於壺中。",
+    "choices": [
+      "2g",
+      "4g",
+      "6g",
+      "8g"
+    ],
+    "answerIndex": 0,
+    "note": "沖泡調飲紅茶的置茶量一般按每位賓客2g（或一茶匙）置於壺中。"
+  },
+  {
+    "id": "tea-cert-batch-002-411",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 411,
+    "batch": "batch-002",
+    "stem": "沖泡杭白菊和枸杞綠茶的配料茶,沖泡的水溫以()為宜。",
+    "choices": [
+      "60℃",
+      "80℃",
+      "90℃",
+      "100℃"
+    ],
+    "answerIndex": 0,
+    "note": "注意：題庫此題官方標準答案設為A（60℃）。"
+  },
+  {
+    "id": "tea-cert-batch-002-412",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 412,
+    "batch": "batch-002",
+    "stem": "沖泡綠茶時,通常一隻容量為100—150mL的玻璃杯,投茶量為()。",
+    "choices": [
+      "1—2g",
+      "1—1.5g",
+      "2—3g",
+      "3—4g"
+    ],
+    "answerIndex": 2,
+    "note": "綠茶沖泡茶水比約為1:50，100—150mL玻璃杯投茶量為2—3g。"
+  },
+  {
+    "id": "tea-cert-batch-002-413",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 413,
+    "batch": "batch-002",
+    "stem": "沖泡時,水溫(),用茶(),沖泡時間宜()。",
+    "choices": [
+      "高,少,短",
+      "低,多,長",
+      "低,多,短",
+      "高,多,短"
+    ],
+    "answerIndex": 3,
+    "note": "沖泡時若水溫高、用茶量多，則內含物質浸出快，沖泡時間宜短。"
+  },
+  {
+    "id": "tea-cert-batch-002-414",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 414,
+    "batch": "batch-002",
+    "stem": "沖泡細嫩名優白茶水溫要求達到()。",
+    "choices": [
+      "75℃～80℃",
+      "80℃～85℃",
+      "85℃～90℃",
+      "90℃～95℃"
+    ],
+    "answerIndex": 1,
+    "note": "細嫩名優白茶（如白毫銀針）芽頭肥嫩，沖泡水溫以80℃～85℃為宜，避免燙熟芽葉。"
+  },
+  {
+    "id": "tea-cert-batch-002-415",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 415,
+    "batch": "batch-002",
+    "stem": "沖泡以名優綠茶為茶坯製作的花茶,容量250毫升的蓋碗,投茶量約為()左右。",
+    "choices": [
+      "3克",
+      "5克",
+      "8克",
+      "10克"
+    ],
+    "answerIndex": 1,
+    "note": "按1:50茶水比計算，250毫升蓋碗沖泡花茶投茶量約為5克左右。"
+  },
+  {
+    "id": "tea-cert-batch-002-416",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 416,
+    "batch": "batch-002",
+    "stem": "沖泡有觀賞價值的綠茶,適合搭配的茶具型式是()。",
+    "choices": [
+      "無蓋杯",
+      "小壺",
+      "蓋碗",
+      "蓋杯"
+    ],
+    "answerIndex": 0,
+    "note": "沖泡有觀賞價值的名優綠茶，適合使用透明無蓋玻璃杯，既便於觀賞「茶舞」又避免悶黃芽葉。"
+  },
+  {
+    "id": "tea-cert-batch-002-417",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 417,
+    "batch": "batch-002",
+    "stem": "初始飲茶者,或平日不大飲茶的人,可以選擇()。",
+    "choices": [
+      "西湖龍井",
+      "濃香型鐵觀音",
+      "武夷岩茶",
+      "正山小種"
+    ],
+    "answerIndex": 0,
+    "note": "初始飲茶者或平日少飲茶者適合選擇清淡鮮爽的西湖龍井等名優綠茶。"
+  },
+  {
+    "id": "tea-cert-batch-002-418",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 418,
+    "batch": "batch-002",
+    "stem": "除了酥油茶外,藏族還有多種多樣的茶,用牛奶打製的叫()。",
+    "choices": [
+      "弄恰",
+      "俄恰",
+      "宇恰",
+      "拋瑪"
+    ],
+    "answerIndex": 0,
+    "note": "依題庫教材記載，藏族茶俗中用牛奶打製的茶叫「弄恰」（或俄恰為甜茶，此題官方答案為A）。"
+  },
+  {
+    "id": "tea-cert-batch-002-419",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 419,
+    "batch": "batch-002",
+    "stem": "傳說「神農嚐百草,發現()」是茶的起源。",
+    "choices": [
+      "茶甘甜爽口",
+      "茶清香撲鼻",
+      "茶葉綠油潤",
+      "茶可以解毒"
+    ],
+    "answerIndex": 3,
+    "note": "《神農本草經》記載：「神農嚐百草，日遇七十二毒，得荼（茶）而解之」，茶最初作為藥用解毒被發現。"
+  },
+  {
+    "id": "tea-cert-batch-002-420",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 420,
+    "batch": "batch-002",
+    "stem": "春回大地時節宜飲(),一則可以驅寒滌邪,二則有助於理鬱,去除胸中濁氣,促進人體陽剛之氣回升。",
+    "choices": [
+      "花茶",
+      "綠茶",
+      "白茶",
+      "紅茶"
+    ],
+    "answerIndex": 0,
+    "note": "春季萬物生發，宜飲花茶，花香濃郁芬芳，能驅寒散邪、疏肝理鬱、助發陽氣。"
+  },
+  {
+    "id": "tea-cert-batch-002-421",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 421,
+    "batch": "batch-002",
+    "stem": "瓷器茶具按色澤不同可分為()茶具、青瓷茶具、黑瓷茶具等。",
+    "choices": [
+      "釉瓷",
+      "彩瓷",
+      "白瓷",
+      "骨瓷"
+    ],
+    "answerIndex": 2,
+    "note": "瓷器茶具按色澤不同主要分為白瓷茶具、青瓷茶具、黑瓷茶具及彩瓷茶具等（與422題互見，此題填白瓷）。"
+  },
+  {
+    "id": "tea-cert-batch-002-422",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 422,
+    "batch": "batch-002",
+    "stem": "瓷器茶具按色澤不同可分為白瓷茶具、青瓷茶具、()茶具等。",
+    "choices": [
+      "黑瓷",
+      "彩瓷",
+      "釉瓷",
+      "骨瓷"
+    ],
+    "answerIndex": 0,
+    "note": "瓷器茶具按色澤不同可分為白瓷茶具、青瓷茶具、黑瓷茶具等。"
+  },
+  {
+    "id": "tea-cert-batch-002-423",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 423,
+    "batch": "batch-002",
+    "stem": "瓷器茶具質地細膩,但()低於玻璃茶具。",
+    "choices": [
+      "保溫性",
+      "透光性",
+      "光潔性",
+      "堅硬性"
+    ],
+    "answerIndex": 1,
+    "note": "瓷器茶具質地細膩、光潔，但透光性（透明度）低於玻璃茶具。"
+  },
+  {
+    "id": "tea-cert-batch-002-424",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 424,
+    "batch": "batch-002",
+    "stem": "從茶樹栽培來看,()和紫外線多一些有利於茶樹的生長。",
+    "choices": [
+      "漫射光",
+      "紅外線",
+      "藍光",
+      "紫光"
+    ],
+    "answerIndex": 0,
+    "note": "茶樹耐陰喜漫射光，高山雲霧多，漫射光和短波紫外線較多，有利於氨基酸和芳香物質合成。"
+  },
+  {
+    "id": "tea-cert-batch-002-425",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 425,
+    "batch": "batch-002",
+    "stem": "從萬曆到明末年間,紫砂壺製壺名人中的「四名家」是指()、趙梁、元暢、時朋。",
+    "choices": [
+      "楊彭年",
+      "時大彬",
+      "李仲芳",
+      "董翰"
+    ],
+    "answerIndex": 3,
+    "note": "明代紫砂「四大家（四名家）」為董翰、趙梁、元暢、時朋。"
+  },
+  {
+    "id": "tea-cert-batch-002-426",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 426,
+    "batch": "batch-002",
+    "stem": "從心理學基本知識來看,茶藝師與賓客的交流特點是()。",
+    "choices": [
+      "非直接交往和非語言交往",
+      "直接交往和非語言交往",
+      "非直接交往和語言交往",
+      "直接交往和語言交往"
+    ],
+    "answerIndex": 3,
+    "note": "茶藝師與賓客面對面服務，其交流特點主要是直接交往和語言交往。"
+  },
+  {
+    "id": "tea-cert-batch-002-427",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 427,
+    "batch": "batch-002",
+    "stem": "打油茶是()的飲茶習俗。",
+    "choices": [
+      "白族",
+      "藏族",
+      "侗族",
+      "苗族"
+    ],
+    "answerIndex": 2,
+    "note": "打油茶是侗族（以及瑤族等）最具代表性的傳統飲茶習俗。"
+  },
+  {
+    "id": "tea-cert-batch-002-428",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 428,
+    "batch": "batch-002",
+    "stem": "打製酥油茶時,加進(),使酥油茶更加柔潤清爽,餘香滿口,為茶中上品。",
+    "choices": [
+      "核桃仁、牛奶、雞蛋、葡萄乾",
+      "湯骨頭",
+      "中草藥",
+      "花生"
+    ],
+    "answerIndex": 0,
+    "note": "打製酥油茶時加入核桃仁、牛奶、雞蛋、葡萄乾等佐料，可使酥油茶更加柔潤香醇。"
+  },
+  {
+    "id": "tea-cert-batch-002-429",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 429,
+    "batch": "batch-002",
+    "stem": "大葉種蒸青綠茶按產品感官品質的不同,共分為四個等級,其中特級茶的滋味()。",
+    "choices": [
+      "濃醇",
+      "濃醇爽",
+      "濃醇鮮爽",
+      "濃尚醇"
+    ],
+    "answerIndex": 2,
+    "note": "大葉種蒸青綠茶特級茶的滋味品質要求為「濃醇鮮爽」。"
+  },
+  {
+    "id": "tea-cert-batch-002-430",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 430,
+    "batch": "batch-002",
+    "stem": "大葉種蒸青綠茶分為()。",
+    "choices": [
+      "特級(捲曲形)、特級(條形)、一級至三級",
+      "特級(針形)、特級(條形)、一級至二級",
+      "特級(針形)、特級(條形)、一級至三級",
+      "特級(針形)、特級(條形)、一級至四級"
+    ],
+    "answerIndex": 2,
+    "note": "大葉種蒸青綠茶分為特級（針形）、特級（條形）以及一級至三級。"
+  },
+  {
+    "id": "tea-cert-batch-002-431",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 431,
+    "batch": "batch-002",
+    "stem": "大宗茶是指使用機械設備大宗製作的茶,一般在()茶芽大量發芽,然後大批採摘製作的茶。",
+    "choices": [
+      "清明前",
+      "清明後",
+      "穀雨前",
+      "穀雨後"
+    ],
+    "answerIndex": 1,
+    "note": "大宗茶一般在清明後氣溫升高、茶芽大量發芽時大批採摘並使用機械加工製作。"
+  },
+  {
+    "id": "tea-cert-batch-002-432",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 432,
+    "batch": "batch-002",
+    "stem": "傣族文化中最為著名、影響最大的藝術,是傣族的()。",
+    "choices": [
+      "泰劇",
+      "傳說",
+      "歌謠",
+      "舞蹈"
+    ],
+    "answerIndex": 3,
+    "note": "傣族文化中最為著名、影響最大的藝術是傣族舞蹈（如孔雀舞）。"
+  },
+  {
+    "id": "tea-cert-batch-002-433",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 433,
+    "batch": "batch-002",
+    "stem": "傣族竹筒茶茶藝操作中,當主泡拿茶葉罐時,副泡甲需要將火盆上的毛竹遞給()。",
+    "choices": [
+      "副泡乙",
+      "主泡",
+      "副泡甲",
+      "觀眾"
+    ],
+    "answerIndex": 1,
+    "note": "傣族竹筒茶茶藝操作中，當主泡拿茶葉罐時，副泡甲需將火盆上烘烤的毛竹筒遞給主泡裝茶。"
+  },
+  {
+    "id": "tea-cert-batch-002-434",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 434,
+    "batch": "batch-002",
+    "stem": "傣族竹筒茶茶藝沖泡時,主泡採用懸壺高沖的手法在杯內注水()分滿即可。",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answerIndex": 2,
+    "note": "沖泡注水至杯內7分滿即可（茶滿七分、留三分人情）。"
+  },
+  {
+    "id": "tea-cert-batch-002-435",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 435,
+    "batch": "batch-002",
+    "stem": "傣族竹筒茶茶藝奉茶時,副泡會用竹枝沾少量水,輕輕沾在賓客肩膀處,以示()。",
+    "choices": [
+      "感謝",
+      "祝福",
+      "尊敬",
+      "崇敬"
+    ],
+    "answerIndex": 1,
+    "note": "傣族崇尚水文化（如潑水節），用竹枝沾水輕點賓客肩膀表示吉祥祝福。"
+  },
+  {
+    "id": "tea-cert-batch-002-436",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 436,
+    "batch": "batch-002",
+    "stem": "傣族竹筒茶茶藝演示中,開場舞結束後主泡上場,與副泡乙相遇時需行()禮。",
+    "choices": [
+      "鞠躬禮",
+      "合十禮",
+      "欠身禮",
+      "彎腰禮"
+    ],
+    "answerIndex": 1,
+    "note": "傣族全民信仰南傳佛教，見面與行禮常行「合十禮」。"
+  },
+  {
+    "id": "tea-cert-batch-002-437",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 437,
+    "batch": "batch-002",
+    "stem": "當賓客對飲用什麼茶葉拿不定主意時,茶藝師應()。",
+    "choices": [
+      "主動替賓客選定",
+      "將茶單交給賓客自選",
+      "留時間讓賓客考慮,確定後再來服務",
+      "熱情禮貌地為賓客推薦"
+    ],
+    "answerIndex": 3,
+    "note": "當賓客拿不定主意時，茶藝師應熱情禮貌地根據季節、賓客體質與口味為賓客推薦當季茶品。"
+  },
+  {
+    "id": "tea-cert-batch-002-438",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 438,
+    "batch": "batch-002",
+    "stem": "當茶藝師在為顧客送上所需的茶時,以下屬於信息溝通過程四要素中的「發送者」的是()。",
+    "choices": [
+      "顧客",
+      "吧台茶藝師",
+      "茶藝師",
+      "領班"
+    ],
+    "answerIndex": 2,
+    "note": "茶藝師為顧客奉茶並交流時，信息溝通過程中的「發送者」是該服務的茶藝師。"
+  },
+  {
+    "id": "tea-cert-batch-002-439",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 439,
+    "batch": "batch-002",
+    "stem": "當顧客離去時,茶藝師向其有禮貌地進行道別,可使自己的接待工作(),並且給對方親切、溫馨之感。",
+    "choices": [
+      "功虧一簣",
+      "善始善終",
+      "無法完成",
+      "擅離職守"
+    ],
+    "answerIndex": 1,
+    "note": "禮貌道別送客能使整個接待服務工作「善始善終」。"
+  },
+  {
+    "id": "tea-cert-batch-002-440",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 440,
+    "batch": "batch-002",
+    "stem": "當顧客消費完畢離開時,茶藝師應注意()。",
+    "choices": [
+      "沒有消費的顧客不必道別",
+      "邊道別邊接待新的顧客",
+      "道別不失真誠",
+      "由於顧客太多不必道別"
+    ],
+    "answerIndex": 2,
+    "note": "送別顧客時應注意道別不失真誠，給顧客留下美好的印象。"
+  },
+  {
+    "id": "tea-cert-batch-002-441",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 441,
+    "batch": "batch-002",
+    "stem": "當顧客要離開時,對待在店裡詢問了很久但沒有消費的顧客()。",
+    "choices": [
+      "不必道別",
+      "也應該道別",
+      "不予理睬",
+      "茶藝師聚在一起議論"
+    ],
+    "answerIndex": 1,
+    "note": "即使顧客詢問很久未消費，離開時也應該禮貌道別，展現良好職業素養。"
+  },
+  {
+    "id": "tea-cert-batch-002-442",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 442,
+    "batch": "batch-002",
+    "stem": "當勞資關係發生糾紛時,糾紛初起階段解決糾紛的機構有()。",
+    "choices": [
+      "勞動仲裁委員會",
+      "勞動爭議仲裁委員會",
+      "本單位勞動爭議調解委員會",
+      "人民法院"
+    ],
+    "answerIndex": 2,
+    "note": "依《勞動法》規定，勞動爭議發生後，初起階段當事人可以向本單位勞動爭議調解委員會申請調解。"
+  },
+  {
+    "id": "tea-cert-batch-002-443",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 443,
+    "batch": "batch-002",
+    "stem": "當日本賓客到茶藝館品茶時,茶藝師應注意不要使用()茶具。",
+    "choices": [
+      "紅色",
+      "黃色",
+      "藍色",
+      "綠色"
+    ],
+    "answerIndex": 3,
+    "note": "依大陸茶藝師檢定教材記載，日本人忌諱綠色（認為不祥），故接待日本賓客時注意不要使用綠色茶具。"
+  },
+  {
+    "id": "tea-cert-batch-002-444",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 444,
+    "batch": "batch-002",
+    "stem": "當三段茶比例不當時被稱為()。",
+    "choices": [
+      "脫檔",
+      "勻整",
+      "欠勻",
+      "勻齊"
+    ],
+    "answerIndex": 0,
+    "note": "茶葉感官審評術語中，上、中、下三段茶比例不當（如缺少中段茶）稱為「脫檔」。"
+  },
+  {
+    "id": "tea-cert-batch-002-445",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 445,
+    "batch": "batch-002",
+    "stem": "當溫度氣溫在()以上,且持續幾天高溫,茶樹生長便受到抑制,葉片出現灼傷。",
+    "choices": [
+      "45℃",
+      "35℃",
+      "30℃",
+      "50℃"
+    ],
+    "answerIndex": 1,
+    "note": "當氣溫在35℃以上並持續數日高溫乾旱時，茶樹新梢生長受抑，葉片易出現日灼傷。"
+  },
+  {
+    "id": "tea-cert-batch-002-446",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 446,
+    "batch": "batch-002",
+    "stem": "當新鮮的水中含有低價氧化鐵0.1mg/L時,茶湯(),滋味()。",
+    "choices": [
+      "發暗,變淡",
+      "變綠,醇厚",
+      "發暗,醇厚",
+      "變綠,變淡"
+    ],
+    "answerIndex": 0,
+    "note": "泡茶用水中若含有低價鐵離子達0.1mg/L，會與茶多酚結合使茶湯發暗、滋味變淡（苦澀無鮮爽感）。"
+  },
+  {
+    "id": "tea-cert-batch-002-447",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 447,
+    "batch": "batch-002",
+    "stem": "德國人忌吃核桃,忌諱玫瑰花,所以不要向德國賓客推薦玫瑰、針螺類的(),特別是準備茶點時不要擺核桃。",
+    "choices": [
+      "花茶",
+      "綠茶",
+      "黃茶",
+      "白茶"
+    ],
+    "answerIndex": 0,
+    "note": "依題庫教材記載，不要向德國賓客推薦玫瑰類的花茶，茶點不要擺核桃。"
+  },
+  {
+    "id": "tea-cert-batch-002-448",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 448,
+    "batch": "batch-002",
+    "stem": "滇紅的主產地是()。",
+    "choices": [
+      "安徽",
+      "海南",
+      "雲南",
+      "四川"
+    ],
+    "answerIndex": 2,
+    "note": "「滇」為雲南簡稱，滇紅工夫紅茶的主產地是雲南省（鳳慶、臨滄、勐海等地）。"
+  },
+  {
+    "id": "tea-cert-batch-002-449",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 449,
+    "batch": "batch-002",
+    "stem": "滇紅品種為雲南大葉種,其滋味()。",
+    "choices": [
+      "清醇,收斂性強",
+      "清醇,收斂性弱",
+      "濃醇,收斂性強",
+      "濃醇,收斂性弱"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-450",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 450,
+    "batch": "batch-002",
+    "stem": "點茶法是()的主要飲茶方法。",
+    "choices": [
+      "漢代",
+      "唐代",
+      "宋代",
+      "元代"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-451",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 451,
+    "batch": "batch-002",
+    "stem": "電窯以中低溫爐為主,溫度最高達(),主要用於烤製濕坯、烤花工藝。",
+    "choices": [
+      "950度",
+      "800度",
+      "580度",
+      "600度"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-452",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 452,
+    "batch": "batch-002",
+    "stem": "店長要負責管理專櫃的(),監督考核員工的工作表現。",
+    "choices": [
+      "一切工作",
+      "重要工作",
+      "量化考評",
+      "日常工作"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-453",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 453,
+    "batch": "batch-002",
+    "stem": "調飲茶奉茶時必須每杯旁邊放茶匙一個,用來()。",
+    "choices": [
+      "觀看湯色",
+      "調勻茶湯",
+      "添加調味品",
+      "打撈茶渣"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-454",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 454,
+    "batch": "batch-002",
+    "stem": "調飲法,即在茶湯中加入各種配料,以()的一種飲用方法。",
+    "choices": [
+      "佐湯味",
+      "提高花香",
+      "欣賞價值",
+      "增茶湯濃度"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-455",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 455,
+    "batch": "batch-002",
+    "stem": "調飲紅茶的盛茶杯多採用()。",
+    "choices": [
+      "帶柄帶托的瓷杯",
+      "金屬杯",
+      "紫砂杯",
+      "聞香杯"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-456",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 456,
+    "batch": "batch-002",
+    "stem": "調製“龍虎鬥”的茶葉原料是()。",
+    "choices": [
+      "曬青綠茶",
+      "紅茶",
+      "烏龍茶",
+      "黃茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-457",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 457,
+    "batch": "batch-002",
+    "stem": "調製“龍虎鬥”時,將茶盅洗淨後斟上半杯(),再將烤好的茶水趁熱倒入盛酒的茶盅內,冷酒熱茶相遇即發出悅耳響聲。",
+    "choices": [
+      "葡萄酒",
+      "生薑水",
+      "白酒",
+      "果酒"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-458",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 458,
+    "batch": "batch-002",
+    "stem": "冬瓜罐為()瓷器樣式,此器形流行於清代晚期和民國年間。",
+    "choices": [
+      "明代",
+      "清代",
+      "民國",
+      "元代"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-459",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 459,
+    "batch": "batch-002",
+    "stem": "凍頂烏龍茶的外形是(),色澤青綠,略帶白毫。",
+    "choices": [
+      "鬆散形",
+      "花朵形",
+      "捲曲形",
+      "半球形"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-460",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 460,
+    "batch": "batch-002",
+    "stem": "凍頂烏龍茶香氣為蘭花香、()交融,滋味甘滑爽口。",
+    "choices": [
+      "陳香",
+      "蜜香",
+      "乳香",
+      "桔香"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-461",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 461,
+    "batch": "batch-002",
+    "stem": "侗族打油茶茶樹原料採回後,先放入甑或鍋裡蒸煮至變黃,取出將水瀝乾,加入少許()略加揉搓,再用明火烤乾,裝入竹簍,掛在火塘上,使煙燻後更加乾燥。",
+    "choices": [
+      "鹽巴",
+      "茶油",
+      "米湯",
+      "香油"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-462",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 462,
+    "batch": "batch-002",
+    "stem": "侗族打油茶茶樹原料採回後,先放入甑或鍋裡蒸煮變黃,取出將水瀝乾,加入少許米湯略加揉搓,再用明火烤乾,裝入(),掛在火塘上,使煙燻後更加乾燥。",
+    "choices": [
+      "土罐",
+      "陶罐",
+      "瓷瓶",
+      "竹簍"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-463",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 463,
+    "batch": "batch-002",
+    "stem": "洞庭碧螺春外形的品質特點是()。",
+    "choices": [
+      "外形扁平光滑,形如“碗釘”",
+      "條索纖細、捲曲成螺、茸毛披露",
+      "外形細、圓緊、直、光、多白毫;內質清香,湯綠味濃",
+      "外形勻整,條索緊結,色澤灰綠光潤"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-464",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 464,
+    "batch": "batch-002",
+    "stem": "鬥茶的評比標準一是比茶湯的色澤,以()為上。",
+    "choices": [
+      "青白",
+      "白",
+      "黃白",
+      "灰白"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-465",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 465,
+    "batch": "batch-002",
+    "stem": "鬥茶所用的茶具以福建建安產的()為佳,其黑釉盞釉色黑如漆,瑩潤光亮,條紋細密如絲,它大口小底,形似漏斗,造型凝重,古樸厚實。",
+    "choices": [
+      "黑釉瓷",
+      "兔毫盞",
+      "黑彩瓷",
+      "黑釉碗"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-466",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 466,
+    "batch": "batch-002",
+    "stem": "獨立評分時,評茶員人數達()以上,可在評分的結果中去除一個最高分和一個最低分。",
+    "choices": [
+      "兩人",
+      "三人",
+      "四人",
+      "五人"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-467",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 467,
+    "batch": "batch-002",
+    "stem": "對茶樹來說,適宜在pH值為()的土壤中生長。",
+    "choices": [
+      "4.5～5.5",
+      "6.0～8.5",
+      "1.0～3.5",
+      "5.5～9.0"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-468",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 468,
+    "batch": "batch-002",
+    "stem": "對茶藝師來說,()是一種職業態度,它的基本作用是樹立自己的信譽,樹立起值得他人信賴的道德形象。",
+    "choices": [
+      "禮貌待客,態度和藹",
+      "真誠守信,一絲不苟",
+      "鑽研業務,精益求精",
+      "遵紀守法,文明經營"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-469",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 469,
+    "batch": "batch-002",
+    "stem": "對陶瓷茶具保養的方法,主要是在()方面。",
+    "choices": [
+      "展示",
+      "清潔",
+      "擺放",
+      "購置"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-470",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 470,
+    "batch": "batch-002",
+    "stem": "對於茶藝人員的道德品質修養來說,()尤為重要,這種修養方法從古至今都具有深刻意義。",
+    "choices": [
+      "互相批評",
+      "自我批評",
+      "互相批判",
+      "自我批判"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-471",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 471,
+    "batch": "batch-002",
+    "stem": "對於老顧客,平時消費時可以提供一定的(),或奉送茶點、茶葉等。",
+    "choices": [
+      "優惠",
+      "資金",
+      "憐惜",
+      "憐憫"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-472",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 472,
+    "batch": "batch-002",
+    "stem": "俄羅斯人早餐時喝茶,一般吃夾()或臘腸的麵包片、小餡餅。",
+    "choices": [
+      "沙拉",
+      "烤肉",
+      "火腿",
+      "生菜"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-473",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 473,
+    "batch": "batch-002",
+    "stem": "法國人飲用的茶葉及採用的品飲方式,因人而異,但是以飲用()茶的人最多,飲法與英國人類似。",
+    "choices": [
+      "花茶",
+      "白茶",
+      "綠茶",
+      "紅茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-474",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 474,
+    "batch": "batch-002",
+    "stem": "礬紅屬低溫紅釉,創燒於()時期景德鎮窯。",
+    "choices": [
+      "清代",
+      "明代",
+      "元代",
+      "宋代"
+    ],
+    "answerIndex": 2,
+    "note": "官方題庫原答案為C"
+  },
+  {
+    "id": "tea-cert-batch-002-475",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 475,
+    "batch": "batch-002",
+    "stem": "方器造型講究(),要求器皿挺括平正,輪廓線條分明。",
+    "choices": [
+      "方方正正",
+      "外圓內方",
+      "方底圓蓋",
+      "方中寓圓"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-476",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 476,
+    "batch": "batch-002",
+    "stem": "方器中()造型是清康熙朝較為流行的壺形。",
+    "choices": [
+      "四方形壺",
+      "六方形壺",
+      "八方形壺",
+      "長方形壺"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-477",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 477,
+    "batch": "batch-002",
+    "stem": "蜂蜜紅茶調飲沖泡法中調飲的方法是將()。",
+    "choices": [
+      "茶與蜂蜜一起煮沸",
+      "茶與蜂蜜一起沖泡飲用",
+      "茶湯過濾,再加蜂蜜",
+      "蜂蜜水沖泡茶葉"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-478",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 478,
+    "batch": "batch-002",
+    "stem": "馮可賓在()中提出了十三個“宜茶”條件。",
+    "choices": [
+      "《岕茶箋》",
+      "《大觀茶論》",
+      "《茶經》",
+      "《茶譜》"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-479",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 479,
+    "batch": "batch-002",
+    "stem": "逢年過節,摩洛哥政府必以()招待外國賓客。",
+    "choices": [
+      "紅茶",
+      "甜茶",
+      "奶茶",
+      "拉茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-480",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 480,
+    "batch": "batch-002",
+    "stem": "鳳凰單樅的外形是()。",
+    "choices": [
+      "鬆散形",
+      "直條形",
+      "捲曲形",
+      "半球形"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-481",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 481,
+    "batch": "batch-002",
+    "stem": "鳳凰單樅香型因各名樅樹形、葉形不同而各有差異,香氣清醇濃鬱具有自然蘭花清香的,稱為()。",
+    "choices": [
+      "芝蘭香單樅",
+      "杏仁香單樅",
+      "嶺頭單樅",
+      "桂花香單樅"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-482",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 482,
+    "batch": "batch-002",
+    "stem": "服飾的產生最初是人類為抵禦風寒、保障人身安全的一種()創造。",
+    "choices": [
+      "文化",
+      "動力",
+      "思想",
+      "原則"
+    ],
+    "answerIndex": 1,
+    "note": "官方題庫原答案為B"
+  },
+  {
+    "id": "tea-cert-batch-002-483",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 483,
+    "batch": "batch-002",
+    "stem": "感觀審評常用虛詞中,形容茶雖在規格上或某種程度上不夠要求,且差距較大時用()。",
+    "choices": [
+      "較",
+      "尚",
+      "欠",
+      "稍"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-484",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 484,
+    "batch": "batch-002",
+    "stem": "感觀審評常用虛詞中,形容兩者相比,品質水平差距甚小或某因子略差可用()一詞。",
+    "choices": [
+      "相當",
+      "接近",
+      "相同",
+      "同樣"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-485",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 485,
+    "batch": "batch-002",
+    "stem": "感官審評的評茶方法分有()因子評茶法和八項因子評茶法。",
+    "choices": [
+      "五項",
+      "四項",
+      "三項",
+      "二項"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-486",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 486,
+    "batch": "batch-002",
+    "stem": "感官審評中有專用的器具,如精製茶(成品茶)審評杯呈圓柱形,高66mm,外徑67mm,容量()毫升。",
+    "choices": [
+      "250",
+      "180",
+      "200",
+      "150"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-487",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 487,
+    "batch": "batch-002",
+    "stem": "乾看外形主要是()。",
+    "choices": [
+      "先看上段茶、再看中段茶、後看下段茶",
+      "先看下段茶、再看中段茶、後看上段茶",
+      "先看下段茶、再看上段茶、後看中段茶",
+      "先看上段茶、再看下段茶、後看中段茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-488",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 488,
+    "batch": "batch-002",
+    "stem": "高麗朝廷舉辦的茶禮---燃燈會,每年的()在宮中康安殿的浮階裡開的燃燈會中舉行茶禮。",
+    "choices": [
+      "農歷二月十五日",
+      "農歷十一月十四日",
+      "農歷十一月十五日",
+      "農歷四月十三日"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-489",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 489,
+    "batch": "batch-002",
+    "stem": "各茶類審評因子評分體系中,葉底分值佔比最低的是()茶。",
+    "choices": [
+      "黑散茶",
+      "緊壓茶",
+      "黃茶",
+      "袋泡茶"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-490",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 490,
+    "batch": "batch-002",
+    "stem": "根據《茶葉衛生管理辦法》,鮮葉、毛茶收購應嚴格執行驗收標準,不得收購摻假、含有非茶類物質以及有異味、劣變、()等不符合衛生要求的茶葉。",
+    "choices": [
+      "香味",
+      "霉變",
+      "色澤",
+      "滋味"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-491",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 491,
+    "batch": "batch-002",
+    "stem": "根據《茶葉衛生管理辦法》,裝運茶葉的運輸工具必須清潔、無毒、無異味,運輸途中要求做到防雨、防潮、()等。",
+    "choices": [
+      "防震",
+      "防磁",
+      "防污染",
+      "防風"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-492",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 492,
+    "batch": "batch-002",
+    "stem": "根據《中醫體質分類判定標準》中,將人分為()不同的體質。",
+    "choices": [
+      "三種",
+      "五種",
+      "七種",
+      "九種"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-493",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 493,
+    "batch": "batch-002",
+    "stem": "根據茶樹品種和產品要求的不同,()有葉茶、碎茶、片茶和末茶四個花色。",
+    "choices": [
+      "工夫紅茶",
+      "小種紅茶",
+      "紅碎茶",
+      "煙紅茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-494",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 494,
+    "batch": "batch-002",
+    "stem": "根據地區的不同,擂茶可分為桃江擂茶、桃花源擂茶、()、臨川擂茶和將樂擂茶等。",
+    "choices": [
+      "四川擂茶",
+      "鳳凰擂茶",
+      "安化擂茶",
+      "廣東擂茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-495",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 495,
+    "batch": "batch-002",
+    "stem": "根據地區的不同,擂茶可分為桃江擂茶、桃花源擂茶、安化擂茶、臨川擂茶和()等。",
+    "choices": [
+      "四川擂茶",
+      "鳳凰擂茶",
+      "將樂擂茶",
+      "廣東擂茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-496",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 496,
+    "batch": "batch-002",
+    "stem": "根據國際《兒童權利公約》的界定,兒童是指()以下的任何人。",
+    "choices": [
+      "14歲",
+      "15歲",
+      "16歲",
+      "18歲"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-497",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 497,
+    "batch": "batch-002",
+    "stem": "根據季節變化和客人的口味在基本配料的基礎上增加一些中草藥等,如冬天、春天一般加(),夏天加(),秋天加()。",
+    "choices": [
+      "生薑,魚腥草,貢菊",
+      "肉桂,貢菊,藿香",
+      "藿香,金銀花,生薑",
+      "魚腥草,薄荷,杭白菊"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-498",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 498,
+    "batch": "batch-002",
+    "stem": "根據銷售心理學基本常識,可將信息交往分為單向交往和()交往。",
+    "choices": [
+      "間接",
+      "雙向",
+      "直接",
+      "反向"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-499",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 499,
+    "batch": "batch-002",
+    "stem": "工匠精神是一種(),是職業道德、職業能力、職業品質的體現,是從業者職業價值取向和行為表現。",
+    "choices": [
+      "職業精神",
+      "職業習慣",
+      "職業良心",
+      "職業行為"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-500",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 500,
+    "batch": "batch-002",
+    "stem": "工匠精神是一種職業精神,是職業道德、職業能力、()的體現,是從業者職業價值取向和行為表現。",
+    "choices": [
+      "職業習慣",
+      "職業品質",
+      "職業榮譽",
+      "職業行為"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-501",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 501,
+    "batch": "batch-002",
+    "stem": "公元4世紀末5世紀初,中國飲茶之風開始傳入()。",
+    "choices": [
+      "日本",
+      "朝鮮半島",
+      "泰國",
+      "印度"
+    ],
+    "answerIndex": 0,
+    "note": "官方題庫原答案為A"
+  },
+  {
+    "id": "tea-cert-batch-002-502",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 502,
+    "batch": "batch-002",
+    "stem": "貢眉是以()的嫩梢為原料,經萎凋、乾燥、揀剔等特定工藝過程製成的白茶產品。",
+    "choices": [
+      "大白茶茶樹品種",
+      "水仙茶樹品種",
+      "大白毫茶樹品種",
+      "群體種茶樹品種"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-503",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 503,
+    "batch": "batch-002",
+    "stem": "狗牯腦茶產於江西()。",
+    "choices": [
+      "宜春",
+      "贛州",
+      "南昌",
+      "遂川"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-504",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 504,
+    "batch": "batch-002",
+    "stem": "構思()是展覽會會務準備工作之一。",
+    "choices": [
+      "整個展覽結構",
+      "展位佈局圖",
+      "展覽活動安排",
+      "會務安排"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-505",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 505,
+    "batch": "batch-002",
+    "stem": "古代文人茶藝的精神是追求“()儉清和”。",
+    "choices": [
+      "精",
+      "美",
+      "廉",
+      "靜"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-506",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 506,
+    "batch": "batch-002",
+    "stem": "古人歷來提倡用()泡茶。",
+    "choices": [
+      "江水",
+      "井水",
+      "河水",
+      "山泉水"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-507",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 507,
+    "batch": "batch-002",
+    "stem": "古人認為“(),為三沸,以上水老不可食也。”",
+    "choices": [
+      "騰波鼓浪",
+      "如魚目,微有聲",
+      "波濤洶湧",
+      "緣邊如湧泉連珠"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-508",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 508,
+    "batch": "batch-002",
+    "stem": "谷簾泉有()之說。",
+    "choices": [
+      "“天下第一泉”",
+      "“天下第二泉”",
+      "“天下第四泉”",
+      "“天下第五泉”"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-509",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 509,
+    "batch": "batch-002",
+    "stem": "顧客接待的10個基本環節是:待機、接觸、出樣、()、開票、收找、包紮、遞交、送別。",
+    "choices": [
+      "演示、比較",
+      "試飲、比較",
+      "沖泡、品飲",
+      "展示、介紹"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-510",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 510,
+    "batch": "batch-002",
+    "stem": "顧客接待環節中的四個重點是:()、拿遞展示、介紹推薦、成交送別。",
+    "choices": [
+      "迎接賓客",
+      "招呼賓客",
+      "待機接觸",
+      "整潔場所"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-511",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 511,
+    "batch": "batch-002",
+    "stem": "顧客接待環節中的四個重點是:待機接觸、拿遞展示、介紹推薦、()。",
+    "choices": [
+      "開單收費",
+      "成交送別",
+      "結算收找",
+      "買單"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-512",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 512,
+    "batch": "batch-002",
+    "stem": "關於冬季飲茶以下描述正確的是()。",
+    "choices": [
+      "宜飲花茶",
+      "只能飲綠茶",
+      "只能飲中性的烏龍茶",
+      "宜飲紅茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-513",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 513,
+    "batch": "batch-002",
+    "stem": "關於對品茗用水的說法錯誤的是()。",
+    "choices": [
+      "每升水中鈣鎂離子含量大於8毫克的適合泡花茶",
+      "每升水中鈣鎂離子含量小於8毫克的適合泡綠茶",
+      "C用軟泡茶,其效果較好",
+      "D永久性硬水不宜泡茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-514",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 514,
+    "batch": "batch-002",
+    "stem": "關於飲茶起源,也有人認為是蜀魏著名經學家()好茗飲而開始的。",
+    "choices": [
+      "王肅",
+      "陸羽",
+      "王褒",
+      "華佗"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-515",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 515,
+    "batch": "batch-002",
+    "stem": "灌木型茶樹的基本特徵是()。",
+    "choices": [
+      "葉小而稀,分枝稀,樹冠大",
+      "葉大而稀,分枝稀,樹冠小",
+      "沒有明顯主幹,分枝較密,葉大而稀",
+      "沒有明顯主幹,分枝較密,多近地面,樹冠矮小"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-516",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 516,
+    "batch": "batch-002",
+    "stem": "罐罐茶敬茶用的茶盅用的是小巧精美的()茶盅。",
+    "choices": [
+      "牛眼",
+      "核桃",
+      "柿子",
+      "饅頭"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-517",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 517,
+    "batch": "batch-002",
+    "stem": "罐罐茶可分為麵罐茶和()兩種。",
+    "choices": [
+      "八寶茶",
+      "酥油茶",
+      "五福茶",
+      "油炒茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-518",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 518,
+    "batch": "batch-002",
+    "stem": "罐罐茶中油炒茶敬茶用的茶盅是小巧精美的“()”茶盅。",
+    "choices": [
+      "牛眼",
+      "竹節",
+      "鳳眼",
+      "荷葉"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-519",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 519,
+    "batch": "batch-002",
+    "stem": "光帶中的()對於提高茶湯的水色及香氣有一定影響。",
+    "choices": [
+      "紅外線",
+      "紫外線",
+      "藍光",
+      "紅光"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-520",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 520,
+    "batch": "batch-002",
+    "stem": "廣東人、台灣人對陶製水壺的叫法是()。",
+    "choices": [
+      "隨手泡",
+      "玉書煨",
+      "煮水器",
+      "砂銚"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-521",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 521,
+    "batch": "batch-002",
+    "stem": "廣西六堡茶屬於()。",
+    "choices": [
+      "四川邊茶",
+      "湖北老青茶",
+      "滇桂黑茶",
+      "湖南黑茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-522",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 522,
+    "batch": "batch-002",
+    "stem": "廣義茶文化的含義是()。",
+    "choices": [
+      "茶葉的物質與精神財富的總和",
+      "茶葉的物質及經濟價值關係",
+      "茶葉藝術",
+      "茶葉經銷"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-523",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 523,
+    "batch": "batch-002",
+    "stem": "桂平西山茶,屬於()類,產於廣西壯族自治區的桂平市西山一帶。",
+    "choices": [
+      "綠茶",
+      "紅茶",
+      "白茶",
+      "黃茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-524",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 524,
+    "batch": "batch-002",
+    "stem": "韓國茶禮的過程,從()、環境、茶室陳設、書畫、茶具造型與排列、投茶、注茶、點茶、喝茶到茶點,都有嚴格的規矩和程序。",
+    "choices": [
+      "選茶",
+      "點香",
+      "迎客",
+      "服飾"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-525",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 525,
+    "batch": "batch-002",
+    "stem": "韓國的茶道分為()。",
+    "choices": [
+      "點茶道和煮茶道",
+      "抹茶道和煎茶道",
+      "抹茶法和煎茶法",
+      "點茶法和煮茶法"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-526",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 526,
+    "batch": "batch-002",
+    "stem": "韓國的茶道分為煮茶法和()。",
+    "choices": [
+      "祭茶禮",
+      "煎茶道",
+      "抹茶道",
+      "點茶法"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-527",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 527,
+    "batch": "batch-002",
+    "stem": "韓國的飲茶歷史可溯至新羅時代(),已用茶為祭品。",
+    "choices": [
+      "約357年",
+      "約566年",
+      "約668年",
+      "約916年"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-528",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 528,
+    "batch": "batch-002",
+    "stem": "韓國的飲茶與中國古代飲茶頗為相似,以“和”“靜”為基本精神,其含義泛指()。",
+    "choices": [
+      "和敬儉真",
+      "和敬清寂",
+      "和敬雅真",
+      "清和寂雅"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-529",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 529,
+    "batch": "batch-002",
+    "stem": "韓國的飲茶與中國古代飲茶頗為相似,以()為基本精神。",
+    "choices": [
+      "和、靜",
+      "清、寂",
+      "簡、真",
+      "雅、禮"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-530",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 530,
+    "batch": "batch-002",
+    "stem": "漢代,佛教傳入我國,因禮佛有焚香之舉,開始出現()。",
+    "choices": [
+      "香料",
+      "香爐",
+      "香粉",
+      "香水"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-531",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 531,
+    "batch": "batch-002",
+    "stem": "喝酒後可以適得飲茶,以下描述有正確的是()。",
+    "choices": [
+      "無醉酒者可適應飲淡茶",
+      "宜飲濃茶",
+      "醉酒嚴重者可飲大量濃茶茶",
+      "醉酒嚴重者可以飲用淡茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-532",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 532,
+    "batch": "batch-002",
+    "stem": "黑茶的沖泡水溫高,內含物溶解快,基本是沖水後()左右出湯,隨後根據實際情況增減浸泡時間。",
+    "choices": [
+      "5秒",
+      "15秒",
+      "25秒",
+      "35秒"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-533",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 533,
+    "batch": "batch-002",
+    "stem": "黑茶因原料或者加工工藝的因素,一般採用()的水溫來沖泡。",
+    "choices": [
+      "100℃",
+      "90℃",
+      "85℃",
+      "80℃"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-534",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 534,
+    "batch": "batch-002",
+    "stem": "黑釉以鐵為主要著色元素,釉中含有()的鐵量,在高溫中焙燒,便呈現黑色。",
+    "choices": [
+      "5%",
+      "5%以上",
+      "5%以下",
+      "5%以內"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-535",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 535,
+    "batch": "batch-002",
+    "stem": "烘茶即先用()澆淋茶壺,再把茶壺提起,用力搖動,使壺內的茶均勻升溫然後放入壺墊。",
+    "choices": [
+      "溫水",
+      "沸水",
+      "初沸的水",
+      "冷水"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-536",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 536,
+    "batch": "batch-002",
+    "stem": "紅茶、綠茶、烏龍茶的香氣主要特點是紅茶甜香,綠茶(),烏龍茶花香。",
+    "choices": [
+      "花香",
+      "果香",
+      "板栗香",
+      "甜香"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-537",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 537,
+    "batch": "batch-002",
+    "stem": "紅茶、綠茶、烏龍茶的香氣主要特點是紅茶甜香,綠茶(),烏龍茶花香。",
+    "choices": [
+      "木香",
+      "陳香",
+      "清香",
+      "棗香"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-538",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 538,
+    "batch": "batch-002",
+    "stem": "紅茶、綠茶、烏龍茶的香氣主要特點是紅茶甜香,綠茶板栗香,烏龍茶()。",
+    "choices": [
+      "清香",
+      "花香",
+      "熟香",
+      "濃香"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-539",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 539,
+    "batch": "batch-002",
+    "stem": "紅茶的呈味物質,茶黃素是茶湯()的決定性成分。",
+    "choices": [
+      "刺激性和鮮爽度",
+      "濃醇和鮮爽度",
+      "刺激性和醇厚度",
+      "刺激性和甘鮮度"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-540",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 540,
+    "batch": "batch-002",
+    "stem": "紅茶的品質特性是不含葉綠素、維生素C,茶性()。",
+    "choices": [
+      "溫和",
+      "寒涼",
+      "偏寒",
+      "涼性"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-541",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 541,
+    "batch": "batch-002",
+    "stem": "紅茶調飲,按溫度分為熱飲和()。",
+    "choices": [
+      "冷飲",
+      "奶茶",
+      "果蔬茶",
+      "酒茶"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-542",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 542,
+    "batch": "batch-002",
+    "stem": "紅茶調飲泡法沖泡時間一般以()min為宜。",
+    "choices": [
+      "2—3",
+      "2—4",
+      "3—5",
+      "3—4"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-543",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 543,
+    "batch": "batch-002",
+    "stem": "湖南黑毛茶採摘的鮮葉原料較粗老,一般以()為主要原料。",
+    "choices": [
+      "青梗",
+      "一芽二、三葉",
+      "一芽三、四葉",
+      "一芽四、五葉"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-544",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 544,
+    "batch": "batch-002",
+    "stem": "黃茶初製工藝流程中關鍵工序是()。",
+    "choices": [
+      "殺青",
+      "悶黃",
+      "揉捻",
+      "乾燥"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-545",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 545,
+    "batch": "batch-002",
+    "stem": "黃茶根據鮮葉原料和加工工藝的不同,產品分為四種,其中以單芽或一芽一葉初展原料製成的產品是()。",
+    "choices": [
+      "芽型",
+      "芽葉型",
+      "多葉型",
+      "緊壓型"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-546",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 546,
+    "batch": "batch-002",
+    "stem": "黃茶根據鮮葉原料和加工工藝的不同,產品分為四種,其中以一芽一葉或一芽二葉初展原料製成的產品是()。",
+    "choices": [
+      "芽型",
+      "芽葉型",
+      "多葉型",
+      "緊壓型"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-547",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 547,
+    "batch": "batch-002",
+    "stem": "黃金桂的香氣特點是香氣高強有()。",
+    "choices": [
+      "玉蘭花香",
+      "蘭花香",
+      "水蜜桃香",
+      "桂皮香"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-548",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 548,
+    "batch": "batch-002",
+    "stem": "黃芽茶的原料細嫩,主要是採摘單芽或()加工而成。",
+    "choices": [
+      "一芽一葉初展",
+      "一芽五葉",
+      "一芽三葉",
+      "一芽四葉"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-549",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 549,
+    "batch": "batch-002",
+    "stem": "回族八寶迎賓茶茶藝演示時,在備具程序中()放置在小方桌最前端中間位置。",
+    "choices": [
+      "水盂",
+      "蓋碗",
+      "銅壺",
+      "湯瓶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-550",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 550,
+    "batch": "batch-002",
+    "stem": "惠安女茶俗中,演示者們身著惠安服飾,既具知識性,又具觀賞性,是以()來吸引觀眾。",
+    "choices": [
+      "文化內涵",
+      "情感內涵",
+      "精神內涵",
+      "思想內涵"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-551",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 551,
+    "batch": "batch-002",
+    "stem": "基本茶類分為不發酵的綠茶類及()的黑茶類等,共六大茶類。",
+    "choices": [
+      "重發酵",
+      "後發酵",
+      "輕發酵",
+      "全發酵"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-552",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 552,
+    "batch": "batch-002",
+    "stem": "加拿大茶葉消費量大,主要飲()。",
+    "choices": [
+      "烏龍茶",
+      "花茶",
+      "黑茶",
+      "紅茶"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-553",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 553,
+    "batch": "batch-002",
+    "stem": "煎製餅茶前須經炙、碾、羅工序的是唐代的()。",
+    "choices": [
+      "點茶的技藝",
+      "煎茶的技藝",
+      "煮茶的技藝",
+      "炙茶的技藝"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-554",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 554,
+    "batch": "batch-002",
+    "stem": "檢驗水質的感官指標中,色度不超過(),無其他異色。",
+    "choices": [
+      "15°",
+      "25°",
+      "30°",
+      "40°"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-555",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 555,
+    "batch": "batch-002",
+    "stem": "見到您很高興,的表述錯誤的是()。",
+    "choices": [
+      "Glad to meet you.",
+      "It is sonice to meet you.",
+      "Nice to meet you.",
+      "meet you isnic"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-556",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 556,
+    "batch": "batch-002",
+    "stem": "江蘇吳縣的洞庭山是()的產地。",
+    "choices": [
+      "大方茶",
+      "雨花茶",
+      "碧螺春",
+      "綠牡丹"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-557",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 557,
+    "batch": "batch-002",
+    "stem": "江西婺源的《文士茶》茶藝演示動作是典型的()的茶藝。",
+    "choices": [
+      "工夫茶壺泡",
+      "工夫茶盅泡",
+      "綠茶玻璃杯",
+      "綠茶蓋碗"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-558",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 558,
+    "batch": "batch-002",
+    "stem": "將()結合,可開發深入茶園、茶廠、農家,參與採茶、製茶及古茶尋根、祭拜等茶文化旅遊項目。",
+    "choices": [
+      "茶園與製作加工",
+      "自然環境與人文景觀",
+      "茶樹與製茶方法",
+      "旅遊與茶園"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-559",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 559,
+    "batch": "batch-002",
+    "stem": "將不同茶類的商品、不同口感系列的茶葉進行陳列,是運用商品陳列中的()原則。",
+    "choices": [
+      "平衡",
+      "層次",
+      "焦點",
+      "造型"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-560",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 560,
+    "batch": "batch-002",
+    "stem": "將樂擂茶常在配料中加一些淡竹葉、金銀花,其作用是()。",
+    "choices": [
+      "清熱解暑",
+      "預防感冒",
+      "治療腸炎",
+      "增加擂茶的香味"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-561",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 561,
+    "batch": "batch-002",
+    "stem": "將旅遊與茶鄉民俗風情結合,借助旅遊來宣傳,發展(),會取得更好的經濟效益和經濟效益。",
+    "choices": [
+      "文化遺產",
+      "品茶時尚",
+      "製茶工藝",
+      "少數民族茶文化"
+    ],
+    "answerIndex": 3,
+    "note": "原題題幹末句為「經濟效益和經濟效益」"
+  },
+  {
+    "id": "tea-cert-batch-002-562",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 562,
+    "batch": "batch-002",
+    "stem": "將奶汁加熱,然後倒入一種叫做“雪董”的大木桶裡(高4尺、直徑l尺左右),用力上下抽打數百次,攪得油水分離,上面浮起一層湖黃色的脂肪質,把它舀起來,灌進皮口袋,冷卻了便成()。",
+    "choices": [
+      "黃油",
+      "奶油",
+      "酥油",
+      "清油"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-563",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 563,
+    "batch": "batch-002",
+    "stem": "將自然環境與人文景觀結合,可開發深入(),參與採茶、製茶及古茶尋根、祭拜等茶文化旅遊項目。",
+    "choices": [
+      "風景區",
+      "茶山",
+      "茶的發源地",
+      "茶園、茶廠、農家"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-564",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 564,
+    "batch": "batch-002",
+    "stem": "薑鹽豆子茶如單以()加茶葉沖泡,稱為“豆子茶”。",
+    "choices": [
+      "綠豆",
+      "黃豆",
+      "黑豆",
+      "紅豆"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-565",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 565,
+    "batch": "batch-002",
+    "stem": "薑鹽豆子茶是用薑、鹽、黃豆、芝麻、茶葉和()六物混合而成。",
+    "choices": [
+      "青豆",
+      "橙皮",
+      "開水",
+      "涼水"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-566",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 566,
+    "batch": "batch-002",
+    "stem": "焦糖香是指乾燥充分,火功高帶有糖香,多用於表述火功過高的()。",
+    "choices": [
+      "綠茶",
+      "烏龍茶",
+      "紅茶",
+      "黑茶"
+    ],
+    "answerIndex": 1,
+    "note": "原影片未點擊顯示答案，依茶葉審評術語標準補充為B"
+  },
+  {
+    "id": "tea-cert-batch-002-567",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 567,
+    "batch": "batch-002",
+    "stem": "揭西擂茶流行於()揭西縣的河婆等地區。",
+    "choices": [
+      "湖南",
+      "湖北省",
+      "廣東省",
+      "福建省"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-568",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 568,
+    "batch": "batch-002",
+    "stem": "截止2016年底,()屬於國家標準中茶葉包裝、標籤和貯運標準。",
+    "choices": [
+      "《GB4806.8—2016食品安全國家標準食品A接觸用紙和紙板材料及製品》",
+      "《NY/T658—2015綠色食品包裝通用B準則》",
+      "《GB/T14456.6—2016綠茶第6部分:蒸青C茶》",
+      "《GB5009.4—2016食品安全國家標準食品D中灰分的測定》"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-569",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 569,
+    "batch": "batch-002",
+    "stem": "截止2016年底,()屬於國家標準中茶葉檢測方法標準。",
+    "choices": [
+      "《GB4789.2—2016食品安全國家標準食品A微生物學檢驗菌落總數測定》",
+      "《GB/T30766—2014茶葉分類》",
+      "《GB/T30375—2013茶葉貯存》",
+      "《GB2762—2012食品安全國家標準食品中D污染物限量》"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-570",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 570,
+    "batch": "batch-002",
+    "stem": "截止2016年底,行業標準中()27項,如《JB/T5674—2007茶樹修剪機》,《JB/T8575—2007茶葉炒乾機》。",
+    "choices": [
+      "茶葉產品標準",
+      "茶葉機械標準",
+      "茶葉檢測方法標準",
+      "其他相關標準"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-571",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 571,
+    "batch": "batch-002",
+    "stem": "金駿眉屬紅茶類,主產於福建武夷山桐木關一帶,為()。",
+    "choices": [
+      "地方名茶",
+      "省級名茶",
+      "新創名茶",
+      "歷史名茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-572",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 572,
+    "batch": "batch-002",
+    "stem": "盡心盡職具體體現在茶藝師在茶藝服務中充分(),用自己最大的努力盡到自己的職業責任。",
+    "choices": [
+      "發揮主觀能動性",
+      "表現自己",
+      "表達個人願望",
+      "推銷產品"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-573",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 573,
+    "batch": "batch-002",
+    "stem": "涇陽茯磚茶屬黑茶類,產於陝西涇陽一帶,為()。",
+    "choices": [
+      "省級名茶",
+      "地方名茶",
+      "歷史名茶",
+      "新創名茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-574",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 574,
+    "batch": "batch-002",
+    "stem": "經常喝(),減肥去脂的效果較好。",
+    "choices": [
+      "紅茶和白茶",
+      "花茶和綠茶",
+      "烏龍茶和普洱生茶",
+      "綠茶和紅茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-575",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 575,
+    "batch": "batch-002",
+    "stem": "經營者應履行的義務不包括()。",
+    "choices": [
+      "出具購貨憑證或服務單據,保證質量",
+      "不承擔售後服務",
+      "保證公平交易",
+      "維護消費者的人格權"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-576",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 576,
+    "batch": "batch-002",
+    "stem": "舉辦展銷會,預備金一般佔總費用的()為宜。",
+    "choices": [
+      "5～10%",
+      "15～30%",
+      "40～60%",
+      "70～80%"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-577",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶藝館服務禮儀與英語",
+    "topicLabel": "茶藝館服務禮儀與英語",
+    "sourceNumber": 577,
+    "batch": "batch-002",
+    "stem": "舉止端莊、進退有禮、文質彬彬,代表了人們內在的尊嚴與()。",
+    "choices": [
+      "氣質",
+      "印象",
+      "心靈",
+      "修養"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-578",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 578,
+    "batch": "batch-002",
+    "stem": "具有代表性的閩南烏龍茶有()、黃金桂、永春佛手、毛蟹等。",
+    "choices": [
+      "鐵觀音",
+      "大紅袍",
+      "水仙",
+      "肉桂"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-579",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 579,
+    "batch": "batch-002",
+    "stem": "具有代表性的閩南烏龍茶有鐵觀音、()、永春佛手、毛蟹等。",
+    "choices": [
+      "小紅袍",
+      "大紅袍",
+      "黃金桂",
+      "白雞冠"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-580",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 580,
+    "batch": "batch-002",
+    "stem": "據考證,最早的專用茶具是()。",
+    "choices": [
+      "杯碗",
+      "盞托",
+      "圓碗",
+      "碗托"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-581",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 581,
+    "batch": "batch-002",
+    "stem": "據史籍記載,早在(),宮廷中就流行一種鬥茶的遊戲。",
+    "choices": [
+      "唐代中期",
+      "唐代末期",
+      "宋代初期",
+      "宋代中期"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-582",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 582,
+    "batch": "batch-002",
+    "stem": "據史料記載,唐代所產的名茶有140餘種,只有少量的散茶,大部分是()團餅茶。",
+    "choices": [
+      "炒青",
+      "蒸青",
+      "曬青",
+      "烘青"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-583",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 583,
+    "batch": "batch-002",
+    "stem": "據中國茶葉流通協會2018年數據顯示,全國茶園面積最大的是()。",
+    "choices": [
+      "浙江省",
+      "江蘇省",
+      "貴州省",
+      "雲南省"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-584",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 584,
+    "batch": "batch-002",
+    "stem": "據中國茶葉流通協會2018年數據顯示,全國有()主要產茶省(自治區、直轄市)產茶,茶園面積4395.6萬畝。",
+    "choices": [
+      "18個",
+      "16個",
+      "25個",
+      "22個"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-585",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 585,
+    "batch": "batch-002",
+    "stem": "君山銀針屬於()類。",
+    "choices": [
+      "綠茶",
+      "黑茶",
+      "黃茶",
+      "花茶"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-586",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶葉分類與品質加工",
+    "topicLabel": "茶葉分類與品質加工",
+    "sourceNumber": 586,
+    "batch": "batch-002",
+    "stem": "君山銀針外形的品質特點是()。",
+    "choices": [
+      "芽頭肥壯、緊實挺直,芽身金黃,滿披白毫",
+      "形似雀舌,勻齊壯實,鋒顯毫露,色如象牙,魚葉金黃",
+      "條索緊結,肥碩雄壯,色澤烏潤,金毫特顯",
+      "單片,形似瓜子,自然平展,葉緣微翹,大小均勻,色澤綠中帶霜(寶綠)"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-587",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶具器皿與名窯紫砂",
+    "topicLabel": "茶具器皿與名窯紫砂",
+    "sourceNumber": 587,
+    "batch": "batch-002",
+    "stem": "看紫砂壺的整體氣韻,一是壺的泥色是否喜歡,二是()是否滿意,其三從形態上觀察其流露出的藝術感染力。",
+    "choices": [
+      "造型",
+      "容量",
+      "價格",
+      "高矮"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-588",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 588,
+    "batch": "batch-002",
+    "stem": "康熙品飲()之後,備加讚賞,龍心大悅,當即指為貢品。",
+    "choices": [
+      "西湖龍井",
+      "碧螺春",
+      "鐵觀音",
+      "大紅袍"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-589",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 589,
+    "batch": "batch-002",
+    "stem": "勞動關係的訂立,應建立在遵循合法、()、誠實守信的基礎上。",
+    "choices": [
+      "制度完善",
+      "平等自願",
+      "薪資合理",
+      "企業為主"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-590",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-職業道德與法規標準",
+    "topicLabel": "職業道德與法規標準",
+    "sourceNumber": 590,
+    "batch": "batch-002",
+    "stem": "勞資關係發生糾紛,當事人可以向()申請調解。",
+    "choices": [
+      "當地的仲裁委員會",
+      "向人民法院",
+      "民事糾紛委員會",
+      "本單位勞動爭議調解委員會"
+    ],
+    "answerIndex": 2,
+    "note": "官方題庫原答案為C"
+  },
+  {
+    "id": "tea-cert-batch-002-591",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 591,
+    "batch": "batch-002",
+    "stem": "擂茶按原料和製作方法不同,可分為:一為米茶;二為香料茶,香料茶也叫()。",
+    "choices": [
+      "花茶",
+      "香茶",
+      "調料茶",
+      "庵菜"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-592",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 592,
+    "batch": "batch-002",
+    "stem": "擂茶備具時,并排平行擺放於水盂左側的器物是()。",
+    "choices": [
+      "茶架、茶匙",
+      "茶巾、茶碟",
+      "水壺、水盂",
+      "擂棒、擂缽"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-593",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 593,
+    "batch": "batch-002",
+    "stem": "擂茶沖泡注水時,主泡右手提起銅壺,用()的注水方式注水入擂缽。",
+    "choices": [
+      "單邊定點",
+      "環繞",
+      "回旋",
+      "鳳凰三點頭"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-594",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 594,
+    "batch": "batch-002",
+    "stem": "擂茶可謂我國茶文化史上一枝獨秀的奇葩,也是我國最()的茶道之一。",
+    "choices": [
+      "古老",
+      "陳舊",
+      "新穎",
+      "時尚"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-595",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 595,
+    "batch": "batch-002",
+    "stem": "擂茶演示互動環節中,由()走入觀眾席,邀請觀眾上台參與擂茶的製作。",
+    "choices": [
+      "主泡",
+      "副泡",
+      "主持人",
+      "講解員"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-596",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 596,
+    "batch": "batch-002",
+    "stem": "擂茶在宋代為()之稱。",
+    "choices": [
+      "茗粥",
+      "米粥",
+      "豆粥",
+      "菜粥"
+    ],
+    "answerIndex": 0,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-597",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-少數民族與地方茶俗",
+    "topicLabel": "少數民族與地方茶俗",
+    "sourceNumber": 597,
+    "batch": "batch-002",
+    "stem": "擂茶主要流行於我國南方()聚居區。",
+    "choices": [
+      "高山族",
+      "客家人",
+      "畬族",
+      "苗族"
+    ],
+    "answerIndex": 1,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-598",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 598,
+    "batch": "batch-002",
+    "stem": "歷代文人雅士常愛將()相結合,更多地注重茶之“品”而非以解渴為目的。",
+    "choices": [
+      "各種泡茶方法",
+      "不同品質的茶具",
+      "茶、水、火、具",
+      "清談、賞花、玩月、撫琴、吟詩、聯句"
+    ],
+    "answerIndex": 3,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-599",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶文化與歷史典故",
+    "topicLabel": "茶文化與歷史典故",
+    "sourceNumber": 599,
+    "batch": "batch-002",
+    "stem": "歷代文人雅士在品茶時講究環境靜雅、茶具之清雅、更講究飲茶藝境,以()為目的,更注重同飲之人。",
+    "choices": [
+      "鬥茶",
+      "賞茶具",
+      "怡情養性",
+      "社交活動"
+    ],
+    "answerIndex": 2,
+    "note": ""
+  },
+  {
+    "id": "tea-cert-batch-002-600",
+    "bank": "tea_certification",
+    "bankLabel": "茶藝師檢定",
+    "topic": "tea-cert-茶席設計與沖泡茶藝",
+    "topicLabel": "茶席設計與沖泡茶藝",
+    "sourceNumber": 600,
+    "batch": "batch-002",
+    "stem": "立禮式和坐禮式茶藝的茶桌建議選用高度為()。",
+    "choices": [
+      "30～35厘米",
+      "65～70厘米",
+      "75～85厘米",
+      "90～120厘米"
+    ],
+    "answerIndex": 1,
+    "note": "原影片結尾未點擊顯示答案，依茶藝標準補充為B"
+  }
+]

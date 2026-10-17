@@ -1,5 +1,5 @@
 {
   "label": "茶藝師檢定",
   "plannedTotal": 4000,
-  "batches": ["batch-001.json"]
+  "batches": ["batch-001.json", "batch-002.json"]
 }

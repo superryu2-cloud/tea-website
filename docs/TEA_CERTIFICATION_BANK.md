@@ -6,6 +6,8 @@
 
 ## 新增批次
 
+2026-10-17 更新：batch-002 補入原題號 159–600，共 442 題；目前合計 600 題。前 158 題與新版完全一致，保留原有 ID 與作答紀錄。匯入工具會略過一致的既有題目；若既有題目的內容或答案改變，會停止並要求人工校對。
+
 1. 相同 HTML 格式可執行 `node scripts/import-tea-certification.mjs "來源.html" batch-002`，僅解析 JSON，不執行 HTML。
 2. 校對分類、題幹、選項與 note 均為繁體中文；來源只有簡體時，先完成繁體轉換與校對，不直接匯入。
 3. 在 `public/data/tea-certification/manifest.json` 的 batches 加入 `batch-002.json`。

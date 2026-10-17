@@ -9,6 +9,13 @@ const html = fs.readFileSync(source, 'utf8');
 const match = html.match(/const QUESTIONS\s*=\s*(\[[\s\S]*?\]);/);
 assert(match, 'Missing QUESTIONS JSON');
 const raw = JSON.parse(match[1]);
+const dir = 'public/data/tea-certification';
+const manifestPath = `${dir}/manifest.json`;
+const existing = fs.existsSync(manifestPath)
+  ? JSON.parse(fs.readFileSync(manifestPath, 'utf8')).batches.flatMap(file =>
+    JSON.parse(fs.readFileSync(`${dir}/${file}`, 'utf8')))
+  : [];
+assert.equal(new Set(raw.map(q => q.id)).size, raw.length, 'Duplicate source numbers');
 const questions = raw.map(q => {
   assert(Number.isInteger(q.id) && q.id > 0 && q.q_tc && q.category);
   assert(/^[ABCD]$/.test(q.answer));
@@ -19,11 +26,20 @@ const questions = raw.map(q => {
     bank: 'tea_certification', bankLabel: '茶藝師檢定',
     topic: `tea-cert-${q.category}`, topicLabel: q.category,
     sourceNumber: q.id, batch, stem: q.q_tc, choices,
-    answerIndex: 'ABCD'.indexOf(q.answer), note: q.note || '',
+    answerIndex: 'ABCD'.indexOf(q.answer), note: (q.note || '')
+      .replaceAll('般来说', '般來說').replaceAll('般认为', '般認為')
+      .replaceAll('经济效益和经济效益', '經濟效益和經濟效益'),
   };
+}).filter(q => {
+  const previous = existing.find(item => item.sourceNumber === q.sourceNumber);
+  if (!previous) return true;
+  for (const field of ['stem', 'choices', 'answerIndex', 'note', 'topicLabel']) {
+    assert.deepEqual(q[field], previous[field], `Existing question ${q.sourceNumber} changed: ${field}; review before importing`);
+  }
+  return false;
 });
+assert(questions.length > 0, 'No new questions to import');
 assert.equal(new Set(questions.map(q => q.id)).size, questions.length);
-const dir = 'public/data/tea-certification';
 fs.mkdirSync(dir, { recursive: true });
 const destination = `${dir}/${batch}.json`;
 assert(!fs.existsSync(destination), 'Batch already exists; review before replacing existing IDs');
