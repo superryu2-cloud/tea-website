@@ -1,4 +1,4 @@
-// Use a readable answer line instead of cramped empty parentheses.
+// Display empty answer blanks with fullwidth parentheses and an underline.
 export const formatQuestionText = value => typeof value === 'string'
-  ? value.replace(/[（(][\s\u3000]*[）)]/g, '＿＿＿')
+  ? value.replace(/[（(][\s\u3000]*[）)]/g, '（＿）')
   : value;
