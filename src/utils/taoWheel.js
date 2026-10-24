@@ -28,3 +28,17 @@ export function landingRotation(current, index, count) {
 export function chooseChapter(group, random = Math.random()) {
   return group.chapters[Math.floor(random * group.chapters.length)];
 }
+
+export function chapterFromSearch(search) {
+  const value = new URLSearchParams(search).get('chapter');
+  if (!value || !/^\d{1,2}$/.test(value)) return null;
+  const id = Number(value);
+  return id >= 1 && id <= 81 ? id : null;
+}
+
+export function chapterShareUrl(href, id) {
+  const url = new URL(href);
+  url.search = new URLSearchParams({ tab: 'tao_wheel', chapter: String(id) }).toString();
+  url.hash = '';
+  return url.toString();
+}

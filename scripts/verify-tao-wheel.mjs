@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { CHAPTER_GROUPS, availableGroups, chooseGroup, chooseChapter, landingRotation } from '../src/utils/taoWheel.js';
+import { CHAPTER_GROUPS, availableGroups, chapterFromSearch, chapterShareUrl, chooseGroup, chooseChapter, landingRotation } from '../src/utils/taoWheel.js';
 
 const chapters = JSON.parse(readFileSync(new URL('../src/data/taoChapters.json', import.meta.url), 'utf8'));
 assert.deepEqual(chapters.map(chapter => chapter.id), Array.from({ length: 81 }, (_, i) => i + 1));
@@ -73,4 +73,16 @@ for (const [id, phrase, character, expected] of [
   [70, '被褐', '褐', 'ㄏㄜˊ'], [80, '什伯', '伯', 'ㄅㄛˊ'],
 ]) assert.equal(readingAt(id, phrase, character), expected);
 
-console.log('通過：81 章完整內容與逐字注音、8 組範圍、71–81 共 11 章、等機率、不重複全輪及指針落點。');
+for (const id of [1, 10, 71, 81]) {
+  const link = chapterShareUrl('https://tea-website.pages.dev/?tab=tao_wheel&other=value#old', id);
+  const url = new URL(link);
+  assert.equal(url.searchParams.get('tab'), 'tao_wheel');
+  assert.equal(chapterFromSearch(url.search), id);
+  assert.equal(url.hash, '');
+  assert.equal(url.searchParams.has('other'), false);
+}
+for (const query of ['', '?chapter=0', '?chapter=82', '?chapter=-1', '?chapter=1.5', '?chapter=hello', '?chapter=1e1', '?chapter=100']) {
+  assert.equal(chapterFromSearch(query), null);
+}
+
+console.log('通過：81 章完整內容與逐字注音、等機率、不重複全輪、指針落點、自選章節連結及無效章號。');
