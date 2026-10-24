@@ -20,17 +20,15 @@ function TeaCompanion() {
 
 function ClassicText({ chapter, showReadings }) {
   return <div className={`tao-classic ${showReadings ? 'tao-classic--annotated' : ''}`}>
-    {chapter.text.split('\n').map((line, lineIndex, lines) => {
-      const lineOffset = lines.slice(0, lineIndex).reduce((sum, text) => sum + text.length + 1, 0);
-      return <p key={lineIndex}>{Array.from(line).map((char, index) => {
-        const reading = chapter.readings[lineOffset + index];
+    <p>{Array.from(chapter.text).map((char, index) => {
+        if (char === '\n') return null;
+        const reading = chapter.readings[index];
         return showReadings && reading ? <span className="tao-syllable" key={index}>
           <span>{char}</span><span className="tao-phonetic" aria-hidden="true">
             <span>{reading.replace(/[ˊˇˋ˙]/g, '')}</span><span className="tao-tone">{reading.match(/[ˊˇˋ˙]/)?.[0] ?? ''}</span>
           </span>
         </span> : <span key={index}>{char}</span>;
-      })}</p>;
-    })}
+      })}</p>
   </div>;
 }
 
