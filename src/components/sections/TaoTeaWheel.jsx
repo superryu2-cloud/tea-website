@@ -125,11 +125,12 @@ export default function TaoTeaWheel() {
                 const a = point(index * angle - angle / 2);
                 const b = point(index * angle + angle / 2);
                 return <g key={entry.id}>
-                  {entries.length === 1 ? <circle cx="180" cy="180" r="173" fill="#d9e9de" /> : <path d={`M180 180L${a[0]} ${a[1]}A173 173 0 ${angle > 180 ? 1 : 0} 1 ${b[0]} ${b[1]}Z`} fill={index % 2 ? '#f1e7cf' : '#d9e9de'} stroke="#fffdf6" strokeWidth="2" />}
+                  {entries.length === 1 ? <circle cx="180" cy="180" r="173" fill="var(--tao-jade)" /> : <path d={`M180 180L${a[0]} ${a[1]}A173 173 0 ${angle > 180 ? 1 : 0} 1 ${b[0]} ${b[1]}Z`} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />}
                   <g transform={`rotate(${index * angle} 180 180)`}><text x="180" y="61" textAnchor="middle" className="tao-wheel-number">{entry.label}</text><text x="180" y="80" textAnchor="middle" className="tao-wheel-unit">章</text></g>
                 </g>;
               })}
             </g>
+            <circle cx="180" cy="180" r="174" fill="none" stroke="#b38b56" strokeWidth="1.5" />
             <circle cx="180" cy="180" r="63" fill="#fffdf6" stroke="#e7e6d7" />
             <text x="180" y="186" textAnchor="middle" className="tao-wheel-center">{centerLabel}</text>
           </svg>
