@@ -19,6 +19,7 @@ const ScienceSection = lazy(() => import('../sections/ScienceSection'));
 const TeaCeremonySection = lazy(() => import('../sections/TeaCeremonySection'));
 const RegionsSection = lazy(() => import('../sections/RegionsSection'));
 const HistorySection = lazy(() => import('../sections/HistorySection'));
+const TeaHistoryCorridor = lazy(() => import('../sections/TeaHistoryCorridor'));
 const VideoGallerySection = lazy(() => import('../sections/VideoGallerySection'));
 const CourseSection = lazy(() => import('../sections/CourseSection'));
 const TeaTalkColorSection = lazy(() => import('../../content/teaTalk/TeaTalkColorSection'));
@@ -196,6 +197,8 @@ export default function ActiveTabContent({
         )}
         {activeTab === 'ceremony' && <TeaCeremonySection siteNavHeightPx={siteNavHeightPx} />}
         {activeTab === 'regions' && <RegionsSection siteNavHeightPx={siteNavHeightPx} />}
+        {activeTab === 'taiwan_history' && <TeaHistoryCorridor key="industry" kind="industry" siteNavHeightPx={siteNavHeightPx} />}
+        {activeTab === 'tea_station_history' && <TeaHistoryCorridor key="station" kind="station" siteNavHeightPx={siteNavHeightPx} />}
         {activeTab === 'history' && (
           <HistorySection
             historyTab={historyTab}

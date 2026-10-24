@@ -1628,41 +1628,6 @@
     }
   }
 
-  /* Chapter sidebar: label flip (match top nav feel) */
-  .chapter-label--flip {
-    --chapter-flip-line: 1.6em;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    height: var(--chapter-flip-line);
-    line-height: 1.6;
-    min-width: 0;
-  }
-
-  .chapter-label-inner {
-    display: block;
-    transform: translate3d(0, 0, 0);
-    transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
-    will-change: transform;
-  }
-
-  .chapter-label-front,
-  .chapter-label-back {
-    display: block;
-  }
-
-  .chapter-label-back {
-    color: rgba(16, 185, 129, 0.95);
-    margin-top: -1px;
-  }
-
-  .chapter-nav-item:hover .chapter-label--flip .chapter-label-inner,
-  .chapter-nav-item:focus-visible .chapter-label--flip .chapter-label-inner,
-  .chapter-subitem:hover .chapter-label--flip .chapter-label-inner,
-  .chapter-subitem:focus-visible .chapter-label--flip .chapter-label-inner {
-    transform: translate3d(0, calc(-1 * var(--chapter-flip-line)), 0);
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .chapter-label-inner {
       transition: none !important;
@@ -2215,57 +2180,59 @@
   z-index: 0;
 }
 
-/* Chapter Label Flip Effect */
+/* Stationary chapter labels keep long titles readable on hover and focus. */
 .chapter-label--flip {
   display: block;
-  overflow: hidden;
-  height: 1.5em;
-  /* Adjust based on line-height */
-  line-height: 1.5em;
-  perspective: 400px;
+  overflow: visible;
+  height: auto;
+  white-space: normal;
+  line-height: 1.6;
 }
 
 .chapter-label-inner {
   display: block;
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-style: preserve-3d;
+  transition: none;
+  will-change: auto;
 }
 
 .chapter-nav-item:hover .chapter-label-inner,
-.chapter-subitem:hover .chapter-label-inner {
-  transform: translateY(-50%);
-}
-
-.chapter-label-front,
-.chapter-label-back {
-  display: block;
-  height: 100%;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+.chapter-subitem:hover .chapter-label-inner,
+.chapter-nav-item:focus-visible .chapter-label-inner,
+.chapter-subitem:focus-visible .chapter-label-inner {
+  transform: none;
 }
 
 .chapter-label-front {
-  transform: rotateX(0deg);
+  display: block;
+  height: auto;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .chapter-label-back {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  color: #d97706;
-  /* Amber-600 */
-  transform: rotateX(-20deg);
-  /* Tilt slightly for effect */
-  transform-origin: top;
-  opacity: 0;
+  display: none;
 }
 
-.chapter-nav-item:hover .chapter-label-back,
-.chapter-subitem:hover .chapter-label-back {
-  opacity: 1;
-  transform: rotateX(0deg);
+.chapter-nav-item:focus-visible,
+.chapter-subitem:focus-visible {
+  outline: 2px solid #047857;
+  outline-offset: 3px;
+}
+
+.reading-copy {
+  max-width: 40em;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .reading-copy {
+    font-size: 18px;
+  }
 }
 
 /* Sidebar Background Texture */

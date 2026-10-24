@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React, { useMemo } from 'react';
 import {
     BookOpen,
     CheckCircle2,
@@ -163,57 +164,9 @@ function ProfileCard({ tea }) {
 
 export default function ChonghuaChapter08() {
     const toc = useMemo(() => TOC, []);
-    const [activeId, setActiveId] = useState(toc[0].id);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-                if (visible.length > 0) setActiveId(visible[0].target.id);
-            },
-            { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
-        );
-
-        toc.forEach(({ id }) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-        return () => observer.disconnect();
-    }, [toc]);
-
-    const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
 
     return (
-        <div className="flex gap-8">
-            <nav className="hidden w-60 shrink-0 self-start lg:block lg:sticky lg:top-28" style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
-                <div className="museum-panel tool-surface rounded-2xl p-4 shadow-sm md:p-5">
-                    <h3 className="mb-3 border-l-4 border-emerald-600 px-2 text-[18px] font-extrabold text-stone-900">
-                        章節導覽
-                    </h3>
-                    <div className="space-y-1">
-                        {toc.map(({ id, label }) => {
-                            const isActive = activeId === id;
-                            return (
-                                <button
-                                    key={id}
-                                    onClick={() => scrollTo(id)}
-                                    className={`block w-full rounded-xl border px-4 py-3 text-left text-[16px] font-bold transition-all duration-300 ${isActive
-                                        ? 'border-emerald-300 bg-gradient-to-br from-emerald-100/80 to-teal-50 text-emerald-900 shadow-md ring-1 ring-emerald-200'
-                                        : 'border-stone-200/60 bg-white/40 text-stone-500 hover:border-emerald-300 hover:bg-gradient-to-r hover:from-emerald-50/50 hover:to-white hover:text-stone-900 hover:shadow-md'
-                                        }`}
-                                >
-                                    <span className="block truncate">{label}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </nav>
+        <AcademyChapterLayout items={toc}>
 
             <div className="min-w-0 flex-1 space-y-12">
                 <AcademySection
@@ -491,6 +444,6 @@ export default function ChonghuaChapter08() {
                     </AcademyContentBlock>
                 </AcademySection>
             </div>
-        </div>
+        </AcademyChapterLayout>
     );
 }

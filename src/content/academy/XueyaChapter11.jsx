@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Globe,
@@ -23,6 +24,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter11() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Section 2: Decoding - Small vs Big Leaf */}
             <AcademySection id="xueya-11-decoding" title="解碼紅茶的語言：品種、外觀與分級" label="ACADEMY · XUEYA · CH11">
@@ -452,5 +454,6 @@ export default function XueyaChapter11() {
                 </AcademyContentBlock>
             </AcademySection>
 </div>
+    </AcademyChapterLayout>
     );
 }

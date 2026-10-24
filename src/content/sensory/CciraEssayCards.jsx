@@ -357,12 +357,12 @@ export default function CciraEssayCards() {
                                                     <span>2–3 分鐘專業介紹稿｜含擇器泡法</span>
                                                 </div>
                                                 <div className="p-5 md:p-6 space-y-5">
-                                                    <div className="grid grid-cols-1 gap-2 rounded-2xl border border-stone-200 bg-stone-50/80 p-3 sm:grid-cols-5">
+                                                    <div className="grid grid-cols-1 gap-2 rounded-2xl border border-stone-200 bg-stone-50/80 p-3 sm:grid-cols-2 2xl:grid-cols-5">
                                                         {SPEECH_SECTION_META.map((section, sectionIndex) => {
                                                             const SectionIcon = section.icon;
                                                             return (
                                                                 <div key={section.label} className={`rounded-xl border px-3 py-2 ${section.badge}`}>
-                                                                    <div className="flex items-center gap-1.5 text-[13px] font-black">
+                                                                    <div className="flex items-center gap-1.5 text-base font-bold">
                                                                         <SectionIcon size={14} />
                                                                         <span>{sectionIndex + 1}. {section.label}</span>
                                                                     </div>
@@ -376,15 +376,15 @@ export default function CciraEssayCards() {
                                                             const section = SPEECH_SECTION_META[index] || SPEECH_SECTION_META[SPEECH_SECTION_META.length - 1];
                                                             const SectionIcon = section.icon;
                                                             return (
-                                                                <section key={index} className={`rounded-2xl border p-4 md:p-5 shadow-sm ${section.panel}`}>
+                                                                <section key={index} className="rounded-2xl border border-stone-200 bg-white p-5 md:p-7">
                                                                     <div className="mb-3 flex flex-wrap items-center gap-2">
                                                                         <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-black ${section.badge}`}>
                                                                             <SectionIcon size={16} />
                                                                             <span>{index + 1}. {section.label}</span>
                                                                         </div>
-                                                                        <span className="text-sm font-bold text-stone-500">{section.hint}</span>
+                                                                        <span className="text-base font-medium text-stone-600">{section.hint}</span>
                                                                     </div>
-                                                                    <p className="text-[17px] md:text-[18px] leading-[2] font-semibold text-stone-800 whitespace-pre-wrap">
+                                                                    <p className="reading-copy text-stone-800 whitespace-pre-wrap">
                                                                         {paragraph}
                                                                     </p>
                                                                 </section>

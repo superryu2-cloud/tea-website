@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React, { useState, useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
@@ -56,7 +57,7 @@ function TextureOverlay() {
 }
 
 export default function XueyaChapter04() {
-    const [activeSection, setActiveSection] = useState('intro');
+
 
     // Navigation Items
     const tocItems = useMemo(() => [
@@ -74,38 +75,7 @@ export default function XueyaChapter04() {
         { id: 'conclusion', label: '結語' },
     ], []);
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            const offset = 100;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-            setActiveSection(id);
-        }
-    };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + 150;
-            for (let i = tocItems.length - 1; i >= 0; i--) {
-                const item = tocItems[i];
-                const element = document.getElementById(item.id);
-                if (element && element.offsetTop <= scrollPosition) {
-                    setActiveSection(item.id);
-                    break;
-                }
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [tocItems]);
 
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -132,44 +102,7 @@ export default function XueyaChapter04() {
                 </div>
             )}
 
-            <div className="flex flex-col lg:flex-row gap-12 relative max-w-[1400px] mx-auto px-4 md:px-8">
-                {/* Left Sidebar Navigation - Enhanced Visuals */}
-                <div className="lg:w-80 flex-shrink-0">
-                    <div className="sticky top-24">
-                        <div className="bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-xl border border-white/50 p-6 overflow-hidden relative">
-                            {/* Decorative Background */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-10 -mt-10 opacity-50 z-0"></div>
-
-                            <div className="flex items-center gap-3 mb-8 text-stone-800 font-serif border-b-2 border-stone-100 pb-4 relative z-10">
-                                <div className="p-2.5 bg-stone-100 rounded-xl">
-                                    <Menu size={20} className="text-stone-600" />
-                                </div>
-                                <span className="font-bold tracking-widest text-lg">章節導覽</span>
-                            </div>
-                            <nav className="space-y-1 relative z-10">
-                                <div className="absolute left-[18px] top-4 bottom-4 w-0.5 bg-stone-100/80"></div>
-                                {tocItems.map((item) => (
-                                    <button
-                                        key={item.id}
-                                        onClick={() => scrollToSection(item.id)}
-                                        className={`relative w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 flex items-center justify-between group pl-4 ml-2 mb-1
-                                        ${activeSection === item.id
-                                                ? 'text-emerald-800 font-bold bg-emerald-50/80 shadow-sm translate-x-1'
-                                                : 'text-stone-500 hover:text-stone-800 hover:bg-stone-50'
-                                            }`}
-                                    >
-                                        <span className={`relative z-10 ${item.isSub ? 'pl-6 text-xs' : 'text-base'}`}>{item.label}</span>
-                                        {activeSection === item.id && (
-                                            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                                        )}
-                                    </button>
-                                ))}
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Main Content Area */}
+            <AcademyChapterLayout items={tocItems}>
                 <div className="flex-1 min-w-0 pb-32">
                     <div className="space-y-20">
                         <AcademySection
@@ -839,7 +772,7 @@ export default function XueyaChapter04() {
 
                     </div>
                 </div>
-            </div>
+            </AcademyChapterLayout>
         </>
     );
 }

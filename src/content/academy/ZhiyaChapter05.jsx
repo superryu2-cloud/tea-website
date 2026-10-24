@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     RotateCcw,
@@ -25,6 +26,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter05() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro / Section 1 */}
             <AcademySection id="zhiya-05-review" title="課程回顧：茶湯品質的探討與修飾技巧" label="ACADEMY · ZHIYA · CH05">
@@ -320,6 +322,7 @@ export default function ZhiyaChapter05() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+        </AcademyChapterLayout>
     );
 }
 
@@ -342,3 +345,4 @@ const MapCheck = ({ size, className }) => (
         <path d="m9 15 2 2 4-4" />
     </svg>
 );
+

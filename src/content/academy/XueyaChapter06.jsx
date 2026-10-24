@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import { Leaf, Wind, Droplets, Flame, Mountain, Coffee, Thermometer, Clock, CheckCircle, AlertTriangle, TrendingUp, History, Book, Compass, Map, Sprout, Layers, Tag, MapPin, HelpCircle, Zap, Crown, Feather, Search } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
@@ -6,6 +7,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter06() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro: Characteristics & History */}
             <AcademySection id="xueya-06-intro" title="鐵觀音：重焙火工藝的極致展現" label="ACADEMY · XUEYA · CH06">
@@ -209,5 +211,6 @@ export default function XueyaChapter06() {
                 </div>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React, { useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
-import { BookOpen, Eye, Globe, Beaker, Coffee, Sparkles, Users, Award, History, Droplets, Menu, ArrowRight, Activity, Map, Fingerprint, Anchor } from 'lucide-react';
+import { BookOpen, Eye, Globe, Beaker, Coffee, Sparkles, Users, Award, History, Droplets, Activity, Map, Fingerprint, Anchor } from 'lucide-react';
 
 export default function ZhiyaChapter14() {
-    const [activeSection, setActiveSection] = useState('intro');
+
 
     // Image Paths
     const images = {
@@ -35,76 +36,10 @@ export default function ZhiyaChapter14() {
         { id: 'part13', label: '茶湯會：茶與自我' },
     ], []);
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            const offset = 100;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-            setActiveSection(id);
-        }
-    };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + 150;
-            for (let i = tocItems.length - 1; i >= 0; i--) {
-                const item = tocItems[i];
-                const element = document.getElementById(item.id);
-                if (element && element.offsetTop <= scrollPosition) {
-                    setActiveSection(item.id);
-                    break;
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [tocItems]);
 
     return (
-        <div className="flex flex-col lg:flex-row gap-12 relative max-w-7xl mx-auto">
-            {/* Left Sidebar Navigation */}
-            <div className="lg:w-72 flex-shrink-0">
-                <div className="sticky top-24">
-                    <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-sm border border-stone-100 p-6">
-                        <div className="flex items-center gap-3 mb-6 text-stone-800 font-sans border-b border-stone-100 pb-4">
-                            <div className="p-2 bg-stone-100 rounded-lg">
-                                <Menu size={18} className="text-stone-600" />
-                            </div>
-                            <span className="font-bold tracking-wide">章節導覽</span>
-                        </div>
-                        <nav className="space-y-1 relative">
-                            <div className="absolute left-0 top-2 bottom-2 w-px bg-stone-100 ml-3"></div>
-                            {tocItems.map((item) => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => scrollToSection(item.id)}
-                                    className={`relative w-full text-left px-4 py-2.5 rounded-r-lg text-sm transition-all duration-300 flex items-center justify-between group pl-4 ml-3
-                                        ${activeSection === item.id
-                                            ? 'text-emerald-800 font-bold bg-gradient-to-r from-stone-50 to-transparent border-l-4 border-emerald-600 -ml-0'
-                                            : 'text-stone-500 hover:text-stone-800 hover:bg-stone-50/50 border-l-4 border-transparent -ml-0'
-                                        }`}
-                                >
-                                    <span>{item.label}</span>
-                                    {activeSection === item.id && (
-                                        <ArrowRight size={14} className="text-emerald-500 animate-pulse" />
-                                    )}
-                                </button>
-                            ))}
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
-            {/* Main Content Area */}
+        <AcademyChapterLayout items={tocItems}>
             <div className="flex-1 min-w-0">
                 <div className="space-y-16">
                     <AcademySection
@@ -650,6 +585,6 @@ export default function ZhiyaChapter14() {
                     </AcademySection>
                 </div>
             </div>
-        </div>
+        </AcademyChapterLayout>
     );
 }

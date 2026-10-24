@@ -1,8 +1,228 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import { Trophy, PenTool, Coffee, Flower, Leaf, Sun, Droplet, Mountain, Thermometer, Sprout, Tag, Bug, Globe, ShieldCheck, BookOpen, Ship, TrendingUp, MapPin, Heart, Clock, Scale, Users, Beaker, Hammer, AlertCircle, TrendingDown, Shield, Map as MapIcon } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import ImageLightbox from '../../components/ImageLightbox';
+const TOC = [
+    {
+        "id": "ch03-section-01",
+        "label": "課程簡介"
+    },
+    {
+        "id": "ch03-section-02",
+        "label": "世界與台灣紅茶史的關係定位"
+    },
+    {
+        "id": "ch03-section-03",
+        "label": "為什麼紅茶會成為全球飲品？"
+    },
+    {
+        "id": "ch03-section-04",
+        "label": "紅茶在中國茶史中的出現背景"
+    },
+    {
+        "id": "ch03-section-05",
+        "label": "本堂課學習重點說明"
+    },
+    {
+        "id": "ch03-section-06",
+        "label": "紅茶外銷的起點：荷蘭東印度公司"
+    },
+    {
+        "id": "ch03-section-07",
+        "label": "正山小種的製法特色：松煙香氣"
+    },
+    {
+        "id": "ch03-section-08",
+        "label": "正山小種：世界紅茶的鼻祖"
+    },
+    {
+        "id": "ch03-section-09",
+        "label": "英國紅茶文化的建立：凱瑟琳王后"
+    },
+    {
+        "id": "ch03-section-10",
+        "label": "歐洲市場的形成：從藥用到飲品"
+    },
+    {
+        "id": "ch03-section-11",
+        "label": "安妮女王與早餐茶的萌芽"
+    },
+    {
+        "id": "ch03-section-12",
+        "label": "貝德福德公爵夫人的下午茶"
+    },
+    {
+        "id": "ch03-section-13",
+        "label": "紅茶的全球擴散：從中國到世界產區"
+    },
+    {
+        "id": "ch03-section-14",
+        "label": "印度阿薩姆：大葉種茶樹的發現"
+    },
+    {
+        "id": "ch03-section-15",
+        "label": "大吉嶺：喜馬拉雅山麓的香檳"
+    },
+    {
+        "id": "ch03-section-16",
+        "label": "錫蘭紅茶的傳奇：從咖啡到茶葉"
+    },
+    {
+        "id": "ch03-section-17",
+        "label": "詹姆斯·泰勒：錫蘭茶業之父"
+    },
+    {
+        "id": "ch03-section-18",
+        "label": "湯瑪斯·立頓：讓紅茶進入尋常百姓家"
+    },
+    {
+        "id": "ch03-section-19",
+        "label": "殖民體系下的茶園制度 (Plantation System)"
+    },
+    {
+        "id": "ch03-section-20",
+        "label": "CTC 工藝的誕生與影響"
+    },
+    {
+        "id": "ch03-section-21",
+        "label": "非洲紅茶的興起：肯亞產區"
+    },
+    {
+        "id": "ch03-section-22",
+        "label": "世界主要紅茶產區風味輪廓（一）"
+    },
+    {
+        "id": "ch03-section-23",
+        "label": "世界主要紅茶產區風味輪廓（二）"
+    },
+    {
+        "id": "ch03-section-24",
+        "label": "世界紅茶史的關鍵轉折點回顧"
+    },
+    {
+        "id": "ch03-section-25",
+        "label": "紅茶進入台灣的歷史背景"
+    },
+    {
+        "id": "ch03-section-26",
+        "label": "清末台灣茶業：烏龍與包種的天下"
+    },
+    {
+        "id": "ch03-section-27",
+        "label": "日治時期的產業轉向：為什麼是紅茶？"
+    },
+    {
+        "id": "ch03-section-28",
+        "label": "1899年：台灣紅茶的初步嘗試"
+    },
+    {
+        "id": "ch03-section-29",
+        "label": "平鎮茶業試驗所的建立（1903）"
+    },
+    {
+        "id": "ch03-section-30",
+        "label": "引進印度大葉種：尋找台灣的阿薩姆"
+    },
+    {
+        "id": "ch03-section-31",
+        "label": "台灣紅茶的在地化發展"
+    },
+    {
+        "id": "ch03-section-32",
+        "label": "日月潭：台灣紅茶的命定之地"
+    },
+    {
+        "id": "ch03-section-33",
+        "label": "新井耕吉郎：台灣紅茶之父"
+    },
+    {
+        "id": "ch03-section-34",
+        "label": "1920-1930年代：台灣紅茶的黃金時期"
+    },
+    {
+        "id": "ch03-section-35",
+        "label": "「日東紅茶」品牌的誕生與影響"
+    },
+    {
+        "id": "ch03-section-36",
+        "label": "戰後初期的台灣紅茶：動盪與重建"
+    },
+    {
+        "id": "ch03-section-37",
+        "label": "1950-1960年代：外銷的最後餘暉"
+    },
+    {
+        "id": "ch03-section-38",
+        "label": "產業低谷與轉型：從量產到質變"
+    },
+    {
+        "id": "ch03-section-39",
+        "label": "現代台灣紅茶的特色定位"
+    },
+    {
+        "id": "ch03-section-40",
+        "label": "蜜香紅茶：小綠葉蟬帶來的奇蹟風味"
+    },
+    {
+        "id": "ch03-section-41",
+        "label": "小葉種紅茶：台灣茶園的新風貌"
+    },
+    {
+        "id": "ch03-section-42",
+        "label": "台茶 18 號「紅玉」：日月潭的復興之光"
+    },
+    {
+        "id": "ch03-section-43",
+        "label": "台茶 21 號「紅韻」：優雅的花果交響詩"
+    },
+    {
+        "id": "ch03-section-44",
+        "label": "台灣紅茶的精品化之路：莊園與職人"
+    },
+    {
+        "id": "ch03-section-45",
+        "label": "台灣紅茶在國際市場的當代角色"
+    },
+    {
+        "id": "ch03-section-46",
+        "label": "CHAPTER 07 總結與歷史回顧"
+    },
+    {
+        "id": "ch03-section-47",
+        "label": "世界與台灣紅茶史：時間軸對照圖"
+    },
+    {
+        "id": "ch03-section-48",
+        "label": "本堂課核心重點回顧 (Takeaways)"
+    },
+    {
+        "id": "ch03-section-49",
+        "label": "瞻王暖茶：現代健康與正能量的實踐"
+    },
+    {
+        "id": "ch03-section-50",
+        "label": "瞻王暖茶：源自佛堂的健康承諾"
+    },
+    {
+        "id": "ch03-section-51",
+        "label": "軟枝烏龍：風味之根"
+    },
+    {
+        "id": "ch03-section-52",
+        "label": "有機管理與純粹茶氣"
+    },
+    {
+        "id": "ch03-section-53",
+        "label": "愛與科技的灌溉"
+    },
+    {
+        "id": "ch03-section-54",
+        "label": "藤王暖茶建議沖泡方式"
+    }
+];
+
 export default function ChonghuaChapter03() {
     const [lightboxOpen, setLightboxOpen] = React.useState(false);
     const [lightboxImage, setLightboxImage] = React.useState({ src: '', alt: '' });
@@ -19,6 +239,7 @@ export default function ChonghuaChapter03() {
     };
 
     return (
+        <AcademyChapterLayout items={TOC}>
         <div className="space-y-12">
             <ImageLightbox
                 isOpen={lightboxOpen}
@@ -33,7 +254,7 @@ export default function ChonghuaChapter03() {
                 subtitle="從全球貿易脈絡到在地風味轉型"
             >
                 {/* 課程概述 */}
-                <AcademyContentBlock title="課程簡介" icon={BookOpen}>
+                <AcademyContentBlock title="課程簡介" id="ch03-section-01" icon={BookOpen}>
                     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-8 border border-amber-100 shadow-md">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <BookOpen size={120} className="text-amber-500" />
@@ -56,7 +277,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 世界與台灣紅茶史的關係定位 */}
-                <AcademyContentBlock title="世界與台灣紅茶史的關係定位" icon={Globe}>
+                <AcademyContentBlock title="世界與台灣紅茶史的關係定位" id="ch03-section-02" icon={Globe}>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100">
                             <div className="h-2 bg-gradient-to-r from-amber-400 to-orange-400"></div>
@@ -100,7 +321,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 為什麼紅茶會成為全球飲品 */}
-                <AcademyContentBlock title="為什麼紅茶會成為全球飲品？" icon={Ship}>
+                <AcademyContentBlock title="為什麼紅茶會成為全球飲品？" id="ch03-section-03" icon={Ship}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="space-y-6">
                             <div className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100">
@@ -167,7 +388,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 紅茶在中國茶史中的出現背景 */}
-                <AcademyContentBlock title="紅茶在中國茶史中的出現背景" icon={Sprout}>
+                <AcademyContentBlock title="紅茶在中國茶史中的出現背景" id="ch03-section-04" icon={Sprout}>
                     <div className="mb-10 rounded-3xl overflow-hidden shadow-xl relative group cursor-zoom-in"
                         role="button"
                         tabIndex={0}
@@ -230,7 +451,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 本堂課學習重點說明 */}
-                <AcademyContentBlock title="本堂課學習重點說明" icon={TrendingUp}>
+                <AcademyContentBlock title="本堂課學習重點說明" id="ch03-section-05" icon={TrendingUp}>
                     <div className="space-y-4">
                         <div className="flex items-start gap-4 p-6 bg-amber-50 rounded-2xl border-l-4 border-amber-400 hover:bg-amber-100 transition-colors duration-300">
                             <div className="bg-amber-500 text-white px-4 py-1.5 rounded-lg text-sm font-bold shrink-0">
@@ -295,7 +516,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 紅茶外銷的起點：荷蘭東印度公司 */}
-                <AcademyContentBlock title="紅茶外銷的起點：荷蘭東印度公司" icon={Ship}>
+                <AcademyContentBlock title="紅茶外銷的起點：荷蘭東印度公司" id="ch03-section-06" icon={Ship}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="rounded-xl overflow-hidden shadow-md group relative">
                             <img
@@ -336,7 +557,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 正山小種的製法特色：松煙香氣 */}
-                <AcademyContentBlock title="正山小種的製法特色：松煙香氣" icon={Sprout}>
+                <AcademyContentBlock title="正山小種的製法特色：松煙香氣" id="ch03-section-07" icon={Sprout}>
                     <div className="space-y-6">
                         <div className="relative my-8 px-4">
                             <div className="absolute -left-2 top-0 text-8xl text-amber-200 font-serif leading-none opacity-50">"</div>
@@ -404,7 +625,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 正山小種：世界紅茶的鼻祖 */}
-                <AcademyContentBlock title="正山小種：世界紅茶的鼻祖" icon={BookOpen}>
+                <AcademyContentBlock title="正山小種：世界紅茶的鼻祖" id="ch03-section-08" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="space-y-6">
                             <div className="rounded-2xl overflow-hidden shadow-md mb-6 relative group cursor-zoom-in"
@@ -477,7 +698,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 英國紅茶文化的建立：凱瑟琳王后 */}
-                <AcademyContentBlock title="英國紅茶文化的建立：凱瑟琳王后" icon={Globe}>
+                <AcademyContentBlock title="英國紅茶文化的建立：凱瑟琳王后" id="ch03-section-09" icon={Globe}>
                     <div className="space-y-6">
                         <div className="relative my-8 px-4">
                             <div className="absolute -left-2 top-0 text-8xl text-amber-200 font-serif leading-none opacity-50">"</div>
@@ -527,7 +748,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 歐洲市場的形成：從藥用到飲品 */}
-                <AcademyContentBlock title="歐洲市場的形成：從藥用到飲品" icon={TrendingUp}>
+                <AcademyContentBlock title="歐洲市場的形成：從藥用到飲品" id="ch03-section-10" icon={TrendingUp}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="space-y-6">
                             <div className="group bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-500 hover:shadow-md transition-all duration-300">
@@ -610,7 +831,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 安妮女王與早餐茶的萌芽 */}
-                <AcademyContentBlock title="安妮女王與早餐茶的萌芽" icon={Globe}>
+                <AcademyContentBlock title="安妮女王與早餐茶的萌芽" id="ch03-section-11" icon={Globe}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-amber-500">
                             <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded-lg text-sm font-bold inline-block mb-4">
@@ -642,7 +863,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 貝德福德公爵夫人的下午茶 */}
-                <AcademyContentBlock title="貝德福德公爵夫人的下午茶" icon={TrendingUp}>
+                <AcademyContentBlock title="貝德福德公爵夫人的下午茶" id="ch03-section-12" icon={TrendingUp}>
                     <div className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-4">
@@ -700,7 +921,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 紅茶的全球擴散：從中國到世界產區 */}
-                <AcademyContentBlock title="紅茶的全球擴散：從中國到世界產區" icon={Globe}>
+                <AcademyContentBlock title="紅茶的全球擴散：從中國到世界產區" id="ch03-section-13" icon={Globe}>
                     <div className="bg-white p-10 rounded-2xl shadow-lg border border-stone-100">
                         <div className="text-center mb-10">
                             <h3 className="text-3xl font-bold text-stone-900 mb-6">
@@ -738,7 +959,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 印度阿薩姆：大葉種茶樹的發現 */}
-                <AcademyContentBlock title="印度阿薩姆：大葉種茶樹的發現" icon={Sprout}>
+                <AcademyContentBlock title="印度阿薩姆：大葉種茶樹的發現" id="ch03-section-14" icon={Sprout}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-amber-500 hover:shadow-lg transition-all duration-300">
                             <div className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-lg text-sm font-bold inline-block mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
@@ -788,7 +1009,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 大吉嶺：喜馬拉雅山麓的香檳 */}
-                <AcademyContentBlock title="大吉嶺：喜馬拉雅山麓的香檳" icon={MapPin}>
+                <AcademyContentBlock title="大吉嶺：喜馬拉雅山麓的香檳" id="ch03-section-15" icon={MapPin}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-stone-100">
                             <div className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-lg text-sm font-bold inline-block mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
@@ -841,7 +1062,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 錫蘭紅茶的傳奇：從咖啡到茶葉 */}
-                <AcademyContentBlock title="錫蘭紅茶的傳奇：從咖啡到茶葉" icon={TrendingUp}>
+                <AcademyContentBlock title="錫蘭紅茶的傳奇：從咖啡到茶葉" id="ch03-section-16" icon={TrendingUp}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-white p-6 rounded-2xl shadow-sm border-l-4 border-red-500 hover:shadow-md transition-all duration-300">
                             <div className="bg-red-100 text-red-800 px-4 py-1.5 rounded-lg text-sm font-bold inline-block mb-4 group-hover:bg-red-500 group-hover:text-white transition-colors">
@@ -881,7 +1102,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 詹姆斯·泰勒：錫蘭茶業之父 */}
-                <AcademyContentBlock title="詹姆斯·泰勒：錫蘭茶業之父" icon={BookOpen}>
+                <AcademyContentBlock title="詹姆斯·泰勒：錫蘭茶業之父" id="ch03-section-17" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl border border-amber-100 shadow-sm flex flex-col justify-center">
                             <h3 className="text-3xl font-bold text-stone-900 mb-2">James Taylor</h3>
@@ -920,7 +1141,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 湯瑪斯·立頓：讓紅茶進入尋常百姓家 */}
-                <AcademyContentBlock title="湯瑪斯·立頓：讓紅茶進入尋常百姓家" icon={TrendingUp}>
+                <AcademyContentBlock title="湯瑪斯·立頓：讓紅茶進入尋常百姓家" id="ch03-section-18" icon={TrendingUp}>
                     <div className="space-y-8">
                         <div className="bg-gradient-to-r from-yellow-50 to-amber-50 p-8 rounded-2xl border-l-4 border-yellow-500 shadow-sm">
                             <h3 className="text-3xl font-bold text-stone-900 mb-4">Thomas Lipton</h3>
@@ -968,7 +1189,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 殖民體系下的茶園制度 */}
-                <AcademyContentBlock title="殖民體系下的茶園制度 (Plantation System)" icon={MapPin}>
+                <AcademyContentBlock title="殖民體系下的茶園制度 (Plantation System)" id="ch03-section-19" icon={MapPin}>
                     <div className="space-y-6">
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="group bg-white p-6 rounded-2xl shadow-sm border-t-4 border-stone-500 hover:shadow-md transition-all duration-300">
@@ -1022,7 +1243,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* CTC 工藝的誕生與影響 */}
-                <AcademyContentBlock title="CTC 工藝的誕生與影響" icon={Sprout}>
+                <AcademyContentBlock title="CTC 工藝的誕生與影響" id="ch03-section-20" icon={Sprout}>
                     <div className="space-y-8">
                         <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-8 rounded-2xl border border-amber-100 shadow-sm">
                             <h3 className="text-[24px] font-bold text-stone-900 mb-8 text-center flex items-center justify-center gap-3">
@@ -1122,7 +1343,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 非洲紅茶的興起：肯亞產區 */}
-                <AcademyContentBlock title="非洲紅茶的興起：肯亞產區" icon={Globe}>
+                <AcademyContentBlock title="非洲紅茶的興起：肯亞產區" id="ch03-section-21" icon={Globe}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-white p-8 rounded-2xl shadow-sm border-l-4 border-amber-500 hover:shadow-lg transition-all duration-300">
                             <div className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-lg text-sm font-bold inline-block mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
@@ -1178,7 +1399,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 世界主要紅茶產區風味輪廓（一） */}
-                <AcademyContentBlock title="世界主要紅茶產區風味輪廓（一）" icon={BookOpen}>
+                <AcademyContentBlock title="世界主要紅茶產區風味輪廓（一）" id="ch03-section-22" icon={BookOpen}>
                     <div className="overflow-x-auto rounded-2xl shadow-sm border border-stone-100">
                         <table className="w-full bg-white text-left border-collapse">
                             <thead>
@@ -1215,7 +1436,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 世界主要紅茶產區風味輪廓（二） */}
-                <AcademyContentBlock title="世界主要紅茶產區風味輪廓（二）" icon={BookOpen}>
+                <AcademyContentBlock title="世界主要紅茶產區風味輪廓（二）" id="ch03-section-23" icon={BookOpen}>
                     <div className="overflow-x-auto rounded-2xl shadow-sm border border-stone-100">
                         <table className="w-full bg-white text-left border-collapse">
                             <thead>
@@ -1252,7 +1473,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 世界紅茶史的關鍵轉折點回顧 */}
-                <AcademyContentBlock title="世界紅茶史的關鍵轉折點回顧" icon={TrendingUp}>
+                <AcademyContentBlock title="世界紅茶史的關鍵轉折點回顧" id="ch03-section-24" icon={TrendingUp}>
                     <div className="bg-white p-8 rounded-2xl shadow-md border border-stone-100">
                         <div className="relative">
                             {/* Timeline line */}
@@ -1321,7 +1542,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 紅茶進入台灣的歷史背景 */}
-                <AcademyContentBlock title="紅茶進入台灣的歷史背景" icon={MapPin}>
+                <AcademyContentBlock title="紅茶進入台灣的歷史背景" id="ch03-section-25" icon={MapPin}>
                     <div className="bg-gradient-to-br from-amber-900 to-orange-900 text-white p-12 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
                         <div className="relative z-10 text-center mb-8">
@@ -1353,7 +1574,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 清末台灣茶業：烏龍與包種的天下 */}
-                <AcademyContentBlock title="清末台灣茶業：烏龍與包種的天下" icon={Globe}>
+                <AcademyContentBlock title="清末台灣茶業：烏龍與包種的天下" id="ch03-section-26" icon={Globe}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-stone-100">
                             <div className="flex items-center justify-between mb-6">
@@ -1394,7 +1615,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 日治時期的產業轉向：為什麼是紅茶？ */}
-                <AcademyContentBlock title="日治時期的產業轉向：為什麼是紅茶？" icon={TrendingUp}>
+                <AcademyContentBlock title="日治時期的產業轉向：為什麼是紅茶？" id="ch03-section-27" icon={TrendingUp}>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-amber-500">
                             <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-600">
@@ -1432,7 +1653,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 1899年：台灣紅茶的初步嘗試 */}
-                <AcademyContentBlock title="1899年：台灣紅茶的初步嘗試" icon={Sprout}>
+                <AcademyContentBlock title="1899年：台灣紅茶的初步嘗試" id="ch03-section-28" icon={Sprout}>
                     <div className="grid md:grid-cols-2 gap-8 items-stretch">
                         <div className="bg-gradient-to-br from-stone-100 to-stone-200 p-8 rounded-2xl flex flex-col justify-center items-center text-center">
                             <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-stone-600 to-stone-800 mb-2">1899</div>
@@ -1469,7 +1690,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 平鎮茶業試驗所的建立（1903） */}
-                <AcademyContentBlock title="平鎮茶業試驗所的建立（1903）" icon={BookOpen}>
+                <AcademyContentBlock title="平鎮茶業試驗所的建立（1903）" id="ch03-section-29" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8 items-stretch">
                         <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl flex flex-col justify-center items-center text-center shadow-inner">
                             <div className="text-6xl font-black text-amber-600 mb-2">1903</div>
@@ -1508,7 +1729,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 引進印度大葉種：尋找台灣的阿薩姆 */}
-                <AcademyContentBlock title="引進印度大葉種：尋找台灣的阿薩姆" icon={MapPin}>
+                <AcademyContentBlock title="引進印度大葉種：尋找台灣的阿薩姆" id="ch03-section-30" icon={MapPin}>
                     <div className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-green-600 hover:shadow-md transition-shadow">
@@ -1555,7 +1776,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 台灣紅茶的在地化發展 */}
-                <AcademyContentBlock title="台灣紅茶的在地化發展" icon={MapPin}>
+                <AcademyContentBlock title="台灣紅茶的在地化發展" id="ch03-section-31" icon={MapPin}>
                     <div className="bg-gradient-to-br from-amber-700 to-orange-800 text-white p-12 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
                         <div className="relative z-10 text-center mb-8">
@@ -1573,7 +1794,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 日月潭：台灣紅茶的命定之地 */}
-                <AcademyContentBlock title="日月潭：台灣紅茶的命定之地" icon={MapPin}>
+                <AcademyContentBlock title="日月潭：台灣紅茶的命定之地" id="ch03-section-32" icon={MapPin}>
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-blue-500 h-full">
                             <h4 className="text-[24px] font-bold text-stone-900 mb-6 flex items-center gap-3">
@@ -1636,7 +1857,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 新井耕吉郎：台灣紅茶之父 */}
-                <AcademyContentBlock title="新井耕吉郎：台灣紅茶之父" icon={BookOpen}>
+                <AcademyContentBlock title="新井耕吉郎：台灣紅茶之父" id="ch03-section-33" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-stone-100 to-stone-200 p-8 rounded-2xl flex flex-col justify-center shadow-inner">
                             <h3 className="text-3xl font-bold text-stone-800 mb-2">新井耕吉郎</h3>
@@ -1690,7 +1911,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 1920-1930年代：台灣紅茶的黃金時期 */}
-                <AcademyContentBlock title="1920-1930年代：台灣紅茶的黃金時期" icon={TrendingUp}>
+                <AcademyContentBlock title="1920-1930年代：台灣紅茶的黃金時期" id="ch03-section-34" icon={TrendingUp}>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-red-500 hover:shadow-lg transition-all transform hover:-translate-y-1">
                             <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">📈</div>
@@ -1741,7 +1962,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 「日東紅茶」品牌的誕生與影響 */}
-                <AcademyContentBlock title="「日東紅茶」品牌的誕生與影響" icon={Globe}>
+                <AcademyContentBlock title="「日東紅茶」品牌的誕生與影響" id="ch03-section-35" icon={Globe}>
                     <div className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow relative overflow-hidden">
@@ -1787,7 +2008,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 戰後初期的台灣紅茶：動盪與重建 */}
-                <AcademyContentBlock title="戰後初期的台灣紅茶：動盪與重建" icon={TrendingUp}>
+                <AcademyContentBlock title="戰後初期的台灣紅茶：動盪與重建" id="ch03-section-36" icon={TrendingUp}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-stone-500 hover:shadow-md transition-shadow">
                             <h4 className="text-[22px] font-bold text-stone-800 mb-4 flex items-center gap-2">
@@ -1815,7 +2036,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 1950-1960年代：外銷的最後餘暉 */}
-                <AcademyContentBlock title="1950-1960年代：外銷的最後餘暉" icon={Globe}>
+                <AcademyContentBlock title="1950-1960年代：外銷的最後餘暉" id="ch03-section-37" icon={Globe}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-500 hover:shadow-md transition-shadow">
                             <h4 className="text-[22px] font-bold text-stone-800 mb-4">政策推動下的復甦</h4>
@@ -1836,7 +2057,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 產業低谷與轉型：從量產到質變 */}
-                <AcademyContentBlock title="產業低谷與轉型：從量產到質變" icon={TrendingUp}>
+                <AcademyContentBlock title="產業低谷與轉型：從量產到質變" id="ch03-section-38" icon={TrendingUp}>
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-stone-400 hover:shadow-md transition-shadow">
                             <h4 className="text-[22px] font-bold text-stone-800 mb-4">1970 年代：成本與市場的雙重打擊</h4>
@@ -1859,7 +2080,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 現代台灣紅茶的特色定位 */}
-                <AcademyContentBlock title="現代台灣紅茶的特色定位" icon={MapPin}>
+                <AcademyContentBlock title="現代台灣紅茶的特色定位" id="ch03-section-39" icon={MapPin}>
                     <div className="bg-gradient-to-br from-amber-700 to-red-800 text-white p-12 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
                         <div className="relative z-10 text-center mb-8">
@@ -1877,7 +2098,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 蜜香紅茶：小綠葉蟬帶來的奇蹟風味 */}
-                <AcademyContentBlock title="蜜香紅茶：小綠葉蟬帶來的奇蹟風味" icon={Sprout}>
+                <AcademyContentBlock title="蜜香紅茶：小綠葉蟬帶來的奇蹟風味" id="ch03-section-40" icon={Sprout}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-400 hover:shadow-md transition-shadow">
                             <div className="bg-amber-100 text-amber-800 px-4 py-2 rounded-lg text-sm font-bold inline-block mb-4">
@@ -1930,7 +2151,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 小葉種紅茶：台灣茶園的新風貌 */}
-                <AcademyContentBlock title="小葉種紅茶：台灣茶園的新風貌" icon={Sprout}>
+                <AcademyContentBlock title="小葉種紅茶：台灣茶園的新風貌" id="ch03-section-41" icon={Sprout}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-orange-400 hover:shadow-md transition-shadow">
                             <h4 className="text-[22px] font-bold text-stone-800 mb-4">品種的跨界應用</h4>
@@ -1969,7 +2190,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 台茶 18 號「紅玉」：日月潭的復興之光 */}
-                <AcademyContentBlock title="台茶 18 號「紅玉」：日月潭的復興之光" icon={BookOpen}>
+                <AcademyContentBlock title="台茶 18 號「紅玉」：日月潭的復興之光" id="ch03-section-42" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-red-50 to-amber-50 p-8 rounded-2xl flex flex-col justify-center shadow-inner">
                             <h3 className="text-3xl font-bold text-red-700 mb-4">紅玉 (Ruby)</h3>
@@ -2010,7 +2231,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 台茶 21 號「紅韻」：優雅的花果交響詩 */}
-                <AcademyContentBlock title="台茶 21 號「紅韻」：優雅的花果交響詩" icon={BookOpen}>
+                <AcademyContentBlock title="台茶 21 號「紅韻」：優雅的花果交響詩" id="ch03-section-43" icon={BookOpen}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-2xl flex flex-col justify-center shadow-inner">
                             <h3 className="text-3xl font-bold text-orange-700 mb-4">紅韻 (Hongyun)</h3>
@@ -2050,7 +2271,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 台灣紅茶的精品化之路：莊園與職人 */}
-                <AcademyContentBlock title="台灣紅茶的精品化之路：莊園與職人" icon={TrendingUp}>
+                <AcademyContentBlock title="台灣紅茶的精品化之路：莊園與職人" id="ch03-section-44" icon={TrendingUp}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-emerald-500 hover:shadow-md transition-shadow">
                             <h4 className="text-[22px] font-bold text-stone-800 mb-4 flex items-center gap-2">
@@ -2086,7 +2307,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 台灣紅茶在國際市場的當代角色 */}
-                <AcademyContentBlock title="台灣紅茶在國際市場的當代角色" icon={Globe}>
+                <AcademyContentBlock title="台灣紅茶在國際市場的當代角色" id="ch03-section-45" icon={Globe}>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all border-t-4 border-amber-500">
                             <div className="text-5xl mb-4 text-amber-500 text-center"><Tag size={40} className="inline" /></div>
@@ -2128,7 +2349,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* CHAPTER 07 總結與歷史回顧 */}
-                <AcademyContentBlock title="CHAPTER 07 總結與歷史回顧" icon={BookOpen}>
+                <AcademyContentBlock title="CHAPTER 07 總結與歷史回顧" id="ch03-section-46" icon={BookOpen}>
                     <div className="bg-gradient-to-br from-amber-900 to-stone-900 text-white p-12 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl"></div>
                         <div className="relative z-10 text-center mb-8">
@@ -2143,7 +2364,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 世界與台灣紅茶史：時間軸對照圖 */}
-                <AcademyContentBlock title="世界與台灣紅茶史：時間軸對照圖" icon={TrendingUp}>
+                <AcademyContentBlock title="世界與台灣紅茶史：時間軸對照圖" id="ch03-section-47" icon={TrendingUp}>
                     <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
                         <div className="grid grid-cols-4 gap-4">
                             {/* 標題行 */}
@@ -2191,7 +2412,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 本堂課核心重點回顧 (Takeaways) */}
-                <AcademyContentBlock title="本堂課核心重點回顧 (Takeaways)" icon={MapPin}>
+                <AcademyContentBlock title="本堂課核心重點回顧 (Takeaways)" id="ch03-section-48" icon={MapPin}>
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-800 hover:shadow-md transition-shadow">
                             <div className="flex items-start gap-4">
@@ -2241,7 +2462,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 瞻王暖茶：現代健康與正能量的實踐 */}
-                <AcademyContentBlock title="瞻王暖茶：現代健康與正能量的實踐" icon={Sprout}>
+                <AcademyContentBlock title="瞻王暖茶：現代健康與正能量的實踐" id="ch03-section-49" icon={Sprout}>
                     <div className="bg-gradient-to-br from-red-900 via-amber-900 to-stone-900 text-white p-16 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500 opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                         <div className="relative z-10 text-center">
@@ -2253,7 +2474,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 瞻王暖茶：源自佛堂的健康承諾 */}
-                <AcademyContentBlock title="瞻王暖茶：源自佛堂的健康承諾" icon={Globe}>
+                <AcademyContentBlock title="瞻王暖茶：源自佛堂的健康承諾" id="ch03-section-50" icon={Globe}>
                     <div className="bg-gradient-to-r from-amber-50 to-red-50 p-8 rounded-2xl mb-8 border border-amber-100 shadow-sm">
                         <h3 className="text-3xl font-bold text-amber-900 text-center mb-2">
                             源自佛堂的健康承諾
@@ -2311,7 +2532,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 軟枝烏龍：風味之根 */}
-                <AcademyContentBlock title="軟枝烏龍：風味之根" icon={Sprout}>
+                <AcademyContentBlock title="軟枝烏龍：風味之根" id="ch03-section-51" icon={Sprout}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-amber-800 flex flex-col justify-center">
                             <div className="bg-amber-800 text-white px-4 py-2 rounded-lg text-sm font-bold inline-block mb-6 w-fit">
@@ -2350,7 +2571,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 有機管理與純粹茶氣 */}
-                <AcademyContentBlock title="有機管理與純粹茶氣" icon={Globe}>
+                <AcademyContentBlock title="有機管理與純粹茶氣" id="ch03-section-52" icon={Globe}>
                     <div className="bg-gradient-to-r from-red-100 to-amber-100 p-6 rounded-2xl mb-8 border border-red-100">
                         <h3 className="text-[24px] font-bold text-center text-stone-800 flex justify-center gap-4">
                             <span className="bg-red-700 text-white px-6 py-2 rounded-full shadow-md">權威認證</span>
@@ -2412,7 +2633,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 愛與科技的灌溉 */}
-                <AcademyContentBlock title="愛與科技的灌溉" icon={Heart}>
+                <AcademyContentBlock title="愛與科技的灌溉" id="ch03-section-53" icon={Heart}>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-pink-50 to-red-50 p-8 rounded-2xl shadow-sm border-l-4 border-pink-400 flex flex-col justify-center">
                             <div className="flex items-center gap-4 mb-6">
@@ -2449,7 +2670,7 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
 
                 {/* 藤王暖茶建議沖泡方式 */}
-                <AcademyContentBlock title="藤王暖茶建議沖泡方式" icon={Coffee}>
+                <AcademyContentBlock title="藤王暖茶建議沖泡方式" id="ch03-section-54" icon={Coffee}>
                     <div className="bg-gradient-to-br from-stone-900 to-stone-800 text-white p-10 rounded-2xl shadow-xl mb-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 opacity-10 rounded-full blur-3xl"></div>
                         <div className="relative z-10">
@@ -2530,5 +2751,6 @@ export default function ChonghuaChapter03() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+        </AcademyChapterLayout>
     );
 }

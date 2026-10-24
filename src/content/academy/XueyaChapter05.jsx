@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     List,
@@ -17,6 +18,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter05() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro */}
             <AcademySection id="xueya-05-intro" title="台灣凍頂烏龍茶深度解析報告" label="ACADEMY · XUEYA · CH05">
@@ -461,5 +463,6 @@ export default function XueyaChapter05() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

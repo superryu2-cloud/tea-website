@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import { Palette, MoveRight, Maximize, Circle, Droplets, Sun, Leaf, CheckCircle, Box, Layout, Mountain, Thermometer, Users, Coffee } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
@@ -6,6 +7,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter03() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro: Tea Setup Aesthetics */}
             <AcademySection id="xueya-03-intro" title="從茶席美學到品飲之道" label="ACADEMY · XUEYA · CH03">
@@ -335,5 +337,6 @@ export default function XueyaChapter03() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

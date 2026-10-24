@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Layout,
@@ -23,6 +24,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter06() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro */}
             <AcademySection id="zhiya-06-intro" title="茶席的設計美學：從佈局、用色到意境的完整指南" label="ACADEMY · ZHIYA · CH06">
@@ -353,6 +355,7 @@ export default function ZhiyaChapter06() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }
 

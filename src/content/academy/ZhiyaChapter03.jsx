@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Flame,
@@ -23,6 +24,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter03() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* 1. Aroma Types */}
             <AcademySection id="zhiya-03-aroma-types" title="茶葉香氣的三大類型：清香、焙香與濃香" label="ACADEMY · ZHIYA · CH03">
@@ -273,5 +275,6 @@ export default function ZhiyaChapter03() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

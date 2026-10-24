@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React, { useState, useMemo } from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import ImageLightbox from '../../components/ImageLightbox';
@@ -115,61 +116,14 @@ export default function ChonghuaChapter01() {
         { id: 'ch01-layout-diagram', label: '茶席佈置位圖' },
     ], []);
 
-    const [activeId, setActiveId] = useState(TOC[0].id);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-                if (visible.length > 0) setActiveId(visible[0].target.id);
-            },
-            { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
-        );
-        TOC.forEach(({ id }) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-        return () => observer.disconnect();
-    }, [TOC]);
-
-    const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
 
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
     const openLightbox = (src, alt) => { setLightboxImage({ src, alt }); setLightboxOpen(true); };
 
     return (
-        <div className="flex gap-8 font-sans">
+        <AcademyChapterLayout items={TOC}>
             <ImageLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} imageSrc={lightboxImage.src} altText={lightboxImage.alt} />
-
-            {/* Left Sidebar TOC */}
-            <nav className="hidden lg:block w-60 shrink-0 sticky top-28 self-start" style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
-                <div className="museum-panel p-4 md:p-5 tool-surface shadow-sm rounded-2xl">
-                    <h3 className="text-[18px] font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-emerald-600">
-                        章節導覽
-                    </h3>
-                    <div className="space-y-1">
-                        {TOC.map(({ id, label }) => {
-                            const isActive = activeId === id;
-                            return (
-                                <button
-                                    key={id}
-                                    onClick={() => scrollTo(id)}
-                                    className={`block w-full text-left rounded-xl px-4 py-3 transition-all duration-300 border box-border text-[16px] font-bold ${isActive
-                                        ? 'bg-gradient-to-br from-emerald-100/80 to-teal-50 border-emerald-300 text-emerald-900 shadow-md ring-1 ring-emerald-200'
-                                        : 'bg-white/40 border-stone-200/60 hover:border-emerald-300 hover:bg-gradient-to-r hover:from-emerald-50/50 hover:to-white hover:shadow-md text-stone-500 hover:text-stone-900'
-                                        }`}
-                                >
-                                    <span className="block truncate">{label}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </nav>
 
             <div className="flex-1 min-w-0 space-y-12">
                 <AcademySection
@@ -731,7 +685,7 @@ export default function ChonghuaChapter01() {
                     {/* ══════════════════════════════
                     茶席佈置位圖
                 ══════════════════════════════ */}
-                    <AcademyContentBlock title="茶席佈置位圖" icon={Grid}>
+                    <AcademyContentBlock title="茶席佈置位圖" icon={Grid} id="ch01-layout-diagram">
                         <div className="mb-8 w-full max-w-3xl mx-auto">
                             <ClickImg src={IMG.layoutDiagram} alt="茶席佈置位圖" caption="點擊可放大查看" openLightbox={openLightbox} wrapperClass="border-2 border-stone-100 shadow-lg bg-white" imgClass="w-full h-auto object-contain max-h-[480px]" />
                         </div>
@@ -764,7 +718,7 @@ export default function ChonghuaChapter01() {
 
                 </AcademySection>
             </div>
-        </div >
+        </AcademyChapterLayout>
     );
 }
 

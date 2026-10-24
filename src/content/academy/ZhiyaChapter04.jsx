@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Activity,
@@ -20,6 +21,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter04() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro */}
             <AcademySection id="zhiya-04-intro" title="濃香型茶的品質探討：以東方美人茶為核心的深度解析" label="ACADEMY · ZHIYA · CH04">
@@ -320,5 +322,6 @@ export default function ZhiyaChapter04() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

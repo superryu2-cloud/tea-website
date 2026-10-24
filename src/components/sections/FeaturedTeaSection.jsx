@@ -210,7 +210,7 @@ export default function FeaturedTeaSection({
                                                                     </span>
                                                                 </span>
                                                                 <span
-                                                                    className={`block text-sm mt-1 truncate ${isActive ? 'opacity-90' : 'tool-muted'}`}
+                                                                    className={`block text-base mt-1 whitespace-normal leading-relaxed ${isActive ? 'opacity-90' : 'tool-muted'}`}
                                                                 >
                                                                     {item.subtitle}
                                                                 </span>
@@ -257,7 +257,7 @@ export default function FeaturedTeaSection({
                         }
                     >
                         {/* Content Area */}
-                        <div className="min-w-0">
+                        <div className="min-w-0 rounded-3xl bg-[#fffdf8] p-4 text-stone-900 md:p-6">
                             {/* ── 手機版特色茶選擇器（xl 以上隱藏，由側邊欄取代）── */}
                             <div className="xl:hidden sticky top-0 z-30 mx-0 px-0 py-2 bg-white/90 backdrop-blur-sm border-b border-stone-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-2">
                                 <div className="flex-1 relative">

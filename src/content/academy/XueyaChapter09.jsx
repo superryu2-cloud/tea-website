@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Leaf,
@@ -22,6 +23,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter09() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro: Mindset */}
             <AcademySection id="xueya-09-mindset" title="泡茶心法：七要素與儀式感" label="ACADEMY · XUEYA · CH09">
@@ -316,5 +318,6 @@ export default function XueyaChapter09() {
                 </div>
             </AcademySection >
         </div >
+    </AcademyChapterLayout>
     );
 }

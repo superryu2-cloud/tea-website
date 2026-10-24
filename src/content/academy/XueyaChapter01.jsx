@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React from 'react';
 import {
   Sparkles,
   Heart,
@@ -19,6 +20,7 @@ import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 
 export default function XueyaChapter01() {
   return (
+        <AcademyChapterLayout>
     <div className="space-y-12">
       <AcademySection
         id="xueya-01-intro"
@@ -536,6 +538,8 @@ export default function XueyaChapter01() {
         </AcademyContentBlock>
       </AcademySection>
     </div>
-  );
+  </AcademyChapterLayout>
+    );
 }
+
 

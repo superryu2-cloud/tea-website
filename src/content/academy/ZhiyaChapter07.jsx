@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Store,
@@ -22,6 +23,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter07() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro */}
             <AcademySection id="zhiya-07-intro" title="器物之選與歷史之韻" label="ACADEMY · ZHIYA · CH07">
@@ -238,5 +240,6 @@ export default function ZhiyaChapter07() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

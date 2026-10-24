@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     PenTool,
@@ -20,6 +21,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function XueyaChapter08() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
 
             {/* 1.0 Philosophy of Utensils */}
@@ -303,5 +305,6 @@ export default function XueyaChapter08() {
             </AcademySection>
 
         </div>
+    </AcademyChapterLayout>
     );
 }

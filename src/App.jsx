@@ -181,6 +181,9 @@ const TeaWebsite = () => {
   };
 
   const goToTab = (tab) => {
+    if (tab !== activeTab && ['taiwan_history', 'tea_station_history'].some((page) => page === tab || page === activeTab)) {
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
     setActiveTab(tab);
     setMobileMenuOpen(false);
     if (tab === 'sensory' || tab === 'tea_talk') setAtlasNavOpen(false);

@@ -70,7 +70,7 @@ const competitionTeas = [
     sensory: '茶湯琥珀略紅，滋味濃而醇厚，帶甘潤口感與純和的弱果酸；焦糖、堅果、米香與品種香交疊，多次沖泡後仍能呈現回甘與觀音韻。',
     craft: '較深的發酵建立熟果與果酸層次，反覆焙火使香氣更沉穩。持續受熱會促進梅納反應與焦糖化相關變化，讓糖香、堅果與烘焙氣息更加立體。沖泡宜有足夠濃度，才能支撐苦、澀、酸、甜與回甘的完整轉變。',
     origin: '台灣鐵觀音主要見於台北木柵與新北石門。木柵鐵觀音常追溯至清末張氏兄弟由福建安溪引進茶苗，在木柵樟湖山一帶落地發展；正欉鐵觀音重視鐵觀音品種本身，特定製法茶則強調鐵觀音式發酵與焙火工藝。',
-    brewing: ['紫砂壺、朱泥壺或陶壺', '接近 100°C', '茶量約容器 1/5–1/4', '溫潤 10–15 秒', '前兩泡約 60 秒'],
+    brewing: ['紫砂壺、朱泥壺或陶壺', '接近 100°C', '茶量約容器 1/5–1/4', '第一泡 50–60 秒（有溫潤泡）；未溫潤則約 70 秒', '溫潤泡在第一泡之前，可做可不做；本次比賽採溫潤泡 5–10 秒'],
     closing: '鐵觀音的魅力不只在重火，而在火中有香、濃中有韻，最後留下一點微酸與長長的甘甜。',
   },
   {
@@ -138,12 +138,12 @@ const toneClasses = {
 function SectionTitle({ eyebrow, title, description, icon: Icon, inverted = false }) {
   return (
     <div className="mb-8 max-w-3xl">
-      <div className="mb-3 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.18em] text-emerald-700">
+      <div className={`mb-3 inline-flex items-center gap-2 text-base font-bold uppercase tracking-[0.12em] ${inverted ? 'text-emerald-200' : 'text-emerald-800'}`}>
         {React.createElement(Icon, { size: 17 })}
         {eyebrow}
       </div>
-      <h2 className={`text-3xl font-black tracking-tight md:text-4xl ${inverted ? 'text-white' : 'text-stone-900'}`}>{title}</h2>
-      {description ? <p className={`mt-3 text-base font-semibold leading-8 md:text-lg ${inverted ? 'text-white/70' : 'text-stone-600'}`}>{description}</p> : null}
+      <h2 className={`text-3xl font-bold tracking-tight md:text-4xl ${inverted ? 'text-white' : 'text-stone-900'}`}>{title}</h2>
+      {description ? <p className={`mt-4 text-[17px] font-normal leading-8 md:text-lg ${inverted ? 'text-stone-200' : 'text-stone-600'}`}>{description}</p> : null}
     </div>
   );
 }
@@ -172,15 +172,15 @@ function TeaQuestionCard({ tea, isOpen, onToggle }) {
           <div className="grid gap-4 lg:grid-cols-2">
             <div className="rounded-2xl bg-emerald-50/70 p-5">
               <div className="mb-2 flex items-center gap-2 font-black text-emerald-800"><Droplets size={18} />茶湯與風味</div>
-              <p className="font-semibold leading-8 text-stone-700">{tea.sensory}</p>
+              <p className="reading-copy text-stone-700">{tea.sensory}</p>
             </div>
             <div className="rounded-2xl bg-amber-50/70 p-5">
               <div className="mb-2 flex items-center gap-2 font-black text-amber-900"><Flame size={18} />特色怎麼來</div>
-              <p className="font-semibold leading-8 text-stone-700">{tea.craft}</p>
+              <p className="reading-copy text-stone-700">{tea.craft}</p>
             </div>
             <div className="rounded-2xl bg-stone-50 p-5 lg:col-span-2">
               <div className="mb-2 flex items-center gap-2 font-black text-stone-800"><History size={18} />品種、產地與故事</div>
-              <p className="font-semibold leading-8 text-stone-700">{tea.origin}</p>
+              <p className="reading-copy text-stone-700">{tea.origin}</p>
             </div>
           </div>
 
@@ -188,7 +188,7 @@ function TeaQuestionCard({ tea, isOpen, onToggle }) {
             <div className="mb-4 flex items-center gap-2 font-black text-sky-900"><Coffee size={18} />擇器與泡法</div>
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
               {tea.brewing.map((item, index) => (
-                <div key={item} className="rounded-xl bg-white px-3 py-3 text-sm font-bold leading-6 text-stone-700 shadow-sm">
+                <div key={item} className="rounded-xl bg-white px-3 py-3 text-base font-medium leading-7 text-stone-700">
                   <span className="mr-1 text-sky-700">{index + 1}.</span>{item}
                 </div>
               ))}
@@ -225,7 +225,7 @@ export default function Competition2026Section() {
               2026 · COMPETITION ARCHIVE
             </div>
             <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">第三屆茶道藝美學<br className="hidden md:block" />薪傳獎・參賽實錄</h1>
-            <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white/85 md:text-xl">
+            <p className="mt-5 max-w-2xl text-lg font-normal leading-8 text-white/85 md:text-xl">
               從特色茶問答、器物選擇到舞台司茶，完整保存一次把茶學知識化為現場表達的歷程。
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -266,7 +266,7 @@ export default function Competition2026Section() {
                 <div key={title} className="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm">
                   <div className="mb-4 grid h-11 w-11 place-items-center rounded-2xl bg-emerald-100 text-emerald-800">{React.createElement(Icon, { size: 22 })}</div>
                   <h3 className="text-lg font-black">{title}</h3>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-stone-600">{text}</p>
+                  <p className="mt-2 text-base font-normal leading-7 text-stone-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -287,7 +287,22 @@ export default function Competition2026Section() {
         <section id="competition-brewing" className="scroll-mt-28 px-5 py-16 md:px-8 md:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionTitle eyebrow="Brewing Quick Reference" title="上場前一分鐘・沖泡參數速查" description="先用茶類判斷水溫，再依茶乾嫩度、緊結度與焙火程度微調。下表是比賽答題的記憶起點，不是不可變動的唯一公式。" icon={Thermometer} />
-            <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+            <div className="grid gap-4 lg:hidden">
+              {competitionTeas.map((tea) => (
+                <article key={tea.id} className="rounded-2xl border border-stone-200 bg-white p-5">
+                  <h3 className="mb-4 text-xl font-bold text-stone-900">{tea.name}</h3>
+                  <dl className="space-y-3 text-base leading-7">
+                    {['器具', '水溫', '茶量', '第一泡', '沖泡補充'].map((label, index) => (
+                      <div key={label} className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3">
+                        <dt className="font-bold text-emerald-800">{label}</dt>
+                        <dd className="text-stone-700">{tea.brewing[index]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </article>
+              ))}
+            </div>
+            <div className="hidden overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm lg:block">
               <div className="overflow-x-auto">
                 <table className="min-w-[900px] w-full text-left">
                   <thead className="bg-[#173f36] text-white">
@@ -303,10 +318,10 @@ export default function Competition2026Section() {
                     {competitionTeas.map((tea, index) => (
                       <tr key={tea.id} className={index % 2 ? 'bg-stone-50/70' : 'bg-white'}>
                         <td className="px-5 py-4 font-black text-stone-900">{tea.shortName}</td>
-                        <td className="px-5 py-4 text-sm font-semibold text-stone-700">{tea.brewing[0]}</td>
-                        <td className="px-5 py-4 text-sm font-bold text-emerald-800">{tea.brewing[1]}</td>
-                        <td className="px-5 py-4 text-sm font-semibold text-stone-700">{tea.brewing[2]}</td>
-                        <td className="px-5 py-4 text-sm font-semibold text-stone-700">{tea.brewing[3]}</td>
+                        <td className="px-5 py-4 text-base leading-7 text-stone-700">{tea.brewing[0]}</td>
+                        <td className="px-5 py-4 text-base font-bold text-emerald-800">{tea.brewing[1]}</td>
+                        <td className="px-5 py-4 text-base leading-7 text-stone-700">{tea.brewing[2]}</td>
+                        <td className="px-5 py-4 text-base leading-7 text-stone-700">{tea.brewing[3]}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -342,7 +357,7 @@ export default function Competition2026Section() {
             <div className="p-7 md:p-12">
               <div className="mb-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.18em] text-emerald-700"><Leaf size={17} />My Tea Practice</div>
               <h2 className="text-3xl font-black leading-tight tracking-tight md:text-4xl">茶讓知識落在手上，<br />也讓心慢下來。</h2>
-              <div className="mt-7 space-y-5 text-base font-semibold leading-8 text-stone-700 md:text-lg">
+              <div className="reading-copy mt-7 space-y-6 text-stone-700">
                 <p>對我來說，茶不是單純的飲料，而是一種把人慢下來、把心安定下來的方法。</p>
                 <p>學茶以前，我比較在意茶好不好喝；學茶以後，我開始知道一杯茶背後有品種、產地、季節、製程、沖泡與人的選擇。茶讓我把味覺、嗅覺、觀察力和表達能力連在一起。</p>
                 <p>茶對我的意義是專注與待人。泡茶時，水溫、茶量、時間都不能急；和人分享時，也要理解對方的感受。這和我平常做客服工程師其實很像，都是先觀察問題，再用合適的方法讓事情變順。</p>

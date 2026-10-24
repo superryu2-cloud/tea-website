@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Activity, // For practice/technique
@@ -20,6 +21,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter02() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* Intro: Suspension Method */}
             <AcademySection id="zhiya-02-suspension" title="懸空置茶法：習茶心法之基石" label="ACADEMY · ZHIYA · CH02">
@@ -300,5 +302,6 @@ export default function ZhiyaChapter02() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React from 'react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
 import { AlertTriangle, CheckCircle2, Hand, ThermometerSun } from 'lucide-react';
@@ -56,6 +57,7 @@ function InfoCard({ title, children }) {
 
 export default function ChonghuaChapter05() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             <AcademySection
                 id="chonghua-05"
@@ -207,6 +209,6 @@ export default function ChonghuaChapter05() {
                 </div>
             </AcademySection>
         </div>
+        </AcademyChapterLayout>
     );
 }
-

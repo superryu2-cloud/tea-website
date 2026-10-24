@@ -11,6 +11,8 @@
  *              room      → scienceRoom key
  */
 const SEARCH_INDEX = [
+    { keywords: '臺灣 台灣 茶業 發展史 時光 迴廊 歷史 年代 展板', label: '臺灣茶業發展史', category: '台灣茶', tab: 'taiwan_history' },
+    { keywords: '茶改場 茶業改良場 茶及飲料作物改良場 歷史 時光 迴廊 大事記', label: '茶改場時光迴廊', category: '台灣茶', tab: 'tea_station_history' },
     // ── 六大茶類 ──
     { keywords: '綠茶 green tea 不發酵 龍井 碧螺春 煎茶', label: '綠茶（不發酵茶）', category: '六大茶類', tab: 'varieties', detail: { kind: 'green' } },
     { keywords: '白茶 white tea 微發酵 白毫銀針 白牡丹 壽眉 福鼎', label: '白茶（微發酵茶）', category: '六大茶類', tab: 'varieties', detail: { kind: 'white' } },

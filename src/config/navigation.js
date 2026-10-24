@@ -15,6 +15,8 @@ export const ATLAS_ITEMS = [
   'zisha',
   'regions',
   'history',
+  'taiwan_history',
+  'tea_station_history',
   'video',
   'course',
 ];

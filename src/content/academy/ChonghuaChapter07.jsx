@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React from 'react';
 import {
     BookOpen,
     CheckCircle2,
@@ -133,8 +134,17 @@ function TeaDetail({ tea, index }) {
     );
 }
 
+const TOC = [
+    { id: 'overview', label: '青茶製程與風味' },
+    ...teas.map(({ id, name }) => ({ id, label: name })),
+    { id: 'comparison', label: '四款茶快速比較' },
+    { id: 'practice', label: '品飲與沖泡實作' },
+    { id: 'sources', label: '延伸閱讀與資料來源' },
+];
+
 export default function ChonghuaChapter07() {
     return (
+        <AcademyChapterLayout items={TOC}>
         <main className="mx-auto max-w-7xl space-y-12 px-4 pb-16 text-stone-800 md:px-6">
             <header className="relative overflow-hidden rounded-[2.25rem] bg-stone-900 text-white shadow-xl">
                 <img
@@ -252,6 +262,6 @@ export default function ChonghuaChapter07() {
                 </ul>
             </section>
         </main>
+        </AcademyChapterLayout>
     );
 }
-

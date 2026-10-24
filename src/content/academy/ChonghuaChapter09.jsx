@@ -1,4 +1,5 @@
-﻿import React, { useState, useEffect, useMemo } from 'react';
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
+import React, { useState, useMemo } from 'react';
 import { BookOpen, Leaf, Flame, Thermometer, FlaskConical, Layers, Coffee, ArrowRight, Droplets, Wind, Sun, Sparkles, Users, Eye, Mountain } from 'lucide-react';
 import AcademySection from '../../components/academy/AcademySection';
 import AcademyContentBlock from '../../components/academy/AcademyContentBlock';
@@ -84,55 +85,9 @@ export default function ChonghuaChapter09() {
         { id: 'ch09-summary', label: '帶走的觀念' },
     ], []);
 
-    const [activeId, setActiveId] = useState(TOC[0].id);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-                if (visible.length > 0) setActiveId(visible[0].target.id);
-            },
-            { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
-        );
-        TOC.forEach(({ id }) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-        return () => observer.disconnect();
-    }, [TOC]);
-
-    const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
 
     return (
-        <div className="flex gap-8">
-            {/* ── 側邊欄 TOC ── */}
-            <nav className="hidden lg:block w-60 shrink-0 sticky top-28 self-start" style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
-                <div className="museum-panel p-4 md:p-5 tool-surface shadow-sm rounded-2xl">
-                    <h3 className="text-[18px] font-extrabold text-stone-900 mb-3 px-2 border-l-4 border-amber-600">
-                        章節導覽
-                    </h3>
-                    <div className="space-y-1">
-                        {TOC.map(({ id, label }) => {
-                            const isActive = activeId === id;
-                            return (
-                                <button
-                                    key={id}
-                                    onClick={() => scrollTo(id)}
-                                    className={`block w-full text-left rounded-xl px-4 py-3 transition-all duration-300 border box-border text-[16px] font-bold ${isActive
-                                        ? 'bg-gradient-to-br from-amber-100/80 to-orange-50 border-amber-300 text-amber-900 shadow-md ring-1 ring-amber-200'
-                                        : 'bg-white/40 border-stone-200/60 hover:border-amber-300 hover:bg-gradient-to-r hover:from-amber-50/50 hover:to-white hover:shadow-md text-stone-500 hover:text-stone-900'
-                                        }`}
-                                >
-                                    <span className="block truncate">{label}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </nav>
+        <AcademyChapterLayout items={TOC}>
 
             {/* ── 主要內容區 ── */}
             <div className="flex-1 min-w-0 space-y-12">
@@ -836,7 +791,6 @@ export default function ChonghuaChapter09() {
 
                 </AcademySection>
             </div>
-        </div>
+        </AcademyChapterLayout>
     );
 }
-

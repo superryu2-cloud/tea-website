@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     Sprout,
@@ -26,6 +27,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter10() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* 1. Biluochun Introduction */}
             <AcademySection id="zhiya-10-biluochun" title="品味春意：碧螺春" label="ACADEMY · ZHIYA · CH10">
@@ -268,5 +270,6 @@ export default function ZhiyaChapter10() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }

@@ -1,3 +1,4 @@
+import AcademyChapterLayout from '../../components/academy/AcademyChapterLayout';
 import React from 'react';
 import {
     ScrollText,
@@ -22,6 +23,7 @@ import AcademyHighlightBox from '../../components/academy/AcademyHighlightBox';
 
 export default function ZhiyaChapter09() {
     return (
+        <AcademyChapterLayout>
         <div className="space-y-12">
             {/* 1. Review */}
             <AcademySection id="zhiya-09-review" title="進階茶道技法精要回顧" label="ACADEMY · ZHIYA · CH09">
@@ -310,5 +312,6 @@ export default function ZhiyaChapter09() {
                 </AcademyContentBlock>
             </AcademySection>
         </div>
+    </AcademyChapterLayout>
     );
 }
