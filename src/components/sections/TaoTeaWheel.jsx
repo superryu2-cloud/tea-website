@@ -82,7 +82,7 @@ export default function TaoTeaWheel() {
         setPhase('result');
         window.requestAnimationFrame(() => {
           readingPanel.current?.focus({ preventScroll: true });
-          if (window.matchMedia('(max-width: 720px)').matches) {
+          if (window.matchMedia('(max-width: 850px)').matches) {
             readingPanel.current?.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'start' });
           }
         });
