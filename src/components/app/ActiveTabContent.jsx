@@ -29,6 +29,7 @@ const SeasonsSection = lazy(() => import('../../sections/SeasonsSection'));
 const BrewingGuideSection = lazy(() => import('../../sections/BrewingGuideSection'));
 const AIPlannerRoom = lazy(() => import('../ai-planner/AIPlannerRoom'));
 const Competition2026Section = lazy(() => import('../sections/Competition2026Section'));
+const TaoTeaWheel = lazy(() => import('../sections/TaoTeaWheel'));
 
 function RouteLoadingFallback() {
   return (
@@ -158,6 +159,7 @@ export default function ActiveTabContent({
         )}
 
         {activeTab === 'competition_2026' && <Competition2026Section />}
+        {activeTab === 'tao_wheel' && <TaoTeaWheel />}
 
         {activeTab === 'tea_talk' && <TeaTalkColorSection siteNavHeightPx={siteNavHeightPx} />}
         {activeTab === 'cultivars' && <CultivarSection siteNavHeightPx={siteNavHeightPx} />}

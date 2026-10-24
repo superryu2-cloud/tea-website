@@ -151,6 +151,15 @@ export const PRIMARY_SITE_NAV = [
     descriptionEn: 'Hands-on teaching, sensory drills, and interactive tools.',
     children: [
       {
+        id: 'tao-wheel',
+        label: '道德經・茶席智慧轉輪',
+        labelEn: 'Tao & Tea Wisdom Wheel',
+        description: '兩輪抽出 1–81 章，讀經文、談茶與人生，選擇開啟右側注音。',
+        descriptionEn: 'Draw a chapter in two spins, reflect on tea and life, and optionally show Zhuyin.',
+        currentTab: 'tao_wheel',
+        canonicalPath: '/practice/tao-tea-wheel',
+      },
+      {
         id: 'brewing',
         label: '沖泡入門',
         labelEn: 'Brewing Basics',
@@ -240,6 +249,7 @@ export const CANONICAL_ROUTE_ALIASES = {
   regions: '/taiwan-tea/regions',
   history: '/encyclopedia/history',
   sensory: '/practice/sensory-quiz',
+  tao_wheel: '/practice/tao-tea-wheel',
   competition_2026: '/practice/competition-2026',
   tea_talk: '/practice/tea-palette',
   video: '/videos',
