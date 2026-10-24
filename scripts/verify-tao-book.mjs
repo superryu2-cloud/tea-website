@@ -8,6 +8,10 @@ const chapters = JSON.parse(readFileSync(new URL('../src/data/taoChapters.json',
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 const plain = html => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x27;/g, "'");
 try {
+  const chapter69 = chapters.find(chapter => chapter.id === 69);
+  const 行無行 = chapter69.text.indexOf('行無行');
+  assert.equal(chapter69.readings[行無行], 'ㄒㄧㄥˊ', '行進的「行」讀ㄒㄧㄥˊ');
+  assert.equal(chapter69.readings[行無行 + 2], 'ㄏㄤˊ', '行列的「行」讀ㄏㄤˊ');
   const { default: Reader } = await server.ssrLoadModule('/src/components/sections/TaoBookReader.jsx');
   for (const chapter of chapters) {
     for (let page = 0; page < 4; page++) {
