@@ -12,6 +12,10 @@ try {
   const 行無行 = chapter69.text.indexOf('行無行');
   assert.equal(chapter69.readings[行無行], 'ㄒㄧㄥˊ', '行進的「行」讀ㄒㄧㄥˊ');
   assert.equal(chapter69.readings[行無行 + 2], 'ㄏㄤˊ', '行列的「行」讀ㄏㄤˊ');
+  const chapter9 = chapters.find(chapter => chapter.id === 9);
+  assert.equal(chapter9.readings[chapter9.text.indexOf('遺')], 'ㄧˊ', '自遺其咎的「遺」讀ㄧˊ');
+  const chapter72 = chapters.find(chapter => chapter.id === 72);
+  assert.equal(chapter72.readings[chapter72.text.indexOf('厭')], 'ㄧㄢˋ', '第72章首個「厭」採教育部現代國語音');
   const { default: Reader } = await server.ssrLoadModule('/src/components/sections/TaoBookReader.jsx');
   for (const chapter of chapters) {
     for (let page = 0; page < 4; page++) {

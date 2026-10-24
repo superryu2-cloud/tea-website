@@ -197,7 +197,7 @@ export default function TaoTeaWheel() {
 
       <article className="tao-reading tao-paper" ref={readingPanel} tabIndex={-1} aria-label="章節內容">
         <TaoBookReader chapter={chapter} page={bookPage} onPageChange={turnBookPage} showReadings={showReadings} onReadingsChange={setShowReadings} manual={manual} />
-        <footer className="tao-sources"><p>經文採王弼本；不同傳本的字句及章句可能有差異。白話解釋與茶席延伸為教學參考，並非經文原句或唯一解釋。</p><details><summary>經文來源與注音說明</summary><p>繁體經文依<a href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noreferrer">維基文庫《道德經》（王弼本）</a>整理，不含王弼注文；章題為教學提示。</p><p>注音採現代國語本調，不標連讀變調。依文義區分多音字，參照<a href="https://dict.revised.moe.edu.tw/" target="_blank" rel="noreferrer">教育部《重編國語辭典修訂本》</a>及<a href="https://dict.variants.moe.edu.tw/" target="_blank" rel="noreferrer">《異體字字典》</a>。如「歙」讀ㄒㄧˋ、「牝」讀ㄆㄧㄣˋ、「畜之」讀ㄒㄩˋ、「被褐」讀ㄆㄧ ㄏㄜˊ；古文異讀與不同訓解可另作課堂討論。</p></details></footer>
+        <footer className="tao-sources"><p>經文採王弼本；不同傳本的字句及章句可能有差異。白話解釋與茶席延伸為教學參考，並非經文原句或唯一解釋。</p><details><summary>經文來源與注音說明</summary><p>繁體經文依<a href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noreferrer">維基文庫《道德經》（王弼本）</a>整理，不含王弼注文；章題為教學提示。</p><p>注音採現代國語本調，不標連讀變調。依文義區分多音字，參照<a href="https://dict.revised.moe.edu.tw/" target="_blank" rel="noreferrer">教育部《重編國語辭典修訂本》</a>及<a href="https://dict.variants.moe.edu.tw/" target="_blank" rel="noreferrer">《異體字字典》</a>。如「歙」讀ㄒㄧˋ、「牝」讀ㄆㄧㄣˋ、「畜之」讀ㄒㄩˋ、「被褐」讀ㄆㄧ ㄏㄜˊ；第七十二章首個「厭」依本頁採現代國語音讀作ㄧㄢˋ；若採「厭通壓」解，亦有註家作ㄧㄚ讀法。其他古文異讀與不同訓解可另作課堂討論。</p></details></footer>
       </article>
     </div>
   </section>;
