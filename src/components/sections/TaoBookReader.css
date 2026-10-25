@@ -93,12 +93,14 @@
 @keyframes tao-leaf-enter { from { opacity: 0; transform: translateX(7px); } to { opacity: 1; transform: translateX(0); } }
 @media (min-width: 1500px) { .tao-chapter-picker { max-width: 1450px; } }
 @media (min-width: 1500px) { .tao-book-theme .tao-classic { font-size: 29px; } }
+@media (min-width: 851px) { .tao-book-theme .tao-controls { position: sticky; top: 84px; align-self: start; max-height: calc(100vh - 100px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; } }
 @media (max-width: 1100px) and (min-width: 851px) { .tao-layout { grid-template-columns: 360px minmax(0, 1fr); gap: 22px; } .tao-book-theme .tao-reading { padding: 26px 26px 22px 34px; } }
 @media (max-width: 850px) {
   .tao-chapter-picker { padding: 18px 12px; gap: 12px; }
   .tao-chapter-picker > label { flex-basis: 100%; }
   .tao-chapter-picker select { flex-basis: 100%; width: 100%; }
   .tao-chapter-picker > button { width: 100%; }
+  .tao-book-theme .tao-controls { position: static; max-height: none; overflow: visible; }
   .tao-book-theme .tao-reading { padding: 24px 20px 22px 29px; border-radius: 3px 6px 6px 3px; }
   .tao-book-theme .tao-reading::before { left: 7px; width: 3px; }
   .tao-book-running { gap: 9px; padding-bottom: 16px; }
