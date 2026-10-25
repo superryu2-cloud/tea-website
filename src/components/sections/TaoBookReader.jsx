@@ -19,7 +19,7 @@ function ClassicText({ chapter, showReadings }) {
     }
     words.push(<span className="tao-annotated-word" key={index}>
       <span className="tao-syllable"><span>{char}</span><span className="tao-phonetic" aria-hidden="true">
-        {reading.replace(/[ˊˇˋ˙]/g, '')}
+        <span className="tao-phonetic-symbols">{reading.replace(/[ˊˇˋ˙]/g, '')}</span>
         {tone && <span className="tao-tone">{tone}</span>}
       </span></span>{punctuation}
     </span>);
