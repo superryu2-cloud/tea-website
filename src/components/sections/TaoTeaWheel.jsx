@@ -20,18 +20,33 @@ function TeaCompanion() {
   </svg>;
 }
 
+function ringSectorPath(index, count, innerRadius, outerRadius) {
+  const step = 360 / count;
+  const point = (radius, degrees) => [250 + radius * Math.sin(degrees * Math.PI / 180), 250 - radius * Math.cos(degrees * Math.PI / 180)];
+  const start = index * step - step / 2;
+  const end = index * step + step / 2;
+  const [outerStartX, outerStartY] = point(outerRadius, start);
+  const [outerEndX, outerEndY] = point(outerRadius, end);
+  const [innerEndX, innerEndY] = point(innerRadius, end);
+  const [innerStartX, innerStartY] = point(innerRadius, start);
+  return `M${outerStartX} ${outerStartY}A${outerRadius} ${outerRadius} 0 0 1 ${outerEndX} ${outerEndY}L${innerEndX} ${innerEndY}A${innerRadius} ${innerRadius} 0 0 0 ${innerStartX} ${innerStartY}Z`;
+}
+
+const INNER_DIGITS = Array.from({ length: 9 }, (_, digit) => digit);
+const OUTER_DIGITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
 export default function TaoTeaWheel() {
   const [phase, setPhase] = useState('draw');
   const [chapterId, setChapterId] = useState(() => chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search));
   const [manual, setManual] = useState(() => Boolean(chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search)));
   const [spinning, setSpinning] = useState(false);
   const [fireworks, setFireworks] = useState(false);
-  const [rotation, setRotation] = useState(0);
+  const [innerRotation, setInnerRotation] = useState(0);
+  const [outerRotation, setOuterRotation] = useState(0);
   const [duration, setDuration] = useState(3200);
   const [noRepeat, setNoRepeat] = useState(false);
   const [history, setHistory] = useState([]);
   const [showReadings, setShowReadings] = useState(false);
-  const [bookPage, setBookPage] = useState(0);
   const [shareFeedback, setShareFeedback] = useState('');
   const [shareFallback, setShareFallback] = useState('');
   const timer = useRef(null);
@@ -56,13 +71,15 @@ export default function TaoTeaWheel() {
     if (drawLock.current || finished) return;
     drawLock.current = true;
     const picked = chooseChapter({ chapters: entries.map(entry => entry.id) });
-    const index = entries.findIndex(entry => entry.id === picked);
+    const tens = Math.floor(picked / 10);
+    const units = picked % 10;
+    const unitIndex = units === 0 ? 9 : units - 1;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ms = reduced ? 80 : 3200;
     setDuration(ms);
     setSpinning(true);
-    setBookPage(0);
-    setRotation(current => landingRotation(current, index, entries.length));
+    setInnerRotation(current => landingRotation(current, tens, INNER_DIGITS.length));
+    setOuterRotation(current => landingRotation(current, unitIndex, OUTER_DIGITS.length));
     timer.current = window.setTimeout(() => {
       setSpinning(false);
       drawLock.current = false;
@@ -89,8 +106,8 @@ export default function TaoTeaWheel() {
     setPhase('draw');
     setManual(false);
     setFireworks(false);
-    setRotation(0);
-    setBookPage(0);
+    setInnerRotation(0);
+    setOuterRotation(0);
   }
 
   function resetRound() {
@@ -111,8 +128,10 @@ export default function TaoTeaWheel() {
     setShareFeedback('');
     setShareFallback('');
     setPhase('result');
-    setRotation(0);
-    setBookPage(0);
+    const tens = Math.floor(id / 10);
+    const units = id % 10;
+    setInnerRotation(landingRotation(0, tens, INNER_DIGITS.length));
+    setOuterRotation(landingRotation(0, units === 0 ? 9 : units - 1, OUTER_DIGITS.length));
     window.history.replaceState(null, '', chapterShareUrl(window.location.href, id));
     window.requestAnimationFrame(() => {
       if (window.matchMedia('(max-width: 850px)').matches) {
@@ -131,14 +150,6 @@ export default function TaoTeaWheel() {
       setShareFeedback('請選取下方連結複製。');
       setShareFallback(link);
     }
-  }
-
-  function turnBookPage(page) {
-    setBookPage(page);
-    window.requestAnimationFrame(() => {
-      readingPanel.current?.querySelector('.tao-book')?.focus({ preventScroll: true });
-      readingPanel.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
-    });
   }
 
   const centerLabel = spinning ? '靜候佳章' : phase === 'result' ? `第 ${chapterId} 章` : '1—81';
@@ -161,30 +172,38 @@ export default function TaoTeaWheel() {
     </div>
     <div className="tao-layout">
       <aside className="tao-controls tao-paper" aria-label="章節抽籤">
-        <div className="tao-step"><span className="is-current">① 抽出章節</span><ChevronRight size={14} /><span>第 1–81 章</span></div>
+        <div className="tao-step"><span className="is-current">內輪・十位</span><ChevronRight size={14} /><span>外輪・個位</span></div>
         <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>{spinning ? '茶香轉轉，智慧快來了！' : chapter ? '先聽大家分享，再看看茶席的啟發。' : '轉一轉，直接與一章智慧相遇。'}</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
           {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /></div>}
-          <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="第 1 至 81 章轉盤">
-            <g style={{ transform: `rotate(${rotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
-              {entries.map((entry, index) => {
-                const angle = 360 / entries.length;
-                const point = degrees => [250 + 240 * Math.sin(degrees * Math.PI / 180), 250 - 240 * Math.cos(degrees * Math.PI / 180)];
-                const a = point(index * angle - angle / 2);
-                const b = point(index * angle + angle / 2);
-                return <g key={entry.id}>
-                  <path d={`M250 250L${a[0]} ${a[1]}A240 240 0 ${angle > 180 ? 1 : 0} 1 ${b[0]} ${b[1]}Z`} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="1" />
-                  <g transform={`rotate(${index * angle} 250 250)`}><text x="250" y="55" textAnchor="middle" className="tao-wheel-number">{entry.label}</text></g>
+          <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="內輪十位 0 至 8、外輪個位 1 至 9 與 0，抽出第 1 至 81 章">
+            <g className="tao-wheel-outer" style={{ transform: `rotate(${outerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
+              {OUTER_DIGITS.map((digit, index) => {
+                const angle = index * 36;
+                const inverted = angle > 90 && angle < 270;
+                return <g key={digit}>
+                  <path d={ringSectorPath(index, OUTER_DIGITS.length, 164, 240)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
+                  <g transform={`rotate(${angle} 250 250)`}><text x="250" y="58" textAnchor="middle" className="tao-wheel-number tao-wheel-number--outer" transform={inverted ? 'rotate(180 250 58)' : undefined}>{digit}</text></g>
+                </g>;
+              })}
+            </g>
+            <g className="tao-wheel-inner" style={{ transform: `rotate(${innerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
+              {INNER_DIGITS.map((digit, index) => {
+                const angle = index * 40;
+                const inverted = angle > 90 && angle < 270;
+                return <g key={digit}>
+                  <path d={ringSectorPath(index, INNER_DIGITS.length, 76, 158)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
+                  <g transform={`rotate(${angle} 250 250)`}><text x="250" y="132" textAnchor="middle" className="tao-wheel-number tao-wheel-number--inner" transform={inverted ? 'rotate(180 250 132)' : undefined}>{digit}</text></g>
                 </g>;
               })}
             </g>
             <circle cx="250" cy="250" r="241" fill="none" stroke="#b8cde1" strokeWidth="1.5" />
-            <circle cx="250" cy="250" r="88" fill="#fffdf6" stroke="#d6e3ef" />
+            <circle cx="250" cy="250" r="76" fill="#fffdf6" stroke="#d6e3ef" />
             <text x="250" y="258" textAnchor="middle" className="tao-wheel-center">{centerLabel}</text>
           </svg>
         </div>
-        <button className="tao-primary" type="button" onClick={phase === 'result' ? nextDraw : spin} disabled={spinning || finished}>
+        <button className="tao-primary" type="button" onClick={spin} disabled={spinning || finished}>
           {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再抽一章' : '抽出一章'}
         </button>
         <p className="tao-status" role="status" aria-live="polite">{status}</p>
@@ -195,7 +214,7 @@ export default function TaoTeaWheel() {
       </aside>
 
       <article className="tao-reading tao-paper" ref={readingPanel} tabIndex={-1} aria-label="章節內容">
-        <TaoBookReader chapter={chapter} page={bookPage} onPageChange={turnBookPage} showReadings={showReadings} onReadingsChange={setShowReadings} manual={manual} />
+        <TaoBookReader chapter={chapter} showReadings={showReadings} onReadingsChange={setShowReadings} manual={manual} />
         <footer className="tao-sources"><p>經文採王弼本；不同傳本的字句及章句可能有差異。白話解釋與茶席延伸為教學參考，並非經文原句或唯一解釋。</p><details><summary>經文來源與注音說明</summary><p>繁體經文依<a href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noreferrer">維基文庫《道德經》（王弼本）</a>整理，不含王弼注文；章題為教學提示。</p><p>注音採現代國語本調，不標連讀變調。依文義區分多音字，參照<a href="https://dict.revised.moe.edu.tw/" target="_blank" rel="noreferrer">教育部《重編國語辭典修訂本》</a>及<a href="https://dict.variants.moe.edu.tw/" target="_blank" rel="noreferrer">《異體字字典》</a>。如「歙」讀ㄒㄧˋ、「牝」讀ㄆㄧㄣˋ、「畜之」讀ㄒㄩˋ、「被褐」讀ㄆㄧ ㄏㄜˊ；第七十二章首個「厭」依本頁採現代國語音讀作ㄧㄢˋ；若採「厭通壓」解，亦有註家作ㄧㄚ讀法。其他古文異讀與不同訓解可另作課堂討論。</p></details></footer>
       </article>
     </div>
