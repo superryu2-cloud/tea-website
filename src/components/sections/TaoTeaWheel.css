@@ -38,7 +38,7 @@
 .tao-wheel-number { font-weight: 700; }
 
 /* Restore the original right-side Zhuyin reading style. */
-.tao-page .tao-reading .tao-classic { background: #fafbf6; border: 0; border-radius: 18px; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.9; letter-spacing: .035em; font-weight: 400; }
+.tao-page .tao-reading .tao-classic { background: #fafbf6; border: 0; border-radius: 18px; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.9; letter-spacing: .035em; font-weight: 600; }
 .tao-page .tao-reading .tao-classic--annotated { line-height: 1.9; letter-spacing: 0; }
 .tao-page .tao-reading .tao-syllable { display: inline-flex; align-items: center; vertical-align: middle; white-space: nowrap; margin-right: .12em; }
 .tao-page .tao-reading .tao-phonetic { display: inline-flex; align-items: center; position: relative; flex: 0 0 1.6em; width: 1.6em; height: 3.5em; overflow: visible; margin-left: .08em; color: #557565; font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: 0; }
