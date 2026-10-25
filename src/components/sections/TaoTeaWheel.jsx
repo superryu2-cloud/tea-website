@@ -21,6 +21,21 @@ function ringSectorPath(index, count, innerRadius, outerRadius) {
 const INNER_DIGITS = Array.from({ length: 9 }, (_, digit) => digit);
 const OUTER_DIGITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
+function TeaCompanion() {
+  return <svg viewBox="0 0 100 100" className="tao-companion" aria-hidden="true">
+    <ellipse cx="50" cy="88" rx="37" ry="5" fill="#cbd8a7" />
+    <path d="M76 43c25-8 25 27 2 27" fill="none" stroke="#63865a" strokeWidth="6" strokeLinecap="round" />
+    <path d="M18 40h63v25c0 30-63 30-63 0Z" fill="#fff8e8" stroke="#63865a" strokeWidth="3.5" />
+    <ellipse cx="49.5" cy="41" rx="30" ry="5" fill="#c4a263" />
+    <circle cx="37" cy="64" r="2.7" fill="#405e4d" /><circle cx="62" cy="64" r="2.7" fill="#405e4d" />
+    <path d="M43 71q6 7 12 0" fill="none" stroke="#405e4d" strokeWidth="2.5" strokeLinecap="round" />
+    <ellipse cx="28" cy="70" rx="4.5" ry="3" fill="#eab8a6" /><ellipse cx="71" cy="70" rx="4.5" ry="3" fill="#eab8a6" />
+    <path d="M45 29c-17 1-24-7-22-12 13-4 22 2 22 12Z" fill="#88a96d" />
+    <path d="M51 28c-3-13 2-22 10-24 5 10-1 20-10 24Z" fill="#a8c682" />
+    <circle cx="24" cy="37" r="3" fill="#f1d99f" />
+  </svg>;
+}
+
 export default function TaoTeaWheel() {
   const [phase, setPhase] = useState('draw');
   const [chapterId, setChapterId] = useState(() => chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search));
@@ -160,6 +175,8 @@ export default function TaoTeaWheel() {
     </div>
     <div className="tao-layout">
       <aside className="tao-controls tao-paper" aria-label="章節抽籤">
+        <div className="tao-today">今日茶席・1—81</div>
+        <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>先靜心，再抽一章。</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
           {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>}

@@ -44,6 +44,11 @@
 .tao-page .tao-reading .tao-phonetic { display: inline-flex; align-items: center; position: relative; flex: 0 0 1.6em; width: 1.6em; height: 3.5em; overflow: visible; margin-left: .08em; color: #557565; font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: 0; }
 .tao-page .tao-reading .tao-phonetic > span:first-child { writing-mode: vertical-rl; text-orientation: upright; line-height: 1.1; letter-spacing: 0; }
 .tao-page .tao-reading .tao-phonetic .tao-tone { position: absolute; left: 1em; top: 1.2em; color: #557565; font-size: 1.1em; line-height: 1; writing-mode: horizontal-tb; }
+.tao-today { display: table; margin: 0 auto 12px; padding: 7px 16px; border: 1px solid #d8e8d8; border-radius: 999px; background: #edf5e9; color: #38634f; font-size: 14px; letter-spacing: .12em; }
+.tao-page .tao-controls .tao-guide { justify-content: center; gap: 10px; margin: 10px auto 8px; max-width: 300px; }
+.tao-page .tao-controls .tao-companion { width: 82px; height: 82px; filter: drop-shadow(0 3px 2px #4a684522); }
+.tao-page .tao-controls .tao-guide p { min-width: 136px; padding: 9px 12px; border-color: #f0dfb5; border-radius: 17px; background: #fff7e6; color: #725a37; font-size: 14px; line-height: 1.65; }
+.tao-page .tao-controls .tao-guide small { margin-bottom: 2px; color: #9a7041; font-size: 12px; }
 .tao-wheel-outer, .tao-wheel-inner { transform-box: view-box; }
 .tao-fireworks { inset: -5%; z-index: 4; overflow: visible; }
 .tao-fireworks::before { content: ""; position: absolute; inset: -10%; background: radial-gradient(circle at 50% 48%, #fffde8 0%, #ffe9a96b 9%, transparent 42%); opacity: 0; animation: tao-shaku-flash .75s ease-out both; }
