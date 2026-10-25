@@ -12,14 +12,15 @@ function ClassicText({ chapter, showReadings }) {
       words.push(<span key={index}>{char}</span>);
       continue;
     }
+    const tone = reading.match(/[ˊˇˋ˙]/)?.[0];
     let punctuation = '';
     while (/[，。！？；：、）」』】]/u.test(chapter.text[index + punctuation.length + 1] ?? '')) {
       punctuation += chapter.text[index + punctuation.length + 1];
     }
     words.push(<span className="tao-annotated-word" key={index}>
       <span className="tao-syllable"><span>{char}</span><span className="tao-phonetic" aria-hidden="true">
-        {reading.replace(/[ˊˇˋ˙]/g, '').split('').map((symbol, symbolIndex) => <span className="tao-phonetic-symbol" key={symbolIndex}>{symbol}</span>)}
-        <span className="tao-tone">{reading.match(/[ˊˇˋ˙]/)?.[0] ?? ''}</span>
+        {reading.replace(/[ˊˇˋ˙]/g, '')}
+        {tone && <span className="tao-tone">{tone}</span>}
       </span></span>{punctuation}
     </span>);
     index += punctuation.length;
