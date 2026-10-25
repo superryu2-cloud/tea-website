@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Copy, ChevronRight, Leaf, RotateCcw } from 'lucide-react';
 import chapters from '../../data/taoChapters.json';
-import { availableGroups, chapterFromSearch, chapterShareUrl, chooseChapter, chooseGroup, landingRotation } from '../../utils/taoWheel';
+import { chapterFromSearch, chapterShareUrl, chooseChapter, landingRotation } from '../../utils/taoWheel';
 import TaoBookReader from './TaoBookReader';
 import './TaoTeaWheel.css';
 import './TaoBookReader.css';
@@ -21,11 +21,11 @@ function TeaCompanion() {
 }
 
 export default function TaoTeaWheel() {
-  const [phase, setPhase] = useState('group');
-  const [group, setGroup] = useState(null);
+  const [phase, setPhase] = useState('draw');
   const [chapterId, setChapterId] = useState(() => chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search));
   const [manual, setManual] = useState(() => Boolean(chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search)));
   const [spinning, setSpinning] = useState(false);
+  const [fireworks, setFireworks] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [duration, setDuration] = useState(3200);
   const [noRepeat, setNoRepeat] = useState(false);
@@ -35,29 +35,27 @@ export default function TaoTeaWheel() {
   const [shareFeedback, setShareFeedback] = useState('');
   const [shareFallback, setShareFallback] = useState('');
   const timer = useRef(null);
+  const fireworkTimer = useRef(null);
   const drawLock = useRef(false);
   const readingPanel = useRef(null);
-  useEffect(() => () => window.clearTimeout(timer.current), []);
+  useEffect(() => () => { window.clearTimeout(timer.current); window.clearTimeout(fireworkTimer.current); }, []);
   useEffect(() => {
     if (!chapterFromSearch(window.location.search)) return;
     const frame = window.requestAnimationFrame(() => readingPanel.current?.scrollIntoView({ behavior: 'instant', block: 'start' }));
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
-  const groups = availableGroups(noRepeat ? history : []);
   const chapter = chapterId ? chapters[chapterId - 1] : null;
-  const choosingChapter = phase === 'chapter';
-  const entries = phase === 'group' ? groups : group.chapters.map(id => ({ id, label: `${id}` }));
-  const finished = groups.length === 0;
-  const status = spinning ? (choosingChapter ? '第二輪轉動中，章號即將揭曉…' : '第一輪轉動中，先看看落在哪個區間…') :
+  const entries = chapters.filter(item => !noRepeat || !history.includes(item.id)).map(item => ({ id: item.id, label: `${item.id}` }));
+  const finished = noRepeat && entries.length === 0;
+  const status = spinning ? '轉輪旋轉中，佳章即將揭曉…' :
     phase === 'result' ? `本次相遇：第 ${chapter.id} 章・${chapter.title}${finished ? '。81 章都已相遇，可以重新一輪。' : ''}` :
-      finished ? '81 章都已相遇，重新一輪再出發。' : choosingChapter ? `抽中第 ${group.label} 章，接著抽出這次的經文。` : manual && chapter ? `已自選第 ${chapter.id} 章，可直接共讀，也可轉輪抽章。` : '先抽區間，再抽章號，與一章智慧相遇。';
+      finished ? '81 章都已相遇，重新一輪再出發。' : manual && chapter ? `已自選第 ${chapter.id} 章，可直接共讀，也可轉輪抽章。` : '轉動輪盤，直接抽出第 1–81 章中的一章。';
 
   function spin() {
     if (drawLock.current || finished) return;
     drawLock.current = true;
-    const nextGroup = choosingChapter ? group : chooseGroup(groups);
-    const picked = choosingChapter ? chooseChapter(group) : nextGroup.id;
+    const picked = chooseChapter({ chapters: entries.map(entry => entry.id) });
     const index = entries.findIndex(entry => entry.id === picked);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ms = reduced ? 80 : 3200;
@@ -68,31 +66,29 @@ export default function TaoTeaWheel() {
     timer.current = window.setTimeout(() => {
       setSpinning(false);
       drawLock.current = false;
-      if (!choosingChapter) {
-        setGroup(nextGroup);
-        setPhase('chapter');
-        setRotation(0);
-      } else {
-        setChapterId(picked);
-        setManual(false);
-        setShareFeedback('');
-        setShareFallback('');
-        window.history.replaceState(null, '', chapterShareUrl(window.location.href, picked));
-        setHistory(previous => [...previous, picked]);
-        setPhase('result');
-        window.requestAnimationFrame(() => {
-          readingPanel.current?.focus({ preventScroll: true });
-          if (window.matchMedia('(max-width: 850px)').matches) {
-            readingPanel.current?.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'start' });
-          }
-        });
-      }
+      setChapterId(picked);
+      setManual(false);
+      setShareFeedback('');
+      setShareFallback('');
+      window.history.replaceState(null, '', chapterShareUrl(window.location.href, picked));
+      setHistory(previous => [...previous, picked]);
+      setPhase('result');
+      setFireworks(!reduced);
+      window.clearTimeout(fireworkTimer.current);
+      fireworkTimer.current = window.setTimeout(() => setFireworks(false), reduced ? 0 : 1800);
+      window.requestAnimationFrame(() => {
+        readingPanel.current?.focus({ preventScroll: true });
+        if (window.matchMedia('(max-width: 850px)').matches) {
+          readingPanel.current?.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'start' });
+        }
+      });
     }, ms);
   }
 
   function nextDraw() {
-    setPhase('group');
-    setGroup(null);
+    setPhase('draw');
+    setManual(false);
+    setFireworks(false);
     setRotation(0);
     setBookPage(0);
   }
@@ -114,7 +110,9 @@ export default function TaoTeaWheel() {
     setManual(true);
     setShareFeedback('');
     setShareFallback('');
-    nextDraw();
+    setPhase('result');
+    setRotation(0);
+    setBookPage(0);
     window.history.replaceState(null, '', chapterShareUrl(window.location.href, id));
     window.requestAnimationFrame(() => {
       if (window.matchMedia('(max-width: 850px)').matches) {
@@ -143,7 +141,7 @@ export default function TaoTeaWheel() {
     });
   }
 
-  const centerLabel = spinning ? '靜候佳章' : phase === 'result' ? `第 ${chapterId} 章` : choosingChapter ? group.label : '1—81';
+  const centerLabel = spinning ? '靜候佳章' : phase === 'result' ? `第 ${chapterId} 章` : '1—81';
 
   return <section className="tao-page tao-book-theme">
     <header className="tao-heading">
@@ -163,35 +161,36 @@ export default function TaoTeaWheel() {
     </div>
     <div className="tao-layout">
       <aside className="tao-controls tao-paper" aria-label="章節抽籤">
-        <div className="tao-step"><span className={phase === 'group' ? 'is-current' : ''}>① 抽區間</span><ChevronRight size={14} /><span className={phase !== 'group' ? 'is-current' : ''}>② 抽章號</span></div>
-        <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>{spinning ? '茶香轉轉，智慧快來了！' : choosingChapter ? `第 ${group.label} 章等著你，再轉一次吧！` : chapter ? '先聽大家分享，再看看茶席的啟發。' : '先轉出區間，再揭曉今日相遇的章節。'}</p></div>
+        <div className="tao-step"><span className="is-current">① 抽出章節</span><ChevronRight size={14} /><span>第 1–81 章</span></div>
+        <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>{spinning ? '茶香轉轉，智慧快來了！' : chapter ? '先聽大家分享，再看看茶席的啟發。' : '轉一轉，直接與一章智慧相遇。'}</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
-          <svg viewBox="0 0 360 360" className="tao-wheel" role="img" aria-label={phase !== 'group' ? `第二輪：第 ${group.label} 章` : '第一輪：8 組章節區間'}>
-            <g style={{ transform: `rotate(${rotation}deg)`, transformOrigin: '180px 180px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
+          {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /></div>}
+          <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="第 1 至 81 章轉盤">
+            <g style={{ transform: `rotate(${rotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
               {entries.map((entry, index) => {
                 const angle = 360 / entries.length;
-                const point = degrees => [180 + 173 * Math.sin(degrees * Math.PI / 180), 180 - 173 * Math.cos(degrees * Math.PI / 180)];
+                const point = degrees => [250 + 240 * Math.sin(degrees * Math.PI / 180), 250 - 240 * Math.cos(degrees * Math.PI / 180)];
                 const a = point(index * angle - angle / 2);
                 const b = point(index * angle + angle / 2);
                 return <g key={entry.id}>
-                  {entries.length === 1 ? <circle cx="180" cy="180" r="173" fill="var(--tao-jade)" /> : <path d={`M180 180L${a[0]} ${a[1]}A173 173 0 ${angle > 180 ? 1 : 0} 1 ${b[0]} ${b[1]}Z`} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />}
-                  <g transform={`rotate(${index * angle} 180 180)`}><text x="180" y="61" textAnchor="middle" className="tao-wheel-number">{entry.label}</text><text x="180" y="80" textAnchor="middle" className="tao-wheel-unit">章</text></g>
+                  <path d={`M250 250L${a[0]} ${a[1]}A240 240 0 ${angle > 180 ? 1 : 0} 1 ${b[0]} ${b[1]}Z`} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="1" />
+                  <g transform={`rotate(${index * angle} 250 250)`}><text x="250" y="55" textAnchor="middle" className="tao-wheel-number">{entry.label}</text></g>
                 </g>;
               })}
             </g>
-            <circle cx="180" cy="180" r="174" fill="none" stroke="#b38b56" strokeWidth="1.5" />
-            <circle cx="180" cy="180" r="63" fill="#fffdf6" stroke="#e7e6d7" />
-            <text x="180" y="186" textAnchor="middle" className="tao-wheel-center">{centerLabel}</text>
+            <circle cx="250" cy="250" r="241" fill="none" stroke="#b8cde1" strokeWidth="1.5" />
+            <circle cx="250" cy="250" r="88" fill="#fffdf6" stroke="#d6e3ef" />
+            <text x="250" y="258" textAnchor="middle" className="tao-wheel-center">{centerLabel}</text>
           </svg>
         </div>
         <button className="tao-primary" type="button" onClick={phase === 'result' ? nextDraw : spin} disabled={spinning || finished}>
-          {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再抽一章' : choosingChapter ? '第二輪・抽章號' : '第一輪・抽區間'}
+          {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再抽一章' : '抽出一章'}
         </button>
         <p className="tao-status" role="status" aria-live="polite">{status}</p>
         {chapter && !spinning && <button type="button" className="tao-reading-link" onClick={() => readingPanel.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>閱讀本章 ↓</button>}
-        <div className="tao-round-tools"><label><input type="checkbox" checked={noRepeat} disabled={spinning || phase === 'chapter'} onChange={event => { setNoRepeat(event.target.checked); nextDraw(); }} />本輪不重複</label><button type="button" disabled={spinning} onClick={resetRound}><RotateCcw size={13} />重新一輪</button></div>
-        <small className="tao-fairness">最後一組為 71–81，共 11 章。各章抽中機率相同。</small>
+        <div className="tao-round-tools"><label><input type="checkbox" checked={noRepeat} disabled={spinning} onChange={event => { setNoRepeat(event.target.checked); nextDraw(); }} />本輪不重複</label><button type="button" disabled={spinning} onClick={resetRound}><RotateCcw size={13} />重新一輪</button></div>
+        <small className="tao-fairness">第 1–81 章機會相同；勾選「本輪不重複」可讓每章只出現一次。</small>
         <details className="tao-history"><summary>本輪紀錄・{history.length} 次</summary><div>{history.length ? history.map((id, index) => <span key={index}>第 {id} 章</span>) : <p>轉動輪盤，留下今天的相遇。</p>}</div></details>
       </aside>
 
