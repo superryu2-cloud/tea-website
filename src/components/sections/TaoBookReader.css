@@ -1,100 +1,90 @@
 .tao-book-theme {
-  --tao-ink: #3d5f50;
-  --tao-green: #3e9d78;
-  --tao-line: #c9e2f0;
-  --tao-jade: #d9effa;
-  --tao-honey: #ffe7c4;
+  --tao-ink: #40536d;
+  --tao-green: #527da8;
+  --tao-line: #d6e3ef;
+  --tao-jade: #e4eef8;
+  --tao-honey: #faf0df;
   background:
-    radial-gradient(ellipse 22% 6% at 7% 15%, #ffffffde 0 38%, transparent 100%),
-    radial-gradient(ellipse 13% 4.4% at 17% 13%, #ffffffd8 0 38%, transparent 100%),
-    radial-gradient(ellipse 10% 3.5% at 2% 17%, #ffffffbb 0 38%, transparent 100%),
-    radial-gradient(ellipse 21% 5.5% at 94% 20%, #ffffffdc 0 38%, transparent 100%),
-    radial-gradient(ellipse 12% 4% at 84% 18%, #ffffffd2 0 38%, transparent 100%),
-    radial-gradient(ellipse 9% 3% at 99% 17%, #ffffffb8 0 38%, transparent 100%),
-    radial-gradient(ellipse 13% 4% at 8% 24%, #ffffffd9 0 42%, transparent 100%),
-    radial-gradient(ellipse 18% 5% at 17% 25%, #ffffffc9 0 42%, transparent 100%),
-    radial-gradient(ellipse 10% 3.5% at 13% 21%, #ffffffc4 0 42%, transparent 100%),
-    radial-gradient(ellipse 15% 4.5% at 91% 49%, #ffffffd4 0 42%, transparent 100%),
-    radial-gradient(ellipse 20% 5.5% at 82% 51%, #ffffffc7 0 42%, transparent 100%),
-    radial-gradient(ellipse 12% 3.5% at 87% 47%, #ffffffc4 0 42%, transparent 100%),
-    radial-gradient(ellipse 18% 5% at 49% 78%, #ffffffb8 0 42%, transparent 100%),
-    radial-gradient(ellipse 12% 3.5% at 57% 76%, #ffffffb0 0 42%, transparent 100%),
-    linear-gradient(180deg, #9fd2f2 0%, #c7e6f8 34%, #edf8ff 68%, #c4e3f6 100%);
+    radial-gradient(ellipse 18% 5.5% at 0% 27%, #ffffffb3 0 38%, transparent 100%),
+    radial-gradient(ellipse 12% 4% at 15% 25%, #ffffff99 0 38%, transparent 100%),
+    radial-gradient(ellipse 18% 5.5% at 100% 54%, #ffffffad 0 38%, transparent 100%),
+    radial-gradient(ellipse 11% 3.8% at 87% 52%, #ffffff91 0 38%, transparent 100%),
+    linear-gradient(180deg, #e3eef8 0%, #f4f8fc 42%, #eaf2f9 100%);
 }
-.tao-book-theme .tao-heading h1 { background: none; color: #3f7058; text-shadow: 0 3px 14px #82c19a45; letter-spacing: .08em; }
-.tao-book-theme .tao-heading h1::after { background: linear-gradient(90deg, transparent, #78bd91, transparent); }
+.tao-book-theme .tao-heading h1 { background: none; color: #4b6789; text-shadow: 0 3px 14px #9ab7d033; letter-spacing: .08em; }
+.tao-book-theme .tao-heading h1::after { background: linear-gradient(90deg, transparent, #9ab6d4, transparent); }
 .tao-book-theme .tao-heading::before { background: none; }
-.tao-book-theme .tao-heading > .tao-eyebrow { background: #e6f5e8; border: 1px solid #cde8d2; color: #388663; }
-.tao-book-theme .tao-heading > p { color: #687c6b; }
-.tao-book-theme .tao-controls { background: #fffefa; border-color: #d5e8d8; border-radius: 24px; box-shadow: 0 12px 30px #4f8c6417; }
-.tao-book-theme .tao-step { color: #607969; }
-.tao-book-theme .tao-step .is-current { color: #287c5d; background: #e3f5e8; box-shadow: inset 0 0 0 1px #c1e5ca; }
+.tao-book-theme .tao-heading > .tao-eyebrow { background: #eef4fa; border: 1px solid #dce7f2; color: #54769d; }
+.tao-book-theme .tao-heading > p { color: #68798f; }
+.tao-book-theme .tao-controls { background: #fffefd; border-color: #d6e3ef; border-radius: 24px; box-shadow: 0 12px 30px #58779712; }
+.tao-book-theme .tao-step { color: #68788b; }
+.tao-book-theme .tao-step .is-current { color: #496e98; background: #edf4fb; box-shadow: inset 0 0 0 1px #d4e2f0; }
 .tao-book-theme .tao-guide p { background: #fff1d9; color: #665844; border-color: #f0dfb9; border-radius: 14px; }
-.tao-book-theme .tao-wheel-number, .tao-book-theme .tao-wheel-unit, .tao-book-theme .tao-wheel-center { fill: #426650; }
+.tao-book-theme .tao-wheel-number, .tao-book-theme .tao-wheel-unit, .tao-book-theme .tao-wheel-center { fill: #4b6684; }
 .tao-book-theme .tao-wheel-number { font-size: 18px; }
 .tao-book-theme .tao-wheel-unit { font-size: 14px; }
 .tao-book-theme .tao-wheel-center { font-size: 20px; }
-.tao-book-theme .tao-wheel > circle:first-of-type { stroke: #a8cfae; }
-.tao-book-theme .tao-wheel > circle:last-of-type { fill: #fffef5; stroke: #d5e8d8; }
-.tao-book-theme button:focus-visible, .tao-book-theme input:focus-visible, .tao-book-theme summary:focus-visible { outline-color: #85bd91; }
+.tao-book-theme .tao-wheel > circle:first-of-type { stroke: #b8cde1; }
+.tao-book-theme .tao-wheel > circle:last-of-type { fill: #fffefa; stroke: #d6e3ef; }
+.tao-book-theme button:focus-visible, .tao-book-theme input:focus-visible, .tao-book-theme summary:focus-visible { outline-color: #8caaca; }
 .tao-book-theme .tao-pointer { border-top-color: #ed9676; }
-.tao-book-theme .tao-primary { background: linear-gradient(135deg, #55bd91, #329b75); box-shadow: 0 4px #277b5f, 0 9px 20px #3c9c7526; }
-.tao-book-theme .tao-primary:not(:disabled):hover { box-shadow: 0 6px #277b5f, 0 12px 24px #3c9c7530; }
-.tao-book-theme .tao-round-tools, .tao-book-theme .tao-fairness, .tao-book-theme .tao-history { color: #5c7665; }
-.tao-book-theme .tao-history > div > span { background: #eaf6e9; border-color: #d2e8d4; }
+.tao-book-theme .tao-primary { background: linear-gradient(135deg, #759ac1, #557fae); box-shadow: 0 4px #466a92, 0 9px 20px #557fae26; }
+.tao-book-theme .tao-primary:not(:disabled):hover { box-shadow: 0 6px #466a92, 0 12px 24px #557fae30; }
+.tao-book-theme .tao-round-tools, .tao-book-theme .tao-fairness, .tao-book-theme .tao-history { color: #66798e; }
+.tao-book-theme .tao-history > div > span { background: #eff4fa; border-color: #d8e4f0; }
 
-.tao-chapter-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; max-width: 1320px; margin: 0 auto 28px; padding: 18px 22px; border: 1px solid #d5e8d8; border-radius: 20px; background: #fffefa; }
-.tao-chapter-picker > label { color: #388663; font-size: 20px; font-weight: 600; }
-.tao-chapter-picker select { flex: 1; min-width: 0; max-width: 100%; width: 320px; padding: 12px 36px 12px 14px; background: #f7fcf5; border: 1px solid #c8e1cc; border-radius: 12px; color: #3d5f50; font: inherit; font-size: 18px; min-height: 48px; }
-.tao-chapter-picker > button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 16px; border: 1px solid #c8e1cc; border-radius: 14px; color: #347d60; background: #eaf6e9; font-size: 18px; }
-.tao-chapter-picker select:focus-visible { outline: 3px solid #81bd91; outline-offset: 3px; }
-.tao-share-feedback { width: 100%; font-size: 18px; line-height: 1.8; color: #587364; margin: 0; }
-.tao-share-fallback { width: 100%; min-width: 0; background: #f7fcf5; border: 1px solid #c8e1cc; padding: 12px; font-size: 18px; }
+.tao-book-theme .tao-chapter-picker { border-color: #d6e3ef; background: #fffefd; }
+.tao-book-theme .tao-chapter-picker > label { color: #52769e; }
+.tao-book-theme .tao-chapter-picker select { background: #f7f9fc; border-color: #d4e0ed; color: #40536d; }
+.tao-book-theme .tao-chapter-picker > button { border-color: #d4e0ed; color: #4c729a; background: #eef4fa; }
+.tao-book-theme .tao-chapter-picker select:focus-visible { outline-color: #8caaca; }
+.tao-book-theme .tao-share-feedback { color: #66798e; }
+.tao-book-theme .tao-share-fallback { background: #f7f9fc; border-color: #d4e0ed; }
 
 .tao-book-theme .tao-reading {
   position: relative;
   padding: 30px 36px 24px 46px;
-  border: 1px solid #d5e8d8;
+  border: 1px solid #d6e3ef;
   border-radius: 20px;
-  background: linear-gradient(135deg, #fffef8, #fffefa 60%, #f4fbf3);
-  box-shadow: 0 14px 34px #4f8c6417;
+  background: linear-gradient(135deg, #fffefb, #fffefd 60%, #f5f8fb);
+  box-shadow: 0 14px 34px #58779714;
 }
-.tao-book-theme .tao-reading::before { content: ''; position: absolute; top: 15px; bottom: 15px; left: 10px; width: 4px; border-left: 1px solid #a8d3b1; border-right: 1px solid #a8d3b177; pointer-events: none; }
-.tao-book-running { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; padding-bottom: 20px; border-bottom: 1px solid #d5e8d8; color: #587364; font-size: 18px; line-height: 1.6; }
-.tao-book-seal, .tao-book-section-seal { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #64ad84; color: #fffef3; box-shadow: inset 0 0 0 2px #64ad84, inset 0 0 0 3px #ffffff55; border-radius: 8px; font-size: 24px; width: 40px; height: 42px; }
-.tao-book-origin { margin-left: auto; font-size: 18px; color: #438b68; }
+.tao-book-theme .tao-reading::before { content: ''; position: absolute; top: 15px; bottom: 15px; left: 10px; width: 4px; border-left: 1px solid #b8cde1; border-right: 1px solid #b8cde177; pointer-events: none; }
+.tao-book-running { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; padding-bottom: 20px; border-bottom: 1px solid #d6e3ef; color: #63758b; font-size: 18px; line-height: 1.6; }
+.tao-book-seal, .tao-book-section-seal { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #6f91b8; color: #fffefa; box-shadow: inset 0 0 0 2px #6f91b8, inset 0 0 0 3px #ffffff55; border-radius: 8px; font-size: 24px; width: 40px; height: 42px; }
+.tao-book-origin { margin-left: auto; font-size: 18px; color: #52769e; }
 .tao-book-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 24px 0 30px; }
-.tao-book-tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 9px 4px; font-size: 18px; line-height: 1.6; color: #687d6d; border-bottom: 1px solid transparent; }
+.tao-book-tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 9px 4px; font-size: 18px; line-height: 1.6; color: #68798f; border-bottom: 1px solid transparent; }
 .tao-book-dot { width: 9px; height: 9px; border: 1px solid #9c8060; border-radius: 50%; }
-.tao-book-tabs button[aria-current=page] { color: #34845f; border-bottom-color: #55a879; font-weight: 600; }
-.tao-book-tabs button[aria-current=page] .tao-book-dot { background: #55a879; border-color: #55a879; box-shadow: 0 0 0 4px #55a87925; }
+.tao-book-tabs button[aria-current=page] { color: #4d739b; border-bottom-color: #7799bf; font-weight: 600; }
+.tao-book-tabs button[aria-current=page] .tao-book-dot { background: #7799bf; border-color: #7799bf; box-shadow: 0 0 0 4px #7799bf25; }
 .tao-book-leaf { min-height: 280px; animation: tao-leaf-enter .38s ease-out; }
 .tao-book:focus-visible { outline: 2px solid #a4764e; outline-offset: 6px; }
 .tao-book-leaf-heading { display: flex; align-items: flex-start; gap: 15px; margin: 0 0 24px; }
 .tao-book-section-seal { width: 36px; height: 39px; font-size: 23px; }
-.tao-book-leaf-heading p { font-size: 18px; color: #438b68; line-height: 1.5; margin: 0 0 9px; }
-.tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #3d5f50; margin: 0; letter-spacing: .04em; }
+.tao-book-leaf-heading p { font-size: 18px; color: #52769e; line-height: 1.5; margin: 0 0 9px; }
+.tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #40536d; margin: 0; letter-spacing: .04em; }
 .tao-book-readings { display: flex; align-items: center; justify-content: flex-end; gap: 9px; min-height: 44px; margin: -4px 0 16px; font-size: 18px; color: #59432f; cursor: pointer; }
-.tao-book-theme .tao-classic { border: 0; border-radius: 0; background: none; padding: 8px 0 24px; color: #3d5f50; font-size: 27px; line-height: 2.1; }
+.tao-book-theme .tao-classic { border: 0; border-radius: 0; background: none; padding: 8px 0 24px; color: #40536d; font-size: 27px; line-height: 2.1; }
 .tao-book-theme .tao-classic--annotated { line-height: 1.55; }
 .tao-book-theme .tao-syllable { display: inline-grid; grid-template-columns: 1em .85em; grid-template-rows: 1.5em; column-gap: .03em; align-items: start; vertical-align: baseline; white-space: nowrap; }
 .tao-book-theme .tao-syllable > span:first-child { grid-column: 1; grid-row: 1; display: block; line-height: 1; }
-.tao-book-theme .tao-phonetic { box-sizing: border-box; position: relative; top: 0; display: block; grid-column: 2; grid-row: 1; width: 100%; height: 100%; margin: 0; padding: 0; overflow: visible; background: none; color: #315f4c; font-size: .5em; font-weight: 700; line-height: 1; }
+.tao-book-theme .tao-phonetic { box-sizing: border-box; position: relative; top: 0; display: block; grid-column: 2; grid-row: 1; width: 100%; height: 100%; margin: 0; padding: 0; overflow: visible; background: none; color: #405b7a; font-size: .5em; font-weight: 700; line-height: 1; }
 .tao-book-theme .tao-phonetic > span:first-child { position: absolute; top: 50%; left: 0; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: upright; line-height: 1; }
 .tao-book-theme .tao-phonetic .tao-tone { right: -.12em; left: auto; top: 50%; transform: translateY(-50%); font-size: 1em; line-height: 1; color: #c96e52; }
 .tao-book-theme .tao-annotated-word { display: inline-block; white-space: nowrap; margin-right: .12em; }
-.tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #3d5f50; font-weight: 600; text-wrap: pretty; overflow-wrap: anywhere; }
-.tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #718777; font-size: 18px; line-height: 1.9; }
-.tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #ed9676; padding: 12px 0 12px 20px; color: #4a8060; }
-.tao-book-turn-invitation { display: inline-flex; align-items: center; gap: 7px; margin-top: 30px; min-height: 48px; padding: 10px 0; font-size: 18px; line-height: 1.8; border-bottom: 1px solid #9dcba6; color: #438b68; text-align: left; }
-.tao-book-practice { border-top: 1px solid #d5e8d8; border-bottom: 1px solid #d5e8d8; padding: 22px 0; margin: 34px 0 8px; }
-.tao-book-practice h3 { display: inline-flex; color: #438b68; font-size: 20px; line-height: 1.6; font-weight: 600; margin: 0 0 13px; }
-.tao-book-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #d5e8d8; margin-top: 32px; padding-top: 18px; color: #607969; }
+.tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #40536d; font-weight: 600; text-wrap: pretty; overflow-wrap: anywhere; }
+.tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #718096; font-size: 18px; line-height: 1.9; }
+.tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #ed9676; padding: 12px 0 12px 20px; color: #526f91; }
+.tao-book-turn-invitation { display: inline-flex; align-items: center; gap: 7px; margin-top: 30px; min-height: 48px; padding: 10px 0; font-size: 18px; line-height: 1.8; border-bottom: 1px solid #b8cde1; color: #527da8; text-align: left; }
+.tao-book-practice { border-top: 1px solid #d6e3ef; border-bottom: 1px solid #d6e3ef; padding: 22px 0; margin: 34px 0 8px; }
+.tao-book-practice h3 { display: inline-flex; color: #527da8; font-size: 20px; line-height: 1.6; font-weight: 600; margin: 0 0 13px; }
+.tao-book-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #d6e3ef; margin-top: 32px; padding-top: 18px; color: #68798f; }
 .tao-book-pagination > span { font-size: 18px; white-space: nowrap; }
-.tao-book-pagination > button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 46px; font-size: 18px; color: #438b68; white-space: nowrap; }
-.tao-book-theme .tao-sources { border-color: #d5e8d8; color: #687d6d; padding-top: 20px; margin-top: 26px; }
-.tao-book-theme .tao-sources summary { color: #5f806a; }
-.tao-book-theme .tao-sources a { color: #438b68; }
+.tao-book-pagination > button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 46px; font-size: 18px; color: #527da8; white-space: nowrap; }
+.tao-book-theme .tao-sources { border-color: #d6e3ef; color: #68798f; padding-top: 20px; margin-top: 26px; }
+.tao-book-theme .tao-sources summary { color: #607a98; }
+.tao-book-theme .tao-sources a { color: #527da8; }
 .tao-book-cover { text-align: center; padding-bottom: 16px; }
 .tao-book-cover .tao-book-running { text-align: left; }
 .tao-book-cover-titles { display: flex; flex-direction: row-reverse; justify-content: center; align-items: flex-start; gap: 24px; margin: 46px 0 28px; }
