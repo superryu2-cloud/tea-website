@@ -1,7 +1,5 @@
 const PAGE_TITLES = ['經文', '經文的簡單解釋', '一起想一想', '茶與人生智慧'];
 const PAGE_MARKS = ['壹', '貳', '參', '肆'];
-const TONE_PATHS = { 'ˊ': 'M4 11L12 4', 'ˇ': 'M3 6L8 11L13 6', 'ˋ': 'M4 4L12 11' };
-
 function ClassicText({ chapter, showReadings }) {
   if (!showReadings) return <div className="tao-classic"><p>{chapter.text.replace(/\n/g, '')}</p></div>;
   const words = [];
@@ -21,7 +19,7 @@ function ClassicText({ chapter, showReadings }) {
     words.push(<span className="tao-annotated-word" key={index}>
       <span className="tao-syllable"><span>{char}</span><span className="tao-phonetic" aria-hidden="true">
         <span className="tao-phonetic-symbols">{reading.replace(/[ˊˇˋ˙]/g, '')}</span>
-        {tone && <span className="tao-tone" aria-label={tone}><svg viewBox="0 0 16 16" aria-hidden="true">{tone === '˙' ? <circle cx="8" cy="5" r="1.5" /> : <path d={TONE_PATHS[tone]} />}</svg></span>}
+        {tone && <span className={`tao-tone tao-tone--${tone === 'ˊ' ? 'rising' : tone === 'ˇ' ? 'dipping' : tone === 'ˋ' ? 'falling' : 'neutral'}`} aria-label={tone}>{tone}</span>}
       </span></span>{punctuation}
     </span>);
     index += punctuation.length;
