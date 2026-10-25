@@ -1,4 +1,3 @@
-const PAGES = ['經文', '解讀', '提問', '茶席'];
 const PAGE_TITLES = ['經文', '經文的簡單解釋', '一起想一想', '茶與人生智慧'];
 const PAGE_MARKS = ['壹', '貳', '參', '肆'];
 
@@ -36,17 +35,8 @@ export default function TaoBookReader({ chapter, showReadings, onReadingsChange,
     <span className="tao-book-cover-edition">全八十一章・經文、解讀與茶席實踐</span>
   </div>;
 
-  function jumpToSection(index) {
-    document.getElementById(`tao-section-${chapter.id}-${index}`)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
-  }
-
   return <div className="tao-book" role="region" aria-label="章節讀本">
     <div className="tao-book-running"><span className="tao-book-seal">道</span><span>道德經・第 {chapter.id} 章</span><span className="tao-book-origin">{manual ? '自選共讀' : '抽籤共讀'}</span></div>
-    <nav className="tao-book-tabs" aria-label="閱讀頁面">
-      {PAGES.map((label, index) => <button key={label} type="button" aria-label={`跳至${label}`} onClick={() => jumpToSection(index)}>
-        <span className="tao-book-dot" aria-hidden="true" /><span>{label}</span>
-      </button>)}
-    </nav>
     <section className="tao-book-sections">
       <section className="tao-book-leaf" id={`tao-section-${chapter.id}-0`} aria-labelledby={`tao-book-section-${chapter.id}-0`}>
         <header className="tao-book-leaf-heading"><span className="tao-book-section-seal" aria-hidden="true">{PAGE_MARKS[0]}</span><h2 id={`tao-book-section-${chapter.id}-0`}>{PAGE_TITLES[0]}</h2></header>
