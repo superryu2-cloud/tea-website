@@ -18,7 +18,8 @@ function ClassicText({ chapter, showReadings }) {
     }
     words.push(<span className="tao-annotated-word" key={index}>
       <span className="tao-syllable"><span>{char}</span><span className="tao-phonetic" aria-hidden="true">
-        <span>{reading.replace(/[ˊˇˋ˙]/g, '')}</span><span className="tao-tone">{reading.match(/[ˊˇˋ˙]/)?.[0] ?? ''}</span>
+        {reading.replace(/[ˊˇˋ˙]/g, '').split('').map((symbol, symbolIndex) => <span className="tao-phonetic-symbol" key={symbolIndex}>{symbol}</span>)}
+        <span className="tao-tone">{reading.match(/[ˊˇˋ˙]/)?.[0] ?? ''}</span>
       </span></span>{punctuation}
     </span>);
     index += punctuation.length;
