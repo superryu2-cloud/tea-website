@@ -1,78 +1,84 @@
 .tao-book-theme {
-  --tao-ink: #392d24;
-  --tao-green: #8d352b;
-  --tao-line: #d1c2a7;
-  --tao-jade: #e2dcc5;
-  --tao-honey: #efdfbd;
-  background: radial-gradient(ellipse at 50% 0%, #faf4e5df, #d8cbb399), url('/images/paper_texture_natural_beige.png') center / 720px;
+  --tao-ink: #3d5f50;
+  --tao-green: #3e9d78;
+  --tao-line: #d5e8d8;
+  --tao-jade: #d9f0df;
+  --tao-honey: #ffe7c4;
+  background: radial-gradient(ellipse at 12% 8%, #dff5e6 0, transparent 48%), radial-gradient(ellipse at 88% 5%, #ffe8cf 0, transparent 45%), #f8fbf4;
 }
-.tao-book-theme .tao-heading h1 { background: none; color: #392d24; text-shadow: none; letter-spacing: .08em; }
-.tao-book-theme .tao-heading h1::after { background: linear-gradient(90deg, transparent, #9e4636, transparent); }
+.tao-book-theme .tao-heading h1 { background: none; color: #3f7058; text-shadow: 0 3px 14px #82c19a45; letter-spacing: .08em; }
+.tao-book-theme .tao-heading h1::after { background: linear-gradient(90deg, transparent, #78bd91, transparent); }
 .tao-book-theme .tao-heading::before { background: none; }
-.tao-book-theme .tao-heading > .tao-eyebrow { background: transparent; border: 0; color: #8d352b; }
-.tao-book-theme .tao-heading > p { color: #65513e; }
-.tao-book-theme .tao-controls { background: #fff9ecd9; border-color: #d1c2a7; border-radius: 10px; box-shadow: 0 12px 30px #4d351315; }
-.tao-book-theme .tao-step { color: #685744; }
-.tao-book-theme .tao-step .is-current { color: #8d352b; background: #f0dfd2; box-shadow: inset 0 0 0 1px #d8b29c; }
-.tao-book-theme .tao-guide p { background: #f3e7cf; color: #54422e; border-color: #dacaac; border-radius: 6px; }
-.tao-book-theme .tao-wheel-number, .tao-book-theme .tao-wheel-unit, .tao-book-theme .tao-wheel-center { fill: #473728; }
-.tao-book-theme .tao-pointer { border-top-color: #a24635; }
-.tao-book-theme .tao-primary { background: linear-gradient(135deg, #a64c3b, #7a3027); box-shadow: 0 4px #5e271f, 0 9px 20px #793a2926; }
-.tao-book-theme .tao-primary:not(:disabled):hover { box-shadow: 0 6px #5e271f, 0 12px 24px #793a2930; }
-.tao-book-theme .tao-round-tools, .tao-book-theme .tao-fairness, .tao-book-theme .tao-history { color: #67533e; }
-.tao-book-theme .tao-history > div > span { background: #f4e9d2; border-color: #d1c2a7; }
+.tao-book-theme .tao-heading > .tao-eyebrow { background: #e6f5e8; border: 1px solid #cde8d2; color: #388663; }
+.tao-book-theme .tao-heading > p { color: #687c6b; }
+.tao-book-theme .tao-controls { background: #fffefa; border-color: #d5e8d8; border-radius: 24px; box-shadow: 0 12px 30px #4f8c6417; }
+.tao-book-theme .tao-step { color: #607969; }
+.tao-book-theme .tao-step .is-current { color: #287c5d; background: #e3f5e8; box-shadow: inset 0 0 0 1px #c1e5ca; }
+.tao-book-theme .tao-guide p { background: #fff1d9; color: #665844; border-color: #f0dfb9; border-radius: 14px; }
+.tao-book-theme .tao-wheel-number, .tao-book-theme .tao-wheel-unit, .tao-book-theme .tao-wheel-center { fill: #426650; }
+.tao-book-theme .tao-wheel-number { font-size: 18px; }
+.tao-book-theme .tao-wheel-unit { font-size: 14px; }
+.tao-book-theme .tao-wheel-center { font-size: 20px; }
+.tao-book-theme .tao-wheel > circle:first-of-type { stroke: #a8cfae; }
+.tao-book-theme .tao-wheel > circle:last-of-type { fill: #fffef5; stroke: #d5e8d8; }
+.tao-book-theme button:focus-visible, .tao-book-theme input:focus-visible, .tao-book-theme summary:focus-visible { outline-color: #85bd91; }
+.tao-book-theme .tao-pointer { border-top-color: #ed9676; }
+.tao-book-theme .tao-primary { background: linear-gradient(135deg, #55bd91, #329b75); box-shadow: 0 4px #277b5f, 0 9px 20px #3c9c7526; }
+.tao-book-theme .tao-primary:not(:disabled):hover { box-shadow: 0 6px #277b5f, 0 12px 24px #3c9c7530; }
+.tao-book-theme .tao-round-tools, .tao-book-theme .tao-fairness, .tao-book-theme .tao-history { color: #5c7665; }
+.tao-book-theme .tao-history > div > span { background: #eaf6e9; border-color: #d2e8d4; }
 
-.tao-chapter-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; max-width: 1320px; margin: 0 auto 28px; padding: 18px 22px; border-top: 1px solid #bba17a; border-bottom: 1px solid #bba17a; background: #fff9eb9c; }
-.tao-chapter-picker > label { color: #7c352a; font-size: 20px; font-weight: 600; }
-.tao-chapter-picker select { flex: 1; min-width: 0; max-width: 100%; width: 320px; padding: 12px 36px 12px 14px; background: #fffaf0; border: 1px solid #bca684; border-radius: 5px; color: #392d24; font: inherit; font-size: 18px; min-height: 48px; }
-.tao-chapter-picker > button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 16px; border: 1px solid #aa7661; border-radius: 5px; color: #7b3328; background: #f4e5d0; font-size: 18px; }
-.tao-chapter-picker select:focus-visible { outline: 3px solid #a76947; outline-offset: 3px; }
-.tao-share-feedback { width: 100%; font-size: 18px; line-height: 1.8; color: #75412c; margin: 0; }
-.tao-share-fallback { width: 100%; min-width: 0; background: #fffaf0; border: 1px solid #baa585; padding: 12px; font-size: 18px; }
+.tao-chapter-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; max-width: 1320px; margin: 0 auto 28px; padding: 18px 22px; border: 1px solid #d5e8d8; border-radius: 20px; background: #fffefa; }
+.tao-chapter-picker > label { color: #388663; font-size: 20px; font-weight: 600; }
+.tao-chapter-picker select { flex: 1; min-width: 0; max-width: 100%; width: 320px; padding: 12px 36px 12px 14px; background: #f7fcf5; border: 1px solid #c8e1cc; border-radius: 12px; color: #3d5f50; font: inherit; font-size: 18px; min-height: 48px; }
+.tao-chapter-picker > button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 16px; border: 1px solid #c8e1cc; border-radius: 14px; color: #347d60; background: #eaf6e9; font-size: 18px; }
+.tao-chapter-picker select:focus-visible { outline: 3px solid #81bd91; outline-offset: 3px; }
+.tao-share-feedback { width: 100%; font-size: 18px; line-height: 1.8; color: #587364; margin: 0; }
+.tao-share-fallback { width: 100%; min-width: 0; background: #f7fcf5; border: 1px solid #c8e1cc; padding: 12px; font-size: 18px; }
 
 .tao-book-theme .tao-reading {
   position: relative;
   padding: 30px 36px 24px 46px;
-  border: 1px solid #c2ae8b;
-  border-radius: 4px 9px 9px 4px;
-  background: linear-gradient(90deg, #b3935c22, transparent 7%, #fff9e733 94%, #b3935c18), linear-gradient(#fff8e8c9, #fff8e8c9), url('/images/paper_texture_natural_beige.png') center / 720px;
-  box-shadow: 3px 3px 0 #d6c7ab, 6px 6px 0 #f2ead9, 9px 9px 0 #c9b99a, 0 20px 45px #49321c24;
+  border: 1px solid #d5e8d8;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fffef8, #fffefa 60%, #f4fbf3);
+  box-shadow: 0 14px 34px #4f8c6417;
 }
-.tao-book-theme .tao-reading::before { content: ''; position: absolute; top: 15px; bottom: 15px; left: 10px; width: 4px; border-left: 1px solid #c1ab85; border-right: 1px solid #c1ab8577; pointer-events: none; }
-.tao-book-running { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; padding-bottom: 20px; border-bottom: 1px solid #bba17c; color: #5b432f; font-size: 18px; line-height: 1.6; }
-.tao-book-seal, .tao-book-section-seal { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #993f31; color: #fff5df; box-shadow: inset 0 0 0 2px #993f31, inset 0 0 0 3px #ffffff45; border-radius: 1px; font-size: 24px; width: 40px; height: 42px; }
-.tao-book-origin { margin-left: auto; font-size: 18px; color: #7b352a; }
+.tao-book-theme .tao-reading::before { content: ''; position: absolute; top: 15px; bottom: 15px; left: 10px; width: 4px; border-left: 1px solid #a8d3b1; border-right: 1px solid #a8d3b177; pointer-events: none; }
+.tao-book-running { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 13px; padding-bottom: 20px; border-bottom: 1px solid #d5e8d8; color: #587364; font-size: 18px; line-height: 1.6; }
+.tao-book-seal, .tao-book-section-seal { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #64ad84; color: #fffef3; box-shadow: inset 0 0 0 2px #64ad84, inset 0 0 0 3px #ffffff55; border-radius: 8px; font-size: 24px; width: 40px; height: 42px; }
+.tao-book-origin { margin-left: auto; font-size: 18px; color: #438b68; }
 .tao-book-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 24px 0 30px; }
-.tao-book-tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 9px 4px; font-size: 18px; line-height: 1.6; color: #65513d; border-bottom: 1px solid transparent; }
+.tao-book-tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 9px 4px; font-size: 18px; line-height: 1.6; color: #687d6d; border-bottom: 1px solid transparent; }
 .tao-book-dot { width: 9px; height: 9px; border: 1px solid #9c8060; border-radius: 50%; }
-.tao-book-tabs button[aria-current=page] { color: #8d352b; border-bottom-color: #9a4c38; font-weight: 600; }
-.tao-book-tabs button[aria-current=page] .tao-book-dot { background: #9a4030; border-color: #9a4030; box-shadow: 0 0 0 4px #a74d3420; }
+.tao-book-tabs button[aria-current=page] { color: #34845f; border-bottom-color: #55a879; font-weight: 600; }
+.tao-book-tabs button[aria-current=page] .tao-book-dot { background: #55a879; border-color: #55a879; box-shadow: 0 0 0 4px #55a87925; }
 .tao-book-leaf { min-height: 280px; animation: tao-leaf-enter .38s ease-out; }
 .tao-book:focus-visible { outline: 2px solid #a4764e; outline-offset: 6px; }
 .tao-book-leaf-heading { display: flex; align-items: flex-start; gap: 15px; margin: 0 0 24px; }
 .tao-book-section-seal { width: 36px; height: 39px; font-size: 23px; }
-.tao-book-leaf-heading p { font-size: 18px; color: #8d352b; line-height: 1.5; margin: 0 0 9px; }
-.tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #392d24; margin: 0; letter-spacing: .04em; }
+.tao-book-leaf-heading p { font-size: 18px; color: #438b68; line-height: 1.5; margin: 0 0 9px; }
+.tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #3d5f50; margin: 0; letter-spacing: .04em; }
 .tao-book-readings { display: flex; align-items: center; justify-content: flex-end; gap: 9px; min-height: 44px; margin: -4px 0 16px; font-size: 18px; color: #59432f; cursor: pointer; }
-.tao-book-theme .tao-classic { border: 0; border-radius: 0; background: none; padding: 8px 0 24px; color: #392d24; font-size: 24px; line-height: 2.1; }
+.tao-book-theme .tao-classic { border: 0; border-radius: 0; background: none; padding: 8px 0 24px; color: #3d5f50; font-size: 24px; line-height: 2.1; }
 .tao-book-theme .tao-classic--annotated { line-height: 1.85; }
 .tao-book-theme .tao-syllable { align-items: center; }
-.tao-book-theme .tao-phonetic { box-sizing: border-box; width: .95em; height: 3.3em; margin-left: .1em; padding: 0; border-radius: 3px; background: #8d352b12; color: #87372d; font-size: 12px; font-weight: 600; }
+.tao-book-theme .tao-phonetic { box-sizing: border-box; width: 1.15em; height: 3em; margin-left: .1em; padding: 0; border-radius: 4px; background: #e8f4e7; color: #437c60; font-size: 14px; font-weight: 600; }
 .tao-book-theme .tao-phonetic > span:first-child { align-self: flex-start; line-height: 1.1; }
-.tao-book-theme .tao-phonetic .tao-tone { left: .65em; top: .08em; }
+.tao-book-theme .tao-phonetic .tao-tone { left: .82em; top: 50%; transform: translateY(-50%); font-size: 1.25em; color: #e17d64; }
 .tao-book-theme .tao-annotated-word { display: inline-block; white-space: nowrap; margin-right: .12em; }
-.tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #392d24; font-weight: 600; text-wrap: pretty; overflow-wrap: anywhere; }
-.tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #735a42; font-size: 18px; line-height: 1.9; }
-.tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #aa5841; padding: 12px 0 12px 20px; color: #6d2d25; }
-.tao-book-turn-invitation { display: inline-flex; align-items: center; gap: 7px; margin-top: 30px; min-height: 48px; padding: 10px 0; font-size: 18px; line-height: 1.8; border-bottom: 1px solid #ad7660; color: #8d352b; text-align: left; }
-.tao-book-practice { border-top: 1px solid #b9a07c; border-bottom: 1px solid #b9a07c; padding: 22px 0; margin: 34px 0 8px; }
-.tao-book-practice h3 { display: inline-flex; color: #8d352b; font-size: 20px; line-height: 1.6; font-weight: 600; margin: 0 0 13px; }
-.tao-book-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #bba17c; margin-top: 32px; padding-top: 18px; color: #70553b; }
+.tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #3d5f50; font-weight: 600; text-wrap: pretty; overflow-wrap: anywhere; }
+.tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #718777; font-size: 18px; line-height: 1.9; }
+.tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #ed9676; padding: 12px 0 12px 20px; color: #4a8060; }
+.tao-book-turn-invitation { display: inline-flex; align-items: center; gap: 7px; margin-top: 30px; min-height: 48px; padding: 10px 0; font-size: 18px; line-height: 1.8; border-bottom: 1px solid #9dcba6; color: #438b68; text-align: left; }
+.tao-book-practice { border-top: 1px solid #d5e8d8; border-bottom: 1px solid #d5e8d8; padding: 22px 0; margin: 34px 0 8px; }
+.tao-book-practice h3 { display: inline-flex; color: #438b68; font-size: 20px; line-height: 1.6; font-weight: 600; margin: 0 0 13px; }
+.tao-book-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #d5e8d8; margin-top: 32px; padding-top: 18px; color: #607969; }
 .tao-book-pagination > span { font-size: 18px; white-space: nowrap; }
-.tao-book-pagination > button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 46px; font-size: 18px; color: #81392d; white-space: nowrap; }
-.tao-book-theme .tao-sources { border-color: #c9b695; color: #695440; padding-top: 20px; margin-top: 26px; }
-.tao-book-theme .tao-sources summary { color: #6a5039; }
-.tao-book-theme .tao-sources a { color: #8d352b; }
+.tao-book-pagination > button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 46px; font-size: 18px; color: #438b68; white-space: nowrap; }
+.tao-book-theme .tao-sources { border-color: #d5e8d8; color: #687d6d; padding-top: 20px; margin-top: 26px; }
+.tao-book-theme .tao-sources summary { color: #5f806a; }
+.tao-book-theme .tao-sources a { color: #438b68; }
 .tao-book-cover { text-align: center; padding-bottom: 16px; }
 .tao-book-cover .tao-book-running { text-align: left; }
 .tao-book-cover-titles { display: flex; flex-direction: row-reverse; justify-content: center; align-items: flex-start; gap: 24px; margin: 46px 0 28px; }
@@ -102,7 +108,7 @@
   .tao-book-theme .tao-classic { font-size: 21px; }
   .tao-book-prose > p, .tao-book-practice p { font-size: 21px; line-height: 2; }
   .tao-book-theme .tao-classic--annotated { line-height: 1.9; }
-  .tao-book-theme .tao-phonetic { font-size: 12px; }
+  .tao-book-theme .tao-phonetic { font-size: 14px; }
   .tao-book-prose .tao-book-question { font-size: 25px; padding-left: 15px; }
   .tao-book-pagination { display: grid; grid-template-columns: 1fr 1fr; }
   .tao-book-pagination > span { grid-column: 1 / -1; grid-row: 1; text-align: center; }
