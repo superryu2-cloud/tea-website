@@ -194,7 +194,7 @@ export default function TaoTeaWheel() {
                 const x = 250 + 202 * Math.sin(radians);
                 const y = 250 - 202 * Math.cos(radians);
                 return <g key={digit}>
-                  <path d={ringSectorPath(index, OUTER_DIGITS.length, 164, 240)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
+                  <path d={ringSectorPath(index, OUTER_DIGITS.length, 164, 240)} fill={index % 2 ? '#f7dfba' : '#f3ead4'} stroke="#fffdf6" strokeWidth="2" />
                   <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="tao-wheel-number tao-wheel-number--outer" style={{ transform: `rotate(${-outerRotation}deg)`, transformBox: 'view-box', transformOrigin: `${x / 5}% ${y / 5}%`, transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>{digit}</text>
                 </g>;
               })}
@@ -206,7 +206,7 @@ export default function TaoTeaWheel() {
                 const x = 250 + 117 * Math.sin(radians);
                 const y = 250 - 117 * Math.cos(radians);
                 return <g key={digit}>
-                  <path d={ringSectorPath(index, INNER_DIGITS.length, 76, 158)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
+                  <path d={ringSectorPath(index, INNER_DIGITS.length, 76, 158)} fill={index % 2 ? '#bed4ed' : '#d9e6f5'} stroke="#fffdf6" strokeWidth="2" />
                   <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="tao-wheel-number tao-wheel-number--inner" style={{ transform: `rotate(${-innerRotation}deg)`, transformBox: 'view-box', transformOrigin: `${x / 5}% ${y / 5}%`, transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>{digit}</text>
                 </g>;
               })}
