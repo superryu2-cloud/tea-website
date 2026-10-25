@@ -1,24 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Copy, ChevronRight, Leaf, RotateCcw } from 'lucide-react';
+import { Copy, Leaf, RotateCcw } from 'lucide-react';
 import chapters from '../../data/taoChapters.json';
 import { chapterFromSearch, chapterShareUrl, chooseChapter, landingRotation } from '../../utils/taoWheel';
 import TaoBookReader from './TaoBookReader';
 import './TaoTeaWheel.css';
 import './TaoBookReader.css';
-
-function TeaCompanion() {
-  return <svg viewBox="0 0 100 100" className="tao-companion" aria-hidden="true">
-    <ellipse cx="47" cy="88" rx="36" ry="4" fill="#cad4a2" />
-    <path d="M78 48c24-8 25 26 3 26" fill="none" stroke="#5b7e4d" strokeWidth="5" />
-    <path d="M18 43h64v21c0 32-64 32-64 0Z" fill="#f3eed8" stroke="#5b7e4d" strokeWidth="3" />
-    <ellipse cx="50" cy="44" rx="30" ry="5" fill="#b59c5a" />
-    <circle cx="37" cy="64" r="2.5" fill="#466347" /><circle cx="62" cy="64" r="2.5" fill="#466347" />
-    <path d="M45 70q5 6 10 0" fill="none" stroke="#466347" strokeWidth="2" strokeLinecap="round" />
-    <ellipse cx="29" cy="71" rx="4" ry="2.5" fill="#e3b4a2" /><ellipse cx="70" cy="71" rx="4" ry="2.5" fill="#e3b4a2" />
-    <path d="M49 32c-18 3-25-7-24-9 14-4 23 1 24 9Z" fill="#8ca96a" />
-    <path d="M52 31c-3-13 1-22 9-24 5 10 0 20-9 24Z" fill="#afc984" />
-  </svg>;
-}
 
 function ringSectorPath(index, count, innerRadius, outerRadius) {
   const step = 360 / count;
@@ -77,6 +63,8 @@ export default function TaoTeaWheel() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ms = reduced ? 80 : 3200;
     setDuration(ms);
+    setFireworks(false);
+    window.clearTimeout(fireworkTimer.current);
     setSpinning(true);
     setInnerRotation(current => landingRotation(current, tens, INNER_DIGITS.length));
     setOuterRotation(current => landingRotation(current, unitIndex, OUTER_DIGITS.length));
@@ -92,7 +80,7 @@ export default function TaoTeaWheel() {
       setPhase('result');
       setFireworks(!reduced);
       window.clearTimeout(fireworkTimer.current);
-      fireworkTimer.current = window.setTimeout(() => setFireworks(false), reduced ? 0 : 1800);
+      fireworkTimer.current = window.setTimeout(() => setFireworks(false), reduced ? 0 : 3600);
       window.requestAnimationFrame(() => {
         readingPanel.current?.focus({ preventScroll: true });
         if (window.matchMedia('(max-width: 850px)').matches) {
@@ -172,29 +160,31 @@ export default function TaoTeaWheel() {
     </div>
     <div className="tao-layout">
       <aside className="tao-controls tao-paper" aria-label="章節抽籤">
-        <div className="tao-step"><span className="is-current">內輪・十位</span><ChevronRight size={14} /><span>外輪・個位</span></div>
-        <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>{spinning ? '茶香轉轉，智慧快來了！' : chapter ? '先聽大家分享，再看看茶席的啟發。' : '轉一轉，直接與一章智慧相遇。'}</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
-          {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /></div>}
+          {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>}
           <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="內輪十位 0 至 8、外輪個位 1 至 9 與 0，抽出第 1 至 81 章">
             <g className="tao-wheel-outer" style={{ transform: `rotate(${outerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
               {OUTER_DIGITS.map((digit, index) => {
                 const angle = index * 36;
-                const inverted = angle > 90 && angle < 270;
+                const radians = angle * Math.PI / 180;
+                const x = 250 + 202 * Math.sin(radians);
+                const y = 250 - 202 * Math.cos(radians);
                 return <g key={digit}>
                   <path d={ringSectorPath(index, OUTER_DIGITS.length, 164, 240)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
-                  <g transform={`rotate(${angle} 250 250)`}><text x="250" y="58" textAnchor="middle" className="tao-wheel-number tao-wheel-number--outer" transform={inverted ? 'rotate(180 250 58)' : undefined}>{digit}</text></g>
+                  <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="tao-wheel-number tao-wheel-number--outer" style={{ transform: `rotate(${-outerRotation}deg)`, transformBox: 'view-box', transformOrigin: `${x / 5}% ${y / 5}%`, transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>{digit}</text>
                 </g>;
               })}
             </g>
             <g className="tao-wheel-inner" style={{ transform: `rotate(${innerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
               {INNER_DIGITS.map((digit, index) => {
                 const angle = index * 40;
-                const inverted = angle > 90 && angle < 270;
+                const radians = angle * Math.PI / 180;
+                const x = 250 + 117 * Math.sin(radians);
+                const y = 250 - 117 * Math.cos(radians);
                 return <g key={digit}>
                   <path d={ringSectorPath(index, INNER_DIGITS.length, 76, 158)} fill={index % 2 ? 'var(--tao-honey)' : 'var(--tao-jade)'} stroke="#fffdf6" strokeWidth="2" />
-                  <g transform={`rotate(${angle} 250 250)`}><text x="250" y="132" textAnchor="middle" className="tao-wheel-number tao-wheel-number--inner" transform={inverted ? 'rotate(180 250 132)' : undefined}>{digit}</text></g>
+                  <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="tao-wheel-number tao-wheel-number--inner" style={{ transform: `rotate(${-innerRotation}deg)`, transformBox: 'view-box', transformOrigin: `${x / 5}% ${y / 5}%`, transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>{digit}</text>
                 </g>;
               })}
             </g>
@@ -204,7 +194,7 @@ export default function TaoTeaWheel() {
           </svg>
         </div>
         <button className="tao-primary" type="button" onClick={spin} disabled={spinning || finished}>
-          {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再抽一章' : '抽出一章'}
+          {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再轉一輪' : '開始轉動'}
         </button>
         <p className="tao-status" role="status" aria-live="polite">{status}</p>
         {chapter && !spinning && <button type="button" className="tao-reading-link" onClick={() => readingPanel.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>閱讀本章 ↓</button>}
