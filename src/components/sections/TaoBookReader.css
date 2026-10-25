@@ -90,14 +90,12 @@
 .tao-book-section-seal { width: 36px; height: 39px; font-size: 23px; }
 .tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #263f5d; margin: 0; letter-spacing: .04em; }
 .tao-book-readings { display: flex; align-items: center; justify-content: flex-end; gap: 9px; min-height: 44px; margin: -4px 0 16px; font-size: 18px; color: #59432f; cursor: pointer; }
-.tao-book-theme .tao-classic { border: 0; border-radius: 0; background: none; padding: 8px 0 24px; color: #263f5d; font-size: 27px; line-height: 2.1; }
-.tao-book-theme .tao-classic--annotated { line-height: 1.7; }
-.tao-book-theme .tao-syllable { display: inline-flex; align-items: flex-start; vertical-align: middle; white-space: nowrap; margin-right: .12em; }
-.tao-book-theme .tao-syllable > span:first-child { display: block; line-height: 1.25em; }
-.tao-book-theme .tao-phonetic { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; position: relative; flex: 0 0 1.55em; width: 1.55em; height: 1.25em; overflow: visible; background: none; color: #244f7b; font-family: "Microsoft JhengHei UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif; font-size: .38em; font-weight: 700; line-height: 1; }
-.tao-book-theme .tao-phonetic-symbols { align-self: center; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap; line-height: 1; letter-spacing: -.1em; }
-.tao-book-theme .tao-phonetic .tao-tone { all: unset !important; position: absolute !important; top: 0 !important; right: -.12em !important; display: block !important; width: auto !important; height: auto !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; color: #a3261a !important; font-family: Arial, sans-serif !important; font-size: 2.25em !important; font-weight: 800 !important; line-height: 1 !important; writing-mode: horizontal-tb !important; }
-.tao-book-theme .tao-annotated-word { display: inline-block; white-space: nowrap; margin-right: .12em; }
+.tao-book-theme .tao-classic { border: 0; border-radius: 18px; background: #fafbf6; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.9; letter-spacing: .035em; font-weight: 400; }
+.tao-book-theme .tao-classic--annotated { line-height: 1.9; letter-spacing: 0; }
+.tao-book-theme .tao-syllable { display: inline-flex; align-items: center; vertical-align: middle; white-space: nowrap; margin-right: .12em; }
+.tao-book-theme .tao-phonetic { display: inline-flex; align-items: center; position: relative; flex: 0 0 1.6em; width: 1.6em; height: 3.5em; overflow: visible; margin-left: .08em; color: #557565; font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: 0; }
+.tao-book-theme .tao-phonetic > span:first-child { writing-mode: vertical-rl; text-orientation: upright; line-height: 1.1; letter-spacing: 0; }
+.tao-book-theme .tao-phonetic .tao-tone { position: absolute; left: 1em; top: 1.2em; color: #557565; font-size: 1.1em; line-height: 1; writing-mode: horizontal-tb; }
 .tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #263f5d; font-weight: 500; text-wrap: pretty; overflow-wrap: anywhere; }
 .tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #465f7a; font-size: 18px; line-height: 1.9; }
 .tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #df936d; padding: 12px 0 12px 20px; color: #36587e; }
