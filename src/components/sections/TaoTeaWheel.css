@@ -36,6 +36,14 @@
 @media(prefers-reduced-motion:reduce){.tao-page *{scroll-behavior:auto!important}}
 
 .tao-wheel-number { font-weight: 700; }
+
+/* Restore the original right-side Zhuyin reading style. */
+.tao-page .tao-reading .tao-classic { background: #fafbf6; border: 0; border-radius: 18px; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.9; letter-spacing: .035em; font-weight: 400; }
+.tao-page .tao-reading .tao-classic--annotated { line-height: 1.9; letter-spacing: 0; }
+.tao-page .tao-reading .tao-syllable { display: inline-flex; align-items: center; vertical-align: middle; white-space: nowrap; margin-right: .12em; }
+.tao-page .tao-reading .tao-phonetic { display: inline-flex; align-items: center; position: relative; flex: 0 0 1.6em; width: 1.6em; height: 3.5em; overflow: visible; margin-left: .08em; color: #557565; font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: 0; }
+.tao-page .tao-reading .tao-phonetic > span:first-child { writing-mode: vertical-rl; text-orientation: upright; line-height: 1.1; letter-spacing: 0; }
+.tao-page .tao-reading .tao-phonetic .tao-tone { position: absolute; left: 1em; top: 1.2em; color: #557565; font-size: 1.1em; line-height: 1; writing-mode: horizontal-tb; }
 .tao-wheel-outer, .tao-wheel-inner { transform-box: view-box; }
 .tao-fireworks { inset: -5%; z-index: 4; overflow: visible; }
 .tao-fireworks::before { content: ""; position: absolute; inset: -10%; background: radial-gradient(circle at 50% 48%, #fffde8 0%, #ffe9a96b 9%, transparent 42%); opacity: 0; animation: tao-shaku-flash .75s ease-out both; }
