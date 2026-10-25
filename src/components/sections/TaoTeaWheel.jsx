@@ -21,6 +21,12 @@ function ringSectorPath(index, count, innerRadius, outerRadius) {
 const INNER_DIGITS = Array.from({ length: 9 }, (_, digit) => digit);
 const OUTER_DIGITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
+function reverseLandingRotation(current, index, count) {
+  const target = (360 - index * 360 / count) % 360;
+  const normalized = ((current % 360) + 360) % 360;
+  return current - 360 * 5 - (normalized - target + 360) % 360;
+}
+
 function TeaCompanion() {
   return <svg viewBox="0 0 100 100" className="tao-companion" aria-hidden="true">
     <ellipse cx="50" cy="88" rx="37" ry="5" fill="#cbd8a7" />
@@ -81,7 +87,7 @@ export default function TaoTeaWheel() {
     setFireworks(false);
     window.clearTimeout(fireworkTimer.current);
     setSpinning(true);
-    setInnerRotation(current => landingRotation(current, tens, INNER_DIGITS.length));
+    setInnerRotation(current => reverseLandingRotation(current, tens, INNER_DIGITS.length));
     setOuterRotation(current => landingRotation(current, unitIndex, OUTER_DIGITS.length));
     timer.current = window.setTimeout(() => {
       setSpinning(false);
@@ -133,7 +139,7 @@ export default function TaoTeaWheel() {
     setPhase('result');
     const tens = Math.floor(id / 10);
     const units = id % 10;
-    setInnerRotation(landingRotation(0, tens, INNER_DIGITS.length));
+    setInnerRotation(reverseLandingRotation(0, tens, INNER_DIGITS.length));
     setOuterRotation(landingRotation(0, units === 0 ? 9 : units - 1, OUTER_DIGITS.length));
     window.history.replaceState(null, '', chapterShareUrl(window.location.href, id));
     window.requestAnimationFrame(() => {
