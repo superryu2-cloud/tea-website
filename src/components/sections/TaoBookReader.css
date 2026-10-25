@@ -1,10 +1,25 @@
 .tao-book-theme {
   --tao-ink: #3d5f50;
   --tao-green: #3e9d78;
-  --tao-line: #d5e8d8;
-  --tao-jade: #d9f0df;
+  --tao-line: #c9e2f0;
+  --tao-jade: #d9effa;
   --tao-honey: #ffe7c4;
-  background: radial-gradient(ellipse at 12% 8%, #dff5e6 0, transparent 48%), radial-gradient(ellipse at 88% 5%, #ffe8cf 0, transparent 45%), #f8fbf4;
+  background:
+    radial-gradient(ellipse 22% 6% at 7% 15%, #ffffffde 0 38%, transparent 100%),
+    radial-gradient(ellipse 13% 4.4% at 17% 13%, #ffffffd8 0 38%, transparent 100%),
+    radial-gradient(ellipse 10% 3.5% at 2% 17%, #ffffffbb 0 38%, transparent 100%),
+    radial-gradient(ellipse 21% 5.5% at 94% 20%, #ffffffdc 0 38%, transparent 100%),
+    radial-gradient(ellipse 12% 4% at 84% 18%, #ffffffd2 0 38%, transparent 100%),
+    radial-gradient(ellipse 9% 3% at 99% 17%, #ffffffb8 0 38%, transparent 100%),
+    radial-gradient(ellipse 13% 4% at 8% 24%, #ffffffd9 0 42%, transparent 100%),
+    radial-gradient(ellipse 18% 5% at 17% 25%, #ffffffc9 0 42%, transparent 100%),
+    radial-gradient(ellipse 10% 3.5% at 13% 21%, #ffffffc4 0 42%, transparent 100%),
+    radial-gradient(ellipse 15% 4.5% at 91% 49%, #ffffffd4 0 42%, transparent 100%),
+    radial-gradient(ellipse 20% 5.5% at 82% 51%, #ffffffc7 0 42%, transparent 100%),
+    radial-gradient(ellipse 12% 3.5% at 87% 47%, #ffffffc4 0 42%, transparent 100%),
+    radial-gradient(ellipse 18% 5% at 49% 78%, #ffffffb8 0 42%, transparent 100%),
+    radial-gradient(ellipse 12% 3.5% at 57% 76%, #ffffffb0 0 42%, transparent 100%),
+    linear-gradient(180deg, #9fd2f2 0%, #c7e6f8 34%, #edf8ff 68%, #c4e3f6 100%);
 }
 .tao-book-theme .tao-heading h1 { background: none; color: #3f7058; text-shadow: 0 3px 14px #82c19a45; letter-spacing: .08em; }
 .tao-book-theme .tao-heading h1::after { background: linear-gradient(90deg, transparent, #78bd91, transparent); }
