@@ -1,3 +1,5 @@
+import taoChapterDetails from '../../data/taoChapterDetails.js';
+
 const PAGE_TITLES = ['經文', '經文的簡單解釋', '一起想一想', '茶與人生智慧'];
 const PAGE_MARKS = ['壹', '貳', '參', '肆'];
 function ClassicText({ chapter, showReadings }) {
@@ -35,6 +37,8 @@ export default function TaoBookReader({ chapter, showReadings, onReadingsChange,
     <span className="tao-book-cover-edition">全八十一章・經文、解讀與茶席實踐</span>
   </div>;
 
+  const detailedExplanation = taoChapterDetails[chapter.id] || chapter.detailedExplanation;
+
   return <div className="tao-book" role="region" aria-label="章節讀本">
     <div className="tao-book-running"><span className="tao-book-seal">道</span><span>道德經・第 {chapter.id} 章</span><span className="tao-book-origin">{manual ? '自選共讀' : '抽籤共讀'}</span></div>
     <section className="tao-book-sections">
@@ -47,13 +51,13 @@ export default function TaoBookReader({ chapter, showReadings, onReadingsChange,
         <header className="tao-book-leaf-heading"><span className="tao-book-section-seal" aria-hidden="true">{PAGE_MARKS[1]}</span><h2 id={`tao-book-section-${chapter.id}-1`}>{PAGE_TITLES[1]}</h2></header>
         <div className="tao-book-prose">
           <p>{chapter.explanation}</p>
-          {chapter.detailedExplanation && <section className="tao-book-detailed-explanation" aria-labelledby={`tao-book-detail-${chapter.id}`}>
+          {detailedExplanation && <section className="tao-book-detailed-explanation" aria-labelledby={`tao-book-detail-${chapter.id}`}>
             <h3 id={`tao-book-detail-${chapter.id}`}>經文的詳細解釋</h3>
-            {chapter.detailedExplanation.split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            {detailedExplanation.split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             <details className="tao-book-source-note">
               <summary>底本與版本說明</summary>
-              <p>本段依本頁所列王弼通行本文字，並參考王弼注解讀。古本與校本在個別字句上有差異，例如「莫之命」另有校本作「莫之爵」；因此此處說明採王弼注脈絡，不宣稱歷代傳本只有一種文字或唯一解釋。</p>
-              <a href="https://www.shidianguji.com/zh/book/SK2153/chapter/1l9o8e3k6bk17" target="_blank" rel="noreferrer">參考：識典古籍《老子王弼注・五十一章》</a>
+              <p>經文依本頁採用的王弼通行本；詳細解釋以王弼注及通行本章句為主要脈絡，作教學性白話說明。古本與注家對部分字句、章旨有異文和不同解讀，故不宣稱只有唯一解釋。</p>
+              <a href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noreferrer">參考：王弼本《道德經》</a>
             </details>
           </section>}
           <p className="tao-book-margin-note">先讀懂經文，再看看它如何照見日常。</p>
