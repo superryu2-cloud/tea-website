@@ -67,3 +67,10 @@
 @keyframes tao-shaku-spark { 0%, 8% { opacity: 0; } 15% { opacity: 1; box-shadow: 0 0 12px 5px var(--core), 0 0 32px 13px var(--spark); } 52% { opacity: .8; box-shadow: 0 0 7px 3px var(--core), 0 0 24px 9px var(--spark); } 100% { opacity: 0; box-shadow: 0 0 2px 0 transparent; } }
 @keyframes tao-shaku-flash { 0%, 100% { opacity: 0; } 12% { opacity: .8; } 42% { opacity: .26; } }
 @media(max-width:850px) { .tao-book-theme .tao-wheel-wrap { margin: 12px auto 16px; } }
+.tao-page .tao-controls .tao-guide { flex-wrap: nowrap; width: max-content; max-width: 100%; gap: 8px; }
+.tao-page .tao-controls .tao-guide p { white-space: nowrap; padding: 8px 10px; font-size: clamp(11px, 3vw, 14px); line-height: 1.5; }
+.tao-page .tao-controls .tao-guide small { display: inline; margin: 0 4px 0 0; font-size: inherit; }
+.tao-page .tao-wheel-wrap { isolation: isolate; }
+.tao-page .tao-primary--wheel { position: absolute; z-index: 5; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 30.4%; aspect-ratio: 1; min-width: 0; min-height: 0; padding: 6px; border-radius: 50%; font-size: clamp(12px, 3.6vw, 17px); line-height: 1.25; white-space: normal; }
+.tao-page .tao-primary--wheel:not(:disabled):hover { transform: translate(-50%, -50%) scale(1.04); }
+@media(max-width:360px) { .tao-page .tao-controls .tao-companion { width: 68px; height: 68px; flex-basis: 68px; } .tao-page .tao-controls .tao-guide { gap: 5px; } .tao-page .tao-controls .tao-guide p { padding-inline: 7px; font-size: 11px; } }

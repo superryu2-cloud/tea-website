@@ -161,8 +161,6 @@ export default function TaoTeaWheel() {
     }
   }
 
-  const centerLabel = spinning ? '靜候佳章' : phase === 'result' ? `第 ${chapterId} 章` : '1—81';
-
   return <section className="tao-page tao-book-theme">
     <header className="tao-heading">
       <span className="tao-eyebrow"><Leaf size={15} /> 一盞茶，一章智慧</span>
@@ -213,12 +211,11 @@ export default function TaoTeaWheel() {
             </g>
             <circle cx="250" cy="250" r="241" fill="none" stroke="#b8cde1" strokeWidth="1.5" />
             <circle cx="250" cy="250" r="76" fill="#fffdf6" stroke="#d6e3ef" />
-            <text x="250" y="258" textAnchor="middle" className="tao-wheel-center">{centerLabel}</text>
           </svg>
+          <button className="tao-primary tao-primary--wheel" type="button" onClick={spin} disabled={spinning || finished} aria-label={spinning ? '轉動中' : finished ? '本輪已完成' : phase === 'result' ? '再轉一輪' : '開始轉動'}>
+            {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再轉一輪' : '開始轉動'}
+          </button>
         </div>
-        <button className="tao-primary" type="button" onClick={spin} disabled={spinning || finished}>
-          {spinning ? '轉動中…' : finished ? '本輪已完成' : phase === 'result' ? '再轉一輪' : '開始轉動'}
-        </button>
         <p className="tao-status" role="status" aria-live="polite">{status}</p>
         {chapter && !spinning && <button type="button" className="tao-reading-link" onClick={() => readingPanel.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>閱讀本章 ↓</button>}
         <div className="tao-round-tools"><label><input type="checkbox" checked={noRepeat} disabled={spinning} onChange={event => { setNoRepeat(event.target.checked); nextDraw(); }} />本輪不重複</label><button type="button" disabled={spinning} onClick={resetRound}><RotateCcw size={13} />重新一輪</button></div>
