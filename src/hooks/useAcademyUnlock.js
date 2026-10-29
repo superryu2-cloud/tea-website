@@ -3,32 +3,20 @@ import { useCallback, useState } from 'react';
 const DAGUAN_UNLOCK_KEY = 'academy.daguanUnlocked';
 const CHONGHUA_UNLOCK_KEY = 'academy.chonghuaUnlocked';
 const ACADEMY_MENU_HIDDEN_KEY = 'academy.menuHidden';
-const LEGACY_UNLOCK_KEY = 'museumUnlocked';
-
 const getLocalStorage = () => {
   if (typeof window === 'undefined') return null;
   return window.localStorage;
 };
+const getSessionStorage = () => {
+  if (typeof window === 'undefined') return null;
+  return window.sessionStorage;
+};
 
 export default function useAcademyUnlock() {
   const [daguanUnlocked, setDaguanUnlocked] = useState(() => {
-    const storage = getLocalStorage();
+    const storage = getSessionStorage();
     if (!storage) return false;
-
-    const stored = storage.getItem(DAGUAN_UNLOCK_KEY) === 'true';
-    if (stored) return true;
-
-    const legacy = storage.getItem(LEGACY_UNLOCK_KEY) === 'true';
-    if (legacy) {
-      try {
-        storage.setItem(DAGUAN_UNLOCK_KEY, 'true');
-      } catch {
-        // ignore
-      }
-      return true;
-    }
-
-    return false;
+    return storage.getItem(DAGUAN_UNLOCK_KEY) === 'true';
   });
 
   const [chonghuaUnlocked, setChonghuaUnlocked] = useState(() => {
@@ -54,9 +42,9 @@ export default function useAcademyUnlock() {
 
     try {
       const storage = getLocalStorage();
+      getSessionStorage()?.removeItem(DAGUAN_UNLOCK_KEY);
       storage?.removeItem(DAGUAN_UNLOCK_KEY);
       storage?.removeItem(CHONGHUA_UNLOCK_KEY);
-      storage?.removeItem(LEGACY_UNLOCK_KEY);
       storage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'true');
     } catch {
       // ignore
@@ -78,7 +66,8 @@ export default function useAcademyUnlock() {
 
       if (targetKey === 'daguan') {
         setDaguanUnlocked(true);
-        storage?.setItem(DAGUAN_UNLOCK_KEY, 'true');
+        getSessionStorage()?.setItem(DAGUAN_UNLOCK_KEY, 'true');
+        storage?.removeItem(DAGUAN_UNLOCK_KEY);
         setAcademyMenuHidden(false);
         storage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
       }
@@ -90,7 +79,6 @@ export default function useAcademyUnlock() {
         storage?.setItem(ACADEMY_MENU_HIDDEN_KEY, 'false');
       }
 
-      storage?.removeItem(LEGACY_UNLOCK_KEY);
     } catch {
       // ignore
     }
