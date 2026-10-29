@@ -178,6 +178,15 @@ export const PRIMARY_SITE_NAV = [
         canonicalPath: '/practice/tao-tea-wheel',
       },
       {
+        id: 'sage-wisdom',
+        label: '聖賢語錄與茶道智慧',
+        labelEn: 'Sage Sayings & Tea Wisdom',
+        description: '轉輪抽讀《古文美文賞讀》中的聖賢語錄，細品原文，連結茶與日常。',
+        descriptionEn: 'Draw a saying from the supplied classical readings and reflect on tea and daily life.',
+        currentTab: 'sage_wisdom',
+        canonicalPath: '/practice/sage-wisdom-wheel',
+      },
+      {
         id: 'brewing',
         label: '沖泡入門',
         labelEn: 'Brewing Basics',
@@ -270,6 +279,7 @@ export const CANONICAL_ROUTE_ALIASES = {
   tea_station_history: '/taiwan-tea/research-station',
   sensory: '/practice/sensory-quiz',
   tao_wheel: '/practice/tao-tea-wheel',
+  sage_wisdom: '/practice/sage-wisdom-wheel',
   competition_2026: '/practice/competition-2026',
   tea_talk: '/practice/tea-palette',
   video: '/videos',
