@@ -90,15 +90,16 @@
 .tao-book-section-seal { width: 36px; height: 39px; font-size: 23px; }
 .tao-book-leaf-heading h2 { font-size: 30px; line-height: 1.6; font-weight: 600; color: #263f5d; margin: 0; letter-spacing: .04em; }
 .tao-book-readings { display: flex; align-items: center; justify-content: flex-end; gap: 9px; min-height: 44px; margin: -4px 0 16px; font-size: 18px; color: #59432f; cursor: pointer; }
-.tao-book-theme .tao-classic { border: 0; border-radius: 18px; background: #fafbf6; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.9; letter-spacing: .035em; font-weight: 400; }
+.tao-book-theme .tao-classic { border: 0; border-radius: 18px; background: #fafbf6; padding: 28px 24px; color: #31544b; font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif; font-size: clamp(23px, 2.3vw, 30px); line-height: 1.9; letter-spacing: .035em; font-weight: 400; }
 .tao-book-theme .tao-classic--annotated { line-height: 1.9; letter-spacing: 0; }
 .tao-book-theme .tao-syllable { display: inline-flex; align-items: center; vertical-align: middle; white-space: nowrap; margin-right: .12em; }
 .tao-book-theme .tao-phonetic { display: inline-flex; align-items: center; position: relative; flex: 0 0 1.6em; width: 1.6em; height: 3.5em; overflow: visible; margin-left: .08em; color: #557565; font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; font-size: 14px; font-weight: 400; line-height: 1; letter-spacing: 0; }
 .tao-book-theme .tao-phonetic > span:first-child { writing-mode: vertical-rl; text-orientation: upright; line-height: 1.1; letter-spacing: 0; }
 .tao-book-theme .tao-phonetic .tao-tone { position: absolute; left: 1em; top: 1.2em; color: #557565; font-size: 1.1em; line-height: 1; writing-mode: horizontal-tb; }
 .tao-book-prose > p, .tao-book-practice p { margin: 0; font-size: 23px; line-height: 2.15; color: #263f5d; font-weight: 500; text-wrap: pretty; overflow-wrap: anywhere; }
-.tao-book-detailed-explanation { margin-top: 25px; padding: 22px 24px; border: 1px solid #d4e1ef; border-radius: 16px; background: linear-gradient(135deg, #f4f8fc, #fffdf7); }
-.tao-book-detailed-explanation h3 { margin: 0 0 12px; color: #36587e; font-size: 21px; line-height: 1.6; font-weight: 600; }
+.tao-book-detailed-explanation { margin-top: 25px; padding: 18px 24px; border: 1px solid #d4e1ef; border-radius: 16px; background: linear-gradient(135deg, #f4f8fc, #fffdf7); }
+.tao-book-detailed-explanation > summary { color: #36587e; font-size: 21px; line-height: 1.6; font-weight: 600; cursor: pointer; }
+.tao-book-detailed-explanation[open] > summary { margin-bottom: 12px; }
 .tao-book-detailed-explanation > p { margin: 0 0 15px; color: #263f5d; font-size: 20px; line-height: 1.95; font-weight: 500; text-wrap: pretty; overflow-wrap: anywhere; }
 .tao-book-detailed-explanation > p:last-of-type { margin-bottom: 0; }
 .tao-book-source-note { margin-top: 20px; padding-top: 14px; border-top: 1px solid #d6e3ef; color: #465f7a; font-size: 16px; line-height: 1.8; }
@@ -106,6 +107,7 @@
 .tao-book-source-note p { margin: 10px 0; }
 .tao-book-source-note a { color: #3d6592; text-underline-offset: 3px; }
 .tao-book-prose .tao-book-margin-note { margin-top: 34px; color: #465f7a; font-size: 18px; line-height: 1.9; }
+.tao-book-discussion-prompt { margin: 0 0 16px !important; color: #527da8 !important; font-size: 18px !important; line-height: 1.8 !important; }
 .tao-book-prose .tao-book-question { font-size: 28px; line-height: 2; border-left: 3px solid #df936d; padding: 12px 0 12px 20px; color: #36587e; }
 .tao-book-practice { border-top: 1px solid #d6e3ef; border-bottom: 1px solid #d6e3ef; padding: 22px 0; margin: 34px 0 8px; }
 .tao-book-practice h3 { display: inline-flex; color: #527da8; font-size: 20px; line-height: 1.6; font-weight: 600; margin: 0 0 13px; }
@@ -122,7 +124,7 @@
 .tao-book-cover-edition { display: block; color: #735a42; font-size: 18px; line-height: 1.8; }
 @keyframes tao-leaf-enter { from { opacity: 0; transform: translateX(7px); } to { opacity: 1; transform: translateX(0); } }
 @media (min-width: 1500px) { .tao-chapter-picker { max-width: 1450px; } }
-@media (min-width: 1500px) { .tao-book-theme .tao-classic { font-size: 29px; } }
+@media (min-width: 1500px) { .tao-book-theme .tao-classic { font-size: 26px; } }
 @media (min-width: 851px) { .tao-book-theme .tao-controls { position: sticky; top: 84px; align-self: start; max-height: calc(100vh - 100px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; } }
 @media (max-width: 1100px) and (min-width: 851px) { .tao-layout { grid-template-columns: 360px minmax(0, 1fr); gap: 22px; } .tao-book-theme .tao-reading { padding: 26px 26px 22px 34px; } }
 @media (max-width: 850px) {
@@ -136,7 +138,7 @@
   .tao-book-origin { flex-basis: 100%; margin-left: 49px; }
   .tao-book-leaf-heading { gap: 12px; margin-bottom: 18px; }
   .tao-book-leaf-heading h2 { font-size: 26px; }
-  .tao-book-theme .tao-classic { font-size: 24px; }
+  .tao-book-theme .tao-classic { font-size: 20px; }
   .tao-book-prose > p, .tao-book-practice p { font-size: 21px; line-height: 2; }
   .tao-book-detailed-explanation { margin-top: 20px; padding: 18px 16px; }
   .tao-book-detailed-explanation > p { font-size: 19px; line-height: 1.9; }

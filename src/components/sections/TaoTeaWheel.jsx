@@ -161,7 +161,8 @@ export default function TaoTeaWheel() {
     }
   }
 
-  return <section className="tao-page tao-book-theme">
+  return <section className={`tao-page tao-book-theme${spinning ? ' is-spinning' : ''}${fireworks ? ' is-celebrating' : ''}`}>
+    {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>}
     <header className="tao-heading">
       <span className="tao-eyebrow"><Leaf size={15} /> 一盞茶，一章智慧</span>
       <h1>道德經・茶席智慧轉輪</h1>
@@ -183,9 +184,9 @@ export default function TaoTeaWheel() {
         <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>先靜心，再抽一章。</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
-          {fireworks && <div className="tao-fireworks" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>}
           <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="內輪十位 0 至 8、外輪個位 1 至 9 與 0，抽出第 1 至 81 章">
             <g className="tao-wheel-outer" style={{ transform: `rotate(${outerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
+              <circle className="tao-wheel-sheen" cx="250" cy="250" r="202" />
               {OUTER_DIGITS.map((digit, index) => {
                 const angle = index * 36;
                 const radians = angle * Math.PI / 180;
@@ -198,6 +199,7 @@ export default function TaoTeaWheel() {
               })}
             </g>
             <g className="tao-wheel-inner" style={{ transform: `rotate(${innerRotation}deg)`, transformOrigin: '250px 250px', transition: spinning ? `transform ${duration}ms cubic-bezier(.16,.7,.1,1)` : 'none' }}>
+              <circle className="tao-wheel-sheen tao-wheel-sheen--inner" cx="250" cy="250" r="158" />
               {INNER_DIGITS.map((digit, index) => {
                 const angle = index * 40;
                 const radians = angle * Math.PI / 180;

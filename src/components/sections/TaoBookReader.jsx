@@ -51,21 +51,25 @@ export default function TaoBookReader({ chapter, showReadings, onReadingsChange,
         <header className="tao-book-leaf-heading"><span className="tao-book-section-seal" aria-hidden="true">{PAGE_MARKS[1]}</span><h2 id={`tao-book-section-${chapter.id}-1`}>{PAGE_TITLES[1]}</h2></header>
         <div className="tao-book-prose">
           <p>{chapter.explanation}</p>
-          {detailedExplanation && <section className="tao-book-detailed-explanation" aria-labelledby={`tao-book-detail-${chapter.id}`}>
-            <h3 id={`tao-book-detail-${chapter.id}`}>經文的詳細解釋</h3>
+          {detailedExplanation && <details className="tao-book-detailed-explanation">
+            <summary id={`tao-book-detail-${chapter.id}`}>經文的詳細解釋</summary>
             {detailedExplanation.split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             <details className="tao-book-source-note">
               <summary>底本與版本說明</summary>
               <p>經文依本頁採用的王弼通行本；詳細解釋以王弼注及通行本章句為主要脈絡，作教學性白話說明。古本與注家對部分字句、章旨有異文和不同解讀，故不宣稱只有唯一解釋。</p>
               <a href="https://zh.wikisource.org/zh-hant/道德經_(王弼本)" target="_blank" rel="noreferrer">參考：王弼本《道德經》</a>
             </details>
-          </section>}
+          </details>}
           <p className="tao-book-margin-note">先讀懂經文，再看看它如何照見日常。</p>
         </div>
       </section>
       <section className="tao-book-leaf" id={`tao-section-${chapter.id}-2`} aria-labelledby={`tao-book-section-${chapter.id}-2`}>
         <header className="tao-book-leaf-heading"><span className="tao-book-section-seal" aria-hidden="true">{PAGE_MARKS[2]}</span><h2 id={`tao-book-section-${chapter.id}-2`}>{PAGE_TITLES[2]}</h2></header>
-        <div className="tao-book-prose"><p className="tao-book-question">{chapter.question}</p><p className="tao-book-margin-note">留一點安靜，先聽聽每個人的想法。</p></div>
+        <div className="tao-book-prose">
+          <p className="tao-book-discussion-prompt">把問題放回自己的生活裡，看看它讓你想到什麼。</p>
+          <p className="tao-book-question">{chapter.question}</p>
+          <p className="tao-book-margin-note">不必急著回答，先留意心裡浮現的感受與想法。</p>
+        </div>
       </section>
       <section className="tao-book-leaf" id={`tao-section-${chapter.id}-3`} aria-labelledby={`tao-book-section-${chapter.id}-3`}>
         <header className="tao-book-leaf-heading"><span className="tao-book-section-seal" aria-hidden="true">{PAGE_MARKS[3]}</span><h2 id={`tao-book-section-${chapter.id}-3`}>{PAGE_TITLES[3]}</h2></header>
