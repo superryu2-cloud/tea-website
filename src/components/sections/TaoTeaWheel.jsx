@@ -27,21 +27,6 @@ function reverseLandingRotation(current, index, count) {
   return current - 360 * 5 - (normalized - target + 360) % 360;
 }
 
-function TeaCompanion() {
-  return <svg viewBox="0 0 100 100" className="tao-companion" aria-hidden="true">
-    <ellipse cx="50" cy="88" rx="37" ry="5" fill="#cbd8a7" />
-    <path d="M76 43c25-8 25 27 2 27" fill="none" stroke="#63865a" strokeWidth="6" strokeLinecap="round" />
-    <path d="M18 40h63v25c0 30-63 30-63 0Z" fill="#fff8e8" stroke="#63865a" strokeWidth="3.5" />
-    <ellipse cx="49.5" cy="41" rx="30" ry="5" fill="#c4a263" />
-    <circle cx="37" cy="64" r="2.7" fill="#405e4d" /><circle cx="62" cy="64" r="2.7" fill="#405e4d" />
-    <path d="M43 71q6 7 12 0" fill="none" stroke="#405e4d" strokeWidth="2.5" strokeLinecap="round" />
-    <ellipse cx="28" cy="70" rx="4.5" ry="3" fill="#eab8a6" /><ellipse cx="71" cy="70" rx="4.5" ry="3" fill="#eab8a6" />
-    <path d="M45 29c-17 1-24-7-22-12 13-4 22 2 22 12Z" fill="#88a96d" />
-    <path d="M51 28c-3-13 2-22 10-24 5 10-1 20-10 24Z" fill="#a8c682" />
-    <circle cx="24" cy="37" r="3" fill="#f1d99f" />
-  </svg>;
-}
-
 export default function TaoTeaWheel() {
   const [phase, setPhase] = useState('draw');
   const [chapterId, setChapterId] = useState(() => chapterFromSearch(typeof window === 'undefined' ? '' : window.location.search));
@@ -168,20 +153,19 @@ export default function TaoTeaWheel() {
       <h1>道德經・茶席智慧轉輪</h1>
       <p>轉一轉，讀一章。先聽彼此的想法，再讓經文走進茶與日常。</p>
     </header>
-    <div className="tao-chapter-picker">
-      <label htmlFor="tao-chapter-choice">自選章節・一起共讀</label>
-      <select id="tao-chapter-choice" value={chapterId ?? ''} disabled={spinning} onChange={event => selectChapter(Number(event.target.value))}>
-        <option value="" disabled>選擇第 1–81 章</option>
-        {chapters.map(item => <option key={item.id} value={item.id}>第 {item.id} 章・{item.title}</option>)}
-      </select>
-      <button type="button" disabled={!chapter || spinning} onClick={copyChapterLink}><Copy size={19} />複製本章連結</button>
-      {shareFeedback && <p className="tao-share-feedback" role="status">{shareFeedback}</p>}
-      {shareFallback && <input aria-label="本章分享連結" className="tao-share-fallback" readOnly value={shareFallback} onFocus={event => event.target.select()} />}
-    </div>
     <div className="tao-layout">
       <aside className="tao-controls tao-paper" aria-label="章節抽籤">
+        <div className="tao-chapter-picker">
+          <label htmlFor="tao-chapter-choice">自選章節・一起共讀</label>
+          <select id="tao-chapter-choice" value={chapterId ?? ''} disabled={spinning} onChange={event => selectChapter(Number(event.target.value))}>
+            <option value="" disabled>選擇第 1–81 章</option>
+            {chapters.map(item => <option key={item.id} value={item.id}>第 {item.id} 章・{item.title}</option>)}
+          </select>
+          <button type="button" disabled={!chapter || spinning} onClick={copyChapterLink}><Copy size={19} />複製本章連結</button>
+          {shareFeedback && <p className="tao-share-feedback" role="status">{shareFeedback}</p>}
+          {shareFallback && <input aria-label="本章分享連結" className="tao-share-fallback" readOnly value={shareFallback} onFocus={event => event.target.select()} />}
+        </div>
         <div className="tao-today">今日茶席・1—81</div>
-        <div className="tao-guide"><TeaCompanion /><p><small>小茶老師</small>先靜心，再抽一章。</p></div>
         <div className="tao-wheel-wrap">
           <span className="tao-pointer" aria-hidden="true" />
           <svg viewBox="0 0 500 500" className="tao-wheel" role="img" aria-label="內輪十位 0 至 8、外輪個位 1 至 9 與 0，抽出第 1 至 81 章">

@@ -8,6 +8,10 @@
 .sage-wheel-controls, .sage-quote-card { min-width: 0; border: 1px solid #c7d8e9; border-radius: 26px; background: #fffefaed; box-shadow: 0 16px 40px #29456716, inset 0 1px #fff; }
 .sage-wheel-controls { padding: 22px 20px; text-align: center; }
 .sage-wheel-counter { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #edf4fb; color: #426b98; font-size: 15px; }
+.sage-quote-picker { display: grid; max-width: 380px; gap: 6px; margin: 14px auto 0; color: #426b98; font-size: 15px; font-weight: 600; text-align: left; }
+.sage-quote-picker select { width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid #bfd2e8; border-radius: 12px; background: #fff; color: #294c72; font: inherit; font-size: 16px; font-weight: 400; }
+.sage-quote-picker select:focus-visible { outline: 3px solid #a9c5e2; outline-offset: 2px; }
+.sage-quote-picker select:disabled { cursor: wait; opacity: .65; }
 .sage-wheel-wrap { position: relative; max-width: 410px; margin: 18px auto 16px; isolation: isolate; }
 .sage-wheel { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 10px 17px #29456720); }
 .sage-wheel-sector { stroke: #fffdf5; stroke-width: 2.5; fill: #f8e7c7; }
@@ -66,6 +70,8 @@
   .sage-wheel-controls, .sage-quote-card { border-radius: 19px; }
   .sage-wheel-controls { padding: 14px 10px 13px; }
   .sage-wheel-counter { padding: 6px 11px; font-size: 14px; }
+  .sage-quote-picker { max-width: none; margin-top: 11px; font-size: 14px; }
+  .sage-quote-picker select { min-height: 46px; padding: 10px; font-size: 16px; }
   .sage-wheel-wrap { width: min(100%, calc(100vw - 58px)); margin: 14px auto 9px; }
   .sage-wheel-spin { width: 76px; padding: 6px; font-size: 13px; }
   .sage-wheel-status { min-height: 26px; margin: 7px 0 3px; font-size: 15px; }

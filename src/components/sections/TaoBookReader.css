@@ -149,3 +149,10 @@
   .tao-book-cover-titles h2 { font-size: 54px; }
 }
 @media (prefers-reduced-motion: reduce) { .tao-book-leaf { animation: none; } }
+.tao-book-theme .tao-controls .tao-chapter-picker { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; width: 100%; max-width: none; margin: 0 auto 16px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.tao-book-theme .tao-controls .tao-chapter-picker > label { white-space: normal; }
+.tao-book-theme .tao-controls .tao-chapter-picker > select,
+.tao-book-theme .tao-controls .tao-chapter-picker > button { grid-column: 1; width: 100%; min-width: 0; }
+.tao-book-theme .tao-controls .tao-chapter-picker > button { min-height: 44px; }
+.tao-book-theme .tao-controls .tao-chapter-picker > p,
+.tao-book-theme .tao-controls .tao-chapter-picker > input { grid-column: 1; width: 100%; min-width: 0; margin: 0; }

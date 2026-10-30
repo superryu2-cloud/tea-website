@@ -158,6 +158,21 @@ export default function SageWisdomWheel() {
     }, ms);
   }
 
+  function selectQuote(event) {
+    if (spinning || !event.target.value) return;
+    const quote = quotes.find(item => item.id === Number(event.target.value));
+    if (!quote) return;
+
+    const digits = String(quote.id).padStart(3, '0').split('').map(Number);
+    const rings = [HUNDREDS, DIGITS, DIGITS];
+    setDuration(0);
+    setRotations(rings.map((ring, index) => (360 - ring.indexOf(digits[index]) * 360 / ring.length) % 360));
+    setSelected(quote);
+    if (window.matchMedia('(max-width: 850px)').matches) {
+      window.setTimeout(() => document.querySelector('.sage-quote-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+    }
+  }
+
   const connection = selected ? getQuoteConnection(selected.text) : null;
 
   return <section className="sage-wheel-page">
@@ -170,6 +185,16 @@ export default function SageWisdomWheel() {
     <div className="sage-wheel-layout">
       <aside className="sage-wheel-controls" aria-label="聖賢語錄轉盤">
         <div className="sage-wheel-counter">原稿收錄 {quotes.length} 則語錄</div>
+        <label className="sage-quote-picker">
+          <span>直接選擇語錄</span>
+          <select value={selected?.id ?? ''} onChange={selectQuote} disabled={spinning}>
+            <option value="">選擇語錄編號</option>
+            {quotes.map(quote => {
+              const excerpt = quote.text.replace(/\s+/g, ' ');
+              return <option key={quote.id} value={quote.id}>第 {quote.id} 則 · {excerpt.slice(0, 24)}{excerpt.length > 24 ? '…' : ''}</option>;
+            })}
+          </select>
+        </label>
         <div className="sage-wheel-wrap">
           <span className="sage-wheel-pointer" aria-hidden="true" />
           <svg viewBox="0 0 500 500" className={`sage-wheel${spinning ? ' is-spinning' : ''}`} role="img" aria-label="百位、十位、個位三圈數字轉盤">
